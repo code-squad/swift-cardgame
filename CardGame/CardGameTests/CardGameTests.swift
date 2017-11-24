@@ -19,7 +19,7 @@ class CardGameTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testDescriptionForSpades() {
         let spadesAce: Card = Card.init(suit: .spades, rank: .ace)
         let spadesTwo: Card = Card.init(suit: .spades, rank: .two)

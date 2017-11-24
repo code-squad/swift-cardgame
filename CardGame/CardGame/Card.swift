@@ -9,7 +9,7 @@
 import Foundation
 
 class Card {
-    let suit: Suit, rank: Rank
+    private let suit: Suit, rank: Rank
 
     // 카드의 모양 4종류 중 하나를 채택하기 위해 enum 사용.
     enum Suit: String {
