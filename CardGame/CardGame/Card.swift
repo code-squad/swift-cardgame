@@ -13,10 +13,10 @@ class Card {
 
     // 카드의 모양 4종류 중 하나를 채택하기 위해 enum 사용.
     enum Suit: String {
-        case spades = "\u{2660}"
-        case hearts = "\u{2665}"
-        case diamonds = "\u{2666}"
-        case clubs = "\u{2663}"
+        case spades = "♠️"
+        case hearts = "♥️"
+        case diamonds = "♦️"
+        case clubs = "♣️"
     }
 
     // 카드의 숫자를 1~13까지로 고정하기 위해 enum 사용.
