@@ -8,9 +8,11 @@
 
 import Foundation
 
+typealias CardPack = Array<Card>
+
 struct CardDeck {
-    private var fullCardDeck: Array<Card> = []
-    private var cardDeck: Array<Card> = []
+    private var fullCardDeck: CardPack = []
+    private var cardDeck: CardPack = []
 
     init() {
         setNewFullCardDeck()
@@ -56,13 +58,22 @@ struct CardDeck {
         return cardDeck[index]
     }
 
-    // return a pack of cards as many as player wants
-    mutating func getCardPack(count: Int) -> Array<Card> {
-        var cardPack: Array<Card> = []
+    // return a pack of cards
+    private mutating func getCardPack(count: Int) -> CardPack {
+        var cardPack: CardPack = []
         for _ in 0..<count {
             cardPack.append(removeOne())
         }
         return cardPack
+    }
+
+    // return packs of cards as many as player wants
+    mutating func getCardPacks(packCount: Int) -> Array<CardPack> {
+        var cardPacks: Array<CardPack> = []
+        for i in 1...packCount {
+            cardPacks.append(getCardPack(count: i))
+        }
+        return cardPacks
     }
 
 }
