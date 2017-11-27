@@ -46,13 +46,21 @@ class CardDeckTest: XCTestCase {
     func testReset() {
         cardDeck = CardDeck()
         let cardDeck1: CardDeck = cardDeck
-        let deletedCard: String = cardDeck.removeOne()
+        let deletedCard: Card = cardDeck.removeOne()
         XCTAssertEqual(cardDeck.count(), 51)
-        XCTAssertEqual(deletedCard, "♣️K")
+        XCTAssertEqual(deletedCard.description, "♣️K")
         cardDeck.shuffle()
         cardDeck.reset()
         let cardDeck2: CardDeck = cardDeck
         XCTAssertEqual(cardDeck1[cardDeck1.count()-1].description, cardDeck2[cardDeck2.count()-1].description)
+    }
+
+    func testGetCardPacks() {
+        cardDeck = CardDeck()
+        var cardDeck1: CardDeck = cardDeck
+        XCTAssertEqual(cardDeck1.getCardPacks(packCount: 1)[0][0].description, "♣️K")
+        var cardDeck2: CardDeck = cardDeck
+        XCTAssertEqual(cardDeck2.getCardPacks(packCount: 3)[1][0].description, "♦️K")
     }
 
 }
