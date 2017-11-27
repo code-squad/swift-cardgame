@@ -22,11 +22,13 @@ struct InputView {
         """
         case invalidInput = "보기의 번호 중에 숫자 한 개를 골라주세요."
         case wrongPackCount = "1부터 9 사이의 수를 골라주세요."
+        case invalidCardAction = "CardAction에 없는 동작입니다."
     }
 
-    func readInput() throws -> Int {
+    func readInput() throws -> CardAction {
         let inputValue: String = readLine() ?? "0"
         var selectedNum: Int = 0
+        var selectedAction: CardAction
         if let choice = Int(inputValue) {
             if choice < 0 || choice > 4 {
                 throw InputGuide.invalidInput
@@ -36,7 +38,12 @@ struct InputView {
         } else {
             throw InputGuide.invalidInput
         }
-        return selectedNum
+        if let choice = CardAction(rawValue: selectedNum) {
+            selectedAction = choice
+        } else {
+            throw InputGuide.invalidCardAction
+        }
+        return selectedAction
     }
 
     func getPackCount() throws -> Int {

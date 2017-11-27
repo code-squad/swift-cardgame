@@ -9,30 +9,30 @@
 import Foundation
 
 var cardDeck: CardDeck = CardDeck()
-var selectedNum: Int = -1
+var selectedAction: CardAction = .none
 let inputView: InputView = InputView()
 let gameTable: GameTable = GameTable()
-cardGameLoop: while (selectedNum != 0) && (cardDeck.count() != 0) {
+cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
     print(InputView.InputGuide.menu.rawValue)
     do {
-        selectedNum = try inputView.readInput()
+        selectedAction = try inputView.readInput()
     } catch InputView.InputGuide.invalidInput {
         print(InputView.InputGuide.invalidInput.rawValue)
         continue
     }
-    switch selectedNum {
-    case 1:
+    switch selectedAction {
+    case .reset:
         cardDeck.reset()
         print("카드 전체를 초기화했습니다.")
         print("총 \(cardDeck.count())장의 카드가 있습니다.")
-    case 2:
+    case .shuffle:
         cardDeck.shuffle()
         print("전체 \(cardDeck.count())장의 카드를 섞었습니다.")
-    case 3:
+    case .removeOne:
         let deletedCard: Card = cardDeck.removeOne()
         print(deletedCard)
         print("총 \(cardDeck.count())장의 카드가 남아있습니다.")
-    case 4:
+    case .cardPacks:
         var packCount: Int = 0
         cardPacksLoop: while packCount == 0 {
             do {
@@ -46,7 +46,7 @@ cardGameLoop: while (selectedNum != 0) && (cardDeck.count() != 0) {
                 continue cardPacksLoop
             }
         }
-    default:
+    case .none:
         break
     }
 }
