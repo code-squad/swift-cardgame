@@ -3,7 +3,7 @@
 //  CardGame
 //
 //  Created by TaeHyeonLee on 2017. 11. 27..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017 ChocOZerO. All rights reserved.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ struct InputView {
         3. 카드 하나 뽑기
         0. 종료
         """
-        case invalidInput = "보기의 번호 중에 숫자 한가지를 골라주세요."
+        case invalidInput = "보기의 번호 중에 숫자 한 개를 골라주세요."
     }
 
     func readInput() throws -> Int {
