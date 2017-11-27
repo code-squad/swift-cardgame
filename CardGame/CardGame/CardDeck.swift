@@ -3,7 +3,7 @@
 //  CardGame
 //
 //  Created by TaeHyeonLee on 2017. 11. 24..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017 ChocOZerO. All rights reserved.
 //
 
 import Foundation
@@ -13,15 +13,15 @@ struct CardDeck {
     private var cardDeck: Array<Card> = []
 
     init() {
-        setCardDeck()
+        setNewFullCardDeck()
     }
 
-    // 갖고 있는 카드 개수를 반환한다.
+    // return current cards count
     func count() -> Int {
         return cardDeck.count
     }
 
-    // 전체 카드를 랜덤하게 섞는다.
+    // shuffle current cards
     mutating func shuffle() {
         for i in stride(from: cardDeck.count - 1, through: 1, by: -1) {
             let j = Int(arc4random_uniform(UInt32(i+1)))
@@ -31,18 +31,18 @@ struct CardDeck {
         }
     }
 
-    // 카드 인스턴스 중에 하나를 반환하고 목록에서 삭제한다.
+    // return last card & remove from current deck
     mutating func removeOne() -> Card {
         return  cardDeck.removeLast()
     }
 
-    // 처음처럼 모든 카드를 다시 채워넣는다.
+    // reset current card deck as new full card deck
     mutating func reset() {
         cardDeck = fullCardDeck
     }
 
-    // 카드덱 세팅
-    mutating private func setCardDeck() {
+    // set new full card deck
+    mutating private func setNewFullCardDeck() {
         for rank in Card.Rank.allCases {
             fullCardDeck.append(Card.init(suit: .spades, rank: rank))
             fullCardDeck.append(Card.init(suit: .hearts, rank: rank))
@@ -54,6 +54,15 @@ struct CardDeck {
 
     subscript(index: Int) -> Card {
         return cardDeck[index]
+    }
+
+    // return a pack of cards as many as player wants
+    mutating func getCardPack(count: Int) -> Array<Card> {
+        var cardPack: Array<Card> = []
+        for _ in 0..<count {
+            cardPack.append(removeOne())
+        }
+        return cardPack
     }
 
 }
