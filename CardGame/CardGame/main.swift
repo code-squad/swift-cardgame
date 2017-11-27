@@ -11,7 +11,7 @@ import Foundation
 var cardDeck: CardDeck = CardDeck()
 var selectedNum: Int = -1
 let inputView: InputView = InputView()
-while ((selectedNum != 0) && (cardDeck.count() != 0)) {
+while (selectedNum != 0) && (cardDeck.count() != 0) {
     print(InputView.InputGuide.menu.rawValue)
     do {
         selectedNum = try inputView.readInput()
