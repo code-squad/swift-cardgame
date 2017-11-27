@@ -32,8 +32,9 @@ struct CardDeck {
     }
 
     // 카드 인스턴스 중에 하나를 반환하고 목록에서 삭제한다.
-    mutating func removeOne() -> Card {
-        return cardDeck.removeLast()
+    mutating func removeOne() -> String {
+        let deletedCard: Card = cardDeck.removeLast()
+        return  deletedCard.description
     }
 
     // 처음처럼 모든 카드를 다시 채워넣는다.
