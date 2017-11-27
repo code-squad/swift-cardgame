@@ -46,7 +46,7 @@ class CardDeckTest: XCTestCase {
     func testReset() {
         cardDeck = CardDeck()
         let cardDeck1: CardDeck = cardDeck
-        let deletedCard: String = cardDeck.removeOne().description
+        let deletedCard: String = cardDeck.removeOne()
         XCTAssertEqual(cardDeck.count(), 51)
         XCTAssertEqual(deletedCard, "♣️K")
         cardDeck.shuffle()
