@@ -9,7 +9,6 @@
 import XCTest
 
 class CardGameTest: XCTestCase {
-    
     func testCardInstance() {
         let shape = Shape.clubs
         let number = Number.ace
