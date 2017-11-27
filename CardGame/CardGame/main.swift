@@ -28,8 +28,8 @@ while (selectedNum != 0) && (cardDeck.count() != 0) {
         cardDeck.shuffle()
         print("전체 \(cardDeck.count())장의 카드를 섞었습니다.")
     case 3:
-        let deletedCard: String = cardDeck.removeOne()
-        print(deletedCard)
+        let deletedCard: Card = cardDeck.removeOne()
+        print(deletedCard.description)
         print("총 \(cardDeck.count())장의 카드가 남아있습니다.")
     default:
         break
