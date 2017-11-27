@@ -9,11 +9,19 @@
 import XCTest
 
 class CardGameTest: XCTestCase {
-    func testCardInstance() {
+
+    func testCardInstanceOfClubK() {
         let shape = Shape.clubs
-        let number = Number.ace
+        let number = Number.king
         let card = Card(shape, number)
-        XCTAssertEqual(card.description, "♣️A")
+        XCTAssertEqual(card.description, "♣️K")
     }
-    
+
+    func testCardInstanceOfHeart7() {
+        let shape = Shape.hearts
+        let number = Number.seven
+        let card = Card(shape, number)
+        XCTAssertEqual(card.description, "♥️7")
+    }
+
 }
