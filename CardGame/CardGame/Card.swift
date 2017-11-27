@@ -25,7 +25,7 @@ class Card {
         case jack, queen, king
 
         static let allRawValues = Rank.ace.rawValue...Rank.king.rawValue
-        static let allCases = Array(allRawValues.map{ Rank(rawValue: $0)! })
+        static let allCases = Array(allRawValues.map { Rank(rawValue: $0)! })
 
         // 1, 11, 12, 13 은 특수하게 숫자대신 문자 출력
         var value: String {
