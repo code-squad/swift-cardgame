@@ -82,6 +82,27 @@ cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
                             print(CardDeck.Dealer.notEnoughCard.rawValue)
                         }
                         outputView.showPokerTable(players: players, dealer: dealer)
+                        var moreCard: Bool = true
+                        while moreCard {
+                            print(GameInputView.InputGuide.moreCard.rawValue)
+                            do {
+                                moreCard = try gameInputView.wantMoreCard()
+                                guard moreCard else {
+                                    break cardGameLoop
+                                }
+                            } catch GameInputView.InputGuide.invalidInput {
+                                print(GameInputView.InputGuide.invalidInput.rawValue)
+                                continue
+                            }
+                            do {
+                                try cardDeck.getNewCard(pokerStud: &players)
+                                try cardDeck.getNewCard(pokerStud: &dealer)
+                            } catch CardDeck.Dealer.notEnoughCard {
+                                print(CardDeck.Dealer.notEnoughCard.rawValue)
+                                break cardGameLoop
+                            }
+                            outputView.showPokerTable(players: players, dealer: dealer)
+                        }
                         break cardGameLoop
                     } catch GameInputView.InputGuide.wrongPlayerCount {
                         print(GameInputView.InputGuide.wrongPlayerCount.rawValue)

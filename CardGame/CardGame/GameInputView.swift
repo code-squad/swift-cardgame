@@ -21,6 +21,7 @@ struct GameInputView {
         case invalidInput = "보기의 번호 중에 숫자 한 개를 골라주세요."
         case wrongPlayerCount = "가능한 인원은 1 ~ 4명 입니다."
         case invalidRules = "존재하지 않는 게임 종류입니다."
+        case moreCard = "카드를 더 받으시겠습니까? (1.Go / 2. Stop)"
     }
 
     func selectRule() throws -> PokerRules {
@@ -57,6 +58,22 @@ struct GameInputView {
             throw InputGuide.wrongPlayerCount
         }
         return playerCount
+    }
+
+    func wantMoreCard() throws -> Bool {
+        let inputValue: String = readLine() ?? "0"
+        if let choice = Int(inputValue) {
+            if choice < 0 || choice > 1 {
+                throw InputGuide.invalidInput
+            } else {
+                guard choice == 1 else {
+                    return false
+                }
+            }
+        } else {
+            throw InputGuide.invalidInput
+        }
+        return true
     }
 
 }
