@@ -48,5 +48,5 @@ struct PokerGame {
         }
         dealer.getNewCard(try cardDeck.removeOne())
     }
-    
+
 }
