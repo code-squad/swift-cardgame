@@ -18,6 +18,7 @@ struct InputView {
         2. 카드 섞기
         3. 카드 하나 뽑기
         4. 카드팩 추출하기
+        5. 포커 게임 시작
         0. 종료
         """
         case invalidInput = "보기의 번호 중에 숫자 한 개를 골라주세요."
@@ -30,7 +31,7 @@ struct InputView {
         var selectedNum: Int = 0
         var selectedAction: CardAction
         if let choice = Int(inputValue) {
-            if choice < 0 || choice > 4 {
+            if choice < 0 || choice > 5 {
                 throw InputGuide.invalidInput
             } else {
                 selectedNum = choice

@@ -9,5 +9,5 @@
 import Foundation
 
 enum CardAction: Int {
-    case none, reset, shuffle, removeOne, cardPacks
+    case none, reset, shuffle, removeOne, cardPacks, game
 }
