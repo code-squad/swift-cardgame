@@ -16,6 +16,9 @@ class Card {
         self.shape = shape
         self.number = number
     }
+    deinit {
+        //print("\(self.description): Card instance deinitialized.")
+    }
 }
 
 extension Card: CustomStringConvertible {
