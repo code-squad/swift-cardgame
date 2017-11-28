@@ -9,10 +9,24 @@
 import Foundation
 
 func main() {
-    let shape = Shape.spades
-    let number = Number.king
-    let testCard = Card(shape, number)
-    print(testCard.description)
+    var deck = Deck()
+    while true {
+        do {
+            let inputMenu =
+                try InputView.askFor(message:"""
+                                            다음 메뉴를 선택해주세요.
+                                            1. 카드 초기화
+                                            2. 카드 섞기
+                                            3. 카드 하나 뽑기
+                                            >
+                                            """)
+            guard let userInput = inputMenu else { break }
+            let selectedCard = try Dealer.start(userInput, with: &deck)
+            OutputView.printResult(of: userInput, using: deck, selectedCard)
+        }catch {
+            print(error)
+        }
+    }
 }
 
 main()
