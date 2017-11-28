@@ -14,6 +14,11 @@ struct CardDeck {
     private var fullCardDeck: CardPack = []
     private var cardDeck: CardPack = []
 
+    enum Dealer: String, Error {
+        case noCard = "카드가 모두 소진됐습니다."
+        case notEnoughCard = "더이상 카드가 모두에게 돌아갈 수 없습니다."
+    }
+
     init() {
         setNewFullCardDeck()
     }
@@ -34,7 +39,10 @@ struct CardDeck {
     }
 
     // return last card & remove from current deck
-    mutating func removeOne() -> Card {
+    mutating func removeOne() throws -> Card {
+        guard cardDeck.count > 0 else {
+            throw Dealer.noCard
+        }
         return  cardDeck.removeLast()
     }
 
@@ -59,21 +67,46 @@ struct CardDeck {
     }
 
     // return a pack of cards
-    private mutating func getCardPack(count: Int) -> CardPack {
+    private mutating func getCardPack(count: Int) throws -> CardPack {
         var cardPack: CardPack = []
         for _ in 0..<count {
-            cardPack.append(removeOne())
+            do {
+                cardPack.append(try removeOne())
+            } catch {
+                throw Dealer.noCard
+            }
         }
         return cardPack
     }
 
     // return packs of cards as many as player wants
-    mutating func getCardPacks(packCount: Int) -> Array<CardPack> {
+    mutating func getCardPacks(packCount: Int) throws -> Array<CardPack> {
         var cardPacks: Array<CardPack> = []
         for i in 1...packCount {
-            cardPacks.append(getCardPack(count: i))
+            do {
+                cardPacks.append(try getCardPack(count: i))
+            } catch {
+                throw Dealer.noCard
+            }
         }
         return cardPacks
     }
 
+    func makePokerStuds(playerCount: Int) -> Array<CardPack> {
+        var pokerStud: Array<CardPack> = []
+        for _ in 1...playerCount {
+            pokerStud.append([])
+        }
+        return pokerStud
+    }
+
+    mutating func getNewCard(pokerStud: inout Array<CardPack>) throws {
+        guard pokerStud.count < cardDeck.count else {
+            throw Dealer.notEnoughCard
+        }
+        for i in 0..<pokerStud.count {
+            pokerStud[i].append(try removeOne())
+        }
+    }
+    
 }
