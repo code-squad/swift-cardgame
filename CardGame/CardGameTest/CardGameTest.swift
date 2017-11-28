@@ -24,4 +24,19 @@ class CardGameTest: XCTestCase {
         XCTAssertEqual(card.description, "♥️7")
     }
 
+    func testCountOfDefaultDeck() {
+        let deck = Deck()
+        XCTAssertEqual(deck.count, 52)
+    }
+
+    func testRemoveCardFromDeck() {
+        var deck = Deck()
+        deck.shuffle()
+        // 5장 뽑은 후 개수 확인.
+        for _ in 0..<5 {
+            deck.removeOne()
+        }
+        XCTAssertEqual(deck.count, 52-5)
+    }
+
 }
