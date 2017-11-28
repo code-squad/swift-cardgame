@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		8E1F1EA81FCCF88100884685 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EA71FCCF88100884685 /* GameInputView.swift */; };
+		8E1F1EAC1FCCFDEF00884685 /* PokerRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EAB1FCCFDEF00884685 /* PokerRules.swift */; };
 		8EF38B0D1FC7C0BF0054D7FD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B0C1FC7C0BF0054D7FD /* Card.swift */; };
 		8EF38B151FC7E4250054D7FD /* CardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B141FC7E4250054D7FD /* CardGameTests.swift */; };
 		8EF38B1A1FC7E4490054D7FD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B0C1FC7C0BF0054D7FD /* Card.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		8E1F1EA71FCCF88100884685 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
+		8E1F1EAB1FCCFDEF00884685 /* PokerRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerRules.swift; sourceTree = "<group>"; };
 		8EF38B0C1FC7C0BF0054D7FD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8EF38B121FC7E4250054D7FD /* CardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF38B141FC7E4250054D7FD /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				8EF38B1D1FCBAD580054D7FD /* InputView.swift */,
 				8EF38B241FCC23680054D7FD /* GameTable.swift */,
 				8EF38B261FCC58280054D7FD /* CardAction.swift */,
+				8E1F1EA71FCCF88100884685 /* GameInputView.swift */,
+				8E1F1EAB1FCCFDEF00884685 /* PokerRules.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -198,7 +204,9 @@
 				8EF38B1E1FCBAD580054D7FD /* InputView.swift in Sources */,
 				8EF38B251FCC23680054D7FD /* GameTable.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				8E1F1EA81FCCF88100884685 /* GameInputView.swift in Sources */,
 				8EF38B0D1FC7C0BF0054D7FD /* Card.swift in Sources */,
+				8E1F1EAC1FCCFDEF00884685 /* PokerRules.swift in Sources */,
 				8EF38B271FCC58280054D7FD /* CardAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

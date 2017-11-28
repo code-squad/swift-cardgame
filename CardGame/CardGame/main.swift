@@ -19,6 +19,9 @@ cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
     } catch InputView.InputGuide.invalidInput {
         print(InputView.InputGuide.invalidInput.rawValue)
         continue
+    }  catch InputView.InputGuide.invalidCardAction {
+        print(InputView.InputGuide.invalidCardAction.rawValue)
+        continue
     }
     switch selectedAction {
     case .reset:
@@ -44,6 +47,29 @@ cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
             } catch InputView.InputGuide.wrongPackCount {
                 print(InputView.InputGuide.wrongPackCount.rawValue)
                 continue cardPacksLoop
+            }
+        }
+    case .game:
+        var gameRule: PokerRules = .none
+        let gameInputView: GameInputView = GameInputView()
+        gameRuleLoop: while gameRule == .none {
+            print(GameInputView.InputGuide.pokerRules.rawValue)
+            do {
+                gameRule = try gameInputView.selectRule()
+                var playerCount: Int = 0
+                playerLoop: while playerCount == 0 {
+                    print(GameInputView.InputGuide.players.rawValue)
+                    do {
+                        playerCount = try gameInputView.getPlayerCount()
+                        print("playerCount: \(playerCount)")
+                        break cardGameLoop
+                    } catch GameInputView.InputGuide.wrongPlayerCount {
+                        print(GameInputView.InputGuide.wrongPlayerCount.rawValue)
+                    }
+                }
+            } catch GameInputView.InputGuide.invalidInput {
+                print(GameInputView.InputGuide.invalidInput.rawValue)
+                continue gameRuleLoop
             }
         }
     case .none:
