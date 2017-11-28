@@ -11,7 +11,7 @@ import Foundation
 var cardDeck: CardDeck = CardDeck()
 var selectedAction: CardAction = .none
 let inputView: InputView = InputView()
-let gameTable: GameTable = GameTable()
+let outputView: OutputView = OutputView()
 cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
     print(InputView.InputGuide.menu.rawValue)
     do {
@@ -36,8 +36,8 @@ cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
             let deletedCard: Card = try cardDeck.removeOne()
             print(deletedCard)
             print("총 \(cardDeck.count())장의 카드가 남아있습니다.")
-        } catch CardDeck.Dealer.noCard {
-            print(CardDeck.Dealer.noCard.rawValue)
+        } catch CardDeck.CardDeckStatus.noCard {
+            print(CardDeck.CardDeckStatus.noCard.rawValue)
             break cardGameLoop
         }
     case .cardPacks:
@@ -48,9 +48,9 @@ cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
                 packCount = try inputView.getPackCount()
                 do {
                     let cardPacks = try cardDeck.getCardPacks(packCount: packCount)
-                    gameTable.showTable(cardPacks: cardPacks)
-                } catch CardDeck.Dealer.noCard {
-                    print(CardDeck.Dealer.noCard.rawValue)
+                    outputView.showCardPacks(cardPacks: cardPacks)
+                } catch CardDeck.CardDeckStatus.noCard {
+                    print(CardDeck.CardDeckStatus.noCard.rawValue)
                 }
                 break cardGameLoop
             } catch InputView.InputGuide.wrongPackCount {
@@ -59,59 +59,31 @@ cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
             }
         }
     case .game:
-        var gameRule: PokerRules = .none
-        let gameInputView: GameInputView = GameInputView()
-        let outputView: OutputView = OutputView()
-        gameRuleLoop: while gameRule == .none {
-            print(GameInputView.InputGuide.pokerRules.rawValue)
-            do {
-                gameRule = try gameInputView.selectRule()
-                var playerCount: Int = 0
-                playerLoop: while playerCount == 0 {
-                    print(GameInputView.InputGuide.players.rawValue)
-                    do {
-                        playerCount = try gameInputView.getPlayerCount()
-                        var players: Array<CardPack> = cardDeck.makePokerStuds(playerCount: playerCount)
-                        var dealer: Array<CardPack> = cardDeck.makePokerStuds(playerCount: 1)
-                        do {
-                            for _ in 1...gameRule.value {
-                                try cardDeck.getNewCard(pokerStud: &players)
-                                try cardDeck.getNewCard(pokerStud: &dealer)
-                            }
-                        } catch CardDeck.Dealer.notEnoughCard {
-                            print(CardDeck.Dealer.notEnoughCard.rawValue)
-                        }
-                        outputView.showPokerTable(players: players, dealer: dealer)
-                        var moreCard: Bool = true
-                        while moreCard {
-                            print(GameInputView.InputGuide.moreCard.rawValue)
-                            do {
-                                moreCard = try gameInputView.wantMoreCard()
-                                guard moreCard else {
-                                    break cardGameLoop
-                                }
-                            } catch GameInputView.InputGuide.invalidInput {
-                                print(GameInputView.InputGuide.invalidInput.rawValue)
-                                continue
-                            }
-                            do {
-                                try cardDeck.getNewCard(pokerStud: &players)
-                                try cardDeck.getNewCard(pokerStud: &dealer)
-                            } catch CardDeck.Dealer.notEnoughCard {
-                                print(CardDeck.Dealer.notEnoughCard.rawValue)
-                                break cardGameLoop
-                            }
-                            outputView.showPokerTable(players: players, dealer: dealer)
-                        }
-                        break cardGameLoop
-                    } catch GameInputView.InputGuide.wrongPlayerCount {
-                        print(GameInputView.InputGuide.wrongPlayerCount.rawValue)
-                    }
-                }
-            } catch GameInputView.InputGuide.invalidInput {
-                print(GameInputView.InputGuide.invalidInput.rawValue)
-                continue gameRuleLoop
+        let pokerGameDealer: PokerGameDealer = PokerGameDealer(inputView: inputView)
+        let gameRule: PokerGame.PokerRules = pokerGameDealer.selectGameRule()
+        let playerCount: Int = pokerGameDealer.getPlayerCount()
+        var pokerGame: PokerGame = PokerGame.init(cardDeck: cardDeck, playerCount: playerCount)
+        do {
+            for _ in 1...gameRule.value {
+                try pokerGame.nextTurn()
             }
+        } catch PokerGame.GuideMessage.notEnoughCard {
+            print(PokerGame.GuideMessage.notEnoughCard.rawValue)
+        }
+        outputView.showPokerTable(pokerGame: pokerGame)
+        var isMoreCard: Bool = true
+        while isMoreCard {
+            isMoreCard = pokerGameDealer.isMoreCard()
+            guard isMoreCard else {
+                break cardGameLoop
+            }
+            do {
+                try pokerGame.nextTurn()
+            } catch PokerGame.GuideMessage.notEnoughCard {
+                print(PokerGame.GuideMessage.notEnoughCard.rawValue)
+                break cardGameLoop
+            }
+            outputView.showPokerTable(pokerGame: pokerGame)
         }
     case .none:
         break
