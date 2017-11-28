@@ -29,7 +29,7 @@ class CardDeckTest: XCTestCase {
 
     func testRemoveOne() {
         cardDeck = CardDeck()
-        let deletedCard: String = cardDeck.removeOne().description
+        let deletedCard: String = try! cardDeck.removeOne().description
         XCTAssertEqual(deletedCard, "♣️K")
         XCTAssertEqual(cardDeck.count(), 51)
         XCTAssertNotEqual(cardDeck[cardDeck.count()-1].description, "♣️K")
@@ -46,7 +46,7 @@ class CardDeckTest: XCTestCase {
     func testReset() {
         cardDeck = CardDeck()
         let cardDeck1: CardDeck = cardDeck
-        let deletedCard: Card = cardDeck.removeOne()
+        let deletedCard: Card = try! cardDeck.removeOne()
         XCTAssertEqual(cardDeck.count(), 51)
         XCTAssertEqual(deletedCard.description, "♣️K")
         cardDeck.shuffle()
@@ -58,9 +58,22 @@ class CardDeckTest: XCTestCase {
     func testGetCardPacks() {
         cardDeck = CardDeck()
         var cardDeck1: CardDeck = cardDeck
-        XCTAssertEqual(cardDeck1.getCardPacks(packCount: 1)[0][0].description, "♣️K")
+        XCTAssertEqual(try cardDeck1.getCardPacks(packCount: 1)[0][0].description, "♣️K")
         var cardDeck2: CardDeck = cardDeck
-        XCTAssertEqual(cardDeck2.getCardPacks(packCount: 3)[1][0].description, "♦️K")
+        XCTAssertEqual(try cardDeck2.getCardPacks(packCount: 3)[1][0].description, "♦️K")
+    }
+
+    func testMakePokerStuds() {
+        cardDeck = CardDeck()
+        XCTAssertEqual(cardDeck.makePokerStuds(playerCount: 3).count, 3)
+    }
+
+    func testGetNewCard() {
+        cardDeck = CardDeck()
+        var players: Array<CardPack> = [[], []]
+        try! cardDeck.getNewCard(pokerStud: &players)
+        XCTAssertEqual(players[0][0].description, "♣️K")
+        XCTAssertEqual(players[1][0].description, "♦️K")
     }
 
 }
