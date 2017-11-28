@@ -63,17 +63,4 @@ class CardDeckTest: XCTestCase {
         XCTAssertEqual(try cardDeck2.getCardPacks(packCount: 3)[1][0].description, "♦️K")
     }
 
-    func testMakePokerStuds() {
-        cardDeck = CardDeck()
-        XCTAssertEqual(cardDeck.makePokerStuds(playerCount: 3).count, 3)
-    }
-
-    func testGetNewCard() {
-        cardDeck = CardDeck()
-        var players: Array<CardPack> = [[], []]
-        try! cardDeck.getNewCard(pokerStud: &players)
-        XCTAssertEqual(players[0][0].description, "♣️K")
-        XCTAssertEqual(players[1][0].description, "♦️K")
-    }
-
 }
