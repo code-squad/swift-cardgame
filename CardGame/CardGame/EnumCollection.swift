@@ -8,7 +8,7 @@
 
 import Foundation
 
-// enum 등 정수형 해시값 제공하는 타입에 적용 가능.
+// EnumCollection을 채택한 타입은 Hashable도 구현해야 함. Enum은 이미 Hashable이므로 hashValue를 따로 구현해줄 필요 없음.
 protocol EnumCollection: Hashable {
     // 자기자신 내부 요소로 sequence 만들어 반환.
     static func cases() -> AnySequence<Self>
@@ -17,6 +17,7 @@ protocol EnumCollection: Hashable {
 }
 
 // enum 내부 값을 배열로 가져오는 확장 기능.
+// [출처](https://theswiftdev.com/2017/10/12/swift-enum-all-values/)
 extension EnumCollection {
     // 내부 값의 시퀀스 반환.
     static func cases() -> AnySequence<Self>  {
