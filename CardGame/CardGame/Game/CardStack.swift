@@ -41,8 +41,14 @@ extension CardStack {
 
 extension CardStack: CustomStringConvertible {
     var description: String {
-        guard let lastOne = self.peek() else { return "no Cards on CardStack" }
-        return "[" + lastOne.description + "]"
+        var result = "["
+        for card in self.cards {
+            result += card.description + ", "
+        }
+        result.removeLast()
+        result.removeLast()
+        result += "]"
+        return result
     }
 
 }
