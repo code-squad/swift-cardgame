@@ -18,8 +18,8 @@ struct Dealer {
     func chooseAction() -> DealerAction.CardAction {
         var selectedAction: DealerAction.CardAction = .none
         while selectedAction == .none {
-            print(InputView.InputGuide.menu.rawValue)
             do {
+                print(InputView.InputGuide.menu.rawValue)
                 selectedAction = try inputView.readInput()
             } catch InputView.InputGuide.invalidInput {
                 print(InputView.InputGuide.invalidInput.rawValue)
@@ -56,8 +56,8 @@ extension PokerGameDealer {
     func selectGameRule() -> PokerGame.PokerRules {
         var gameRule: PokerGame.PokerRules = .none
         while gameRule == .none {
-            print(PokerInputView.PokerInputGuide.pokerRules.rawValue)
             do {
+                print(PokerInputView.PokerInputGuide.pokerRules.rawValue)
                 gameRule = try inputView.selectRule()
             } catch PokerInputView.PokerInputGuide.invalidRules {
                 print(PokerInputView.PokerInputGuide.invalidRules.rawValue)
@@ -73,8 +73,8 @@ extension PokerGameDealer {
     func getPlayerCount() -> Int {
         var playerCount: Int = 0
         while playerCount == 0 {
-            print(PokerInputView.PokerInputGuide.players.rawValue)
             do {
+                print(PokerInputView.PokerInputGuide.players.rawValue)
                 playerCount = try inputView.getPlayerCount()
             } catch PokerInputView.PokerInputGuide.wrongPlayerCount {
                 print(PokerInputView.PokerInputGuide.wrongPlayerCount.rawValue)
@@ -90,8 +90,8 @@ extension PokerGameDealer {
     func shouldMoreCard() -> Bool {
         var shouldMoreCard: Bool = true
         while shouldMoreCard {
-            print(PokerInputView.PokerInputGuide.moreCard.rawValue)
             do {
+                print(PokerInputView.PokerInputGuide.moreCard.rawValue)
                 shouldMoreCard = try inputView.shouldMoreCard()
                 break
             } catch InputView.InputGuide.wrongNum {
