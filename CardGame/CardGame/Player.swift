@@ -16,7 +16,7 @@ class Player {
         self.name = name
     }
 
-    func getNewCard(_ card: Card) {
+    func callNewCard(_ card: Card) {
         cards.append(card)
     }
 

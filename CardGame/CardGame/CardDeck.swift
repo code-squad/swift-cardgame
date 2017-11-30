@@ -12,7 +12,7 @@ typealias CardPack = Array<Card>
 
 struct CardDeck {
     private var fullCardDeck: CardPack = []
-    private(set) var cardDeck: CardPack = []
+    private var cardDeck: CardPack = []
 
     enum CardDeckStatus: String, Error {
         case noCard = "카드가 모두 소진됐습니다."

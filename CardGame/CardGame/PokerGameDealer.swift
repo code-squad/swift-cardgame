@@ -59,7 +59,7 @@ struct PokerGameDealer {
         while isMoreCard {
             print(PokerInputView.PokerInputGuide.moreCard.rawValue)
             do {
-                isMoreCard = try inputView.wantMoreCard()
+                isMoreCard = try inputView.shouldMoreCard()
                 break
             } catch InputView.InputGuide.wrongNum {
                 print(InputView.InputGuide.wrongNum.rawValue)

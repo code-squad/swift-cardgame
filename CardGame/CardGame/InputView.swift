@@ -46,17 +46,9 @@ struct InputView {
     }
 
     private func getIntValue(inputValue: String, min: Int, max: Int, message: Error) throws -> Int {
-        var selectedNum: Int = 0
-        if let choice = Int(inputValue) {
-            if choice < min || choice > max {
-                throw message
-            } else {
-                selectedNum = choice
-            }
-        } else {
-            throw message
-        }
-        return selectedNum
+        guard let choice = Int(inputValue),
+            choice >= min && choice <= max else { throw message }
+        return choice
     }
     
 }
@@ -96,18 +88,12 @@ extension PokerInputView {
         return selectedNum
     }
 
-    func wantMoreCard() throws -> Bool {
+    func shouldMoreCard() throws -> Bool {
         let inputValue: String = readLine() ?? "0"
-        if let choice = Int(inputValue) {
-            if choice < 0 || choice > 1 {
-                throw InputGuide.wrongNum
-            } else {
-                guard choice == 1 else {
-                    return false
-                }
-            }
-        } else {
-            throw InputGuide.wrongNum
+        guard let choice = Int(inputValue),
+            choice >= 0 && choice <= 1 else { throw InputGuide.wrongNum }
+        if choice != 1 {
+            return false
         }
         return true
     }
