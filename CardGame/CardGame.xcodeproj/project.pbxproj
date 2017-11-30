@@ -11,10 +11,11 @@
 		8E1F1EAE1FCD281400884685 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EAD1FCD281400884685 /* OutputView.swift */; };
 		8E1F1EB01FCD4B5000884685 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EAF1FCD4B5000884685 /* Player.swift */; };
 		8E1F1EB21FCD4D8300884685 /* PokerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EB11FCD4D8300884685 /* PokerGame.swift */; };
-		8E1F1EB41FCD5F3D00884685 /* PokerGameDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EB31FCD5F3D00884685 /* PokerGameDealer.swift */; };
 		8E1F1EB61FCD6CF600884685 /* PokerGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EB51FCD6CF600884685 /* PokerGameTest.swift */; };
 		8E1F1EB71FCD6D0100884685 /* PokerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EB11FCD4D8300884685 /* PokerGame.swift */; };
 		8E1F1EB81FCD6D0400884685 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EAF1FCD4B5000884685 /* Player.swift */; };
+		8E1F1EBA1FCFD83100884685 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EB91FCFD83100884685 /* Dealer.swift */; };
+		8E1F1EBC1FCFD84500884685 /* DealerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F1EBB1FCFD84500884685 /* DealerAction.swift */; };
 		8EF38B0D1FC7C0BF0054D7FD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B0C1FC7C0BF0054D7FD /* Card.swift */; };
 		8EF38B151FC7E4250054D7FD /* CardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B141FC7E4250054D7FD /* CardGameTests.swift */; };
 		8EF38B1A1FC7E4490054D7FD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B0C1FC7C0BF0054D7FD /* Card.swift */; };
@@ -22,7 +23,6 @@
 		8EF38B1E1FCBAD580054D7FD /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B1D1FCBAD580054D7FD /* InputView.swift */; };
 		8EF38B201FCBAD860054D7FD /* CardDeckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B1F1FCBAD860054D7FD /* CardDeckTest.swift */; };
 		8EF38B211FCBADE60054D7FD /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B1B1FC8199B0054D7FD /* CardDeck.swift */; };
-		8EF38B271FCC58280054D7FD /* CardAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF38B261FCC58280054D7FD /* CardAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,8 +43,9 @@
 		8E1F1EAD1FCD281400884685 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		8E1F1EAF1FCD4B5000884685 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8E1F1EB11FCD4D8300884685 /* PokerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerGame.swift; sourceTree = "<group>"; };
-		8E1F1EB31FCD5F3D00884685 /* PokerGameDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerGameDealer.swift; sourceTree = "<group>"; };
 		8E1F1EB51FCD6CF600884685 /* PokerGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerGameTest.swift; sourceTree = "<group>"; };
+		8E1F1EB91FCFD83100884685 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		8E1F1EBB1FCFD84500884685 /* DealerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerAction.swift; sourceTree = "<group>"; };
 		8EF38B0C1FC7C0BF0054D7FD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8EF38B121FC7E4250054D7FD /* CardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF38B141FC7E4250054D7FD /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		8EF38B1B1FC8199B0054D7FD /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		8EF38B1D1FCBAD580054D7FD /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		8EF38B1F1FCBAD860054D7FD /* CardDeckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckTest.swift; sourceTree = "<group>"; };
-		8EF38B261FCC58280054D7FD /* CardAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +98,11 @@
 				8EF38B0C1FC7C0BF0054D7FD /* Card.swift */,
 				8EF38B1B1FC8199B0054D7FD /* CardDeck.swift */,
 				8EF38B1D1FCBAD580054D7FD /* InputView.swift */,
-				8EF38B261FCC58280054D7FD /* CardAction.swift */,
 				8E1F1EAD1FCD281400884685 /* OutputView.swift */,
 				8E1F1EAF1FCD4B5000884685 /* Player.swift */,
 				8E1F1EB11FCD4D8300884685 /* PokerGame.swift */,
-				8E1F1EB31FCD5F3D00884685 /* PokerGameDealer.swift */,
+				8E1F1EB91FCFD83100884685 /* Dealer.swift */,
+				8E1F1EBB1FCFD84500884685 /* DealerAction.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -208,14 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E1F1EB41FCD5F3D00884685 /* PokerGameDealer.swift in Sources */,
 				8EF38B1C1FC8199B0054D7FD /* CardDeck.swift in Sources */,
 				8EF38B1E1FCBAD580054D7FD /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				8E1F1EB21FCD4D8300884685 /* PokerGame.swift in Sources */,
 				8EF38B0D1FC7C0BF0054D7FD /* Card.swift in Sources */,
-				8EF38B271FCC58280054D7FD /* CardAction.swift in Sources */,
 				8E1F1EB01FCD4B5000884685 /* Player.swift in Sources */,
+				8E1F1EBC1FCFD84500884685 /* DealerAction.swift in Sources */,
+				8E1F1EBA1FCFD83100884685 /* Dealer.swift in Sources */,
 				8E1F1EAE1FCD281400884685 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

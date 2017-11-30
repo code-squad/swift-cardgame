@@ -1,19 +1,57 @@
 //
-//  PokerGameDealer.swift
+//  Dealer.swift
 //  CardGame
 //
-//  Created by TaeHyeonLee on 2017. 11. 28..
-//  Copyright © 2017 ChocOZerO. All rights reserved.
+//  Created by TaeHyeonLee on 2017. 11. 30..
+//  Copyright © 2017년 JK. All rights reserved.
 //
 
 import Foundation
 
-struct PokerGameDealer {
+struct Dealer {
     private let inputView: InputView
 
     init(inputView: InputView) {
         self.inputView = inputView
     }
+
+    func chooseAction() -> DealerAction.CardAction {
+        var selectedAction: DealerAction.CardAction = .none
+        while selectedAction == .none {
+            print(InputView.InputGuide.menu.rawValue)
+            do {
+                selectedAction = try inputView.readInput()
+            } catch InputView.InputGuide.invalidInput {
+                print(InputView.InputGuide.invalidInput.rawValue)
+            }  catch InputView.InputGuide.invalidCardAction {
+                print(InputView.InputGuide.invalidCardAction.rawValue)
+            } catch {
+                print(InputView.InputGuide.invalidInput.rawValue)
+            }
+        }
+        return selectedAction
+    }
+
+    func getCardPackCount() -> Int {
+        var cardPackCount: Int = 0
+        while cardPackCount == 0 {
+            do {
+                print(InputView.InputGuide.cardPackCountGuide.rawValue)
+                cardPackCount = try inputView.getPackCount()
+            } catch InputView.InputGuide.wrongPackCount {
+                print(InputView.InputGuide.wrongPackCount.rawValue)
+            } catch {
+                print(InputView.InputGuide.invalidInput.rawValue)
+            }
+        }
+        return cardPackCount
+    }
+
+}
+
+typealias PokerGameDealer = Dealer
+
+extension PokerGameDealer {
 
     func selectGameRule() -> PokerGame.PokerRules {
         var gameRule: PokerGame.PokerRules = .none
@@ -23,13 +61,10 @@ struct PokerGameDealer {
                 gameRule = try inputView.selectRule()
             } catch PokerInputView.PokerInputGuide.invalidRules {
                 print(PokerInputView.PokerInputGuide.invalidRules.rawValue)
-                continue
             } catch InputView.InputGuide.wrongNum {
                 print(InputView.InputGuide.wrongNum.rawValue)
-                continue
             } catch {
                 print(InputView.InputGuide.invalidInput.rawValue)
-                continue
             }
         }
         return gameRule
@@ -45,31 +80,27 @@ struct PokerGameDealer {
                 print(PokerInputView.PokerInputGuide.wrongPlayerCount.rawValue)
             } catch InputView.InputGuide.wrongNum {
                 print(InputView.InputGuide.wrongNum.rawValue)
-                continue
             } catch {
                 print(InputView.InputGuide.invalidInput.rawValue)
-                continue
             }
         }
         return playerCount
     }
 
-    func isMoreCard() -> Bool {
-        var isMoreCard: Bool = true
-        while isMoreCard {
+    func shouldMoreCard() -> Bool {
+        var shouldMoreCard: Bool = true
+        while shouldMoreCard {
             print(PokerInputView.PokerInputGuide.moreCard.rawValue)
             do {
-                isMoreCard = try inputView.shouldMoreCard()
+                shouldMoreCard = try inputView.shouldMoreCard()
                 break
             } catch InputView.InputGuide.wrongNum {
                 print(InputView.InputGuide.wrongNum.rawValue)
-                continue
             } catch {
                 print(InputView.InputGuide.invalidInput.rawValue)
-                continue
             }
         }
-        return isMoreCard
+        return shouldMoreCard
     }
 
 }

@@ -12,6 +12,7 @@ struct PokerGame {
     private(set) var players: Array<Player> = []
     private(set) var dealer: Player = Player.init(name: "dealer")
     private(set) var cardDeck: CardDeck
+    let pokerRule: PokerRules
 
     enum GuideMessage: String, Error {
         case notEnoughCard = "더이상 카드가 모두에게 돌아갈 수 없습니다."
@@ -32,11 +33,12 @@ struct PokerGame {
         }
     }
 
-    init(cardDeck: CardDeck, playerCount: Int) {
+    init(cardDeck: CardDeck, playerCount: Int, pokerRule: PokerRules) {
         for i in 1...playerCount {
             players.append(Player.init(name: "참가자#\(i)"))
         }
         self.cardDeck = cardDeck
+        self.pokerRule = pokerRule
     }
 
     mutating func nextTurn() throws {
