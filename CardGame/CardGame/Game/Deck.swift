@@ -25,6 +25,16 @@ struct Deck {
         return self.cards.pop()
     }
 
+    mutating func removeMany(selectedCount: Int) -> CardStack? {
+        guard self.cards.count - selectedCount > 0 else { return nil }
+        let cards: CardStack = CardStack()
+        for _ in 0..<selectedCount {
+            guard let popedCard = self.cards.pop() else { break }
+            cards.push(card: popedCard)
+        }
+        return cards
+    }
+
     mutating func reset() {
         // 모든 카드 초기화
         let aStackOfCards = CardStack()
