@@ -9,7 +9,8 @@
 import Foundation
 
 func main() {
-    var deck = Deck()
+    let deck = Deck()
+    var dealer = Dealer(deck: deck)
     while true {
         do {
             let inputMenu =
@@ -21,8 +22,8 @@ func main() {
                                             >
                                             """)
             guard let userInput = inputMenu else { break }
-            let selectedCard = try Dealer.start(userInput, with: &deck)
-            OutputView.printResult(of: userInput, using: deck, selectedCard)
+            let selectedCard = try dealer.start(userInput)
+            OutputView.printResult(of: userInput, using: dealer.deck, selectedCard)
         }catch {
             print(error)
         }

@@ -9,6 +9,10 @@
 import Foundation
 
 struct Dealer {
+    var deck: Deck
+    init(deck: Deck) {
+        self.deck = deck
+    }
     enum GameMenu: Int {
         case reset = 1
         case shuffle
@@ -18,12 +22,12 @@ struct Dealer {
         case lackOfCards = "덱에 카드가 없습니다."
     }
 
-    static func start(_ menu: GameMenu, with deck: inout Deck) throws -> Card? {
+    mutating func start(_ menu: GameMenu) throws -> Card? {
         switch menu {
-        case .reset: deck.reset()
-        case .shuffle: deck.shuffle()
+        case .reset: self.deck.reset()
+        case .shuffle: self.deck.shuffle()
         case .remove:
-            guard let selectedCard = deck.removeOne() else { throw CardGameError.lackOfCards  }
+            guard let selectedCard = self.deck.removeOne() else { throw CardGameError.lackOfCards  }
             return selectedCard
         }
         return nil
