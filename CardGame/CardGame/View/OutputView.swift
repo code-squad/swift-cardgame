@@ -27,4 +27,10 @@ struct OutputView {
         }
     }
 
+    static func printCardStacks(by dealer: Dealer) {
+        for stack in dealer.cardStacks {
+            print(stack)
+        }
+    }
+
 }
