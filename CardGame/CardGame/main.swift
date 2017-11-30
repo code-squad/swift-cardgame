@@ -28,6 +28,7 @@ func main() {
             print(error)
         }
         OutputView.printResult(of: inputMenu, using: dealer.deck, selectedCard)
+        // 기능 제거를 따로 하진 않았고, 메뉴 선택 시 결과 밑에 스택 출력.
         dealer.setCardStack(of: pilesCount)
         OutputView.printCardStacks(by: dealer)
     }
