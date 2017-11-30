@@ -22,7 +22,7 @@ class PokerGameTest: XCTestCase {
     }
 
     func testPokerGame() {
-        pokerGame = PokerGame.init(cardDeck: CardDeck(), playerCount: 4)
+        pokerGame = PokerGame.init(cardDeck: CardDeck(), playerCount: 4, pokerRule: .fiveStud)
         XCTAssertEqual(pokerGame.players[0].name, "참가자#1")
         XCTAssertEqual(pokerGame.players[1].name, "참가자#2")
         XCTAssertEqual(pokerGame.players[2].name, "참가자#3")
@@ -36,7 +36,7 @@ class PokerGameTest: XCTestCase {
     }
 
     func testNextTurn() {
-        pokerGame = PokerGame.init(cardDeck: CardDeck(), playerCount: 3)
+        pokerGame = PokerGame.init(cardDeck: CardDeck(), playerCount: 3, pokerRule: .fiveStud)
         try! pokerGame.nextTurn()
         XCTAssertEqual(pokerGame.players[0].cards.count, 1)
         XCTAssertEqual(pokerGame.players[1].cards.count, 1)
