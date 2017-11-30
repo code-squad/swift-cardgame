@@ -9,7 +9,7 @@
 import Foundation
 
 struct DealerAction {
-    
+
     enum CardAction: Int {
         case none, reset, shuffle, removeOne, cardPacks, pokerGame
     }
@@ -21,7 +21,7 @@ struct DealerAction {
         return cardDeck
     }
 
-    mutating func shuffle(cardDeck: inout CardDeck) -> CardDeck{
+    mutating func shuffle(cardDeck: inout CardDeck) -> CardDeck {
         cardDeck.shuffle()
         print("전체 \(cardDeck.count())장의 카드를 섞었습니다.")
         return cardDeck
