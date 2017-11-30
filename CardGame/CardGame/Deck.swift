@@ -18,12 +18,7 @@ struct Deck {
     }
     
     mutating func shuffle() {
-        var count: UInt32 = UInt32(self.cards.count)
-        for (index, value) in self.cards.reversed().enumerated() {
-            defer { count -= 1 }
-            let random = Int(arc4random_uniform(count))
-            self.cards.swapAt(index, random)
-        }
+        self.cards.shuffle()
     }
     
     mutating func removeOne() -> Card? {

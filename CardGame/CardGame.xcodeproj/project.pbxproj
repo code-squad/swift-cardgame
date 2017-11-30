@@ -18,6 +18,8 @@
 		EE30F3C41FCD42D90077382D /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30F3C21FCD42D90077382D /* Dealer.swift */; };
 		EE30F3C61FCD49D40077382D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30F3C51FCD49D40077382D /* OutputView.swift */; };
 		EE30F3C71FCD49D40077382D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30F3C51FCD49D40077382D /* OutputView.swift */; };
+		EE30F3CC1FCFA6A90077382D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30F3CB1FCFA6A90077382D /* Extensions.swift */; };
+		EE30F3CD1FCFA6A90077382D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30F3CB1FCFA6A90077382D /* Extensions.swift */; };
 		EE3B7C201FC804D7003AC06F /* CardGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B7C1F1FC804D7003AC06F /* CardGameTest.swift */; };
 		EE3B7C261FC804E9003AC06F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B7C251FC804E9003AC06F /* Card.swift */; };
 		EE3B7C271FC804E9003AC06F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B7C251FC804E9003AC06F /* Card.swift */; };
@@ -47,6 +49,7 @@
 		EE30F3BF1FCD40570077382D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		EE30F3C21FCD42D90077382D /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		EE30F3C51FCD49D40077382D /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		EE30F3CB1FCFA6A90077382D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EE3B7C1D1FC804D7003AC06F /* CardGameTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3B7C1F1FC804D7003AC06F /* CardGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTest.swift; sourceTree = "<group>"; };
 		EE3B7C211FC804D7003AC06F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 				EE30F3B91FCD27700077382D /* EnumCollection.swift */,
 				EE30F3BF1FCD40570077382D /* InputView.swift */,
 				EE30F3C51FCD49D40077382D /* OutputView.swift */,
+				EE30F3CB1FCFA6A90077382D /* Extensions.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -211,6 +215,7 @@
 				EE3B7C291FC80555003AC06F /* Shape.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				EE30F3C31FCD42D90077382D /* Dealer.swift in Sources */,
+				EE30F3CC1FCFA6A90077382D /* Extensions.swift in Sources */,
 				EE3B7C2C1FC81738003AC06F /* Number.swift in Sources */,
 				EE30F3BA1FCD27700077382D /* EnumCollection.swift in Sources */,
 				EE3B7C261FC804E9003AC06F /* Card.swift in Sources */,
@@ -227,6 +232,7 @@
 				EE3B7C2A1FC80555003AC06F /* Shape.swift in Sources */,
 				EE3B7C201FC804D7003AC06F /* CardGameTest.swift in Sources */,
 				EE30F3C41FCD42D90077382D /* Dealer.swift in Sources */,
+				EE30F3CD1FCFA6A90077382D /* Extensions.swift in Sources */,
 				EE3B7C2D1FC81738003AC06F /* Number.swift in Sources */,
 				EE30F3BB1FCD27700077382D /* EnumCollection.swift in Sources */,
 				EE3B7C271FC804E9003AC06F /* Card.swift in Sources */,
