@@ -17,7 +17,7 @@ class Card {
         self.number = number
     }
     deinit {
-        //print("\(self.description): Card instance deinitialized.")
+        // print("\(self.description): Card instance deinitialized.")
     }
 }
 

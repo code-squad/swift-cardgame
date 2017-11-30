@@ -13,7 +13,6 @@ struct Deck {
     init() {
         self.reset()
     }
-
     var count: Int {
         return self.cards.count
     }
@@ -44,4 +43,5 @@ struct Deck {
         }
         self.cards = temp
     }
+    
 }

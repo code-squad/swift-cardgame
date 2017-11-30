@@ -19,8 +19,13 @@ protocol EnumCollection: Hashable {
 // enum 내부 값을 배열로 가져오는 확장 기능.
 // [출처](https://theswiftdev.com/2017/10/12/swift-enum-all-values/)
 extension EnumCollection {
+    // 시퀀스를 배열로 캐스팅 후 반환.
+    static var allValues: [Self] {
+        return Array(self.cases())
+    }
+    
     // 내부 값의 시퀀스 반환.
-    static func cases() -> AnySequence<Self>  {
+    static func cases() -> AnySequence<Self> {
         // 전체 요소를 시퀀스로 만들어 반환.
         return AnySequence { () -> AnyIterator<Self> in
             var hash = 0
@@ -34,8 +39,5 @@ extension EnumCollection {
             }
         }
     }
-    // 시퀀스를 배열로 캐스팅 후 반환.
-    static var allValues: [Self] {
-        return Array(self.cases())
-    }
+
 }
