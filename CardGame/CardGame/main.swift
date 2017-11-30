@@ -18,6 +18,7 @@ func main() {
                     3. 카드 하나 뽑기
                     >
                     """
+    let pilesCount = 7
     while true {
         guard let inputMenu = try? InputView.askFor(message: demand) else { break }
         var selectedCard: Card?
@@ -27,6 +28,8 @@ func main() {
             print(error)
         }
         OutputView.printResult(of: inputMenu, using: dealer.deck, selectedCard)
+        dealer.setCardStack(of: pilesCount)
+        OutputView.printCardStacks(by: dealer)
     }
 }
 
