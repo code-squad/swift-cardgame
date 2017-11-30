@@ -25,13 +25,14 @@ struct InputView {
         case wrongPackCount = "1부터 9 사이의 수를 골라주세요."
         case invalidCardAction = "CardAction에 없는 동작입니다."
         case wrongNum = "보기의 번호 중에 숫자 한 개를 골라주세요."
+        case cardPackCountGuide = "원하는 카드 팩의 갯수를 선택하세요.(1~9)"
     }
 
-    func readInput() throws -> CardAction {
+    func readInput() throws -> DealerAction.CardAction {
         let inputValue: String = readLine() ?? "0"
         let selectedNum: Int = try getIntValue(inputValue: inputValue, min: 0, max: 5, message: InputGuide.wrongNum)
-        var selectedAction: CardAction
-        if let choice = CardAction(rawValue: selectedNum) {
+        var selectedAction: DealerAction.CardAction
+        if let choice = DealerAction.CardAction(rawValue: selectedNum) {
             selectedAction = choice
         } else {
             throw InputGuide.invalidCardAction
