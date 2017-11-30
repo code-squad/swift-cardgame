@@ -9,35 +9,33 @@
 import Foundation
 
 struct Deck {
-    private var cards: [Card]!
+    private var cards: CardStack!
     init() {
         self.reset()
     }
     var count: Int {
         return self.cards.count
     }
-    
+
     mutating func shuffle() {
-        guard let shuffledCards = self.cards.shuffle() else { return }
-        self.cards = shuffledCards
+        self.cards.shuffle()
     }
-    
+
     mutating func removeOne() -> Card? {
-        guard cards.count > 0 else { return nil }
-        return cards.popLast()
+        return self.cards.pop()
     }
 
     mutating func reset() {
         // 모든 카드 초기화
-        var temp: [Card] = []
+        let aStackOfCards = CardStack()
         let shapes = Shape.allValues
         let numbers = Number.allValues
         for shape in shapes {
             for number in numbers {
-                temp.append(Card(shape, number))
+                aStackOfCards.push(card: Card(shape, number))
             }
         }
-        self.cards = temp
+        self.cards = aStackOfCards
     }
-    
+
 }
