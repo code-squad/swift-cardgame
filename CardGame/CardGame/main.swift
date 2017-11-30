@@ -28,7 +28,7 @@ dealerLoop: while cardDeck.count() != 0 {
             continue dealerLoop
         }
     case .cardPacks:
-        let cardPackCount: Int = dealer.getCardPackCount()
+        let cardPackCount: Int = dealer.selectCardPackCount()
         do {
             let cardPacks = try dealerAction.getCardPacks(cardDeck: &cardDeck, packCount: cardPackCount)
             outputView.showCardPacks(cardPacks: cardPacks)
@@ -37,7 +37,7 @@ dealerLoop: while cardDeck.count() != 0 {
         }
     case .pokerGame:
         let pokerRule: PokerGame.PokerRules = dealer.selectGameRule()
-        let playerCount: Int = dealer.getPlayerCount()
+        let playerCount: Int = dealer.selectPlayerCount()
         var pokerGame: PokerGame = PokerGame.init(cardDeck: cardDeck, playerCount: playerCount, pokerRule: pokerRule)
         pokerGame = dealerAction.setPokerGame(pokerGame: &pokerGame)
         outputView.showPokerTable(pokerGame: pokerGame)

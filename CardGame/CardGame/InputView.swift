@@ -40,7 +40,7 @@ struct InputView {
         return selectedAction
     }
 
-    func getPackCount() throws -> Int {
+    func selectCardPackCount() throws -> Int {
         let inputValue: String = readLine() ?? "0"
         let selectedNum: Int = try getIntValue(inputValue: inputValue, min: 1, max: 9, message: InputGuide.wrongPackCount)
         return selectedNum
@@ -83,7 +83,7 @@ extension PokerInputView {
         return selectedRule
     }
 
-    func getPlayerCount() throws -> Int {
+    func selectPlayerCount() throws -> Int {
         let inputValue: String = readLine() ?? "0"
         let selectedNum: Int = try getIntValue(inputValue: inputValue, min: 1, max: 4, message: PokerInputGuide.wrongPlayerCount)
         return selectedNum

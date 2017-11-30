@@ -32,12 +32,12 @@ struct Dealer {
         return selectedAction
     }
 
-    func getCardPackCount() -> Int {
+    func selectCardPackCount() -> Int {
         var cardPackCount: Int = 0
         while cardPackCount == 0 {
             print(InputView.InputGuide.cardPackCountGuide.rawValue)
             do {
-                cardPackCount = try inputView.getPackCount()
+                cardPackCount = try inputView.selectCardPackCount()
             } catch InputView.InputGuide.wrongPackCount {
                 print(InputView.InputGuide.wrongPackCount.rawValue)
             } catch {
@@ -70,12 +70,12 @@ extension PokerGameDealer {
         return gameRule
     }
 
-    func getPlayerCount() -> Int {
+    func selectPlayerCount() -> Int {
         var playerCount: Int = 0
         while playerCount == 0 {
             print(PokerInputView.PokerInputGuide.players.rawValue)
             do {
-                playerCount = try inputView.getPlayerCount()
+                playerCount = try inputView.selectPlayerCount()
             } catch PokerInputView.PokerInputGuide.wrongPlayerCount {
                 print(PokerInputView.PokerInputGuide.wrongPlayerCount.rawValue)
             } catch InputView.InputGuide.wrongNum {
