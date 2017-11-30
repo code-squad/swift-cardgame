@@ -9,6 +9,7 @@
 import Foundation
 
 struct OutputView {
+    
     static func printResult(of menu: Dealer.GameMenu, using deck: Deck, _ cardSelected: Card?) {
         switch menu {
         case .reset:
