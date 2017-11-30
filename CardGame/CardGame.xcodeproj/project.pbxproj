@@ -130,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				EE30F3C21FCD42D90077382D /* Dealer.swift */,
-				EE30F3D91FCFE5710077382D /* CardStack.swift */,
 				EE30F3BC1FCD32610077382D /* Deck.swift */,
+				EE30F3D91FCFE5710077382D /* CardStack.swift */,
 				EE3B7C251FC804E9003AC06F /* Card.swift */,
 				EE3B7C281FC80555003AC06F /* Shape.swift */,
 				EE3B7C2B1FC81738003AC06F /* Number.swift */,
