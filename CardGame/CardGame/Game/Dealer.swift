@@ -9,9 +9,11 @@
 import Foundation
 
 struct Dealer {
-    var deck: Deck
+    private(set) var deck: Deck
+    private(set) var cardStacks: [CardStack]
     init(deck: Deck) {
         self.deck = deck
+        self.cardStacks = []
     }
     enum GameMenu: Int {
         case reset = 1
@@ -31,6 +33,15 @@ struct Dealer {
             return selectedCard
         }
         return nil
+    }
+
+    mutating func setCardStack(of pileCount: Int) {
+        var pileCount = pileCount
+        for _ in 0..<pileCount {
+            defer { pileCount -= 1 }
+            guard let cardStack = self.deck.removeMany(selectedCount: pileCount) else { break }
+            self.cardStacks.append(cardStack)
+        }
     }
 
 }
