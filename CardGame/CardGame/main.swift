@@ -19,13 +19,14 @@ func main() {
                     >
                     """
     while true {
+        guard let inputMenu = try? InputView.askFor(message: demand) else { break }
+        var selectedCard: Card?
         do {
-            guard let userInput = try InputView.askFor(message: demand) else { break }
-            let selectedCard = try dealer.start(userInput)
-            OutputView.printResult(of: userInput, using: dealer.deck, selectedCard)
+            selectedCard = try dealer.start(inputMenu)
         }catch {
             print(error)
         }
+        OutputView.printResult(of: inputMenu, using: dealer.deck, selectedCard)
     }
 }
 
