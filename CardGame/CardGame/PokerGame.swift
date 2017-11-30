@@ -44,9 +44,9 @@ struct PokerGame {
             throw GuideMessage.notEnoughCard
         }
         for i in 0..<players.count {
-            players[i].getNewCard(try cardDeck.removeOne())
+            players[i].callNewCard(try cardDeck.removeOne())
         }
-        dealer.getNewCard(try cardDeck.removeOne())
+        dealer.callNewCard(try cardDeck.removeOne())
     }
 
 }

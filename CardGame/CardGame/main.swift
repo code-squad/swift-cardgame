@@ -46,16 +46,15 @@ cardGameLoop: while (selectedAction == .none) || (cardDeck.count() != 0) {
             do {
                 print("원하는 카드 팩의 갯수를 선택하세요.(1~9)")
                 packCount = try inputView.getPackCount()
-                do {
-                    let cardPacks = try cardDeck.getCardPacks(packCount: packCount)
-                    outputView.showCardPacks(cardPacks: cardPacks)
-                } catch CardDeck.CardDeckStatus.noCard {
-                    print(CardDeck.CardDeckStatus.noCard.rawValue)
-                }
-                break cardGameLoop
             } catch InputView.InputGuide.wrongPackCount {
                 print(InputView.InputGuide.wrongPackCount.rawValue)
                 continue cardPacksLoop
+            }
+            do {
+                let cardPacks = try cardDeck.getCardPacks(packCount: packCount)
+                outputView.showCardPacks(cardPacks: cardPacks)
+            } catch CardDeck.CardDeckStatus.noCard {
+                print(CardDeck.CardDeckStatus.noCard.rawValue)
             }
         }
     case .game:
