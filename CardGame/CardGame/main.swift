@@ -11,17 +11,16 @@ import Foundation
 func main() {
     let deck = Deck()
     var dealer = Dealer(deck: deck)
+    let demand = """
+                    다음 메뉴를 선택해주세요.
+                    1. 카드 초기화
+                    2. 카드 섞기
+                    3. 카드 하나 뽑기
+                    >
+                    """
     while true {
         do {
-            let inputMenu =
-                try InputView.askFor(message:"""
-                                            다음 메뉴를 선택해주세요.
-                                            1. 카드 초기화
-                                            2. 카드 섞기
-                                            3. 카드 하나 뽑기
-                                            >
-                                            """)
-            guard let userInput = inputMenu else { break }
+            guard let userInput = try InputView.askFor(message: demand) else { break }
             let selectedCard = try dealer.start(userInput)
             OutputView.printResult(of: userInput, using: dealer.deck, selectedCard)
         }catch {

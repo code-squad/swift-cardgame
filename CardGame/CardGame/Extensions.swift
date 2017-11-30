@@ -10,13 +10,16 @@ import Foundation
 
 extension Array {
 
-    mutating func shuffle() {
+    func shuffle() -> Array? {
+        var shuffledArray = self
         var count: UInt32 = UInt32(self.count)
-        for (index, value) in self.reversed().enumerated() {
+        guard count > 0 else { return nil }
+        for (index, value) in shuffledArray.reversed().enumerated() {
             defer { count -= 1 }
             let random = Int(arc4random_uniform(count))
-            self.swapAt(index, random)
+            shuffledArray.swapAt(index, random)
         }
+        return shuffledArray
     }
 
 }

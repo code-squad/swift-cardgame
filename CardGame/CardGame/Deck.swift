@@ -18,7 +18,8 @@ struct Deck {
     }
     
     mutating func shuffle() {
-        self.cards.shuffle()
+        guard let shuffledCards = self.cards.shuffle() else { return }
+        self.cards = shuffledCards
     }
     
     mutating func removeOne() -> Card? {
