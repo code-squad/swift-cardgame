@@ -9,7 +9,7 @@
 import Foundation
 
 class Card: CustomStringConvertible {
-    private let suit: Suit, rank: Rank
+    let suit: Suit, rank: Rank
     private var upside: Bool
 
     enum Suit: String {
