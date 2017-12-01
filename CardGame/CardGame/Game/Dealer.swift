@@ -15,6 +15,11 @@ struct Dealer {
         self.deck = Deck()
         self.cardStacks = []
     }
+    enum GameMenu: Int {
+        case reset = 1
+        case shuffle
+        case remove
+    }
     static let participantMinimum = 1
     static let participantMaximum = 4
     enum Stud: Int {

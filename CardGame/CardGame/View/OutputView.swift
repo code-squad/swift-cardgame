@@ -9,7 +9,17 @@
 import Foundation
 
 struct OutputView {
-    
+
+    static func printCardStacks(by dealer: Dealer) {
+        for (index, stack) in dealer.cardStacks.enumerated() {
+            guard index < dealer.cardStacks.endIndex-1 else {
+                print("딜러\t\t\(stack)")
+                continue
+            }
+            print("참가자#\(index+1)\t\(stack)")
+        }
+    }
+
     static func printResult(of gameMenu: Dealer.GameMenu?, using deck: Deck, _ cardSelected: Card?) {
         guard let menu = gameMenu else { return }
         switch menu {
