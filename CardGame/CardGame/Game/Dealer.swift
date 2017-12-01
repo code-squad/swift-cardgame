@@ -24,7 +24,8 @@ struct Dealer {
         case lackOfCards = "덱에 카드가 없습니다."
     }
 
-    mutating func start(_ menu: GameMenu) throws -> Card? {
+    mutating func start(_ gameMenu: GameMenu?) throws -> Card? {
+        guard let menu = gameMenu else { return nil }
         switch menu {
         case .reset: self.deck.reset()
         case .shuffle: self.deck.shuffle()

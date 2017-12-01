@@ -10,7 +10,8 @@ import Foundation
 
 struct OutputView {
     
-    static func printResult(of menu: Dealer.GameMenu, using deck: Deck, _ cardSelected: Card?) {
+    static func printResult(of gameMenu: Dealer.GameMenu?, using deck: Deck, _ cardSelected: Card?) {
+        guard let menu = gameMenu else { return }
         switch menu {
         case .reset:
             print("카드 전체를 초기화했습니다.\n총 \(deck.count)장의 카드가 있습니다.")
