@@ -13,8 +13,8 @@ func main() {
     var dealer = Dealer(deck: deck)
     let pilesCount = 7
     while true {
-        guard let inputMenu = try? InputView.handleMenus() else { break }
         var selectedCard: Card?
+        guard let userInput = try? InputView.handleMenus(), let inputMenu = userInput else { break }
         do {
             selectedCard = try dealer.start(inputMenu)
         }catch {
