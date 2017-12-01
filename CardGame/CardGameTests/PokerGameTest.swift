@@ -42,10 +42,10 @@ class PokerGameTest: XCTestCase {
         XCTAssertEqual(pokerGame.players[1].cards.count, 1)
         XCTAssertEqual(pokerGame.players[2].cards.count, 1)
         XCTAssertEqual(pokerGame.dealer.cards.count, 1)
-        XCTAssertEqual(pokerGame.players[0].cards[0].description, "♣️K")
-        XCTAssertEqual(pokerGame.players[1].cards[0].description, "♦️K")
-        XCTAssertEqual(pokerGame.players[2].cards[0].description, "♥️K")
-        XCTAssertEqual(pokerGame.dealer.cards[0].description, "♠️K")
+        XCTAssertEqual(pokerGame.players[0].cards[0].description, "♣️A")
+        XCTAssertEqual(pokerGame.players[1].cards[0].description, "♦️A")
+        XCTAssertEqual(pokerGame.players[2].cards[0].description, "♥️A")
+        XCTAssertEqual(pokerGame.dealer.cards[0].description, "♠️A")
     }
 
 }
