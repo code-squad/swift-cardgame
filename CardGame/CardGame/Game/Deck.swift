@@ -16,6 +16,9 @@ struct Deck {
     var count: Int {
         return self.cards.count
     }
+    var isEmpty: Bool {
+        return self.cards.isEmpty
+    }
 
     mutating func shuffle() {
         self.cards.shuffle()

@@ -13,6 +13,9 @@ class CardStack {
     var count: Int {
         return self.cards.count
     }
+    var isEmpty: Bool {
+        return self.cards.isEmpty
+    }
     init() {
         self.cards = []
     }
