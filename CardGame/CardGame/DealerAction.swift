@@ -50,7 +50,7 @@ extension PokerGamePlay {
 
     func setPokerGame(pokerGame: inout PokerGame) -> PokerGame {
         do {
-            for _ in 1...pokerGame.pokerRule.value {
+            for _ in 1...Int(pokerGame.pokerRule.value/2) {
                 try pokerGame.nextTurn()
             }
         } catch {

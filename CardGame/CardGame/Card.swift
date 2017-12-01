@@ -10,6 +10,7 @@ import Foundation
 
 class Card: CustomStringConvertible {
     private let suit: Suit, rank: Rank
+    private var upside: Bool
 
     enum Suit: String {
         case spades = "♠️"
@@ -19,10 +20,10 @@ class Card: CustomStringConvertible {
     }
 
     enum Rank: Int {
-        case ace = 1, two, three, four, five, six, seven, eight, nine, ten
-        case jack, queen, king
+        case two = 2, three, four, five, six, seven, eight, nine, ten
+        case jack, queen, king, ace
 
-        static let allRawValues = Rank.ace.rawValue...Rank.king.rawValue
+        static let allRawValues = Rank.two.rawValue...Rank.ace.rawValue
         static let allCases = Array(allRawValues.map { Rank(rawValue: $0)! })
 
         var value: String {
@@ -41,13 +42,51 @@ class Card: CustomStringConvertible {
         }
     }
 
-    init(suit: Suit, rank: Rank) {
+    init(suit: Suit, rank: Rank, upside: Bool) {
         self.suit = suit
         self.rank = rank
+        self.upside = upside
     }
 
     var description: String {
         return "\(suit.rawValue)\(rank.value)"
+    }
+
+    func openCard() {
+        upside = true
+    }
+
+    func isUpside() -> Bool {
+        return upside
+    }
+
+}
+
+extension Card: Comparable {
+
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        if lhs.description == rhs.description {
+            return true
+        }
+        return false
+    }
+
+
+    static func < (lhs: Card, rhs: Card) -> Bool {
+        if lhs.rank == rhs.rank {
+            switch (lhs.suit, rhs.suit) {
+            case (_, .spades):
+                return true
+            case (.diamonds, .hearts), (.clubs, .hearts):
+                return true
+            case (.clubs, .diamonds):
+                return true
+            default:
+                return false
+            }
+        } else {
+            return lhs.rank.rawValue < rhs.rank.rawValue
+        }
     }
 
 }

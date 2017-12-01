@@ -30,9 +30,9 @@ class CardDeckTest: XCTestCase {
     func testRemoveOne() {
         cardDeck = CardDeck()
         let deletedCard: String = try! cardDeck.removeOne().description
-        XCTAssertEqual(deletedCard, "♣️K")
+        XCTAssertEqual(deletedCard, "♣️A")
         XCTAssertEqual(cardDeck.count(), 51)
-        XCTAssertNotEqual(cardDeck[cardDeck.count()-1].description, "♣️K")
+        XCTAssertNotEqual(cardDeck[cardDeck.count()-1].description, "♣️A")
     }
 
     func testShuffle() {
@@ -48,7 +48,7 @@ class CardDeckTest: XCTestCase {
         let cardDeck1: CardDeck = cardDeck
         let deletedCard: Card = try! cardDeck.removeOne()
         XCTAssertEqual(cardDeck.count(), 51)
-        XCTAssertEqual(deletedCard.description, "♣️K")
+        XCTAssertEqual(deletedCard.description, "♣️A")
         cardDeck.shuffle()
         cardDeck.reset()
         let cardDeck2: CardDeck = cardDeck
@@ -58,9 +58,9 @@ class CardDeckTest: XCTestCase {
     func testGetCardPacks() {
         cardDeck = CardDeck()
         var cardDeck1: CardDeck = cardDeck
-        XCTAssertEqual(try cardDeck1.getCardPacks(packCount: 1)[0][0].description, "♣️K")
+        XCTAssertEqual(try cardDeck1.getCardPacks(packCount: 1)[0][0].description, "♣️A")
         var cardDeck2: CardDeck = cardDeck
-        XCTAssertEqual(try cardDeck2.getCardPacks(packCount: 3)[1][0].description, "♦️K")
+        XCTAssertEqual(try cardDeck2.getCardPacks(packCount: 3)[1][0].description, "♦️A")
     }
 
 }
