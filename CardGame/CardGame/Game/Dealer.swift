@@ -26,13 +26,13 @@ struct Dealer {
         case fiveCard = 5
         case sevenCard = 7
     }
-    enum CardGameError: String, Error {
+    enum GameError: String, Error {
         case lackOfCards = "덱에 카드가 없습니다."
     }
 
     mutating func start(_ numberOfPeople: Int, _ stud: Stud) throws {
         let cardDemands = (numberOfPeople + 1) * stud.rawValue
-        guard self.deck.count - cardDemands > 0 else { throw CardGameError.lackOfCards }
+        guard self.deck.count - cardDemands > 0 else { throw GameError.lackOfCards }
         self.deck.shuffle()
         setCardStack(of: numberOfPeople, with: stud)
     }
