@@ -64,10 +64,9 @@ extension PokerWinnerChecker {
         for player in allPlayer {
             if winner.showDown().rawValue < player.showDown().rawValue {
                 winner = player
-            } else if winner.showDown().rawValue == player.showDown().rawValue {
-                if winner.top! < player.top! {
-                    winner = player
-                }
+            } else if (winner.showDown().rawValue == player.showDown().rawValue)
+                && (winner.top! < player.top!) {
+                winner = player
             }
         }
         return winner

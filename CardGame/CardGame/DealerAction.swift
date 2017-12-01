@@ -49,12 +49,12 @@ typealias PokerGamePlay = DealerAction
 extension PokerGamePlay {
 
     func setPokerGame(pokerGame: inout PokerGame) -> PokerGame {
-        do {
-            for _ in 1...Int(pokerGame.pokerRule.value/2) {
+        for _ in 1...Int(pokerGame.pokerRule.value/2) {
+            do {
                 try pokerGame.nextTurn()
+            } catch {
+                print(PokerGame.GuideMessage.notEnoughCard.rawValue)
             }
-        } catch {
-            print(PokerGame.GuideMessage.notEnoughCard.rawValue)
         }
         return pokerGame
     }
