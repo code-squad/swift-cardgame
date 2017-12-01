@@ -14,7 +14,7 @@ struct InputView {
         case quit
     }
 
-    static func askFor(message: String) throws -> String? {
+    private static func askFor(message: String) -> String? {
         // 요구 메시지 출력.
         print("\(message)", terminator: " ")
         // q 또는 quit 입력 시 종료.
@@ -30,7 +30,7 @@ struct InputView {
                     3. 카드 하나 뽑기
                     >
                     """
-        guard let userInput = try askFor(message: demand) else { return nil }
+        guard let userInput = askFor(message: demand) else { return nil }
         // 입력값이 숫자가 아니거나 1~3번을 제외한 수인 경우, 에러 전달.
         guard let menuNumber = Int(userInput), menuNumber == 1 || menuNumber == 2 || menuNumber == 3 else { throw InputError.invalidMenuNumber }
         return Dealer.GameMenu(rawValue: menuNumber)
