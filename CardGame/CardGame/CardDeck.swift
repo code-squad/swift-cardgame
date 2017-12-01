@@ -29,8 +29,11 @@ struct CardDeck {
 
     // shuffle current cards
     mutating func shuffle() {
-        for i in stride(from: cardDeck.count - 1, through: 1, by: -1) where i != Int(arc4random_uniform(UInt32(i+1))) {
-            self.cardDeck.swapAt(i, j)
+        for i in stride(from: cardDeck.count - 1, through: 1, by: -1) {
+            let j = Int(arc4random_uniform(UInt32(i+1)))
+            if i != j {
+                self.cardDeck.swapAt(i, j)
+            }
         }
     }
 

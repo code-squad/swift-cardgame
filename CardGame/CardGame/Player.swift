@@ -30,7 +30,6 @@ class Player {
 
     func callNewCard(_ card: Card) {
         cards.append(card)
-        top = cards.max()!
         cards.sort()
     }
 
@@ -43,7 +42,7 @@ class Player {
             return .fullHouse
         } else if isFlush() {
             return .flush
-        } else if isStraight() {
+        } else if isStraight() || isBackStraight() {
             return .straight
         } else if isThreeOfAKind() {
             return .threeOfAKind
@@ -51,8 +50,10 @@ class Player {
             return .twoPair
         } else if isOnePair() {
             return .onePair
+        } else {
+            top = cards.max()
+            return .none
         }
-        return .none
     }
 
 }
@@ -68,6 +69,7 @@ private extension ShowDown {
                 counter[card.rank] = 1
             } else {
                 counter[card.rank]! += 1
+                top = card
             }
         }
         return counter
@@ -80,6 +82,7 @@ private extension ShowDown {
                 counter[card.suit] = 1
             } else {
                 counter[card.suit]! += 1
+                top = card
             }
         }
         return counter
@@ -88,40 +91,25 @@ private extension ShowDown {
     func isOnePair() -> Bool {
         var pairCounter: Int = 0
         let counter = countSameRank()
-        for (key, value) in counter {
-            if value == 2 {
-                top = Card.init(suit: Card.Suit.spades, rank: key, upside: false)
-                pairCounter += 1
-            }
+        for (_, value) in counter where value == 2 {
+            pairCounter += 1
         }
-        if pairCounter == 1 {
-            return true
-        }
-        return false
+        return pairCounter == 1
     }
 
     func isTwoPair() -> Bool {
         var pairCounter: Int = 0
         let counter = countSameRank()
-        for (key, value) in counter {
-            if value == 2 {
-                top = Card.init(suit: Card.Suit.spades, rank: key, upside: false)
-                pairCounter += 1
-            }
+        for (_, value) in counter where value == 2 {
+            pairCounter += 1
         }
-        if pairCounter >= 2 {
-            return true
-        }
-        return false
+        return pairCounter >= 2
     }
 
     func isThreeOfAKind() -> Bool {
         let counter = countSameRank()
-        for (key, value) in counter {
-            if value == 3 {
-                top = Card.init(suit: Card.Suit.spades, rank: key, upside: false)
-                return true
-            }
+        for (_, value) in counter where value == 3 {
+            return true
         }
         return false
     }
@@ -129,43 +117,44 @@ private extension ShowDown {
     func isStraight() -> Bool {
         var counter: Int = 0
         for i in 1..<cards.count {
-            if cards[i].rank.rawValue == cards[i-1].rank.rawValue {
+            if cards[i].rank.rawValue == (cards[i-1].rank.rawValue + 1) {
                 counter += 1
+                top = cards[i]
+                if counter >= 4 { return true }
+            } else if cards[i].rank.rawValue == cards[i-1].rank.rawValue {
+                top = cards[i]
             } else {
                 counter = 0
             }
         }
-        if counter == 5 {
-            return true
-        }
         return false
+    }
+
+    func isBackStraight() -> Bool {
+        var counter: [Card.Rank:Int] = [:]
+        for card in cards where card.rank == .ace || card.rank == .two || card.rank == .three || card.rank == .four || card.rank == .five {
+            counter[card.rank] = (counter[card.rank] ?? 1) + 1
+            top = card
+        }
+        return counter.count == 5
     }
 
     func isFlush() -> Bool {
         let counter = countSameSuit()
-        for (key, value) in counter {
-            if value == 5 {
-                top = Card.init(suit: key, rank: Card.Rank.ace, upside: false)
-                return true
-            }
+        for (_, value) in counter where value >= 5 {
+            return true
         }
         return false
     }
 
     func isFullHouse() -> Bool {
-        if isThreeOfAKind() && isOnePair() {
-            return true
-        }
-        return false
+        return isThreeOfAKind() && isOnePair()
     }
 
     func isFourOfAKind() -> Bool {
         let counter = countSameRank()
-        for (key, value) in counter {
-            if value == 4 {
-                top = Card.init(suit: Card.Suit.spades, rank: key, upside: false)
-                return true
-            }
+        for (_, value) in counter where value == 4 {
+            return true
         }
         return false
     }
@@ -173,15 +162,15 @@ private extension ShowDown {
     func isStraightFlush() -> Bool {
         var counter: Int = 0
         for i in 1..<cards.count {
-            if (cards[i].suit == cards[i-1].suit)
-                && (cards[i].rank.rawValue-1 == cards[i-1].rank.rawValue) {
+            if (cards[i].suit == cards[i-1].suit) && (cards[i].rank.rawValue == cards[i-1].rank.rawValue+1) {
                 counter += 1
+                top = cards[i]
+                if counter >= 4 { return true }
+            } else if cards[i].rank.rawValue == cards[i-1].rank.rawValue {
+                top = cards[i]
             } else {
                 counter = 0
             }
-        }
-        if counter == 5 {
-            return true
         }
         return false
     }
