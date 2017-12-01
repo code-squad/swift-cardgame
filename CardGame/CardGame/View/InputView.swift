@@ -22,6 +22,13 @@ struct InputView {
                         >
                         """
         case participantsMenu = "참여할 사람의 인원을 입력하세요.\n> "
+        case baseMenu = """
+                        다음 메뉴를 선택해주세요.
+                        1. 카드 초기화
+                        2. 카드 섞기
+                        3. 카드 하나 뽑기
+                        >
+                        """
     }
 
     func askFor(message: String) throws -> String? {
@@ -45,6 +52,13 @@ struct InputView {
         guard let userInput = input, let numberOfPeople = Int(userInput) else { throw InputError.invalidMenuNumber }
         guard numberOfPeople <= Dealer.participantMaximum && numberOfPeople >= Dealer.participantMinimum else { throw InputError.outOfParticipantRange }
         return numberOfPeople
+    }
+
+    func handleMenus(input: String?) throws -> Dealer.GameMenu? {
+        guard let userInput = input else { return nil }
+        // 입력값이 숫자가 아니거나 1~3번을 제외한 수인 경우, 에러 전달.
+        guard let menuNumber = Int(userInput), menuNumber == 1 || menuNumber == 2 || menuNumber == 3 else { throw InputError.invalidMenuNumber }
+        return Dealer.GameMenu(rawValue: menuNumber)
     }
     
 }
