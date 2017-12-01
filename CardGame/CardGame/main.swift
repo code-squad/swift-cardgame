@@ -42,7 +42,7 @@ dealerLoop: while cardDeck.count() != 0 {
         pokerGame = dealerAction.setPokerGame(pokerGame: &pokerGame)
         outputView.showPokerTable(pokerGame: pokerGame)
         var shouldMoreCard: Bool = true
-        while shouldMoreCard {
+        for _ in 0..<(pokerRule.value-Int(pokerRule.value/2)) {
             shouldMoreCard = dealer.shouldMoreCard()
             guard shouldMoreCard else {
                 break dealerLoop
@@ -55,6 +55,8 @@ dealerLoop: while cardDeck.count() != 0 {
             }
             outputView.showPokerTable(pokerGame: pokerGame)
         }
+        outputView.showWinner(pokerGame: pokerGame)
+        break dealerLoop
     case .none:
         break
     }

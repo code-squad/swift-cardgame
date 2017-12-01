@@ -31,10 +31,10 @@ class Player {
     func callNewCard(_ card: Card) {
         cards.append(card)
         top = cards.max()!
+        cards.sort()
     }
 
     func showDown() -> PokerHands {
-        cards.sort()
         if isStraightFlush() {
             return .straightFlush
         } else if isFourOfAKind() {
@@ -173,8 +173,8 @@ private extension ShowDown {
     func isStraightFlush() -> Bool {
         var counter: Int = 0
         for i in 1..<cards.count {
-            if !((cards[i].suit == cards[i-1].suit)
-                && (cards[i].rank.rawValue-1 == cards[i-1].rank.rawValue)) {
+            if (cards[i].suit == cards[i-1].suit)
+                && (cards[i].rank.rawValue-1 == cards[i-1].rank.rawValue) {
                 counter += 1
             } else {
                 counter = 0

@@ -23,4 +23,8 @@ struct OutputView {
         print("\(pokerGame.dealer.name) \(pokerGame.dealer.cards)")
     }
 
+    func showWinner(pokerGame: PokerGame) {
+        print("Winner!!! : \(pokerGame.findWinner().name) , \(pokerGame.findWinner().showDown())")
+    }
+
 }
