@@ -24,6 +24,10 @@ struct OutputView {
     }
 
     func showWinner(pokerGame: PokerGame) {
+        for i in 0..<pokerGame.players.count {
+            print("\(pokerGame.players[i].name) -> \(pokerGame.players[i].showDown()), top: \(pokerGame.players[i].top!)")
+        }
+        print("\(pokerGame.dealer.name) -> \(pokerGame.dealer.showDown()), top: \(pokerGame.dealer.top!)")
         print("Winner!!! : \(pokerGame.findWinner().name) , \(pokerGame.findWinner().showDown())")
     }
 

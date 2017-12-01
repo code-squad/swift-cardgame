@@ -31,10 +31,7 @@ struct InputView {
     func readInput() throws -> DealerAction.CardAction {
         let inputValue: String = readLine() ?? "0"
         let selectedNum: Int = try getIntValue(inputValue: inputValue, min: 0, max: 5, message: InputGuide.wrongNum)
-        var selectedAction: DealerAction.CardAction
-        if let choice = DealerAction.CardAction(rawValue: selectedNum) {
-            selectedAction = choice
-        } else {
+        guard let selectedAction = DealerAction.CardAction(rawValue: selectedNum) else {
             throw InputGuide.invalidCardAction
         }
         return selectedAction
@@ -47,8 +44,9 @@ struct InputView {
     }
 
     private func getIntValue(inputValue: String, min: Int, max: Int, message: Error) throws -> Int {
-        guard let choice = Int(inputValue),
-            choice >= min && choice <= max else { throw message }
+        guard let choice = Int(inputValue), choice >= min && choice <= max else {
+            throw message
+        }
         return choice
     }
     
@@ -73,11 +71,8 @@ extension PokerInputView {
 
     func selectRule() throws -> PokerGame.PokerRules {
         let inputValue: String = readLine() ?? "0"
-        var selectedRule: PokerGame.PokerRules
         let selectedNum: Int = try getIntValue(inputValue: inputValue, min: 1, max: 2, message: InputGuide.wrongNum)
-        if let choice = PokerGame.PokerRules(rawValue: selectedNum) {
-            selectedRule = choice
-        } else {
+        guard let selectedRule = PokerGame.PokerRules(rawValue: selectedNum) else {
             throw PokerInputGuide.invalidRules
         }
         return selectedRule
@@ -91,12 +86,10 @@ extension PokerInputView {
 
     func shouldMoreCard() throws -> Bool {
         let inputValue: String = readLine() ?? "0"
-        guard let choice = Int(inputValue),
-            choice >= 0 && choice <= 1 else { throw InputGuide.wrongNum }
-        if choice != 1 {
-            return false
+        guard let shouldMoreCard = Int(inputValue), shouldMoreCard >= 0 && shouldMoreCard <= 1 else {
+            throw InputGuide.wrongNum
         }
-        return true
+        return shouldMoreCard == 1
     }
 
 }
