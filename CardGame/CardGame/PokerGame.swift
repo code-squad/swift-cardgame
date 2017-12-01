@@ -52,3 +52,25 @@ struct PokerGame {
     }
 
 }
+
+typealias PokerWinnerChecker = PokerGame
+
+extension PokerWinnerChecker {
+
+    func findWinner() -> Player {
+        var allPlayer = players
+        allPlayer.append(dealer)
+        var winner: Player = allPlayer[0]
+        for player in allPlayer {
+            if winner.showDown().rawValue < player.showDown().rawValue {
+                winner = player
+            } else if winner.showDown().rawValue == player.showDown().rawValue {
+                if winner.top! < player.top! {
+                    winner = player
+                }
+            }
+        }
+        return winner
+    }
+
+}
