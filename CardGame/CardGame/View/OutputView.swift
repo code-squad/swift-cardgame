@@ -10,7 +10,7 @@ import Foundation
 
 struct OutputView {
 
-    static func printCardStacks(by dealer: Dealer) {
+    static func printCardStacksWithName(by dealer: Dealer) {
         for (index, stack) in dealer.cardStacks.enumerated() {
             guard index < dealer.cardStacks.endIndex-1 else {
                 print("딜러\t\t\(stack)")
