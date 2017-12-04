@@ -10,6 +10,7 @@ import Foundation
 
 struct Dealer {
     private let inputView: InputView
+    var dealerAction: DealerAction = DealerAction()
 
     init(inputView: InputView) {
         self.inputView = inputView
