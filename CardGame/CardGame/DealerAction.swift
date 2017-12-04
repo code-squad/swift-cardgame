@@ -43,7 +43,7 @@ typealias PokerGameAction = DealerAction
 extension PokerGameAction {
 
     func setPokerGame(pokerGame: inout PokerGame) throws {
-        for _ in 1...Int(pokerGame.pokerRule.value/2) {
+        for _ in 1...pokerGame.getAvailableTurnCount() {
             do {
                 try pokerGame.nextTurn()
             } catch {

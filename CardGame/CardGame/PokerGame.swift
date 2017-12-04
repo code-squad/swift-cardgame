@@ -11,8 +11,8 @@ import Foundation
 struct PokerGame {
     private(set) var players: Array<Player> = []
     private(set) var dealer: Player = Player.init(name: "dealer")
-    private(set) var cardDeck: CardDeck
-    let pokerRule: PokerRules
+    private var cardDeck: CardDeck
+    private let pokerRule: PokerRules
 
     enum GuideMessage: String, Error {
         case notEnoughCard = "더이상 카드가 모두에게 돌아갈 수 없습니다."
@@ -51,6 +51,10 @@ struct PokerGame {
         dealer.callNewCard(try cardDeck.removeOne())
     }
 
+    func getAvailableTurnCount() -> Int {
+        return Int(pokerRule.value/2)
+    }
+
 }
 
 typealias PokerWinnerChecker = PokerGame
@@ -60,15 +64,8 @@ extension PokerWinnerChecker {
     func findWinner() -> Player {
         var allPlayer = players
         allPlayer.append(dealer)
-        var winner: Player = allPlayer[0]
-        for player in allPlayer {
-            if winner.pokerHand < player.pokerHand {
-                winner = player
-            } else if (winner.pokerHand == player.pokerHand) && (winner.top! < player.top!) {
-                winner = player
-            }
-        }
-        return winner
+        allPlayer.sort()
+        return allPlayer.last!
     }
 
 }
