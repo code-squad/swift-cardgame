@@ -24,16 +24,15 @@ class PlayerTest: XCTestCase {
 
     func testInit() {
         player = Player.init(name: "tester")
-        XCTAssertEqual(player.name, "tester")
-        XCTAssertNil(player.top)
+        XCTAssertEqual(player.description, "tester : []")
     }
 
     func testCallNewCard() {
         player = Player.init(name: "tester")
         player.callNewCard(Card.init(suit: .spades, rank: .ace))
-        XCTAssertEqual(player.cards.count, 1)
+        XCTAssertEqual(player.description, "tester : [♠️A]")
         player.callNewCard(Card.init(suit: .hearts, rank: .ace))
-        XCTAssertEqual(player.cards.count, 2)
+        XCTAssertEqual(player.description, "tester : [♥️A, ♠️A]")
     }
 
 }

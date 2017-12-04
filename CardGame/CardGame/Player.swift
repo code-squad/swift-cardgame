@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Player {
-    let name: String
-    private(set) var cards: CardPack = []
-    private(set) var top: Card?
+class Player: CustomStringConvertible {
+    private let name: String
+    private var cards: CardPack = []
+    private var top: Card?
     private(set) var pokerHand: PokerShowDown.PokerHands
 
     init(name: String) {
@@ -30,5 +30,33 @@ class Player {
         pokerHand = result.pokerHand
         top = result.top
     }
+
+    var description: String {
+        return "\(name) : \(cards)"
+    }
+
+}
+
+typealias Winner = Player
+
+extension Winner: Comparable {
     
+    static func <(lhs: Winner, rhs: Winner) -> Bool {
+        if lhs.pokerHand < rhs.pokerHand {
+            return true
+        } else if lhs.pokerHand == rhs.pokerHand && lhs.top! < rhs.top! {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    static func ==(lhs: Winner, rhs: Winner) -> Bool {
+        return lhs.name == rhs.name
+    }
+
+    var winnerDescription: String {
+        return "\(name) -> \(pokerHand), top: \(top!)"
+    }
+
 }

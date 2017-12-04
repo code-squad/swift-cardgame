@@ -18,19 +18,19 @@ struct OutputView {
 
     func showPokerTable(pokerGame: PokerGame) {
         for i in 0..<pokerGame.players.count {
-            print("\(pokerGame.players[i].name) \(pokerGame.players[i].cards)")
+            print("\(pokerGame.players[i])")
         }
-        print("\(pokerGame.dealer.name) \(pokerGame.dealer.cards)")
+        print("\(pokerGame.dealer)")
     }
 
     func showWinner(pokerGame: PokerGame) {
         for i in 0..<pokerGame.players.count {
             pokerGame.players[i].openCards()
-            print("\(pokerGame.players[i].name) -> \(pokerGame.players[i].pokerHand), top: \(pokerGame.players[i].top!)")
+            print("\(pokerGame.players[i].winnerDescription)")
         }
         pokerGame.dealer.openCards()
-        print("\(pokerGame.dealer.name) -> \(pokerGame.dealer.pokerHand), top: \(pokerGame.dealer.top!)")
-        print("Winner!!! : \(pokerGame.findWinner().name) , \(pokerGame.findWinner().pokerHand), \(pokerGame.findWinner().top!)")
+        print("\(pokerGame.dealer.winnerDescription)")
+        print("Winner!!! : \(pokerGame.findWinner().winnerDescription)")
     }
 
 }
