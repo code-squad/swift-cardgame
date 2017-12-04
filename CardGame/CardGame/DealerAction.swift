@@ -14,28 +14,22 @@ struct DealerAction {
         case none, reset, shuffle, removeOne, cardPacks, pokerGame
     }
 
-    mutating func reset(cardDeck: inout CardDeck) -> CardDeck {
+    mutating func reset(cardDeck: inout CardDeck) {
         cardDeck.reset()
-        print("카드 전체를 초기화했습니다.")
-        print("총 \(cardDeck.count())장의 카드가 있습니다.")
-        return cardDeck
     }
 
-    mutating func shuffle(cardDeck: inout CardDeck) -> CardDeck {
+    mutating func shuffle(cardDeck: inout CardDeck) {
         cardDeck.shuffle()
-        print("전체 \(cardDeck.count())장의 카드를 섞었습니다.")
-        return cardDeck
     }
 
-    mutating func removeOne(cardDeck: inout CardDeck) throws -> CardDeck {
+    mutating func removeOne(cardDeck: inout CardDeck) throws -> Card {
+        var deletedCard: Card!
         do {
-            let deletedCard: Card = try cardDeck.removeOne()
-            print(deletedCard)
-            print("총 \(cardDeck.count())장의 카드가 남아있습니다.")
+            deletedCard = try cardDeck.removeOne()
         } catch CardDeck.CardDeckStatus.noCard {
             throw CardDeck.CardDeckStatus.noCard
         }
-        return cardDeck
+        return deletedCard
     }
 
     mutating func getCardPacks(cardDeck: inout CardDeck, packCount: Int) throws -> Array<CardPack> {
@@ -48,15 +42,14 @@ typealias PokerGameAction = DealerAction
 
 extension PokerGameAction {
 
-    func setPokerGame(pokerGame: inout PokerGame) -> PokerGame {
+    func setPokerGame(pokerGame: inout PokerGame) throws {
         for _ in 1...Int(pokerGame.pokerRule.value/2) {
             do {
                 try pokerGame.nextTurn()
             } catch {
-                print(PokerGame.GuideMessage.notEnoughCard.rawValue)
+                throw PokerGame.GuideMessage.notEnoughCard
             }
         }
-        return pokerGame
     }
 
 }

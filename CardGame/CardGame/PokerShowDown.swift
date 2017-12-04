@@ -24,7 +24,7 @@ struct PokerShowDown {
         self.cards = cards
     }
 
-    enum PokerHands: Int {
+    enum PokerHands: Int, Comparable {
         case none
         case onePair, twoPair // 숫자가 같은 카드 2장 1세트, 2세트 이상
         case threeOfAKind     // 숫자가 같은 카드 3장.(트리플)
@@ -33,6 +33,10 @@ struct PokerShowDown {
         case fullHouse        // 트리플과 원 페어가 같이 존재.
         case fourOfAKind      // 숫자가 같은 카드 4장.(포카드)
         case straightFlush    // 숫자가 연속되고 무늬가 같은 카드 5장.
+
+        static func <(lhs: PokerHands, rhs: PokerHands) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
     }
 
     mutating func openCards() -> PokerShowDownResult {
