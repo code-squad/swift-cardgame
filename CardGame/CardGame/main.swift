@@ -9,4 +9,6 @@
 import Foundation
 
 let card = Card()
-print(card.getCard())
+print(card)
+
+

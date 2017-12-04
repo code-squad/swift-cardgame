@@ -52,8 +52,10 @@ class Card {
         return Rank.allValues[randomValue]
     }
     
-    func getCard() -> String {
+}
+
+extension Card: CustomStringConvertible {
+    var description: String {
         return suit.rawValue + rank.rawValue
     }
-    
 }
