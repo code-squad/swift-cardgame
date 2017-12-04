@@ -12,9 +12,11 @@ import Foundation
 class Card {
     private let shape: Shape
     private let number: Number
+    private var isFaceUp: Bool
     init(_ shape: Shape, _ number: Number) {
         self.shape = shape
         self.number = number
+        self.isFaceUp = false
     }
     deinit {
         // print("\(self.description): Card instance deinitialized.")
