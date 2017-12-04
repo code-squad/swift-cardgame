@@ -29,6 +29,8 @@
 		EE3B7C2A1FC80555003AC06F /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B7C281FC80555003AC06F /* Shape.swift */; };
 		EE3B7C2C1FC81738003AC06F /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B7C2B1FC81738003AC06F /* Number.swift */; };
 		EE3B7C2D1FC81738003AC06F /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B7C2B1FC81738003AC06F /* Number.swift */; };
+		EECA5AF51FD4F62100EE610D /* CustomIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA5AF41FD4F62100EE610D /* CustomIterator.swift */; };
+		EECA5AF61FD4F62100EE610D /* CustomIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA5AF41FD4F62100EE610D /* CustomIterator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +61,7 @@
 		EE3B7C251FC804E9003AC06F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		EE3B7C281FC80555003AC06F /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		EE3B7C2B1FC81738003AC06F /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		EECA5AF41FD4F62100EE610D /* CustomIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIterator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,7 @@
 			children = (
 				EE30F3B91FCD27700077382D /* EnumCollection.swift */,
 				EE30F3CB1FCFA6A90077382D /* Extensions.swift */,
+				EECA5AF41FD4F62100EE610D /* CustomIterator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -238,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EECA5AF51FD4F62100EE610D /* CustomIterator.swift in Sources */,
 				EE30F3BD1FCD32610077382D /* Deck.swift in Sources */,
 				EE30F3C01FCD40570077382D /* InputView.swift in Sources */,
 				EE3B7C291FC80555003AC06F /* Shape.swift in Sources */,
@@ -256,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EECA5AF61FD4F62100EE610D /* CustomIterator.swift in Sources */,
 				EE30F3BE1FCD32610077382D /* Deck.swift in Sources */,
 				EE30F3C11FCD40570077382D /* InputView.swift in Sources */,
 				EE3B7C2A1FC80555003AC06F /* Shape.swift in Sources */,

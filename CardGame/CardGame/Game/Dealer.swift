@@ -10,13 +10,10 @@ import Foundation
 
 struct Dealer {
     private var deck: Deck
-    private var cardStacks: [CardStack]
+    let cardStacks: CardStacks
     init() {
         self.deck = Deck()
-        self.cardStacks = []
-    }
-    var allOfCardStacks: [CardStack] {
-        return self.cardStacks
+        self.cardStacks = CardStacks()
     }
     var isDeckEmpty: Bool {
         return self.deck.isEmpty
@@ -45,7 +42,7 @@ struct Dealer {
 
     private mutating func setCardStack(of numberOfPeople: Int, with stud: Stud) {
         // 이전 게임 때 스택 지우기. (이전 게임에 사용된 카드는 제외)
-        resetCardStack()
+        self.cardStacks.reset()
         var participants = numberOfPeople
         // 딜러의 스택까지 포함하여 생성.
         for _ in 0...participants {
@@ -55,7 +52,35 @@ struct Dealer {
         }
     }
 
-    mutating func resetCardStack() {
+}
+
+
+class CardStacks: Sequence {
+    private let start: Int
+    private var cardStacks: [CardStack]
+    init() {
+        self.start = 0
+        self.cardStacks = []
+    }
+
+    func makeIterator() -> ClassIteratorOf<CardStack> {
+        return ClassIteratorOf(self.cardStacks)
+    }
+
+    subscript(index: Int) -> Iterator.Element? {
+        guard index > -1 && index < self.cardStacks.count else { return nil }
+        return self.cardStacks[index]
+    }
+
+    var endIndex: Int {
+        return self.cardStacks.endIndex
+    }
+
+    fileprivate func append(_ cardStack: CardStack) {
+        self.cardStacks.append(cardStack)
+    }
+
+    fileprivate func reset() {
         self.cardStacks = []
     }
 
