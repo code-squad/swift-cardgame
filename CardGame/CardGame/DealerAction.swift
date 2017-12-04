@@ -44,9 +44,9 @@ struct DealerAction {
 
 }
 
-typealias PokerGamePlay = DealerAction
+typealias PokerGameAction = DealerAction
 
-extension PokerGamePlay {
+extension PokerGameAction {
 
     func setPokerGame(pokerGame: inout PokerGame) -> PokerGame {
         for _ in 1...Int(pokerGame.pokerRule.value/2) {

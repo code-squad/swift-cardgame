@@ -10,19 +10,18 @@ import Foundation
 
 var cardDeck: CardDeck = CardDeck()
 let inputView: InputView = InputView()
-let dealer: Dealer = Dealer.init(inputView: inputView)
-var dealerAction: DealerAction = DealerAction()
+var dealer: Dealer = Dealer.init(inputView: inputView)
 let outputView: OutputView = OutputView()
 dealerLoop: while cardDeck.count() != 0 {
-    let action: DealerAction.CardAction = dealer.chooseAction()
+    let action = dealer.chooseAction()
     switch action {
     case .reset:
-        cardDeck = dealerAction.reset(cardDeck: &cardDeck)
+        cardDeck = dealer.dealerAction.reset(cardDeck: &cardDeck)
     case .shuffle:
-        cardDeck = dealerAction.shuffle(cardDeck: &cardDeck)
+        cardDeck = dealer.dealerAction.shuffle(cardDeck: &cardDeck)
     case .removeOne:
         do {
-            cardDeck = try dealerAction.removeOne(cardDeck: &cardDeck)
+            cardDeck = try dealer.dealerAction.removeOne(cardDeck: &cardDeck)
         } catch CardDeck.CardDeckStatus.noCard {
             print(CardDeck.CardDeckStatus.noCard.rawValue)
             continue dealerLoop
@@ -30,32 +29,19 @@ dealerLoop: while cardDeck.count() != 0 {
     case .cardPacks:
         let cardPackCount: Int = dealer.selectCardPackCount()
         do {
-            let cardPacks = try dealerAction.getCardPacks(cardDeck: &cardDeck, packCount: cardPackCount)
+            let cardPacks = try dealer.dealerAction.getCardPacks(cardDeck: &cardDeck, packCount: cardPackCount)
             outputView.showCardPacks(cardPacks: cardPacks)
         } catch CardDeck.CardDeckStatus.noCard {
             print(CardDeck.CardDeckStatus.noCard.rawValue)
         }
     case .pokerGame:
-        let pokerRule: PokerGame.PokerRules = dealer.selectGameRule()
-        let playerCount: Int = dealer.selectPlayerCount()
-        var pokerGame: PokerGame = PokerGame.init(cardDeck: cardDeck, playerCount: playerCount, pokerRule: pokerRule)
-        pokerGame = dealerAction.setPokerGame(pokerGame: &pokerGame)
+        var pokerGamePlay: PokerGamePlay = PokerGamePlay(dealer: dealer, cardDeck: cardDeck)
+        let pokerGame = pokerGamePlay.setPokerGame()
         outputView.showPokerTable(pokerGame: pokerGame)
-        var shouldMoreCard: Bool = true
-        for _ in 0..<(pokerRule.value-Int(pokerRule.value/2)) {
-            shouldMoreCard = dealer.shouldMoreCard()
-            guard shouldMoreCard else {
-                break dealerLoop
-            }
-            do {
-                try pokerGame.nextTurn()
-            } catch PokerGame.GuideMessage.notEnoughCard {
-                print(PokerGame.GuideMessage.notEnoughCard.rawValue)
-                break dealerLoop
-            }
+        if pokerGamePlay.play() {
             outputView.showPokerTable(pokerGame: pokerGame)
+            outputView.showWinner(pokerGame: pokerGame)
         }
-        outputView.showWinner(pokerGame: pokerGame)
         break dealerLoop
     case .none:
         break
