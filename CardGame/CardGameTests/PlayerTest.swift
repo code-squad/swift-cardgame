@@ -111,7 +111,7 @@ class PlayerTest: XCTestCase {
         player.callNewCard(Card.init(suit: .spades, rank: .king, upside: false))
         player.callNewCard(Card.init(suit: .spades, rank: .ace, upside: false))
         XCTAssertEqual(player.showDown(), Player.PokerHands.straight)
-//        XCTAssertEqual(player.top, player.cards[4])
+        XCTAssertEqual(player.top, player.cards[3])
     }
 
     func testShowDown_flush() {
@@ -137,7 +137,7 @@ class PlayerTest: XCTestCase {
         player.callNewCard(Card.init(suit: .spades, rank: .jack, upside: false))
         player.callNewCard(Card.init(suit: .spades, rank: .ace, upside: false))
         XCTAssertEqual(player.showDown(), Player.PokerHands.fullHouse)
-//        XCTAssertEqual(player.top, player.cards[2])
+        XCTAssertEqual(player.top, player.cards[2])
     }
 
     func testShowDown_fourOfAKind() {
