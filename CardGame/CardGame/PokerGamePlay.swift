@@ -37,5 +37,5 @@ struct PokerGamePlay {
         }
         return shouldMoreCard
     }
-    
+
 }
