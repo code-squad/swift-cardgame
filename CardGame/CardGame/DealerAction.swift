@@ -9,20 +9,33 @@
 import Foundation
 
 struct DealerAction {
+    private var cardDeck: CardDeck
+
+    init() {
+        cardDeck = CardDeck()
+    }
 
     enum CardAction: Int {
         case none, reset, shuffle, removeOne, cardPacks, pokerGame
     }
 
-    mutating func reset(cardDeck: inout CardDeck) {
+    func isRemain() -> Bool {
+        return cardDeck.count() > 0
+    }
+
+    func count() -> Int {
+        return cardDeck.count()
+    }
+
+    mutating func reset() {
         cardDeck.reset()
     }
 
-    mutating func shuffle(cardDeck: inout CardDeck) {
+    mutating func shuffle() {
         cardDeck.shuffle()
     }
 
-    mutating func removeOne(cardDeck: inout CardDeck) throws -> Card {
+    mutating func removeOne() throws -> Card {
         var deletedCard: Card!
         do {
             deletedCard = try cardDeck.removeOne()
@@ -32,24 +45,8 @@ struct DealerAction {
         return deletedCard
     }
 
-    mutating func getCardPacks(cardDeck: inout CardDeck, packCount: Int) throws -> Array<CardPack> {
+    mutating func getCardPacks(packCount: Int) throws -> Array<CardPack> {
         return try cardDeck.getCardPacks(packCount: packCount)
-    }
-
-}
-
-typealias PokerGameAction = DealerAction
-
-extension PokerGameAction {
-
-    func setPokerGame(pokerGame: inout PokerGame) throws {
-        for _ in 1...pokerGame.getAvailableTurnCount() {
-            do {
-                try pokerGame.nextTurn()
-            } catch {
-                throw PokerGame.GuideMessage.notEnoughCard
-            }
-        }
     }
 
 }
