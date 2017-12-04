@@ -38,6 +38,7 @@ class Player {
     }
 
     func showDown() -> PokerHands {
+        countSameSuit()
         if isStraightFlush() {
             return .straightFlush
         } else if isFourOfAKind() {
@@ -218,26 +219,51 @@ private extension ShowDown {
     }
 
     func isStraightFlush() -> Bool {
-        countSameSuit()
-        var counter: Int = 0
-        var straightCounter: [Card] = []
-        if isFlush() {
-            for (key, value) in suitCounter where value >= 5 {
-                for card in cards where card.suit == key {
-                    straightCounter.append(card)
-                }
-            }
+        var sameSuitCards: [Card] = []
+        if isFlush() { sameSuitCards = getSameSuitCard() }
+        if checkStraight(for: sameSuitCards) {
+            return true
         }
-        for i in 0..<straightCounter.count where i >= 1 {
-            if straightCounter[i].rank.rawValue == straightCounter[i-1].rank.rawValue+1 {
+        if isBackStraightFlush(sameSuitCards: sameSuitCards) {
+            setTopForBackStraightFlush(suit: sameSuitCards[0].suit)
+            return true
+        }
+        return false
+    }
+
+    func getSameSuitCard() -> [Card] {
+        for (key, value) in suitCounter where value >= 5 {
+            return cards.filter { $0.suit == key }
+        }
+        return []
+    }
+
+    func checkStraight(for sameSuitCards: [Card]) -> Bool {
+        var counter: Int = 0
+        for i in 0..<sameSuitCards.count where i >= 1 {
+            if sameSuitCards[i].rank.rawValue == sameSuitCards[i-1].rank.rawValue+1 {
                 counter += 1
             }
             if counter >= 4 {
-                top = straightCounter[i]
+                top = sameSuitCards[i]
                 return true
             }
         }
         return false
+    }
+
+    func isBackStraightFlush(sameSuitCards: [Card]) -> Bool {
+        var counter: Int = 0
+        for card in sameSuitCards where card.rank == .ace || card.rank == .two || card.rank == .three || card.rank == .four || card.rank == .five {
+            counter += 1
+        }
+        return counter == 5
+    }
+
+    func setTopForBackStraightFlush(suit: Card.Suit) {
+        for card in cards where card.rank == .five && card.suit == suit {
+            top = card
+        }
     }
 //    func isStraightFlush() -> Bool {
 //        var counter: Int = 0

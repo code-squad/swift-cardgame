@@ -166,4 +166,17 @@ class PlayerTest: XCTestCase {
         XCTAssertEqual(player.top, player.cards[4])
     }
 
+    func testShowDown_backStraightFlush() {
+        player = Player.init(name: "tester")
+        player.callNewCard(Card.init(suit: .hearts, rank: .two, upside: false))
+        player.callNewCard(Card.init(suit: .hearts, rank: .three, upside: false))
+        player.callNewCard(Card.init(suit: .hearts, rank: .four, upside: false))
+        player.callNewCard(Card.init(suit: .hearts, rank: .five, upside: false))
+        player.callNewCard(Card.init(suit: .hearts, rank: .seven, upside: false))
+        player.callNewCard(Card.init(suit: .spades, rank: .king, upside: false))
+        player.callNewCard(Card.init(suit: .hearts, rank: .ace, upside: false))
+        XCTAssertEqual(player.showDown(), Player.PokerHands.straightFlush)
+        XCTAssertEqual(player.top, player.cards[3])
+    }
+
 }
