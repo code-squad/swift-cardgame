@@ -36,6 +36,4 @@ class PlayerTest: XCTestCase {
         XCTAssertEqual(player.cards.count, 2)
     }
 
-    
-
 }
