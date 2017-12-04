@@ -10,8 +10,8 @@ import Foundation
 
 // Card = Rank + Suit
 class Card {
-    private var shape: Shape
-    private var number: Number
+    private let shape: Shape
+    private let number: Number
     init(_ shape: Shape, _ number: Number) {
         self.shape = shape
         self.number = number
