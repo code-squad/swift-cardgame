@@ -25,10 +25,12 @@ struct OutputView {
 
     func showWinner(pokerGame: PokerGame) {
         for i in 0..<pokerGame.players.count {
-            print("\(pokerGame.players[i].name) -> \(pokerGame.players[i].showDown()), top: \(pokerGame.players[i].top!)")
+            pokerGame.players[i].openCards()
+            print("\(pokerGame.players[i].name) -> \(pokerGame.players[i].pokerHand), top: \(pokerGame.players[i].top!)")
         }
-        print("\(pokerGame.dealer.name) -> \(pokerGame.dealer.showDown()), top: \(pokerGame.dealer.top!)")
-        print("Winner!!! : \(pokerGame.findWinner().name) , \(pokerGame.findWinner().showDown()), \(pokerGame.dealer.top!)")
+        pokerGame.dealer.openCards()
+        print("\(pokerGame.dealer.name) -> \(pokerGame.dealer.pokerHand), top: \(pokerGame.dealer.top!)")
+        print("Winner!!! : \(pokerGame.findWinner().name) , \(pokerGame.findWinner().pokerHand), \(pokerGame.findWinner().top!)")
     }
 
 }

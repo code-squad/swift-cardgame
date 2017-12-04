@@ -16,9 +16,11 @@ class Player {
     private var rankSortedCounter: Array<(key: Card.Rank, value: Int)> = []
     private var suitCounter: [Card.Suit:Int] = [:]
     private var hasMoreTriple: Bool = false
+    private(set) var pokerHand: PokerHands
 
     init(name: String) {
         self.name = name
+        pokerHand = .none
     }
 
     enum PokerHands: Int {
@@ -37,16 +39,20 @@ class Player {
         cards.sort()
     }
 
-    func showDown() -> PokerHands {
+    func openCards() {
+        pokerHand = showDown()
+    }
+
+    private func showDown() -> PokerHands {
         countSameSuit()
         if isStraightFlush() {
             return .straightFlush
+        } else if isFlush() {
+            return .flush
         } else if isFourOfAKind() {
             return .fourOfAKind
         } else if isFullHouse() {
             return .fullHouse
-        } else if isFlush() {
-            return .flush
         } else if isStraight() || isBackStraight() {
             return .straight
         } else if isThreeOfAKind() {
@@ -163,24 +169,6 @@ private extension ShowDown {
         }
     }
 
-//    func isStraight() -> Bool {
-//        var counter: Int = 0
-//        for i in 1..<cards.count {
-//            if cards[i].rank.rawValue == (cards[i-1].rank.rawValue + 1) {
-//                counter += 1
-//                if counter >= 4 {
-//                    top = cards[i]
-//                    return true
-//                }
-//            } else if cards[i].rank.rawValue == cards[i-1].rank.rawValue {
-//                continue
-//            } else {
-//                counter = 0
-//            }
-//        }
-//        return false
-//    }
-
     func isBackStraight() -> Bool {
         var counter: [Card.Rank:Int] = [:]
         for card in cards where card.rank == .ace || card.rank == .two || card.rank == .three || card.rank == .four || card.rank == .five {
@@ -265,20 +253,5 @@ private extension ShowDown {
             top = card
         }
     }
-//    func isStraightFlush() -> Bool {
-//        var counter: Int = 0
-//        for i in 1..<cards.count {
-//            if (cards[i].suit == cards[i-1].suit) && (cards[i].rank.rawValue == cards[i-1].rank.rawValue+1) {
-//                counter += 1
-//                if counter >= 4 {
-//                    top = cards[i]
-//                    return true
-//                }
-//            } else {
-//                counter = 0
-//            }
-//        }
-//        return false
-//    }
 
 }

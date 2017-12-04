@@ -62,9 +62,9 @@ extension PokerWinnerChecker {
         allPlayer.append(dealer)
         var winner: Player = allPlayer[0]
         for player in allPlayer {
-            if winner.showDown().rawValue < player.showDown().rawValue {
+            if winner.pokerHand.rawValue < player.pokerHand.rawValue {
                 winner = player
-            } else if (winner.showDown().rawValue == player.showDown().rawValue)
+            } else if (winner.pokerHand.rawValue == player.pokerHand.rawValue)
                 && (winner.top! < player.top!) {
                 winner = player
             }
