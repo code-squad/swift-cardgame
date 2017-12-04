@@ -53,10 +53,10 @@ struct CardDeck {
     // set new full card deck
     mutating private func setNewFullCardDeck() {
         for rank in Card.Rank.allCases {
-            fullCardDeck.append(Card.init(suit: .spades, rank: rank, upside: false))
-            fullCardDeck.append(Card.init(suit: .hearts, rank: rank, upside: false))
-            fullCardDeck.append(Card.init(suit: .diamonds, rank: rank, upside: false))
-            fullCardDeck.append(Card.init(suit: .clubs, rank: rank, upside: false))
+            fullCardDeck.append(Card.init(suit: .spades, rank: rank))
+            fullCardDeck.append(Card.init(suit: .hearts, rank: rank))
+            fullCardDeck.append(Card.init(suit: .diamonds, rank: rank))
+            fullCardDeck.append(Card.init(suit: .clubs, rank: rank))
         }
         cardDeck = fullCardDeck
     }

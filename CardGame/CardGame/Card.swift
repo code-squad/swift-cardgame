@@ -10,7 +10,6 @@ import Foundation
 
 class Card: CustomStringConvertible {
     let suit: Suit, rank: Rank
-    private var upside: Bool
 
     enum Suit: String {
         case spades = "♠️"
@@ -42,22 +41,13 @@ class Card: CustomStringConvertible {
         }
     }
 
-    init(suit: Suit, rank: Rank, upside: Bool) {
+    init(suit: Suit, rank: Rank) {
         self.suit = suit
         self.rank = rank
-        self.upside = upside
     }
 
     var description: String {
         return "\(suit.rawValue)\(rank.value)"
-    }
-
-    func openCard() {
-        upside = true
-    }
-
-    func isUpside() -> Bool {
-        return upside
     }
 
 }
