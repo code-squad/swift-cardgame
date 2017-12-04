@@ -37,21 +37,10 @@ class Card {
         static let allValues = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen]
     }
     
-    init() {
-        self.suit = Card.selectSuit()
-        self.rank = Card.selectRank()
+    init(suit: Int, rank: Int) {
+        self.suit = Card.Suit.allValues[suit]
+        self.rank = Card.Rank.allValues[rank]
     }
-    
-    private static func selectSuit() -> Suit {
-        let randomValue = Int(arc4random_uniform(UInt32(Suit.allValues.count)))
-        return Suit.allValues[randomValue]
-    }
-    
-    private static func selectRank() -> Rank {
-        let randomValue = Int(arc4random_uniform(UInt32(Rank.allValues.count)))
-        return Rank.allValues[randomValue]
-    }
-    
 }
 
 extension Card: CustomStringConvertible {
