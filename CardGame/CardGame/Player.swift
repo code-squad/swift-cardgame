@@ -208,7 +208,9 @@ private extension ShowDown {
 
     func isStraightFlush() -> Bool {
         var sameSuitCards: [Card] = []
-        if isFlush() { sameSuitCards = getSameSuitCard() }
+        if isFlush() {
+            sameSuitCards = getSameSuitCard()
+        }
         if checkStraight(for: sameSuitCards) {
             return true
         }
