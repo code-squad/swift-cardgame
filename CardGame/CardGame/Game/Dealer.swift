@@ -9,11 +9,17 @@
 import Foundation
 
 struct Dealer {
-    private(set) var deck: Deck
-    private(set) var cardStacks: [CardStack]
+    private var deck: Deck
+    private var cardStacks: [CardStack]
     init() {
         self.deck = Deck()
         self.cardStacks = []
+    }
+    var allOfCardStacks: [CardStack] {
+        return self.cardStacks
+    }
+    var isDeckEmpty: Bool {
+        return self.deck.isEmpty
     }
     enum GameMenu: Int {
         case reset = 1
