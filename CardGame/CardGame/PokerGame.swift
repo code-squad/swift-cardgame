@@ -11,8 +11,8 @@ import Foundation
 struct PokerGame {
     private(set) var players: Array<Player> = []
     private(set) var dealer: Player = Player.init(name: "dealer")
-    private var cardDeck: CardDeck
     private let pokerRule: PokerRules
+    private var dealerAction: DealerAction
 
     enum GuideMessage: String, Error {
         case notEnoughCard = "더이상 카드가 모두에게 돌아갈 수 없습니다."
@@ -33,26 +33,46 @@ struct PokerGame {
         }
     }
 
-    init(cardDeck: CardDeck, playerCount: Int, pokerRule: PokerRules) {
+    init(dealerAction: DealerAction, playerCount: Int, pokerRule: PokerRules) {
         for i in 1...playerCount {
             players.append(Player.init(name: "참가자#\(i)"))
         }
-        self.cardDeck = cardDeck
         self.pokerRule = pokerRule
+        self.dealerAction = dealerAction
+    }
+
+    mutating func setPokerGame() throws {
+        for _ in 1...getAvailableTurnCount() {
+            do {
+                try nextTurn()
+            } catch {
+                throw GuideMessage.notEnoughCard
+            }
+        }
     }
 
     mutating func nextTurn() throws {
-        guard players.count+1 < cardDeck.count() else {
+        guard players.count+1 < dealerAction.count() else {
             throw GuideMessage.notEnoughCard
         }
         for i in 0..<players.count {
-            players[i].callNewCard(try cardDeck.removeOne())
+            players[i].callNewCard(try dealerAction.removeOne())
         }
-        dealer.callNewCard(try cardDeck.removeOne())
+        dealer.callNewCard(try dealerAction.removeOne())
     }
 
-    func getAvailableTurnCount() -> Int {
+    private func getAvailableTurnCount() -> Int {
         return Int(pokerRule.value/2)
+    }
+
+    mutating func play(pokerRule: PokerRules) throws {
+        for _ in 0..<(pokerRule.value-Int(pokerRule.value/2)) {
+            do {
+                try nextTurn()
+            } catch {
+                throw GuideMessage.notEnoughCard
+            }
+        }
     }
 
 }
