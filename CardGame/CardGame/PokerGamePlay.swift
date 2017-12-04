@@ -9,33 +9,26 @@
 import Foundation
 
 struct PokerGamePlay {
-    private let dealer: Dealer
-    private var pokerRule: PokerGame.PokerRules
-    private var playerCount: Int
-    private var pokerGame: PokerGame
+    private let dealerAction: DealerAction
+    private(set) var pokerGame: PokerGame
 
-    init(dealer: Dealer, cardDeck: CardDeck) {
-        self.dealer = dealer
-        pokerRule = dealer.selectGameRule()
-        playerCount = dealer.selectPlayerCount()
+    init(dealerAction: DealerAction, cardDeck: CardDeck, playerCount: Int, pokerRule: PokerGame.PokerRules) {
+        self.dealerAction = dealerAction
         pokerGame = PokerGame.init(cardDeck: cardDeck, playerCount: playerCount, pokerRule: pokerRule)
     }
 
-    mutating func setPokerGame() -> PokerGame {
-        return dealer.dealerAction.setPokerGame(pokerGame: &pokerGame)
+    mutating func setPokerGame() throws {
+        try dealerAction.setPokerGame(pokerGame: &pokerGame)
     }
 
-    mutating func play() -> Bool {
-        let shouldMoreCard: Bool = dealer.shouldMoreCard()
-        for _ in 0..<(pokerRule.value-Int(pokerRule.value/2)) where shouldMoreCard {
+    mutating func play(pokerRule: PokerGame.PokerRules) throws {
+        for _ in 0..<(pokerRule.value-Int(pokerRule.value/2)) {
             do {
                 try pokerGame.nextTurn()
             } catch {
-                print(PokerGame.GuideMessage.notEnoughCard.rawValue)
-                break
+                throw PokerGame.GuideMessage.notEnoughCard
             }
         }
-        return shouldMoreCard
     }
 
 }
