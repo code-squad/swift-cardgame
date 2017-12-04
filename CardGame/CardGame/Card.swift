@@ -20,7 +20,6 @@ class Card {
         case clubs = "♣️"
         static let allValues = [spades, hearts, diamonds, clubs]
     }
-    
     enum Rank: String {
         case one = "Ace"
         case two = "2"
