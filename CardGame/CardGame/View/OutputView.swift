@@ -13,11 +13,11 @@ struct OutputView {
     static func printCardStacksWithName(of game: StudPokerGame) {
         for (index, player) in game.enumerated() {
             let stack = player.showAllCards()
-            guard index < game.callDealer().endIndex-1 else {
+            if player.isDealer {
                 print("딜러\t\t\(stack)")
-                continue
+            }else {
+                print("참가자#\(index+1)\t\(stack)")
             }
-            print("참가자#\(index+1)\t\(stack)")
         }
     }
 
