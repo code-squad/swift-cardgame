@@ -33,6 +33,7 @@ struct Deck {
         return self.cards.popLast()
     }
     
+    // Fisher-Yates Shuffle
     mutating func shuffle() {
         var sortedCards = self.cards
         var suffledCards = [Card]()
