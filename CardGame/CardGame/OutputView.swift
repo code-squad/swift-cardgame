@@ -29,7 +29,7 @@ struct OutputView {
         print("카드 전체를 초기화했습니다.")
     }
     
-    func errorMsg(_ code: ErrorMsg) {
+    func errorMsg(_ code: ErrorCode) {
         print("\(code.rawValue)")
     }
 }
