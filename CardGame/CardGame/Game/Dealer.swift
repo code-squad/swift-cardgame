@@ -28,20 +28,16 @@ struct Dealer {
     private mutating func dealCards(numberOf count: StudPokerGame.Stud.RawValue, to players: [Player]) throws {
         // 이전 게임 때 스택 지우기. (이전 게임에 사용된 카드는 제외)
         self.resetStacksOf(players)
-        // 딜러의 스택까지 포함하여 생성.
-        for player in players {
+        // 각 플레이어에게 카드 분배. 딜러의 스택까지 포함하여 생성.
+        for player in 0..<players.count {
             let cardStackForOnePlayer = try drawCards(numberOf: count)
-            player.take(cards: cardStackForOnePlayer)
+            players[player].take(cards: cardStackForOnePlayer)
         }
     }
 
     private func drawCards(numberOf count: StudPokerGame.Stud.RawValue) throws -> CardStack {
         guard let newCardStack = self.deck.removeMany(selectedCount: count) else { throw StudPokerGame.GameError.lackOfCards }
         return newCardStack
-    }
-
-    var endIndex: Int {
-        return self.endIndex
     }
 
     private func append(_ cardStack: CardStack) {
