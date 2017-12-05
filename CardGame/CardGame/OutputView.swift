@@ -25,6 +25,12 @@ struct OutputView {
         print(isCard)
     }
     
+    func showMeTheStack(_ deck: CardStack) {
+        for stack in deck.stacks {
+            print(stack)
+        }
+    }
+    
     func resetMsg() {
         print("카드 전체를 초기화했습니다.")
     }

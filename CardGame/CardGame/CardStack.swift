@@ -9,14 +9,21 @@
 import Foundation
 
 class CardStack {
-    func printStack(deck: Deck) -> Bool {
+    private (set) var stacks: [[Card]]
+
+    init() {
+        self.stacks = [[Card]]()
+    }
+    
+    func hasStack(deck: Deck) -> Bool {
         var value = deck
         for numberOfStack in 1...7 {
-            guard let stack = try? value.makeStack(numberOfCards: numberOfStack) else {
+            guard let element = try? value.makeStack(numberOfCards: numberOfStack) else {
                 return false
             }
-            print("\(stack)")
+            stacks.append(element)
         }
         return true
     }
+    
 }
