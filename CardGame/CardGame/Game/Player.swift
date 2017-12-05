@@ -7,3 +7,34 @@
 //
 
 import Foundation
+
+class Player {
+    private var cardStack: CardStack
+    init() {
+        self.cardStack = CardStack()
+    }
+
+    func resetStack() {
+        self.cardStack.reset()
+    }
+
+    func showAllCards() -> CardStack {
+        return self.cardStack
+    }
+
+    func showACard() -> Card? {
+        return self.cardStack.peek()
+    }
+
+    func take(a newCard: Card?) {
+        guard let card = newCard else { return }
+        self.cardStack.push(card: card)
+    }
+
+    func take(cards: CardStack) {
+        for card in cards {
+            self.take(a: card)
+        }
+    }
+
+}
