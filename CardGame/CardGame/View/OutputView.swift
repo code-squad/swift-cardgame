@@ -10,9 +10,10 @@ import Foundation
 
 struct OutputView {
 
-    static func printCardStacksWithName(by dealer: Dealer) {
-        for (index, stack) in dealer.cardStacks.enumerated() {
-            guard index < dealer.cardStacks.endIndex-1 else {
+    static func printCardStacksWithName(of game: StudPokerGame) {
+        for (index, player) in game.enumerated() {
+            let stack = player.showAllCards()
+            guard index < game.callDealer().endIndex-1 else {
                 print("딜러\t\t\(stack)")
                 continue
             }
@@ -20,7 +21,7 @@ struct OutputView {
         }
     }
 
-    static func printResult(of gameMenu: Dealer.GameMenu?, using deck: Deck, _ cardSelected: Card?) {
+    static func printResult(of gameMenu: Dealer.Operation?, using deck: Deck, _ cardSelected: Card?) {
         guard let menu = gameMenu else { return }
         switch menu {
         case .reset:
@@ -38,9 +39,9 @@ struct OutputView {
         }
     }
 
-    static func printCardStacks(by dealer: Dealer) {
-        for stack in dealer.cardStacks {
-            print(stack)
+    static func printCardStacks(of game: StudPokerGame) {
+        for player in game {
+            print(player.showAllCards())
         }
     }
 
