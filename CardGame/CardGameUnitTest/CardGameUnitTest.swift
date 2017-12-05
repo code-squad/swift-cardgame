@@ -38,4 +38,11 @@ class CardGameUnitTest: XCTestCase {
         let testStack = [clubJCard, clubQCard, clubKCard]
         XCTAssertEqual(madeStack, testStack)
     }
+    
+    func testPOPError() {
+        var deck = Deck()
+        XCTAssertThrowsError(try deck.makeStack(numberOfCards: 53)) { (error) -> Void in
+            XCTAssertEqual(error as? ErrorCode, ErrorCode.zeroCard)
+        }
+    }
 }
