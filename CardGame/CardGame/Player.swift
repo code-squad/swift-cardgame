@@ -12,7 +12,7 @@ class Player: CustomStringConvertible {
     private let name: String
     private var cards: CardPack = []
     private var top: Card?
-    private(set) var pokerHand: PokerShowDown.PokerHands
+    private var pokerHand: PokerShowDown.PokerHands
 
     init(name: String) {
         self.name = name

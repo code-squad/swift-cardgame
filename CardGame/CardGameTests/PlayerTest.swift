@@ -35,4 +35,15 @@ class PlayerTest: XCTestCase {
         XCTAssertEqual(player.description, "tester : [♥️A, ♠️A]")
     }
 
+    func testOpenCards() {
+        player = Player.init(name: "tester")
+        player.callNewCard(Card.init(suit: .spades, rank: .ace))
+        player.callNewCard(Card.init(suit: .hearts, rank: .ace))
+        player.callNewCard(Card.init(suit: .diamonds, rank: .ace))
+        player.callNewCard(Card.init(suit: .clubs, rank: .ace))
+        player.callNewCard(Card.init(suit: .hearts, rank: .two))
+        player.openCards()
+        XCTAssertEqual(player.winnerDescription, "tester -> fourOfAKind, top: ♠️A")
+    }
+
 }
