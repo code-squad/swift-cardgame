@@ -17,7 +17,7 @@ func executeCard() {
     deck.shuffle()
     _ = stackPrint.printStack(deck: deck)
     // Menu 를 출력하는 while 문을 false로 지정해서 실행하지 않게 하였습니다. 그리고
-    // 스택의 값을 출력하는 부분을 false위에 선언하여 해결하였습니다.
+    // 스택의 값을 출력하는 부분을 while위에 선언하여 해결하였습니다.
     var repeatCondition = false
     
     while repeatCondition {
