@@ -13,6 +13,10 @@ struct OutputView {
         print("총 \(deck.count())장의 카드가 있습니다.\n")
     }
     
+    func countOfRestDeck(_ deck: Deck) {
+        print("전체 \(deck.count())장의 카드를 섞었습니다.\n")
+    }
+    
     func showMeTheCard(_ card: Card?) {
         guard let isCard = card else {
             errorMsg(.zeroCard)
@@ -26,6 +30,6 @@ struct OutputView {
     }
     
     func errorMsg(_ code: ErrorMsg) {
-        print("\(code)")
+        print("\(code.rawValue)")
     }
 }
