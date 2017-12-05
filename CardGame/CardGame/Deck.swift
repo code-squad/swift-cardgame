@@ -51,6 +51,7 @@ struct Deck {
 
 
 extension Array {
+    
     mutating func pop(range: Int) throws -> [Element] {
         let startIndexOfStack = self.index(self.endIndex, offsetBy: -(range + 1))
         let popRange = self.index(after: startIndexOfStack)..<self.endIndex
@@ -61,4 +62,5 @@ extension Array {
         self.removeSubrange(popRange)
         return popContents
     }
+    
 }

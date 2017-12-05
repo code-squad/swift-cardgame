@@ -14,7 +14,6 @@ class CardStack {
     init() {
         self.stacks = [[Card]]()
     }
-    
     func hasStack(deck: Deck) -> Bool {
         var value = deck
         for numberOfStack in 1...7 {
