@@ -22,15 +22,16 @@ func executeCard() {
         }
         switch kindOfFunction {
         case "1":
-            deck.reset()
+            deck = deck.reset()
             outputView.resetMsg()
             outputView.countOfDeck(deck)
         case "2":
-            print("test")
+            deck.shuffle()
+            outputView.countOfRestDeck(deck)
         case "3":
             outputView.showMeTheCard(deck.removeOne())
             outputView.countOfDeck(deck)
-        case "q":
+        case "q", "Q":
             repeatCondition = false
         default:
             outputView.errorMsg(.invaildInput)
