@@ -35,12 +35,11 @@ struct Deck {
     
     // Fisher-Yates Shuffle
     mutating func shuffle() {
-        var sortedCards = self.cards
         var suffledCards = [Card]()
         for _ in cards {
-            let roll = arc4random_uniform(UInt32(sortedCards.count))
-            suffledCards.append(sortedCards[Int(roll)])
-            sortedCards.remove(at: Int(roll))
+            let roll = arc4random_uniform(UInt32(self.cards.count))
+            suffledCards.append(self.cards[Int(roll)])
+            self.cards.remove(at: Int(roll))
         }
         self.cards = suffledCards
     }
