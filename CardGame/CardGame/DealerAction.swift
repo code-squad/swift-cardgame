@@ -35,18 +35,12 @@ struct DealerAction {
         cardDeck.shuffle()
     }
 
-    mutating func removeOne() throws -> Card {
-        var deletedCard: Card!
-        do {
-            deletedCard = try cardDeck.removeOne()
-        } catch CardDeck.CardDeckStatus.noCard {
-            throw CardDeck.CardDeckStatus.noCard
-        }
-        return deletedCard
+    mutating func removeOne() -> Card? {
+        return cardDeck.removeOne()
     }
 
-    mutating func getCardPacks(packCount: Int) throws -> Array<CardPack> {
-        return try cardDeck.getCardPacks(packCount: packCount)
+    mutating func getCardPacks(packCount: Int) -> Array<CardPack> {
+        return cardDeck.getCardPacks(packCount: packCount)
     }
 
 }

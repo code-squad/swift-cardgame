@@ -23,41 +23,40 @@ class PokerGameTest: XCTestCase {
 
     func testPokerGame() {
         pokerGame = PokerGame.init(dealerAction: DealerAction(), playerCount: 4, pokerRule: .fiveStud)
-        XCTAssertEqual(pokerGame.players[0].description, "참가자#1 : []")
-        XCTAssertEqual(pokerGame.players[1].description, "참가자#2 : []")
-        XCTAssertEqual(pokerGame.players[2].description, "참가자#3 : []")
-        XCTAssertEqual(pokerGame.players[3].description, "참가자#4 : []")
-        XCTAssertEqual(pokerGame.dealer.description, "dealer : []")
+        XCTAssertEqual(pokerGame.showPokerTable(), "참가자#1 : []\n참가자#2 : []\n참가자#3 : []\n참가자#4 : []\ndealer : []")
     }
 
     func testSetPokerGame() {
         pokerGame = PokerGame.init(dealerAction: DealerAction(), playerCount: 4, pokerRule: .fiveStud)
-        try! pokerGame.setPokerGame()
-        XCTAssertEqual(pokerGame.players[0].description, "참가자#1 : [♦️K, ♣️A]")
-        XCTAssertEqual(pokerGame.players[1].description, "참가자#2 : [♥️K, ♦️A]")
-        XCTAssertEqual(pokerGame.players[2].description, "참가자#3 : [♠️K, ♥️A]")
-        XCTAssertEqual(pokerGame.players[3].description, "참가자#4 : [♣️Q, ♠️A]")
-        XCTAssertEqual(pokerGame.dealer.description, "dealer : [♦️Q, ♣️K]")
+        XCTAssertTrue(pokerGame.setPokerGame())
+        XCTAssertEqual(pokerGame.showPokerTable(), "참가자#1 : [♦️K, ♣️A]\n참가자#2 : [♥️K, ♦️A]\n참가자#3 : [♠️K, ♥️A]\n참가자#4 : [♣️Q, ♠️A]\ndealer : [♦️Q, ♣️K]")
     }
 
     func testNextTurn() {
         pokerGame = PokerGame.init(dealerAction: DealerAction(), playerCount: 3, pokerRule: .fiveStud)
-        try! pokerGame.nextTurn()
-        XCTAssertEqual(pokerGame.players[0].description, "참가자#1 : [♣️A]")
-        XCTAssertEqual(pokerGame.players[1].description, "참가자#2 : [♦️A]")
-        XCTAssertEqual(pokerGame.players[2].description, "참가자#3 : [♥️A]")
-        XCTAssertEqual(pokerGame.dealer.description, "dealer : [♠️A]")
+        XCTAssertTrue(pokerGame.nextTurn())
+        XCTAssertEqual(pokerGame.showPokerTable(), "참가자#1 : [♣️A]\n참가자#2 : [♦️A]\n참가자#3 : [♥️A]\ndealer : [♠️A]")
     }
 
     func testPlay() {
         pokerGame = PokerGame.init(dealerAction: DealerAction(), playerCount: 4, pokerRule: .fiveStud)
-        try! pokerGame.setPokerGame()
-        try! pokerGame.play(pokerRule: .fiveStud)
-        XCTAssertEqual(pokerGame.players[0].description, "참가자#1 : [♣️9, ♠️J, ♥️Q, ♦️K, ♣️A]")
-        XCTAssertEqual(pokerGame.players[1].description, "참가자#2 : [♦️9, ♣️10, ♠️Q, ♥️K, ♦️A]")
-        XCTAssertEqual(pokerGame.players[2].description, "참가자#3 : [♥️9, ♦️10, ♣️J, ♠️K, ♥️A]")
-        XCTAssertEqual(pokerGame.players[3].description, "참가자#4 : [♠️9, ♥️10, ♦️J, ♣️Q, ♠️A]")
-        XCTAssertEqual(pokerGame.dealer.description, "dealer : [♣️8, ♠️10, ♥️J, ♦️Q, ♣️K]")
+        XCTAssertTrue(pokerGame.setPokerGame())
+        XCTAssertTrue(pokerGame.play())
+        XCTAssertEqual(pokerGame.showPokerTable(), "참가자#1 : [♣️9, ♠️J, ♥️Q, ♦️K, ♣️A]\n참가자#2 : [♦️9, ♣️10, ♠️Q, ♥️K, ♦️A]\n참가자#3 : [♥️9, ♦️10, ♣️J, ♠️K, ♥️A]\n참가자#4 : [♠️9, ♥️10, ♦️J, ♣️Q, ♠️A]\ndealer : [♣️8, ♠️10, ♥️J, ♦️Q, ♣️K]")
+    }
+
+    func testShowPokerTable() {
+        pokerGame = PokerGame.init(dealerAction: DealerAction(), playerCount: 1, pokerRule: .fiveStud)
+        XCTAssertTrue(pokerGame.setPokerGame())
+        XCTAssertEqual(pokerGame.showPokerTable(), "참가자#1 : [♣️A, ♥️A]\ndealer : [♦️A, ♠️A]")
+    }
+
+    func testShowWinner() {
+        pokerGame = PokerGame.init(dealerAction: DealerAction(), playerCount: 1, pokerRule: .fiveStud)
+        XCTAssertTrue(pokerGame.setPokerGame())
+        XCTAssertTrue(pokerGame.play())
+        XCTAssertEqual(pokerGame.showPokerTable(), "참가자#1 : [♣️Q, ♣️K, ♥️K, ♣️A, ♥️A]\ndealer : [♦️Q, ♦️K, ♠️K, ♦️A, ♠️A]")
+        XCTAssertEqual(pokerGame.showWinner(), "참가자#1 -> twoPair, top: ♥️A\ndealer -> twoPair, top: ♠️A\nWinner!!! : dealer -> twoPair, top: ♠️A")
     }
 
 }

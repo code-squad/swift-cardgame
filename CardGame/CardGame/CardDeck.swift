@@ -38,9 +38,9 @@ struct CardDeck {
     }
 
     // return last card & remove from current deck
-    mutating func removeOne() throws -> Card {
+    mutating func removeOne() -> Card? {
         guard cardDeck.count > 0 else {
-            throw CardDeckStatus.noCard
+            return nil
         }
         return  cardDeck.removeLast()
     }
@@ -66,19 +66,19 @@ struct CardDeck {
     }
 
     // return a pack of cards
-    private mutating func getCardPack(count: Int) throws -> CardPack {
+    private mutating func getCardPack(count: Int) -> CardPack {
         var cardPack: CardPack = []
         for _ in 0..<count {
-            cardPack.append(try removeOne())
+            cardPack.append(removeOne()!)
         }
         return cardPack
     }
 
     // return packs of cards as many as player wants
-    mutating func getCardPacks(packCount: Int) throws -> Array<CardPack> {
+    mutating func getCardPacks(packCount: Int) -> Array<CardPack> {
         var cardPacks: Array<CardPack> = []
         for i in 1...packCount {
-            cardPacks.append(try getCardPack(count: i))
+            cardPacks.append(getCardPack(count: i))
         }
         return cardPacks
     }

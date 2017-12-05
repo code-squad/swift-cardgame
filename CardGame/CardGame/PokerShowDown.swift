@@ -37,7 +37,7 @@ struct PokerShowDown {
         static func <(lhs: PokerHands, rhs: PokerHands) -> Bool {
             return lhs.rawValue < rhs.rawValue
         }
-        
+
     }
 
     mutating func openCards() -> PokerShowDownResult {
