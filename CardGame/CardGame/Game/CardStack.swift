@@ -8,8 +8,9 @@
 
 import Foundation
 
-class CardStack {
+class CardStack: Sequence {
     private var cards: [Card]
+    let start: Int
     var count: Int {
         return self.cards.count
     }
@@ -18,6 +19,11 @@ class CardStack {
     }
     init() {
         self.cards = []
+        self.start = 0
+    }
+
+    func makeIterator() -> ClassIteratorOf<Card> {
+        return ClassIteratorOf(self.cards)
     }
 }
 
@@ -38,6 +44,10 @@ extension CardStack {
     func shuffle() {
         guard let shuffledCards = self.cards.shuffle() else { return }
         self.cards = shuffledCards
+    }
+
+    func reset() {
+        self.cards = []
     }
 
 }
