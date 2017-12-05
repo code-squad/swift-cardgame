@@ -7,29 +7,25 @@
 //
 
 import XCTest
+@testable import CardGame
 
 class CardGameUnitTest: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testInitalCardDeckHave52Cards() {
+        let deck = Deck()
+        XCTAssertEqual(deck.count(), 52)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testRemoveOneCardisClubK() {
+        var deck = Deck()
+        let card = deck.removeOne()!
+        let testCard = Card(suit: 3, rank: 12)
+        XCTAssertEqual(card, testCard)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRemveOneCardAndCountRestCards() {
+        var deck = Deck()
+        _ = deck.removeOne()!
+        XCTAssertEqual(deck.count(), 51)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
