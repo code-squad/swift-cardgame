@@ -24,3 +24,19 @@ class ClassIteratorOf<Type>: IteratorProtocol {
     }
 
 }
+
+struct StructIteratorOf<Type>: IteratorProtocol {
+    typealias Element = Type
+    private let elements: [Element]
+    private var nextIndex: Int
+    init(_ elements: [Element]) {
+        self.nextIndex = 0
+        self.elements = elements
+    }
+
+    mutating func next() -> Element? {
+        defer { self.nextIndex += 1 }
+        guard self.nextIndex < self.elements.count else { return nil }
+        return self.elements[self.nextIndex]
+    }
+}
