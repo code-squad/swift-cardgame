@@ -44,13 +44,21 @@ struct Deck {
         self.cards = suffledCards
     }
     
-    func makeStack(numberOfCards: Int) throws -> [Card] {
-        var cardStack = [Card]()
-        let startIndexOfStack = cards.index(cards.endIndex, offsetBy: -(numberOfCards + 1))
+    mutating func makeStack(numberOfCards: Int) throws -> [Card] {
+        return try cards.pop(range: numberOfCards)
+    }
+}
+
+
+extension Array {
+    mutating func pop(range: Int) throws -> [Element] {
+        let startIndexOfStack = self.index(self.endIndex, offsetBy: -(range + 1))
+        let popRange = self.index(after: startIndexOfStack)..<self.endIndex
         if startIndexOfStack < -1 {
             throw ErrorCode.zeroCard
         }
-        cardStack.append(contentsOf: cards[cards.index(after: startIndexOfStack)..<cards.endIndex])
-        return cardStack
+        let popContents = Array(self[popRange])
+        self.removeSubrange(popRange)
+        return popContents
     }
 }
