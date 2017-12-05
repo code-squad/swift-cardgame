@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Card {
+class Card: Equatable {
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return (lhs.suit == rhs.suit) && (lhs.rank == rhs.rank) 
+    }
+    
     private var suit: Suit
     private var rank: Rank
     // 열거형 자료형은 같은 개념의 자료들을 묶어 놓을때 사용합니다.
@@ -41,6 +45,8 @@ class Card {
         self.suit = Card.Suit.allValues[suit]
         self.rank = Card.Rank.allValues[rank]
     }
+    
+    
 }
 
 extension Card: CustomStringConvertible {
