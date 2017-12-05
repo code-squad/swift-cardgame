@@ -43,4 +43,14 @@ struct Deck {
         }
         self.cards = suffledCards
     }
+    
+    func makeStack(numberOfCards: Int) throws -> [Card] {
+        var cardStack = [Card]()
+        let startIndexOfStack = cards.index(cards.endIndex, offsetBy: -(numberOfCards + 1))
+        if startIndexOfStack < -1 {
+            throw ErrorCode.zeroCard
+        }
+        cardStack.append(contentsOf: cards[cards.index(after: startIndexOfStack)..<cards.endIndex])
+        return cardStack
+    }
 }
