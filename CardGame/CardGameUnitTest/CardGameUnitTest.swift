@@ -23,9 +23,19 @@ class CardGameUnitTest: XCTestCase {
         XCTAssertEqual(card, testCard)
     }
     
-    func testRemveOneCardAndCountRestCards() {
+    func testRemoveOneCardAndCountRestCards() {
         var deck = Deck()
         _ = deck.removeOne()!
         XCTAssertEqual(deck.count(), 51)
+    }
+    
+    func testPOPStack() {
+        var deck = Deck()
+        let madeStack = try! deck.makeStack(numberOfCards: 3)
+        let clubKCard = Card(suit: 3, rank: 12)
+        let clubQCard = Card(suit: 3, rank: 11)
+        let clubJCard = Card(suit: 3, rank: 10)
+        let testStack = [clubJCard, clubQCard, clubKCard]
+        XCTAssertEqual(madeStack, testStack)
     }
 }
