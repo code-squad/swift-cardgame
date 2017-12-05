@@ -20,8 +20,10 @@ class StudPokerGame: Sequence {
         self.dealer = Dealer(with: self.deck)
         self.players = []
         for _ in 0..<numberOfPlayers {
-            self.players.append(Player())
+            self.players.append(Player(false))
         }
+        // 딜러 카드스택을 저장할 플레이어 생성.
+        self.players.append(Player(true))
         self.start = 0
     }
     // 한 게임의 종료조건
