@@ -22,5 +22,5 @@ struct GameOutputView {
     func showWinner() {
         print(pokerGame.showWinner())
     }
-    
+
 }
