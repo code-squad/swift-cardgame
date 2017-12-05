@@ -10,8 +10,10 @@ import Foundation
 
 class Player {
     private var cardStack: CardStack
-    init() {
+    private(set) var isDealer: Bool
+    init(_ isDealer: Bool) {
         self.cardStack = CardStack()
+        self.isDealer = isDealer
     }
 
     func resetStack() {
