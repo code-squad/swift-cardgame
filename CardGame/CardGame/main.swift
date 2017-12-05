@@ -40,15 +40,14 @@ dealerLoop: while dealerAction.isRemain() {
     case .pokerGame:
         let pokerRule: PokerGame.PokerRules = dealer.selectGameRule()
         let playerCount: Int = dealer.selectPlayerCount()
-        var pokerGame: PokerGame = PokerGame.init(dealerAction: dealerAction, playerCount: playerCount, pokerRule: pokerRule)
+        var pokerGame = PokerGame.init(dealerAction: dealerAction, playerCount: playerCount, pokerRule: pokerRule)
         guard pokerGame.setPokerGame() else {
             print(PokerGame.GuideMessage.notEnoughCard.rawValue)
             break dealerLoop
         }
         let gameOutputView: GameOutputView = GameOutputView(pokerGame: pokerGame)
         gameOutputView.showPokerTable()
-        let shouldMoreCard: Bool = dealer.shouldMoreCard()
-        guard shouldMoreCard && pokerGame.play() else {
+        guard dealer.askMoreCard() && pokerGame.play() else {
             print(PokerGame.GuideMessage.notEnoughCard.rawValue)
             break dealerLoop
         }

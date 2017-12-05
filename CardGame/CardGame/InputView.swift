@@ -84,12 +84,12 @@ extension PokerInputView {
         return selectedNum
     }
 
-    func shouldMoreCard() throws -> Bool {
+    func askMoreCard() throws -> Bool {
         let inputValue: String = readLine() ?? "0"
-        guard let shouldMoreCard = Int(inputValue), shouldMoreCard >= 0 && shouldMoreCard <= 1 else {
+        guard let moreCard = Int(inputValue), moreCard >= 0 && moreCard <= 1 else {
             throw InputGuide.wrongNum
         }
-        return shouldMoreCard == 1
+        return moreCard == 1
     }
 
 }

@@ -87,12 +87,12 @@ extension PokerGameDealer {
         return playerCount
     }
 
-    func shouldMoreCard() -> Bool {
-        var shouldMoreCard: Bool = true
-        while shouldMoreCard {
+    func askMoreCard() -> Bool {
+        var moreCard: Bool = true
+        while moreCard {
             print(PokerInputView.PokerInputGuide.moreCard.rawValue)
             do {
-                shouldMoreCard = try inputView.shouldMoreCard()
+                moreCard = try inputView.askMoreCard()
                 break
             } catch InputView.InputGuide.wrongNum {
                 print(InputView.InputGuide.wrongNum.rawValue)
@@ -100,7 +100,7 @@ extension PokerGameDealer {
                 print(InputView.InputGuide.invalidInput.rawValue)
             }
         }
-        return shouldMoreCard
+        return moreCard
     }
 
 }
