@@ -30,7 +30,7 @@ struct InputView {
                         """
     }
 
-    func askFor(message: String) throws -> String? {
+    func askFor(message: String) -> String? {
         // 요구 메시지 출력.
         print("\(message)", terminator: " ")
         // q 또는 quit 입력 시 종료.
@@ -38,28 +38,28 @@ struct InputView {
         return inputLine
     }
 
-    func askForStud() throws -> Dealer.Stud? {
-        guard let userInput =  try askFor(message: Message.menuStud.rawValue) else { return nil }
+    func askForStud() throws -> StudPokerGame.Stud? {
+        guard let userInput = askFor(message: Message.menuStud.rawValue) else { return nil }
         guard let inputMenu = Int(userInput) else { throw InputError.invalidMenuNumber }
         switch inputMenu {
-        case 1: return Dealer.Stud.sevenCard
-        case 2: return Dealer.Stud.fiveCard
+        case 1: return StudPokerGame.Stud.sevenCard
+        case 2: return StudPokerGame.Stud.fiveCard
         default: throw InputError.invalidMenuNumber
         }
     }
 
     func askForParticipants() throws -> Int? {
-        guard let userInput =  try askFor(message: Message.menuParticipants.rawValue) else { return nil }
+        guard let userInput = askFor(message: Message.menuParticipants.rawValue) else { return nil }
         guard let numberOfPeople = Int(userInput) else { throw InputError.invalidMenuNumber }
-        guard numberOfPeople <= Dealer.participantMaximum && numberOfPeople >= Dealer.participantMinimum else { throw InputError.outOfParticipantRange }
+        guard numberOfPeople <= StudPokerGame.participantMaximum && numberOfPeople >= StudPokerGame.participantMinimum else { throw InputError.outOfParticipantRange }
         return numberOfPeople
     }
 
-    func handleMenus() throws -> Dealer.GameMenu? {
-        guard let userInput =  try askFor(message: Message.menuBase.rawValue) else { return nil }
+    func operate() throws -> Dealer.Operation? {
+        guard let userInput = askFor(message: Message.menuBase.rawValue) else { return nil }
         // 입력값이 숫자가 아니거나 1~3번을 제외한 수인 경우, 에러 전달.
         guard let menuNumber = Int(userInput), menuNumber == 1 || menuNumber == 2 || menuNumber == 3 else { throw InputError.invalidMenuNumber }
-        return Dealer.GameMenu(rawValue: menuNumber)
+        return Dealer.Operation(rawValue: menuNumber)
     }
     
 }
