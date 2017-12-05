@@ -21,6 +21,13 @@ class Card {
     deinit {
         // print("\(self.description): Card instance deinitialized.")
     }
+
+    // 숨겨져있는 카드를 보이도록 뒤집음.
+    func turnOver() {
+        if !isFaceUp {
+            self.isFaceUp = true
+        }
+    }
 }
 
 extension Card: CustomStringConvertible {
