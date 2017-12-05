@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Deck {
+class Deck {
     private var cards: CardStack!
     init() {
         self.reset()
@@ -20,15 +20,15 @@ struct Deck {
         return self.cards.isEmpty
     }
 
-    mutating func shuffle() {
+    func shuffle() {
         self.cards.shuffle()
     }
 
-    mutating func removeOne() -> Card? {
+    func removeOne() -> Card? {
         return self.cards.pop()
     }
 
-    mutating func removeMany(selectedCount: Int) -> CardStack? {
+    func removeMany(selectedCount: Int) -> CardStack? {
         guard self.cards.count - selectedCount > 0 else { return nil }
         let cards: CardStack = CardStack()
         for _ in 0..<selectedCount {
@@ -38,7 +38,7 @@ struct Deck {
         return cards
     }
 
-    mutating func reset() {
+    func reset() {
         // 모든 카드 초기화
         let aStackOfCards = CardStack()
         let shapes = Shape.allValues
