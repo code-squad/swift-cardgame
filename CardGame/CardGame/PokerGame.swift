@@ -9,8 +9,8 @@
 import Foundation
 
 struct PokerGame {
-    private(set) var players: Array<Player> = []
-    private(set) var dealer: Player = Player.init(name: "dealer")
+    private var players: Array<Player> = []
+    private var dealer: Player = Player.init(name: "dealer")
     private let pokerRule: PokerRules
     private var dealerAction: DealerAction
 
@@ -41,38 +41,46 @@ struct PokerGame {
         self.dealerAction = dealerAction
     }
 
-    mutating func setPokerGame() throws {
+    mutating func setPokerGame() -> Bool {
         for _ in 1...getAvailableTurnCount() {
-            do {
-                try nextTurn()
-            } catch {
-                throw GuideMessage.notEnoughCard
+            guard nextTurn() else {
+                return false
             }
         }
+        return true
     }
 
-    mutating func nextTurn() throws {
+    mutating func nextTurn() -> Bool {
         guard players.count+1 < dealerAction.count() else {
-            throw GuideMessage.notEnoughCard
+            return false
         }
         for i in 0..<players.count {
-            players[i].callNewCard(try dealerAction.removeOne())
+            players[i].callNewCard(dealerAction.removeOne()!)
         }
-        dealer.callNewCard(try dealerAction.removeOne())
+        dealer.callNewCard((dealerAction.removeOne())!)
+        return true
     }
 
     private func getAvailableTurnCount() -> Int {
         return Int(pokerRule.value/2)
     }
 
-    mutating func play(pokerRule: PokerRules) throws {
+    mutating func play() -> Bool {
         for _ in 0..<(pokerRule.value-Int(pokerRule.value/2)) {
-            do {
-                try nextTurn()
-            } catch {
-                throw GuideMessage.notEnoughCard
+            guard nextTurn() else {
+                return false
             }
         }
+        return true
+    }
+
+    func showPokerTable() -> String {
+        var table: String = ""
+        for i in 0..<players.count {
+            table += players[i].description + "\n"
+        }
+        table += dealer.description
+        return table
     }
 
 }
@@ -81,11 +89,29 @@ typealias PokerWinnerChecker = PokerGame
 
 extension PokerWinnerChecker {
 
-    func findWinner() -> Player {
+    private func openCards() {
+        for i in 0..<players.count {
+            players[i].openCards()
+        }
+        dealer.openCards()
+    }
+
+    private func findWinner() -> Player {
         var allPlayer = players
         allPlayer.append(dealer)
         allPlayer.sort()
         return allPlayer.last!
+    }
+
+    func showWinner() -> String {
+        openCards()
+        var tableForWinner: String = ""
+        for i in 0..<players.count {
+            tableForWinner += players[i].winnerDescription + "\n"
+        }
+        tableForWinner += dealer.winnerDescription + "\n"
+        tableForWinner += "Winner!!! : \(findWinner().winnerDescription)"
+        return tableForWinner
     }
 
 }

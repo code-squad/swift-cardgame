@@ -23,42 +23,37 @@ dealerLoop: while dealerAction.isRemain() {
         dealerAction.shuffle()
         print("전체 \(dealerAction.count())장의 카드를 섞었습니다.")
     case .removeOne:
-        do {
-            print(try dealerAction.removeOne())
-        } catch CardDeck.CardDeckStatus.noCard {
+        guard let deletedCard = dealerAction.removeOne() else {
             print(CardDeck.CardDeckStatus.noCard.rawValue)
             continue dealerLoop
         }
+        print(deletedCard)
         print("총 \(dealerAction.count())장의 카드가 남아있습니다.")
     case .cardPacks:
         let cardPackCount: Int = dealer.selectCardPackCount()
-        do {
-            let cardPacks = try dealerAction.getCardPacks(packCount: cardPackCount)
+        let cardPacks = dealerAction.getCardPacks(packCount: cardPackCount)
+        if cardPacks.count > 0 {
             outputView.showCardPacks(cardPacks: cardPacks)
-        } catch CardDeck.CardDeckStatus.noCard {
+        } else {
             print(CardDeck.CardDeckStatus.noCard.rawValue)
         }
     case .pokerGame:
         let pokerRule: PokerGame.PokerRules = dealer.selectGameRule()
         let playerCount: Int = dealer.selectPlayerCount()
         var pokerGame: PokerGame = PokerGame.init(dealerAction: dealerAction, playerCount: playerCount, pokerRule: pokerRule)
-        do {
-            try pokerGame.setPokerGame()
-        } catch {
+        guard pokerGame.setPokerGame() else {
             print(PokerGame.GuideMessage.notEnoughCard.rawValue)
             break dealerLoop
         }
-        outputView.showPokerTable(pokerGame: pokerGame)
+        let gameOutputView: GameOutputView = GameOutputView(pokerGame: pokerGame)
+        gameOutputView.showPokerTable()
         let shouldMoreCard: Bool = dealer.shouldMoreCard()
-        if shouldMoreCard {
-            do {
-                try pokerGame.play(pokerRule: pokerRule)
-            } catch {
-                print(PokerGame.GuideMessage.notEnoughCard.rawValue)
-            }
-            outputView.showPokerTable(pokerGame: pokerGame)
-            outputView.showWinner(pokerGame: pokerGame)
+        guard shouldMoreCard && pokerGame.play() else {
+            print(PokerGame.GuideMessage.notEnoughCard.rawValue)
+            break dealerLoop
         }
+        gameOutputView.showPokerTable()
+        gameOutputView.showWinner()
         break dealerLoop
     case .none:
         break

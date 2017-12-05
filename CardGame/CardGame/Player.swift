@@ -40,7 +40,7 @@ class Player: CustomStringConvertible {
 typealias Winner = Player
 
 extension Winner: Comparable {
-    
+
     static func <(lhs: Winner, rhs: Winner) -> Bool {
         if lhs.pokerHand < rhs.pokerHand {
             return true
