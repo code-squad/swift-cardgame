@@ -30,7 +30,7 @@ struct OutputView {
             print(stack)
         }
     }
-    
+
     func resetMsg() {
         print("카드 전체를 초기화했습니다.")
     }

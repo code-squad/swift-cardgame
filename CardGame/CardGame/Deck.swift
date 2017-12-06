@@ -18,6 +18,7 @@ struct Deck {
                 cards.append(Card(suit: kindOfSuit, rank: kindOfRank))
             }
         }
+        self.shuffle()
     }
     
     func count() -> Int {
@@ -48,7 +49,6 @@ struct Deck {
         return try cards.pop(range: numberOfCards)
     }
 }
-
 
 extension Array {
     
