@@ -17,6 +17,7 @@ func executeCard() {
     repeat {
         do {
             let table = Table(try GameInputView.playtheGame())
+            deck.shuffle()
             deck = try table.makeGameTable(with: deck)
             outputView.showMeTheTable(table)
             outputView.lookDealerCards(of: try deck.makeStack(numberOfCards: table.gameInfo.typeOfGames.rawValue))

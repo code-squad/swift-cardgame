@@ -18,7 +18,6 @@ struct Deck {
                 cards.append(Card(suit: kindOfSuit, rank: kindOfRank))
             }
         }
-        self.shuffle()
     }
     
     func count() -> Int {
