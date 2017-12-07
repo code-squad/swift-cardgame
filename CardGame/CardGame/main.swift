@@ -16,16 +16,13 @@ func executeCard() {
     var gameCondition = true
     repeat {
         do {
-            let table = Table(try GameInputView.playtheGame())
-            deck.shuffle()
-            deck = try table.makeGameTable(with: deck)
+            let table = Table(gameInfo: try GameInputView.playtheGame(), with: deck)
+            deck = try table.dealTheCardOfGameTable()
             outputView.showMeTheTable(table)
             outputView.lookDealerCards(of: try deck.makeStack(numberOfCards: table.gameInfo.typeOfGames.rawValue))
         } catch let errorCode as ErrorCode {
             outputView.errorMsg(errorCode)
-            if errorCode == ErrorCode.zeroCard {
-                gameCondition = false
-            }
+            gameCondition = (errorCode != ErrorCode.zeroCard)
         } catch {
             outputView.errorMsg(.notDefineError)
         }
