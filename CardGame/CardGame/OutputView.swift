@@ -9,6 +9,10 @@
 import Foundation
 
 struct OutputView {
+    func resetMsg() {
+        print("카드 전체를 초기화했습니다.")
+    }
+    
     func countOfDeck(_ deck: Deck) {
         print("총 \(deck.count())장의 카드가 있습니다.\n")
     }
@@ -25,16 +29,20 @@ struct OutputView {
         print(isCard)
     }
     
-    func showMeTheStack(_ deck: CardStack) {
-        for stack in deck.stacks {
-            print(stack)
+    func showMeTheTable(_ table: Table) {
+        for index in 0..<table.cardStacksOfTable.count {
+            print("참가자\(index+1)#", terminator: "")
+            print(table.cardStacksOfTable[index])
         }
     }
-
-    func resetMsg() {
-        print("카드 전체를 초기화했습니다.")
-    }
     
+    func lookDealerCards(of cards: [Card]) {
+        print("딜러 \(cards)\n")
+    }
+
+}
+
+extension OutputView {
     func errorMsg(_ code: ErrorCode) {
         print("\(code.rawValue)")
     }
