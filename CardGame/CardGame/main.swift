@@ -21,15 +21,11 @@ func executeCard() {
             deck = try table.makeGameTable(with: deck)
             outputView.showMeTheTable(table)
             outputView.lookDealerCards(of: try deck.makeStack(numberOfCards: table.gameInfo.typeOfGames.rawValue))
-        } catch ErrorCode.invaildInput {
-            outputView.errorMsg(.invaildInput)
-        } catch ErrorCode.invaildPlayersNumber {
-            outputView.errorMsg(.invaildPlayersNumber)
-        } catch ErrorCode.noGameNumbers {
-            outputView.errorMsg(.noGameNumbers)
-        } catch ErrorCode.zeroCard {
-            outputView.errorMsg(.zeroCard)
-            gameCondition = false
+        } catch let errorCode as ErrorCode {
+            outputView.errorMsg(errorCode)
+            if errorCode == ErrorCode.zeroCard {
+                gameCondition = false
+            }
         } catch {
             outputView.errorMsg(.notDefineError)
         }
