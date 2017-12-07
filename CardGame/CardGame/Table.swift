@@ -13,7 +13,7 @@ import Foundation
 
 class Table {
     private (set) var cardStacksOfTable: [[Card]]
-    private var gameInfo: CardGameInfo
+    private (set) var gameInfo: CardGameInfo
     
     // 게임의 타입과 플레이어의 숫자에 따라, 각자 가지고있는 카드의 수, 플레이어의 수에 맞추어
     // 테이블을 세팅한다.
@@ -23,15 +23,16 @@ class Table {
     }
 
     // 테이블 세팅은 하나의 deck을 공용으로 사용한다.
-    func makeGameTable(deck: Deck) -> Bool {
+    func makeGameTable(with deck: Deck) throws -> Deck {
         var value = deck
         for _ in 0..<gameInfo.players {
             guard let playerStack = try? value.makeStack(numberOfCards: gameInfo.typeOfGames.rawValue) else {
-                return false
+                throw ErrorCode.zeroCard
             }
             cardStacksOfTable.append(playerStack)
+            
         }
-        return true
+        return value
     }
     
 }
