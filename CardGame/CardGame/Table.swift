@@ -22,6 +22,7 @@ class Table {
         self.gameInfo = gameInfo
     }
 
+    // gameInfo를 가지고 실제 테이블 세팅을 수행.
     // 테이블 세팅은 하나의 deck을 공용으로 사용한다.
     func makeGameTable(with deck: Deck) throws -> Deck {
         var value = deck
@@ -30,7 +31,6 @@ class Table {
                 throw ErrorCode.zeroCard
             }
             cardStacksOfTable.append(playerStack)
-            
         }
         return value
     }

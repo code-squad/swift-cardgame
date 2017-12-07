@@ -9,7 +9,7 @@
 import XCTest
 @testable import CardGame
 
-class CardGameUnitTest: XCTestCase {
+class DeckUnitTest: XCTestCase {
     
     func testInitalCardDeckHave52Cards() {
         let deck = Deck()
