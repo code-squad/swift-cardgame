@@ -17,6 +17,7 @@
 		40CB3E161FD649D3002E8E6E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3CB1FD50AB400843683 /* Card.swift */; };
 		40CB3E171FD6738E002E8E6E /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3D51FD53DBC00843683 /* ErrorCode.swift */; };
 		40CB3E191FD6762E002E8E6E /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CB3E181FD6762E002E8E6E /* CardStack.swift */; };
+		40CB3E1D1FD8E1ED002E8E6E /* CardGameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CB3E1C1FD8E1ED002E8E6E /* CardGameInfo.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		40CB3E0F1FD64903002E8E6E /* CardGameUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameUnitTest.swift; sourceTree = "<group>"; };
 		40CB3E111FD64903002E8E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40CB3E181FD6762E002E8E6E /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
+		40CB3E1C1FD8E1ED002E8E6E /* CardGameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameInfo.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 				401FE3D11FD5313900843683 /* InputView.swift */,
 				401FE3D31FD5343800843683 /* OutputView.swift */,
 				401FE3D51FD53DBC00843683 /* ErrorCode.swift */,
+				40CB3E1C1FD8E1ED002E8E6E /* CardGameInfo.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				401FE3D01FD52AB600843683 /* Deck.swift in Sources */,
 				401FE3D21FD5313900843683 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				40CB3E1D1FD8E1ED002E8E6E /* CardGameInfo.swift in Sources */,
 				401FE3CC1FD50AB400843683 /* Card.swift in Sources */,
 				40CB3E191FD6762E002E8E6E /* CardStack.swift in Sources */,
 			);
