@@ -13,17 +13,17 @@ import Foundation
 // 2. 플레이어의 수.
 
 struct CardGameInfo {
-    enum Games {
-        case sevenPoker
-        case fivePoker
+    enum Games: Int {
+        case sevenPoker = 7
+        case fivePoker = 5
     }
     
     private (set) var typeOfGames: Games
     private (set) var players: Int
     
     // 최조로 CardGameInfo를 인스턴스화 할때 가장 기본적인 프로퍼티들을 생성하는 생성자.
-    init(typeOfGames: Games, withPlayers: Int) {
-        self.typeOfGames = typeOfGames
+    init(typeOf: Games, withPlayers: Int) {
+        self.typeOfGames = typeOf
         self.players = withPlayers
     }
 }
