@@ -19,8 +19,8 @@ class Card: Equatable {
     // 그리고 Suit로 선언된 변수에 .rawValue를 사용하면 직접 값에 접근할 수 있어서 카드의 값을 구할때 사용하면 좋을 것 같습니다.
     enum Suit: String {
         case spades = "♠️"
-        case hearts = "❤️"
         case diamonds = "♦️"
+        case hearts = "❤️"
         case clubs = "♣️"
         static let allValues = [spades, hearts, diamonds, clubs]
     }
