@@ -132,7 +132,7 @@ extension StudPokerGame {
     func chooseWinner() -> Player {
         let playerRanks = gatherPlayersRanks()
         // 모든 패가 noPair이거나 같은 경우, 가장 높은 탑카드를 가진 플레이어 반환.
-        if isAllNoPair(in: playerRanks) || isAllHandEqual(in: playerRanks) {
+        if isAllNoPair(in: playerRanks) || isAllHandEquals(in: playerRanks) {
             hasBestHandWinner = false
             return whoHasBestTopCard(in: gatherTopCards())
         }else {
