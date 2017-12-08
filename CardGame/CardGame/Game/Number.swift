@@ -15,6 +15,7 @@ enum Number: Int, EnumCollection {
     case jack, queen, king, ace
 }
 
+// 숫자 출력 포맷. jack~ace는 K~A 형태, 그 외의 케이스는 숫자 형태.
 extension Number: CustomStringConvertible {
     var description: String {
         switch self {
@@ -28,16 +29,21 @@ extension Number: CustomStringConvertible {
 
 }
 
-extension Number: Equatable {
+extension Number: Equatable, Comparable, ExtraComparable {
     static func ==(lhs: Number, rhs: Number) -> Bool {
-        guard lhs.hashValue == rhs.hashValue else { return false }
+        guard lhs.rawValue == rhs.rawValue else { return false }
         return true
     }
-}
-
-extension Number: Comparable {
+    
     static func <(lhs: Number, rhs: Number) -> Bool {
-        guard lhs.hashValue < rhs.hashValue else { return false }
+        guard lhs.rawValue < rhs.rawValue else { return false }
         return true
     }
+
+    // 두 카드 숫자의 차이가 1이면 true 반환.
+    static func <<(lhs: Number, rhs: Number) -> Bool {
+        guard abs(rhs.rawValue-lhs.rawValue) == 1 else { return false }
+        return true
+    }
+
 }
