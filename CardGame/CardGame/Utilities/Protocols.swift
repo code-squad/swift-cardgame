@@ -42,4 +42,48 @@ extension EnumCollection {
 
 }
 
-protocol keyType { }
+// 기본스택 기능 제공.
+protocol Stack {
+    var count: Int { get }
+    var isEmpty: Bool { get }
+
+    func push(card: Card)
+
+    func pop() -> Card?
+
+    func peek() -> Card?
+}
+
+// 카드게임스택 기능 제공.
+protocol CardGameStack: Stack {
+    func shuffle()
+
+    func reset()
+}
+
+// 포커게임의 스코어 계산 기능 제공.
+protocol PokerScoreable {
+    func getBestHand() -> PokerHands.HandRanks
+
+    func sortCards() -> [Card]
+
+    func getTopCard() -> Card
+}
+
+// 카드게임 플레이어를 위한 기능 제공.
+protocol CardGamePlayer {
+    func take(a newCard: Card?)
+
+    func take(cards: CardStack)
+
+    func showAllCards() -> CardStack
+
+    func showACard() -> Card?
+
+    func returnCards()
+}
+
+// 기타 비교 기능 제공.
+protocol ExtraComparable: Comparable {
+    static func <<(lhs: Self, rhs: Self) -> Bool
+}
