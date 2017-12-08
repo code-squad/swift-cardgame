@@ -9,10 +9,12 @@
 import Foundation
 
 struct InputView {
+    // 입력 에러 종류.
     enum InputError: String, Error {
         case invalidMenuNumber = "잘못된 메뉴입니다. 다시 선택해 주세요."
         case outOfParticipantRange = "참여 인원을 다시 입력해 주세요."
     }
+    // 메뉴 종류.
     enum Message: String {
         case menuStud = """
                         카드 게임 종류를 선택하세요.
@@ -28,8 +30,20 @@ struct InputView {
                         3. 카드 하나 뽑기
                         >
                         """
+        case tryAgain = "다시 도전하시겠습니까? (y/n)"
     }
 
+    // 재시도 여부 확인.
+    func tryAgain() -> Bool {
+        guard let userInput = askFor(message: Message.tryAgain.rawValue) else { return false }
+        if userInput == "y" || userInput == "yes" {
+            return true
+        }else {
+            return false
+        }
+    }
+
+    // 기본 사용자 입력 함수.
     func askFor(message: String) -> String? {
         // 요구 메시지 출력.
         print("\(message)", terminator: " ")
@@ -38,6 +52,7 @@ struct InputView {
         return inputLine
     }
 
+    // 사용자 입력 Stud 반환.
     func askForStud() throws -> StudPokerGame.Stud? {
         guard let userInput = askFor(message: Message.menuStud.rawValue) else { return nil }
         guard let inputMenu = Int(userInput) else { throw InputError.invalidMenuNumber }
@@ -48,6 +63,7 @@ struct InputView {
         }
     }
 
+    // 사용자 입력 플레이어 수 반환.
     func askForParticipants() throws -> Int? {
         guard let userInput = askFor(message: Message.menuParticipants.rawValue) else { return nil }
         guard let numberOfPeople = Int(userInput) else { throw InputError.invalidMenuNumber }
@@ -55,11 +71,4 @@ struct InputView {
         return numberOfPeople
     }
 
-    func operate() throws -> Dealer.Operation? {
-        guard let userInput = askFor(message: Message.menuBase.rawValue) else { return nil }
-        // 입력값이 숫자가 아니거나 1~3번을 제외한 수인 경우, 에러 전달.
-        guard let menuNumber = Int(userInput), menuNumber == 1 || menuNumber == 2 || menuNumber == 3 else { throw InputError.invalidMenuNumber }
-        return Dealer.Operation(rawValue: menuNumber)
-    }
-    
 }
