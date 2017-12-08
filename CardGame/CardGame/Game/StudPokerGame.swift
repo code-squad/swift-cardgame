@@ -99,7 +99,7 @@ extension StudPokerGame {
     }
 
     // 플레이어들의 모든 패가 같은 경우, true 반환.
-    private func isAllHandEqual(in playerRanks: [(Player, PokerHands.HandRanks)]) -> Bool {
+    private func isAllHandsEqual(in playerRanks: [(Player, PokerHands.HandRanks)]) -> Bool {
         var isAllEqual = false
         let _ = playerRanks.sorted {
             if $0.1.rank == $1.1.rank {
