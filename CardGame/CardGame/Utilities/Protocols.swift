@@ -41,3 +41,5 @@ extension EnumCollection {
     }
 
 }
+
+protocol keyType { }
