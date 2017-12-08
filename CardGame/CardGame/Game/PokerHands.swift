@@ -76,7 +76,7 @@ class PokerHands {
         return false
     }
 
-    // 배열의 원소가 needCount
+    // 배열의 원소가 연속되는 카운트 반환.
     private func howManyContinues<Type:ExtraComparable>(in data: [Type], _ needCount: Int) -> Int {
         var continuedCount = 0
         for (index, curr) in data.enumerated() {
