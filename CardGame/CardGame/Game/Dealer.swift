@@ -9,49 +9,49 @@
 import Foundation
 
 struct Dealer {
+    // 딜러가 운용하는 덱.
     private var deck: Deck
     init(with deck: Deck) {
         self.deck = deck
     }
-    
-    enum Operation: Int {
-        case reset = 1
-        case shuffle
-        case remove
-    }
 
+    // 딜러가 게임 시작.
     mutating func introduce(_ players: [Player], _ stud: StudPokerGame.Stud) throws {
+        // 덱의 카드 섞기.
         self.deck.shuffle()
+        // 모든 플레이어에게 카드 분배.
         try self.dealCards(numberOf: stud.rawValue, to: players)
     }
 
+    // 모든 플레이어에게 stud 개수의 카드 분배.
     private mutating func dealCards(numberOf count: StudPokerGame.Stud.RawValue, to players: [Player]) throws {
-        // 이전 게임 때 스택 지우기. (이전 게임에 사용된 카드는 제외)
-        self.resetStacksOf(players)
-        // 각 플레이어에게 카드 분배. 딜러의 스택까지 포함하여 생성.
+        // 이전게임 시 플레이어들의 스택 지우기. (이전 게임에 사용된 카드는 제외)
+        self.takeBackAllCards(from: players)
+        // 각 플레이어에게 카드 분배. (딜러 자신도 포함.)
         for player in 0..<players.count {
+            // 덱에서 카드 여러장(stud) 뽑음.
             let cardStackForOnePlayer = try drawCards(numberOf: count)
+            // 뽑은 카드를 플레이어가 가짐.
             players[player].take(cards: cardStackForOnePlayer)
         }
     }
 
+    // 덱에서 카드를 stud 개수만큼 뽑음.
     private func drawCards(numberOf count: StudPokerGame.Stud.RawValue) throws -> CardStack {
-        guard let newCardStack = self.deck.removeMany(selectedCount: count) else { throw StudPokerGame.GameError.lackOfCards }
+        guard let newCardStack = self.deck.drawMany(selectedCount: count) else { throw StudPokerGame.GameError.lackOfCards }
         return newCardStack
     }
 
-    private func append(_ cardStack: CardStack) {
-        self.append(cardStack)
-    }
-
-    private mutating func resetStacksOf(_ players: [Player]) {
+    // 모든 플레이어의 카드 회수.
+    private mutating func takeBackAllCards(from players: [Player]) {
         for player in players {
-            self.resetStackOf(player)
+            self.takeBackCards(from: player)
         }
     }
 
-    private mutating func resetStackOf(_ player: Player) {
-        player.resetStack()
+    // 플레이어의 카드 회수.
+    private mutating func takeBackCards(from player: Player) {
+        player.returnCards()
     }
 
 }
