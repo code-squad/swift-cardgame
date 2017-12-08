@@ -37,18 +37,6 @@ class PokerHands {
         }
     }
 
-    // 빈도 테이블 업데이트.
-    private func updateTable<KeyType>(table: inout [KeyType:Int], forKey key: KeyType) {
-        // 해당 키의 기존 값이 있는 경우.
-        if let prevNumberCount = table[key] {
-            // 기존 값에 +1 한 값 저장.
-            table.updateValue(prevNumberCount+1, forKey: key)
-        }else {
-            // 첫 값인 경우, 해당 키의 값에 1 저장.
-            table.updateValue(1, forKey: key)
-        }
-    }
-
     // 카드스택의 숫자 빈도를 통해 가지고 있는 패 리스트 반환.
     private func searchEqualNumberHands(of needCount: Int, for currHandKey: String) -> [HandRanks] {
         var owningHands: [HandRanks] = []
