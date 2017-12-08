@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 클래스 iterator
 class ClassIteratorOf<Type>: IteratorProtocol {
     typealias Element = Type
     private let elements: [Element]
@@ -25,6 +26,7 @@ class ClassIteratorOf<Type>: IteratorProtocol {
 
 }
 
+// 구조체 iterator
 struct StructIteratorOf<Type>: IteratorProtocol {
     typealias Element = Type
     private let elements: [Element]
