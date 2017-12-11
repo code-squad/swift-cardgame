@@ -10,9 +10,17 @@ import Foundation
 
 struct InputView {
     // 입력 에러 종류.
-    enum Error: String, Swift.Error {
+    enum Error: String, Swift.Error, CustomStringConvertible {
         case invalidMenuNumber = "다시 입력해 주세요."
         case outOfParticipantRange = "참여 인원을 다시 입력해 주세요."
+        var description: String {
+            var errorMessage: String = ""
+            switch self {
+            case .invalidMenuNumber: errorMessage = "다시 입력해 주세요."
+            case .outOfParticipantRange: errorMessage = "참여 인원을 다시 입력해 주세요."
+            }
+            return errorMessage
+        }
     }
     // 메뉴 종류.
     enum Message: String {
