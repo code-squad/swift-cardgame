@@ -34,9 +34,9 @@ class TableUnitTest: XCTestCase {
         let spade_J = Card(suit: 3, rank: 10)
         let heart_J = Card(suit: 1, rank: 10)
         let testStack1 = [diamond_J, club_J]
-        let testStack2 = [spade_J, heart_J]
+        let testStack2 = [spade_J, heart_J] // spade OnePair is greater than another OnePair.
         var testCalculate = PokerHand()
-//        XCTAssertEqual(testCalculate.registerPointTable([testStack1]).1[0], testCalculate.registerPointTable([testStack2]).1[0])
+        XCTAssertGreaterThan(testCalculate.makePokerHandRanking([testStack2]).1[0], testCalculate.makePokerHandRanking([testStack1]).1[0])
     }
     
 }

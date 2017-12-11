@@ -12,18 +12,14 @@ func executeCard() {
     let inputView = InputView()
     let outputView = OutputView()
     var deck = Deck()
-    
     var gameCondition = true
     repeat {
         do {
             let table = Table(gameInfo: try GameInputView.playtheGame(), with: deck)
             deck = try table.dealTheCardOfGameTable()
-            outputView.showMeTheTable(table)
-            outputView.lookDealerCards(of: try deck.makeStack(numberOfCards: table.gameInfo.typeOfGames.rawValue))
-            var testCalculate = PokerHand()
-            for element in testCalculate.makePokerHandRanking(table.cardStacksOfTable).1 {
-                print(element)
-            }
+            let dealerStack = try deck.makeStack(numberOfCards: table.gameInfo.typeOfGames.rawValue)
+            outputView.showMeTheTable(table: table, dealerCard: dealerStack)
+            outputView.showMeTheResultOfGame(table, dealerCards: dealerStack)
         } catch let errorCode as ErrorCode {
             outputView.errorMsg(errorCode)
             gameCondition = (errorCode != ErrorCode.zeroCard)

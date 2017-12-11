@@ -23,7 +23,7 @@ struct PokerHand {
         case royalStraightFlush = 1100
     }
     
-    mutating func makePokerHandRanking(_ cards: [[Card]]) -> ([PokerRank], [Int]) {
+    func makePokerHandRanking(_ cards: [[Card]]) -> (hand: [PokerRank], score: [Int]) {
         var resultOfHand = [PokerRank]()
         var resultOfPoint = [Int]()
         for cardStack in cards {
@@ -38,7 +38,7 @@ struct PokerHand {
         var pointTable = Array(repeating: 0, count: 14)
         for i in 0..<stack.count {
             let value = stack[i].rank.rawValue
-            if value == "Ace" {
+            if value == "A" {
                 pointTable[1] += 1
             } else if value == "J" {
                 pointTable[11] += 1
@@ -90,7 +90,7 @@ struct PokerHand {
         let value = hightCard.rank.rawValue
         
         switch value {
-        case "Ace":
+        case "A":
             point += 1
         case "J":
             point += 11
