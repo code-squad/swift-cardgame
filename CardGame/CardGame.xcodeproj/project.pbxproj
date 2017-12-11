@@ -14,6 +14,7 @@
 		401FE3D41FD5343800843683 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3D31FD5343800843683 /* OutputView.swift */; };
 		401FE3D61FD53DBC00843683 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3D51FD53DBC00843683 /* ErrorCode.swift */; };
 		402AEDBF1FDD2213006ECA2C /* PokerHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011AF951FDA365A00FFEC7A /* PokerHand.swift */; };
+		402AEDC11FDE7D3D006ECA2C /* PokerHandUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402AEDC01FDE7D3D006ECA2C /* PokerHandUnitTest.swift */; };
 		40CB3E101FD64903002E8E6E /* DeckUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CB3E0F1FD64903002E8E6E /* DeckUnitTest.swift */; };
 		40CB3E151FD649D0002E8E6E /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3CF1FD52AB600843683 /* Deck.swift */; };
 		40CB3E161FD649D3002E8E6E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3CB1FD50AB400843683 /* Card.swift */; };
@@ -46,6 +47,7 @@
 		401FE3D11FD5313900843683 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		401FE3D31FD5343800843683 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		401FE3D51FD53DBC00843683 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
+		402AEDC01FDE7D3D006ECA2C /* PokerHandUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerHandUnitTest.swift; sourceTree = "<group>"; };
 		40CB3E0D1FD64902002E8E6E /* CardGameUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40CB3E0F1FD64903002E8E6E /* DeckUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckUnitTest.swift; sourceTree = "<group>"; };
 		40CB3E111FD64903002E8E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				40CB3E0F1FD64903002E8E6E /* DeckUnitTest.swift */,
 				40CB3E201FD90CEE002E8E6E /* TableUnitTest.swift */,
+				402AEDC01FDE7D3D006ECA2C /* PokerHandUnitTest.swift */,
 				40CB3E111FD64903002E8E6E /* Info.plist */,
 			);
 			path = CardGameUnitTest;
@@ -212,6 +215,7 @@
 			files = (
 				402AEDBF1FDD2213006ECA2C /* PokerHand.swift in Sources */,
 				40CB3E221FD90E59002E8E6E /* CardGameInfo.swift in Sources */,
+				402AEDC11FDE7D3D006ECA2C /* PokerHandUnitTest.swift in Sources */,
 				40CB3E231FD90E59002E8E6E /* Table.swift in Sources */,
 				40CB3E171FD6738E002E8E6E /* ErrorCode.swift in Sources */,
 				40CB3E211FD90CEE002E8E6E /* TableUnitTest.swift in Sources */,
