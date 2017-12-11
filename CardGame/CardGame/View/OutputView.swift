@@ -39,11 +39,12 @@ class OutputView {
     }
 
     // 승자 출력.
-    func printWinner(_ winner: Player) {
+    func printWinner() {
+        let winner = self.game.chooseWinner()
         // 이름 출력.
         print("게임의 승자는 \(winner.name)입니다.", terminator: "")
         // 카드패 승자가 없는 경우, 탑카드 출력.
-        if !game.hasBestHandWinner {
+        if !self.game.hasBestHandWinner {
             print("승리패는 없습니다. 승자의 탑카드는 \(winner.topCard.description)입니다.")
         }else {
             // 승리패 출력.
