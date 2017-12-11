@@ -11,7 +11,7 @@ import Foundation
 struct InputView {
     // 입력 에러 종류.
     enum Error: String, Swift.Error {
-        case invalidMenuNumber = "잘못된 메뉴입니다. 다시 선택해 주세요."
+        case invalidMenuNumber = "다시 입력해 주세요."
         case outOfParticipantRange = "참여 인원을 다시 입력해 주세요."
     }
     // 메뉴 종류.
