@@ -88,14 +88,14 @@ struct PokerHand {
         let sortedCard = stack.sorted(by: <)
         var point = 0
         let hightCard = sortedCard[sortedCard.index(before: sortedCard.endIndex)]
-        switch hightCard.rank.rawValue {
-        case "A":
+        switch hightCard.rank {
+        case .one:
             point += 1
-        case "J":
+        case .eleven:
             point += 11
-        case "Q":
+        case .twelve:
             point += 12
-        case "K":
+        case .thirteen:
             point += 13
         default:
             point += Int(hightCard.rank.rawValue)!
