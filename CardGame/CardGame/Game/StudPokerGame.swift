@@ -90,12 +90,8 @@ extension StudPokerGame {
     private func isAllNoPair(in playerRanks: [(Player, PokerHands.HandRanks)]) -> Bool {
         // .noPair가 아닌 패만 필터링.
         let isNotNoPairs = playerRanks.filter { $0.1 != .noPair }
-        // .noPair가 아닌 패가 1개라도 있으면 false 반환.
-        if isNotNoPairs.count > 0 {
-            return false
-        }else {
-            return true
-        }
+        // .noPair가 아닌 패가 1개도 없으면 true 반환.
+        return (isNotNoPairs.count <= 0)
     }
 
     // 플레이어들의 모든 패가 같은 경우, true 반환.
@@ -109,11 +105,7 @@ extension StudPokerGame {
             }
             return true
         }
-        if isAllEqual {
-            return true
-        }else {
-            return false
-        }
+        return isAllEqual
     }
 
     // 가장 좋은 패를 가진 플레이어 반환.
