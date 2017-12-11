@@ -33,7 +33,7 @@ class StudPokerGame: Sequence {
         self.start = 0
         self.hasBestHandWinner = false
     }
-
+    
     // 딜러 접근 함수.
     func callDealer() -> Dealer {
         return self.dealer

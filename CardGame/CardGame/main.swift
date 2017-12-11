@@ -45,7 +45,7 @@ func main() {
         // 덱에 카드가 모자른 경우, 에러만 찍고 끝내기 위해 do문 안에 작성. (do문 밖에 작성 시, 에러 출력 후 이전 카드스택을 출력하기 때문)
         outputView.printCardStacksWithName()
         // 승자 출력.
-        outputView.printWinner(game.chooseWinner())
+        outputView.printWinner()
         if inputView.tryAgain() { continue }
         else { break }
     }
