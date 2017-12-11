@@ -14,17 +14,21 @@ func main() {
     var outputView = OutputView(game)
 
     // 같은 멤버, 스터드의 게임에서 이기는 사람이 나올 때까지 한 게임 진행. (덱의 카드가 떨어지면 전체 게임 종료.)
-    do {
-        guard let numberOfPeople = try inputView.askForParticipants(), let stud = try inputView.askForStud() else { return }
-        game = StudPokerGame(stud, with: numberOfPeople)
-        outputView = OutputView(game)
-    }catch let e as InputView.Error {
-        print(e.rawValue)
-    }catch let e as StudPokerGame.Error {
-        print(e.rawValue)
-    }catch {
-        print(error)
+    inputLoop: while true {
+        do {
+            guard let numberOfPeople = try inputView.askForParticipants(), let stud = try inputView.askForStud() else { return }
+            game = StudPokerGame(stud, with: numberOfPeople)
+            break
+        }catch let e as InputView.Error {
+            print(e.rawValue)
+            continue inputLoop
+        }catch {
+            print(error)
+            return
+        }
     }
+
+    outputView = OutputView(game)
 
     // 카드가 다 떨어질 때까지 같은 멤버로 진행.
     while !game.isLackOfCards() {
