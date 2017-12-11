@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     // 입력 에러 종류.
-    enum InputError: String, Error {
+    enum Error: String, Swift.Error {
         case invalidMenuNumber = "잘못된 메뉴입니다. 다시 선택해 주세요."
         case outOfParticipantRange = "참여 인원을 다시 입력해 주세요."
     }
@@ -55,19 +55,19 @@ struct InputView {
     // 사용자 입력 Stud 반환.
     func askForStud() throws -> StudPokerGame.Stud? {
         guard let userInput = askFor(message: Message.menuStud.rawValue) else { return nil }
-        guard let inputMenu = Int(userInput) else { throw InputError.invalidMenuNumber }
+        guard let inputMenu = Int(userInput) else { throw Error.invalidMenuNumber }
         switch inputMenu {
         case 1: return StudPokerGame.Stud.sevenCard
         case 2: return StudPokerGame.Stud.fiveCard
-        default: throw InputError.invalidMenuNumber
+        default: throw Error.invalidMenuNumber
         }
     }
 
     // 사용자 입력 플레이어 수 반환.
     func askForParticipants() throws -> Int? {
         guard let userInput = askFor(message: Message.menuParticipants.rawValue) else { return nil }
-        guard let numberOfPeople = Int(userInput) else { throw InputError.invalidMenuNumber }
-        guard numberOfPeople <= StudPokerGame.participantMaximum && numberOfPeople >= StudPokerGame.participantMinimum else { throw InputError.outOfParticipantRange }
+        guard let numberOfPeople = Int(userInput) else { throw Error.invalidMenuNumber }
+        guard numberOfPeople <= StudPokerGame.participantMaximum && numberOfPeople >= StudPokerGame.participantMinimum else { throw Error.outOfParticipantRange }
         return numberOfPeople
     }
 

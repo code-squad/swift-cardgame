@@ -154,7 +154,7 @@ extension StudPokerGame {
         case sevenCard = 7
     }
     // 카드게임 관련 에러.
-    enum GameError: String, Error {
+    enum Error: String, Swift.Error {
         case lackOfCards = "덱에 카드가 없습니다."
         case inputValueIsNil = "입력값이 없습니다."
     }
