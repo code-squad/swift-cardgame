@@ -52,8 +52,8 @@ class Card: Equatable {
         self.rank = Card.Rank.allValues[rank]
     }
     
-    func getCalculatedRank() -> Int {
-        return rank.hashValue + 1
+    func isOnePairRank(at index: Int) -> Bool {
+        return rank.hashValue + 1 == index
     }
     
     func getCalculatedSuit() -> Int {
