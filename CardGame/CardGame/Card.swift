@@ -10,7 +10,7 @@ import Foundation
 
 class Card: Equatable {
     static func ==(lhs: Card, rhs: Card) -> Bool {
-        return lhs.rank == rhs.rank
+        return (lhs.suit == rhs.suit) && (lhs.rank == rhs.rank)
     }
     
     static func <(lhs: Card, rhs: Card) -> Bool {
