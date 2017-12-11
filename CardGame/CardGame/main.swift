@@ -20,6 +20,10 @@ func executeCard() {
             deck = try table.dealTheCardOfGameTable()
             outputView.showMeTheTable(table)
             outputView.lookDealerCards(of: try deck.makeStack(numberOfCards: table.gameInfo.typeOfGames.rawValue))
+            var testCalculate = PokerHand()
+            for element in testCalculate.makePokerHandRanking(table.cardStacksOfTable).1 {
+                print(element)
+            }
         } catch let errorCode as ErrorCode {
             outputView.errorMsg(errorCode)
             gameCondition = (errorCode != ErrorCode.zeroCard)

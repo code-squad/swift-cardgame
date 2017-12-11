@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4011AF961FDA365A00FFEC7A /* PokerHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011AF951FDA365A00FFEC7A /* PokerHand.swift */; };
 		401FE3CC1FD50AB400843683 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3CB1FD50AB400843683 /* Card.swift */; };
 		401FE3D01FD52AB600843683 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3CF1FD52AB600843683 /* Deck.swift */; };
 		401FE3D21FD5313900843683 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3D11FD5313900843683 /* InputView.swift */; };
 		401FE3D41FD5343800843683 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3D31FD5343800843683 /* OutputView.swift */; };
 		401FE3D61FD53DBC00843683 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3D51FD53DBC00843683 /* ErrorCode.swift */; };
+		402AEDBF1FDD2213006ECA2C /* PokerHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011AF951FDA365A00FFEC7A /* PokerHand.swift */; };
 		40CB3E101FD64903002E8E6E /* DeckUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CB3E0F1FD64903002E8E6E /* DeckUnitTest.swift */; };
 		40CB3E151FD649D0002E8E6E /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3CF1FD52AB600843683 /* Deck.swift */; };
 		40CB3E161FD649D3002E8E6E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FE3CB1FD50AB400843683 /* Card.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4011AF951FDA365A00FFEC7A /* PokerHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerHand.swift; sourceTree = "<group>"; };
 		401FE3CB1FD50AB400843683 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		401FE3CF1FD52AB600843683 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		401FE3D11FD5313900843683 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 				401FE3D11FD5313900843683 /* InputView.swift */,
 				401FE3D31FD5343800843683 /* OutputView.swift */,
 				401FE3D51FD53DBC00843683 /* ErrorCode.swift */,
+				4011AF951FDA365A00FFEC7A /* PokerHand.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -206,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402AEDBF1FDD2213006ECA2C /* PokerHand.swift in Sources */,
 				40CB3E221FD90E59002E8E6E /* CardGameInfo.swift in Sources */,
 				40CB3E231FD90E59002E8E6E /* Table.swift in Sources */,
 				40CB3E171FD6738E002E8E6E /* ErrorCode.swift in Sources */,
@@ -223,6 +228,7 @@
 				401FE3D61FD53DBC00843683 /* ErrorCode.swift in Sources */,
 				401FE3D41FD5343800843683 /* OutputView.swift in Sources */,
 				401FE3D01FD52AB600843683 /* Deck.swift in Sources */,
+				4011AF961FDA365A00FFEC7A /* PokerHand.swift in Sources */,
 				40CB3E1F1FD8E252002E8E6E /* GameInputView.swift in Sources */,
 				401FE3D21FD5313900843683 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
