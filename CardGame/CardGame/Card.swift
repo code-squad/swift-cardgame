@@ -51,6 +51,14 @@ class Card: Equatable {
         self.suit = Card.Suit.allValues[suit]
         self.rank = Card.Rank.allValues[rank]
     }
+    
+    func getCalculatedRank() -> Int {
+        return rank.hashValue + 1
+    }
+    
+    func getCalculatedSuit() -> Int {
+        return suit.hashValue + 1
+    }
 }
 
 extension Card: CustomStringConvertible {
