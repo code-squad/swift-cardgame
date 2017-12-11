@@ -18,9 +18,9 @@ func main() {
         guard let numberOfPeople = try inputView.askForParticipants(), let stud = try inputView.askForStud() else { return }
         game = StudPokerGame(stud, with: numberOfPeople)
         outputView = OutputView(game)
-    }catch let e as InputView.InputError {
+    }catch let e as InputView.Error {
         print(e.rawValue)
-    }catch let e as StudPokerGame.GameError {
+    }catch let e as StudPokerGame.Error {
         print(e.rawValue)
     }catch {
         print(error)
