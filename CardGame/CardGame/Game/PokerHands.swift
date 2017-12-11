@@ -195,11 +195,11 @@ class PokerHands {
         // 필요 패가 같은 패인 경우.
         if needHand1 == needHand2 {
             // 아무 필요 패와 비교하여 같으면 카운트 +1 (갯수가 중요)
-            _ = ownHands.map {
+            _ = ownHands.map({
                 if $0 == needHand1 {
                     equalCount += 1
                 }
-            }
+            })
         }else {
             // 필요 패가 같은 패가 아니면, 소유한 패가 필요 패를 모두 포함하는 지 확인.
             if ownHands.contains(needHand1) && ownHands.contains(needHand2) {
