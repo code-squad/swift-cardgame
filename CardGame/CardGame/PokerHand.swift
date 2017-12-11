@@ -77,7 +77,7 @@ struct PokerHand {
     private func calculateOnePair(tableIndex index: Int, cards stack: [Card]) -> Int {
         var point = 0
         for i in 0..<stack.count {
-            if stack[i].getCalculatedRank() == index {
+            if stack[i].isOnePairRank(at: index) {
                 point += stack[i].getCalculatedSuit()
             }
         }
