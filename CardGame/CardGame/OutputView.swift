@@ -29,15 +29,50 @@ struct OutputView {
         print(isCard)
     }
     
-    func showMeTheTable(_ table: Table) {
+    func showMeTheTable(table: Table, dealerCard: [Card]) {
+        printSleepLikeDealer(table)
+        for cardsIndex in 0..<table.gameInfo.typeOfGames.rawValue {
+            for playerIndex in 0..<table.cardStacksOfTable.count {
+                sleep(1)
+                print("[\(table.cardStacksOfTable[playerIndex][cardsIndex])]   ", terminator :"")
+            }
+            sleep(1)
+            lookDealerCards(of: dealerCard, stackIndex: cardsIndex)
+        }
+        
+    }
+    
+    private func printSleepLikeDealer(_ table: Table) {
+        var playerColumn = [String]()
         for index in 0..<table.cardStacksOfTable.count {
-            print("참가자\(index+1)#", terminator: "")
-            print(table.cardStacksOfTable[index])
+            playerColumn.append("참가자\(index + 1)#  ")
+        }
+        playerColumn.append("딜러\n")
+        
+        for index in 0..<playerColumn.count {
+            print(playerColumn[index], terminator: "")
         }
     }
     
-    func lookDealerCards(of cards: [Card]) {
-        print("딜러 \(cards)\n")
+    private func lookDealerCards(of cards: [Card], stackIndex: Int) {
+        print("[\(cards[stackIndex])]")
+    }
+    
+    func showMeTheResultOfGame(_ table: Table, dealerCards: [Card]) {
+        let pokerHand = PokerHand()
+        let playersResult = pokerHand.makePokerHandRanking(table.cardStacksOfTable)
+        let dealerResult = pokerHand.makePokerHandRanking([dealerCards])
+        let playerTopScore = playersResult.score.max()!
+        let playerTopScoreIndex = playersResult.score.index(of: playerTopScore)!
+        print("결과를 집계중입니다..")
+        sleep(2)
+        print("=============================")
+        if dealerResult.score[0] > playerTopScore {
+            print("딜러가 이겼습니다. 결과는 \(dealerResult.hand[0]).")
+        } else {
+            print("참가자\(playerTopScoreIndex + 1)가 이겼습니다. 결과는 \(playersResult.hand[playerTopScoreIndex]).")
+        }
+        print("=============================\n")
     }
 
 }

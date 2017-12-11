@@ -31,7 +31,7 @@ class Card: Equatable {
         static let allValues = [clubs, hearts, diamonds, spades]
     }
     enum Rank: String {
-        case one = "Ace"
+        case one = "A"
         case two = "2"
         case three = "3"
         case four = "4"
