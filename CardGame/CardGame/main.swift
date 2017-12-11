@@ -20,7 +20,7 @@ func main() {
             game = StudPokerGame(stud, with: numberOfPeople)
             break
         }catch let e as InputView.Error {
-            print(e.description)
+            print(e)
             continue
         }catch {
             print(error)
@@ -36,7 +36,7 @@ func main() {
         do {
             try game.begin()
         }catch let e as StudPokerGame.Error {
-            print(e.description)
+            print(e)
             return
         }catch {
             print(error)
