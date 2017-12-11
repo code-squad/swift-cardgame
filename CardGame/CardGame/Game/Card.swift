@@ -16,18 +16,21 @@ class Card {
     init(_ shape: Shape, _ number: Number) {
         self.shape = shape
         self.number = number
-        self.isFaceUp = false
+        // 디폴트는 false 지만, 현재 버전에서는 사용되지 않기 때문에 true로 둠.
+        self.isFaceUp = true
     }
     deinit {
         // print("\(self.description): Card instance deinitialized.")
     }
 
-    func getNumber() -> Number {
-        return self.number
-    }
-
-    func getShape() -> Shape {
-        return self.shape
+    func showCard() -> (shape: Shape, number: Number)? {
+        var facedUpCard: (Shape, Number)?
+        if self.isFaceUp {
+            facedUpCard = (self.shape, self.number)
+        }else {
+            facedUpCard = nil
+        }
+        return facedUpCard
     }
 
     // 숨겨져있는 카드를 보이도록 뒤집음.
