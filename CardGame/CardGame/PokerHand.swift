@@ -10,14 +10,15 @@ import Foundation
 
 struct PokerHand {
     enum PokerRank: Int {
+        case noHands
         case highCard = 100
         case onePair = 200
-        case twoPair = 300
-        case threeOfKind = 400
+        case twoPair = 400
+        case threeOfKind = 450
         case straight = 500
         case royalStraight = 600
         case flush = 700
-        case fullhouse = 800
+        case fullhouse = 850
         case fourOfKind = 900
         case straightFlush = 1000
         case royalStraightFlush = 1100
@@ -59,15 +60,15 @@ struct PokerHand {
         for index in 1..<table.count {
             if table[index] == 2 {
                 point += index * 2 + calculateOnePair(tableIndex: index, cards: stack)
-                resultOfHand += 200
+                resultOfHand += PokerRank.onePair.rawValue
             }
             if table[index] == 3 {
                 point += index * 3
-                resultOfHand += 300
+                resultOfHand += PokerRank.threeOfKind.rawValue
             }
             if table[index] == 4 {
                 point += index * 4
-                resultOfHand += 900
+                resultOfHand += PokerRank.fourOfKind.rawValue
             }
         }
         return (resultOfHand, point)
@@ -76,8 +77,8 @@ struct PokerHand {
     private func calculateOnePair(tableIndex index: Int, cards stack: [Card]) -> Int {
         var point = 0
         for i in 0..<stack.count {
-            if stack[i].rank.hashValue + 1 == index {
-                point += stack[i].suit.hashValue + 1
+            if stack[i].getCalculatedRank() == index {
+                point += stack[i].getCalculatedSuit()
             }
         }
         return point
@@ -87,9 +88,7 @@ struct PokerHand {
         let sortedCard = stack.sorted(by: <)
         var point = 0
         let hightCard = sortedCard[sortedCard.index(before: sortedCard.endIndex)]
-        let value = hightCard.rank.rawValue
-        
-        switch value {
+        switch hightCard.rank.rawValue {
         case "A":
             point += 1
         case "J":
@@ -99,7 +98,7 @@ struct PokerHand {
         case "K":
             point += 13
         default:
-            point += Int(value)!
+            point += Int(hightCard.rank.rawValue)!
         }
         
         for suitIndex in 0..<Card.Suit.allValues.count {
@@ -112,17 +111,17 @@ struct PokerHand {
     
     private func separateHighHand(table: [Int], cards stack:[Card]) -> (PokerRank, Int)? {
         let flush = calculateFlushType(of: stack)
-        let straigth = calculateStraight(of: table)
-        if (flush != nil) && (straigth == PokerRank.straight) {
-            return (PokerRank.straightFlush, PokerRank.straightFlush.rawValue + flush!.1)
-        } else if (flush != nil) && (straigth == PokerRank.royalStraight) {
+        let Straight = calculateStraight(of: table)
+        if (flush.hand != PokerRank.noHands) && (Straight == PokerRank.straight) {
+            return (PokerRank.straightFlush, PokerRank.straightFlush.rawValue + flush.point)
+        } else if (flush.hand != PokerRank.noHands) && (Straight == PokerRank.royalStraight) {
             return (PokerRank.royalStraightFlush, 0)
         }
-        if (flush != nil && straigth == nil) {
-            return (PokerRank.flush, PokerRank.straightFlush.rawValue + flush!.1)
+        if (flush.hand != PokerRank.noHands && Straight == PokerRank.noHands) {
+            return (PokerRank.flush, PokerRank.straightFlush.rawValue + flush.point)
         }
-        if (flush == nil && straigth != nil) {
-            return (straigth!, 0) // Straigth Or Royal Straigth
+        if (flush.hand == PokerRank.noHands && Straight != PokerRank.noHands) {
+            return (Straight, 0) // Straigth Or Royal Straight
         }
         return nil
     }
@@ -131,15 +130,15 @@ struct PokerHand {
         let resultScore = separateRowHand(table: pointTable, cards: stack)
 
         switch resultScore.hand {
-        case 200:
+        case PokerRank.onePair.rawValue:
             return (PokerRank.onePair, PokerRank.onePair.rawValue + resultScore.point)
-        case 300:
+        case PokerRank.threeOfKind.rawValue:
             return (PokerRank.threeOfKind, PokerRank.threeOfKind.rawValue + resultScore.point)
-        case 400:
+        case PokerRank.onePair.rawValue + PokerRank.onePair.rawValue:
             return (PokerRank.twoPair, PokerRank.twoPair.rawValue + resultScore.point)
-        case 500:
+        case PokerRank.onePair.rawValue + PokerRank.threeOfKind.rawValue:
             return (PokerRank.fullhouse, PokerRank.fullhouse.rawValue)
-        case 900:
+        case PokerRank.fourOfKind.rawValue:
             return (PokerRank.fourOfKind, PokerRank.fourOfKind.rawValue + resultScore.point)
         default:
             // resultScore.hand의 값이 0이란것은 스트레이트 이거나, highCard 라는 뜻, 밑의 바인딩을 통해 높은 hand의 패가 아니면 highCard로 return
@@ -150,14 +149,14 @@ struct PokerHand {
         }
     }
     
-    private func calculateStraight(of pointTable: [Int]) -> PokerRank? {
+    private func calculateStraight(of pointTable: [Int]) -> PokerRank {
         var cardValue = 0
-        for index in 0..<pointTable.count {
+        for index in 1..<pointTable.count {
             if cardValue == 5 { break }
             if pointTable[index] == 1 {
                 cardValue += 1
             } else if pointTable[index] == 0 && cardValue != 0 {
-                cardValue -= 1
+                cardValue = 0
             }
         }
         if cardValue == 4 && pointTable[1] == 1 {
@@ -166,14 +165,14 @@ struct PokerHand {
         if cardValue == 5 {
             return PokerRank.straight
         }
-        return nil
+        return PokerRank.noHands
     }
     
-    private func calculateFlushType(of stack: [Card]) -> (PokerRank, Int)? {
+    private func calculateFlushType(of stack: [Card]) -> (hand: PokerRank, point: Int) {
         if let frushSuitIndex = countSuit(stack).index(of: 5) {
             return (PokerRank.flush, (Int(frushSuitIndex) + 1))
         }
-        return nil
+        return (PokerRank.noHands, 0)
     }
     
     private func countSuit(_ stack: [Card]) -> [Int] {
