@@ -207,11 +207,7 @@ class PokerHands {
             }
         }
         // 필요패를 모두 포함하면
-        if equalCount >= 2 {
-            return true
-        }else {
-            return false
-        }
+        return (equalCount >= 2)
     }
 
     // 플레이어의 가장 좋은 패 찾기.
