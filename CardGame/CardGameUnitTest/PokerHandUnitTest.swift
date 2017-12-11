@@ -64,6 +64,18 @@ class PokerHandUnitTest: XCTestCase {
         XCTAssertEqual(calculate.makePokerHandRanking([testStack]).hand[0], PokerHand.PokerRank.straight)
     }
     
+    func testStraigthOneCountinuousValueIsMissing() {
+        let diamond_A = Card(suit: 2, rank: 0)
+        let club_2 = Card(suit: 0, rank: 1)
+        let spade_3 = Card(suit: 3, rank: 2)
+        let heart_4 = Card(suit: 1, rank: 3)
+        let club_6 = Card(suit: 0, rank: 5)
+        let heart_7 = Card(suit: 1, rank: 6)
+        let testStack = [diamond_A, club_2, spade_3, heart_4, club_6, heart_7]
+        let calculate = PokerHand()
+        XCTAssertNotEqual(calculate.makePokerHandRanking([testStack]).hand[0], PokerHand.PokerRank.straight)
+    }
+    
     func testRoyalStraigth() {
         let diamond_A = Card(suit: 2, rank: 0)
         let club_10 = Card(suit: 0, rank: 9)
