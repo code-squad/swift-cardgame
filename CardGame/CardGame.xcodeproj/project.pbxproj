@@ -12,6 +12,7 @@
 		870B96FB1FE2247200E26E87 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Numbers.swift */; };
 		870B97031FE224A800E26E87 /* CardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B97021FE224A800E26E87 /* CardGameTests.swift */; };
 		870B97081FE224D800E26E87 /* Suits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96F81FE2204500E26E87 /* Suits.swift */; };
+		870B97091FE227E200E26E87 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Numbers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -193,6 +194,7 @@
 			files = (
 				870B97081FE224D800E26E87 /* Suits.swift in Sources */,
 				870B97031FE224A800E26E87 /* CardGameTests.swift in Sources */,
+				870B97091FE227E200E26E87 /* Numbers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
