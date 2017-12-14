@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		870B96F91FE2204500E26E87 /* Suits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96F81FE2204500E26E87 /* Suits.swift */; };
+		870B96FB1FE2247200E26E87 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Numbers.swift */; };
+		870B97031FE224A800E26E87 /* CardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B97021FE224A800E26E87 /* CardGameTests.swift */; };
+		870B97081FE224D800E26E87 /* Suits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96F81FE2204500E26E87 /* Suits.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +29,22 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		870B96F81FE2204500E26E87 /* Suits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suits.swift; sourceTree = "<group>"; };
+		870B96FA1FE2247200E26E87 /* Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		870B97001FE224A800E26E87 /* CardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		870B97021FE224A800E26E87 /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
+		870B97041FE224A800E26E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		839DA8DE1F8CDBC9009E05F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		870B96FD1FE224A800E26E87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E31F8CDBC9009E05F3 /* CardGame */,
+				870B97011FE224A800E26E87 /* CardGameTests */,
 				839DA8E21F8CDBC9009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E11F8CDBC9009E05F3 /* CardGame */,
+				870B97001FE224A800E26E87 /* CardGameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,8 +76,19 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				870B96F81FE2204500E26E87 /* Suits.swift */,
+				870B96FA1FE2247200E26E87 /* Numbers.swift */,
 			);
 			path = CardGame;
+			sourceTree = "<group>";
+		};
+		870B97011FE224A800E26E87 /* CardGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				870B97021FE224A800E26E87 /* CardGameTests.swift */,
+				870B97041FE224A800E26E87 /* Info.plist */,
+			);
+			path = CardGameTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +111,23 @@
 			productReference = 839DA8E11F8CDBC9009E05F3 /* CardGame */;
 			productType = "com.apple.product-type.tool";
 		};
+		870B96FF1FE224A800E26E87 /* CardGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 870B97051FE224A800E26E87 /* Build configuration list for PBXNativeTarget "CardGameTests" */;
+			buildPhases = (
+				870B96FC1FE224A800E26E87 /* Sources */,
+				870B96FD1FE224A800E26E87 /* Frameworks */,
+				870B96FE1FE224A800E26E87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CardGameTests;
+			productName = CardGameTests;
+			productReference = 870B97001FE224A800E26E87 /* CardGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +139,10 @@
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
 					839DA8E01F8CDBC9009E05F3 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					870B96FF1FE224A800E26E87 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -111,9 +161,20 @@
 			projectRoot = "";
 			targets = (
 				839DA8E01F8CDBC9009E05F3 /* CardGame */,
+				870B96FF1FE224A800E26E87 /* CardGameTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		870B96FE1FE224A800E26E87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		839DA8DD1F8CDBC9009E05F3 /* Sources */ = {
@@ -121,6 +182,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				870B96F91FE2204500E26E87 /* Suits.swift in Sources */,
+				870B96FB1FE2247200E26E87 /* Numbers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		870B96FC1FE224A800E26E87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				870B97081FE224D800E26E87 /* Suits.swift in Sources */,
+				870B97031FE224A800E26E87 /* CardGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +323,32 @@
 			};
 			name = Release;
 		};
+		870B97061FE224A800E26E87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CardGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuaming.CardGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		870B97071FE224A800E26E87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CardGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuaming.CardGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -268,6 +366,15 @@
 			buildConfigurations = (
 				839DA8E91F8CDBCA009E05F3 /* Debug */,
 				839DA8EA1F8CDBCA009E05F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		870B97051FE224A800E26E87 /* Build configuration list for PBXNativeTarget "CardGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				870B97061FE224A800E26E87 /* Debug */,
+				870B97071FE224A800E26E87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
