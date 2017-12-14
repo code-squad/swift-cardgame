@@ -8,8 +8,9 @@
 
 import Foundation
 
-enum Number {
-    case ace, king, queen, jack, ten, nine, eight, seven, six, five, four, three, two
+enum Number: String {
+    case ace, king, queen, jack
+    case ten = "10", nine = "9", eight = "8", seven = "7", six = "6", five = "5", four = "4", three = "3", two = "2"
     
     var description: String {
         switch self {
@@ -21,24 +22,8 @@ enum Number {
             return "Q"
         case .jack:
             return "J"
-        case .ten:
-            return "10"
-        case .nine:
-            return "9"
-        case .eight:
-            return "8"
-        case .seven:
-            return "7"
-        case .six:
-            return "6"
-        case .five:
-            return "5"
-        case .four:
-            return "4"
-        case .three:
-            return "3"
-        case .two:
-            return "2"
+        default: 
+            return self.rawValue
         }
     }
 }
