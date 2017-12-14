@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
-		870B96F91FE2204500E26E87 /* Suits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96F81FE2204500E26E87 /* Suits.swift */; };
-		870B96FB1FE2247200E26E87 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Numbers.swift */; };
+		870B96F91FE2204500E26E87 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96F81FE2204500E26E87 /* Suit.swift */; };
+		870B96FB1FE2247200E26E87 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Number.swift */; };
 		870B97031FE224A800E26E87 /* CardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B97021FE224A800E26E87 /* CardGameTests.swift */; };
-		870B97081FE224D800E26E87 /* Suits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96F81FE2204500E26E87 /* Suits.swift */; };
-		870B97091FE227E200E26E87 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Numbers.swift */; };
+		870B97081FE224D800E26E87 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96F81FE2204500E26E87 /* Suit.swift */; };
+		870B97091FE227E200E26E87 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Number.swift */; };
+		870B970B1FE2351400E26E87 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B970A1FE2351400E26E87 /* Card.swift */; };
+		870B970C1FE2351400E26E87 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B970A1FE2351400E26E87 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,11 +32,12 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		870B96F81FE2204500E26E87 /* Suits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suits.swift; sourceTree = "<group>"; };
-		870B96FA1FE2247200E26E87 /* Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		870B96F81FE2204500E26E87 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		870B96FA1FE2247200E26E87 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		870B97001FE224A800E26E87 /* CardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		870B97021FE224A800E26E87 /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
 		870B97041FE224A800E26E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		870B970A1FE2351400E26E87 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				870B96F81FE2204500E26E87 /* Suits.swift */,
-				870B96FA1FE2247200E26E87 /* Numbers.swift */,
+				870B96F81FE2204500E26E87 /* Suit.swift */,
+				870B96FA1FE2247200E26E87 /* Number.swift */,
+				870B970A1FE2351400E26E87 /* Card.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -183,8 +187,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
-				870B96F91FE2204500E26E87 /* Suits.swift in Sources */,
-				870B96FB1FE2247200E26E87 /* Numbers.swift in Sources */,
+				870B96F91FE2204500E26E87 /* Suit.swift in Sources */,
+				870B96FB1FE2247200E26E87 /* Number.swift in Sources */,
+				870B970B1FE2351400E26E87 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,9 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				870B97081FE224D800E26E87 /* Suits.swift in Sources */,
+				870B97081FE224D800E26E87 /* Suit.swift in Sources */,
 				870B97031FE224A800E26E87 /* CardGameTests.swift in Sources */,
-				870B97091FE227E200E26E87 /* Numbers.swift in Sources */,
+				870B97091FE227E200E26E87 /* Number.swift in Sources */,
+				870B970C1FE2351400E26E87 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
