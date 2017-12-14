@@ -23,5 +23,9 @@ enum Suit {
             return "♠️"
         }
     }
+    
+    static var values: [Suit] {
+        return [.club, .diamond, .heart, .spade]
+    }
 }
 

@@ -20,4 +20,8 @@ class Card {
     var description: String {
         return suit.description + number.description
     }
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.suit == rhs.suit && lhs.number == rhs.number
+    }
 }
