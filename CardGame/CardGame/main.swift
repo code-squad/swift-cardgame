@@ -8,4 +8,11 @@
 
 import Foundation
 
+func run() {
+    let suit: Suit = Suit.club
+    let number: Number = Number.ace
+    let card: Card = Card(suit, number)
+    print(card.description)
+}
 
+run()

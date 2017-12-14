@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Suits {
+enum Suit {
     case heart, diamond, club, spade
     
     var description: String {

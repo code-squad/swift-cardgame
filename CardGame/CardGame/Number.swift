@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Numbers {
+enum Number {
     case ace, king, queen, jack, ten, nine, eight, seven, six, five, four, three, two
     
     var description: String {
