@@ -42,6 +42,10 @@ public struct CardDeck {
     func sort() -> CardDeck {
         return CardDeck(self.cards.sorted(by: <))
     }
+    
+    private mutating func shuffleCards() -> CardDeck {
+        return CardDeck(self.cards.shuffle())
+    }
 }
 
 extension CardDeck {
@@ -57,6 +61,10 @@ extension CardDeck {
         return removeCard()
     }
     
+    public mutating func suffle() -> CardDeck {
+        return shuffleCards()
+    }
+    
     subscript(_ index: Int) -> Card {
         return self.cards[index]
     }
@@ -64,12 +72,26 @@ extension CardDeck {
 
 extension CardDeck: Equatable {
     public static func ==(lhs: CardDeck, rhs: CardDeck) -> Bool {
-        print("a: \(lhs.cards)")
-        print("b: \(rhs.cards)")
         guard lhs.cards == rhs.cards else {
             return false
         }
         
         return true
+    }
+}
+
+
+extension Array {
+    mutating func shuffle() -> Array {
+        guard count > 1 else { return self }
+        
+        for i in 0..<(count-1) {
+            let j = Int(arc4random_uniform(UInt32(count-i))) + i
+            guard i != j else { continue }
+            
+            self.swapAt(i, j)
+        }
+        
+        return self
     }
 }

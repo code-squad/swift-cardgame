@@ -46,4 +46,11 @@ class CardGameTests: XCTestCase {
         
         XCTAssertTrue(CardDeck(cards.sorted(by: <)) == compareCards)
     }
+    
+    func test_카드_섞음() {
+        var cardDeck = CardDeck.reset()
+        let compareCards = CardDeck.reset()
+        let shuffleCards = cardDeck.suffle()
+        XCTAssertTrue(shuffleCards != compareCards)
+    }
 }
