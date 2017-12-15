@@ -29,3 +29,19 @@ enum Suit {
     }
 }
 
+extension Suit: Comparable {
+    static func <(lhs: Suit, rhs: Suit) -> Bool {
+        switch (lhs, rhs) {
+        case (_, _) where lhs == rhs:
+            return false
+        case (.spade, _),
+             (.heart, .diamond), (.heart, .club),
+             (.diamond, .club):
+            return false
+        default:
+            return true
+        }
+    }
+}
+
+

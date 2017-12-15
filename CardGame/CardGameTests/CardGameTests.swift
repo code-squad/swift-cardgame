@@ -34,4 +34,16 @@ class CardGameTests: XCTestCase {
         let cardDeck = CardDeck.reset()
         XCTAssertTrue(cardDeck.count() == 52)
     }
+    
+    func test_카드_뽑음() {
+        var cardDeck = CardDeck.reset()
+        var cards: [Card] = []
+        let compareCards = cardDeck.sort()
+
+        for _ in 0..<cardDeck.count() {
+            cards.append(cardDeck.removeOne())
+        }
+        
+        XCTAssertTrue(CardDeck(cards.sorted(by: <)) == compareCards)
+    }
 }
