@@ -16,9 +16,11 @@ public struct CardDeck {
     }
     
     private mutating func makeCards() {
+        self.cards = []
+        
         for suit in Suit.values {
             for number in Number.values {
-                cards.append(makeCard(suit, number))
+                self.cards.append(makeCard(suit, number))
             }
         }
     }
