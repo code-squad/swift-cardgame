@@ -9,25 +9,21 @@
 import Foundation
 
 public struct CardDeck {
-    private var cards: [Card]
+    private var cards: [Card] = []
     
-    init(_ cards: [Card]) {
-        self.cards = cards
+    init() {
+        reset()
     }
     
-    private static func makeCards() -> CardDeck {
-        var cards: [Card] = []
-        
+    private mutating func makeCards() {
         for suit in Suit.values {
             for number in Number.values {
                 cards.append(makeCard(suit, number))
             }
         }
-        
-        return CardDeck(cards)
     }
     
-    private static func makeCard(_ suit: Suit, _ number: Number) -> Card {
+    private mutating func makeCard(_ suit: Suit, _ number: Number) -> Card {
         return Card(suit, number)
     }
     
@@ -39,18 +35,14 @@ public struct CardDeck {
         return self.cards.remove(at: generateRandomInt())
     }
     
-    func sort() -> CardDeck {
-        return CardDeck(self.cards.sorted(by: <))
-    }
-    
-    private mutating func shuffleCards() -> CardDeck {
-        return CardDeck(self.cards.shuffle())
+    private mutating func shuffleCards() {
+        self.cards.shuffle()
     }
 }
 
 extension CardDeck {
-    public static func reset() -> CardDeck {
-        return makeCards()
+    public mutating func reset() {
+        makeCards()
     }
     
     public func count() -> Int {
@@ -61,8 +53,8 @@ extension CardDeck {
         return removeCard()
     }
     
-    public mutating func suffle() -> CardDeck {
-        return shuffleCards()
+    public mutating func suffle() {
+        shuffleCards()
     }
     
     subscript(_ index: Int) -> Card {
@@ -82,8 +74,8 @@ extension CardDeck: Equatable {
 
 
 extension Array {
-    mutating func shuffle() -> Array {
-        guard count > 1 else { return self }
+    mutating func shuffle() {
+        guard count > 1 else { return }
         
         for i in 0..<(count-1) {
             let j = Int(arc4random_uniform(UInt32(count-i))) + i
@@ -91,7 +83,5 @@ extension Array {
             
             self.swapAt(i, j)
         }
-        
-        return self
     }
 }
