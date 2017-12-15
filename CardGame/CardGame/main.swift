@@ -17,6 +17,10 @@ func run() throws {
             let action = try InputView.question()
             let card = cardGame.startGame(action)
             
+            guard cardGame.cardDeck.count() > 0 else {
+                throw CardGame.GameError.noCard
+            }
+            
             OutputView.printResult(gameMenu: action, usingDeck: cardGame.cardDeck, choiceCard: card)
         } catch let error as CardGame.GameError {
             print(error.rawValue)
