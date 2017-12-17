@@ -15,6 +15,12 @@
 		870B97091FE227E200E26E87 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B96FA1FE2247200E26E87 /* Number.swift */; };
 		870B970B1FE2351400E26E87 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B970A1FE2351400E26E87 /* Card.swift */; };
 		870B970C1FE2351400E26E87 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B970A1FE2351400E26E87 /* Card.swift */; };
+		87BD8CA01FE7209600D346DD /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD8C9C1FE7209500D346DD /* InputView.swift */; };
+		87BD8CA11FE7209600D346DD /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD8C9D1FE7209500D346DD /* CardGame.swift */; };
+		87BD8CA21FE7209600D346DD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD8C9E1FE7209500D346DD /* OutputView.swift */; };
+		87BD8CA31FE7209600D346DD /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD8C9F1FE7209500D346DD /* CardDeck.swift */; };
+		87BD8CA41FE7209900D346DD /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD8C9F1FE7209500D346DD /* CardDeck.swift */; };
+		87BD8CA51FE7209C00D346DD /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD8C9D1FE7209500D346DD /* CardGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +44,10 @@
 		870B97021FE224A800E26E87 /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
 		870B97041FE224A800E26E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		870B970A1FE2351400E26E87 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		87BD8C9C1FE7209500D346DD /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		87BD8C9D1FE7209500D346DD /* CardGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		87BD8C9E1FE7209500D346DD /* OutputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		87BD8C9F1FE7209500D346DD /* CardDeck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,10 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				87BD8C9F1FE7209500D346DD /* CardDeck.swift */,
+				87BD8C9D1FE7209500D346DD /* CardGame.swift */,
+				87BD8C9C1FE7209500D346DD /* InputView.swift */,
+				87BD8C9E1FE7209500D346DD /* OutputView.swift */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				870B96F81FE2204500E26E87 /* Suit.swift */,
 				870B96FA1FE2247200E26E87 /* Number.swift */,
@@ -188,8 +202,12 @@
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				870B96F91FE2204500E26E87 /* Suit.swift in Sources */,
+				87BD8CA31FE7209600D346DD /* CardDeck.swift in Sources */,
+				87BD8CA21FE7209600D346DD /* OutputView.swift in Sources */,
+				87BD8CA01FE7209600D346DD /* InputView.swift in Sources */,
 				870B96FB1FE2247200E26E87 /* Number.swift in Sources */,
 				870B970B1FE2351400E26E87 /* Card.swift in Sources */,
+				87BD8CA11FE7209600D346DD /* CardGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,9 +216,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				870B97081FE224D800E26E87 /* Suit.swift in Sources */,
+				87BD8CA41FE7209900D346DD /* CardDeck.swift in Sources */,
 				870B97031FE224A800E26E87 /* CardGameTests.swift in Sources */,
 				870B97091FE227E200E26E87 /* Number.swift in Sources */,
 				870B970C1FE2351400E26E87 /* Card.swift in Sources */,
+				87BD8CA51FE7209C00D346DD /* CardGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
