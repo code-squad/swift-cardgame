@@ -35,7 +35,7 @@ struct CardGame {
                 throw GameError.noCardToShuffle
             }
             
-            cardDeck.suffle()
+            cardDeck.shuffle()
         case .selectOne:
             guard cardDeck.isAvailable() else {
                 throw GameError.noCard
