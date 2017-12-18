@@ -16,10 +16,6 @@ class Card {
         self.suit = suit
         self.number = number
     }
-    
-    var description: String {
-        return suit.description + number.description
-    }
 }
 
 extension Card: Equatable, Comparable {
@@ -29,5 +25,11 @@ extension Card: Equatable, Comparable {
     
     static func <(lhs: Card, rhs: Card) -> Bool {
         return lhs.number == rhs.number ? lhs.suit < rhs.suit : UInt8(lhs.number.rawValue) < UInt8(rhs.number.rawValue)
+    }
+}
+
+extension Card: CustomStringConvertible {
+    var description: String {
+        return "\(suit.description)\(number.description)"
     }
 }

@@ -11,6 +11,12 @@ import Foundation
 enum Number: Int {
     case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
     
+    static var values: [Number] {
+        return [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
+    }
+}
+
+extension Number: CustomStringConvertible {
     var description: String {
         switch self {
         case .ace:
@@ -21,12 +27,8 @@ enum Number: Int {
             return "Q"
         case .jack:
             return "J"
-        default: 
+        default:
             return String(self.rawValue)
         }
-    }
-    
-    static var values: [Number] {
-        return [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
     }
 }

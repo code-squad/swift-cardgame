@@ -25,6 +25,21 @@ func run() throws {
     }
 }
 
+//try run()
 
-try run()
+func main() throws {
+    let cardDeck = CardDeck()
+    var cardGame = CardGame(cardDeck)
+    var cardStacks: [CardStack] = []
+    
+    do {
+        cardStacks.append(try cardGame.setCardStack(7))
+        cardGame = CardGame(usingDeck: cardGame.cardDeck, stacks: cardStacks)
+        OutputView.printResult(game: cardGame)
+    } catch let error as CardGame.GameError {
+        print(error.rawValue)
+    }
+}
+    
+try main()
 

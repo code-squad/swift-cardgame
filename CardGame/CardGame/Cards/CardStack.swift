@@ -25,3 +25,14 @@ private extension CardStack {
         self.cards.append(card)
     }
 }
+
+extension CardStack: CustomStringConvertible {
+    var description: String {
+        var result: String = cards.map({ c -> String in
+             c.description + ","
+        }).joined()
+        
+        result.removeLast()
+        return result
+    }
+}
