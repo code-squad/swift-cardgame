@@ -20,4 +20,10 @@ struct OutputView {
             print("총 \(cardDeck.count())장의 카드가 남아있습니다.")
         }
     }
+    
+    static func printResult(game cardGame: CardGame) {
+        for stack in cardGame.cardStacks {
+            print(stack.description)
+        }
+    }
 }

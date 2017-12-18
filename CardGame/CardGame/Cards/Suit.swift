@@ -11,19 +11,6 @@ import Foundation
 enum Suit {
     case heart, diamond, club, spade
     
-    var description: String {
-        switch self {
-        case .heart:
-            return "♥️"
-        case .diamond:
-            return "♦️"
-        case .club:
-            return "♣️"
-        case .spade:
-            return "♠️"
-        }
-    }
-    
     static var values: [Suit] {
         return [.club, .diamond, .heart, .spade]
     }
@@ -40,6 +27,21 @@ extension Suit: Comparable {
             return false
         default:
             return true
+        }
+    }
+}
+
+extension Suit: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .heart:
+            return "♥️"
+        case .diamond:
+            return "♦️"
+        case .club:
+            return "♣️"
+        case .spade:
+            return "♠️"
         }
     }
 }

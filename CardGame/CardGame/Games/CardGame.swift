@@ -10,9 +10,16 @@ import Foundation
 
 struct CardGame {
     private(set) var cardDeck: CardDeck
+    private(set) var cardStacks: [CardStack]
     
     init(_ cardDeck: CardDeck) {
         self.cardDeck = cardDeck
+        self.cardStacks = []
+    }
+    
+    init(usingDeck cardDeck: CardDeck, stacks cardStacks: [CardStack]) {
+        self.cardDeck = cardDeck
+        self.cardStacks = cardStacks
     }
     
     enum Action: Int {
@@ -24,6 +31,7 @@ struct CardGame {
         case emptyValue = "입력값이 없습니다."
         case noCard = "선택할 카드가 없습니다."
         case noCardToShuffle = "섞을 카드가 없습니다."
+        case notEnoughCard = "카드 개수가 모자랍니다."
     }
     
     mutating func startGame(_ action: Action) throws -> Card? {
@@ -45,5 +53,19 @@ struct CardGame {
         }
         
         return nil
+    }
+    
+   mutating func setCardStack(_ count: Int) throws -> CardStack {
+        guard cardDeck.count() > count else {
+            throw GameError.notEnoughCard
+        }
+    
+        var cardStack: CardStack = CardStack()
+        
+        for _ in 0..<count {
+            cardStack.pushCard(cardDeck.removeOne())
+        }
+    
+        return cardStack
     }
 }
