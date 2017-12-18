@@ -10,6 +10,10 @@ import Foundation
 
 struct CardStack {
     private var cards: [Card] = []
+    
+    init() {
+        reset()
+    }
 
     mutating func pushCard(_ card: Card) {
         push(card)
@@ -18,11 +22,19 @@ struct CardStack {
     func count() -> Int {
         return cards.count
     }
+    
+    mutating func resetCards() {
+        reset()
+    }
 }
 
 private extension CardStack {
     private mutating func push(_ card: Card) {
         self.cards.append(card)
+    }
+    
+    private mutating func reset() {
+        self.cards = []
     }
 }
 

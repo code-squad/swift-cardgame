@@ -9,25 +9,18 @@
 import XCTest
 
 class CardStackTests: XCTestCase {
-    func test_카드_3개_가져옴() {
+    func test_카드_5개_쌓음() throws {
         let cardDeck: CardDeck = CardDeck()
         var cardGame: CardGame = CardGame(cardDeck)
-        XCTAssertTrue(try cardGame.setCardStack(3).count() == 2)
-        XCTAssertTrue(cardGame.cardDeck.count() == 50)
+        try cardGame.setCardStacks(5)
+        
+        XCTAssertTrue(cardGame.cardStacks.count == 5)
+        XCTAssertTrue(cardGame.cardDeck.count() == 37)
     }
     
-    func test_카드_3개_쌓음() throws {
+    func test_카드_10개_쌓음() {
         let cardDeck: CardDeck = CardDeck()
         var cardGame: CardGame = CardGame(cardDeck)
-        var cardStacks: [CardStack] = []
-        
-        for _ in 0..<3 {
-            cardStacks.append(try cardGame.setCardStack(3))
-        }
-        
-        cardGame = CardGame(usingDeck: cardGame.cardDeck, stacks: cardStacks)
-        
-        XCTAssertTrue(cardGame.cardStacks.count == 3)
-        XCTAssertTrue(cardGame.cardDeck.count() == 43)
+        XCTAssertThrowsError(try cardGame.setCardStacks(10))
     }
 }
