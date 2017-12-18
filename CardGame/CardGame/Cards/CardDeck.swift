@@ -35,6 +35,15 @@ struct CardDeck {
         return removeCard()
     }
     
+    mutating func removeCards(_ count: Int) -> CardStack {
+        var cardStack: CardStack = CardStack()
+        for _ in 0..<count {
+            cardStack.pushCard(removeCard())
+        }
+        
+        return cardStack
+    }
+    
     mutating func shuffle() {
         shuffleCards()
     }
@@ -66,6 +75,7 @@ private extension CardDeck {
     private mutating func removeCard() -> Card {
         return cards.remove(at: generateRandomInt())
     }
+
     
     private mutating func shuffleCards() {
         self.cards = cards.shuffle()

@@ -27,14 +27,14 @@ func run() throws {
 
 //try run()
 
+
+// 실행함수를 분리함
 func main() throws {
     let cardDeck = CardDeck()
     var cardGame = CardGame(cardDeck)
-    var cardStacks: [CardStack] = []
     
     do {
-        cardStacks.append(try cardGame.setCardStack(7))
-        cardGame = CardGame(usingDeck: cardGame.cardDeck, stacks: cardStacks)
+        try cardGame.setCardStacks(7)
         OutputView.printResult(game: cardGame)
     } catch let error as CardGame.GameError {
         print(error.rawValue)

@@ -55,17 +55,16 @@ struct CardGame {
         return nil
     }
     
-   mutating func setCardStack(_ count: Int) throws -> CardStack {
-        guard cardDeck.count() > count else {
-            throw GameError.notEnoughCard
-        }
-    
+   mutating func setCardStacks(_ count: Int) throws {
         var cardStack: CardStack = CardStack()
-        
-        for _ in 0..<count {
-            cardStack.pushCard(cardDeck.removeOne())
-        }
     
-        return cardStack
+        for index in 1...count {
+            guard cardDeck.count() > index else {
+                throw GameError.notEnoughCard
+            }
+            
+            cardStack.resetCards()
+            cardStacks.append(cardDeck.removeCards(index))
+        }
     }
 }
