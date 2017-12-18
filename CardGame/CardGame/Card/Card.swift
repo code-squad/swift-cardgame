@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Card {
+class Card {
     private let suit: Suit
     private let number: Number
     
@@ -23,11 +23,11 @@ public class Card {
 }
 
 extension Card: Equatable, Comparable {
-    public static func ==(lhs: Card, rhs: Card) -> Bool {
+    static func ==(lhs: Card, rhs: Card) -> Bool {
         return lhs.suit == rhs.suit && lhs.number == rhs.number
     }
     
-    public static func <(lhs: Card, rhs: Card) -> Bool {
+    static func <(lhs: Card, rhs: Card) -> Bool {
         return lhs.number == rhs.number ? lhs.suit < rhs.suit : UInt8(lhs.number.rawValue) < UInt8(rhs.number.rawValue)
     }
 }

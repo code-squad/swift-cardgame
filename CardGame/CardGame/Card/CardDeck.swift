@@ -8,19 +8,45 @@
 
 import Foundation
 
-public struct CardDeck {
+struct CardDeck {
     private var cards: [Card] = []
     
     init() {
         reset()
     }
     
+    mutating func reset() {
+        makeCards()
+    }
+    
+    func count() -> Int {
+        return cards.count
+    }
+    
+    func isAvailable() -> Bool {
+        return count() > 0
+    }
+    
+    mutating func removeOne() -> Card {
+        return removeCard()
+    }
+    
+    mutating func suffle() {
+        shuffleCards()
+    }
+    
+    subscript(_ index: Int) -> Card {
+        return cards[index]
+    }
+}
+
+private extension CardDeck {
     private mutating func makeCards() {
-        self.cards = []
+        cards = []
         
         for suit in Suit.values {
             for number in Number.values {
-                self.cards.append(makeCard(suit, number))
+                cards.append(makeCard(suit, number))
             }
         }
     }
@@ -34,38 +60,16 @@ public struct CardDeck {
     }
     
     private mutating func removeCard() -> Card {
-        return self.cards.remove(at: generateRandomInt())
+        return cards.remove(at: generateRandomInt())
     }
     
     private mutating func shuffleCards() {
-        self.cards.shuffle()
-    }
-}
-
-extension CardDeck {
-    public mutating func reset() {
-        makeCards()
-    }
-    
-    public func count() -> Int {
-        return self.cards.count
-    }
-    
-    public mutating func removeOne() -> Card {
-        return removeCard()
-    }
-    
-    public mutating func suffle() {
-        shuffleCards()
-    }
-    
-    subscript(_ index: Int) -> Card {
-        return self.cards[index]
+        self.cards = cards.shuffle()
     }
 }
 
 extension CardDeck: Equatable {
-    public static func ==(lhs: CardDeck, rhs: CardDeck) -> Bool {
+    static func ==(lhs: CardDeck, rhs: CardDeck) -> Bool {
         guard lhs.cards == rhs.cards else {
             return false
         }
@@ -76,14 +80,17 @@ extension CardDeck: Equatable {
 
 
 extension Array {
-    mutating func shuffle() {
-        guard count > 1 else { return }
+    func shuffle() -> Array {
+        var array = self
+        guard count > 1 else { return array }
         
         for i in 0..<(count-1) {
             let j = Int(arc4random_uniform(UInt32(count-i))) + i
             guard i != j else { continue }
             
-            self.swapAt(i, j)
+            array.swapAt(i, j)
         }
+        
+        return array
     }
 }
