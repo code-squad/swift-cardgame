@@ -89,14 +89,9 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
-				87BD8C9F1FE7209500D346DD /* CardDeck.swift */,
-				87BD8C9D1FE7209500D346DD /* CardGame.swift */,
-				87BD8C9C1FE7209500D346DD /* InputView.swift */,
-				87BD8C9E1FE7209500D346DD /* OutputView.swift */,
+				874497371FE76AAE00E107A2 /* VIew */,
+				874497361FE76A9000E107A2 /* Card */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				870B96F81FE2204500E26E87 /* Suit.swift */,
-				870B96FA1FE2247200E26E87 /* Number.swift */,
-				870B970A1FE2351400E26E87 /* Card.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -108,6 +103,27 @@
 				870B97041FE224A800E26E87 /* Info.plist */,
 			);
 			path = CardGameTests;
+			sourceTree = "<group>";
+		};
+		874497361FE76A9000E107A2 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				870B970A1FE2351400E26E87 /* Card.swift */,
+				87BD8C9F1FE7209500D346DD /* CardDeck.swift */,
+				87BD8C9D1FE7209500D346DD /* CardGame.swift */,
+				870B96FA1FE2247200E26E87 /* Number.swift */,
+				870B96F81FE2204500E26E87 /* Suit.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		874497371FE76AAE00E107A2 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				87BD8C9C1FE7209500D346DD /* InputView.swift */,
+				87BD8C9E1FE7209500D346DD /* OutputView.swift */,
+			);
+			path = VIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
