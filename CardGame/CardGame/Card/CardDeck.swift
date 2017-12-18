@@ -15,6 +15,10 @@ struct CardDeck {
         reset()
     }
     
+    init(_ cards: [Card]) {
+        self.cards = cards
+    }
+    
     mutating func reset() {
         makeCards()
     }
