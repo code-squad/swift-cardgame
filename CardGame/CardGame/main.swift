@@ -18,7 +18,7 @@ func run() throws {
             let card = try cardGame.startGame(action)
             
             OutputView.printResult(gameMenu: action, usingDeck: cardGame.cardDeck, choiceCard: card)
-        } catch let error as CardGame.GameError {
+        } catch let error as GameError {
             print(error.rawValue)
             break
         }
@@ -27,16 +27,17 @@ func run() throws {
 
 //try run()
 
-
 // 실행함수를 분리함
 func main() throws {
-    let cardDeck = CardDeck()
-    var cardGame = CardGame(cardDeck)
+    let gameInputView = GameInputView()
     
     do {
-        try cardGame.setCardStacks(7)
-        OutputView.printResult(game: cardGame)
-    } catch let error as CardGame.GameError {
+        let gameMenu = try gameInputView.selectMenus()
+        let players = try gameInputView.selectNumberOfPlayers()
+        
+        print(gameMenu)
+        print(players)
+    } catch let error as GameError {
         print(error.rawValue)
     }
 }
