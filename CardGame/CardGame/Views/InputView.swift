@@ -20,12 +20,11 @@ struct InputView {
         print(question)
         
         guard let answer = readLine() else {
-            throw CardGame.GameError.emptyValue
+            throw GameError.emptyValue
         }
         
-        
         guard let action = CardGame.Action(rawValue: Int(answer) ?? 0) else {
-            throw CardGame.GameError.invalidSelection
+            throw GameError.invalidSelection
         }
         
         return action
