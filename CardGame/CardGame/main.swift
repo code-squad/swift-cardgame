@@ -19,7 +19,7 @@ func run() throws {
             
             OutputView.printResult(gameMenu: action, usingDeck: dealer.cardDeck, choiceCard: card)
         } catch let error as GameError {
-            print(error.rawValue)
+            print(error)
             break
         }
     }
@@ -36,7 +36,7 @@ func main() throws {
         
         OutputView.printResult(game.dealer)
     } catch let error as GameError {
-        print(error.rawValue)
+        print(error)
     }
 }
     
