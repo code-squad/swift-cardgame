@@ -8,4 +8,9 @@
 
 import Foundation
 
+func run(){
+    // make CardData
 
+    
+}
+run()
