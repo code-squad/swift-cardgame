@@ -10,7 +10,7 @@ import Foundation
 
 func run(){
     // make CardData
-
-    
+    let myCardGame = MyCardGame()
+    myCardGame.printRandomCard(shape: 4, number: 11)
 }
 run()
