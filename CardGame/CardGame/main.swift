@@ -10,14 +10,14 @@ import Foundation
 
 func run() throws {
     let cardDeck = CardDeck()
-    var cardGame = CardGame(cardDeck)
+    var dealer = Dealer(cardDeck)
 
     while(true) {
         do {
             let action = try InputView.question()
-            let card = try cardGame.startGame(action)
+            let card = try dealer.executeSelectedAction(action)
             
-            OutputView.printResult(gameMenu: action, usingDeck: cardGame.cardDeck, choiceCard: card)
+            OutputView.printResult(gameMenu: action, usingDeck: dealer.cardDeck, choiceCard: card)
         } catch let error as GameError {
             print(error.rawValue)
             break
@@ -27,16 +27,14 @@ func run() throws {
 
 //try run()
 
-// 실행함수를 분리함
 func main() throws {
-    let gameInputView = GameInputView()
-    
     do {
-        let gameMenu = try gameInputView.selectMenus()
-        let players = try gameInputView.selectNumberOfPlayers()
+        let gameMenu = try GameInputView.selectMenus()
+        let playerCount = Int(try GameInputView.selectNumberOfPlayers()) ?? 0
+        var game = Game(Dealer(CardDeck()))
+        try game.start(gameMenu: gameMenu, playerCount: playerCount)
         
-        print(gameMenu)
-        print(players)
+        OutputView.printResult(game.dealer)
     } catch let error as GameError {
         print(error.rawValue)
     }
