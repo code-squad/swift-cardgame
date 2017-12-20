@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static func printResult(gameMenu action: CardGame.Action, usingDeck cardDeck: CardDeck, choiceCard card: Card?) {
+    static func printResult(gameMenu action: Dealer.Action, usingDeck cardDeck: CardDeck, choiceCard card: Card?) {
         switch action {
         case .reset:
             print("카드 전체를 초기화했습니다.")
@@ -21,9 +21,14 @@ struct OutputView {
         }
     }
     
-    static func printResult(game cardGame: CardGame) {
-        for stack in cardGame.cardStacks {
-            print(stack.description)
+    static func printResult(_ dealer: Dealer) {
+        for (index, value) in dealer.cardStacks.enumerated() {
+            if dealer.cardStacks.count-1 == index {
+                print("딜러 \(value)")
+                break
+            }
+            
+            print("참가자#\(index+1) \(value)")
         }
     }
 }
