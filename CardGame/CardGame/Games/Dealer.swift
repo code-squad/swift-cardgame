@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardGame {
+struct Dealer {
     private(set) var cardDeck: CardDeck
     private(set) var cardStacks: [CardStack]
     
@@ -26,7 +26,7 @@ struct CardGame {
         case reset = 1, shuffle, selectOne
     }
      
-    mutating func startGame(_ action: Action) throws -> Card? {
+    mutating func executeSelectedAction(_ action: Action) throws -> Card? {
         switch action {
         case .reset:
             cardDeck.reset()
@@ -48,12 +48,10 @@ struct CardGame {
     }
     
     mutating func setCardStacks(_ count: Int) throws {
-        for index in 1...count {
-            guard cardDeck.count() > index else {
-                throw GameError.notEnoughCard
-            }
-            
-            cardStacks.append(cardDeck.removeCards(index))
+        guard cardDeck.count() > count else {
+            throw GameError.notEnoughCard
         }
+        
+        cardStacks.append(cardDeck.removeCards(count))
     }
 }

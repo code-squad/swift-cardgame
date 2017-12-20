@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    static func question() throws -> CardGame.Action {
+    static func question() throws -> Dealer.Action {
         let question = """
         다음 메뉴를 선택해주세요.
         1. 카드 초기화
@@ -23,7 +23,7 @@ struct InputView {
             throw GameError.emptyValue
         }
         
-        guard let action = CardGame.Action(rawValue: Int(answer) ?? 0) else {
+        guard let action = Dealer.Action(rawValue: Int(answer) ?? 0) else {
             throw GameError.invalidSelection
         }
         
