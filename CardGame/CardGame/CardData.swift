@@ -15,13 +15,13 @@ class CardData {
         func getShape() -> String {
             switch self {
                 case .Spades:
-                    return UniCodeOfCardGame.shapeName.spades
-                case .Hearts:
-                    return UniCodeOfCardGame.shapeName.hearts
-                case .Diamonds:
-                    return UniCodeOfCardGame.shapeName.diamonds
+                    return "♠︎"
                 case .Clubs:
-                    return UniCodeOfCardGame.shapeName.clubs
+                    return "♣︎"
+                case .Hearts:
+                    return "♥︎"
+                case .Diamonds:
+                    return "♦︎"
             }
         }
     }
