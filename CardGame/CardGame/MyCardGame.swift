@@ -11,8 +11,8 @@ import Foundation
 class MyCardGame {
     
     func printRandomCard(shape: Int, number: Int){
-        let cardData = CardData()
-        cardData.getCardData(shape: shape, number: number)
+        let cardData = CardData(shape: shape, number: number)
+        print(cardData.shape, cardData.number)
     }
    
 }
