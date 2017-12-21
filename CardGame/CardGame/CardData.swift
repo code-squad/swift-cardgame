@@ -45,9 +45,9 @@ class CardData {
         }
     }
     
-    init(shape: Int, number: Int) {
-        self.shape = Shape(rawValue: shape)!
-        self.number = Number(rawValue: number)!
+    init(shape: Shape, number: Number) {
+        self.shape = shape
+        self.number = number
     }
 
 }

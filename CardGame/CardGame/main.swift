@@ -10,7 +10,7 @@ import Foundation
 
 func run(){
     // make CardData
-    let myCardGame = MyCardGame()
-    myCardGame.printRandomCard(shape: 3, number: 11)
+    let cardData = CardData(shape: CardData.Shape.Clubs, number: CardData.Number.Seven)
+    print(cardData.shape, cardData.number)
 }
 run()

@@ -10,7 +10,7 @@ import Foundation
 
 class MyCardGame {
     
-    func printRandomCard(shape: Int, number: Int){
+    func printRandomCard(shape: CardData.Shape, number: CardData.Number){
         let cardData = CardData(shape: shape, number: number)
         print(cardData.shape, cardData.number)
     }
