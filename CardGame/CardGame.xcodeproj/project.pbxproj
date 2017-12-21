@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		45E348FC1FEA387200E9DD65 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E348FB1FEA387200E9DD65 /* CardData.swift */; };
 		45E348FE1FEA43CB00E9DD65 /* MyCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E348FD1FEA43CB00E9DD65 /* MyCardGame.swift */; };
-		45EC0BDC1FEABD9E00AD8EC9 /* UniCodeOfCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EC0BDB1FEABD9E00AD8EC9 /* UniCodeOfCardGame.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		45E348FB1FEA387200E9DD65 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		45E348FD1FEA43CB00E9DD65 /* MyCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardGame.swift; sourceTree = "<group>"; };
-		45EC0BDB1FEABD9E00AD8EC9 /* UniCodeOfCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniCodeOfCardGame.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,7 +64,6 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				45E348FB1FEA387200E9DD65 /* CardData.swift */,
 				45E348FD1FEA43CB00E9DD65 /* MyCardGame.swift */,
-				45EC0BDB1FEABD9E00AD8EC9 /* UniCodeOfCardGame.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -132,7 +129,6 @@
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				45E348FC1FEA387200E9DD65 /* CardData.swift in Sources */,
 				45E348FE1FEA43CB00E9DD65 /* MyCardGame.swift in Sources */,
-				45EC0BDC1FEABD9E00AD8EC9 /* UniCodeOfCardGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
