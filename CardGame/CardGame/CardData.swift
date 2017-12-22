@@ -11,6 +11,7 @@ import Foundation
 class CardData {
     var shape: Shape
     var number: Number
+    
     // Nested enum 타입을 사용한 데이터 구조가 클래스보다 사용하기에 편리할 것 같아서 사용함.
     enum Shape: Int, CustomStringConvertible {
         case Spades = 1, Hearts, Diamonds, Clubs

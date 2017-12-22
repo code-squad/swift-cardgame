@@ -9,17 +9,23 @@
 import Foundation
 
 func run(){
+    var isPlay = true
     
     // make card deck
     let cardDeck = CardDeck()    
     
-    // inputview
-    let inputView = InputView()
-    let numberOfMenu = inputView.printMenu()
-    
-    // outputview
-    let outputView = OutputView(cardDeck: cardDeck)
-    outputView.printResult(numberOfMenu: numberOfMenu)
-  
+    repeat {
+        // inputview
+        let inputView = InputView()
+        let numberOfMenu = inputView.printMenu()
+        
+        if numberOfMenu == 4 {
+            isPlay = false
+        }
+        
+        // outputview
+        let outputView = OutputView(cardDeck: cardDeck)
+        outputView.printResult(numberOfMenu: numberOfMenu)
+    } while isPlay
 }
 run()

@@ -30,6 +30,7 @@ class CardDeck {
     func shuffle() -> [CardData] {
         //Fisher-Yates
         if card.count < 1 {
+            self.card = cardOfChange
             return cardOfChange
         }
         let numberOfRandom = Int(arc4random_uniform(UInt32(card.count)))
@@ -38,14 +39,13 @@ class CardDeck {
     }
     
     func removeOne() -> CardData {
-        return card.removeLast()
+        return (card.removeLast())
     }
     
-    func reset() -> [CardData] {
+    func reset() {
         card.removeAll()
         let cardDeck = CardDeck()
         self.card = cardDeck.card
-        return card
     }
     
 }
