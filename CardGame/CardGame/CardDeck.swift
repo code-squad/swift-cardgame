@@ -27,15 +27,13 @@ class CardDeck {
         return card.count
     }
     
-    func shuffle() -> [CardData] {
+    func shuffle() {
         //Fisher-Yates
-        if card.count < 1 {
-            self.card = cardOfChange
-            return cardOfChange
+        for _ in 0..<card.count {
+            let numberOfRandom = Int(arc4random_uniform(UInt32(card.count)))
+            cardOfChange.append(card.remove(at: numberOfRandom))
         }
-        let numberOfRandom = Int(arc4random_uniform(UInt32(card.count)))
-        cardOfChange.append(card.remove(at: numberOfRandom))
-        return shuffle()
+        self.card = cardOfChange
     }
     
     func removeOne() -> CardData {
