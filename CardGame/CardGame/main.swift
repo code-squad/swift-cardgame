@@ -13,7 +13,9 @@ func run(){
     let inputView = InputView()
     let numberOfMenu = inputView.printMenu()
     
-    // switch by menu
+    // outputview
+    let outputView = OutputView()
+    outputView.printResult(numberOfMenu: numberOfMenu)
     
     
     

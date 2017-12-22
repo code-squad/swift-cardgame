@@ -41,9 +41,9 @@ class CardDeck {
         return card.removeLast()
     }
     
-    func reset() -> CardDeck {
+    func reset() -> [CardData] {
         card.removeAll()
-        return CardDeck()
+        return card
     }
 }
 
