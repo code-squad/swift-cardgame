@@ -23,7 +23,7 @@ class OutputView {
                 print("카드 전체를 초기화했습니다.")
                 print("총 \(cardDeck.count())장의 카드가 있습니다.")
             case 2:
-                _ = cardDeck.shuffle()
+                cardDeck.shuffle()
                 print("전체 \(cardDeck.count())장의 카드를 섞었습니다.")
             case 3:
                 let card = cardDeck.removeOne()
