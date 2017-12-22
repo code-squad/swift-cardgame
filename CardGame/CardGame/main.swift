@@ -9,8 +9,13 @@
 import Foundation
 
 func run(){
-    // make CardData
-    let cardData = CardData(shape: CardData.Shape.Clubs, number: CardData.Number.Seven)
-    print(cardData.shape, cardData.number)
+    // inputview
+    let inputView = InputView()
+    let numberOfMenu = inputView.printMenu()
+    
+    // switch by menu
+    
+    
+    
 }
 run()
