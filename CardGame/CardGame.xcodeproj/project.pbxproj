@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		452C9E9C1FECA9480034E7E7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C9E9B1FECA9480034E7E7 /* InputView.swift */; };
 		452C9EA01FECACCB0034E7E7 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C9E9F1FECACCB0034E7E7 /* OutputView.swift */; };
-		45E348FC1FEA387200E9DD65 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E348FB1FEA387200E9DD65 /* CardData.swift */; };
+		45E348FC1FEA387200E9DD65 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E348FB1FEA387200E9DD65 /* Card.swift */; };
 		45EC165C1FF16A17003ADD29 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EC165B1FF16A17003ADD29 /* CardStack.swift */; };
 		45F6C5791FEBACDD0061BBEE /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6C5781FEBACDD0061BBEE /* CardDeck.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
@@ -28,10 +28,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4518966C1FF1F31E00C505B2 /* CardGame */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CardGame; sourceTree = "<group>"; };
+		4518966C1FF1F31E00C505B2 /* CardGame */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CardGame; sourceTree = "<group>"; };
 		452C9E9B1FECA9480034E7E7 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		452C9E9F1FECACCB0034E7E7 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		45E348FB1FEA387200E9DD65 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		45E348FB1FEA387200E9DD65 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		45EC165B1FF16A17003ADD29 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		45F6C5781FEBACDD0061BBEE /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				45E348FB1FEA387200E9DD65 /* CardData.swift */,
+				45E348FB1FEA387200E9DD65 /* Card.swift */,
 				45F6C5781FEBACDD0061BBEE /* CardDeck.swift */,
 				452C9E9B1FECA9480034E7E7 /* InputView.swift */,
 				452C9E9F1FECACCB0034E7E7 /* OutputView.swift */,
@@ -142,7 +142,7 @@
 				45EC165C1FF16A17003ADD29 /* CardStack.swift in Sources */,
 				452C9E9C1FECA9480034E7E7 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
-				45E348FC1FEA387200E9DD65 /* CardData.swift in Sources */,
+				45E348FC1FEA387200E9DD65 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
