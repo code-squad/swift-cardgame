@@ -54,3 +54,9 @@ class CardData {
     }
 
 }
+
+extension CardData: CustomStringConvertible {
+    var description: String {
+        return self.shape.description + self.number.description
+    }
+}

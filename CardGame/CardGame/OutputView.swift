@@ -34,4 +34,11 @@ class OutputView {
         }
     }
     
+    func printCardStack() {
+        let stack = cardDeck.makeCardStack()
+        for data in stack {
+            print(data.pop())
+        }
+    }
+    
 }
