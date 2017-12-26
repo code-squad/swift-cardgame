@@ -27,7 +27,7 @@ class Card {
                     return "♦️"
             }
         }
-        static let data = [Spades, Hearts, Diamonds, Clubs]
+        static let kind = [Spades, Hearts, Diamonds, Clubs]
     }
     enum Number: Int, CustomStringConvertible {
         case Ace = 1, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
@@ -45,7 +45,7 @@ class Card {
                     return "\(self.rawValue)"
             }
         }
-        static let data = [Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King]
+        static let kind = [Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King]
     }
     
     init(shape: Shape, number: Number) {

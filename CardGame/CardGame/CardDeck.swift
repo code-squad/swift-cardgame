@@ -14,8 +14,8 @@ class CardDeck {
     
     init() {
         deck = [Card]()
-        for shape in Card.Shape.data {
-            for number in Card.Number.data {
+        for shape in Card.Shape.kind {
+            for number in Card.Number.kind {
                 deck.append(Card(shape: shape, number: number))
             }
         }
