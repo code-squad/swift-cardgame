@@ -10,39 +10,39 @@ import Foundation
 
 class CardDeck {
     
-    private var card: [CardData]
+    private var deck: [CardData]
     
     init() {
-        card = [CardData]()
+        deck = [CardData]()
         for shape in CardData.Shape.data {
             for number in CardData.Number.data {
-                card.append(CardData(shape: shape, number: number))
+                deck.append(CardData(shape: shape, number: number))
             }
         }
     }
     
     func count() -> Int {
-        return card.count
+        return deck.count
     }
     
     func shuffle() {
         //Fisher-Yates
         var cardOfChange = [CardData]()
-        for _ in 0..<card.count {
-            let numberOfRandom = Int(arc4random_uniform(UInt32(card.count)))
-            cardOfChange.append(card.remove(at: numberOfRandom))
+        for _ in 0..<deck.count {
+            let numberOfRandom = Int(arc4random_uniform(UInt32(deck.count)))
+            cardOfChange.append(deck.remove(at: numberOfRandom))
         }
-        self.card = cardOfChange
+        self.deck = cardOfChange
     }
     
     func removeOne() -> CardData {
-        return (card.removeLast())
+        return (deck.removeLast())
     }
     
     func reset() {
-        card.removeAll()
+        deck.removeAll()
         let cardDeck = CardDeck()
-        self.card = cardDeck.card
+        self.deck = cardDeck.deck
     }
     
     func makeCardStack() -> [CardStack] {
@@ -51,7 +51,7 @@ class CardDeck {
         for row in 0..<7 {
             let cardStack = CardStack()
             for _ in 0...row {
-                let data = card.popLast()
+                let data = deck.popLast()
                 cardStack.push(data: data!)
             }
             stack.insert(cardStack, at: row)
