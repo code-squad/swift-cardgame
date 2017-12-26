@@ -15,8 +15,8 @@ class CardStack {
         stack = [CardData]()
     }
     
-    func push(data: CardData) {
-        stack.append(data)
+    func push(card: CardData) {
+        stack.append(card)
     }
     
     func pop() -> [CardData] {

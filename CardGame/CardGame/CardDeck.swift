@@ -51,8 +51,8 @@ class CardDeck {
         for row in 0..<7 {
             let cardStack = CardStack()
             for _ in 0...row {
-                let data = deck.popLast()
-                cardStack.push(data: data!)
+                let card = deck.popLast()
+                cardStack.push(card: card!)
             }
             stack.insert(cardStack, at: row)
         }
