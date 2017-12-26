@@ -10,7 +10,6 @@ import Foundation
 
 class CardStack {
     private var stack: [Card]
-    
     init() {
         stack = [Card]()
     }

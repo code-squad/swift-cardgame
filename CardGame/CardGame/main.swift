@@ -16,6 +16,7 @@ func run(){
 
 // 주석을 사용하여 입력기능을 잠시 사용하지 않음.
 /********** input menu **********/
+    
 /*
     var isPlay = true
 
@@ -34,6 +35,7 @@ func run(){
 */
     
 /************ card stack ************/
+    
     let outputView = OutputView(cardDeck: cardDeck)
     outputView.printCardStack()
 }
