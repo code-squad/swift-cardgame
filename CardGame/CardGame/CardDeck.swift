@@ -45,5 +45,19 @@ class CardDeck {
         self.card = cardDeck.card
     }
     
+    func makeCardStack() -> [CardStack] {
+        var stack = [CardStack]()
+        shuffle()
+        for row in 0..<7 {
+            let cardStack = CardStack()
+            for _ in 0...row {
+                let data = card.popLast()
+                cardStack.push(data: data!)
+            }
+            stack.insert(cardStack, at: row)
+        }
+        return stack
+    }
+    
 }
 
