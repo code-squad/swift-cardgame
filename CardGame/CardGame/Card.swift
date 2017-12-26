@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CardData {
+class Card {
     var shape: Shape
     var number: Number
     
@@ -55,7 +55,7 @@ class CardData {
 
 }
 
-extension CardData: CustomStringConvertible {
+extension Card: CustomStringConvertible {
     var description: String {
         return self.shape.description + self.number.description
     }

@@ -9,17 +9,17 @@
 import Foundation
 
 class CardStack {
-    private var stack: [CardData]
+    private var stack: [Card]
     
     init() {
-        stack = [CardData]()
+        stack = [Card]()
     }
     
-    func push(card: CardData) {
+    func push(card: Card) {
         stack.append(card)
     }
     
-    func pop() -> [CardData] {
+    func pop() -> [Card] {
         return stack
     }
 
