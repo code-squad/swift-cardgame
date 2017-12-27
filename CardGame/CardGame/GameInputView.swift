@@ -12,6 +12,7 @@ class GameInputView {
     enum CardGameError: Error {
         case InvalidCardGameSelection
         case InvalidNumberOfPlayer
+        case Cardshortage
     }
     private var gameInfo: GameInfo
     
@@ -20,13 +21,18 @@ class GameInputView {
     }
     func inputKindOfCardGame() throws -> GameInfo {
         print("카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드\n> ", terminator: "")
-        guard let menuNumber = Int(readLine()!) else {
+        guard let kindOfGame = Int(readLine()!) else {
             throw CardGameError.InvalidCardGameSelection
         }
-        guard menuNumber > 0 && menuNumber < 3 else {
+        guard kindOfGame > 0 && kindOfGame < 3 else {
             throw CardGameError.InvalidCardGameSelection
         }
-        gameInfo.menuNumber = menuNumber
+        switch kindOfGame {
+            case 1: gameInfo.kindOfGame = 7
+            case 2: gameInfo.kindOfGame = 5
+        default:
+            gameInfo.kindOfGame = -1
+        }
         try inputNumberOfPlayer()
         return gameInfo
     }
@@ -39,6 +45,6 @@ class GameInputView {
         guard numberOfPlayer > 0 && numberOfPlayer < 5 else {
             throw CardGameError.InvalidNumberOfPlayer
         }
-        gameInfo.numberOfPlayer = numberOfPlayer
+        gameInfo.numberOfPlayer = numberOfPlayer + 1 // player and dealer
     }
 }
