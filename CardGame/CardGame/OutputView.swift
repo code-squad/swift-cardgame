@@ -36,9 +36,18 @@ class OutputView {
     
     func printCardStack() {
         let stack = cardDeck.makeCardStack()
-        for data in stack {
-            print(data.pop())
+        for card in stack {
+            print(card.pop())
         }
+    }
+    
+    func printPokerDealer(cardDeck: CardDeck, gameInfo: GameInfo) {
+        let nameOfPlayer = ["참가자#1", "참가자#2", "참가자#3", "딜러"]
+        let stack = cardDeck.makeCardStack()
+//        for card in stack {
+//            print(card.pop())
+//            
+//        }
     }
     
 }

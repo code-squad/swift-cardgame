@@ -15,7 +15,7 @@ func run(){
     let cardDeck = CardDeck()    
 
 // 주석을 사용하여 입력기능을 잠시 사용하지 않음.
-/********** input menu **********/
+/********** input menu (step 1, 2, 3) **********/
     
 /*
     var isPlay = true
@@ -32,11 +32,38 @@ func run(){
         let outputView = OutputView(cardDeck: cardDeck)
         outputView.printResult(numberOfMenu: numberOfMenu)
     } while isPlay
-*/
-    
-/************ card stack ************/
+
+    /************ card stack ************/
     
     let outputView = OutputView(cardDeck: cardDeck)
     outputView.printCardStack()
+ 
+*/
+    
+/************ Game input menu (step 4) ************/
+    
+    var isPrintMenu = true
+    var gameInfo: GameInfo
+    
+    repeat {
+        // inputview
+        let gameInputView = GameInputView()
+        do {
+            try gameInfo = gameInputView.inputKindOfCardGame()
+        }catch GameInputView.CardGameError.InvalidCardGameSelection {
+            print("게임 선택 번호 오류")
+        }catch GameInputView.CardGameError.InvalidNumberOfPlayer {
+            print("게임플레이어 인원 입력 오류")
+        }catch {
+            print("그 외의 오류")
+        }
+        
+//        let outputView = OutputView(cardDeck: cardDeck, gameInfo: gameInfo)
+//        outputView
+        
+        
+
+    } while isPrintMenu
+
 }
 run()
