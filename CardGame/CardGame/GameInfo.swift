@@ -9,6 +9,9 @@
 import Foundation
 
 class GameInfo {
-    var menuNumber: Int = 0
+    enum kindOfGame {
+        
+    }
+    var kindOfGame: Int = 0
     var numberOfPlayer: Int = 0
 }

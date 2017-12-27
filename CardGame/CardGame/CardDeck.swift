@@ -19,6 +19,7 @@ class CardDeck {
                 deck.append(Card(shape: shape, number: number))
             }
         }
+        shuffle()
     }
     
     func count() -> Int {
@@ -51,6 +52,22 @@ class CardDeck {
         for row in 0..<7 {
             let cardStack = CardStack()
             for _ in 0...row {
+                let card = deck.popLast()
+                cardStack.push(card: card!)
+            }
+            stack.insert(cardStack, at: row)
+        }
+        return stack
+    }
+    
+    func makeCardStack(gameInfo: GameInfo) throws -> [CardStack] {
+        var stack = [CardStack]()
+        guard deck.count > gameInfo.numberOfPlayer * gameInfo.kindOfGame else {
+            throw GameInputView.CardGameError.Cardshortage
+        }
+        for row in 0..<gameInfo.numberOfPlayer {
+            let cardStack = CardStack()
+            for _ in 0..<gameInfo.kindOfGame {
                 let card = deck.popLast()
                 cardStack.push(card: card!)
             }

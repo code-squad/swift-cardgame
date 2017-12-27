@@ -11,9 +11,11 @@ import Foundation
 class OutputView {
     
     private let cardDeck: CardDeck
+    private let gameInfo: GameInfo
     
-    init(cardDeck: CardDeck) {
+    init(cardDeck: CardDeck, gameInfo: GameInfo) {
         self.cardDeck = cardDeck
+        self.gameInfo = gameInfo
     }
     
     func printResult(numberOfMenu: Int) {
@@ -41,13 +43,24 @@ class OutputView {
         }
     }
     
-    func printPokerDealer(cardDeck: CardDeck, gameInfo: GameInfo) {
-        let nameOfPlayer = ["참가자#1", "참가자#2", "참가자#3", "딜러"]
-        let stack = cardDeck.makeCardStack()
-//        for card in stack {
-//            print(card.pop())
-//            
-//        }
+    func printPokerDealer() -> Bool {
+        var index = 1
+        var stack: [CardStack]
+        do {
+            stack = try cardDeck.makeCardStack(gameInfo: gameInfo)
+        }catch {
+            print("게임종료.")
+            return false
+        }
+        for card in stack {
+            if stack.count == index {
+                print("딜러 ", card.pop())
+            }else {
+                print("참가자#\(index)", card.pop())
+            }
+            index += 1
+        }
+        return true
     }
     
 }

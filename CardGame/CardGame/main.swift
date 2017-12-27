@@ -43,13 +43,15 @@ func run(){
 /************ Game input menu (step 4) ************/
     
     var isPrintMenu = true
-    var gameInfo: GameInfo
+    var isGameOn = true
+    var gameInfo: GameInfo?
     
     repeat {
         // inputview
         let gameInputView = GameInputView()
         do {
-            try gameInfo = gameInputView.inputKindOfCardGame()
+            gameInfo = try gameInputView.inputKindOfCardGame()
+            isPrintMenu = false
         }catch GameInputView.CardGameError.InvalidCardGameSelection {
             print("게임 선택 번호 오류")
         }catch GameInputView.CardGameError.InvalidNumberOfPlayer {
@@ -57,13 +59,12 @@ func run(){
         }catch {
             print("그 외의 오류")
         }
-        
-//        let outputView = OutputView(cardDeck: cardDeck, gameInfo: gameInfo)
-//        outputView
-        
-        
-
     } while isPrintMenu
-
+    repeat {
+        // outputview
+        let outputView = OutputView(cardDeck: cardDeck, gameInfo: gameInfo!)
+        isGameOn = outputView.printPokerDealer()
+        print()
+    } while isGameOn
 }
 run()
