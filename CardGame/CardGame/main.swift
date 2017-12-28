@@ -42,13 +42,12 @@ func run(){
     
 /************ Game input menu (step 4) ************/
     
+    let gameInputView = GameInputView()
     var isPrintMenu = true
     var isGameOn = true
     var gameInfo: GameInfo?
-    
+    // inputview
     repeat {
-        // inputview
-        let gameInputView = GameInputView()
         do {
             gameInfo = try gameInputView.inputKindOfCardGame()
             isPrintMenu = false
@@ -60,9 +59,10 @@ func run(){
             print("그 외의 오류")
         }
     } while isPrintMenu
+    
+    // outputview
+    let outputView = OutputView(cardDeck: cardDeck, gameInfo: gameInfo!)
     repeat {
-        // outputview
-        let outputView = OutputView(cardDeck: cardDeck, gameInfo: gameInfo!)
         isGameOn = outputView.printPokerDealer()
         print()
     } while isGameOn
