@@ -43,7 +43,7 @@ func run(){
 /************ Game input menu (step 4) ************/
     
     let gameInputView = GameInputView()
-    var gameInfo: GameInfo?
+    var gameInfo = GameInfo()
     var isPrintMenu = true
     var isGameOn = true
     
@@ -62,7 +62,7 @@ func run(){
     } while isPrintMenu
     
     // outputview
-    let outputView = OutputView(cardDeck: cardDeck, gameInfo: gameInfo!)
+    let outputView = OutputView(cardDeck: cardDeck, gameInfo: gameInfo)
     repeat {
         isGameOn = outputView.printPokerDealer()
         print()
