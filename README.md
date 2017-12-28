@@ -1,57 +1,62 @@
-# 진행 방법
+# 코딩스타일 가이드라인
 
-- 카드게임에 대한 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+## 나만의 코딩스타일
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
-
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+### 코드레이아웃 (layout)
+- 들여쓰기는 탭(tab)을 사용한다.
+- 콜론(colon) 사용 시 오른쪽에만 공백을 둔다.
+- 단어 단위로 공백을 둔다.
+- 구문의 중괄호(culry bracket) 시작은 클래스 이름과 공백 다음에 이어쓴다.
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-cardgame
+class GameInfo {
+    var kindOfGame: Int = 0
+    var numberOfPlayer: Int = 0
+}
 ```
 
-3. clone한 프로젝트 이동
+### 이름지정하기 (Naming)
+- 클래스 이름은 UpperCamelCase를 사용한다.
+- 변수와 함수 이름은 lowerCamelCase를 사용한다.
+- 약어를 사용하지 않는다.
+
 ```
-cd {저장소 아이디}
-ex) cd swift-cardgame
+class CardDeck {
+    private var deck: [Card]
+
+    func count() -> Int {
+        return deck.count
+    }
+}
 ```
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
+### 주석
+- `///` 를 사용해서 코드에 설명이 필요한 부분에 주석을 남긴다.
+- 일시적으로 일부 기능 제거 시 해당 기능 관련 코드 윗줄에 `/********** description **********/` 를 사용해서 기능에 대한 설명 주석을 남긴다.
 ```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
+// 주석을 사용하여 입력기능을 잠시 사용하지 않음.
+/********** input menu (step 1, 2, 3) **********/
+
+/*
+    var isPlay = true
+
+    repeat {
+        // inputview
+        let inputView = InputView()
+        let numberOfMenu = inputView.printMenu()
+        if numberOfMenu == 4 {
+        isPlay = false
+    }
+
+    // outputview
+        let outputView = OutputView(cardDeck: cardDeck)
+        outputView.printResult(numberOfMenu: numberOfMenu)
+    } while isPlay
+*/
 ```
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+## 참고사이트
+- https://github.com/StyleShare/swift-style-guide
+- https://github.com/raywenderlich/swift-style-guide/
+  (한국어: http://kka7.tistory.com/59)
+- https://swift.org/documentation/api-design-guidelines/
