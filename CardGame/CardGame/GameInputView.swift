@@ -12,6 +12,7 @@ class GameInputView {
     enum CardGameError: Error {
         case InvalidCardGameSelection
         case InvalidNumberOfPlayer
+        case InvalidGameInfo
         case Cardshortage
     }
     private var gameInfo: GameInfo
