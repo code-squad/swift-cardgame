@@ -8,19 +8,15 @@
 
 import Foundation
 
-struct CardDeck {
+struct Deck {
     private var cards: [Card] = []
     
     init() {
         reset()
     }
-    
-    init(_ cards: [Card]) {
-        self.cards = cards
-    }
-    
+
     mutating func reset() {
-        makeCards()
+        resetCards()
     }
     
     func count() -> Int {
@@ -31,17 +27,12 @@ struct CardDeck {
         return count() > 0
     }
     
-    mutating func removeOne() -> Card {
-        return removeCard()
-    }
-    
-    mutating func removeCards(_ count: Int) -> CardStack {
-        var cardStack: CardStack = CardStack()
-        for _ in 0..<count {
-            cardStack.pushCard(removeCard())
+    mutating func remove() throws -> Card {
+        guard self.count() > 0 else {
+            throw GameError.notEnoughCards
         }
         
-        return cardStack
+        return removeCard()
     }
     
     mutating func shuffle() {
@@ -53,37 +44,33 @@ struct CardDeck {
     }
 }
 
-private extension CardDeck {
-    private mutating func makeCards() {
-        cards = []
+private extension Deck {
+    private mutating func resetCards() {
+        self.cards = []
         
-        for suit in Suit.values {
-            for number in Number.values {
-                cards.append(makeCard(suit, number))
+        for suit in Suit.allValues {
+            for number in Number.allValues {
+                self.cards.append(setCard(suit, number))
             }
         }
     }
     
-    private mutating func makeCard(_ suit: Suit, _ number: Number) -> Card {
+    private mutating func setCard(_ suit: Suit, _ number: Number) -> Card {
         return Card(suit, number)
     }
     
-    private func generateRandomInt() -> Int {
-        return Int(arc4random_uniform(UInt32(cards.count)))
-    }
-    
     private mutating func removeCard() -> Card {
-        return cards.remove(at: generateRandomInt())
+        return self.cards.removeLast()
     }
 
     
     private mutating func shuffleCards() {
-        self.cards = cards.shuffle()
+        self.cards = self.cards.shuffle()
     }
 }
 
-extension CardDeck: Equatable {
-    static func ==(lhs: CardDeck, rhs: CardDeck) -> Bool {
+extension Deck: Equatable {
+    static func ==(lhs: Deck, rhs: Deck) -> Bool {
         guard lhs.cards == rhs.cards else {
             return false
         }

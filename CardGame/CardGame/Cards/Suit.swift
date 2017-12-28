@@ -11,7 +11,7 @@ import Foundation
 enum Suit {
     case heart, diamond, club, spade
     
-    static var values: [Suit] {
+    static var allValues: [Suit] {
         return [.club, .diamond, .heart, .spade]
     }
 }

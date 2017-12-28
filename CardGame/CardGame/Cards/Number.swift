@@ -11,7 +11,7 @@ import Foundation
 enum Number: Int {
     case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
     
-    static var values: [Number] {
+    static var allValues: [Number] {
         return [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
     }
 }
