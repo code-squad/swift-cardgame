@@ -15,10 +15,10 @@ class GameInputView {
         case Cardshortage
     }
     private var gameInfo: GameInfo
-    
     init() {
         self.gameInfo = GameInfo()
     }
+    
     func inputKindOfCardGame() throws -> GameInfo {
         print("카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드\n> ", terminator: "")
         guard let kindOfGame = Int(readLine()!) else {
@@ -47,4 +47,5 @@ class GameInputView {
         }
         gameInfo.numberOfPlayer = numberOfPlayer + 1 // player and dealer
     }
+    
 }

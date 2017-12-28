@@ -43,9 +43,10 @@ func run(){
 /************ Game input menu (step 4) ************/
     
     let gameInputView = GameInputView()
+    var gameInfo: GameInfo?
     var isPrintMenu = true
     var isGameOn = true
-    var gameInfo: GameInfo?
+    
     // inputview
     repeat {
         do {
