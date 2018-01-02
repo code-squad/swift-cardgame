@@ -65,7 +65,24 @@ class OutputView {
             }
             print()
         }
+        printWinner(stack: stack)
         return true
+    }
+    
+    func printWinner(stack: [CardStack]) {
+        var pointOfWinner = 0
+        var winnerPlayer = 0
+        var counting = 0
+        for cardsOfPlayer in stack {
+            let pokerPoint = PokerPoint()
+            let pointOfResult = pokerPoint.calculatePokerPoint(cards: cardsOfPlayer.pop())
+            if pointOfResult > pointOfWinner {
+                pointOfWinner = pointOfResult
+                winnerPlayer = counting
+            }
+            counting += 1
+        }
+        print("참가자#\(winnerPlayer+1)승리!!!!")
     }
     
 }
