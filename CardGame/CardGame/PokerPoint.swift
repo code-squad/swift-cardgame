@@ -9,13 +9,24 @@
 import Foundation
 
 class PokerPoint {
+    enum PokerHand: Int {
+        case OnePair, TwoPairs, Thrips, Straight, Flush, FullHouse, Quads, Straightflush
+    }
     var scoreCard: [[Card]] // 0: pairPoint, 1: straightPoint, 2: flushPoint
-    // 0: OnePair, 1: TwoPairs, 2: Thrips, 3: Straight, 4: Flush, 5: FullHouse, 6: Quads, 7: Straight flush
     var point: [Int]
     init() {
         scoreCard = [[Card]]()
         point = [Int](repeating: 0, count: 8)
     }
+    
+    func incrementPoint(type: PokerHand) {
+        point[type.rawValue] += 1
+    }
+    
+    func decrementPoint(type: PokerHand) {
+        point[type.rawValue] -= 2
+    }
+    
     func cardOfSameNumber(cards: [Card]) { // pair
         let numberOfCard = Set(cards.map({$0.number}))
         scoreCard.append([Card]())
@@ -32,15 +43,11 @@ class PokerPoint {
     }
     
     func countEachPairPoint(countOfPair: Int) {
-        if countOfPair == 2 { // OnePair
-            point[0] += 1
-        }else if countOfPair == 3 { // Thrips
-            point[2] += 1
-        }else if countOfPair == 4 { // Four card
-            point[6] += 1
-        }else if point[0] > 1 {
-            point[1] += 1
-            point[0] -= 2
+        if countOfPair > 1 && countOfPair < 5 { // OnePair, TwoPair, Thrips
+            incrementPoint(type: PokerHand.OnePair)
+        }else if point[PokerHand.OnePair.rawValue] > 1 {
+            incrementPoint(type: PokerHand.TwoPairs)
+            decrementPoint(type: PokerHand.OnePair)
         }
     }
     
@@ -55,7 +62,7 @@ class PokerPoint {
                 fibotNumberOfCard += 1
                 countOfStraight += 1
                 if countOfStraight >= 5 {
-                    point[3] += 1
+                    incrementPoint(type: PokerHand.Straight)
                 }
             }
         }
@@ -72,7 +79,7 @@ class PokerPoint {
                     countOfFlush += 1
                 }
                 if countOfFlush >= 5 {
-                    point[4] += 1
+                    incrementPoint(type: PokerHand.Flush)
                 }
             }
         }
@@ -84,6 +91,7 @@ class PokerPoint {
         cardOfSerial(cards: cards)
         cardOfSameShape(cards: cards)
         if point[0] == 1 && point[2] == 1 {
+            
             point[5] += 1
             point[0] -= 1
             point[2] -= 1
