@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PokerPoint {
+class PokerScoreCalculate {
     var scoreCard: [[Card]] // 0: pairPoint, 1: straightPoint, 2: flushPoint
     // 0: OnePair, 1: TwoPairs, 2: Thrips, 3: Straight, 4: Flush, 5: FullHouse, 6: Quads, 7: Straight flush
     var point: [Int]
