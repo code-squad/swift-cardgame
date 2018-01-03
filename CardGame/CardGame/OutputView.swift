@@ -74,8 +74,8 @@ class OutputView {
         var winnerPlayer = 0
         var counting = 0
         for cardsOfPlayer in stack {
-            let pokerPoint = PokerPoint()
-            let pointOfResult = pokerPoint.calculatePokerPoint(cards: cardsOfPlayer.pop())
+            let pokerScoreCalculate = PokerScoreCalculate()
+            let pointOfResult = pokerScoreCalculate.calculatePokerPoint(cards: cardsOfPlayer.pop())
             if pointOfResult > pointOfWinner {
                 pointOfWinner = pointOfResult
                 winnerPlayer = counting
