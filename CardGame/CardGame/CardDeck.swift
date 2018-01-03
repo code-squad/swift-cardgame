@@ -46,34 +46,32 @@ class CardDeck {
         self.deck = cardDeck.deck
     }
     
-    func makeCardStack() -> [CardStack] {
-        var stack = [CardStack]()
+    func makeCardStack() -> [[Card]] {
+        var cardStack = [[Card]]()
         shuffle()
         for row in 0..<7 {
-            let cardStack = CardStack()
+            cardStack.append([Card]())
             for _ in 0...row {
                 let card = deck.popLast()
-                cardStack.push(card: card!)
+                cardStack[row].append(card!)
             }
-            stack.insert(cardStack, at: row)
         }
-        return stack
+        return cardStack
     }
     
-    func makeCardStack(gameInfo: GameInfo) throws -> [CardStack] {
-        var stack = [CardStack]()
+    func makeCardStack(gameInfo: GameInfo) throws -> [[Card]] {
+        var cardStack = [[Card]]()
         guard deck.count > gameInfo.numberOfPlayer * gameInfo.kindOfGame else {
             throw GameInputView.CardGameError.Cardshortage
         }
         for row in 0..<gameInfo.numberOfPlayer {
-            let cardStack = CardStack()
+            cardStack.append([Card]())
             for _ in 0..<gameInfo.kindOfGame {
                 let card = deck.popLast()
-                cardStack.push(card: card!)
+                cardStack[row].append(card!)
             }
-            stack.insert(cardStack, at: row)
         }
-        return stack
+        return cardStack
     }
     
 }

@@ -37,52 +37,55 @@ class OutputView {
     }
     
     func printCardStack() {
-        let stack = cardDeck.makeCardStack()
-        for card in stack {
-            print(card.pop())
+        let cardStack = cardDeck.makeCardStack()
+        for player in cardStack {
+            for card in player {
+                print(card)
+            }
         }
     }
     
     func printPokerDealer() -> Bool {
-        var stack: [CardStack]
+        var cardStack: [[Card]]
         do {
-            stack = try cardDeck.makeCardStack(gameInfo: gameInfo)
+            cardStack = try cardDeck.makeCardStack(gameInfo: gameInfo)
         }catch {
             print("게임종료.")
             return false
         }
-        for index in 1...stack.count {
-            if index == stack.count {
+        for index in 1...cardStack.count {
+            if index == cardStack.count {
                 print("딜러 ")
                 break
             }
             print("참가자#\(index)", terminator: "\t\t")
         }
-        for step in 0..<stack[0].pop().count {
-            for player in 0..<stack.count {
-                print(stack[player].pop()[step].description, terminator: "\t\t\t")
+        
+        for (index, _) in cardStack[0].enumerated() {
+            for player in 0..<cardStack.count {
+                print(cardStack[player][index].description, terminator: "\t\t\t")
                 sleep(1)
             }
             print()
         }
-        printWinner(stack: stack)
+        printWinner(stack: cardStack)
         return true
     }
     
-    func printWinner(stack: [CardStack]) {
+    func printWinner(stack: [[Card]]) {
         var pointOfWinner = 0
         var winnerPlayer = 0
         var counting = 0
         for cardsOfPlayer in stack {
-            let pokerScoreCalculate = PokerScoreCalculate()
-            let pointOfResult = pokerScoreCalculate.calculatePokerPoint(cards: cardsOfPlayer.pop())
+            let pokerPoint = PokerPoint()
+            let pointOfResult = pokerPoint.calculatePokerPoint(cards: cardsOfPlayer)
             if pointOfResult > pointOfWinner {
                 pointOfWinner = pointOfResult
                 winnerPlayer = counting
             }
             counting += 1
         }
-        print("참가자#\(winnerPlayer+1)승리!!!!")
+        print("참가자#\(winnerPlayer+1) 승리!!!!")
     }
     
 }
