@@ -12,8 +12,11 @@ class PokerPoint {
     enum PokerHand: Int {
         case OnePair, TwoPairs, Thrips, Straight, Flush, FullHouse, Quads, Straightflush
     }
-    var scoreCard: [[Card]] // 0: pairPoint, 1: straightPoint, 2: flushPoint
-    var point: [Int]
+    enum PointType: Int {
+        case PairPoint, StraightPoint, FlushPoint
+    }
+    var point: [Int] // OnePair, TwoPairs, Thrips, Straight, Flush, FullHouse, Quads, Straightflush
+    var scoreCard: [[Card]] // PairPoint, StraightPoint, FlushPoint
     init() {
         scoreCard = [[Card]]()
         point = [Int](repeating: 0, count: 8)
@@ -24,7 +27,7 @@ class PokerPoint {
     }
     
     func decrementPoint(type: PokerHand) {
-        point[type.rawValue] -= 2
+        point[type.rawValue] -= 1
     }
     
     func cardOfSameNumber(cards: [Card]) { // pair
@@ -34,7 +37,7 @@ class PokerPoint {
             var countOfPair = 0
             for index in 0..<cards.count {
                 if fibotCard == cards[index].number {
-                    scoreCard[0].append(cards[index])
+                    scoreCard[PointType.PairPoint.rawValue].append(cards[index])
                     countOfPair += 1
                 }
             }
@@ -48,6 +51,7 @@ class PokerPoint {
         }else if point[PokerHand.OnePair.rawValue] > 1 {
             incrementPoint(type: PokerHand.TwoPairs)
             decrementPoint(type: PokerHand.OnePair)
+            decrementPoint(type: PokerHand.OnePair)
         }
     }
     
@@ -58,7 +62,7 @@ class PokerPoint {
         scoreCard.append([Card]())
         for index in 1..<cardsBySort.count {
             if fibotNumberOfCard == cardsBySort[index].number.rawValue {
-                scoreCard[1].append(cardsBySort[index])
+                scoreCard[PointType.StraightPoint.rawValue].append(cardsBySort[index])
                 fibotNumberOfCard += 1
                 countOfStraight += 1
                 if countOfStraight >= 5 {
@@ -70,12 +74,12 @@ class PokerPoint {
     
     func cardOfSameShape(cards: [Card]) { // flush
         let shapeOfCard = Set(cards.map({$0.shape}))
-        var countOfFlush = 0
         scoreCard.append([Card]())
         for fibotCard in shapeOfCard {
+            var countOfFlush = 0
             for index in 0..<cards.count {
                 if fibotCard == cards[index].shape {
-                    scoreCard[2].append(cards[index])
+                    scoreCard[PointType.FlushPoint.rawValue].append(cards[index])
                     countOfFlush += 1
                 }
                 if countOfFlush >= 5 {
@@ -90,19 +94,22 @@ class PokerPoint {
         cardOfSameNumber(cards: cards)
         cardOfSerial(cards: cards)
         cardOfSameShape(cards: cards)
-        if point[0] == 1 && point[2] == 1 {
-            
-            point[5] += 1
-            point[0] -= 1
-            point[2] -= 1
-        }else if point[3] == 1 && point[4] == 1 {
-            point[7] += 1
-            point[3] -= 1
-            point[4] -= 1
+        if point[PokerHand.OnePair.rawValue] > 0 && point[PokerHand.Thrips.rawValue] > 0 {
+            incrementPoint(type: PokerHand.FullHouse)
+            decrementPoint(type: PokerHand.OnePair)
+            decrementPoint(type: PokerHand.Thrips)
+        }else if point[PokerHand.Straight.rawValue] > 0 && point[PokerHand.Flush.rawValue] > 0 {
+            incrementPoint(type: PokerHand.Straightflush)
+            decrementPoint(type: PokerHand.Straight)
+            decrementPoint(type: PokerHand.Flush)
         }
         for index in 0..<point.count {
             pointOfResult += point[index] * (index + 1)
         }
+        for index in 0..<point.count {
+            print(point[index], terminator: " ")
+        }
+        print()
         return pointOfResult
     }
     

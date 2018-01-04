@@ -79,12 +79,14 @@ class OutputView {
         for cardsOfPlayer in stack {
             let pokerPoint = PokerPoint()
             let pointOfResult = pokerPoint.calculatePokerPoint(cards: cardsOfPlayer)
+            print(pointOfResult)
             if pointOfResult > pointOfWinner {
                 pointOfWinner = pointOfResult
                 winnerPlayer = counting
             }
             counting += 1
         }
+        print()
         print("참가자#\(winnerPlayer+1) 승리!!!!")
     }
     
