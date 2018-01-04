@@ -3,7 +3,7 @@
 //  CardGameTests
 //
 //  Created by yuaming on 2017. 12. 28..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017년 YUAMING. All rights reserved.
 //
 
 import XCTest
@@ -11,14 +11,13 @@ import XCTest
 class DeckTests: XCTestCase {
     func test_카드_초기화_성공() {
         let deck: Deck = Deck()
-        XCTAssertTrue(deck.count() == 52)
+        XCTAssertTrue(deck.count == 52)
     }
     
     func test_카드_하나_뽑기_성공() throws {
         var deck: Deck = Deck()
-        let card: Card = try deck.remove()
-        let compareCard: Card = Card(Suit.spade, Number.king)
-        XCTAssertTrue(card == compareCard)
+        try deck.remove()
+        XCTAssertTrue(deck.count == 51)
     }
     
     func test_카드_섞기_성공() {
@@ -33,12 +32,13 @@ class DeckTests: XCTestCase {
         var deck: Deck = Deck()
         var cards: [Card] = []
     
-        for _ in 0..<deck.count() {
+        for _ in 0..<deck.count {
             cards.append(try deck.remove())
         }
         
         XCTAssertTrue(cards.count == 52)
-        XCTAssertTrue(deck.count() == 0)
+        XCTAssertTrue(deck.count == 0)
         XCTAssertThrowsError(try deck.remove())
     }
+    
 }

@@ -3,16 +3,17 @@
 //  CardGame
 //
 //  Created by yuaming on 2017. 12. 14..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017년 YUAMING. All rights reserved.
 //
 
 import Foundation
 
 enum Number: Int {
-    case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
+    case two = 1, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace
     
     static var allValues: [Number] {
-        return [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
+        // return [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
+        return (1...13).flatMap { Number(rawValue: $0) }
     }
 }
 

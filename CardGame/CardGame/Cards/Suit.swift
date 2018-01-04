@@ -3,7 +3,7 @@
 //  CardGame
 //
 //  Created by yuaming on 2017. 12. 14..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017년 YUAMING. All rights reserved.
 //
 
 import Foundation
