@@ -16,7 +16,6 @@
 		870B970B1FE2351400E26E87 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B970A1FE2351400E26E87 /* Card.swift */; };
 		870B970C1FE2351400E26E87 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B970A1FE2351400E26E87 /* Card.swift */; };
 		873793BC1FFE203900AB3FEC /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B31FFE203800AB3FEC /* GameError.swift */; };
-		873793BD1FFE203900AB3FEC /* HandEvalutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B41FFE203800AB3FEC /* HandEvalutor.swift */; };
 		873793BE1FFE203900AB3FEC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B51FFE203800AB3FEC /* Player.swift */; };
 		873793BF1FFE203900AB3FEC /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B61FFE203800AB3FEC /* Hand.swift */; };
 		873793C01FFE203900AB3FEC /* PokerGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B71FFE203800AB3FEC /* PokerGameData.swift */; };
@@ -55,7 +54,6 @@
 		870B97041FE224A800E26E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		870B970A1FE2351400E26E87 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		873793B31FFE203800AB3FEC /* GameError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameError.swift; sourceTree = "<group>"; };
-		873793B41FFE203800AB3FEC /* HandEvalutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandEvalutor.swift; sourceTree = "<group>"; };
 		873793B51FFE203800AB3FEC /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		873793B61FFE203800AB3FEC /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		873793B71FFE203800AB3FEC /* PokerGameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerGameData.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				873793B31FFE203800AB3FEC /* GameError.swift */,
 				873793B61FFE203800AB3FEC /* Hand.swift */,
 				873793B81FFE203900AB3FEC /* HandEvaluator.swift */,
-				873793B41FFE203800AB3FEC /* HandEvalutor.swift */,
 				873793B91FFE203900AB3FEC /* HandType.swift */,
 				873793B51FFE203800AB3FEC /* Player.swift */,
 				873793BB1FFE203900AB3FEC /* PokerGame.swift */,
@@ -265,7 +262,6 @@
 				873793C91FFE206500AB3FEC /* GameOutputView.swift in Sources */,
 				873793BF1FFE203900AB3FEC /* Hand.swift in Sources */,
 				873793C81FFE206500AB3FEC /* GameInputView.swift in Sources */,
-				873793BD1FFE203900AB3FEC /* HandEvalutor.swift in Sources */,
 				870B96FB1FE2247200E26E87 /* Number.swift in Sources */,
 				873793C31FFE203900AB3FEC /* Dealer.swift in Sources */,
 				873793BC1FFE203900AB3FEC /* GameError.swift in Sources */,
