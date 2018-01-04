@@ -3,19 +3,14 @@
 //  CardGame
 //
 //  Created by yuaming on 2017. 12. 14..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017년 YUAMING. All rights reserved.
 //
 
 import Foundation
 
-class Card {
-    private let suit: Suit
-    private let number: Number
-    
-    init(_ suit: Suit, _ number: Number) {
-        self.suit = suit
-        self.number = number
-    }
+struct Card {
+    private(set) var suit: Suit
+    private(set) var number: Number
 }
 
 extension Card: Equatable, Comparable {

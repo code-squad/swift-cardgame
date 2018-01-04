@@ -3,7 +3,7 @@
 //  CardGame
 //
 //  Created by yuaming on 2017. 12. 14..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017년 YUAMING. All rights reserved.
 //
 
 import Foundation
@@ -19,16 +19,16 @@ struct Deck {
         resetCards()
     }
     
-    func count() -> Int {
+    var count: Int {
         return cards.count
     }
     
-    func isAvailable() -> Bool {
-        return count() > 0
+    var isAvailable: Bool {
+        return self.count > 0
     }
     
     mutating func remove() throws -> Card {
-        guard self.count() > 0 else {
+        guard self.count > 0 else {
             throw GameError.notEnoughCards
         }
         
@@ -37,10 +37,6 @@ struct Deck {
     
     mutating func shuffle() {
         shuffleCards()
-    }
-    
-    subscript(_ index: Int) -> Card {
-        return cards[index]
     }
 }
 
@@ -56,13 +52,16 @@ private extension Deck {
     }
     
     private mutating func setCard(_ suit: Suit, _ number: Number) -> Card {
-        return Card(suit, number)
+        return Card(suit: suit, number: number)
+    }
+    
+    private func generateRandomInt() -> Int {
+        return Int(arc4random_uniform(UInt32(cards.count)))
     }
     
     private mutating func removeCard() -> Card {
-        return self.cards.removeLast()
+        return self.cards.remove(at: generateRandomInt())
     }
-
     
     private mutating func shuffleCards() {
         self.cards = self.cards.shuffle()
@@ -78,7 +77,6 @@ extension Deck: Equatable {
         return true
     }
 }
-
 
 extension Array {
     func shuffle() -> Array {
