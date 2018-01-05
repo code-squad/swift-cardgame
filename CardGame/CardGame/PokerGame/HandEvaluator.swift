@@ -55,7 +55,7 @@ struct HandEvaluator {
     
     private func checkFlush(cards: [Card]) -> Bool {
         let firstCard = cards[0]
-        let sameSuit = cards.filter() { $0.suit == firstCard.suit }
+        let sameSuit = cards.filter({ $0.suit == firstCard.suit })
         
         guard sameSuit.count == 5 else { return false }
         
@@ -63,7 +63,7 @@ struct HandEvaluator {
     }
     
     private func checkStraight(numbers: [Number]) -> Bool {
-        let sortedNumbers = numbers.flatMap { $0.straightValues }.sorted()
+        let sortedNumbers = numbers.flatMap({ $0.straightValues }).sorted()
         
         guard sortedNumbers.count <= numbers.count + 1 else { return false }
         
