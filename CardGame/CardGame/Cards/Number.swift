@@ -17,6 +17,12 @@ enum Number: Int {
     }
 }
 
+extension Number {
+    var straightValues: [Int] {
+        return [self.rawValue] + (self == .ace ? [0] : [])
+    }
+}
+
 extension Number: CustomStringConvertible {
     var description: String {
         switch self {
@@ -29,7 +35,7 @@ extension Number: CustomStringConvertible {
         case .jack:
             return "J"
         default:
-            return String(self.rawValue)
+            return String(self.rawValue + 1)
         }
     }
 }
