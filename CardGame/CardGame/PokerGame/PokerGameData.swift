@@ -9,8 +9,8 @@
 import Foundation
 
 struct PokerGameData {
-    private var dealer: Dealer
-    private var players: [Player]
+    private let dealer: Dealer
+    private let players: [Player]
     
     init(dealer: Dealer, players: [Player]) {
         self.dealer = dealer
@@ -23,5 +23,15 @@ struct PokerGameData {
     
     var playersInformation: [Player] {
         return self.players
+    }
+}
+
+extension PokerGameData {
+    func confirmWinner() -> (Player, HandType) {
+        var result = players.map({ player -> (Player, HandType) in
+            (player, HandEvaluator(hand: player.handInformation).evaluateHand())
+        }).sorted { $0.1.rawValue < $1.1.rawValue }
+        
+        return result[result.count-1]
     }
 }
