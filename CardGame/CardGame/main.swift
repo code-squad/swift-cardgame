@@ -69,3 +69,4 @@ func run(){
     } while isGameOn
 }
 run()
+

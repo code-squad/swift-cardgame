@@ -64,7 +64,7 @@ class OutputView {
         for (index, _) in cardStack[0].enumerated() {
             for player in 0..<cardStack.count {
                 print(cardStack[player][index].description, terminator: "\t\t\t")
-                sleep(1)
+//                sleep(1)
             }
             print()
         }
@@ -79,7 +79,6 @@ class OutputView {
         for cardsOfPlayer in stack {
             let pokerPoint = PokerPoint()
             let pointOfResult = pokerPoint.calculatePokerPoint(cards: cardsOfPlayer)
-            print(pointOfResult)
             if pointOfResult > pointOfWinner {
                 pointOfWinner = pointOfResult
                 winnerPlayer = counting

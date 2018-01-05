@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card {
+class Card: Comparable {
     var shape: Shape
     var number: Number
     
@@ -51,6 +51,30 @@ class Card {
     init(shape: Shape, number: Number) {
         self.shape = shape
         self.number = number
+    }
+    
+//    func sortToStraightCard(cardOfPlayer: Card) -> [Card] {
+//        if self.number.rawValue > cardOfPlayer.number.rawValue {
+//            let temp = self.number
+//            self.number = cardOfPlayer.number
+//            cardOfPlayer.number = temp
+//        }
+//        return cards.sorted{$0.number.rawValue < $1.number.rawValue}
+//    }
+    
+    func compareSortCard(cardOfPlayer: Card) -> Bool {
+        guard (cardOfPlayer.number.rawValue - self.number.rawValue) == 1 else {
+            return false
+        }
+        return true
+    }
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.number == rhs.number
+    }
+    
+    static func <(lhs: Card, rhs: Card) -> Bool {
+        return lhs.number.rawValue < rhs.number.rawValue
     }
 
 }
