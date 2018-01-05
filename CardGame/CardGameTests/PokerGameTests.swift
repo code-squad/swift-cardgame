@@ -69,6 +69,7 @@ class PokerGameTests: XCTestCase {
         let pokerGameData = PokerGameData(dealer: dealer, players: players)
         
         let (winnerPlayer, winnerHandType) = pokerGameData.confirmWinner()
+        
         XCTAssertTrue(winnerPlayer.nameInformation == "참가자2")
         XCTAssertTrue(winnerHandType == HandType.straightFlush)
     }

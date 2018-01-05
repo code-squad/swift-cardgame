@@ -80,7 +80,7 @@ class HandEvalutorTests: XCTestCase {
         XCTAssertTrue(result == HandType.straight)
     }
 
-    func test_트리플페어_확인() {
+    func test_트리플_확인() {
         let card1 = Card(suit: Suit.spade, number: Number.six)
         let card2 = Card(suit: Suit.club, number: Number.seven)
         let card3 = Card(suit: Suit.heart, number: Number.eight)
