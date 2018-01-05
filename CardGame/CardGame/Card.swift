@@ -53,20 +53,29 @@ class Card: Comparable {
         self.number = number
     }
     
-//    func sortToStraightCard(cardOfPlayer: Card) -> [Card] {
-//        if self.number.rawValue > cardOfPlayer.number.rawValue {
-//            let temp = self.number
-//            self.number = cardOfPlayer.number
-//            cardOfPlayer.number = temp
-//        }
-//        return cards.sorted{$0.number.rawValue < $1.number.rawValue}
-//    }
+    func checkSameNumberCard(cardOfPlayer: Card) -> Bool {
+        guard cardOfPlayer.number == self.number else {
+            return false
+        }
+        return true
+    }
     
     func compareSortCard(cardOfPlayer: Card) -> Bool {
         guard (cardOfPlayer.number.rawValue - self.number.rawValue) == 1 else {
             return false
         }
         return true
+    }
+    
+    func checkSameShapeCard(cardOfPlayer: Card) -> Bool {
+        guard cardOfPlayer.shape == self.shape else {
+            return false
+        }
+        return true
+    }
+    
+    func plusPointCardData() -> Int {
+        return self.number.rawValue * self.shape.rawValue
     }
     
     static func ==(lhs: Card, rhs: Card) -> Bool {
