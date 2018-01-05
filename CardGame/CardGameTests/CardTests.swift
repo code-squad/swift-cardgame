@@ -9,14 +9,14 @@
 import XCTest
 
 class CardTests: XCTestCase {
-    func test_카드_도형_출력성공() {
+    func test_카드_도형_출력_성공() {
         XCTAssertTrue(Suit.club.description == "♣️")
         XCTAssertTrue(Suit.heart.description == "♥️")
         XCTAssertTrue(Suit.diamond.description == "♦️")
         XCTAssertTrue(Suit.spade.description == "♠️")
     }
     
-    func test_숫자_출력성공() {
+    func test_숫자_출력_성공() {
         XCTAssertTrue(Number.ace.description == "A")
         XCTAssertTrue(Number.king.description == "K")
         XCTAssertTrue(Number.queen.description == "Q")
