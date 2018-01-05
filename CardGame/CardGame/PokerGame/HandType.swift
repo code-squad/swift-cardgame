@@ -19,3 +19,28 @@ enum HandType: Int {
     case fourOfKind     // 숫자가 같은 카드 4장
     case straightFlush  // 숫자가 연속되고 무늬가 같은 카드 5장
 }
+
+extension HandType: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .highCard:
+            return "하이카드"
+        case .pair:
+            return "원페어"
+        case .twoPair:
+            return "투페어"
+        case .threeOfKind:
+            return "트리플"
+        case .straight:
+            return "스트레이트"
+        case .flush:
+            return "플러쉬"
+        case .fullHouse:
+            return "풀하우스"
+        case .fourOfKind:
+            return "포카드"
+        case .straightFlush:
+            return "스트레이트 플러쉬"
+        }
+    }
+}

@@ -12,6 +12,7 @@ struct GameOutputView {
     static func printResult(_ pokerGameData: PokerGameData) {
         printPlayers(players: pokerGameData.playersInformation)
         printDealer(dealer: pokerGameData.dealerInformation)
+        printWinner(winner: pokerGameData.confirmWinner())
     }
     
     private static func printPlayers(players: [Player]) {
@@ -22,6 +23,13 @@ struct GameOutputView {
     
     private static func printDealer(dealer: Dealer) {
         print("\(dealer.nameInformation) \(dealer.handInformation.description)")
+    }
+    
+    private static func printWinner(winner: (Player, HandType)) {
+        let (winner, winnerHandType) = winner
+        print("------------------------------------------------")
+        print("제일 높은 점수는 \(winnerHandType.description)이며, 게임 승자는 \(winner.nameInformation) 입니다.")
+        print("------------------------------------------------")
     }
 }
 
