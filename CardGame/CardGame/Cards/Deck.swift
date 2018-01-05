@@ -70,9 +70,7 @@ private extension Deck {
 
 extension Deck: Equatable {
     static func ==(lhs: Deck, rhs: Deck) -> Bool {
-        guard lhs.cards == rhs.cards else {
-            return false
-        }
+        guard lhs.cards == rhs.cards else { return false }
         
         return true
     }
