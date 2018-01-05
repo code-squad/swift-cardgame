@@ -25,6 +25,14 @@
 		873793C41FFE203900AB3FEC /* PokerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793BB1FFE203900AB3FEC /* PokerGame.swift */; };
 		873793C81FFE206500AB3FEC /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793C61FFE206500AB3FEC /* GameInputView.swift */; };
 		873793C91FFE206500AB3FEC /* GameOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793C71FFE206500AB3FEC /* GameOutputView.swift */; };
+		873793CA1FFE22CB00AB3FEC /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793BA1FFE203900AB3FEC /* Dealer.swift */; };
+		873793CB1FFE22CE00AB3FEC /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B31FFE203800AB3FEC /* GameError.swift */; };
+		873793CC1FFE22D100AB3FEC /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B61FFE203800AB3FEC /* Hand.swift */; };
+		873793CD1FFE22D400AB3FEC /* HandEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B81FFE203900AB3FEC /* HandEvaluator.swift */; };
+		873793CE1FFE22D600AB3FEC /* HandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B91FFE203900AB3FEC /* HandType.swift */; };
+		873793CF1FFE22D900AB3FEC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B51FFE203800AB3FEC /* Player.swift */; };
+		873793D01FFE22DC00AB3FEC /* PokerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793BB1FFE203900AB3FEC /* PokerGame.swift */; };
+		873793D11FFE22DE00AB3FEC /* PokerGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873793B71FFE203800AB3FEC /* PokerGameData.swift */; };
 		874B2FF11FFE085000792E54 /* PokerGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B2FF01FFE085000792E54 /* PokerGameTests.swift */; };
 		874B2FF91FFE1C7100792E54 /* HandEvalutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B2FF81FFE1C7100792E54 /* HandEvalutorTests.swift */; };
 		87BD8CA31FE7209600D346DD /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD8C9F1FE7209500D346DD /* Deck.swift */; };
@@ -276,9 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				873793CE1FFE22D600AB3FEC /* HandType.swift in Sources */,
+				873793CB1FFE22CE00AB3FEC /* GameError.swift in Sources */,
 				874B2FF91FFE1C7100792E54 /* HandEvalutorTests.swift in Sources */,
+				873793D11FFE22DE00AB3FEC /* PokerGameData.swift in Sources */,
 				87C1301E1FF4DE7D00DBE960 /* DeckTests.swift in Sources */,
+				873793CF1FFE22D900AB3FEC /* Player.swift in Sources */,
+				873793CC1FFE22D100AB3FEC /* Hand.swift in Sources */,
+				873793CD1FFE22D400AB3FEC /* HandEvaluator.swift in Sources */,
+				873793CA1FFE22CB00AB3FEC /* Dealer.swift in Sources */,
 				870B97081FE224D800E26E87 /* Suit.swift in Sources */,
+				873793D01FFE22DC00AB3FEC /* PokerGame.swift in Sources */,
 				87BD8CA41FE7209900D346DD /* Deck.swift in Sources */,
 				870B97031FE224A800E26E87 /* CardTests.swift in Sources */,
 				874B2FF11FFE085000792E54 /* PokerGameTests.swift in Sources */,
