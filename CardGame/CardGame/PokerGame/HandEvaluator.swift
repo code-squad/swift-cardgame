@@ -88,10 +88,10 @@ struct HandEvaluator {
     
     private func checkGroup(numbers: [Number], count: Int) -> (Bool, [Number]) {
         let frequency = figureOutNumberCount(numbers: numbers)
-        let paired = frequency.filter ({ _, value in
-                return value == count
+        let paired = frequency.filter({ _, value in
+                value == count
             }).map({ key, _ in
-                return key
+                key
             })
         
         guard paired.count > 0 else { return (false, []) }
