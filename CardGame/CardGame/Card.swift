@@ -11,7 +11,7 @@ import Foundation
 class Card {
     var suit : Suits, rank : Ranks
     
-    init(_ suit : Suits   , _ rank : Ranks) {
+    init(_ suit : Suits  , _ rank : Ranks) {
         self.suit = suit
         self.rank = rank
     }
