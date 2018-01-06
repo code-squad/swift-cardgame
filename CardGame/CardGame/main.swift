@@ -2,10 +2,12 @@
 //  main.swift
 //  CardGame
 //
-//  Created by JK on 10/10/2017.
+//  Created by Jack
+//  2018/01/05
 //  Copyright © 2017 JK. All rights reserved.
 //
 
 import Foundation
 
-
+let oneCard = Card( Card.Suits.diamond, Card.Ranks.four)
+print(oneCard.generateOneCard())
