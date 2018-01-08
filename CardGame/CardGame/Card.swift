@@ -61,10 +61,7 @@ class Card: Comparable {
     }
     
     func compareSortCard(cardOfPlayer: Card) -> Bool {
-        guard (cardOfPlayer.number.rawValue - self.number.rawValue) == 1 else {
-            return false
-        }
-        return true
+        return (cardOfPlayer.number.rawValue - self.number.rawValue) == 1
     }
     
     func checkSameShapeCard(cardOfPlayer: Card) -> Bool {
