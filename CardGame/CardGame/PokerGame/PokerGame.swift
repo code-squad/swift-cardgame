@@ -9,12 +9,17 @@
 import Foundation
 
 struct PokerGame {
+    enum NumberOfCards: Int {
+        case sevenCards = 7
+        case fiveCards = 5
+    }
+    
     enum Menu: Int {
         case sevenCards = 1, fiveCards
     }
     
     static func start(choiceMenu: PokerGame.Menu, playerCount: Int) throws -> PokerGameData {
-        let cardCount = choiceMenu == .sevenCards ? 7 : 5
+        let cardCount = choiceMenu == .sevenCards ? NumberOfCards.sevenCards.rawValue : NumberOfCards.fiveCards.rawValue
         var dealer: Dealer = Dealer(deck: Deck())
         var players: [Player] = []
         
