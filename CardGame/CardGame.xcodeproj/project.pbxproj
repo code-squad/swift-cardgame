@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		041E16D02000AD30003BEFA6 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E16CF2000AD30003BEFA6 /* Card.swift */; };
+		0420DEC12003165900ED42E5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DEC02003165900ED42E5 /* InputView.swift */; };
+		0420DEC3200316CE00ED42E5 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DEC2200316CE00ED42E5 /* CardDeck.swift */; };
+		0420DEC52003193800ED42E5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DEC42003193800ED42E5 /* OutputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		041E16CF2000AD30003BEFA6 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		0420DEC02003165900ED42E5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		0420DEC2200316CE00ED42E5 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		0420DEC42003193800ED42E5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,7 +65,10 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				0420DEC02003165900ED42E5 /* InputView.swift */,
 				041E16CF2000AD30003BEFA6 /* Card.swift */,
+				0420DEC2200316CE00ED42E5 /* CardDeck.swift */,
+				0420DEC42003193800ED42E5 /* OutputView.swift */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 			);
 			path = CardGame;
@@ -123,7 +132,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0420DEC52003193800ED42E5 /* OutputView.swift in Sources */,
+				0420DEC12003165900ED42E5 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				0420DEC3200316CE00ED42E5 /* CardDeck.swift in Sources */,
 				041E16D02000AD30003BEFA6 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

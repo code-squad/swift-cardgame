@@ -9,6 +9,27 @@
 
 import Foundation
 
-let firstCard = Card.init(.heart, .twelve)
-let secondCard = Card.init(.diamond, .nine)
-print(firstCard, secondCard)
+var runCardGame : Bool = true
+let outputView : OutputView = OutputView()
+var userDeck : CardDeck = CardDeck()
+
+while runCardGame {
+    outputView.printMessage(.inputMessage)
+    let userMenu = InputView().readMenu()
+    switch userMenu {
+    case "1" :
+        userDeck.reset()
+        outputView.printMessage(.resetMessage)
+    case "2" :
+        userDeck.shuffle()
+        outputView.printShuffleMessage(userDeck)
+    case "3" :
+        print(userDeck.removeOne())
+        outputView.printRemaingCards(userDeck)
+    case "4" :
+        outputView.printMessage(.exitCardGame)
+        runCardGame = false
+    default :
+        outputView.printMessage(.invalidMenu)
+    }
+}
