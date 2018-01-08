@@ -28,10 +28,10 @@ struct PokerGameData {
 
 extension PokerGameData {
     func confirmWinner() -> (Player, HandType) {
-        var result = players.map({ player -> (Player, HandType) in
+        let playersData = players.map({ player -> (Player, HandType) in
             (player, HandEvaluator(hand: player.handInformation).evaluateHand())
-        }).sorted { $0.1.rawValue < $1.1.rawValue }
-        
-        return result[result.count-1]
+        })
+
+        return HandEvaluator.decideWinner(playersData: playersData)
     }
 }
