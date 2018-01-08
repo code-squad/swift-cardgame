@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct InputView {
+    
+    func readMenu () -> String {
+        return readLine() ?? ""
+    }
+    
+}
