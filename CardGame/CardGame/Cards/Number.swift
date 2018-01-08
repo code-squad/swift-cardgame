@@ -22,6 +22,12 @@ extension Number {
     }
 }
 
+extension Number {
+    static func != (lhs: Number, rhs: Number) -> Bool {
+        return lhs.rawValue != rhs.rawValue
+    }
+}
+
 extension Number: CustomStringConvertible {
     var description: String {
         switch self {

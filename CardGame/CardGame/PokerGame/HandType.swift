@@ -44,3 +44,9 @@ extension HandType: CustomStringConvertible {
         }
     }
 }
+
+extension HandType: Comparable {
+    static func < (lhs: HandType, rhs: HandType) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+}
