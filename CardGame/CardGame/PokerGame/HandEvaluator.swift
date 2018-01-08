@@ -16,50 +16,42 @@ struct HandEvaluator {
     }
     
     func evaluateHand() -> HandType {
-        let numbers = self.hand.cardsInformation.map() { $0.number }
+        let numbers = self.hand.cardsInformation.map({ $0.number })
         
         let isFlush = checkFlush(cards: self.hand.cardsInformation)
         let isStraight = checkStraight(numbers: numbers)
         let (isPair, pairNumbers) = checkGroup(numbers: numbers, count: 2)
         let (isThreeOfKind, threeOfKindNumbers) = checkGroup(numbers: numbers, count: 3)
-        
-        // 스트레이트 플러쉬
-        guard !isFlush || !isStraight else { return HandType.straightFlush }
-        
-        // 포카드
         let (isFourOfKind, _) = checkGroup(numbers: numbers, count: 4)
-        guard !isFourOfKind else { return HandType.fourOfKind }
-        
-        // 풀하우스
         let (isFullHouse, _) = checkGroup(numbers: threeOfKindNumbers, count: 2)
-        guard !isPair || !isFullHouse else { return HandType.fullHouse }
-        
-        // 플러쉬
-        guard !isFlush else { return HandType.flush }
-        
-        // 스트레이트
-        guard !isStraight else { return HandType.straight }
-        
-        // 트리플페어
-        guard !isThreeOfKind else { return HandType.threeOfKind }
-        
         let (isTwoPair, _) = checkGroup(numbers: pairNumbers, count: 2)
-        // 투페어
-        guard !isPair || !isTwoPair else { return HandType.twoPair }
         
-        // 원페어
-        guard !isPair else { return HandType.pair }
-        
-        return HandType.highCard
+        switch true {
+        case isFlush && isStraight:
+            return HandType.straightFlush
+        case isFourOfKind:
+            return HandType.fourOfKind
+        case isPair && isFullHouse:
+            return HandType.fullHouse
+        case isFlush:
+            return HandType.flush
+        case isStraight:
+            return HandType.straight
+        case isThreeOfKind:
+            return HandType.threeOfKind
+        case isPair && isTwoPair:
+            return HandType.twoPair
+        case isPair:
+            return HandType.pair
+        default:
+            return HandType.highCard
+        }
     }
     
     private func checkFlush(cards: [Card]) -> Bool {
         let firstCard = cards[0]
         let sameSuit = cards.filter({ $0.suit == firstCard.suit })
-        
-        guard sameSuit.count == 5 else { return false }
-        
-        return true
+        return sameSuit.count >= 5
     }
     
     private func checkStraight(numbers: [Number]) -> Bool {
@@ -68,9 +60,7 @@ struct HandEvaluator {
         guard sortedNumbers.count <= numbers.count + 1 else { return false }
         
         var lastNumber = sortedNumbers[0]
-        var straightNumbers: [Int] = []
-        
-        straightNumbers.append(sortedNumbers[0])
+        var straightNumbers: [Int] = [lastNumber]
         
         for i in 1..<sortedNumbers.count {
             if sortedNumbers[i] - lastNumber != 1 {
@@ -81,9 +71,7 @@ struct HandEvaluator {
             lastNumber = sortedNumbers[i]
         }
         
-        guard straightNumbers.count == 5 else { return false }
-        
-        return true
+        return straightNumbers.count >= 5
     }
     
     private func checkGroup(numbers: [Number], count: Int) -> (Bool, [Number]) {
