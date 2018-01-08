@@ -53,18 +53,18 @@ class Card: Comparable {
         self.number = number
     }
     
-    func checkSameNumberCard(cardOfPlayer: Card) -> Bool {
+    func isPairCard(cardOfPlayer: Card) -> Bool {
         guard cardOfPlayer.number == self.number else {
             return false
         }
         return true
     }
     
-    func compareSortCard(cardOfPlayer: Card) -> Bool {
+    func isStraightCard(cardOfPlayer: Card) -> Bool {
         return (cardOfPlayer.number.rawValue - self.number.rawValue) == 1
     }
     
-    func checkSameShapeCard(cardOfPlayer: Card) -> Bool {
+    func isFlushCard(cardOfPlayer: Card) -> Bool {
         guard cardOfPlayer.shape == self.shape else {
             return false
         }

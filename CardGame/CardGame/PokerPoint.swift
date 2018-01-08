@@ -38,7 +38,7 @@ class PokerPoint {
         for (pivotIndex, pivotCard) in cardsForPivotNumber.enumerated() {
             var countOfPair = 0
             for compareIndex in (pivotIndex+1)..<cardsForPivotNumber.count {
-                if pivotCard.checkSameNumberCard(cardOfPlayer: cardsForPivotNumber[compareIndex]) {
+                if pivotCard.isPairCard(cardOfPlayer: cardsForPivotNumber[compareIndex]) {
                     countOfPair += 1
                     scoreCard[.PairPoint]?.append(pivotCard)
                     scoreCard[.PairPoint]?.append(cardsForPivotNumber[compareIndex])
@@ -66,7 +66,7 @@ class PokerPoint {
         var pivotNumberOfCard = cardsBySort.removeFirst()
         var countOfStraight = 0
         for card in cardsBySort {
-            if pivotNumberOfCard.compareSortCard(cardOfPlayer: card) {
+            if pivotNumberOfCard.isStraightCard(cardOfPlayer: card) {
                 countOfStraight += 1
                 scoreCard[.StraightPoint]?.append(card)
             }else {
@@ -86,7 +86,7 @@ class PokerPoint {
         for pivotCard in cardsForShape {
             var countOfFlush = 0
             for compareCard in cardsForShape {
-                if pivotCard.checkSameShapeCard(cardOfPlayer: compareCard) {
+                if pivotCard.isFlushCard(cardOfPlayer: compareCard) {
                     countOfFlush += 1
                     scoreCard[.FlushPoint]?.append(pivotCard)
                 }
