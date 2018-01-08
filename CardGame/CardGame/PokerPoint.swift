@@ -114,7 +114,7 @@ class PokerPoint {
     
     func calculatePokerPoint(cards: [Card]) -> Int {
         var pointOfResult = 0
-        checkForCardsHavePair(cards: cards)
+        checkForCardsHavePair(cards: cards) // change this to method renaming
         checkForCardsHaveStraight(cards: cards)
         checkForCardsHaveFlush(cards: cards)
         checkForFlushOrStraightFlush()
