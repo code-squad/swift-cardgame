@@ -70,11 +70,11 @@ class OutputView {
     }
     
     func printWinner(stack: [[Card]]) {
+        let pokerPoint = PokerPoint()
         var pointOfWinner = 0
         var winnerPlayer = 0
         var counting = 0
         for cardsOfPlayer in stack {
-            let pokerPoint = PokerPoint()
             let pointOfResult = pokerPoint.calculatePokerPoint(cards: cardsOfPlayer)
             if pointOfResult > pointOfWinner {
                 pointOfWinner = pointOfResult
