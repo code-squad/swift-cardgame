@@ -9,11 +9,10 @@
 import Foundation
 
 enum Number: Int {
-    case two = 1, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace
+    case two = 2, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace
     
     static var allValues: [Number] {
-        // return [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
-        return (1...13).flatMap { Number(rawValue: $0) }
+        return [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
     }
 }
 
@@ -35,7 +34,7 @@ extension Number: CustomStringConvertible {
         case .jack:
             return "J"
         default:
-            return String(self.rawValue + 1)
+            return String(self.rawValue)
         }
     }
 }
