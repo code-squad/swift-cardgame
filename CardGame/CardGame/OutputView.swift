@@ -53,13 +53,10 @@ class OutputView {
             print("게임종료.")
             return false
         }
-        for index in 1...cardStack.count {
-            if index == cardStack.count {
-                print("딜러 ")
-                break
-            }
+        for (index, _) in cardStack.enumerated() {
             print("참가자#\(index)", terminator: "\t\t")
         }
+        print("딜러 ")
         
         for (index, _) in cardStack[0].enumerated() {
             for player in 0..<cardStack.count {
