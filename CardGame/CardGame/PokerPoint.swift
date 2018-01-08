@@ -38,7 +38,7 @@ class PokerPoint {
         for (pivotIndex, pivotCard) in cardsForPivotNumber.enumerated() {
             var countOfPair = 0
             for compareIndex in (pivotIndex+1)..<cardsForPivotNumber.count {
-                if pivotCard.isPairCard(cardOfPlayer: cardsForPivotNumber[compareIndex]) {
+                if pivotCard.isPairCard (cardOfPlayer: cardsForPivotNumber[compareIndex]) {
                     countOfPair += 1
                     scoreCard[.PairPoint]?.append(pivotCard)
                     scoreCard[.PairPoint]?.append(cardsForPivotNumber[compareIndex])
