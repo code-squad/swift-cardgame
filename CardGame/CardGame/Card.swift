@@ -9,7 +9,7 @@
 import Foundation
 
 class Card {
-    var suit : Suits, rank : Ranks
+    private(set) var suit : Suits, rank : Ranks
     
     init(_ suit : Suits  , _ rank : Ranks) {
         self.suit = suit
@@ -22,6 +22,7 @@ class Card {
         case heart = "♥"
         case diamond = "◆"
         case club = "♣"
+        
     }
     
     enum Ranks : String {
@@ -40,7 +41,10 @@ class Card {
         case thirteen = "K"
     }
     
-    func generateOneCard() -> String {
+}
+
+extension Card : CustomStringConvertible {
+    var description : String {
         return "\(self.suit.rawValue)\(self.rank.rawValue)"
     }
 }

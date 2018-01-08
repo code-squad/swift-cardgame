@@ -9,9 +9,6 @@
 
 import Foundation
 
-let oneSuit = Card.Suits.heart
-let oneRank = Card.Ranks.twelve
-
-let oneCard = Card(oneSuit, oneRank)
-print(oneCard.generateOneCard())
-
+let firstCard = Card.init(.heart, .twelve)
+let secondCard = Card.init(.diamond, .nine)
+print(firstCard, secondCard)
