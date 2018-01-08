@@ -10,7 +10,7 @@ import Foundation
 
 class PokerPoint {
     enum PokerHand: Int {
-        case OnePair = 0, TwoPairs, Thrips, Straight, Flush, FullHouse, Quads, Straightflush
+        case OnePair = 0, TwoPairs, Thrips, Straight, Flush, FullHouse, Quads, StraightFlush
     }
     enum PointType: Int {
         case PairPoint = 0, StraightPoint, FlushPoint
@@ -33,7 +33,7 @@ class PokerPoint {
         point[type] = (point[type] ?? 0) - 1
     }
     
-    func cardOfSameNumber(cards: [Card]) { // pair
+    func checkForCardsHavePair(cards: [Card]) { // pair
         let cardsForPivotNumber = cards
         for (pivotIndex, pivotCard) in cardsForPivotNumber.enumerated() {
             var countOfPair = 0
@@ -61,7 +61,7 @@ class PokerPoint {
         }
     }
     
-    func cardOfSerial(cards: [Card]) { // straight
+    func checkForCardsHaveStraight(cards: [Card]) { // straight
         var cardsBySort = cards.sorted{$0 < $1}
         var pivotNumberOfCard = cardsBySort.removeFirst()
         var countOfStraight = 0
@@ -81,7 +81,7 @@ class PokerPoint {
         }
     }
     
-    func cardOfSameShape(cards: [Card]) { // flush
+    func checkForCardsHaveFlush(cards: [Card]) { // flush
         let cardsForShape = cards
         for pivotCard in cardsForShape {
             var countOfFlush = 0
@@ -100,24 +100,24 @@ class PokerPoint {
         }
     }
     
-    func cardOfTheOthers() {
-        if (point[.OnePair] ?? 0) > 0 && (point[.Thrips] ?? 0) > 0 {
+    func checkForFlushOrStraightFlush() {
+        if isExistPoint(typeOfPokerHand: .OnePair) && isExistPoint(typeOfPokerHand: .Thrips) {
             incrementPoint(type: .FullHouse)
-            decrementPoint(type: .OnePair)
-            decrementPoint(type: .Thrips)
-        }else if (point[.Straight] ?? 0) > 0 && (point[.Flush] ?? 0) > 0 {
-            incrementPoint(type: .Straightflush)
-            decrementPoint(type: .Straight)
-            decrementPoint(type: .Flush)
+        }else if isExistPoint(typeOfPokerHand: .Straight) && isExistPoint(typeOfPokerHand: .Flush) {
+            incrementPoint(type: .StraightFlush)
         }
+    }
+
+    func isExistPoint(typeOfPokerHand: PokerHand) -> Bool {
+        return point[typeOfPokerHand] ?? 0 > 0
     }
     
     func calculatePokerPoint(cards: [Card]) -> Int {
         var pointOfResult = 0
-        cardOfSameNumber(cards: cards)
-        cardOfSerial(cards: cards)
-        cardOfSameShape(cards: cards)
-        cardOfTheOthers()
+        checkForCardsHavePair(cards: cards)
+        checkForCardsHaveStraight(cards: cards)
+        checkForCardsHaveFlush(cards: cards)
+        checkForFlushOrStraightFlush()
 
         for (index, pointOfPokerHand) in point.enumerated() {
             let nextIndex = index + 1
