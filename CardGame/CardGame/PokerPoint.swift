@@ -34,28 +34,33 @@ class PokerPoint {
     }
     
     func checkForCardsHavePair(cards: [Card]) { // pair
-        let cardsForPivotNumber = cards
-        for (pivotIndex, pivotCard) in cardsForPivotNumber.enumerated() {
+        let cardsForPair = cards
+        for pivotCard in cardsForPair {
             var countOfPair = 0
-            for compareIndex in (pivotIndex+1)..<cardsForPivotNumber.count {
-                if pivotCard.isPairCard (cardOfPlayer: cardsForPivotNumber[compareIndex]) {
+            for compareCard in cardsForPair {
+                if pivotCard.isPairCard(cardOfPlayer: compareCard) && !compareCard.isCheckedCard(scoreCardOfPairPoint: scoreCard[.PairPoint]!) {
                     countOfPair += 1
-                    scoreCard[.PairPoint]?.append(pivotCard)
-                    scoreCard[.PairPoint]?.append(cardsForPivotNumber[compareIndex])
+                    scoreCard[.PairPoint]?.append(compareCard)
                 }
+            }
+            if countOfPair == 1 {
+                countOfPair = 0
+                scoreCard[.PairPoint]?.removeLast()
             }
             countEachPairPoint(countOfPair: countOfPair)
         }
     }
     
     func countEachPairPoint(countOfPair: Int) {
-        switch countOfPair { // OnePair, TwoPair, Thrips
+        switch countOfPair { // OnePair, TwoPair, Thrips, Quads
             case 1:
                 incrementPoint(type: .OnePair)
             case 2:
                 incrementPoint(type: .TwoPairs)
             case 3:
                 incrementPoint(type: .Thrips)
+            case 4:
+                incrementPoint(type: .Quads)
             default:
                 break
         }
@@ -64,20 +69,21 @@ class PokerPoint {
     func checkForCardsHaveStraight(cards: [Card]) { // straight
         var cardsBySort = cards.sorted{$0 < $1}
         var pivotNumberOfCard = cardsBySort.removeFirst()
-        var countOfStraight = 0
+        scoreCard[.StraightPoint]?.append(pivotNumberOfCard)
+        var countOfStraight = 1
         for card in cardsBySort {
             if pivotNumberOfCard.isStraightCard(cardOfPlayer: card) {
                 countOfStraight += 1
                 scoreCard[.StraightPoint]?.append(card)
-            }else {
-                countOfStraight = 0
-            }
-            pivotNumberOfCard = card
-            if countOfStraight >= 5 {
+            }else if countOfStraight >= 5 {
                 incrementPoint(type: .Straight)
             }else {
-                scoreCard[.StraightPoint]?.removeAll()
+                countOfStraight = 1
             }
+            pivotNumberOfCard = card
+        }
+        if countOfStraight < 5 {
+            scoreCard[.StraightPoint]?.removeAll()
         }
     }
     
@@ -88,16 +94,17 @@ class PokerPoint {
             for compareCard in cardsForShape {
                 if pivotCard.isFlushCard(cardOfPlayer: compareCard) {
                     countOfFlush += 1
-                    scoreCard[.FlushPoint]?.append(pivotCard)
+                    scoreCard[.FlushPoint]?.append(compareCard)
                 }
             }
             if countOfFlush >= 5 {
                 incrementPoint(type: .Flush)
+                break
             }else {
                 scoreCard[.FlushPoint]?.removeAll()
             }
-            scoreCard[.FlushPoint]?.removeAll()
         }
+        
     }
     
     func checkForFlushOrStraightFlush() {
@@ -134,6 +141,7 @@ class PokerPoint {
         print("Pair: \(scoreCard[.PairPoint] ?? [])")
         print("Straight: \(scoreCard[.StraightPoint] ?? [])")
         print("Flush: \(scoreCard[.FlushPoint] ?? [])")
+        print("point: \(point)")
         print()
         return pointOfResult
         ///
