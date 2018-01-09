@@ -32,10 +32,7 @@ struct CardDeck {
     }
     
     mutating func removeOne() -> Card {
-        let randomIndex = Int(arc4random_uniform(UInt32(self.deck.count)))
-        let randomCard = self.deck[randomIndex]
-        self.deck.remove(at: randomIndex)
-        return randomCard
+        return self.deck.removeLast()
     }
     
     mutating func reset() {
