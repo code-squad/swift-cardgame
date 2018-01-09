@@ -9,7 +9,7 @@
 import Foundation
 
 class Card {
-    private(set) var suit : Suits, rank : Ranks
+    private var suit : Suits, rank : Ranks
     
     init(_ suit : Suits  , _ rank : Ranks) {
         self.suit = suit
