@@ -12,8 +12,8 @@ struct CardDeck {
     private var deck : [Card] = []
     
     init() {
-        for oneSuit in Card.Suits.allValues {
-            for oneRank in Card.Ranks.allValues {
+        for oneSuit in Card.Suits.allCases {
+            for oneRank in Card.Ranks.allCases {
                 self.deck.append(Card(oneSuit, oneRank))
             }
         }
