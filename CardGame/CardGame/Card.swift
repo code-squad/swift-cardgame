@@ -17,14 +17,14 @@ class Card {
     }
     
     //하나의 범주로 묶어 사용하고, 한정된 값들이기 때문에 enum을 선택하였습니다.
-    enum Suits : String {
+    enum Suits : String, generateAllCases {
         case spade = "♠"
         case heart = "♥"
         case diamond = "◆"
         case club = "♣"
     }
     
-    enum Ranks : String {
+    enum Ranks : String, generateAllCases {
         case one = "A"
         case two = "2"
         case three = "3"
@@ -42,34 +42,18 @@ class Card {
     
 }
 
-extension Card.Ranks {
-    
-    static func cases() -> AnySequence<Card.Ranks> {
-        return AnySequence { () -> AnyIterator<Card.Ranks> in
-            var raw = 0
-            return AnyIterator {
-                let current: Card.Ranks = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
-                guard current.hashValue == raw else {
-                    return nil
-                }
-                raw += 1
-                return current
-            }
-        }
-    }
-    
-    static var allValues: [Card.Ranks] {
-        return Array(self.cases())
-    }
-    
+protocol generateAllCases : Hashable {
+    static func cases() -> AnySequence<Self>
+    static var allCases: [Self] { get }
 }
 
-extension Card.Suits {
-    static func cases() -> AnySequence<Card.Suits> {
-        return AnySequence { () -> AnyIterator<Card.Suits> in
+extension generateAllCases {
+    
+    static func cases() -> AnySequence<Self> {
+        return AnySequence { () -> AnyIterator<Self> in
             var raw = 0
             return AnyIterator {
-                let current: Card.Suits = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
+                let current: Self = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
                 guard current.hashValue == raw else {
                     return nil
                 }
@@ -79,10 +63,11 @@ extension Card.Suits {
         }
     }
     
-    static var allValues: [Card.Suits] {
+    static var allCases: [Self] {
         return Array(self.cases())
     }
 }
+
 
 extension Card : CustomStringConvertible {
     var description : String {
