@@ -63,8 +63,8 @@ class UnitTestCardGame: XCTestCase {
     }
     
     func testStraightFlush() {
-        let cardOfStraightFlush = [Card(shape: .Spades, number: .Two), Card(shape: .Spades, number: .Two), Card(shape: .Spades, number: .Two), Card(shape: .Spades, number: .Two), Card(shape: .Spades, number: .Seven)]
-        XCTAssertEqual(pokerPoint.calculatePokerPoint(cards: cardOfStraightFlush), 16)
+        let cardOfStraight = [Card(shape: .Hearts, number: .Two), Card(shape: .Hearts, number: .Three), Card(shape: .Hearts, number: .Four), Card(shape: .Hearts, number: .Five), Card(shape: .Hearts, number: .Six)]
+        XCTAssertEqual(pokerPoint.calculatePokerPoint(cards: cardOfStraight), 81)
     }
     
 }

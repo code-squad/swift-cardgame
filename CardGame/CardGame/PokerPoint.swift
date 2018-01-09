@@ -44,7 +44,6 @@ class PokerPoint {
                 }
             }
             if countOfPair == 1 {
-                countOfPair = 0
                 scoreCard[.PairPoint]?.removeLast()
             }
             countEachPairPoint(countOfPair: countOfPair)
@@ -53,13 +52,13 @@ class PokerPoint {
     
     func countEachPairPoint(countOfPair: Int) {
         switch countOfPair { // OnePair, TwoPair, Thrips, Quads
-            case 1:
-                incrementPoint(type: .OnePair)
             case 2:
-                incrementPoint(type: .TwoPairs)
+                incrementPoint(type: .OnePair)
             case 3:
-                incrementPoint(type: .Thrips)
+                incrementPoint(type: .TwoPairs)
             case 4:
+                incrementPoint(type: .Thrips)
+            case 5:
                 incrementPoint(type: .Quads)
             default:
                 break
