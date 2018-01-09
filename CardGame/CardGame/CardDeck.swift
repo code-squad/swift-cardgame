@@ -38,4 +38,21 @@ struct CardDeck {
     mutating func reset() {
         self.deck = CardDeck().deck
     }
+    
+    mutating func generateStacks(_ maxCount : Int = 7) -> [[Card]] {
+        var stacksOfCards : [[Card]] = []
+        for count in 1...maxCount {
+            stacksOfCards.append(generateOneStack(numberOfStack: count))
+        }
+        return stacksOfCards
+    }
+    
+    private mutating func generateOneStack(numberOfStack : Int) -> [Card] {
+        var oneStack : [Card] = []
+        for _ in 1...numberOfStack {
+            oneStack.append(self.removeOne())
+        }
+        return oneStack
+    }
+    
 }
