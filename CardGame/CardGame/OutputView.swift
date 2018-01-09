@@ -21,11 +21,11 @@ struct OutputView {
     }
     
     func printRemaingCards(_ userDeck : CardDeck) {
-        print("총 \(userDeck.deck.count)장의 카드가 남아있습니다.")
+        print("총 \(userDeck.count())장의 카드가 남아있습니다.")
     }
     
     func printShuffleMessage(_ userDeck : CardDeck) {
-        print("전체 \(userDeck.deck.count)장의 카드를 섞었습니다.")
+        print("전체 \(userDeck.count())장의 카드를 섞었습니다.")
     }
 
 }

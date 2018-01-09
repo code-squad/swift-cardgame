@@ -9,7 +9,7 @@
 import Foundation
 
 struct CardDeck {
-    private(set) var deck : [Card] = []
+    private var deck : [Card] = []
     
     init() {
         for oneSuit in Card.Suits.allSuit {
