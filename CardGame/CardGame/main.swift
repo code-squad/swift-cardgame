@@ -14,7 +14,9 @@ let outputView : OutputView = OutputView()
 var userDeck : CardDeck = CardDeck()
 
 while runCardGame {
+    
     outputView.printMessage(.inputMessage)
+    
     let userMenu = InputView().readMenu()
     switch userMenu {
     case "1" :
@@ -32,4 +34,5 @@ while runCardGame {
     default :
         outputView.printMessage(.invalidMenu)
     }
+
 }

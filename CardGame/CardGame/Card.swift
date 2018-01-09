@@ -22,7 +22,6 @@ class Card {
         case heart = "♥"
         case diamond = "◆"
         case club = "♣"
-        static let allSuit = [spade, heart, diamond, club]
     }
     
     enum Ranks : String {
@@ -39,9 +38,50 @@ class Card {
         case eleven = "J"
         case twelve = "Q"
         case thirteen = "K"
-        static let allRank = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen ]
     }
     
+}
+
+extension Card.Ranks {
+    
+    static func cases() -> AnySequence<Card.Ranks> {
+        return AnySequence { () -> AnyIterator<Card.Ranks> in
+            var raw = 0
+            return AnyIterator {
+                let current: Card.Ranks = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
+                guard current.hashValue == raw else {
+                    return nil
+                }
+                raw += 1
+                return current
+            }
+        }
+    }
+    
+    static var allValues: [Card.Ranks] {
+        return Array(self.cases())
+    }
+    
+}
+
+extension Card.Suits {
+    static func cases() -> AnySequence<Card.Suits> {
+        return AnySequence { () -> AnyIterator<Card.Suits> in
+            var raw = 0
+            return AnyIterator {
+                let current: Card.Suits = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
+                guard current.hashValue == raw else {
+                    return nil
+                }
+                raw += 1
+                return current
+            }
+        }
+    }
+    
+    static var allValues: [Card.Suits] {
+        return Array(self.cases())
+    }
 }
 
 extension Card : CustomStringConvertible {
