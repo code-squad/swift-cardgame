@@ -27,5 +27,11 @@ struct OutputView {
     func printShuffleMessage(_ userDeck : CardDeck) {
         print("전체 \(userDeck.count())장의 카드를 섞었습니다.")
     }
+    
+    func printStacks(_ stacks : [[Card]]) {
+        for indexOfStacks in 0..<stacks.count {
+            print(stacks[indexOfStacks])
+        }
+    }
 
 }
