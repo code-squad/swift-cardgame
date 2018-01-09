@@ -60,6 +60,15 @@ class Card: Comparable {
         return true
     }
     
+    func isCheckedCard(scoreCardOfPairPoint: [Card]) -> Bool {
+        for card in scoreCardOfPairPoint {
+            if self.number == card.number && self.shape == card.shape {
+                return true
+            }
+        }
+        return false
+    }
+    
     func isStraightCard(cardOfPlayer: Card) -> Bool {
         return (cardOfPlayer.number.rawValue - self.number.rawValue) == 1
     }
