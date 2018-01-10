@@ -8,14 +8,17 @@
 
 import Foundation
 
-class Card {
-    var suit: CardDeck.Suit
-    var denomination: CardDeck.Denomination
+class Card: NSObject {
+    private var suit: CardDeck.Suit
+    private var denomination: CardDeck.Denomination
+    override var description: String {
+        return self.suit.rawValue + self.denomination.description
+    }
     
     init(suit: CardDeck.Suit, denomination: CardDeck.Denomination) {
         self.suit = suit
         self.denomination = denomination
-    }
+        }
     
     func cardSuit() -> String {
         return self.suit.rawValue
@@ -25,4 +28,5 @@ class Card {
         return self.denomination.description
     }
 }
+
 
