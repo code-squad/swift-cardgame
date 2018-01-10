@@ -10,8 +10,8 @@ import Foundation
 
 struct InputView {
     
-    func readMenu () -> String {
-        return readLine() ?? ""
+    func readMenu() -> Int {
+        return Int(readLine() ?? "") ?? 0
     }
     
 }
