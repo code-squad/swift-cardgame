@@ -19,14 +19,6 @@ class Card: NSObject {
         self.suit = suit
         self.denomination = denomination
         }
-    
-    func cardSuit() -> String {
-        return self.suit.rawValue
-    }
-    
-    func cardDenomination() -> String {
-        return self.denomination.description
-    }
 }
 
 
