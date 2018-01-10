@@ -14,6 +14,9 @@ struct OutputView {
         case resetMessage = "카드 전체를 초기화했습니다.\n총 52장의 카드가 있습니다."
         case invalidMenu = "잘못된 메뉴입니다. 다시 입력해주세요."
         case exitCardGame = "카드게임을 종료하겠습니다."
+        case gameSpecies = "카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드"
+        case playersInput = "참여할 사람의 인원을 입력하세요."
+        case exceedMessage = "참여자는 최대 4명입니다. 처음부터 다시 입력해주세요."
     }
     
     func printMessage (_ oneMessage : Messages) {
@@ -32,6 +35,13 @@ struct OutputView {
         for indexOfStacks in 0..<stacks.count {
             print(stacks[indexOfStacks])
         }
+    }
+    
+    func printPlayerCards(_ stacks : [[Card]]) {
+        for indexOfStacks in 0..<(stacks.count - 1){
+            print("참가자#\(indexOfStacks + 1)", stacks[indexOfStacks])
+        }
+        print("딜러", stacks[stacks.count - 1])
     }
 
 }
