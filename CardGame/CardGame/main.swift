@@ -12,11 +12,27 @@ import Foundation
 var runCardGame : Bool = true
 let outputView : OutputView = OutputView()
 var userDeck : CardDeck = CardDeck()
+var playerCards : [[Card]] = []
 
 while runCardGame {
-    
     userDeck.shuffle()
-    outputView.printStacks(userDeck.generateStacks())
-    runCardGame = false
-
+    
+    outputView.printMessage(.gameSpecies)
+    let userGame = InputView().readMenu()
+    if userGame != 1 && userGame != 2  {
+        outputView.printMessage(.invalidMenu)
+        continue
+    }
+    outputView.printMessage(.playersInput)
+    let userPlayers = InputView().readMenu()
+    if userPlayers > 4 {
+        outputView.printMessage(.exceedMessage)
+        continue
+    }
+    if userGame == 2 {
+        outputView.printPlayerCards(userDeck.generateStacks(5, numberOfPlayers: userPlayers))
+        continue
+    }
+    outputView.printPlayerCards(userDeck.generateStacks(numberOfPlayers: userPlayers))
+    
 }
