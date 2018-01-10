@@ -8,10 +8,9 @@
 
 import Foundation
 
-let card = Card(suit: CardDeck.Suit.heart, denomination: CardDeck.Denomination.one)
+let card = Card(suit: .heart, denomination: .one)
 
 let outputView = OutputView()
 outputView.showResult(cardToPrint: card)
-
 
 
