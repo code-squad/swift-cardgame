@@ -16,6 +16,7 @@ struct OutputView {
         case exitCardGame = "카드게임을 종료하겠습니다."
         case gameSpecies = "카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드"
         case playersInput = "참여할 사람의 인원을 입력하세요."
+        case lackOfCards = "카드의 수가 부족합니다."
         case exceedMessage = "참여자는 최대 4명입니다. 처음부터 다시 입력해주세요."
     }
     
