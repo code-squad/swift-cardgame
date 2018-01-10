@@ -13,9 +13,9 @@ var runCardGame : Bool = true
 let outputView : OutputView = OutputView()
 var userDeck : CardDeck = CardDeck()
 var playerCards : [[Card]] = []
+userDeck.shuffle()
 
 while runCardGame {
-    userDeck.shuffle()
     
     outputView.printMessage(.gameSpecies)
     let userGame = InputView().readMenu()
@@ -29,6 +29,13 @@ while runCardGame {
         outputView.printMessage(.exceedMessage)
         continue
     }
+    
+    if userDeck.count() < userGame * (userPlayers + 1) {
+        outputView.printMessage(.lackOfCards)
+        outputView.printMessage(.exitCardGame)
+        break
+    }
+    
     if userGame == 2 {
         outputView.printPlayerCards(userDeck.generateStacks(5, numberOfPlayers: userPlayers))
         continue
