@@ -30,7 +30,7 @@ while runCardGame {
         continue
     }
     
-    if userDeck.count() < userGame * (userPlayers + 1) {
+    if userDeck.isPossibleGame(userGame, userPlayers) == false {
         outputView.printMessage(.lackOfCards)
         outputView.printMessage(.exitCardGame)
         break
