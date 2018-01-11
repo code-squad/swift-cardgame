@@ -19,19 +19,21 @@ userDeck.shuffle()
 while runCardGame {
     
     outputView.printMessage(.gameSpecies)
-    let userGame = inputView.readOneMenu()
-    if inputView.isPossibleGameMenu(userGame) == false {
+    let userGame = inputView.readMenu()
+    if userGame == .invalidMenu  {
         outputView.printMessage(.invalidMenu)
         continue
     }
     outputView.printMessage(.playersInput)
-    let userPlayers = inputView.readOneMenu()
-    if inputView.isPossiblePlayers(userPlayers) == false {
+    let userPlayers = inputView.readPlayers()
+    if userPlayers == .invalidPlayer {
         outputView.printMessage(.exceedMessage)
         continue
     }
     
-    let userGameInfo = GameInfo(userGame, userPlayers)
+    guard let gameSpecies = userGame, let players = userPlayers else { break }
+    let userGameInfo = GameInfo(gameSpecies.rawValue, players.rawValue)
+
     if userDeck.isPossibleGame(userGameInfo) == false {
         outputView.printMessage(.lackOfCards)
         outputView.printMessage(.exitCardGame)

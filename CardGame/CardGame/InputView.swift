@@ -13,6 +13,7 @@ struct InputView {
     enum GameMenu : Int, generateAllCases {
         case sevenCards = 1
         case fiveCards = 2
+        case invalidMenu
     }
     
     enum NumberOfPlayers : Int, generateAllCases {
@@ -20,10 +21,19 @@ struct InputView {
         case twoPlayer = 2
         case threePlayer = 3
         case fourPlayer = 4
+        case invalidPlayer
     }
     
-    func readOneMenu() -> Int {
-        return Int(readLine() ?? "") ?? 0
+    func readMenu() -> GameMenu? {
+        let userInput = Int(readLine() ?? "") ?? 0
+        guard isPossibleGameMenu(userInput) else { return GameMenu.invalidMenu }
+        return GameMenu.init(rawValue: userInput)
+    }
+    
+    func readPlayers() -> NumberOfPlayers? {
+        let userInput = Int(readLine() ?? "") ?? 0
+        guard isPossiblePlayers(userInput) else { return NumberOfPlayers.invalidPlayer }
+        return NumberOfPlayers.init(rawValue: userInput)
     }
     
     func isPossibleGameMenu(_ userInput : Int) -> Bool {
