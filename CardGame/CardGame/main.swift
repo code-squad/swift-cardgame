@@ -31,16 +31,13 @@ while runCardGame {
         continue
     }
     
-    if userDeck.isPossibleGame(GameInfo(userGame, userPlayers)) == false {
+    let userGameInfo = GameInfo(userGame, userPlayers)
+    if userDeck.isPossibleGame(userGameInfo) == false {
         outputView.printMessage(.lackOfCards)
         outputView.printMessage(.exitCardGame)
         break
     }
     
-    if userGame == 2 {
-        outputView.printPlayerCards(userDeck.generateStacks(5, numberOfPlayers: userPlayers))
-        continue
-    }
-    outputView.printPlayerCards(userDeck.generateStacks(numberOfPlayers: userPlayers))
+    outputView.printPlayerCards(userDeck.generateStacks(userGameInfo))
     
 }
