@@ -47,6 +47,10 @@ struct CardDeck {
         return stacksOfCards
     }
     
+    func isPossibleGame(_ gameSpecies : Int, _ players : Int) -> Bool {
+        return self.count() > gameSpecies * (players + 1)
+    }
+    
     private mutating func generateOneStack(numberOfStack : Int) -> [Card] {
         var oneStack : [Card] = []
         for _ in 1...numberOfStack {
