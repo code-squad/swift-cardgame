@@ -8,11 +8,56 @@
 
 import Foundation
 
-// 카드 패는 네 가지 모양과 숫자 상수로 고정된 값이므로 enum을 사용했습니다.
-
-class CardDeck {
+class CardDeck: CustomStringConvertible {
+    private var cards = [Card]()
+    var description: String {
+        return "총 \(self.cards.count)장의 카드가 남아있습니다.\n"
+    }
     
-    // MARK: Enums for card format
+    init() {
+        var cards = [Card]()
+        for shape in Suit.allValues {
+            for number in Denomination.allValues {
+                cards.append(Card(suit: shape, denomination: number))
+            }
+        }
+        self.cards = cards
+    }
+    
+    func reset() -> CardDeck {
+        return CardDeck()
+    }
+    
+    func shuffle() {
+        var tempCards = self.cards
+        var shuffledCards = [Card]()
+        
+        while 0 < tempCards.count {
+            let randomIndex = Int(arc4random_uniform(UInt32(tempCards.count)))
+            let pickedCard = tempCards.remove(at: randomIndex)
+            shuffledCards.append(pickedCard)
+        }
+        self.cards = shuffledCards
+    }
+    
+    func removeOne() -> Card {
+        let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
+        let pickedCard = self.cards.remove(at: randomIndex)
+        return pickedCard
+    }
+    
+    private func count() -> Int {
+        return self.cards.count
+    }
+    
+    func makeShuffleMessage() -> String {
+        return "전체 \(self.cards.count)장의 카드를 섞었습니다.\n"
+    }
+    
+}
+
+
+extension CardDeck {
     
     enum Suit: String {
         case heart = "♥️"
@@ -38,49 +83,8 @@ class CardDeck {
         
         static let allValues = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen]
     }
-    
-    // MARK: CardDeck functions for running a program
-    
-    private var cards = [Card]()
-    
-    func reset() {
-        var cards = [Card]()
-        for shape in Suit.allValues {
-            for number in Denomination.allValues {
-                cards.append(Card(suit: shape, denomination: number))
-            }
-        }
-        self.cards = cards
-    }
-    
-    func shuffle() {
-        var tempCards = self.cards
-        var shuffledCards = [Card]()
-        
-        while 0 <= tempCards.count {
-            let randomIndex = Int(arc4random_uniform(UInt32(tempCards.count)))
-            let pickedCard = tempCards.remove(at: randomIndex) // tempCards.count --
-            shuffledCards.append(pickedCard) // shuffledCards.count ++
-        }
-        self.cards = shuffledCards
-        
-        /*
-        for _ in 0..<tempCards.count {
-        let randomIndex = Int(arc4random_uniform(UInt32(tempCards.count)))
-        let pickedCard = tempCards.remove(at: randomIndex) // tempCards.count --
-            shuffledCards.append(pickedCard) // shuffledCards.count ++
-        }
-        */
-    }
-    
-    func removeOne(index: Int) -> Card {
-        var cards = self.cards
-        let pickedCard = cards.remove(at: index)
-        return pickedCard
-    }
-    
-    
-    
-    
+   
 }
+
+    
 
