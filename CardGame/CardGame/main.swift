@@ -10,6 +10,7 @@
 import Foundation
 
 var runCardGame : Bool = true
+let inputView : InputView = InputView()
 let outputView : OutputView = OutputView()
 var userDeck : CardDeck = CardDeck()
 var playerCards : [[Card]] = []
@@ -18,19 +19,19 @@ userDeck.shuffle()
 while runCardGame {
     
     outputView.printMessage(.gameSpecies)
-    let userGame = InputView().readMenu()
-    if userGame != 1 && userGame != 2  {
+    let userGame = inputView.readOneMenu()
+    if inputView.isPossibleGameMenu(userGame) == false {
         outputView.printMessage(.invalidMenu)
         continue
     }
     outputView.printMessage(.playersInput)
-    let userPlayers = InputView().readMenu()
-    if userPlayers > 4 {
+    let userPlayers = inputView.readOneMenu()
+    if inputView.isPossiblePlayers(userPlayers) == false {
         outputView.printMessage(.exceedMessage)
         continue
     }
     
-    if userDeck.isPossibleGame(userGame, userPlayers) == false {
+    if userDeck.isPossibleGame(GameInfo(userGame, userPlayers)) == false {
         outputView.printMessage(.lackOfCards)
         outputView.printMessage(.exitCardGame)
         break
