@@ -8,9 +8,33 @@
 
 import Foundation
 
-let card = Card(suit: .heart, denomination: .one)
-
+var runProgram : Bool = true
+var cardDeck = CardDeck()
 let outputView = OutputView()
-outputView.showResult(cardToPrint: card)
 
+while runProgram{
 
+    let userInput = InputView().askUserInput(text: OutputView.programDescription.chooseMenu.description)
+    
+    switch userInput {
+    case "" :
+        outputView.resultMessage(text: OutputView.programDescription.emptyInput.description)
+    case "1" :
+        cardDeck = cardDeck.reset()
+        outputView.resultMessage(text: cardDeck.description)
+    case "2" :
+        cardDeck.shuffle()
+        outputView.resultMessage(text: cardDeck.makeShuffleMessage())
+    case "3" :
+        let pickedCard = cardDeck.removeOne()
+        outputView.showCard(cardToPrint: pickedCard)
+        outputView.resultMessage(text: cardDeck.description)
+    case "q" :
+        runProgram = false
+        outputView.resultMessage(text: OutputView.programDescription.quitGame.description)
+        break
+    default : outputView.resultMessage(text: OutputView.programDescription.wrongInput.description)
+    
+    }
+
+}
