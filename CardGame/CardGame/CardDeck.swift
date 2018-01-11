@@ -39,10 +39,10 @@ struct CardDeck {
         self.deck = CardDeck().deck
     }
     
-    mutating func generateStacks(_ numberOfCard : Int = 7 , numberOfPlayers : Int) -> [[Card]] {
+    mutating func generateStacks(_ gameInfo : GameInfo) -> [[Card]] {
         var stacksOfCards : [[Card]] = []
-        for _ in 0...numberOfPlayers {
-            stacksOfCards.append(generateOneStack(numberOfStack: numberOfCard))
+        for _ in 0...gameInfo.userPlayers {
+            stacksOfCards.append(generateOneStack(numberOfStack: gameInfo.userCards))
         }
         return stacksOfCards
     }
