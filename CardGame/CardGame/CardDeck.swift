@@ -73,6 +73,12 @@ class CardDeck {
         */
     }
     
+    func removeOne(index: Int) -> Card {
+        var cards = self.cards
+        let pickedCard = cards.remove(at: index)
+        return pickedCard
+    }
+    
     
     
     
