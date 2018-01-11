@@ -10,8 +10,27 @@ import Foundation
 
 struct InputView {
     
-    func readMenu() -> Int {
+    enum GameMenu : Int, generateAllCases {
+        case sevenCards = 1
+        case fiveCards = 2
+    }
+    
+    enum NumberOfPlayers : Int, generateAllCases {
+        case onePlayer = 1
+        case twoPlayer = 2
+        case threePlayer = 3
+        case fourPlayer = 4
+    }
+    
+    func readOneMenu() -> Int {
         return Int(readLine() ?? "") ?? 0
     }
     
+    func isPossibleGameMenu(_ userInput : Int) -> Bool {
+        return GameMenu.allCases.map({$0.rawValue}).contains(userInput)
+    }
+    
+    func isPossiblePlayers(_ userInput : Int) -> Bool {
+        return NumberOfPlayers.allCases.map({$0.rawValue}).contains(userInput)
+    }
 }
