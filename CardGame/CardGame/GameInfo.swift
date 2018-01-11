@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct GameInfo {
+    
+    var userCards : Int = 7, userPlayers : Int
+    
+    init(_ inputGameMenu : Int , _ inputPlayers : Int) {
+        if inputGameMenu == 2 {
+            self.userCards = 5
+        }
+        self.userPlayers = inputPlayers
+    }
+
+}
