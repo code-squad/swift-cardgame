@@ -48,7 +48,7 @@ struct CardDeck {
     }
     
     func isPossibleGame(_ gameInfo : GameInfo) -> Bool {
-        return self.count() > gameInfo.userGame * (gameInfo.userPlayers + 1)
+        return self.count() > gameInfo.userCards * (gameInfo.userPlayers + 1)
     }
     
     private mutating func generateOneStack(numberOfStack : Int) -> [Card] {
