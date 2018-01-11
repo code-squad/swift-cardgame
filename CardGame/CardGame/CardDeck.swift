@@ -53,7 +53,25 @@ class CardDeck {
         self.cards = cards
     }
     
-    
+    func shuffle() {
+        var tempCards = self.cards
+        var shuffledCards = [Card]()
+        
+        while 0 <= tempCards.count {
+            let randomIndex = Int(arc4random_uniform(UInt32(tempCards.count)))
+            let pickedCard = tempCards.remove(at: randomIndex) // tempCards.count --
+            shuffledCards.append(pickedCard) // shuffledCards.count ++
+        }
+        self.cards = shuffledCards
+        
+        /*
+        for _ in 0..<tempCards.count {
+        let randomIndex = Int(arc4random_uniform(UInt32(tempCards.count)))
+        let pickedCard = tempCards.remove(at: randomIndex) // tempCards.count --
+            shuffledCards.append(pickedCard) // shuffledCards.count ++
+        }
+        */
+    }
     
     
     
