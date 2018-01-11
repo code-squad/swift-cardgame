@@ -14,7 +14,7 @@ struct OutputView {
         case resetMessage = "카드 전체를 초기화했습니다.\n총 52장의 카드가 있습니다."
         case invalidMenu = "잘못된 메뉴입니다. 다시 입력해주세요."
         case exitCardGame = "카드게임을 종료하겠습니다."
-        case gameSpecies = "카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드"
+        case gameSpecies = "카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드\n3. 종료"
         case playersInput = "참여할 사람의 인원을 입력하세요."
         case lackOfCards = "카드의 수가 부족합니다."
         case exceedMessage = "참여자는 최대 4명입니다. 처음부터 다시 입력해주세요."

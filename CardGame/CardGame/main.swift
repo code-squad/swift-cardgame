@@ -20,6 +20,7 @@ while runCardGame {
     
     outputView.printMessage(.gameSpecies)
     let userGame = inputView.readMenu()
+    guard userGame != .exitGame else { break }
     if userGame == .invalidMenu  {
         outputView.printMessage(.invalidMenu)
         continue

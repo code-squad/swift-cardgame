@@ -13,6 +13,7 @@ struct InputView {
     enum GameMenu : Int, generateAllCases {
         case sevenCards = 1
         case fiveCards = 2
+        case exitGame = 3
         case invalidMenu
     }
     
