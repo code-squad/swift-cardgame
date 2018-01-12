@@ -9,6 +9,23 @@
 import Foundation
 
 class InputView {
+    enum gameMenu: String {
+        case one = "1"
+        case two = "2"
+        case three = "3"
+        case quitGame = "q"
+        case wrongInput
+    }
+    
+    func select(rawValue: String) -> gameMenu {
+        if let inputMenu = gameMenu(rawValue: rawValue) {
+            return inputMenu
+        }
+        else {
+            return .wrongInput
+        }
+    }
+    
     func askUserInput(text: String) -> String {
         print(text)
         let userInput = readLine()
@@ -17,4 +34,8 @@ class InputView {
         }
         return input
     }
+
+    
+
+
 }

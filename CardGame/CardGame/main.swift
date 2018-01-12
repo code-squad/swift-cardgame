@@ -14,27 +14,30 @@ let outputView = OutputView()
 
 while runProgram{
 
-    let userInput = InputView().askUserInput(text: OutputView.programDescription.chooseMenu.description)
+    let inputView = InputView()
     
-    switch userInput {
-    case "" :
-        outputView.resultMessage(text: OutputView.programDescription.emptyInput.description)
-    case "1" :
+    let userInput = inputView.askUserInput(text: OutputView.programDescription.chooseMenu.description)
+
+    let inputMenu = inputView.select(rawValue: userInput)
+    
+    switch inputMenu {
+        
+    case .one:
         cardDeck = cardDeck.reset()
-        outputView.resultMessage(text: cardDeck.description)
-    case "2" :
+        outputView.showResult(text: cardDeck.description)
+    case .two:
         cardDeck.shuffle()
-        outputView.resultMessage(text: cardDeck.makeShuffleMessage())
-    case "3" :
+        outputView.showResult(text: cardDeck.makeShuffleMessage())
+    case .three:
         let pickedCard = cardDeck.removeOne()
-        outputView.showCard(cardToPrint: pickedCard)
-        outputView.resultMessage(text: cardDeck.description)
-    case "q" :
+        outputView.showResult(text: pickedCard.description)
+        outputView.showResult(text: cardDeck.description)
+    case .quitGame:
         runProgram = false
-        outputView.resultMessage(text: OutputView.programDescription.quitGame.description)
+        outputView.showResult(text: OutputView.programDescription.quitGame.description)
         break
-    default : outputView.resultMessage(text: OutputView.programDescription.wrongInput.description)
-    
+    case .wrongInput:
+        outputView.showResult(text: OutputView.programDescription.wrongInput.description)
     }
 
 }
