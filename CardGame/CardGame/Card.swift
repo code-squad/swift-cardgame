@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Card: NSObject {
+class Card: CustomStringConvertible {
     private var suit: CardDeck.Suit
     private var denomination: CardDeck.Denomination
-    override var description: String {
+    var description: String {
         return self.suit.rawValue + self.denomination.description
     }
     

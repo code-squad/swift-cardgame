@@ -30,11 +30,7 @@ class OutputView {
         }
     }
     
-    func showCard(cardToPrint: Card) {
-        print(cardToPrint)
-    }
-    
-    func resultMessage(text: String) {
+    func showResult(text: CustomStringConvertible) {
         print(text)
     }
 }
