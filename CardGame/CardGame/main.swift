@@ -13,11 +13,8 @@ var cardDeck = CardDeck()
 let outputView = OutputView()
 
 while runProgram{
-
     let inputView = InputView()
-    
     let userInput = inputView.askUserInput(text: OutputView.programDescription.chooseMenu.description)
-
     let inputMenu = inputView.select(rawValue: userInput)
     
     switch inputMenu {

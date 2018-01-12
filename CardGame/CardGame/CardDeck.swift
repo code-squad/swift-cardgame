@@ -59,16 +59,14 @@ class CardDeck: CustomStringConvertible {
 
 extension CardDeck {
     
-    enum Suit: String {
+    enum Suit: String, EnumCollection {
         case heart = "♥️"
         case diamond = "♦️"
         case clover = "♣️"
         case spade = "♠️"
-        
-        static let allValues = [heart, diamond, clover, spade]
     }
     
-    enum Denomination: Int, CustomStringConvertible {
+    enum Denomination: Int, CustomStringConvertible, EnumCollection {
         case one = 1, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen
         
         var description: String {
@@ -80,8 +78,6 @@ extension CardDeck {
             default: return String(self.rawValue)
             }
         }
-        
-        static let allValues = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen]
     }
    
 }
