@@ -12,12 +12,13 @@ import Foundation
 var runCardGame : Bool = true
 let inputView : InputView = InputView()
 let outputView : OutputView = OutputView()
-var userDeck : CardDeck = CardDeck()
 var playerCards : [[Card]] = []
+var userDeck : CardDeck = CardDeck()
 userDeck.shuffle()
 
 while runCardGame {
-    
+
+
     outputView.printMessage(.gameSpecies)
     let userGame = inputView.readMenu()
     guard userGame != .exitGame else { break }
@@ -31,7 +32,6 @@ while runCardGame {
         outputView.printMessage(.exceedMessage)
         continue
     }
-    
     guard let gameSpecies = userGame, let players = userPlayers else { break }
     let userGameInfo = GameInfo(gameSpecies.rawValue, players.rawValue)
 
@@ -40,7 +40,10 @@ while runCardGame {
         outputView.printMessage(.exitCardGame)
         break
     }
+    let cardsOfPlayers = userDeck.generateStacks(userGameInfo)
+    outputView.printPlayerCards(cardsOfPlayers)
     
-    outputView.printPlayerCards(userDeck.generateStacks(userGameInfo))
-    
+    let winnerInfo = HandEvaluator.init(cardsOfPlayers).generateHandOfWinner()
+    outputView.printWinner(winnerInfo, cardsOfPlayers.count)
+
 }

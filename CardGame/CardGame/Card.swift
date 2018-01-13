@@ -25,7 +25,6 @@ class Card {
     }
     
     enum Ranks : String, generateAllCases {
-        case one = "A"
         case two = "2"
         case three = "3"
         case four = "4"
@@ -38,6 +37,19 @@ class Card {
         case eleven = "J"
         case twelve = "Q"
         case thirteen = "K"
+        case ace = "A"
+    }
+    
+    func getSuit() -> Suits {
+        return self.suit
+    }
+    
+    func getRank() -> Ranks {
+        return self.rank
+    }
+    
+    func getRankNumber() -> Int {
+        return self.rank.hashValue
     }
     
 }
