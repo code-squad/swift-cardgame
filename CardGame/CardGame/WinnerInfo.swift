@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct WinnerInfo {
+    var handOfWinner : Hand.HandName
+    var numberOfWinner : Int = 0
+    
+    init(_ hand : Hand.HandName, _ number : Int) {
+        self.handOfWinner = hand
+        self.numberOfWinner = number
+    }
+}
