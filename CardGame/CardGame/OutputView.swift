@@ -40,9 +40,20 @@ struct OutputView {
     
     func printPlayerCards(_ stacks : [[Card]]) {
         for indexOfStacks in 0..<(stacks.count - 1){
+            sleep(1)
             print("참가자#\(indexOfStacks + 1)", stacks[indexOfStacks])
         }
+        sleep(1)
         print("딜러", stacks[stacks.count - 1])
+    }
+    
+    func printWinner (_ winnerInfo : WinnerInfo , _ countOfPlayers : Int ) {
+        if winnerInfo.numberOfWinner == countOfPlayers - 1 {
+            print("딜러가 \(winnerInfo.handOfWinner)로 승리하였습니다.")
+            return
+        }
+        print("참가자#\(winnerInfo.numberOfWinner + 1)님이 \(winnerInfo.handOfWinner)로 승리하셨습니다.")
+        
     }
 
 }
