@@ -54,15 +54,15 @@ struct Hand {
     }
 
     mutating private func isStraight(_ userCards : [Card]) -> Bool {
-        let CardsByRanks = userCards.sorted { $0.getRankNumber() > $1.getRankNumber() }
+        let cardsByRanks = userCards.sorted { $0.getRankNumber() > $1.getRankNumber() }
         var straightCounter = 0
-        for indexOfCard in 0..<(CardsByRanks.count - 1) {
-            guard CardsByRanks[indexOfCard].getRankNumber() == CardsByRanks[indexOfCard + 1].getRankNumber() + 1 else {
+        for indexOfCard in 0..<(cardsByRanks.count - 1) {
+            guard cardsByRanks[indexOfCard].getRankNumber() == CardsByRanks[indexOfCard + 1].getRankNumber() + 1 else {
                 continue
             }
             straightCounter += 1
         }
-        if CardsByRanks[0].getRank() == .ace {
+        if cardsByRanks[0].getRank() == .ace {
             self.royalVal = true
         }
         return straightCounter >= 5
