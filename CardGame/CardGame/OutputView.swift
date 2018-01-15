@@ -9,7 +9,7 @@
 import Foundation
 
 class OutputView {
-    static func printCard (result: String) {
-        print (result)
+    static func printCard (card: Card) {
+        print (card.description)
     }
 }
