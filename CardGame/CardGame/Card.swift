@@ -20,7 +20,7 @@ class Card {
 }
 
 extension Card {
-    var card: CustomStringConvertible {
+    var oneCard: CustomStringConvertible {
         return self.rank.description() + suit.rawValue
     }
 }
