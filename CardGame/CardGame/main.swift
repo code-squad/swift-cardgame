@@ -44,6 +44,6 @@ while runCardGame {
     outputView.printPlayerCards(cardsOfPlayers)
     
     let winnerInfo = HandEvaluator.init(cardsOfPlayers).generateHandOfWinner()
-    outputView.printWinner(winnerInfo, cardsOfPlayers.count)
+    outputView.printWinner(winnerInfo, userGameInfo)
 
 }
