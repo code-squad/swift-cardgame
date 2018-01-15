@@ -19,8 +19,8 @@ class Card {
     }
 }
 
-extension Card {
-    var oneCard: CustomStringConvertible {
+extension Card: CustomStringConvertible {
+    var description: String {
         return self.rank.description() + suit.rawValue
     }
 }
