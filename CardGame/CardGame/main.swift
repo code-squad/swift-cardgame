@@ -9,3 +9,5 @@
 import Foundation
 
 
+let card = Card(rank: .Thirteen, suit: .club)
+card.printCard()
