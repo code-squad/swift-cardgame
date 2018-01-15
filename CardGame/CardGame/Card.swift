@@ -17,9 +17,11 @@ class Card {
         self.rank = rank
         self.suit = suit
     }
-    
-    func makeOneCard () -> String {
-        return suit.rawValue + rank.description()
+}
+
+extension Card {
+    var card: CustomStringConvertible {
+        return self.rank.description() + suit.rawValue
     }
 }
 
