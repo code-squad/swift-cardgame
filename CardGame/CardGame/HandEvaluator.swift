@@ -21,12 +21,9 @@ struct HandEvaluator {
     }
     
     func generateHandOfWinner() -> WinnerInfo {
-        var evaluatedHands = self.handsOfPlayers.sorted { $0.hand.hashValue > $1.hand.hashValue }
-        if evaluatedHands.count != 1 && evaluatedHands[0].isSameHand(evaluatedHands[1]) {
-            evaluatedHands = [evaluatedHands[0],evaluatedHands[1]].sorted { $0.pairVal.hashValue > $1.pairVal.hashValue}
-        }
+        var evaluatedHands = self.handsOfPlayers.sorted { $0 > $1 }
         let handOfWinner = evaluatedHands[0].hand
-        let numberOfWinner = self.handsOfPlayers.index(where: { $0.isSameHand(evaluatedHands[0]) }) ?? 0
+        let numberOfWinner = self.handsOfPlayers.index(where: {$0.isSameHand(evaluatedHands[0])}) ?? 0
         return WinnerInfo.init(handOfWinner, numberOfWinner)
     }
     
