@@ -40,16 +40,31 @@ class Card {
         case ace = "A"
     }
     
-    func getSuit() -> Suits {
-        return self.suit
-    }
-    
     func getRank() -> Ranks {
         return self.rank
     }
     
     func getRankNumber() -> Int {
         return self.rank.hashValue
+    }
+    func isBiggerRank(_ nextCard : Card) -> Bool {
+        return self.rank.hashValue > nextCard.rank.hashValue
+    }
+    
+    func isSameRank(_ nextCard : Card) -> Bool {
+        return self.rank == nextCard.rank
+    }
+    
+    func isSameSuit(_ nextCard : Card) -> Bool {
+        return self.suit == nextCard.suit
+    }
+    
+    func isNextRank(_ nextCard : Card) -> Bool {
+       return self.rank.hashValue == nextCard.rank.hashValue + 1
+    }
+    
+    func isAce() -> Bool {
+        return self.rank == .ace
     }
     
 }
