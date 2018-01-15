@@ -10,6 +10,6 @@ import Foundation
 
 class OutputView {
     static func printCard (card: Card) {
-        print (card.description)
+        print (card)
     }
 }
