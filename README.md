@@ -65,3 +65,4 @@
       }  
       ...
   ```
+- 2018.01.12 : OutputView의 showResult(), EnumCollection추가, GameMenu enum 추가
