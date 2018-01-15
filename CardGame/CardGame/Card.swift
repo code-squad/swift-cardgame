@@ -25,6 +25,7 @@ class Card {
     }
     
     enum Ranks : String, generateAllCases {
+        
         case two = "2"
         case three = "3"
         case four = "4"
@@ -38,17 +39,6 @@ class Card {
         case twelve = "Q"
         case thirteen = "K"
         case ace = "A"
-    }
-    
-    func getRank() -> Ranks {
-        return self.rank
-    }
-    
-    func getRankNumber() -> Int {
-        return self.rank.hashValue
-    }
-    func isBiggerRank(_ nextCard : Card) -> Bool {
-        return self.rank.hashValue > nextCard.rank.hashValue
     }
     
     func isSameRank(_ nextCard : Card) -> Bool {
@@ -95,9 +85,18 @@ extension generateAllCases {
     }
 }
 
-
-extension Card : CustomStringConvertible {
+extension Card : CustomStringConvertible, Comparable{
+    static func <(lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank.hashValue < rhs.rank.hashValue
+    }
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.suit == rhs.suit && lhs.rank == rhs.rank
+    }
+    
     var description : String {
         return "\(self.suit.rawValue)\(self.rank.rawValue)"
     }
+    
+    
 }
