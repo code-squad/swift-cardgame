@@ -11,7 +11,7 @@ import Foundation
 struct Hand {
     
     var hand = HandName.noHand
-    var pairVal : Card.Ranks = .two
+    var pairVal : Card = Card.init(.spade, .two)
     private var straightVal = false
     private var royalVal = false
     private var TOKVal = false
@@ -54,7 +54,7 @@ struct Hand {
     }
 
     mutating private func isStraight(_ userCards : [Card]) -> Bool {
-        let cardsByRanks = userCards.sorted { $0.getRankNumber() > $1.getRankNumber() }
+        let cardsByRanks = userCards.sorted { $0 > $1 }
         var straightCounter = 0
         for indexOfCard in 0..<(cardsByRanks.count - 1) {
             guard cardsByRanks[indexOfCard].isNextRank(cardsByRanks[indexOfCard + 1]) else {
@@ -80,15 +80,15 @@ struct Hand {
     
     
     mutating private func countNumberOfSameRanks(_ userCards : [Card])  {
-        var sameRanks : [Card.Ranks] = []
+        var sameRanks : [Card] = []
         for indexOfCard in 0..<userCards.count {
             var sameRankVal = 0
             for oneCard in userCards {
                 guard userCards[indexOfCard].isSameRank(oneCard) else { continue }
                 sameRankVal += 1
             }
-            if sameRankVal == 2 && !sameRanks.contains(userCards[indexOfCard].getRank()) {
-                sameRanks.append(userCards[indexOfCard].getRank())
+            if sameRankVal == 2 && !sameRanks.contains(where: {$0.isSameRank(userCards[indexOfCard]) } ) {
+                sameRanks.append(userCards[indexOfCard])
             }
             switch sameRankVal {
             case 2 : self.countOfPair = sameRanks.count
@@ -98,12 +98,26 @@ struct Hand {
             }
         }
         if sameRanks.count != 0 {
-            self.pairVal = sameRanks.sorted { $0.hashValue > $1.hashValue }[0]
+            self.pairVal = sameRanks.sorted { $0 > $1 }[0]
         }
     }
     
     func isSameHand(_ nextHand : Hand) -> Bool {
         return self.hand == nextHand.hand
+    }
+    
+}
+extension Hand : Comparable {
+    
+    static func <(lhs: Hand, rhs: Hand) -> Bool {
+        if lhs.hand == rhs.hand {
+            return lhs.pairVal < rhs.pairVal
+        }
+        return lhs.hand.hashValue < rhs.hand.hashValue
+    }
+    
+    static func ==(lhs: Hand, rhs: Hand) -> Bool {
+        return lhs.hand.hashValue == rhs.hand.hashValue
     }
     
 }
