@@ -53,7 +53,21 @@ class CardDeck: CustomStringConvertible {
     func makeShuffleMessage() -> String {
         return "전체 \(self.cards.count)장의 카드를 섞었습니다.\n"
     }
-    
+
+    func makeCards(_ countOfCards: Int) -> [Card] {
+        var cards = [Card]()
+        for _ in 0..<countOfCards {
+            let picked = removeOne()
+            cards.append(picked)
+        }
+        return cards
+    }
+
+    func makeStack(cards: [Card]) -> CardStack {
+        return CardStack(cards)
+    }
+
+
 }
 
 

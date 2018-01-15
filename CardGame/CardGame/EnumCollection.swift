@@ -8,6 +8,8 @@
 
 import Foundation
 
+//[출처]https://theswiftdev.com/2017/10/12/swift-enum-all-values/
+
 public protocol EnumCollection: Hashable {
     static func cases() -> AnySequence<Self>
     static var allValues: [Self] { get }

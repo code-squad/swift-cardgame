@@ -1,3 +1,5 @@
+미션 요구사항 진행용 README는 [여기에](https://github.com/youth27/swift-cardgame/blob/card-step3/README2.md)있습니다.
+***
 ## 미션 진행 과정 - Daily
 - 2018.01.09 : Card, CardDeck(enum타입만 가지고있음), OutputView객체 생성
   - Card 객체의 속성(suit, denomination) enum타입으로 지정

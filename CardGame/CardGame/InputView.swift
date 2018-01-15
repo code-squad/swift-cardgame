@@ -9,7 +9,7 @@
 import Foundation
 
 class InputView {
-    enum gameMenu: String {
+    enum GameMenu: String {
         case one = "1"
         case two = "2"
         case three = "3"
@@ -17,8 +17,8 @@ class InputView {
         case wrongInput
     }
     
-    func select(rawValue: String) -> gameMenu {
-        if let inputMenu = gameMenu(rawValue: rawValue) {
+    func select(rawValue: String) -> GameMenu {
+        if let inputMenu = GameMenu(rawValue: rawValue) {
             return inputMenu
         }
         else {
