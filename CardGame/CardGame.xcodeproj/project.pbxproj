@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 		E818F95A2008C2A5007BAE46 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E818F9592008C2A5007BAE46 /* EnumCollection.swift */; };
+		E845C0B8200C4D9F00337A33 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0B7200C4D9F00337A33 /* CardStack.swift */; };
 		E8C59FDC20072B5A00FD06FF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C59FDB20072B5A00FD06FF /* InputView.swift */; };
 		E8D9DBAD2004A9830087E934 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAC2004A9830087E934 /* Card.swift */; };
 		E8D9DBAF2004A9AE0087E934 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAE2004A9AE0087E934 /* CardDeck.swift */; };
@@ -31,6 +32,7 @@
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E818F9592008C2A5007BAE46 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
+		E845C0B7200C4D9F00337A33 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		E8C59FDB20072B5A00FD06FF /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E8D9DBAC2004A9830087E934 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E8D9DBAE2004A9AE0087E934 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				E8D9DBB02004A9D50087E934 /* OutputView.swift */,
 				E8C59FDB20072B5A00FD06FF /* InputView.swift */,
 				E818F9592008C2A5007BAE46 /* EnumCollection.swift */,
+				E845C0B7200C4D9F00337A33 /* CardStack.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				E8C59FDC20072B5A00FD06FF /* InputView.swift in Sources */,
 				E8D9DBAD2004A9830087E934 /* Card.swift in Sources */,
 				E8D9DBB12004A9D50087E934 /* OutputView.swift in Sources */,
+				E845C0B8200C4D9F00337A33 /* CardStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import Foundation
 
 class OutputView {
     
-    enum programDescription: CustomStringConvertible {
+    enum ProgramDescription: CustomStringConvertible {
         case chooseMenu
         case emptyInput
         case wrongInput
