@@ -10,4 +10,4 @@ import Foundation
 
 
 let card = Card(rank: .One, suit: .club)
-OutputView.printCard(result: card.oneCard.description)
+OutputView.printCard(card: card)
