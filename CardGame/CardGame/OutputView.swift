@@ -47,8 +47,8 @@ struct OutputView {
         print("딜러", stacks[stacks.count - 1])
     }
     
-    func printWinner (_ winnerInfo : WinnerInfo , _ countOfPlayers : Int ) {
-        if winnerInfo.numberOfWinner == countOfPlayers - 1 {
+    func printWinner (_ winnerInfo : WinnerInfo , _ gameInfo : GameInfo ) {
+        if winnerInfo.isDealer(gameInfo) {
             print("딜러가 \(winnerInfo.handOfWinner)로 승리하였습니다.")
             return
         }

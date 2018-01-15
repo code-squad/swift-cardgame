@@ -16,4 +16,8 @@ struct WinnerInfo {
         self.handOfWinner = hand
         self.numberOfWinner = number
     }
+    
+    func isDealer(_ gameInfo : GameInfo) -> Bool {
+        return self.numberOfWinner == gameInfo.userPlayers
+    }
 }
