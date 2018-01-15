@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// 카드 객체
 class Card {
     private let rank: CardSet.Rank
     private let suit: CardSet.Suit
@@ -18,8 +18,8 @@ class Card {
         self.suit = suit
     }
     
-    func printCard () {
-        print(suit.rawValue + rank.convertIntToString())
+    func makeOneCard () -> String {
+        return suit.rawValue + rank.description()
     }
 }
 

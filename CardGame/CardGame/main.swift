@@ -9,5 +9,5 @@
 import Foundation
 
 
-let card = Card(rank: .Thirteen, suit: .club)
-card.printCard()
+let card = Card(rank: .One, suit: .club)
+OutputView.printCard(result: card.makeOneCard())
