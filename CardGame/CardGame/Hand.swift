@@ -57,12 +57,12 @@ struct Hand {
         let cardsByRanks = userCards.sorted { $0.getRankNumber() > $1.getRankNumber() }
         var straightCounter = 0
         for indexOfCard in 0..<(cardsByRanks.count - 1) {
-            guard cardsByRanks[indexOfCard].getRankNumber() == CardsByRanks[indexOfCard + 1].getRankNumber() + 1 else {
+            guard cardsByRanks[indexOfCard].isNextRank(cardsByRanks[indexOfCard + 1]) else {
                 continue
             }
             straightCounter += 1
         }
-        if cardsByRanks[0].getRank() == .ace {
+        if cardsByRanks[0].isAce() {
             self.royalVal = true
         }
         return straightCounter >= 5
@@ -70,7 +70,7 @@ struct Hand {
     
     private func isFlush(_ userCards : [Card]) -> Bool {
         for indexOfCard in 0..<(userCards.count - 1) {
-            guard userCards[indexOfCard].getSuit().hashValue != userCards[indexOfCard + 1].getSuit().hashValue else {
+            guard !userCards[indexOfCard].isSameSuit(userCards[indexOfCard + 1]) else {
                 continue
             }
             return false
@@ -84,7 +84,7 @@ struct Hand {
         for indexOfCard in 0..<userCards.count {
             var sameRankVal = 0
             for oneCard in userCards {
-                guard userCards[indexOfCard].getRankNumber() == oneCard.getRankNumber() else { continue }
+                guard userCards[indexOfCard].isSameRank(oneCard) else { continue }
                 sameRankVal += 1
             }
             if sameRankVal == 2 && !sameRanks.contains(userCards[indexOfCard].getRank()) {
@@ -98,8 +98,12 @@ struct Hand {
             }
         }
         if sameRanks.count != 0 {
-            self.pairVal = sameRanks.sorted {$0.hashValue > $1.hashValue}[0]
+            self.pairVal = sameRanks.sorted { $0.hashValue > $1.hashValue }[0]
         }
+    }
+    
+    func isSameHand(_ nextHand : Hand) -> Bool {
+        return self.hand == nextHand.hand
     }
     
 }
