@@ -35,20 +35,20 @@ struct InputView {
         let input = readLine() ?? "0"
         if let inputNum = Int(input) {
             if inputNum < 0 || inputNum > 4 {
-                print (InputMessage.invalindNum, terminator: "")
+                print (InputMessage.invalindNum, terminator: " ")
                 return nil
             } else {
                 pickedNum = inputNum
             }
         } else {
-            print (InputMessage.invalindNum)
+            print (InputMessage.invalindNum, terminator: " ")
             return nil
         }
        
         if let tempMenu = CardGameInfo.Menu(rawValue: pickedNum) {
             menu = tempMenu
         } else {
-            print (InputMessage.invalindNum)
+            print (InputMessage.invalindNum, terminator: " ")
             return nil
         }
         return menu
