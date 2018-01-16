@@ -29,8 +29,9 @@ struct InputView {
         }
     }
     
-    static func input () -> Int? {
+    static func input () -> CardGameInfo.Menu? {
         var pickedNum = 0
+        var menu: CardGameInfo.Menu
         let input = readLine() ?? "0"
         if let inputNum = Int(input) {
             if inputNum < 0 || inputNum > 4 {
@@ -43,7 +44,14 @@ struct InputView {
             print (InputMessage.invalindNum)
             return nil
         }
-        return pickedNum
+       
+        if let tempMenu = CardGameInfo.Menu(rawValue: pickedNum) {
+            menu = tempMenu
+        } else {
+            print (InputMessage.invalindNum)
+            return nil
+        }
+        return menu
     }
 }
 
