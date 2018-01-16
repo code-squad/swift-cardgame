@@ -11,9 +11,9 @@ import Foundation
 // 카드 객체
 class Card {
     private let rank: CardGameInfo.RankOfCard
-    private let suit: CardGameInfo.SuitOfCard
+    private let suit: CardGameInfo.SuitsOfCard
     
-    init(rank: CardGameInfo.RankOfCard, suit: CardGameInfo.SuitOfCard) {
+    init(rank: CardGameInfo.RankOfCard, suit: CardGameInfo.SuitsOfCard) {
         self.rank = rank
         self.suit = suit
     }
