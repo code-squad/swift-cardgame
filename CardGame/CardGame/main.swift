@@ -46,19 +46,6 @@ func runInput() {
 /*
  InputView를 거치지 않고 스택만 표시하기위해서는 아예 로직이 달라지기 때문에
  InputView를 제거하는 대신 다른 함수로 묶어서 스택 출력만 하는 함수를 호출했습니다.
-
-
-func runStack() {
-        let cards = cardDeck.makeCards(7)
-        let stack = cardDeck.makeStack(cards: cards)
-        let player = Player(stack: stack)
-        let dealer = Dealer(stack: stack)
-
-    print("player" + player.description)
-    print("dealer" + dealer.description)
-    print(cardDeck.description)
-
-}
 */
 
 // MARK: runStud only
@@ -79,25 +66,37 @@ func runStud() {
 
         let inputNumber = gameInput.askNumberOfPlayer(message: OutputView.ProgramDescription.askNumberOfPlayer.description)
         if let numberOfPlayer = inputNumber {
-            if numberOfPlayer >= 0 || numberOfPlayer <= 4 {
+            if numberOfPlayer >= 0 &&  numberOfPlayer <= 4 {
                 switch inputMenu {
                 case .one:
+                    let studType = 7
+                    if (numberOfPlayer * studType) > cardDeck.count() {
+                        runProgram = false
+                        outputView.showResult(text: OutputView.ProgramDescription.lackOfCard.description)
+                        break
+                    }
                     for playerNumber in 0..<numberOfPlayer {
-                        let stack = makeStack(stud: 7)
+                        let stack = makeStack(stud: studType)
                         let player = Player(stack: stack, position: playerNumber+1)
                         outputView.showResult(text: player.description)
                     }
-                    let dealerStack = makeStack(stud: 7)
+                    let dealerStack = makeStack(stud: studType)
                     let dealer = Dealer(stack: dealerStack)
                     outputView.showResult(text: dealer.description)
                     outputView.showResult(text: cardDeck.description)
                 case .two:
+                    let studType = 5
+                    if (numberOfPlayer * studType) > cardDeck.count() {
+                        runProgram = false
+                        outputView.showResult(text: OutputView.ProgramDescription.lackOfCard.description)
+                        break
+                    }
                     for playerNumber in 0..<numberOfPlayer {
-                        let stack = makeStack(stud: 5)
+                        let stack = makeStack(stud: studType)
                         let player = Player(stack: stack, position: playerNumber+1)
                         outputView.showResult(text: player.description)
                     }
-                    let dealerStack = makeStack(stud: 5)
+                    let dealerStack = makeStack(stud: studType)
                     let dealer = Dealer(stack: dealerStack)
                     outputView.showResult(text: dealer.description)
                     outputView.showResult(text: cardDeck.description)
@@ -111,33 +110,12 @@ func runStud() {
                 outputView.showResult(text: OutputView.ProgramDescription.wrongInput.description)
                 continue
             }
-
         } else {
             outputView.showResult(text: OutputView.ProgramDescription.wrongInput.description)
             continue
         }
-
     }
 }
 
 runStud()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

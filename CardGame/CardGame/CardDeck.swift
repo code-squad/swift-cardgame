@@ -46,7 +46,7 @@ class CardDeck: CustomStringConvertible {
         return pickedCard
     }
     
-    private func count() -> Int {
+    func count() -> Int {
         return self.cards.count
     }
     
