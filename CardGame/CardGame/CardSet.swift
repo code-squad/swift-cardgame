@@ -10,22 +10,27 @@ import Foundation
 
 // 카드 정보를 갖는 클래스, 특정숫자는 영문자로 표현하기 위해 enum안에 함수 사용
 class CardSet {
-    enum Suit: String {
+    enum Suit: String, CustomStringConvertible {
         case spade = "♠️", heart = "💖", diamond = "🔶", club = "♣️"
+        static let TotalSuit = [spade, heart, diamond, club]
+        var description: String {
+            switch self {
+            default: return rawValue
+            }
+        }
     }
     
     enum Rank: Int {
-        case One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
-        case Eleven, Twelve, Thirteen
-        
-        func description () -> String {
+        case one = 1, two, three, four, five, six, seven, eight, nine, ten
+        case eleven, twelve, thirteen
+        static let TotalRank = Rank.one.rawValue ... Rank.thirteen.rawValue
+        var description: String {
             switch self {
-            case .One : return "A"
-            case .Eleven : return "J"
-            case .Twelve : return "Q"
-            case .Thirteen : return "K"
-            default:
-                return String(self.rawValue)
+            case .one : return "A"
+            case .eleven : return "J"
+            case .twelve : return "Q"
+            case .thirteen : return "K"
+            default: return String(self.rawValue)
             }
         }
     }
