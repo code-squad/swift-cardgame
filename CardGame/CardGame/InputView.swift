@@ -9,12 +9,12 @@
 import Foundation
 
 struct InputView {
-    enum InputMessage: CustomStringConvertible {
-        case welcoming
-        case invalindNum
+    enum Message: CustomStringConvertible {
+        case ofWelcoming
+        case ofUnsupportedInput
         var description: String {
             switch self {
-            case .welcoming:
+            case .ofWelcoming:
                 return """
                     다음 메뉴를 선택해주세요.
                     1. 카드 초기화
@@ -23,7 +23,7 @@ struct InputView {
                     4. 프로그램 종료
                     >
                     """
-            case .invalindNum:
+            case .ofUnsupportedInput:
                 return "메뉴의 번호 중 한가지를 골라주세요."
             }
         }
@@ -35,20 +35,20 @@ struct InputView {
         let input = readLine() ?? "0"
         if let inputNum = Int(input) {
             if inputNum < 0 || inputNum > 4 {
-                print (InputMessage.invalindNum, terminator: " ")
+                print (Message.ofUnsupportedInput, terminator: " ")
                 return nil
             } else {
                 pickedNum = inputNum
             }
         } else {
-            print (InputMessage.invalindNum, terminator: " ")
+            print (Message.ofUnsupportedInput, terminator: " ")
             return nil
         }
        
         if let tempMenu = CardGameInfo.Menu(rawValue: pickedNum) {
             menu = tempMenu
         } else {
-            print (InputMessage.invalindNum, terminator: " ")
+            print (Message.ofUnsupportedInput, terminator: " ")
             return nil
         }
         return menu
