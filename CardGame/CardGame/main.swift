@@ -8,29 +8,26 @@
 
 import Foundation
 
-
 func runProgram () {
     var cardDeck = CardDeck()
     var isRunning = true
     while isRunning {
-        print(InputView.InputMessage.welcoming)
+        print(InputView.Message.ofWelcoming)
         guard let input = InputView.input() else { continue }
         switch input {
         case .reset:
             cardDeck.resetCard()
-            print("카드 전체를 초기화했습니다.")
-            print("총 \(cardDeck.count)장의 카드가 있습니다.")
+            OutputView.printOfResetMessage()
         case .suffle:
             cardDeck.suffle()
-            print("전체 \(cardDeck.count)장의 카드를 섞었습니다.")
+            OutputView.printShuffle(cardDeck)
         case .pick:
-            let deletedCard: Card = cardDeck.pickCard()
-            print(deletedCard.description)
-            print("총 \(cardDeck.count)장의 카드가 남아있습니다.")
+            print (cardDeck.pickCard())
+            OutputView.printPickCard(cardDeck)
         case .end : isRunning = false
+            OutputView.printOfEndOfProgramMessage()
         }
     }
 }
 
 runProgram()
-
