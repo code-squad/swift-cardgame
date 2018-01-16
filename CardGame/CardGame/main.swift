@@ -19,7 +19,7 @@ func runProgram () {
             cardDeck.resetCard()
             OutputView.printOfResetMessage()
         case .suffle:
-            cardDeck.suffle()
+            cardDeck.shuffle()
             OutputView.printShuffle(cardDeck)
         case .pick:
             print (cardDeck.pickCard())

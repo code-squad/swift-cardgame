@@ -18,16 +18,15 @@ struct CardDeck {
     
     mutating func resetCard() {
         var tempDeck = [Card]()
-        for rank in CardGameInfo.RankOfCard.TotalRank {
-            for suit in 0 ..< CardGameInfo.SuitOfCard.TotalSuit.count {
-                let card = Card(rank: CardGameInfo.RankOfCard(rawValue: rank)! , suit: CardGameInfo.SuitOfCard.TotalSuit[suit])
-                tempDeck.append(card)
+        for rank in CardGameInfo.RankOfCard.ranks {
+            for suit in CardGameInfo.SuitsOfCard.suits {
+                tempDeck.append(Card.init(rank: rank, suit: suit))
             }
             cardDeck = tempDeck
         }
     }
     
-    mutating func suffle () {
+    mutating func shuffle () {
         cardDeck = cardDeck.shuffle()
     }
     
