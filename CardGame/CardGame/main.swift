@@ -16,18 +16,18 @@ func runProgram () {
         print(InputView.InputMessage.welcoming)
         guard let input = InputView.input() else { continue }
         switch input {
-        case 1:
+        case .reset:
             cardDeck.resetCard()
             print("카드 전체를 초기화했습니다.")
             print("총 \(cardDeck.count)장의 카드가 있습니다.")
-        case 2:
+        case .suffle:
             cardDeck.suffle()
             print("전체 \(cardDeck.count)장의 카드를 섞었습니다.")
-        case 3:
+        case .pick:
             let deletedCard: Card = cardDeck.pickCard()
             print(deletedCard.description)
             print("총 \(cardDeck.count)장의 카드가 남아있습니다.")
-        default : isRunning = false
+        case .end : isRunning = false
         }
     }
 }
