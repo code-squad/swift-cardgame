@@ -10,10 +10,10 @@ import Foundation
 
 // 카드 객체
 class Card {
-    private let rank: CardSet.Rank
-    private let suit: CardSet.Suit
+    private let rank: CardGameInfo.RankOfCard
+    private let suit: CardGameInfo.SuitOfCard
     
-    init(rank: CardSet.Rank, suit: CardSet.Suit) {
+    init(rank: CardGameInfo.RankOfCard, suit: CardGameInfo.SuitOfCard) {
         self.rank = rank
         self.suit = suit
     }

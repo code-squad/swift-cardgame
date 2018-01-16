@@ -18,9 +18,9 @@ struct CardDeck {
     
     mutating func resetCard() {
         var tempDeck = [Card]()
-        for rank in CardSet.Rank.TotalRank {
-            for suit in 0 ..< CardSet.Suit.TotalSuit.count {
-                let card = Card(rank: CardSet.Rank(rawValue: rank)! , suit: CardSet.Suit.TotalSuit[suit])
+        for rank in CardGameInfo.RankOfCard.TotalRank {
+            for suit in 0 ..< CardGameInfo.SuitOfCard.TotalSuit.count {
+                let card = Card(rank: CardGameInfo.RankOfCard(rawValue: rank)! , suit: CardGameInfo.SuitOfCard.TotalSuit[suit])
                 tempDeck.append(card)
             }
             cardDeck = tempDeck
