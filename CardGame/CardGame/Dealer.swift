@@ -10,4 +10,12 @@ import Foundation
 
 class Dealer: Player {
 
+    override var description: String {
+        return "딜러 " + stack.description
+    }
+
+    init(stack: CardStack) {
+        super.init(stack: stack, position: nil)
+    }
+
 }
