@@ -48,12 +48,17 @@ func runInput() {
  */
 
 func runStack() {
-    for i in 1...7 {
-        let cards = cardDeck.makeCards(i)
+
+        let cards = cardDeck.makeCards(7)
         let stack = cardDeck.makeStack(cards: cards)
-        outputView.showResult(text:stack.description)
-        print(cardDeck.description)
-    }
+        let player = Player(stack: stack)
+        let dealer = Dealer(stack: stack)
+
+    print("player" + player.description)
+    print("dealer" + dealer.description)
+    print(cardDeck.description)
+
+
 }
 
 runStack()

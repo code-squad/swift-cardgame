@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Player: CustomStringConvertible {
+class Player: CustomStringConvertible {
     var stack = CardStack([Card]())
 
     var description: String {
