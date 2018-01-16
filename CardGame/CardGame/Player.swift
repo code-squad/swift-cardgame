@@ -9,14 +9,16 @@
 import Foundation
 
 class Player: CustomStringConvertible {
-    var stack = CardStack([Card]())
+    var stack: CardStack
+    var position: Int?
 
     var description: String {
-        return stack.description
+        return "참가자#\(position!) " + stack.description
     }
 
-    init(stack: CardStack) {
+    init(stack: CardStack, position: Int?) {
         self.stack = stack
+        self.position = position
     }
 
 }

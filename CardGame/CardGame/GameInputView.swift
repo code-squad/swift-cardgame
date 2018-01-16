@@ -38,7 +38,7 @@ struct GameInputView {
         }
     }
 
-    func askGameMenu(message: CustomStringConvertible) -> String {
+    func askGameType(message: CustomStringConvertible) -> String {
         print(message)
         let userInput = readLine()
         guard let input = userInput else {
