@@ -25,7 +25,20 @@ struct GameInputView {
         }
     }
 
-    func askGameType(_ message: CustomStringConvertible) -> String {
+    func askNumberOfPlayer(message: CustomStringConvertible) -> Int? {
+        print(message)
+        let userInput = readLine()
+        guard let number = userInput else {
+            return nil
+        }
+        if let numberOfPlayer = Int(number) {
+            return numberOfPlayer
+        } else {
+            return nil
+        }
+    }
+
+    func askGameMenu(message: CustomStringConvertible) -> String {
         print(message)
         let userInput = readLine()
         guard let input = userInput else {
