@@ -9,8 +9,8 @@
 import Foundation
 
 // 카드 정보를 갖는 클래스, 특정숫자는 영문자로 표현하기 위해 enum안에 함수 사용
-class CardSet {
-    enum Suit: String, CustomStringConvertible {
+class CardGameInfo {
+    enum SuitOfCard: String, CustomStringConvertible {
         case spade = "♠️", heart = "💖", diamond = "🔶", club = "♣️"
         static let TotalSuit = [spade, heart, diamond, club]
         var description: String {
@@ -20,10 +20,10 @@ class CardSet {
         }
     }
     
-    enum Rank: Int {
+    enum RankOfCard: Int {
         case one = 1, two, three, four, five, six, seven, eight, nine, ten
         case eleven, twelve, thirteen
-        static let TotalRank = Rank.one.rawValue ... Rank.thirteen.rawValue
+        static let TotalRank = RankOfCard.one.rawValue ... RankOfCard.thirteen.rawValue
         var description: String {
             switch self {
             case .one : return "A"
@@ -34,4 +34,9 @@ class CardSet {
             }
         }
     }
+
+    enum Menu: Int {
+        case reset = 1, suffle, pick, end
+    }
+    
 }
