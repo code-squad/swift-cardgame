@@ -17,6 +17,7 @@ class OutputView {
         case emptyInput
         case wrongInput
         case quitGame
+        case lackOfCard
         
         var description: String {
             switch self {
@@ -32,6 +33,8 @@ class OutputView {
                 return "=== 잘못 입력하셨습니다. 다시 입력해주세요. ===\n"
             case .quitGame:
                 return "=== 게임 종료 ==="
+            case .lackOfCard:
+                return "카드가 모자랍니다 :( 게임을 종료합니다!"
             }
         }
     }
