@@ -52,6 +52,7 @@ func runStack() {
         let cards = cardDeck.makeCards(i)
         let stack = cardDeck.makeStack(cards: cards)
         outputView.showResult(text:stack.description)
+        print(cardDeck.description)
     }
 }
 
