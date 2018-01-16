@@ -1,5 +1,5 @@
 //
-//  OutputView.swift
+//  InputView.swift
 //  CardGame
 //
 //  Created by Choi Jeong Hoon on 2018. 1. 15..
@@ -7,9 +7,3 @@
 //
 
 import Foundation
-
-class OutputView {
-    static func printCard (card: Card) {
-        print (card)
-    }
-}
