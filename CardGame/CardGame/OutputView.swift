@@ -36,4 +36,11 @@ struct OutputView {
     static func printPickCard (_ cardDeck: CardDeck) {
         print("총 \(cardDeck.count)장의 카드가 남아있습니다.")
     }
+    
+    static func printCardTable (_ cardTable: Array<Array<Card>>) {
+        for cardSet in cardTable {
+            print (cardSet)
+        }
+    }
 }
+
