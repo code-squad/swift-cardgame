@@ -5,53 +5,30 @@
 - 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
 - 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+##### 코딩스타일 가이드라인 조사
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+- 가이드로 삼고 싶은책 : [[Swift Style](https://www.amazon.com/Swift-Style-Opinionated-Guide-Language/dp/1680502352)]
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-cardgame
-```
+- 이유
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-cardgame
-```
+  - 영문을 읽는데 더 익숙해지고 싶습니다.
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+    - 프로그래밍에서 사용되는 영어단어뜻에 익숙치 않아 공식문서를 읽을때 오독하는 경우가 있네요.!
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+  - 스타일 가이드를 찾다보면 단편적으로 이부분 저부분 나와있는데, 이건 책이다보니 단계별로
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
+    정리가 잘 되있는것 같고, 코드 설명이 많아 좋습니다.
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+    - 특히 yes or no로 예쁘지 않은 코드와 예쁜 코드를 대조해주는 부분!
 
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
+  - 그리고 각각의 챕터 및 소제목마다 해당 내용에 대해 비유적인 설명이 있어서 좋은것 같습니다.
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+  ​
+
+- 학습계획
+
+  - 1챕터 (가독성 있는 코드 설계하기) 및 2챕터 (통용되는 스타일에 익하기)를 이해하고
+
+    정리하는것이 목표
+
+  - 2월에 평일 저녁시간에 조금씩 읽고 정리해보기 (모르는 단어도 정리)
