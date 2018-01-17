@@ -9,7 +9,7 @@
 import Foundation
 
 class OutputView {
-    
+
     enum ProgramDescription: CustomStringConvertible {
         case chooseMenu
         case chooseCardStud
@@ -18,7 +18,7 @@ class OutputView {
         case wrongInput
         case quitGame
         case lackOfCard
-        
+
         var description: String {
             switch self {
             case .chooseMenu:
@@ -38,9 +38,9 @@ class OutputView {
             }
         }
     }
-    
+
     func showResult(text: CustomStringConvertible) {
-        print(text)
+        print(text.description)
     }
 }
 
