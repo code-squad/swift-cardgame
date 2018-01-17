@@ -15,11 +15,10 @@ struct CardDeck {
     var count: Int {
         return self.cardDeck.count
     }
-    
     mutating func resetCard() {
         var tempDeck = [Card]()
-        for rank in CardGameInfo.RankOfCard.ranks {
-            for suit in CardGameInfo.SuitsOfCard.suits {
+        for rank in Card.RankOfCard.ranks {
+            for suit in Card.SuitsOfCard.suits {
                 tempDeck.append(Card.init(rank: rank, suit: suit))
             }
             cardDeck = tempDeck
@@ -33,12 +32,13 @@ struct CardDeck {
     mutating func pickCard () -> Card {
         return cardDeck.removeLast()
     }
+    
 }
 
 extension Array {
-    mutating func shuffle() -> Array{
-        self.sort { _,_ in arc4random_uniform(2) == 1 }
-        return self
+     func shuffle() -> Array<Card> {
+        let shuffledArray = self.sorted { _,_ in arc4random_uniform(2) == 1 }
+        return shuffledArray as! Array<Card>
     }
 }
 
