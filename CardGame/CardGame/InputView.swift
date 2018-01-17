@@ -31,12 +31,10 @@ struct InputView {
     
     static func input () -> CardGameInfo.Menu {
         print(InputView.Message.ofWelcoming)
-        var menu: CardGameInfo.Menu = .end
         let input = readLine() ?? "0"
-        guard let inputNum = Int(input), let tempMenu = CardGameInfo.Menu(rawValue: inputNum) else {
+        guard let inputNum = Int(input), let menu = CardGameInfo.Menu(rawValue: inputNum) else {
             return CardGameInfo.Menu.pleaseInputAgain
         }
-        menu = tempMenu
         return menu
     }
 }
