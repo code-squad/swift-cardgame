@@ -42,3 +42,4 @@
 - 2018.01.12 step2 피드백에 따른 수정 : OutputView의 showResult(), EnumCollection추가, GameMenu enum 추가
 - 2018.01.15 step3 요구사항 구현 : CardStack 구조체 추가, main.swift에 함수 추가, 코딩스타일 가이드라인을 작성-[README2](https://github.com/youth27/swift-cardgame/blob/card-step3/README2.md)
 - 2018.01.16 step4 요구사항 구현 : GameInputView구조체 추가, Player, Dealer클래스 구현과 상속, main에 흐름제어구문 추가
+- 2018.01.17 step4 피드백에 따른 수정 : OutputView의 showResult()인자에 description제거, GameController추가, main에 play(), run()함수 추가
