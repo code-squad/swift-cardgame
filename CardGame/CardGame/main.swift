@@ -8,29 +8,7 @@
 
 import Foundation
 
-func runProgram () {
-    var cardDeck = CardDeck()
-    var isRunning = true
-    while isRunning {
-        let input = InputView.input()
-        switch input {
-        case .reset:
-            cardDeck.resetCard()
-            OutputView.printOfResetMessage()
-        case .suffle:
-            cardDeck.shuffle()
-            OutputView.printShuffle(cardDeck)
-        case .pick:
-            print (cardDeck.pickCard())
-            OutputView.printPickCard(cardDeck)
-        case .end :
-            OutputView.printOfEndOfProgramMessage()
-            isRunning = false
-        case .pleaseInputAgain :
-            print (InputView.Message.ofUnsupportedInput)
-            continue
-        }
-    }
-}
-
-runProgram()
+var cardDeck = CardDeck()
+cardDeck.shuffle()
+let cardTable = cardDeck.makeCardTable()
+OutputView.printCardTable(cardTable)

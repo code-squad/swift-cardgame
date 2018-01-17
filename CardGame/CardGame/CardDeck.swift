@@ -33,10 +33,26 @@ struct CardDeck {
         return cardDeck.removeLast()
     }
     
+    mutating func makeEachCardSet (_ index: Int) -> Array<Card> {
+        var oneCardSet = Array<Card>()
+        for _ in 0 ... index {
+            oneCardSet.append(pickCard())
+        }
+        return oneCardSet
+    }
+    
+    mutating func makeCardTable () -> Array<Array<Card>> {
+        var cardTable = Array<Array<Card>>()
+        for index in 0 ... 6 {
+            cardTable.append(makeEachCardSet(index))
+        }
+        return cardTable
+    }
+    
 }
 
 extension Array {
-     func shuffle() -> Array<Card> {
+    func shuffle() -> Array<Card> {
         let shuffledArray = self.sorted { _,_ in arc4random_uniform(2) == 1 }
         return shuffledArray as! Array<Card>
     }
