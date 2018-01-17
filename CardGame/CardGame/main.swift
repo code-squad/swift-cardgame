@@ -12,8 +12,7 @@ func runProgram () {
     var cardDeck = CardDeck()
     var isRunning = true
     while isRunning {
-        print(InputView.Message.ofWelcoming)
-        guard let input = InputView.input() else { continue }
+        let input = InputView.input()
         switch input {
         case .reset:
             cardDeck.resetCard()
@@ -24,8 +23,12 @@ func runProgram () {
         case .pick:
             print (cardDeck.pickCard())
             OutputView.printPickCard(cardDeck)
-        case .end : isRunning = false
+        case .end :
             OutputView.printOfEndOfProgramMessage()
+            isRunning = false
+        case .pleaseInputAgain :
+            print (InputView.Message.ofUnsupportedInput)
+            continue
         }
     }
 }
