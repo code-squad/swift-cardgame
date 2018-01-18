@@ -11,6 +11,8 @@ import Foundation
 struct GameController {
     private (set) var studType: Int
     private (set) var numberOfPlayer: Int
+    var cardDeck = CardDeck()
+    let outputView = OutputView()
 
     enum InitError: Error, CustomStringConvertible {
         case quit
@@ -57,14 +59,33 @@ struct GameController {
         }
     }
 
-    // 파라미터 : CardDeck
-    func hasEnoughCards(numberOfCard: Int) -> Bool {
-        if ((self.numberOfPlayer+1) * self.studType) > numberOfCard {
-            return false
-        } else {
-            return true
+    func play() {
+        var gameResult = ""
+        while true {
+            if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * self.numberOfPlayer) {
+                for playerNumber in 0..<self.numberOfPlayer {
+                    let stack = makeStack(stud: self.studType)
+                    let player = Player(stack: stack, position: playerNumber+1)
+                    gameResult += player.description + "\n"
+                }
+                let dealerStack = makeStack(stud: self.studType)
+                let dealer = Dealer(stack: dealerStack)
+                gameResult += dealer.description + "\n"
+                gameResult += cardDeck.description + "\n"
+            } else {
+                gameResult += OutputView.ProgramDescription.lackOfCard.description
+                break
+            }
         }
+        outputView.showResult(text: ResultData(result: gameResult))
     }
+
+    func makeStack(stud: Int) -> CardStack {
+        let cards = cardDeck.makeCards(self.studType)
+        let stack = cardDeck.makeStack(cards: cards)
+        return stack
+    }
+
 
 
 }
