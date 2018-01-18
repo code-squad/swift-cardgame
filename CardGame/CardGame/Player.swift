@@ -9,7 +9,7 @@
 import Foundation
 
 class Player: CustomStringConvertible {
-    private var stack: CardStack
+    private(set) var stack: CardStack
     private var position: Int?
 
     var description: String {
@@ -19,10 +19,6 @@ class Player: CustomStringConvertible {
     init(stack: CardStack, position: Int?) {
         self.stack = stack
         self.position = position
-    }
-
-    func getStack() -> CardStack {
-        return self.stack
     }
 
 }
