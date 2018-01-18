@@ -59,7 +59,7 @@ struct GameController {
         }
     }
 
-    func play() {
+    func play() -> ResultData {
         var gameResult = ""
         while true {
             if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * self.numberOfPlayer) {
@@ -77,7 +77,7 @@ struct GameController {
                 break
             }
         }
-        outputView.showResult(text: ResultData(result: gameResult))
+        return ResultData(result: gameResult)
     }
 
     func makeStack(stud: Int) -> CardStack {
