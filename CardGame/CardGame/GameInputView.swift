@@ -17,10 +17,9 @@ struct InputView {
             case .ofWelcoming:
                 return """
                 다음 메뉴를 선택해주세요.
-                1. 카드 초기화
-                2. 카드 섞기
-                3. 카드 하나 뽑기
-                4. 프로그램 종료
+                1. 7카드 게임
+                2. 5카드 게임
+                3. 게임 종료
                 >
                 """
             case .ofUnsupportedInput:

@@ -35,14 +35,14 @@ extension Card: CustomStringConvertible {
             }
         }
         static let rangeOfSuits = SuitsOfCard.spade.rawValue ... SuitsOfCard.club.rawValue
-        static let suits = Array(rangeOfSuits.map{ return SuitsOfCard(rawValue:$0)! })
+        static let suits = Array(rangeOfSuits.map{ return SuitsOfCard(rawValue:$0) ?? .club })
     }
     
     enum RankOfCard: Int {
         case one = 1, two, three, four, five, six, seven, eight, nine, ten
         case eleven, twelve, thirteen
         static let rangeOfRankOfCard = RankOfCard.one.rawValue ... RankOfCard.thirteen.rawValue
-        static let ranks = Array(rangeOfRankOfCard.map{ return RankOfCard(rawValue: $0)!})
+        static let ranks = Array(rangeOfRankOfCard.map{ return RankOfCard(rawValue: $0) ?? .one})
         var description: String {
             switch self {
             case .one : return "A"
