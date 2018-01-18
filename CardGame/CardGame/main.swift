@@ -23,7 +23,7 @@ func runProgram () {
                 print(InputView.Message.ofExceedPossibleNumberOfParticipants)
                 continue
             }
-            let gameInfo = CardGameInfo(menuNum: menuNum.rawValue, numberOfPlayers: numberOfParticipants.rawValue)
+            let gameInfo = CardGameInfo(menuNum: menuNum, numberOfPlayers: numberOfParticipants)
             let cardTable = cardDeck.makeCardTable(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
             OutputView.printPlayerCardTable(cardTable)
             if cardDeck.isGameRunnable() != true {

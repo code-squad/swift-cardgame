@@ -13,13 +13,13 @@ class CardGameInfo {
     private (set) var numberOfCards = 5
     private (set) var numberOfPlayers = 1
     
-    init(menuNum: Int, numberOfPlayers: Int) {
-        if menuNum == 1 {
+    init(menuNum: CardGameInfo.Menu, numberOfPlayers: CardGameInfo.NumberOfParticipantsCases) {
+        if menuNum == .SevenCardGame {
             self.numberOfCards = 7
         } else {
             self.numberOfCards = 5
         }
-        self.numberOfPlayers = numberOfPlayers
+        self.numberOfPlayers = numberOfPlayers.rawValue
     }
     
     enum Menu: Int {
