@@ -27,7 +27,8 @@ func run() {
         let controller = try GameController(stud: stud,
                                             numberOfPlayer: inputNumber)
         // 게임 진행
-        controller.play()
+        let gameResult = controller.play()
+        OutputView().showResult(text: gameResult)
     } catch let error as GameController.InitError {
         switch error {
         case .quit: OutputView().showResult(text:error)
@@ -35,10 +36,8 @@ func run() {
         case .wrongMenu: OutputView().showResult(text:error)
         case .wrongPlayerNumber: OutputView().showResult(text:error)
         }
-        run()
     } catch {
         print("unknown error")
-        run()
     }
 }
 
