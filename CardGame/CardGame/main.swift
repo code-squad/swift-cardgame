@@ -12,6 +12,7 @@ import Foundation
 
 func runProgram () {
     var cardDeck = CardDeck()
+    cardDeck.shuffle()
     var isRunning = true
     while isRunning {
         let menuNum = InputView.inputMenu()
