@@ -68,11 +68,10 @@ class CardDeck: CustomStringConvertible {
     }
 
     func hasEnoughCards(numberOfNeeded: Int) -> Bool {
-        if numberOfNeeded > self.cards.count {
-            return false
-        } else {
+        if numberOfNeeded < self.cards.count {
             return true
         }
+        return false
     }
 
 }
