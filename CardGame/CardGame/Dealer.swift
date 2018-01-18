@@ -11,7 +11,7 @@ import Foundation
 class Dealer: Player {
 
     override var description: String {
-        return "딜러 " + stack.description
+        return "딜러 " + getStack().description
     }
 
     init(stack: CardStack) {
