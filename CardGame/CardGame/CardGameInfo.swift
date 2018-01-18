@@ -10,14 +10,14 @@ import Foundation
 
 // 카드게임 관련 정보를 모아놓은 클래스
 class CardGameInfo {
-    private (set) var numberOfCards = 5
-    private (set) var numberOfPlayers = 1
+    private (set) var numberOfCards = Numbers.Seven.rawValue
+    private (set) var numberOfPlayers = Numbers.One.rawValue
     
     init(menuNum: CardGameInfo.Menu, numberOfPlayers: CardGameInfo.NumberOfParticipantsCases) {
         if menuNum == .SevenCardGame {
-            self.numberOfCards = 7
+            self.numberOfCards = Numbers.Seven.rawValue
         } else {
-            self.numberOfCards = 5
+            self.numberOfCards = Numbers.Five.rawValue
         }
         self.numberOfPlayers = numberOfPlayers.rawValue
     }
@@ -28,5 +28,9 @@ class CardGameInfo {
     
     enum NumberOfParticipantsCases: Int {
         case One = 1, Two, Three, Four, InValidNumber
+    }
+    
+    enum Numbers: Int {
+        case One = 1, Two, Three, Four, Five, Six, Seven
     }
 }

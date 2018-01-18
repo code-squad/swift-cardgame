@@ -50,7 +50,7 @@ struct CardDeck {
     }
     
     func isGameRunnable () -> Bool {
-        return cardDeck.count > (CardGameInfo.NumberOfParticipantsCases.One.rawValue + 1) * 5
+        return cardDeck.count > (CardGameInfo.NumberOfParticipantsCases.One.rawValue + CardGameInfo.Numbers.One.rawValue) * CardGameInfo.Numbers.Five.rawValue
     }
     
 }
