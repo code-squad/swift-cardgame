@@ -49,8 +49,8 @@ struct CardDeck {
         return cardTable
     }
     
-    func isGameRunnable () -> Bool {
-        return cardDeck.count > (CardGameInfo.NumberOfParticipantsCases.One.rawValue + CardGameInfo.Numbers.One.rawValue) * CardGameInfo.Numbers.Five.rawValue
+    func isGameRunnable (_ cardGameInfo: CardGameInfo) -> Bool {
+        return cardDeck.count > (cardGameInfo.numberOfPlayers + 1) * cardGameInfo.numberOfCards
     }
     
 }
