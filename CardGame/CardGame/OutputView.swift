@@ -12,6 +12,7 @@ struct OutputView {
         case ofResetCard
         case ofEndOfProgram
         case ofInsufficientCard
+        case ofSucceedChargingCard
         var description: String {
             switch self {
             case .ofResetCard:
@@ -20,6 +21,8 @@ struct OutputView {
                 return "프로그램이 종료되었습니다."
             case .ofInsufficientCard:
                 return "카드수가 부족합니다."
+            case .ofSucceedChargingCard:
+                return "카드 52장이 충전되었습니다."
             }
         }
     }
