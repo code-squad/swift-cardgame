@@ -20,7 +20,7 @@ struct OutputView {
             case .ofEndOfProgram:
                 return "프로그램이 종료되었습니다."
             case .ofInsufficientCard:
-                return "카드수가 부족합니다."
+                return "❗️카드수가 부족합니다.❗️, 카드를 충전해주세요."
             case .ofSucceedChargingCard:
                 return "카드 52장이 충전되었습니다."
             }
@@ -51,4 +51,3 @@ struct OutputView {
         
     }
 }
-
