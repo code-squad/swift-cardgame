@@ -10,20 +10,25 @@ import Foundation
 
 // 카드게임 관련 정보를 모아놓은 클래스
 class CardGameInfo {
-    private (set) var numberOfCards = CountOfCardGame.SevenCard.rawValue
-    private (set) var numberOfPlayers = CardGameInfo.NumberOfParticipantsCases.One.rawValue
-    
+    private (set) var numberOfCards: CountOfCardGame = .SevenCard
+    private (set) var numberOfPlayers: NumberOfParticipantsCases = .One
     init(menuNum: CardGameInfo.Menu, numberOfPlayers: CardGameInfo.NumberOfParticipantsCases) {
-        if menuNum == .SevenCardGame {
-            self.numberOfCards = CountOfCardGame.SevenCard.rawValue
-        } else {
-            self.numberOfCards = CountOfCardGame.FiveCard.rawValue
+        self.numberOfCards = menuNum.convert() ?? .SevenCard
+        if let numberofPlayers = NumberOfParticipantsCases(rawValue: numberOfPlayers.rawValue) {
+            self.numberOfPlayers = numberofPlayers
         }
-        self.numberOfPlayers = numberOfPlayers.rawValue
     }
     
     enum Menu: Int {
         case SevenCardGame = 1 , FiveCardGame, ChargeCard, ExitGame, PleaseInputAgain
+        func convert () -> CountOfCardGame? {
+            switch self {
+            case .SevenCardGame: return .SevenCard
+            case .FiveCardGame: return .FiveCard
+            default:
+                return nil
+            }
+        }
     }
     
     enum CountOfCardGame: Int {

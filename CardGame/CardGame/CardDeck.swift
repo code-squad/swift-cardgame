@@ -33,24 +33,24 @@ struct CardDeck {
         return cardDeck.removeLast()
     }
     
-    mutating func makeEachCardSet (_ gameSpecies: Int) -> Array<Card> {
+    mutating func makeEachCardSet (_ gameSpecies: CardGameInfo.CountOfCardGame) -> Array<Card> {
         var oneCardSet = Array<Card>()
-        for _ in 0 ..< gameSpecies {
+        for _ in 0 ..< gameSpecies.rawValue {
             oneCardSet.append(pickCard())
         }
         return oneCardSet
     }
     
-    mutating func makeCardTable (_ participants: Int, _ gameSpecies: Int) -> Array<Array<Card>> {
+    mutating func makeCardTable (_ participants: CardGameInfo.NumberOfParticipantsCases, _ gameSpecies: CardGameInfo.CountOfCardGame) -> Array<Array<Card>> {
         var cardTable = Array<Array<Card>>()
-        for _ in 0 ..< participants {
+        for _ in 0 ..< participants.rawValue {
             cardTable.append(makeEachCardSet(gameSpecies))
         }
         return cardTable
     }
     
     func isGameRunnable (_ cardGameInfo: CardGameInfo) -> Bool {
-        return cardDeck.count > (cardGameInfo.numberOfPlayers + 1) * cardGameInfo.numberOfCards
+        return cardDeck.count > (cardGameInfo.numberOfPlayers.rawValue + 1) * cardGameInfo.numberOfCards.rawValue
     }
     
 }
