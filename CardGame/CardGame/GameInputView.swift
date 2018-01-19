@@ -36,7 +36,7 @@ struct InputView {
     }
     
     static func inputMenu () -> CardGameInfo.Menu {
-        print(InputView.Message.ofMenu)
+        print(InputView.Message.ofMenu, terminator: " ")
         let input = readLine() ?? "0"
         guard let inputNum = Int(input), let menu = CardGameInfo.Menu(rawValue: inputNum) else {
             return CardGameInfo.Menu.PleaseInputAgain
@@ -45,7 +45,7 @@ struct InputView {
     }
     
     static func inputPlayer () -> CardGameInfo.NumberOfParticipantsCases {
-        print(InputView.Message.ofCasesOfParticipants)
+        print(InputView.Message.ofCasesOfParticipants, terminator: " ")
         let input = readLine() ?? "0"
         guard let inputNum = Int(input), let numberOfParticipants = CardGameInfo.NumberOfParticipantsCases(rawValue: inputNum) else {
             return CardGameInfo.NumberOfParticipantsCases.InValidNumber
