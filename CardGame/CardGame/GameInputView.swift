@@ -21,7 +21,8 @@ struct InputView {
                 다음 메뉴를 선택해주세요.
                 1. 7카드 게임
                 2. 5카드 게임
-                3. 게임 종료
+                3. 카드 충전
+                4. 게임 종료
                 >
                 """
             case .ofCasesOfParticipants:
