@@ -30,6 +30,7 @@ func runProgram () {
             }
             let cardTable = cardDeck.makeCardTable(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
             OutputView.printPlayerCardTable(cardTable)
+            print("✅\(cardDeck.count)장의 카드가 남아있습니다.")
         case .ChargeCard :
             cardDeck = CardDeck()
             print(OutputView.Message.ofSucceedChargingCard)
