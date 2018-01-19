@@ -23,7 +23,7 @@ class CardGameInfo {
     }
     
     enum Menu: Int {
-        case SevenCardGame = 1 , FiveCardGame, ExitGame, PleaseInputAgain
+        case SevenCardGame = 1 , FiveCardGame, ChargeCard, ExitGame, PleaseInputAgain
     }
     
     enum CountOfCardGame: Int {
