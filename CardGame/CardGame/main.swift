@@ -13,8 +13,8 @@ import Foundation
 func runProgram () {
     var cardDeck = CardDeck()
     cardDeck.shuffle()
-    var isRunning = true
-    while isRunning {
+    var isRunnning = true
+    while isRunnning {
         let menuNum = InputView.inputMenu()
         switch menuNum {
         case .FiveCardGame, .SevenCardGame :
@@ -24,14 +24,18 @@ func runProgram () {
                 continue
             }
             let gameInfo = CardGameInfo(menuNum: menuNum, numberOfPlayers: numberOfParticipants)
+            if cardDeck.isGameRunnable(gameInfo) != true {
+                print(OutputView.Message.ofInsufficientCard)
+                break
+            }
             let cardTable = cardDeck.makeCardTable(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
             OutputView.printPlayerCardTable(cardTable)
-            if cardDeck.isGameRunnable() != true {
-                isRunning = false
-                print(OutputView.Message.ofInsufficientCard)
-            }
+        case .ChargeCard :
+            cardDeck = CardDeck()
+            print(OutputView.Message.ofSucceedChargingCard)
         case .ExitGame :
-            isRunning = false
+            print (OutputView.Message.ofEndOfProgram)
+            isRunnning = false
         case .PleaseInputAgain:
             print(InputView.Message.ofUnsupportedInput)
             continue
