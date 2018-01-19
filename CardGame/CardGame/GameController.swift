@@ -62,7 +62,7 @@ struct GameController {
     func play() -> ResultData {
         var gameResult = ""
         while true {
-            if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * self.numberOfPlayer) {
+            if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * (self.numberOfPlayer+1)) {
                 for playerNumber in 0..<self.numberOfPlayer {
                     let stack = makeStack(stud: self.studType)
                     let player = Player(stack: stack, position: playerNumber+1)
@@ -86,6 +86,27 @@ struct GameController {
         return stack
     }
 
+    func playSleep() {
+        while true {
+            if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * (self.numberOfPlayer+1)) {
+                for playerNumber in 0..<self.numberOfPlayer {
+                    let stack = makeStack(stud: self.studType)
+                    let player = Player(stack: stack, position: playerNumber+1)
+                    sleep(2)
+                    outputView.showResult(text: player)
+                }
+                let dealerStack = makeStack(stud: self.studType)
+                let dealer = Dealer(stack: dealerStack)
+                sleep(2)
+                outputView.showResult(text: dealer)
+                outputView.showResult(text: cardDeck)
+            } else {
+                sleep(2)
+                outputView.showResult(text: OutputView.ProgramDescription.lackOfCard)
+                break
+            }
+        }
+    }
 
 
 }
