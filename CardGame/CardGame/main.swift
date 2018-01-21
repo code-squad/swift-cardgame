@@ -27,8 +27,41 @@ func run() {
         let controller = try GameController(stud: stud,
                                             numberOfPlayer: inputNumber)
         // 게임 진행
-        let gameResult = controller.play()
-        OutputView().showResult(text: gameResult)
+        let result = controller.play()
+        OutputView().showResult(text: result)
+    } catch let error as GameController.InitError {
+        switch error {
+        case .quit: OutputView().showResult(text:error)
+            break
+        case .wrongMenu: OutputView().showResult(text:error)
+        case .wrongPlayerNumber: OutputView().showResult(text:error)
+        }
+        run()
+    } catch {
+        print("unknown error")
+    }
+}
+
+func runWithPause() {
+
+    let gameInput = GameInputView()
+    let userInputStud = gameInput.askGameType(message:
+        OutputView.ProgramDescription.chooseCardStud)
+    let stud = gameInput.select(menu: userInputStud)
+
+    guard stud != .quitGame else {
+        // 게임 종료
+        OutputView().showResult(text:
+            OutputView.ProgramDescription.quitGame)
+        return
+    }
+    let inputNumber = gameInput.askNumberOfPlayer(message:
+        OutputView.ProgramDescription.askNumberOfPlayer)
+    do {
+        let controller = try GameController(stud: stud,
+                                            numberOfPlayer: inputNumber)
+        controller.playWithPause()
+
     } catch let error as GameController.InitError {
         switch error {
         case .quit: OutputView().showResult(text:error)
@@ -41,5 +74,4 @@ func run() {
     }
 }
 
-run()
-
+runWithPause()

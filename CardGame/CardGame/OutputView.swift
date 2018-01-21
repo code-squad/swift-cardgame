@@ -33,5 +33,34 @@ class OutputView {
     func showResult(text: CustomStringConvertible) {
         print(text.description)
     }
+
+
+    func printCards(_ player: Player) {
+        let cards = player.stack
+        print("참가자 #\(player.position!): ", terminator: "[ ")
+        self.printCardsWithPause(cards)
+        print(" ]")
+    }
+
+    func printCardsWithPause(_ cards: CardStack) {
+        for i in 0..<cards.cards.count {
+            sleep(1)
+            print("\(cards.cards[i].description)", terminator: " ")
+        }
+
+    }
+
+    func printCardsStackWithName(_ table: CardTable) {
+        for player in table.players {
+            self.printCards(player)
+        }
+        sleep(1)
+        // 딜러 프린트
+        let dealer = table.dealer
+        print("딜러: ", terminator: "[ ")
+        self.printCardsWithPause(dealer.stack)
+        print(" ]")
+        sleep(1)
+    }
 }
 

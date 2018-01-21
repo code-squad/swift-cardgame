@@ -9,7 +9,7 @@
 import Foundation
 
 struct CardStack: CustomStringConvertible {
-    private var cards = [Card]()
+    private(set) var cards = [Card]()
     var description: String {
         return cards.description
     }
@@ -19,3 +19,5 @@ struct CardStack: CustomStringConvertible {
     }
 
 }
+
+
