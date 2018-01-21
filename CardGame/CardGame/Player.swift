@@ -10,7 +10,7 @@ import Foundation
 
 class Player: CustomStringConvertible {
     private(set) var stack: CardStack
-    private var position: Int?
+    private(set) var position: Int?
 
     var description: String {
         return "참가자#\(position!) " + stack.description

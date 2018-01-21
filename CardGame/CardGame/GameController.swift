@@ -86,28 +86,26 @@ struct GameController {
         return stack
     }
 
-    func playSleep() {
+    func playWithPause() {
         while true {
+            var players = [Player]()
             if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * (self.numberOfPlayer+1)) {
                 for playerNumber in 0..<self.numberOfPlayer {
                     let stack = makeStack(stud: self.studType)
                     let player = Player(stack: stack, position: playerNumber+1)
-                    sleep(2)
-                    outputView.showResult(text: player)
+                    players.append(player) // [player]를만든다.
                 }
                 let dealerStack = makeStack(stud: self.studType)
                 let dealer = Dealer(stack: dealerStack)
-                sleep(2)
-                outputView.showResult(text: dealer)
-                outputView.showResult(text: cardDeck)
+                let table = CardTable(players: players, dealer: dealer)
+                OutputView().printCardsStackWithName(table)
+                print(cardDeck.description)
             } else {
-                sleep(2)
                 outputView.showResult(text: OutputView.ProgramDescription.lackOfCard)
                 break
             }
         }
     }
-
 
 }
 
