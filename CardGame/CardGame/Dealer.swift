@@ -16,5 +16,6 @@ class Dealer: Player {
     init(stack: CardStack) {
         super.init(stack: stack, position: nil)
     }
+    
 
 }
