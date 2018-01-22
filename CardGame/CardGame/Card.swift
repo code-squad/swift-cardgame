@@ -9,8 +9,8 @@
 import Foundation
 
 class Card: CustomStringConvertible {
-    private var suit: CardDeck.Suit
-    private var denomination: CardDeck.Denomination
+    private(set) var suit: CardDeck.Suit
+    private(set) var denomination: CardDeck.Denomination
     var description: String {
         return self.suit.rawValue + self.denomination.description
     }
