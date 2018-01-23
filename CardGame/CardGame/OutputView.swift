@@ -15,6 +15,7 @@ class OutputView {
         case askNumberOfPlayer
         case quitGame
         case lackOfCard
+        case loadingScore
 
         var description: String {
             switch self {
@@ -26,6 +27,8 @@ class OutputView {
                 return "=== 게임 종료 ==="
             case .lackOfCard:
                 return "카드가 모자랍니다 :( 게임을 종료합니다!\n"
+            case .loadingScore:
+                return "점수를 계산중입니다."
             }
         }
     }
@@ -34,6 +37,15 @@ class OutputView {
         print(text.description)
     }
 
+    func showResultWithLoading(text: CustomStringConvertible) {
+        print(text.description, terminator:"")
+        sleep(1)
+        print(" .", terminator:"")
+        sleep(1)
+        print(" .", terminator:"")
+        sleep(1)
+        print(" ✅")
+    }
 
     func printCards(_ player: Player) {
         let cards = player.stack
@@ -62,5 +74,7 @@ class OutputView {
         print(" ]")
         sleep(1)
     }
+
+
 }
 
