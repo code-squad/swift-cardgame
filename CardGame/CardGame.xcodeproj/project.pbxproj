@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
-		E80EB19520158FDC00C3CEEC /* Hands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EB19420158FDC00C3CEEC /* Hands.swift */; };
+		E80EB19520158FDC00C3CEEC /* ScoreChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EB19420158FDC00C3CEEC /* ScoreChecker.swift */; };
 		E818F95A2008C2A5007BAE46 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E818F9592008C2A5007BAE46 /* EnumCollection.swift */; };
 		E845C0B8200C4D9F00337A33 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0B7200C4D9F00337A33 /* CardStack.swift */; };
 		E845C0BA200DCC2C00337A33 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0B9200DCC2C00337A33 /* GameInputView.swift */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E80EB19420158FDC00C3CEEC /* Hands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hands.swift; sourceTree = "<group>"; };
+		E80EB19420158FDC00C3CEEC /* ScoreChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreChecker.swift; sourceTree = "<group>"; };
 		E818F9592008C2A5007BAE46 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		E845C0B7200C4D9F00337A33 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		E845C0B9200DCC2C00337A33 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				E855FD77200F26910069F5AE /* GameController.swift */,
 				E8E3C89020107E5D003BD763 /* ResultData.swift */,
 				E88AD91420149F1900B45B6D /* CardTable.swift */,
-				E80EB19420158FDC00C3CEEC /* Hands.swift */,
+				E80EB19420158FDC00C3CEEC /* ScoreChecker.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 			files = (
 				E8E3C89120107E5D003BD763 /* ResultData.swift in Sources */,
 				E8D9DBAF2004A9AE0087E934 /* CardDeck.swift in Sources */,
-				E80EB19520158FDC00C3CEEC /* Hands.swift in Sources */,
+				E80EB19520158FDC00C3CEEC /* ScoreChecker.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				E818F95A2008C2A5007BAE46 /* EnumCollection.swift in Sources */,
 				E845C0BA200DCC2C00337A33 /* GameInputView.swift in Sources */,

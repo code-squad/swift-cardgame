@@ -1,5 +1,5 @@
 //
-//  Hands.swift
+//  ScoreChecker.swift
 //  CardGame
 //
 //  Created by YOUTH on 2018. 1. 22..
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Hands {
+struct ScoreChecker {
 
     enum PokerHands: Int {
         case NoPair = 0
