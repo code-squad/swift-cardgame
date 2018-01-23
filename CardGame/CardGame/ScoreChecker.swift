@@ -12,53 +12,96 @@ struct ScoreChecker {
 
     enum PokerHands: Int {
         case NoPair = 0
-        case OnePair
-        case TwoPair
-        case Triple
-        case Straight
-        case Flush
-        case FullHouse
-        case FourOfAKind
-        case StraightFlush
-        case RoyalFlush
+        case OnePair = 100
+        case TwoPair = 200
+        case ThreeOfAKind = 400
+        case Straight = 500
+        case Flush = 600
+        case FullHouse = 700
+        case FourOfAKind = 900
+        case StraightFlush = 1500
     }
 
-    func isPair(_ cardStack: CardStack) -> [PokerHands] {
+    func sortCards(_ cardStack: CardStack) -> [Card] {
         let cards = cardStack.cards
-        let pairCheck = cards.reduce(into: [String:[Card]]()) {
-            $0[$1.denomination.description, default: []].append($1)
-        }
-        var resultArray = [PokerHands]()
-        pairCheck.forEach {
-            switch $0.value.count {
-            case 4: resultArray.append(.FourOfAKind)
-            case 3: resultArray.append(.Triple)
-            case 2: resultArray.append(.OnePair)
-            default: resultArray.append(.NoPair)
-            }
-        }
-        return resultArray
+        let sorted = cards.sorted(by: { $0.denomination.rawValue < $1.denomination.rawValue })
+        return sorted
     }
 
-
-    func isFlush(_ cardStack: CardStack) -> Bool {
+    func isStraight(_ cards: [Card]) -> Bool {
         var count = 0
-        let cards = cardStack.cards
         for i in 1..<cards.count {
-            if cards[i-1].suit.hashValue == cards[i].suit.hashValue {
+            if (cards[i-1].denomination.rawValue + 1) == cards[i].denomination.rawValue {
                 count += 1
             }
         }
         return count >= 4
     }
 
-    func matchHand(_ cardStack: CardStack) -> PokerHands {
-        if isFlush(cardStack) {
-            return .Flush
-        }
 
-        return .OnePair
+    func isFlush(_ cards: [Card]) -> Bool {
+        var count = 0
+        for i in 1..<cards.count {
+            if cards[i-1].suit.hashValue == cards[i].suit.hashValue {
+                count += 1
+            }
+        }
+        if count >= 4 { // true
+            return true
+        } else {
+            return false
+        }
     }
+
+    func matchStraightOrFlush(_ cards: [Card]) -> [PokerHands] {
+        var hands = [PokerHands]()
+        if isStraight(cards) && isFlush(cards) {
+            hands.append(.StraightFlush)
+        }
+        if isFlush(cards) && (isStraight(cards) == false) {
+            hands.append(.Flush)
+        }
+        if isStraight(cards) && (isFlush(cards) == false) {
+            hands.append(.Straight)
+        }
+        return hands
+    }
+
+    // matchStraightOrFlush의 리턴값 [PokerHands].count == 0이면 matchpairs로
+    func matchPairs(_ cards: [Card]) -> [PokerHands] {
+        let pairCheck = cards.reduce(into: [String:[Card]]()) {
+            $0[$1.denomination.description, default: []].append($1)
+        }
+        var hands = [PokerHands]()
+        pairCheck.forEach {
+            switch $0.value.count {
+            case 4: hands.append(.FourOfAKind)
+            case 3: hands.append(.ThreeOfAKind)
+            case 2: hands.append(.OnePair)
+            default: hands.append(.NoPair)
+            }
+        }
+        return hands
+    }
+
+    // 최종 집계점수 리턴
+    func totalScore(cardStack: CardStack) -> Int {
+        var pokerHands = [PokerHands]()
+        let cards = sortCards(cardStack)
+        var score = 0
+        pokerHands = matchStraightOrFlush(cards)
+        if pokerHands.count == 0 {
+           pokerHands = matchPairs(cards)
+        }
+        for i in 0..<pokerHands.count {
+            score += pokerHands[i].rawValue
+        }
+        return score
+    }
+
+
+
+
 
 
 
