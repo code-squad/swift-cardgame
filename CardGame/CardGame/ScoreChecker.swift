@@ -22,13 +22,13 @@ struct ScoreChecker {
         case StraightFlush = 1500
     }
 
-    func sortCards(_ cardStack: CardStack) -> [Card] {
+    private func sortCards(_ cardStack: CardStack) -> [Card] {
         let cards = cardStack.cards
         let sorted = cards.sorted(by: { $0.denomination.rawValue < $1.denomination.rawValue })
         return sorted
     }
 
-    func isStraight(_ cards: [Card]) -> Bool {
+    private func isStraight(_ cards: [Card]) -> Bool {
         var count = 0
         for i in 1..<cards.count {
             if (cards[i-1].denomination.rawValue + 1) == cards[i].denomination.rawValue {
@@ -38,22 +38,17 @@ struct ScoreChecker {
         return count >= 4
     }
 
-
-    func isFlush(_ cards: [Card]) -> Bool {
+    private func isFlush(_ cards: [Card]) -> Bool {
         var count = 0
         for i in 1..<cards.count {
             if cards[i-1].suit.hashValue == cards[i].suit.hashValue {
                 count += 1
             }
         }
-        if count >= 4 { // true
-            return true
-        } else {
-            return false
-        }
+        return count >= 4 // true인 경우
     }
 
-    func matchStraightOrFlush(_ cards: [Card]) -> [PokerHands] {
+    private func matchStraightOrFlush(_ cards: [Card]) -> [PokerHands] {
         var hands = [PokerHands]()
         if isStraight(cards) && isFlush(cards) {
             hands.append(.StraightFlush)
@@ -68,7 +63,7 @@ struct ScoreChecker {
     }
 
     // matchStraightOrFlush의 리턴값 [PokerHands].count == 0이면 matchpairs로
-    func matchPairs(_ cards: [Card]) -> [PokerHands] {
+    private func matchPairs(_ cards: [Card]) -> [PokerHands] {
         let pairCheck = cards.reduce(into: [String:[Card]]()) {
             $0[$1.denomination.description, default: []].append($1)
         }
@@ -98,13 +93,6 @@ struct ScoreChecker {
         }
         return score
     }
-
-
-
-
-
-
-
 
 
 }

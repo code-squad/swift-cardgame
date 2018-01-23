@@ -45,6 +45,7 @@ class OutputView {
         print(" .", terminator:"")
         sleep(1)
         print(" ✅")
+        sleep(1)
     }
 
     func printCards(_ player: Player) {
@@ -59,22 +60,21 @@ class OutputView {
             sleep(1)
             print("\(cards.cards[i].description)", terminator: " ")
         }
-
     }
 
     func printCardsStackWithName(_ table: CardTable) {
+        // 플레이어 스택 프린트
         for player in table.players {
             self.printCards(player)
         }
         sleep(1)
-        // 딜러 프린트
+        // 딜러 스택 프린트
         let dealer = table.dealer
         print("딜러: ", terminator: "[ ")
         self.printCardsWithPause(dealer.stack)
         print(" ]")
         sleep(1)
     }
-
 
 }
 

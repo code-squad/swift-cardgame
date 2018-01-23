@@ -13,6 +13,7 @@ struct GameController {
     private (set) var numberOfPlayer: Int
     var cardDeck = CardDeck()
     let outputView = OutputView()
+    let scoreChecker = ScoreChecker()
 
     enum InitError: Error, CustomStringConvertible {
         case quit
@@ -65,7 +66,9 @@ struct GameController {
             if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * (self.numberOfPlayer+1)) {
                 for playerNumber in 0..<self.numberOfPlayer {
                     let stack = makeStack(stud: self.studType)
-                    let player = Player(stack: stack, position: playerNumber+1)
+                    let player = Player(stack: stack,
+                                        position: playerNumber+1,
+                                        scoreChecker: ScoreChecker())
                     gameResult += player.description + "\n"
                 }
                 let dealerStack = makeStack(stud: self.studType)
@@ -80,7 +83,7 @@ struct GameController {
         return ResultData(result: gameResult)
     }
 
-    func makeStack(stud: Int) -> CardStack {
+    private func makeStack(stud: Int) -> CardStack {
         let cards = cardDeck.makeCards(self.studType)
         let stack = cardDeck.makeStack(cards: cards)
         return stack
@@ -92,14 +95,20 @@ struct GameController {
             if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * (self.numberOfPlayer+1)) {
                 for playerNumber in 0..<self.numberOfPlayer {
                     let stack = makeStack(stud: self.studType)
-                    let player = Player(stack: stack, position: playerNumber+1)
+                    let player = Player(stack: stack,
+                                        position: playerNumber+1,
+                                        scoreChecker: ScoreChecker())
                     players.append(player) // [player]를만든다.
                 }
                 let dealerStack = makeStack(stud: self.studType)
                 let dealer = Dealer(stack: dealerStack)
                 let table = CardTable(players: players, dealer: dealer)
                 OutputView().printCardsStackWithName(table)
-                print(cardDeck.description)
+                OutputView().showResultWithLoading(text: OutputView.ProgramDescription.loadingScore)
+                let winner = table.winner()
+                let result = ResultData(result: "\(winner.name)(이)가 이겼습니다. 점수는 \(winner.score)입니다.")
+                outputView.showResult(text: result)
+                print(cardDeck.description) // DEBUG
             } else {
                 outputView.showResult(text: OutputView.ProgramDescription.lackOfCard)
                 break

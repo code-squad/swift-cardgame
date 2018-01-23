@@ -12,10 +12,14 @@ class Dealer: Player {
     override var description: String {
         return "딜러 " + stack.description
     }
+    override var name: String {
+        return "딜러"
+    }
 
     init(stack: CardStack) {
-        super.init(stack: stack, position: nil)
+        super.init(stack: stack, position: nil, scoreChecker: ScoreChecker())
     }
+
     
 
 }
