@@ -11,13 +11,11 @@ import Foundation
 struct CardTable {
     var players: [Player]
     var dealer: Dealer
-// 점수계산 결과도 table에
 
     init(players: [Player], dealer: Dealer){
         self.players = players
         self.dealer = dealer
     }
-
 
     func stack() -> [CardStack] {
         var stackOfPlayers = [CardStack]()
@@ -27,12 +25,15 @@ struct CardTable {
         return stackOfPlayers
     }
 
-
-
-
-
-
-
-
+    func winner() -> Player {
+        var allPlayers = self.players
+        allPlayers.append(self.dealer)
+        let winner = allPlayers.max {a,b in a.score < b.score}
+        guard let finalWinner = winner else {
+            print("Can't find the winner")
+            return self.dealer
+        }
+        return finalWinner
+    }
 
 }

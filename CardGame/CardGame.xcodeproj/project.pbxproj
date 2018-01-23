@@ -15,6 +15,21 @@
 		E845C0BC200DD89400337A33 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0BB200DD89400337A33 /* Player.swift */; };
 		E845C0BE200DD9A000337A33 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0BD200DD9A000337A33 /* Dealer.swift */; };
 		E855FD78200F26910069F5AE /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855FD77200F26910069F5AE /* GameController.swift */; };
+		E868266F201706F1004BCB38 /* UnitTestCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868266E201706F1004BCB38 /* UnitTestCardGame.swift */; };
+		E868267520170709004BCB38 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		E86826762017070C004BCB38 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAC2004A9830087E934 /* Card.swift */; };
+		E86826772017070E004BCB38 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAE2004A9AE0087E934 /* CardDeck.swift */; };
+		E868267820170712004BCB38 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBB02004A9D50087E934 /* OutputView.swift */; };
+		E868267920170715004BCB38 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C59FDB20072B5A00FD06FF /* InputView.swift */; };
+		E868267A20170718004BCB38 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E818F9592008C2A5007BAE46 /* EnumCollection.swift */; };
+		E868267B2017071A004BCB38 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0B7200C4D9F00337A33 /* CardStack.swift */; };
+		E868267C2017071D004BCB38 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0B9200DCC2C00337A33 /* GameInputView.swift */; };
+		E868267D2017071F004BCB38 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0BB200DD89400337A33 /* Player.swift */; };
+		E868267E20170722004BCB38 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0BD200DD9A000337A33 /* Dealer.swift */; };
+		E868267F20170724004BCB38 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855FD77200F26910069F5AE /* GameController.swift */; };
+		E868268020170727004BCB38 /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3C89020107E5D003BD763 /* ResultData.swift */; };
+		E86826812017072A004BCB38 /* CardTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AD91420149F1900B45B6D /* CardTable.swift */; };
+		E86826822017072C004BCB38 /* ScoreChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EB19420158FDC00C3CEEC /* ScoreChecker.swift */; };
 		E88AD91520149F1900B45B6D /* CardTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AD91420149F1900B45B6D /* CardTable.swift */; };
 		E8C59FDC20072B5A00FD06FF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C59FDB20072B5A00FD06FF /* InputView.swift */; };
 		E8D9DBAD2004A9830087E934 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAC2004A9830087E934 /* Card.swift */; };
@@ -45,6 +60,9 @@
 		E845C0BB200DD89400337A33 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E845C0BD200DD9A000337A33 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		E855FD77200F26910069F5AE /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		E868266C201706F1004BCB38 /* UnitTestCardGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestCardGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E868266E201706F1004BCB38 /* UnitTestCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCardGame.swift; sourceTree = "<group>"; };
+		E8682670201706F1004BCB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E88AD91420149F1900B45B6D /* CardTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTable.swift; sourceTree = "<group>"; };
 		E8C59FDB20072B5A00FD06FF /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E8D9DBAC2004A9830087E934 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -61,6 +79,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E8682669201706F1004BCB38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E31F8CDBC9009E05F3 /* CardGame */,
+				E868266D201706F1004BCB38 /* UnitTestCardGame */,
 				839DA8E21F8CDBC9009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E11F8CDBC9009E05F3 /* CardGame */,
+				E868266C201706F1004BCB38 /* UnitTestCardGame.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +128,15 @@
 			path = CardGame;
 			sourceTree = "<group>";
 		};
+		E868266D201706F1004BCB38 /* UnitTestCardGame */ = {
+			isa = PBXGroup;
+			children = (
+				E868266E201706F1004BCB38 /* UnitTestCardGame.swift */,
+				E8682670201706F1004BCB38 /* Info.plist */,
+			);
+			path = UnitTestCardGame;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,18 +157,39 @@
 			productReference = 839DA8E11F8CDBC9009E05F3 /* CardGame */;
 			productType = "com.apple.product-type.tool";
 		};
+		E868266B201706F1004BCB38 /* UnitTestCardGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8682673201706F1004BCB38 /* Build configuration list for PBXNativeTarget "UnitTestCardGame" */;
+			buildPhases = (
+				E8682668201706F1004BCB38 /* Sources */,
+				E8682669201706F1004BCB38 /* Frameworks */,
+				E868266A201706F1004BCB38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTestCardGame;
+			productName = UnitTestCardGame;
+			productReference = E868266C201706F1004BCB38 /* UnitTestCardGame.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		839DA8D91F8CDBC9009E05F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
 					839DA8E01F8CDBC9009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					E868266B201706F1004BCB38 = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -150,9 +207,20 @@
 			projectRoot = "";
 			targets = (
 				839DA8E01F8CDBC9009E05F3 /* CardGame */,
+				E868266B201706F1004BCB38 /* UnitTestCardGame */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E868266A201706F1004BCB38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		839DA8DD1F8CDBC9009E05F3 /* Sources */ = {
@@ -173,6 +241,28 @@
 				E855FD78200F26910069F5AE /* GameController.swift in Sources */,
 				E845C0BE200DD9A000337A33 /* Dealer.swift in Sources */,
 				E845C0B8200C4D9F00337A33 /* CardStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8682668201706F1004BCB38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86826812017072A004BCB38 /* CardTable.swift in Sources */,
+				E868267820170712004BCB38 /* OutputView.swift in Sources */,
+				E868267F20170724004BCB38 /* GameController.swift in Sources */,
+				E868267520170709004BCB38 /* main.swift in Sources */,
+				E868267B2017071A004BCB38 /* CardStack.swift in Sources */,
+				E868268020170727004BCB38 /* ResultData.swift in Sources */,
+				E868267C2017071D004BCB38 /* GameInputView.swift in Sources */,
+				E86826762017070C004BCB38 /* Card.swift in Sources */,
+				E868267920170715004BCB38 /* InputView.swift in Sources */,
+				E868267A20170718004BCB38 /* EnumCollection.swift in Sources */,
+				E86826772017070E004BCB38 /* CardDeck.swift in Sources */,
+				E868267D2017071F004BCB38 /* Player.swift in Sources */,
+				E868267E20170722004BCB38 /* Dealer.swift in Sources */,
+				E86826822017072C004BCB38 /* ScoreChecker.swift in Sources */,
+				E868266F201706F1004BCB38 /* UnitTestCardGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +395,34 @@
 			};
 			name = Release;
 		};
+		E8682671201706F1004BCB38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestCardGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youth.UnitTestCardGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		E8682672201706F1004BCB38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestCardGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youth.UnitTestCardGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -322,6 +440,15 @@
 			buildConfigurations = (
 				839DA8E91F8CDBCA009E05F3 /* Debug */,
 				839DA8EA1F8CDBCA009E05F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8682673201706F1004BCB38 /* Build configuration list for PBXNativeTarget "UnitTestCardGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8682671201706F1004BCB38 /* Debug */,
+				E8682672201706F1004BCB38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
