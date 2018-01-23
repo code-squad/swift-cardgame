@@ -60,29 +60,6 @@ struct GameController {
         }
     }
 
-    func play() -> ResultData {
-        var gameResult = ""
-        while true {
-            if cardDeck.hasEnoughCards(numberOfNeeded: self.studType * (self.numberOfPlayer+1)) {
-                for playerNumber in 0..<self.numberOfPlayer {
-                    let stack = makeStack(stud: self.studType)
-                    let player = Player(stack: stack,
-                                        position: playerNumber+1,
-                                        scoreChecker: ScoreChecker())
-                    gameResult += player.description + "\n"
-                }
-                let dealerStack = makeStack(stud: self.studType)
-                let dealer = Dealer(stack: dealerStack)
-                gameResult += dealer.description + "\n"
-                gameResult += cardDeck.description + "\n"
-            } else {
-                gameResult += OutputView.ProgramDescription.lackOfCard.description
-                break
-            }
-        }
-        return ResultData(result: gameResult)
-    }
-
     private func makeStack(stud: Int) -> CardStack {
         let cards = cardDeck.makeCards(self.studType)
         let stack = cardDeck.makeStack(cards: cards)
