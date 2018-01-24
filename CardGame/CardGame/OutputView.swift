@@ -55,10 +55,11 @@ class OutputView {
         print(" ]")
     }
 
-    func printCardsWithPause(_ cards: CardStack) {
-        for i in 0..<cards.cards.count {
+    func printCardsWithPause(_ cardStack: CardStack) {
+        let cards = cardStack.getCards()
+        for i in 0..<cards.count {
             sleep(1)
-            print("\(cards.cards[i].description)", terminator: " ")
+            print("\(cards[i].description)", terminator: " ")
         }
     }
 

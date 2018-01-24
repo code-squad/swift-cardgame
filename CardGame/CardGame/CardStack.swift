@@ -9,13 +9,21 @@
 import Foundation
 
 struct CardStack: CustomStringConvertible {
-    private(set) var cards = [Card]()
+    private var cards = [Card]()
     var description: String {
         return cards.description
     }
 
     init(_ cards: [Card]) {
         self.cards = cards
+    }
+
+    func getCards() -> [Card] {
+        return self.cards
+    }
+
+    func sort(_ cardStack: CardStack) -> [Card] {
+        return cards.sorted()
     }
 
 }

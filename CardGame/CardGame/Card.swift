@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Card: CustomStringConvertible {
-    private(set) var suit: CardDeck.Suit
+class Card: CustomStringConvertible, Comparable {
+    private var suit: CardDeck.Suit
     private(set) var denomination: CardDeck.Denomination
     var description: String {
         return self.suit.rawValue + self.denomination.description
@@ -19,6 +19,23 @@ class Card: CustomStringConvertible {
         self.suit = suit
         self.denomination = denomination
         }
+
+    static func <(lhs: Card, rhs: Card) -> Bool {
+        return lhs.denomination.rawValue < rhs.denomination.rawValue
+    }
+
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.denomination == rhs.denomination
+    }
+
+    func isContinuous(previous: Card) -> Bool {
+        return self.denomination.isContinuous(previous: previous.denomination)
+    }
+
+    func isSameSuit(previous: Card) -> Bool {
+        return self.suit == previous.suit
+    }
+
 }
 
 
