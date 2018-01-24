@@ -79,14 +79,22 @@ class CardDeck: CustomStringConvertible {
 
 extension CardDeck {
     
-    enum Suit: String, EnumCollection {
+    enum Suit: String, EnumCollection, Comparable {
         case heart = "♥️"
         case diamond = "♦️"
         case clover = "♣️"
         case spade = "♠️"
+
+        static func <(lhs: CardDeck.Suit, rhs: CardDeck.Suit) -> Bool {
+            return lhs.hashValue < rhs.hashValue
+        }
+
+        static func ==(lhs: CardDeck.Suit, rhs: CardDeck.Suit) -> Bool {
+            return lhs.hashValue == rhs.hashValue
+        }
     }
     
-    enum Denomination: Int, CustomStringConvertible, EnumCollection {
+    enum Denomination: Int, CustomStringConvertible, EnumCollection, Comparable {
         case one = 1, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen
         
         var description: String {
@@ -97,6 +105,18 @@ extension CardDeck {
             case .thirteen: return "K"
             default: return String(self.rawValue)
             }
+        }
+
+        static func <(lhs: CardDeck.Denomination, rhs: CardDeck.Denomination) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+
+        static func ==(lhs: CardDeck.Denomination, rhs: CardDeck.Denomination) -> Bool {
+            return lhs.rawValue == rhs.rawValue
+        }
+
+        func isContinuous(previous: CardDeck.Denomination) -> Bool {
+            return (self.rawValue - 1) == previous.rawValue
         }
     }
    

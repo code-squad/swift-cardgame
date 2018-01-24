@@ -22,16 +22,10 @@ struct ScoreChecker {
         case StraightFlush = 1500
     }
 
-    private func sortCards(_ cardStack: CardStack) -> [Card] {
-        let cards = cardStack.cards
-        let sorted = cards.sorted(by: { $0.denomination.rawValue < $1.denomination.rawValue })
-        return sorted
-    }
-
     private func isStraight(_ cards: [Card]) -> Bool {
         var count = 0
         for i in 1..<cards.count {
-            if (cards[i-1].denomination.rawValue + 1) == cards[i].denomination.rawValue {
+            if cards[i].isContinuous(previous: cards[i-1]){
                 count += 1
             }
         }
@@ -41,7 +35,7 @@ struct ScoreChecker {
     private func isFlush(_ cards: [Card]) -> Bool {
         var count = 0
         for i in 1..<cards.count {
-            if cards[i-1].suit.hashValue == cards[i].suit.hashValue {
+            if cards[i].isSameSuit(previous: cards[i-1]) {
                 count += 1
             }
         }
@@ -82,7 +76,7 @@ struct ScoreChecker {
     // 최종 집계점수 리턴
     func totalScore(cardStack: CardStack) -> Int {
         var pokerHands = [PokerHands]()
-        let cards = sortCards(cardStack)
+        let cards = cardStack.sort(cardStack)
         var score = 0
         pokerHands = matchStraightOrFlush(cards)
         if pokerHands.count == 0 {
