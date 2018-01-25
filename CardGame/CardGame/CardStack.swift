@@ -22,8 +22,18 @@ struct CardStack: CustomStringConvertible {
         return self.cards
     }
 
-    func sort(_ cardStack: CardStack) -> [Card] {
-        return cards.sorted()
+    enum SortOrder {
+        case Ascending
+        case Descending
+    }
+
+    func sort(order: SortOrder) -> [Card] {
+        switch order {
+        case .Ascending:
+            return cards.sorted()
+        case .Descending:
+            return cards.sorted(by: >)
+        }
     }
 
 }
