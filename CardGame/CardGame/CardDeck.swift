@@ -115,8 +115,8 @@ extension CardDeck {
             return lhs.rawValue == rhs.rawValue
         }
 
-        func isContinuous(previous: CardDeck.Denomination) -> Bool {
-            return (self.rawValue - 1) == previous.rawValue
+        func isContinuous(next: CardDeck.Denomination) -> Bool {
+            return self.rawValue == (next.rawValue - 1)
         }
     }
    
