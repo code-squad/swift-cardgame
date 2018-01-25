@@ -8,9 +8,13 @@
 
 import Foundation
 
-class Card: CustomStringConvertible, Comparable {
+class Card: CustomStringConvertible, Comparable, Hashable {
+    var hashValue: Int {
+        return denomination.rawValue
+    }
+
     private var suit: CardDeck.Suit
-    private(set) var denomination: CardDeck.Denomination
+    private var denomination: CardDeck.Denomination
     var description: String {
         return self.suit.rawValue + self.denomination.description
     }
@@ -28,13 +32,23 @@ class Card: CustomStringConvertible, Comparable {
         return lhs.denomination == rhs.denomination
     }
 
-    func isContinuous(previous: Card) -> Bool {
-        return self.denomination.isContinuous(previous: previous.denomination)
+    func isContinuous(next: Card) -> Bool {
+        return self.denomination.isContinuous(next: next.denomination)
     }
 
-    func isSameSuit(previous: Card) -> Bool {
-        return self.suit == previous.suit
+    func isSameSuit(next: Card) -> Bool {
+        return self.suit == next.suit
     }
+
+    func weightedScore() -> Int {
+        let aceWeightScore = 14
+        if self.denomination == .one {
+            return aceWeightScore
+        } else {
+            return self.denomination.rawValue
+        }
+    }
+
 
 }
 
