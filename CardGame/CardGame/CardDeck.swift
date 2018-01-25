@@ -95,11 +95,11 @@ extension CardDeck {
     }
     
     enum Denomination: Int, CustomStringConvertible, EnumCollection, Comparable {
-        case one = 1, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen
+        case two = 2, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, ace
         
         var description: String {
             switch self {
-            case .one: return "A"
+            case .ace: return "A"
             case .eleven: return "J"
             case .twelve: return "Q"
             case .thirteen: return "K"
@@ -116,7 +116,7 @@ extension CardDeck {
         }
 
         func isContinuous(next: CardDeck.Denomination) -> Bool {
-            return self.rawValue == (next.rawValue - 1)
+            return self.rawValue == (next.rawValue + 1)
         }
     }
    

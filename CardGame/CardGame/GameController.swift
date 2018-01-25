@@ -83,9 +83,9 @@ struct GameController {
                 OutputView().printCardsStackWithName(table)
                 OutputView().showResultWithLoading(text: OutputView.ProgramDescription.loadingScore)
                 let winner = table.winner()
-                let result = ResultData(result: "\(winner.name)(이)가 이겼습니다. 점수는 \(winner.score)입니다.")
+                let result = ResultData(result: "\(winner.name)(이)가 이겼습니다. 점수는 \(winner.score)입니다.\n")
                 outputView.showResult(text: result)
-                print(cardDeck.description) // DEBUG
+                outputView.showResult(text: cardDeck)
             } else {
                 outputView.showResult(text: OutputView.ProgramDescription.lackOfCard)
                 break
