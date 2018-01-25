@@ -20,6 +20,5 @@ class Dealer: Player {
         super.init(stack: stack, position: nil, scoreChecker: ScoreChecker())
     }
 
-    
 
 }

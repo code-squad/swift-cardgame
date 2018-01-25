@@ -41,14 +41,12 @@ class Card: CustomStringConvertible, Comparable, Hashable {
     }
 
     func weightedScore() -> Int {
-        let aceWeightScore = 14
-        if self.denomination == .one {
-            return aceWeightScore
-        } else {
-            return self.denomination.rawValue
-        }
+        return self.denomination.rawValue
     }
 
+    func shape() -> CardDeck.Suit{
+        return self.suit
+    }
 
 }
 

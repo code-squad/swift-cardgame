@@ -20,7 +20,6 @@
 		E86826762017070C004BCB38 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAC2004A9830087E934 /* Card.swift */; };
 		E86826772017070E004BCB38 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAE2004A9AE0087E934 /* CardDeck.swift */; };
 		E868267820170712004BCB38 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBB02004A9D50087E934 /* OutputView.swift */; };
-		E868267920170715004BCB38 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C59FDB20072B5A00FD06FF /* InputView.swift */; };
 		E868267A20170718004BCB38 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E818F9592008C2A5007BAE46 /* EnumCollection.swift */; };
 		E868267B2017071A004BCB38 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0B7200C4D9F00337A33 /* CardStack.swift */; };
 		E868267C2017071D004BCB38 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845C0B9200DCC2C00337A33 /* GameInputView.swift */; };
@@ -31,7 +30,6 @@
 		E86826812017072A004BCB38 /* CardTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AD91420149F1900B45B6D /* CardTable.swift */; };
 		E86826822017072C004BCB38 /* ScoreChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EB19420158FDC00C3CEEC /* ScoreChecker.swift */; };
 		E88AD91520149F1900B45B6D /* CardTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AD91420149F1900B45B6D /* CardTable.swift */; };
-		E8C59FDC20072B5A00FD06FF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C59FDB20072B5A00FD06FF /* InputView.swift */; };
 		E8D9DBAD2004A9830087E934 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAC2004A9830087E934 /* Card.swift */; };
 		E8D9DBAF2004A9AE0087E934 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBAE2004A9AE0087E934 /* CardDeck.swift */; };
 		E8D9DBB12004A9D50087E934 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9DBB02004A9D50087E934 /* OutputView.swift */; };
@@ -64,7 +62,6 @@
 		E868266E201706F1004BCB38 /* UnitTestCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCardGame.swift; sourceTree = "<group>"; };
 		E8682670201706F1004BCB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E88AD91420149F1900B45B6D /* CardTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTable.swift; sourceTree = "<group>"; };
-		E8C59FDB20072B5A00FD06FF /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E8D9DBAC2004A9830087E934 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E8D9DBAE2004A9AE0087E934 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		E8D9DBB02004A9D50087E934 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -114,7 +111,6 @@
 				E8D9DBAC2004A9830087E934 /* Card.swift */,
 				E8D9DBAE2004A9AE0087E934 /* CardDeck.swift */,
 				E8D9DBB02004A9D50087E934 /* OutputView.swift */,
-				E8C59FDB20072B5A00FD06FF /* InputView.swift */,
 				E818F9592008C2A5007BAE46 /* EnumCollection.swift */,
 				E845C0B7200C4D9F00337A33 /* CardStack.swift */,
 				E845C0B9200DCC2C00337A33 /* GameInputView.swift */,
@@ -233,7 +229,6 @@
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				E818F95A2008C2A5007BAE46 /* EnumCollection.swift in Sources */,
 				E845C0BA200DCC2C00337A33 /* GameInputView.swift in Sources */,
-				E8C59FDC20072B5A00FD06FF /* InputView.swift in Sources */,
 				E88AD91520149F1900B45B6D /* CardTable.swift in Sources */,
 				E8D9DBAD2004A9830087E934 /* Card.swift in Sources */,
 				E8D9DBB12004A9D50087E934 /* OutputView.swift in Sources */,
@@ -256,7 +251,6 @@
 				E868268020170727004BCB38 /* ResultData.swift in Sources */,
 				E868267C2017071D004BCB38 /* GameInputView.swift in Sources */,
 				E86826762017070C004BCB38 /* Card.swift in Sources */,
-				E868267920170715004BCB38 /* InputView.swift in Sources */,
 				E868267A20170718004BCB38 /* EnumCollection.swift in Sources */,
 				E86826772017070E004BCB38 /* CardDeck.swift in Sources */,
 				E868267D2017071F004BCB38 /* Player.swift in Sources */,
