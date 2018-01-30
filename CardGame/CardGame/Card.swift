@@ -10,16 +10,35 @@ import Foundation
 
 // 카드 객체
 class Card {
-    private let rank: RankOfCard
-    private let suit: SuitsOfCard
+    private var rank: RankOfCard
+    private var suit: SuitsOfCard
     
-    init(rank: RankOfCard, suit: SuitsOfCard) {
+    init(_ rank: RankOfCard, _ suit: SuitsOfCard) {
         self.rank = rank
         self.suit = suit
     }
+    
+    func isNextRank(_ nextCard : Card) -> Bool {
+        return self.rank.hashValue == nextCard.rank.hashValue + 1
+    }
+    
+    func isAce () -> Bool {
+        return self.rank == .ace
+    }
+    
+    static func getPairTypeCard (_ card: [Card]) -> [String : [Card]] {
+        let pairCheck = card.reduce(into: [String:[Card]]()) {
+            $0[$1.rank.description, default: []].append($1)
+        }
+        return pairCheck
+    }
 }
 
-extension Card: CustomStringConvertible {
+extension Card: CustomStringConvertible, Comparable {
+    static func <(lhs: Card, rhs: Card) -> Bool {
+         return lhs.rank.rawValue < rhs.rank.rawValue
+    }
+    
     var description: String {
         return self.suit.description + self.rank.description
     }
@@ -39,20 +58,26 @@ extension Card: CustomStringConvertible {
     }
     
     enum RankOfCard: Int {
-        case one = 1, two, three, four, five, six, seven, eight, nine, ten
-        case eleven, twelve, thirteen
-        static let rangeOfRankOfCard = RankOfCard.one.rawValue ... RankOfCard.thirteen.rawValue
-        static let ranks = Array(rangeOfRankOfCard.map{ return RankOfCard(rawValue: $0) ?? .one})
+        case two = 2, three, four, five, six, seven, eight, nine, ten
+        case eleven, twelve, thirteen, ace
+        static let rangeOfRankOfCard = RankOfCard.two.rawValue ... RankOfCard.ace.rawValue
+        static let ranks = Array(rangeOfRankOfCard.map{ return RankOfCard(rawValue: $0) ?? .ace})
         var description: String {
             switch self {
-            case .one : return "A"
             case .eleven : return "J"
             case .twelve : return "Q"
             case .thirteen : return "K"
+            case .ace : return "A"
             default: return String(self.rawValue)
             }
         }
     }
+    
+    static func >(lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank.rawValue < rhs.rank.rawValue
+    }
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.suit == rhs.suit
+    }
 }
-
-
