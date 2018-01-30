@@ -12,27 +12,28 @@ import Foundation
 
 func runProgram () {
     var cardDeck = CardDeck()
-    cardDeck.shuffle()
     var isRunnning = true
     while isRunnning {
         let menuNum = InputView.inputMenu()
         switch menuNum {
         case .FiveCardGame, .SevenCardGame :
             let numberOfParticipants = InputView.inputPlayer()
-            if numberOfParticipants == CardGameInfo.NumberOfParticipantsCases.InValidNumber {
+            if numberOfParticipants == CardGameInfo.NumberOfParticipants.InValidNumber {
                 print(InputView.Message.ofExceedPossibleNumberOfParticipants)
                 continue
             }
             let gameInfo = CardGameInfo(menuNum: menuNum, numberOfPlayers: numberOfParticipants)
-            if cardDeck.isGameRunnable(gameInfo) != true {
+            let resultGame = PlayingGame.runGame(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
+            OutputView.printPlayerCardTable(resultGame.players)
+            OutputView.printWinner(resultGame.players)
+            print("\(resultGame.remainCard)장의 카드가 남아있습니다.")
+            if PlayingGame.isGameRunnable(gameInfo, resultGame.remainCard) != true {
                 print(OutputView.Message.ofInsufficientCard)
                 break
             }
-            let cardTable = cardDeck.makeCardTable(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
-            OutputView.printPlayerCardTable(cardTable)
-            print("✅\(cardDeck.count)장의 카드가 남아있습니다.")
         case .ChargeCard :
             cardDeck = CardDeck()
+            cardDeck.shuffle()
             print(OutputView.Message.ofSucceedChargingCard)
         case .ExitGame :
             print (OutputView.Message.ofEndOfProgram)
