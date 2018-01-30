@@ -11,6 +11,7 @@ struct CardDeck {
     private var cardDeck = [Card]()
     init() {
         self.resetCard()
+        self.shuffle()
     }
     var count: Int {
         return self.cardDeck.count
@@ -19,7 +20,7 @@ struct CardDeck {
         var tempDeck = [Card]()
         for rank in Card.RankOfCard.ranks {
             for suit in Card.SuitsOfCard.suits {
-                tempDeck.append(Card.init(rank: rank, suit: suit))
+                tempDeck.append(Card(rank, suit))
             }
             cardDeck = tempDeck
         }
@@ -33,32 +34,12 @@ struct CardDeck {
         return cardDeck.removeLast()
     }
     
-    mutating func makeEachCardSet (_ gameSpecies: CardGameInfo.CountOfCardGame) -> Array<Card> {
-        var oneCardSet = Array<Card>()
-        for _ in 0 ..< gameSpecies.rawValue {
-            oneCardSet.append(pickCard())
-        }
-        return oneCardSet
-    }
-    
-    mutating func makeCardTable (_ participants: CardGameInfo.NumberOfParticipantsCases, _ gameSpecies: CardGameInfo.CountOfCardGame) -> Array<Array<Card>> {
-        var cardTable = Array<Array<Card>>()
-        for _ in 0 ..< participants.rawValue {
-            cardTable.append(makeEachCardSet(gameSpecies))
-        }
-        return cardTable
-    }
-    
-    func isGameRunnable (_ cardGameInfo: CardGameInfo) -> Bool {
-        return cardDeck.count > (cardGameInfo.numberOfPlayers.rawValue + 1) * cardGameInfo.numberOfCards.rawValue
-    }
-    
 }
 
 extension Array {
     func shuffle() -> Array<Card> {
         let shuffledArray = self.sorted { _,_ in arc4random_uniform(2) == 1 }
-        return shuffledArray as! Array<Card>
+        return shuffledArray as? Array<Card> ?? Array<Card>()
     }
 }
 
