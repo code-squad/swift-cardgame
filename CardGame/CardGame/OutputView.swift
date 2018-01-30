@@ -43,11 +43,30 @@ struct OutputView {
         print("총 \(cardDeck.count)장의 카드가 남아있습니다.")
     }
     
-    static func printPlayerCardTable (_ cardTable: Array<Array<Card>>) {
-        print("딜러#", cardTable[cardTable.count - 1])
-        for index in 0 ... cardTable.count - 1 {
-            print ("참가자# \(index + 1)", cardTable[index])
+    private static func printEachCard (_ card: Card) {
+        sleep(1)
+        print(card.description)
+    }
+    
+    
+    private static func printEachCardSet (_ cards: [Card]) {
+        for index in 0 ..< cards.count {
+            sleep(1)
+            print (cards[index].description, terminator: " ")
         }
-        
+    }
+    
+    static func printPlayerCardTable (_ players: [Player]) {
+        for index in 0 ..< players.count {
+            print ("\(players[index].nameDescription) ", terminator : "[")
+            printEachCardSet(players[index].cardDescription)
+            print ("]")
+        }
+    }
+    
+    static func printWinner (_ players: [Player]) {
+        let winner = PlayingGame.decideWinner(players)
+        let WinnerHandName = PlayingGame.getWinnerHandName(point: winner.point)
+        print("승자는 \(winner.name)이고 \(WinnerHandName.rawValue) \(winner.point)점 입니다.")
     }
 }
