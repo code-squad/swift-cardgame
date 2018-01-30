@@ -10,18 +10,18 @@ import Foundation
 
 // 카드게임 관련 정보를 모아놓은 클래스
 class CardGameInfo {
-    private (set) var numberOfCards: CountOfCardGame = .SevenCard
-    private (set) var numberOfPlayers: NumberOfParticipantsCases = .One
-    init(menuNum: CardGameInfo.Menu, numberOfPlayers: CardGameInfo.NumberOfParticipantsCases) {
+    private (set) var numberOfCards: GameSpecies = .SevenCard
+    private (set) var numberOfPlayers: NumberOfParticipants = .One
+    init(menuNum: CardGameInfo.Menu, numberOfPlayers: CardGameInfo.NumberOfParticipants) {
         self.numberOfCards = menuNum.convert() ?? .SevenCard
-        if let numberofPlayers = NumberOfParticipantsCases(rawValue: numberOfPlayers.rawValue) {
+        if let numberofPlayers = NumberOfParticipants(rawValue: numberOfPlayers.rawValue) {
             self.numberOfPlayers = numberofPlayers
         }
     }
     
     enum Menu: Int {
         case SevenCardGame = 1 , FiveCardGame, ChargeCard, ExitGame, PleaseInputAgain
-        func convert () -> CountOfCardGame? {
+        func convert () -> GameSpecies? {
             switch self {
             case .SevenCardGame: return .SevenCard
             case .FiveCardGame: return .FiveCard
@@ -31,12 +31,12 @@ class CardGameInfo {
         }
     }
     
-    enum CountOfCardGame: Int {
+    enum GameSpecies: Int {
         case SevenCard = 7
         case FiveCard = 5
     }
     
-    enum NumberOfParticipantsCases: Int {
+    enum NumberOfParticipants: Int {
         case One = 1, Two, Three, Four, InValidNumber
     }
 }
