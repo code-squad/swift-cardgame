@@ -14,26 +14,15 @@ struct Player: Comparable {
     private var cardSet: [Card] = [Card]()
     init(_ nameIndex: Int, _ cardSet: [Card]) {
         self.name = makeName(nameIndex)
-        self.point = makePoint(cardSet)
         self.cardSet = cardSet
+        self.point = makePoint()
+        
     }
     
     init(dealer: Dealer, nameIndex: Int, cardSet: [Card]) {
         self.name = dealer.makeName(nameIndex)
-        self.point = makePoint(cardSet)
         self.cardSet = cardSet
-    }
-    
-    var nameDescription: String {
-        return self.name
-    }
-    
-    var pointDescription: Int {
-        return self.point
-    }
-    
-    var cardDescription: [Card] {
-        return self.cardSet
+        self.point = makePoint()
     }
     
     static func <(lhs: Player, rhs: Player) -> Bool {
@@ -47,12 +36,28 @@ struct Player: Comparable {
     static func >(lhs: Player, rhs: Player) -> Bool {
         return lhs.point > rhs.point
     }
-    func makePoint(_ cards: [Card]) -> Int {
-        return Hand.countResult(cards)
+    private func makePoint() -> Int {
+        return Hand(self.cardSet).countResult()
     }
     
-    func makeName(_ index: Int) -> String {
+    func getTopCard () -> Card {
+        let sortedCard = self.cardSet.sorted { $0 > $1 }
+        return sortedCard[0]
+    }
+    
+    private func makeName(_ index: Int) -> String {
         return "참가자\(index)#유저 "
     }
-
+    
+    func getWinnerInfo () -> String {
+        var resultWinnerInfo = ""
+        let winnerHandName = PlayingGame.getWinnerHandName(point: self.point)
+        resultWinnerInfo += "승자는 \(self.name)이고 \(winnerHandName.rawValue) \(self.point)점 입니다."
+        return resultWinnerInfo
+    }
+    
+    func getCardSetInfo () -> (cardSet: [Card], name: String) {
+        return (self.cardSet, self.name)
+    }
+    
 }
