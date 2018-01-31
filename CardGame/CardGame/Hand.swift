@@ -8,6 +8,11 @@
 
 import Foundation
 struct Hand {
+    private var cards: [Card]
+    init(_ cards: [Card]) {
+        self.cards = cards
+    }
+    
     enum HandRanks: String {
         static func >(lhs: Hand.HandRanks, rhs: Hand.HandRanks) -> Bool {
             return lhs.hashValue > rhs.hashValue
@@ -45,8 +50,8 @@ struct Hand {
         }
     }
     
-    static func countResult (_ cards: [Card]) -> Int{
-        let handRanks = makeHandRanks(cards)
+     func countResult () -> Int{
+        let handRanks = makeHandRanks()
         var result = 0
         handRanks.forEach {
             result += $0.hashValue
@@ -54,28 +59,28 @@ struct Hand {
         return result
     }
     
-    static func makeHandRanks (_ cards: [Card]) -> [HandRanks] {
-        let hands = checkFlushToStraight(cards)
+     func makeHandRanks () -> [HandRanks] {
+        let hands = checkFlushToStraight()
         guard hands.count == 0 else { return hands}
-        return checkPair(cards)
+        return checkPair()
     }
     
-    static func getTopCard (cards: [Card]) -> Card {
+     func getTopCard () -> Card {
         let sortedCard = cards.sorted { $0 > $1 }
         return sortedCard[0]
     }
     
-    private static func checkFlushToStraight (_ cards: [Card]) -> [HandRanks] {
+    private  func checkFlushToStraight () -> [HandRanks] {
         var hands = [HandRanks]()
-        if isFlush(cards) && isStraight(cards) == false && isRoyal(cards: cards) == false { hands.append(.flush) }
-        else if isStraight(cards) && isFlush(cards) && isRoyal(cards: cards) == false { hands.append(.straightFlush)}
-        else if isFlush(cards) && isRoyal(cards: cards) == true { hands.append(.royalFlush) }
-        else if isFullHouse(cards) { hands = [HandRanks](); hands.append(.fullHouse)}
-        else if isStraight(cards) { hands.append(.straight)}
+        if isFlush() && isStraight() == false && isRoyal() == false { hands.append(.flush) }
+        else if isStraight() && isFlush() && isRoyal() == false { hands.append(.straightFlush)}
+        else if isFlush() && isRoyal() == true { hands.append(.royalFlush) }
+        else if isFullHouse() { hands = [HandRanks](); hands.append(.fullHouse)}
+        else if isStraight() { hands.append(.straight)}
         return hands.sorted(by: >)
     }
     
-    private static func checkPair (_ cards: [Card]) -> [HandRanks] {
+    private  func checkPair () -> [HandRanks] {
         let pairCheck = Card.getPairTypeCard(cards)
         var hands = [HandRanks]()
         pairCheck.forEach {
@@ -97,7 +102,7 @@ struct Hand {
         return hands.sorted(by: >)
     }
     
-    private static func isStraight(_ cards : [Card]) -> Bool {
+    private  func isStraight() -> Bool {
         let cardsByRanks = cards.sorted { $0 > $1 }
         var straightCounter = 0
         for indexOfCard in 0..<(cardsByRanks.count - 1) {
@@ -108,20 +113,20 @@ struct Hand {
         return straightCounter >= 5
     }
     
-    private static func isFlush(_ cards: [Card]) -> Bool {
+    private  func isFlush() -> Bool {
         let cardsByRanks = cards.sorted { $0 > $1 }
         let firstCard = cards[0]
         let sameSuit = cardsByRanks.filter({ $0 == firstCard })
         return sameSuit.count >= 5
     }
     
-    private static func isRoyal (cards: [Card]) -> Bool {
+    private  func isRoyal () -> Bool {
         let sortedCard = cards.sorted { $0 > $1 }
         return sortedCard[0].isAce()
     }
     
-    private static func isFullHouse (_ cards: [Card]) -> Bool {
-        let hands = checkPair(cards)
+    private  func isFullHouse () -> Bool {
+        let hands = checkPair()
         return hands[0] == .triple && hands[1] == .onePair
     }
 }
