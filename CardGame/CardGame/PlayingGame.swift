@@ -9,33 +9,37 @@
 import Foundation
 
 struct PlayingGame {
-    static func runGame (_ participant: CardGameInfo.NumberOfParticipants, _ gameSpecies: CardGameInfo.GameSpecies) -> (players: [Player], remainCard: Int) {
-        var participants = [Player]()
+    private (set) var players = [Player]()
+    private (set) var remainCard = 0
+    init(_ participant: CardGameInfo.NumberOfParticipants, _ gameSpecies: CardGameInfo.GameSpecies) {
+        let resultGame = runGame(participant, gameSpecies)
+        self.players = resultGame.players
+        self.remainCard = resultGame.remainCard
+    }
+    mutating func runGame (_ participant: CardGameInfo.NumberOfParticipants, _ gameSpecies: CardGameInfo.GameSpecies) -> (players: [Player], remainCard: Int) {
         var dealer = Dealer(CardDeck())
         for index in 0 ..< participant.rawValue {
             let player = Player(index+1, dealer.dealCards(gameSpecies))
-            participants.append(player)
+            players.append(player)
         }
         let dealerAsPlayer = Player(dealer: dealer, nameIndex: participant.rawValue + 1, cardSet: dealer.dealCards(gameSpecies))
-        participants.append(dealerAsPlayer)
-        return (participants, dealer.remainedCard)
+        players.append(dealerAsPlayer)
+        return (players, dealer.remainedCard)
     }
     
-    static func decideWinner (_ players: [Player]) -> (name: String, point: Int) {
+     func decideWinner () -> Player {
         let sortedPlayer = players.sorted(by: >)
-        guard sortedPlayer[0] == sortedPlayer[1]  else { return (sortedPlayer[0].nameDescription, sortedPlayer[0].pointDescription)}
-        let realWinner = getWinnerBetweenSamePointUsers(players)
-        return (realWinner.nameDescription, realWinner.pointDescription )
+        guard sortedPlayer[0] == sortedPlayer[1]  else { return (sortedPlayer[0]) }
+        return getWinnerBetweenSamePointUsers()
     }
     
     static func getWinnerHandName (point: Int) -> Hand.HandRanks {
         return Hand.getHandName(point: point) ?? Hand.HandRanks.fullHouse
     }
 
-    private static func getWinnerBetweenSamePointUsers (_ players: [Player]) -> Player {
-        let playerATopCard = Hand.getTopCard(cards: players[0].cardDescription)
-        let playerBTopCard = Hand.getTopCard(cards: players[1].cardDescription)
-        print(playerATopCard,playerBTopCard)
+     func getWinnerBetweenSamePointUsers () -> Player {
+        let playerATopCard = players[0].getTopCard()
+        let playerBTopCard = players[1].getTopCard()
         return playerATopCard > playerBTopCard ? players[0] : players[1]
     }
     
