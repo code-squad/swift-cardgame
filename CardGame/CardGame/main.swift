@@ -8,10 +8,7 @@
 
 import Foundation
 
-// 기존 메인코드는 tempBranchForCradGame 브랜치에 푸시해놓았습니다.
-
 func runProgram () {
-    var cardDeck = CardDeck()
     var isRunnning = true
     while isRunnning {
         let menuNum = InputView.inputMenu()
@@ -23,25 +20,20 @@ func runProgram () {
                 continue
             }
             let gameInfo = CardGameInfo(menuNum: menuNum, numberOfPlayers: numberOfParticipants)
-            let resultGame = PlayingGame.runGame(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
+            let resultGame = PlayingGame(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
             OutputView.printPlayerCardTable(resultGame.players)
-            OutputView.printWinner(resultGame.players)
+            OutputView.printWinner(resultGame.decideWinner())
             print("\(resultGame.remainCard)장의 카드가 남아있습니다.")
             if PlayingGame.isGameRunnable(gameInfo, resultGame.remainCard) != true {
-                print(OutputView.Message.ofInsufficientCard)
+                print(OutputView.Message.ofInsufficientCardAndResetMessage)
                 break
             }
-        case .ChargeCard :
-            cardDeck = CardDeck()
-            cardDeck.shuffle()
-            print(OutputView.Message.ofSucceedChargingCard)
         case .ExitGame :
-            print (OutputView.Message.ofEndOfProgram)
+            OutputView.printOfEndOfProgramMessage()
             isRunnning = false
         case .PleaseInputAgain:
             print(InputView.Message.ofUnsupportedInput)
             continue
-            
         }
     }
 }
