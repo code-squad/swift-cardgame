@@ -20,7 +20,7 @@ class CardGameInfo {
     }
     
     enum Menu: Int {
-        case SevenCardGame = 1 , FiveCardGame, ChargeCard, ExitGame, PleaseInputAgain
+        case SevenCardGame = 1 , FiveCardGame, ExitGame, PleaseInputAgain
         func convert () -> GameSpecies? {
             switch self {
             case .SevenCardGame: return .SevenCard
