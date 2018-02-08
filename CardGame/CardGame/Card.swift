@@ -8,7 +8,6 @@
 
 import Foundation
 
-// 카드 객체
 class Card {
     private var rank: RankOfCard
     private var suit: SuitsOfCard
@@ -19,7 +18,7 @@ class Card {
     }
     
     func isNextRank(_ nextCard : Card) -> Bool {
-        return self.rank.hashValue == nextCard.rank.hashValue + 1
+        return self.rank.rawValue == nextCard.rank.rawValue + 1
     }
     
     func isAce () -> Bool {
@@ -35,16 +34,14 @@ class Card {
 }
 
 extension Card: CustomStringConvertible, Comparable {
-    static func <(lhs: Card, rhs: Card) -> Bool {
-         return lhs.rank.rawValue < rhs.rank.rawValue
-    }
-    
     var description: String {
         return self.suit.description + self.rank.description
     }
     
     enum SuitsOfCard: Int {
         case spade, heart, diamond, club
+        static let rangeOfSuits = SuitsOfCard.spade.rawValue ... SuitsOfCard.club.rawValue
+        static let suits = Array(rangeOfSuits.map{ return SuitsOfCard(rawValue:$0) ?? .club })
         var description: String {
             switch self {
             case .spade : return "♠️"
@@ -53,8 +50,6 @@ extension Card: CustomStringConvertible, Comparable {
             case .club : return"♣️"
             }
         }
-        static let rangeOfSuits = SuitsOfCard.spade.rawValue ... SuitsOfCard.club.rawValue
-        static let suits = Array(rangeOfSuits.map{ return SuitsOfCard(rawValue:$0) ?? .club })
     }
     
     enum RankOfCard: Int {
@@ -74,10 +69,12 @@ extension Card: CustomStringConvertible, Comparable {
     }
     
     static func >(lhs: Card, rhs: Card) -> Bool {
-        return lhs.rank.rawValue < rhs.rank.rawValue
+        return lhs.rank.rawValue > rhs.rank.rawValue
     }
-    
     static func ==(lhs: Card, rhs: Card) -> Bool {
         return lhs.suit == rhs.suit
+    }
+    static func <(lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank.rawValue < rhs.rank.rawValue
     }
 }

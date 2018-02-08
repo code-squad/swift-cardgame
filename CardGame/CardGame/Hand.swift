@@ -34,9 +34,9 @@ struct Hand {
         }
     }
     
-    static func getHandName (point: Int) -> HandRanks? {
+    static func getHandName(point: Int) -> HandRanks? {
         switch point {
-        case 0 : return .noPair
+        case 0: return .noPair
         case 1: return .onePair
         case 2: return .twoPair
         case 3: return .triple
@@ -50,7 +50,7 @@ struct Hand {
         }
     }
     
-     func countResult () -> Int{
+     func countResult() -> Int{
         let handRanks = makeHandRanks()
         var result = 0
         handRanks.forEach {
@@ -59,18 +59,18 @@ struct Hand {
         return result
     }
     
-     func makeHandRanks () -> [HandRanks] {
+    func getTopCard() -> Card {
+        let sortedCard = cards.sorted { $0 > $1 }
+        return sortedCard[0]
+    }
+    
+     private func makeHandRanks() -> [HandRanks] {
         let hands = checkFlushToStraight()
         guard hands.count == 0 else { return hands}
         return checkPair()
     }
     
-     func getTopCard () -> Card {
-        let sortedCard = cards.sorted { $0 > $1 }
-        return sortedCard[0]
-    }
-    
-    private  func checkFlushToStraight () -> [HandRanks] {
+    private  func checkFlushToStraight() -> [HandRanks] {
         var hands = [HandRanks]()
         if isFlush() && isStraight() == false && isRoyal() == false { hands.append(.flush) }
         else if isStraight() && isFlush() && isRoyal() == false { hands.append(.straightFlush)}
@@ -80,7 +80,7 @@ struct Hand {
         return hands.sorted(by: >)
     }
     
-    private  func checkPair () -> [HandRanks] {
+    private  func checkPair() -> [HandRanks] {
         let pairCheck = Card.getPairTypeCard(cards)
         var hands = [HandRanks]()
         pairCheck.forEach {
@@ -120,12 +120,12 @@ struct Hand {
         return sameSuit.count >= 5
     }
     
-    private  func isRoyal () -> Bool {
+    private  func isRoyal() -> Bool {
         let sortedCard = cards.sorted { $0 > $1 }
         return sortedCard[0].isAce()
     }
     
-    private  func isFullHouse () -> Bool {
+    private  func isFullHouse() -> Bool {
         let hands = checkPair()
         return hands[0] == .triple && hands[1] == .onePair
     }

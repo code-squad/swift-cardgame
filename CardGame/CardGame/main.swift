@@ -9,32 +9,26 @@
 import Foundation
 
 func runProgram () {
-    var isRunnning = true
-    while isRunnning {
-        let menuNum = InputView.inputMenu()
-        switch menuNum {
-        case .FiveCardGame, .SevenCardGame :
-            let numberOfParticipants = InputView.inputPlayer()
-            if numberOfParticipants == CardGameInfo.NumberOfParticipants.InValidNumber {
-                print(InputView.Message.ofExceedPossibleNumberOfParticipants)
-                continue
-            }
-            let gameInfo = CardGameInfo(menuNum: menuNum, numberOfPlayers: numberOfParticipants)
-            let resultGame = PlayingGame(gameInfo.numberOfPlayers, gameInfo.numberOfCards)
-            OutputView.printPlayerCardTable(resultGame.players)
-            OutputView.printWinner(resultGame.decideWinner())
-            print("\(resultGame.remainCard)장의 카드가 남아있습니다.")
-            if PlayingGame.isGameRunnable(gameInfo, resultGame.remainCard) != true {
-                print(OutputView.Message.ofInsufficientCardAndResetMessage)
-                break
-            }
-        case .ExitGame :
-            OutputView.printOfEndOfProgramMessage()
-            isRunnning = false
-        case .PleaseInputAgain:
+    let dealer = Dealer.shared
+    while true {
+        guard let kindOfGame = InputView.sevenOrFiveGame() else {
             print(InputView.Message.ofUnsupportedInput)
             continue
         }
+        guard let numberOfParticipants = InputView.numberOfParticipants() else {
+            print(InputView.Message.ofExceedPossibleNumberOfParticipants)
+            continue
+        }
+        guard PlayingGame.isRunnable(numberOfParticipants, kindOfGame, dealer) else {
+            OutputView.printOfInsufficientCard()
+            break
+        }
+        let resultGame = PlayingGame(numberOfParticipants, kindOfGame, dealer)
+        let ouputView = OutputView(resultGame)
+        ouputView.printCardsOfPlayers()
+        ouputView.printWinner()
+        OutputView.printRemainingCards(dealer)
     }
 }
+
 runProgram()
