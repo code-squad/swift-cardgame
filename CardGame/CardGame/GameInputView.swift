@@ -21,7 +21,6 @@ struct InputView {
                 다음 메뉴를 선택해주세요.
                 1. 7카드 게임
                 2. 5카드 게임
-                3. 게임 종료
                 >
                 """
             case .ofCasesOfParticipants:
@@ -34,21 +33,21 @@ struct InputView {
         }
     }
     
-    static func inputMenu () -> CardGameInfo.Menu {
+    static func sevenOrFiveGame () -> KindOfGame? {
         print(InputView.Message.ofMenu, terminator: " ")
         let input = readLine() ?? "0"
-        guard let inputNum = Int(input), let menu = CardGameInfo.Menu(rawValue: inputNum) else {
-            return CardGameInfo.Menu.PleaseInputAgain
-        }
-        return menu
+        guard let inputNum = Int(input), let menu = Menu(rawValue: inputNum) else { return nil }
+        return convertMenuNumToKindofCard(menuNum: menu)
     }
     
-    static func inputPlayer () -> CardGameInfo.NumberOfParticipants {
+    static func numberOfParticipants () -> NumberOfParticipants? {
         print(InputView.Message.ofCasesOfParticipants, terminator: " ")
         let input = readLine() ?? "0"
-        guard let inputNum = Int(input), let numberOfParticipants = CardGameInfo.NumberOfParticipants(rawValue: inputNum) else {
-            return CardGameInfo.NumberOfParticipants.InValidNumber
-        }
+        guard let inputNum = Int(input), let numberOfParticipants = NumberOfParticipants(rawValue: inputNum) else { return nil }
         return numberOfParticipants
+    }
+    
+    private static func convertMenuNumToKindofCard (menuNum: Menu) -> KindOfGame {
+        return menuNum.rawValue == 1 ? .sevenCard : .fiveCard
     }
 }

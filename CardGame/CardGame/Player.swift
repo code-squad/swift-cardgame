@@ -16,7 +16,6 @@ struct Player: Comparable {
         self.name = makeName(nameIndex)
         self.cardSet = cardSet
         self.point = makePoint()
-        
     }
     
     init(dealer: Dealer, nameIndex: Int, cardSet: [Card]) {
@@ -50,14 +49,30 @@ struct Player: Comparable {
     }
     
     func getWinnerInfo () -> String {
-        var resultWinnerInfo = ""
         let winnerHandName = PlayingGame.getWinnerHandName(point: self.point)
-        resultWinnerInfo += "승자는 \(self.name)이고 \(winnerHandName.rawValue) \(self.point)점 입니다."
-        return resultWinnerInfo
+        return "🤩 승자는 \(self.name)이고 \(winnerHandName.rawValue) \(self.point)점 입니다."
     }
     
-    func getCardSetInfo () -> (cardSet: [Card], name: String) {
-        return (self.cardSet, self.name)
+    private  func makeCardSetForPrint () {
+        for index in 0 ..< self.cardSet.count {
+            sleep(1)
+            print (self.cardSet[index].description, terminator: " ")
+        }
     }
+    
+    func makeCardSetOfPlayer () {
+        print ("\(self.name) ", terminator : "[")
+        makeCardSetForPrint()
+        print ("]")
+    }
+//    
+//    func randomCard () -> String {
+//        var result = ""
+//        for index in 0 ..< self.cardSet.count {
+//            result += self.cardSet[index].description + " "
+//        }
+//        return result
+//    }
     
 }
+

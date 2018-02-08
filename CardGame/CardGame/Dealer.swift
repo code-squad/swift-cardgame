@@ -8,30 +8,31 @@
 
 import Foundation
 
-struct Dealer {
-    private var deck: CardDeck = CardDeck()
-    
-    init(_ deck: CardDeck) {
-        self.deck = deck
+class Dealer {
+    private var deck: CardDeck
+    static let shared: Dealer = Dealer()
+    init() {
+        self.deck = CardDeck()
     }
     
-    var deckDescription: CardDeck {
-        return self.deck
-    }
-    mutating func dealCards(_ gameSpecies: CardGameInfo.GameSpecies) -> [Card] {
+    func dealCards(_ kindOfGame: KindOfGame) -> [Card] {
         var cards: [Card] = []
-        for _ in 0 ..< gameSpecies.rawValue {
+        for _ in 0 ..< kindOfGame.rawValue {
             cards.append(self.deck.pickCard())
         }
         return cards
     }
     
-    var remainedCard: Int {
-        return self.deck.count
+    func noticeRemainCard() -> String {
+        return "✅ 총 \(deck.count)장의 카드가 남아있습니다."
     }
 
     func makeName(_ index: Int) -> String {
         return "참가자\(index)#딜러 "
+    }
+    
+    func haveEnoughCards(_ neededCards: Int) -> Bool {
+        return self.deck.count >= neededCards
     }
     
 }
