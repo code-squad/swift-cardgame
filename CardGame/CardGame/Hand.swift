@@ -64,7 +64,7 @@ struct Hand {
         return sortedCard[0]
     }
     
-     private func makeHandRanks() -> [HandRanks] {
+    func makeHandRanks() -> [HandRanks] {
         let hands = checkFlushToStraight()
         guard hands.count == 0 else { return hands}
         return checkPair()
@@ -72,12 +72,12 @@ struct Hand {
     
     private  func checkFlushToStraight() -> [HandRanks] {
         var hands = [HandRanks]()
-        if isFlush() && isStraight() == false && isRoyal() == false { hands.append(.flush) }
-        else if isStraight() && isFlush() && isRoyal() == false { hands.append(.straightFlush)}
-        else if isFlush() && isRoyal() == true { hands.append(.royalFlush) }
-        else if isFullHouse() { hands = [HandRanks](); hands.append(.fullHouse)}
+        if isFlush() && isRoyal( ) { hands.append(.royalFlush) }
+        else if isStraight() && isFlush() { hands.append(.straightFlush)}
+        else if isFlush() { hands.append(.flush) }
+        else if isFullHouse() { hands.append(.fullHouse)}
         else if isStraight() { hands.append(.straight)}
-        return hands.sorted(by: >)
+        return hands
     }
     
     private  func checkPair() -> [HandRanks] {
@@ -95,7 +95,7 @@ struct Hand {
         for pair in hands {
             if pair == .onePair { pairCount += 1 }
         }
-        if pairCount == 2 {
+        if pairCount >= 2 {
             hands = [HandRanks]()
             hands.append(.twoPair)
         }
