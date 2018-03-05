@@ -20,10 +20,12 @@ struct PlayingGame {
         self.players = runGame(numberOfParticipants, kindOfGame, dealer)
     }
     
-    static func isRunnable(_ numberOfParticipants: NumberOfParticipants, _ kindOfGame: KindOfGame, _ dealer: Dealer) -> Bool {
-        return dealer.haveEnoughCards(neededCards(numberOfParticipants, kindOfGame))
+    func printCardSetOfPlayers () {
+        for index in 0 ..< self.numberOfParticipants.rawValue + 1 {
+            players[index].makeCardSetOfPlayer()
+        }
     }
-    
+
     mutating func runGame(_ numberOfParticipants: NumberOfParticipants, _ kindOfGame: KindOfGame, _ dealer: Dealer) ->  [Player] {
         for index in 0 ..< numberOfParticipants.rawValue {
             let player = Player(index+1, dealer.dealCards(kindOfGame))
@@ -34,18 +36,10 @@ struct PlayingGame {
         return players
     }
     
-    private static func neededCards (_ numberOfParticipants: NumberOfParticipants, _ kindOfGame: KindOfGame) -> Int {
-        return (numberOfParticipants.rawValue + 1) * kindOfGame.rawValue
-    }
-    
     func decideWinner () -> Player {
         let sortedPlayer = players.sorted(by: >)
         guard sortedPlayer[0] == sortedPlayer[1]  else { return (sortedPlayer[0]) }
         return selectWinnerBetweenSamePointUsers()
-    }
-    
-    static func getWinnerHandName (point: Int) -> Hand.HandRanks {
-        return Hand.getHandName(point: point) ?? Hand.HandRanks.fullHouse
     }
     
     private func selectWinnerBetweenSamePointUsers () -> Player {
@@ -54,9 +48,15 @@ struct PlayingGame {
         return topCardOfPlayerA > topCardOfPlayerB ? players[0] : players[1]
     }
     
-    func cardSetOfPlayers () {
-        for index in 0 ..< self.numberOfParticipants.rawValue + 1 {
-            players[index].makeCardSetOfPlayer()
-        }
+    static func isRunnable(_ numberOfParticipants: NumberOfParticipants, _ kindOfGame: KindOfGame, _ dealer: Dealer) -> Bool {
+        return dealer.haveEnoughCards(neededCards(numberOfParticipants, kindOfGame))
+    }
+    
+    private static func neededCards (_ numberOfParticipants: NumberOfParticipants, _ kindOfGame: KindOfGame) -> Int {
+        return (numberOfParticipants.rawValue + 1) * kindOfGame.rawValue
+    }
+    
+    static func getWinnerHandName (point: Int) -> Hand.HandRanks {
+        return Hand.getHandName(point: point) ?? Hand.HandRanks.fullHouse
     }
 }
