@@ -65,14 +65,4 @@ struct Player: Comparable {
         makeCardSetForPrint()
         print ("]")
     }
-//    
-//    func randomCard () -> String {
-//        var result = ""
-//        for index in 0 ..< self.cardSet.count {
-//            result += self.cardSet[index].description + " "
-//        }
-//        return result
-//    }
-    
 }
-
