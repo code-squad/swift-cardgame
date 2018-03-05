@@ -59,12 +59,4 @@ struct PlayingGame {
             players[index].makeCardSetOfPlayer()
         }
     }
-//    func cardSetOfPlayerss() {
-//        for index in 0 ..< self.players.count {
-//            print (players[index].firstStepOfCard(), terminator: " ")
-//            print (players[index].randomCard(), terminator: " ")
-//            print ("]")
-//        }
-//    }
-    
 }

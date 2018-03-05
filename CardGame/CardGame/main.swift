@@ -24,10 +24,10 @@ func runProgram () {
             break
         }
         let resultGame = PlayingGame(numberOfParticipants, kindOfGame, dealer)
-        let ouputView = OutputView(resultGame)
+        let ouputView = OutputView(resultGame, dealer)
         ouputView.printCardsOfPlayers()
         ouputView.printWinner()
-        OutputView.printRemainingCards(dealer)
+        ouputView.printRemainingCards()
     }
 }
 
