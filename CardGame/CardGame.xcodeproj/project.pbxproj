@@ -11,7 +11,6 @@
 		C305498C200C40800025C764 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305498B200C40800025C764 /* Card.swift */; };
 		C3162E5A200C843200FE1175 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3162E59200C843200FE1175 /* CardDeck.swift */; };
 		C31B8DB4200E424E00902937 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B8DB3200E424E00902937 /* OutputView.swift */; };
-		C325DEE2202C43D700EF09AC /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C325DEE1202C43D700EF09AC /* GameInfo.swift */; };
 		C356D98D2020464000761E43 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374F44020185F4600750D7A /* Player.swift */; };
 		C356D98E2020464300761E43 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374F4422018644A00750D7A /* Dealer.swift */; };
 		C356D98F2020464600761E43 /* PlayingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374F4442018668000750D7A /* PlayingGame.swift */; };
@@ -27,6 +26,10 @@
 		C374F4452018668000750D7A /* PlayingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374F4442018668000750D7A /* PlayingGame.swift */; };
 		C37557D820177B40004EF383 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37557D720177B40004EF383 /* Hand.swift */; };
 		C3C20303200C77D6001321F2 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C20302200C77D6001321F2 /* GameInputView.swift */; };
+		C3C4A233204D33DA0094E9AF /* StringDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A232204D33DA0094E9AF /* StringDescription.swift */; };
+		C3C4A234204D375A0094E9AF /* StringDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A232204D33DA0094E9AF /* StringDescription.swift */; };
+		C3C4A237204D72440094E9AF /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A236204D72440094E9AF /* GameInfo.swift */; };
+		C3C4A23A204D79960094E9AF /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A236204D72440094E9AF /* GameInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +50,6 @@
 		C305498B200C40800025C764 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C3162E59200C843200FE1175 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		C31B8DB3200E424E00902937 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		C325DEE1202C43D700EF09AC /* GameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		C374F42F2018358B00750D7A /* HandTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C374F4312018358B00750D7A /* HandTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandTest.swift; sourceTree = "<group>"; };
 		C374F4332018358B00750D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +58,8 @@
 		C374F4442018668000750D7A /* PlayingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingGame.swift; sourceTree = "<group>"; };
 		C37557D720177B40004EF383 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		C3C20302200C77D6001321F2 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
+		C3C4A232204D33DA0094E9AF /* StringDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDescription.swift; sourceTree = "<group>"; };
+		C3C4A236204D72440094E9AF /* GameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +103,12 @@
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				C3C20302200C77D6001321F2 /* GameInputView.swift */,
-				C325DEE1202C43D700EF09AC /* GameInfo.swift */,
+				C3C4A236204D72440094E9AF /* GameInfo.swift */,
 				C3162E59200C843200FE1175 /* CardDeck.swift */,
 				C305498B200C40800025C764 /* Card.swift */,
 				C374F44020185F4600750D7A /* Player.swift */,
 				C374F4422018644A00750D7A /* Dealer.swift */,
+				C3C4A232204D33DA0094E9AF /* StringDescription.swift */,
 				C37557D720177B40004EF383 /* Hand.swift */,
 				C374F4442018668000750D7A /* PlayingGame.swift */,
 				C31B8DB3200E424E00902937 /* OutputView.swift */,
@@ -211,13 +216,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C374F4452018668000750D7A /* PlayingGame.swift in Sources */,
-				C325DEE2202C43D700EF09AC /* GameInfo.swift in Sources */,
 				C3162E5A200C843200FE1175 /* CardDeck.swift in Sources */,
 				C37557D820177B40004EF383 /* Hand.swift in Sources */,
+				C3C4A233204D33DA0094E9AF /* StringDescription.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				C3C20303200C77D6001321F2 /* GameInputView.swift in Sources */,
 				C305498C200C40800025C764 /* Card.swift in Sources */,
 				C374F44120185F4600750D7A /* Player.swift in Sources */,
+				C3C4A237204D72440094E9AF /* GameInfo.swift in Sources */,
 				C374F4432018644A00750D7A /* Dealer.swift in Sources */,
 				C31B8DB4200E424E00902937 /* OutputView.swift in Sources */,
 			);
@@ -231,12 +237,14 @@
 				C374F439201837A400750D7A /* GameInputView.swift in Sources */,
 				C374F438201837A100750D7A /* main.swift in Sources */,
 				C374F43B201837AA00750D7A /* Card.swift in Sources */,
+				C3C4A234204D375A0094E9AF /* StringDescription.swift in Sources */,
 				C374F43A201837A700750D7A /* CardDeck.swift in Sources */,
 				C374F43C201837AD00750D7A /* Hand.swift in Sources */,
 				C374F4322018358B00750D7A /* HandTest.swift in Sources */,
 				C356D98D2020464000761E43 /* Player.swift in Sources */,
 				C356D98E2020464300761E43 /* Dealer.swift in Sources */,
 				C374F43F201837B600750D7A /* OutputView.swift in Sources */,
+				C3C4A23A204D79960094E9AF /* GameInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
