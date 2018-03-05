@@ -9,8 +9,10 @@
 import Foundation
 struct OutputView {
     private let playingGame: PlayingGame
-    init(_ playingGame: PlayingGame) {
+    private let dealer: Dealer
+    init(_ playingGame: PlayingGame, _ dealer: Dealer) {
         self.playingGame = playingGame
+        self.dealer = dealer
     }
     enum Message: CustomStringConvertible{
         case ofResetCard
@@ -31,30 +33,23 @@ struct OutputView {
         }
     }
     
-    static func printOfEndOfProgramMessage () {
+    static func printOfEndOfProgramMessage() {
         print (Message.ofEndOfProgram)
     }
     
-    static func printOfInsufficientCard () {
+    static func printOfInsufficientCard() {
         print (Message.ofInsufficientCard)
     }
     
-     func printWinner () {
+     func printWinner() {
         print (playingGame.decideWinner().getWinnerInfo())
     }
     
-    static func printRemainingCards (_ dealer: Dealer) {
+     func printRemainingCards() {
         print(dealer.noticeRemainCard())
     }
     
-     func printCardsOfPlayers () {
+     func printCardsOfPlayers() {
         playingGame.cardSetOfPlayers()
     }
-    
-//    func printCards (_ numberOfParticipants: Int, kindOfGame: Int, player: Player) {
-//        print (player.firstStepOfCard())
-//        print (player.randomCard())
-//        print ("]")
-//    }
-    
 }
