@@ -9,8 +9,8 @@
 import Foundation
 
 class Card {
-    private var rank: RankOfCard
-    private var suit: SuitsOfCard
+    private let rank: RankOfCard
+    private let suit: SuitsOfCard
     
     init(_ rank: RankOfCard, _ suit: SuitsOfCard) {
         self.rank = rank
