@@ -21,8 +21,8 @@ struct PlayingGame {
     }
     
     func printAllPlayersCards (result: (_ name: String, _ cards: [Card]) -> ()) {
-        for index in 0 ..< self.numberOfParticipants.rawValue + 1 {
-            players[index].printEachPlayersCards(result)
+        players.forEach {
+            $0.printEachPlayersCards(result)
         }
     }
     
