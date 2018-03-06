@@ -9,17 +9,17 @@
 import Foundation
 struct OutputView {
     static func printCardsOfPlayers(_ playingGame: PlayingGame) {
-        playingGame.printAllPlayersCards(result: printCardSet)
+        playingGame.printAllPlayersCards(result:
+            ( {(name: String, cards: [Card]) -> () in
+                print ("\(name)", terminator : "[")
+                for index in 0 ..< cards.count {
+                    sleep(1)
+                    print(cards[index].description, terminator: " ")
+                }
+                print ("]")
+            })
+        )
     }
-    
-    static let printCardSet = ( {(name: String, cards: [Card]) -> () in
-        print ("\(name)", terminator : "[")
-        for index in 0 ..< cards.count {
-            sleep(1)
-            print(cards[index].description, terminator: " ")
-        }
-        print ("]")
-    })
     
     static func printContents (message: CustomStringConvertible) {
         print(message)
