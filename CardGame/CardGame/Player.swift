@@ -12,6 +12,7 @@ struct Player: Comparable {
     private var point: Int = 0
     private (set) var name: String = ""
     private var cardSet: [Card] = [Card]()
+    
     init(_ nameIndex: Int, _ cardSet: [Card]) {
         self.name = makeName(nameIndex)
         self.cardSet = cardSet
@@ -53,8 +54,8 @@ struct Player: Comparable {
         return "🤩 승자는 \(self.name)이고 \(winnerHandName.rawValue) \(self.point)점 입니다."
     }
     
-    func printCards(){
-        OutputView.printCardSet(self.name, self.cardSet)
+    func printEachPlayersCards(result: (_ name: String, _ cards: [Card]) -> ()) {
+        result(self.name, self.cardSet)
     }
     
 }

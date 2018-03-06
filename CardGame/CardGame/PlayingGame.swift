@@ -20,9 +20,9 @@ struct PlayingGame {
         self.players = runGame(numberOfParticipants, kindOfGame, dealer)
     }
     
-    func printCards () {
+    func printAllPlayersCards () {
         for index in 0 ..< self.numberOfParticipants.rawValue + 1 {
-            players[index].printCards()
+            players[index].printEachPlayersCards(result: OutputView.printCardSet)
         }
     }
     
