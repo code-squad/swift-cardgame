@@ -10,7 +10,7 @@ import Foundation
 
 struct Player: Comparable {
     private var point: Int = 0
-    private var name: String = ""
+    private (set) var name: String = ""
     private var cardSet: [Card] = [Card]()
     init(_ nameIndex: Int, _ cardSet: [Card]) {
         self.name = makeName(nameIndex)
@@ -53,16 +53,8 @@ struct Player: Comparable {
         return "🤩 승자는 \(self.name)이고 \(winnerHandName.rawValue) \(self.point)점 입니다."
     }
     
-    private  func makeCardSetForPrint () {
-        for index in 0 ..< self.cardSet.count {
-            sleep(1)
-            print (self.cardSet[index].description, terminator: " ")
-        }
+    func printCards(){
+        OutputView.printCardSet(self.name, self.cardSet)
     }
     
-    func makeCardSetOfPlayer () {
-        print ("\(self.name) ", terminator : "[")
-        makeCardSetForPrint()
-        print ("]")
-    }
 }
