@@ -20,12 +20,12 @@ struct PlayingGame {
         self.players = runGame(numberOfParticipants, kindOfGame, dealer)
     }
     
-    func printCardSetOfPlayers () {
+    func printCards () {
         for index in 0 ..< self.numberOfParticipants.rawValue + 1 {
-            players[index].makeCardSetOfPlayer()
+            players[index].printCards()
         }
     }
-
+    
     mutating func runGame(_ numberOfParticipants: NumberOfParticipants, _ kindOfGame: KindOfGame, _ dealer: Dealer) ->  [Player] {
         for index in 0 ..< numberOfParticipants.rawValue {
             let player = Player(index+1, dealer.dealCards(kindOfGame))

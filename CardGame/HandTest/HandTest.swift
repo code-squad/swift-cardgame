@@ -118,7 +118,7 @@ class HandTest: XCTestCase {
     }
     
     func test_twoTriple_isNotRoyalFlush() {
-         let testCard = [Card(.two, .spade), Card(.two, .heart), Card(.two, .club), Card(.three, .heart), Card(.three, .diamond), Card(.three, .spade), Card(.thirteen, .spade)]
+         let testCard = [Card(.ace, .spade), Card(.eleven, .club), Card(.thirteen, .spade), Card(.twelve, .spade), Card(.ten, .spade), Card(.four, .heart), Card(.five, .club)]
         var bestHand = Hand(testCard).makeHandRanks().sorted(by: >)
         XCTAssertNotEqual(bestHand[0], Hand.HandRanks.royalFlush)
     }

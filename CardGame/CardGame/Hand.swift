@@ -28,6 +28,7 @@ struct Hand {
         case fourCard
         case straightFlush
         case royalFlush
+        case royalStraightFlush
         
         var point: Int {
             return self.hashValue

@@ -17,7 +17,7 @@ func runProgram () {
         }
         guard let numberOfParticipants = InputView.numberOfParticipants() else {
             print(PreGameMessage.ofExceedPossibleNumberOfParticipants)
-            continue
+            continue    
         }
         guard PlayingGame.isRunnable(numberOfParticipants, kindOfGame, dealer) else {
             print(InGameMessage.ofInsufficientCard)
