@@ -54,7 +54,7 @@ struct Player: Comparable {
         return "🤩 승자는 \(self.name)이고 \(winnerHandName.rawValue) \(self.point)점 입니다."
     }
     
-    func printEachPlayersCards(result: (_ name: String, _ cards: [Card]) -> ()) {
+    func printEachPlayersCards(_ result: (_ name: String, _ cards: [Card]) -> ()) {
         result(self.name, self.cardSet)
     }
     

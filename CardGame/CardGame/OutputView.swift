@@ -9,7 +9,7 @@
 import Foundation
 struct OutputView {
     static func printCardsOfPlayers(_ playingGame: PlayingGame) {
-        playingGame.printAllPlayersCards()
+        playingGame.printAllPlayersCards(result: printCardSet)
     }
     
     static let printCardSet = ( {(name: String, cards: [Card]) -> () in
