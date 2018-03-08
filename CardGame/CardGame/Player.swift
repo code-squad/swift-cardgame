@@ -10,7 +10,7 @@ import Foundation
 
 struct Player: Comparable {
     private var point: Int = 0
-    private (set) var name: String = ""
+    private var name: String = ""
     private var cardSet: [Card] = [Card]()
     
     init(_ nameIndex: Int, _ cardSet: [Card]) {
