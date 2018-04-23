@@ -41,9 +41,10 @@ class Card {
         case thirteen = "K"
     }
 
-    func makeCard() -> String {
-        return "\(self.suit.rawValue)\(self.rank.rawValue)"
-    }
-    
 }
 
+extension Card: CustomStringConvertible {
+    var description: String {
+        return self.suit.rawValue + self.rank.rawValue
+    }
+}
