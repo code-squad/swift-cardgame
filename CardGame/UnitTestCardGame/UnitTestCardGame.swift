@@ -16,7 +16,7 @@ class UnitTestCardGame: XCTestCase {
     
     func testMakeCard() {
         let card = Card.init(Card.Suit.heart, Card.Rank.seven)
-        let makeCard = card.makeCard()
+        let makeCard = card.description
         XCTAssert(makeCard == "♥️7")
     }
     

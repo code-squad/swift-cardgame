@@ -9,4 +9,5 @@
 import Foundation
 
 let card = Card.init(Card.Suit.heart, Card.Rank.twelve)
-print(card.makeCard())
+print(card.description)
+
