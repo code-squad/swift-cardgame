@@ -33,11 +33,11 @@ struct CardDeck {
         }
     }
     
-    mutating func removeOne() -> ([Card], [Card]) {
+    mutating func removeOne() -> (basic: [Card], pick: [Card]) {
         var pickCard: [Card] = []
         let randomCard: UInt32 = arc4random_uniform(UInt32(card.count-1))
         pickCard.append(self.card.remove(at: Int(randomCard)))
-        return (pickCard, self.card)
+        return (self.card, basic)
     }
     
     mutating func reset() {
