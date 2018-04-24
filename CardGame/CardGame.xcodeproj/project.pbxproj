@@ -13,6 +13,8 @@
 		D6304874208DA990008FA9AA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6304866208DA944008FA9AA /* Card.swift */; };
 		D63890FA208EF00E00583E7C /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890F9208EF00E00583E7C /* CardDeck.swift */; };
 		D63890FC208EFE1200583E7C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890FB208EFE1200583E7C /* OutputView.swift */; };
+		D6FC613F208F16B400A4BC00 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC613E208F16B400A4BC00 /* InputView.swift */; };
+		D6FC6140208F16E100A4BC00 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890F9208EF00E00583E7C /* CardDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,7 @@
 		D6304870208DA986008FA9AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D63890F9208EF00E00583E7C /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		D63890FB208EFE1200583E7C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D6FC613E208F16B400A4BC00 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 				D6304866208DA944008FA9AA /* Card.swift */,
 				D63890F9208EF00E00583E7C /* CardDeck.swift */,
 				D63890FB208EFE1200583E7C /* OutputView.swift */,
+				D6FC613E208F16B400A4BC00 /* InputView.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -186,6 +190,7 @@
 			files = (
 				D63890FA208EF00E00583E7C /* CardDeck.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				D6FC613F208F16B400A4BC00 /* InputView.swift in Sources */,
 				D6304867208DA944008FA9AA /* Card.swift in Sources */,
 				D63890FC208EFE1200583E7C /* OutputView.swift in Sources */,
 			);
@@ -195,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6FC6140208F16E100A4BC00 /* CardDeck.swift in Sources */,
 				D630486F208DA986008FA9AA /* UnitTestCardGame.swift in Sources */,
 				D6304874208DA990008FA9AA /* Card.swift in Sources */,
 			);

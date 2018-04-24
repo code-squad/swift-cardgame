@@ -8,6 +8,18 @@
 
 import Foundation
 
-let card = Card.init(Card.Suit.heart, Card.Rank.twelve)
-print(card.description)
+let inputView = InputView()
+let outputView = OutputView()
+var cardDeck = CardDeck()
 
+while true {
+    outputView.printMenu()
+    let number = inputView.inputNumber()
+    switch number {
+    case "1": outputView.printReset(cardDeck.reset())
+    case "2": outputView.printShuffle(cardDeck.shuffle())
+    case "3": let removeCard = cardDeck.removeOne()
+    outputView.printRemoveOne(removeCard.basic, removeCard.pick)
+    default: outputView.printinValid()
+    }
+}
