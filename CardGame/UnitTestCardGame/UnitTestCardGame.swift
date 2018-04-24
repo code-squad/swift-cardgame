@@ -14,10 +14,10 @@ class UnitTestCardGame: XCTestCase {
         super.setUp()
     }
     
-    func testMakeCard() {
-        let card = Card.init(Card.Suit.heart, Card.Rank.seven)
-        let makeCard = card.description
-        XCTAssert(makeCard == "♥️7")
+    func testBasicCardCount() {
+        let cardDeck = CardDeck()
+        let cardCount = cardDeck.count()
+        XCTAssertTrue(cardCount == 52)
     }
     
 }
