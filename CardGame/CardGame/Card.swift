@@ -23,6 +23,7 @@ class Card {
         case heart = "♥️"
         case diamond = "♦️"
         case club = "♣️"
+        static let suits = [spade, heart, diamond, club]
     }
 
     enum Rank: String {
@@ -39,6 +40,7 @@ class Card {
         case eleven = "J"
         case twelve = "Q"
         case thirteen = "K"
+        static let ranks = [two, three, four, five, six, seven, eight, nine, ten, one, eleven, twelve, thirteen]
     }
 
 }
