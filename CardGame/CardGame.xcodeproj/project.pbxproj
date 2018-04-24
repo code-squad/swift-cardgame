@@ -12,6 +12,7 @@
 		D630486F208DA986008FA9AA /* UnitTestCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630486E208DA986008FA9AA /* UnitTestCardGame.swift */; };
 		D6304874208DA990008FA9AA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6304866208DA944008FA9AA /* Card.swift */; };
 		D63890FA208EF00E00583E7C /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890F9208EF00E00583E7C /* CardDeck.swift */; };
+		D63890FC208EFE1200583E7C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890FB208EFE1200583E7C /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,7 @@
 		D630486E208DA986008FA9AA /* UnitTestCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCardGame.swift; sourceTree = "<group>"; };
 		D6304870208DA986008FA9AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D63890F9208EF00E00583E7C /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		D63890FB208EFE1200583E7C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				D6304866208DA944008FA9AA /* Card.swift */,
 				D63890F9208EF00E00583E7C /* CardDeck.swift */,
+				D63890FB208EFE1200583E7C /* OutputView.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				D63890FA208EF00E00583E7C /* CardDeck.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				D6304867208DA944008FA9AA /* Card.swift in Sources */,
+				D63890FC208EFE1200583E7C /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
