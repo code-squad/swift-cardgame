@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OutputView {
+struct OutputView: OutputPrintable {
     
     func printMenu() {
         print("다음 메뉴를 선택해주세요. \n1. 카드 초기화 \n2. 카드 섞기 \n3. 카드 하나 뽑기 \n> ", terminator: "")
