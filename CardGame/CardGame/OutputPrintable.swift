@@ -9,9 +9,7 @@
 import Foundation
 
 protocol OutputPrintable {
-    func printMenu()
-    func printReset(_ resetCard: [Card])
-    func printShuffle(_ shuffleCard: [Card])
-    func printRemoveOne(_ basic: [Card],_ pick: Card)
-    func printinValid()
+    func reset() -> [Card]
+    func shuffle() -> [Card]
+    func removeOne() -> (basic: [Card], pick: Card)
 }
