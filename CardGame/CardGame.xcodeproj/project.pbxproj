@@ -13,6 +13,7 @@
 		D6304874208DA990008FA9AA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6304866208DA944008FA9AA /* Card.swift */; };
 		D63890FA208EF00E00583E7C /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890F9208EF00E00583E7C /* CardDeck.swift */; };
 		D63890FC208EFE1200583E7C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890FB208EFE1200583E7C /* OutputView.swift */; };
+		D6F4BF3B2091CE1300FB8D2B /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4BF3A2091CE1300FB8D2B /* CardStack.swift */; };
 		D6FC613F208F16B400A4BC00 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC613E208F16B400A4BC00 /* InputView.swift */; };
 		D6FC6140208F16E100A4BC00 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63890F9208EF00E00583E7C /* CardDeck.swift */; };
 		D6FC61442090628600A4BC00 /* OutputPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC61432090628600A4BC00 /* OutputPrintable.swift */; };
@@ -39,6 +40,7 @@
 		D6304870208DA986008FA9AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D63890F9208EF00E00583E7C /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		D63890FB208EFE1200583E7C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D6F4BF3A2091CE1300FB8D2B /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		D6FC613E208F16B400A4BC00 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D6FC61432090628600A4BC00 /* OutputPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputPrintable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				D6304866208DA944008FA9AA /* Card.swift */,
 				D63890F9208EF00E00583E7C /* CardDeck.swift */,
+				D6F4BF3A2091CE1300FB8D2B /* CardStack.swift */,
 				D63890FB208EFE1200583E7C /* OutputView.swift */,
 				D6FC61432090628600A4BC00 /* OutputPrintable.swift */,
 				D6FC613E208F16B400A4BC00 /* InputView.swift */,
@@ -197,6 +200,7 @@
 				D6FC613F208F16B400A4BC00 /* InputView.swift in Sources */,
 				D6304867208DA944008FA9AA /* Card.swift in Sources */,
 				D63890FC208EFE1200583E7C /* OutputView.swift in Sources */,
+				D6F4BF3B2091CE1300FB8D2B /* CardStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

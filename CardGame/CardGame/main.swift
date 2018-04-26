@@ -8,21 +8,31 @@
 
 import Foundation
 
-let inputView = InputView()
-let outputView = OutputView()
+/*
+ 필요한 cardDeck 객체와 outputView 객체를 제외하고 모두 주석처리 했습니다.
+ */
+
+//    let inputView = InputView()
 var cardDeck = CardDeck()
 
-while true {
-    outputView.printMenu()
-    let number = inputView.inputNumber()
-    switch number {
-    case "1": _ = cardDeck.reset()
-    outputView.printReset(cardDeck)
-    case "2": _ = cardDeck.shuffle()
-    outputView.printShuffle(cardDeck)
-    case "3":
-        let pickCard = cardDeck.removeOne()
-        outputView.printRemoveOne(pickCard.pick,cardDeck)
-    default: outputView.printinValid()
-    }
-}
+//while true {
+let outputView = OutputView(cardDeck)
+//    outputView.printMenu()
+//    let number = inputView.inputNumber()
+//    switch number {
+//    case "1": _ = cardDeck.reset()
+//    outputView.printReset()
+//    case "2": _ = cardDeck.shuffle()
+//    outputView.printShuffle()
+//    case "3":
+//    let pickCard = cardDeck.removeOne()
+//    outputView.printRemoveOne(pickCard.pick)
+//    default: outputView.printinValid()
+//    }
+//}
+
+let cardStack = CardStack()
+let cards = cardStack.makeCardStack(cardDeck)
+outputView.printCardStack(cards)
+
+
