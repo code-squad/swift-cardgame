@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CardDeck: OutputPrintable {
+struct CardDeck: OutputPrintable {
     
     private var cards = [Card]()
     private var pickCards = [Card]()
@@ -25,7 +25,7 @@ class CardDeck: OutputPrintable {
         return self.cards.count
     }
     
-    func shuffle() -> [Card] {
+    mutating func shuffle() -> [Card] {
         for i in 0..<cards.count {
             let randomCard: UInt32 = arc4random_uniform(UInt32(cards.count-1))
             let j = Int(randomCard)
@@ -35,16 +35,20 @@ class CardDeck: OutputPrintable {
         return self.cards
     }
     
-    func removeOne() -> (basic: [Card], pick: Card) {
+    mutating func removeOne() -> (basic: [Card], pick: Card) {
         let randomCard: UInt32 = arc4random_uniform(UInt32(cards.count-1))
         let removeCard = self.cards.remove(at: Int(randomCard))
         pickCards.append(removeCard)
         return (self.cards, removeCard)
     }
     
-    func reset() -> [Card] {
+    mutating func reset() -> [Card] {
         self.cards = CardDeck().cards
         return self.cards
+    }
+    
+    func countOfCards() -> String {
+        return "\(self.cards.count)장"
     }
     
 }

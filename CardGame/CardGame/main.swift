@@ -16,9 +16,13 @@ while true {
     outputView.printMenu()
     let number = inputView.inputNumber()
     switch number {
-    case "1": outputView.printReset(cardDeck)
-    case "2": outputView.printShuffle(cardDeck)
-    case "3": outputView.printRemoveOne(cardDeck)
+    case "1": _ = cardDeck.reset()
+    outputView.printReset(cardDeck)
+    case "2": _ = cardDeck.shuffle()
+    outputView.printShuffle(cardDeck)
+    case "3":
+        let pickCard = cardDeck.removeOne()
+        outputView.printRemoveOne(pickCard.pick,cardDeck)
     default: outputView.printinValid()
     }
 }

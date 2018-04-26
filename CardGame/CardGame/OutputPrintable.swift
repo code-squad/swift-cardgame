@@ -9,7 +9,5 @@
 import Foundation
 
 protocol OutputPrintable {
-    func reset() -> [Card]
-    func shuffle() -> [Card]
-    func removeOne() -> (basic: [Card], pick: Card)
+    func countOfCards() -> String
 }
