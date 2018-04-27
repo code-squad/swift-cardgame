@@ -36,11 +36,10 @@ struct OutputView {
         print("1,2,3번만 선택 가능합니다. \n")
     }
     
-    func printCardStack(_ card:[[Card]]) {
-        for index in 0..<card.count {
-            print(card[index])
-        }
-        
+    func printCardStack(_ cardStack: CardStackPrintable) {
+        cardStack.printCardStack( { cards in
+            print("\(cards)")
+        } )
     }
     
 }

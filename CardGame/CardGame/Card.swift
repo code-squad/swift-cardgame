@@ -46,7 +46,9 @@ class Card {
 }
 
 extension Card: CustomStringConvertible {
+    
     var description: String {
         return self.suit.rawValue + self.rank.rawValue
     }
+    
 }

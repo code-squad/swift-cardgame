@@ -8,10 +8,12 @@
 
 import Foundation
 
-class CardStack {
+class CardStack: CardStackPrintable {
 
+    private var cardStack = [[Card]]()
+    
     func makeCardStack(_ deck: CardDeck) -> [[Card]] {
-        var cardStack = [[Card]]()
+        
         let stack = 6
         
         for index in 0...stack {
@@ -19,9 +21,15 @@ class CardStack {
             for _ in 0...index {
                 tempCard.append(deck.removeOne().pick)
             }
-            cardStack.append(tempCard)
+            self.cardStack.append(tempCard)
         }
-        return cardStack
+        return self.cardStack
     }
-
+    
+    func printCardStack(_ handler: (_ cards : [Card]) -> Void  ) {
+        for cards in self.cardStack {
+            handler(cards)
+        }
+    }
+    
 }

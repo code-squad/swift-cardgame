@@ -33,6 +33,6 @@ let outputView = OutputView(cardDeck)
 
 let cardStack = CardStack()
 let cards = cardStack.makeCardStack(cardDeck)
-outputView.printCardStack(cards)
+outputView.printCardStack(cardStack)
 
 

@@ -9,5 +9,8 @@
 import Foundation
 
 protocol OutputPrintable {
+    
     func countOfCards() -> String
+    
 }
+
