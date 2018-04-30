@@ -9,9 +9,18 @@
 import Foundation
 
 struct InputView {
+
+    func inputCard() -> String {
+        return readLine() ?? ""
+    }
+    
+    func inputPlyer() -> String {
+        return readLine() ?? ""
+    }
     
     func inputNumber() -> String {
         return readLine() ?? ""
     }
     
 }
+

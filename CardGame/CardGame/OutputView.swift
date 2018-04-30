@@ -16,6 +16,14 @@ struct OutputView {
         self.card = card
     }
     
+    func printNumberOfCard() {
+        print("카드 게임 종류를 선택하세요. \n1. 7카드 \n2. 5카드 \n> ", terminator: "")
+    }
+    
+    func printNumberOfPlayer() {
+        print("참여할 사람의 인원을 입력하세요. \n> ", terminator: "")
+    }
+    
     func printMenu() {
         print("다음 메뉴를 선택해주세요. \n1. 카드 초기화 \n2. 카드 섞기 \n3. 카드 하나 뽑기 \n> ", terminator: "")
     }
@@ -36,8 +44,8 @@ struct OutputView {
         print("1,2,3번만 선택 가능합니다. \n")
     }
     
-    func printCardStack(_ cardStack: CardStackPrintable) {
-        cardStack.printCardStack( { cards in
+    func printCardStack(_ cardStack: CardStackPrintable,_ numberOfPlayer: Int) {
+        cardStack.printCardStack(numberOfPlayer, { cards in
             print("\(cards)")
         } )
     }
