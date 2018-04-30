@@ -12,13 +12,11 @@ class CardStack: CardStackPrintable {
 
     private var cardStack = [[Card]]()
     
-    func makeCardStack(_ deck: CardDeck) -> [[Card]] {
+    func makeCardStack(_ deck: CardDeck,_ numberOfPlayer: Int,_ numberOfCard: Int) -> [[Card]] {
         
-        let stack = 6
-        
-        for index in 0...stack {
+        for _ in 0...numberOfPlayer {
             var tempCard = [Card]()
-            for _ in 0...index {
+            for _ in 0...numberOfCard {
                 tempCard.append(deck.removeOne().pick)
             }
             self.cardStack.append(tempCard)
@@ -26,9 +24,18 @@ class CardStack: CardStackPrintable {
         return self.cardStack
     }
     
-    func printCardStack(_ handler: (_ cards : [Card]) -> Void  ) {
+    
+    func printCardStack(_ numberOfPlayer: Int,_ handler: (_ cards: [Card]) -> Void  ) {
+        var player = 1
         for cards in self.cardStack {
-            handler(cards)
+            if player > numberOfPlayer {
+                print("딜러 " , terminator: "")
+                handler(cards)
+            } else {
+                print("참가자#\(player) " , terminator: "")
+                handler(cards)
+                player = player+1
+            }
         }
     }
     
