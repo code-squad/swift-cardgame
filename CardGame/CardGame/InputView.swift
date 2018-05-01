@@ -9,18 +9,25 @@
 import Foundation
 
 struct InputView {
+   
+    enum Cards: Int {
+        case sevenCards = 1, fiveCards, invalidCards
+    }
+    
+    enum Players: Int {
+        case onePlayer = 1, twoPlayer, threePlayer, fourPlayer, invalidPlayer
+    }
+    
+    func inputCard() -> Cards {
+        let numberOfCards = Int(readLine() ?? "") ?? 0
+        guard let cards = Cards(rawValue: numberOfCards) else { return Cards.invalidCards}
+        return cards
+    }
+    
+    func inputPlyer() -> Players {
+        let numberOfPlayers = Int(readLine() ?? "") ?? 0
+        guard let players = Players(rawValue: numberOfPlayers) else { return Players.invalidPlayer}
+        return players
+    }
 
-    func inputCard() -> String {
-        return readLine() ?? ""
-    }
-    
-    func inputPlyer() -> String {
-        return readLine() ?? ""
-    }
-    
-    func inputNumber() -> String {
-        return readLine() ?? ""
-    }
-    
 }
-

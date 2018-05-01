@@ -11,24 +11,27 @@ import Foundation
 class CardStack: CardStackPrintable {
 
     private var cardStack = [[Card]]()
+    private var players = 0
     
-    func makeCardStack(_ deck: CardDeck,_ numberOfPlayer: Int,_ numberOfCard: Int) -> [[Card]] {
-        
-        for _ in 0...numberOfPlayer {
+    init(_ players: Int) {
+        self.players = players
+    }
+
+    func makeCardStack(_ deck: CardDeck,_ numberOfCard: Int) -> [[Card]] {
+        for _ in 0...self.players {
             var tempCard = [Card]()
-            for _ in 0...numberOfCard {
+            for _ in 0..<numberOfCard {
                 tempCard.append(deck.removeOne().pick)
             }
             self.cardStack.append(tempCard)
         }
         return self.cardStack
     }
-    
-    
-    func printCardStack(_ numberOfPlayer: Int,_ handler: (_ cards: [Card]) -> Void  ) {
+
+    func printCardStack(_ handler: (_ cards: [Card]) -> Void  ) {
         var player = 1
         for cards in self.cardStack {
-            if player > numberOfPlayer {
+            if player > self.players {
                 print("딜러 " , terminator: "")
                 handler(cards)
             } else {

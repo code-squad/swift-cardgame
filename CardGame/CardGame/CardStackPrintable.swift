@@ -10,6 +10,6 @@ import Foundation
 
 protocol CardStackPrintable {
     
-    func printCardStack(_ numberOfPlayer: Int,_ handler: (_ cards: [Card]) -> Void )
+    func printCardStack(_ handler: (_ cards: [Card]) -> Void )
     
 }
