@@ -40,12 +40,16 @@ struct OutputView {
         print("\(pickCard) \n총 \(self.card.countOfCards())의 카드가 남아있습니다. \n ")
     }
     
-    func printinValid() {
-        print("1,2,3번만 선택 가능합니다. \n")
+    func printInvalidOfCards() {
+        print("카드 선택을 다시 해주세요.")
     }
     
-    func printCardStack(_ cardStack: CardStackPrintable,_ numberOfPlayer: Int) {
-        cardStack.printCardStack(numberOfPlayer, { cards in
+    func printInvalidOfPlayers() {
+        print("참여 인원은 최소 1명 부터 최대 4명 입니다")
+    }
+    
+    func printCardStack(_ cardStack: CardStackPrintable) {
+        cardStack.printCardStack( { cards in
             print("\(cards)")
         } )
     }
