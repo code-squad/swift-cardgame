@@ -11,7 +11,7 @@ import Foundation
 
 struct OutputView {
     
-    static func printCard(_ card: CustomStringConvertible) {
-        print(card.description)
+    static func printCard(_ card: Card) {
+        print(card)
     }
 }
