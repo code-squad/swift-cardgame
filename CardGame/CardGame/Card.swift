@@ -16,4 +16,9 @@ class Card {
         case hearts
         case spades
     }
+    
+    enum Number {
+        case two, three, four, five, six, seven, eight, nine, ten
+        case jack, queen, king, ace
+    }
 }
