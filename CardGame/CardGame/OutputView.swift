@@ -10,8 +10,8 @@ import Foundation
 
 
 struct OutputView {
-    
     static func printCard(_ card: Card) {
         print(card)
     }
+    
 }

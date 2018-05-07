@@ -9,7 +9,6 @@
 import Foundation
 
 func main() {
-    
     let firstCard: Card = Card(suit: .hearts, number: .queen)
     let secondCard: Card = Card(suit: .spades, number: .seven)
     
