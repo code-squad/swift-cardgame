@@ -12,6 +12,7 @@ while true {
     let inputView = InputView()
     let cardDeck = CardDeck()
     let outputView = OutputView(cardDeck)
+    
     outputView.printNumberOfCard()
     let numberOfCard = inputView.inputCard()
     guard numberOfCard != .invalidCards else { outputView.printInvalidOfCards()
@@ -19,7 +20,7 @@ while true {
     }
     outputView.printNumberOfPlayer()
     let numberOfPlayer = inputView.inputPlyer()
-    let cardStack = CardStack.init(numberOfCard.rawValue, numberOfPlayer.rawValue)
+    let cardStack = CardStack.init(numberOfCard, numberOfPlayer)
     guard numberOfPlayer != .invalidPlayer else { outputView.printInvalidOfPlayers()
         continue }
     cardStack.makeCardStack(cardDeck)
