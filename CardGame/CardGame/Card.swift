@@ -10,4 +10,10 @@ import Foundation
 
 class Card {
     
+    enum Suit {
+        case clubs
+        case diamonds
+        case hearts
+        case spades
+    }
 }
