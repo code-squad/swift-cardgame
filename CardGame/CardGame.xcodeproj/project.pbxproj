@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		73541B6E20A062DA00858BB4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73541B6D20A062DA00858BB4 /* Card.swift */; };
+		73541B7020A06CA800858BB4 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73541B6F20A06CA800858BB4 /* OutputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		73541B6D20A062DA00858BB4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		73541B6F20A06CA800858BB4 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,7 @@
 			children = (
 				73541B6D20A062DA00858BB4 /* Card.swift */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				73541B6F20A06CA800858BB4 /* OutputView.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				73541B6E20A062DA00858BB4 /* Card.swift in Sources */,
+				73541B7020A06CA800858BB4 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
