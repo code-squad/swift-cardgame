@@ -11,17 +11,17 @@ import Foundation
 class CardStack: CardStackPrintable {
 
     private var cardStack = [[Card]]()
-    private var cards: Int = 7, players: Int
-    
-    init(_ cards: Int,_ players: Int) {
-        if cards == 2 {
+    private var cards: InputView.Cards.RawValue = 7, players: InputView.Players
+
+    init(_ cards: InputView.Cards,_ players: InputView.Players) {
+        if cards.rawValue == 2 {
             self.cards = 5
         }
         self.players = players
     }
-    
+
     func makeCardStack(_ deck: CardDeck) -> [[Card]] {
-        for _ in 0...self.players {
+        for _ in 0...self.players.rawValue {
             var tempCard = [Card]()
             for _ in 0..<self.cards {
                 tempCard.append(deck.removeOne().pick)
@@ -30,11 +30,11 @@ class CardStack: CardStackPrintable {
         }
         return self.cardStack
     }
-    
+
     func printCardStack(_ handler: (_ cards: [Card]) -> Void  ) {
         var player = 1
         for cards in self.cardStack {
-            if player > self.players {
+            if player > self.players.rawValue {
                 print("딜러 " , terminator: "")
                 handler(cards)
             } else {
@@ -44,5 +44,5 @@ class CardStack: CardStackPrintable {
             }
         }
     }
-    
+
 }
