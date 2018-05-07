@@ -21,4 +21,12 @@ class Card {
         case two, three, four, five, six, seven, eight, nine, ten
         case jack, queen, king, ace
     }
+    
+    let suit: Suit
+    let number: Number
+    
+    init(suit: Suit, number: Number) {
+        self.suit = suit
+        self.number = number
+    }
 }
