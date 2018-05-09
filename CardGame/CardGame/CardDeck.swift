@@ -21,11 +21,9 @@ struct CardDeck: CardDeckable {
     }
     
     mutating func shuffle() -> String {
-        var count = UInt32(self.count())
         var shuffledCards = [Card]()
-        while count != 0 {
+        for count in stride(from: UInt32(self.count()), to: 0, by: -1) {
             shuffledCards.append(self.cardDeck.cards.remove(at: Int(arc4random_uniform(count))))
-            count -= 1
         }
         self.cardDeck.cards = shuffledCards
         return "전체 \(self.count())장의 카드를 섞었습니다."
