@@ -15,30 +15,18 @@ protocol CardDeckable {
 }
 
 struct OutputView {
-    enum Error: Swift.Error {
-        case invalidMenu
-        
-        var errorMessage: String {
-            switch self {
-            case .invalidMenu:
-                return "메뉴 선택이 잘못되었습니다."
-            }
-        }
-    }
     static private let resetCard: Int = 1
     static private let shuffleCard: Int = 2
     static private let removeOneCard: Int = 3
     
-    static func printResult(cardDeck: inout CardDeckable, menu: Int) throws {
+    static func printResult(cardDeck: inout CardDeckable, menu: Menu) {
         switch menu {
-        case resetCard:
+        case .resetCard:
             print(cardDeck.reset())
-        case shuffleCard:
+        case .shuffleCard:
             print(cardDeck.shuffle())
-        case removeOneCard:
+        case .removeOneCard:
             print(cardDeck.removeOne())
-        default:
-            throw OutputView.Error.invalidMenu
         }
         print()
     }
