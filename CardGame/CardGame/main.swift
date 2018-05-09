@@ -9,11 +9,19 @@
 import Foundation
 
 func main() {
-    let firstCard: Card = Card(suit: .hearts, number: .queen)
-    let secondCard: Card = Card(suit: .spades, number: .seven)
     
-    OutputView.printCard(firstCard)
-    OutputView.printCard(secondCard)
+    var cardDeck: CardDeckable = CardDeck()
+    do {
+        while true {
+            let input: Int = Int(InputView.readInput(question: Question.menu)) ?? 0
+            try OutputView.printResult(cardDeck: &cardDeck, menu: input)
+        }
+    } catch let error as OutputView.Error {
+        print(error.errorMessage)
+    } catch {
+        fatalError("Unexpected Error")
+    }
+    
 }
 
 main()

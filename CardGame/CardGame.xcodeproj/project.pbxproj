@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7325DB9420A147930085CF52 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325DB9320A147930085CF52 /* InputView.swift */; };
+		7325DB9620A1516C0085CF52 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325DB9520A1516C0085CF52 /* CardDeck.swift */; };
 		73541B6E20A062DA00858BB4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73541B6D20A062DA00858BB4 /* Card.swift */; };
 		73541B7020A06CA800858BB4 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73541B6F20A06CA800858BB4 /* OutputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7325DB9320A147930085CF52 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		7325DB9520A1516C0085CF52 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		73541B6D20A062DA00858BB4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		73541B6F20A06CA800858BB4 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,8 +65,10 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				7325DB9320A147930085CF52 /* InputView.swift */,
 				73541B6D20A062DA00858BB4 /* Card.swift */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				7325DB9520A1516C0085CF52 /* CardDeck.swift */,
 				73541B6F20A06CA800858BB4 /* OutputView.swift */,
 			);
 			path = CardGame;
@@ -127,6 +133,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				7325DB9620A1516C0085CF52 /* CardDeck.swift in Sources */,
+				7325DB9420A147930085CF52 /* InputView.swift in Sources */,
 				73541B6E20A062DA00858BB4 /* Card.swift in Sources */,
 				73541B7020A06CA800858BB4 /* OutputView.swift in Sources */,
 			);
