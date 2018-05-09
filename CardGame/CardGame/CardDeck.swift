@@ -33,7 +33,7 @@ struct CardDeck: CardDeckable {
     
     mutating func removeOne() -> String {
         guard let popedCard = self.cardDeck.cards.popLast() else {
-            return "남아있는 카드가 없습니다.\n전"
+            return "카드덱에 남아있는 카드가 없습니다. 카드를 초기화해주세요\n"
         }
         return "\(popedCard)\n총 \(self.count())장의 카드가 남아있습니다."
     }
