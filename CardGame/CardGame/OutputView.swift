@@ -8,10 +8,14 @@
 
 import Foundation
 
+protocol CardDeckable {
+    mutating func shuffle() -> String
+    mutating func removeOne() -> String
+    mutating func reset() -> String
+}
 
 struct OutputView {
     static func printCard(_ card: Card) {
         print(card)
     }
-    
 }
