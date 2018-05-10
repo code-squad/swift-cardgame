@@ -9,6 +9,6 @@
 import Foundation
 
 
-class CardStack {
+struct CardStack {
     var cards: [Card] = [Card]()
 }
