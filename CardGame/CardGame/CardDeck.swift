@@ -43,6 +43,16 @@ struct CardDeck: CardDeckable {
         }
         return "\(popedCard)\n총 \(self.cardDeck.cards.count)장의 카드가 남아있습니다."
     }
+    
+    mutating func remove(numberOfCards: Int) -> [Card] {
+        var removedCards: [Card] = [Card]()
+        for _ in 0..<numberOfCards {
+            if let removedCard = self.cardDeck.cards.popLast() {
+                removedCards.append(removedCard)
+            }
+        }
+        return removedCards
+    }
 }
 
 fileprivate struct Deck {
