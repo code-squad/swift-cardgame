@@ -46,7 +46,7 @@ struct CardDeck: CardDeckable {
     
     mutating func remove(numberOfCards: Int) -> [Card] {
         var removedCards: [Card] = [Card]()
-        for _ in 0..<numberOfCards {
+        [0..<numberOfCards].forEach { _ in
             if let removedCard = self.cardDeck.cards.popLast() {
                 removedCards.append(removedCard)
             }
