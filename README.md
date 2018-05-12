@@ -1,57 +1,47 @@
-# 진행 방법
+# CardGame의 객체들
 
-- 카드게임에 대한 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+#### class Card : 카드 1장을 표현하는 객체
+* 프로퍼티
+	- `suit` : 카드의 모양.
+	- `number` : 카드의 숫자.
+	- `description` : 카드 객체의 문자열 표현.(CustomStringConvertible)
+	
+#### struct Deck : 카드덱에서 사용하는 카드의 배열을 표현
+* 프로퍼티
+	- `cards` : 카드의 배열.
+	
+#### struct CardDeck : 카드의 덱을 표현하는 객체
+* 프로퍼티
+	- `deck` : 카드덱이 가지고 있는 카드들. (Deck객체로 표현)
+* 메서드
+	- `resetCard()` : 카드덱을 다시 초기화함.
+	- `shuffleCard` : 카드덱을 섞음.
+	- `remove(numberofCards:)` : 입력된 카드의 갯수만큼 카드덱에서 제거하고 제거된 카드의 배열을 반환.
+	
+#### struct CardStack : 카드게임에서 카드덱으로부터 제거된 카드를 할당받은 카드들을 표현하는 객체
+* 프로퍼티
+	- `cards` : 카드 스택이 가지고 카드들. 카드의 배열.
+	- `description` : 카드스택의 문자열 표현.
+* 메서드
+	- `add(cards:)` : 입력된 카드만큼 `cards`에 카드추가.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+#### struct AllCardStack : 카드게임에서 카드스택들을(카드스택의 배열) 표현하는 객체
+* 프로퍼티
+	- `cardStacks` : 카드스택의 배열을 표현.
+* 메서드
+	- `add(cards:at:)` : 입력된 카드를 입력된 카드스택의 인덱스에 추가한다.
+	- `descriptionOfCardStack(at:)` : 입력받은 인덱스의 카드스택의 문자열 표현을 반환.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
-
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-cardgame
-```
-
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-cardgame
-```
-
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
-
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+#### class CardGame : main함수에서 실제 카드게임의 기능과 역할을 해내는 객체
+* 프로퍼티
+	- `numberOfCardStacks` : 카드게임의 카드스택 갯수.
+	- `cardDeck` : 카드게임의 카드덱.
+	- `allCardStack` : 카드게임의 모든 카드스택을 표현.
+* 메서드
+	- `resetGame()` : 카드덱과 모든 카드스택을 초기화.
+	- `shuffleCard()` : 카드덱을 섞음.
+	- `drawCard()` : 카드덱에서 카드를 뽑고 뽑은 카드를 카드스택에 할당한다.
+	- `descriptionOfCardStack(at:)` : OutputView에서 카드스택을 출력하기 위한 메서드(CardStackPrintable 프로토콜의 메서드)
+	
+#### struct OutputView
+* `printCardStack(_:numberOfCardStack:)` : 입력된 카드게임의 입력된 카드스택의 갯수만큼 카드스택을 출력한다.
