@@ -10,5 +10,21 @@ import Foundation
 
 
 struct CardStack {
-    var cards: [Card] = [Card]() // 이 부분도 Array의 속성이기 때문에 [Card]를 갖고 있는 객체로 만들어서 표현해야 할까요?
+    
+    private var cards: [Card] = [Card]()
+    
+    mutating func add(cards: [Card]){
+        self.cards += cards
+    }
+}
+
+extension CardStack: CustomStringConvertible {
+    var description: String {
+        var result: String = "["
+        for card in self.cards {
+            result += "\(card) ,"
+        }
+        result.removeLast(2)
+        return result + "]"
+    }
 }
