@@ -8,13 +8,41 @@
 
 import Foundation
 
+protocol CardDeckConvertible {
+    mutating func shuffleCard()
+    mutating func resetCard()
+    mutating func remove(numberOfCards: Int) -> [Card]
+}
+
 class CardGame {
-    private let numberOfCardStacks: Int = 7
-    var cardDeck: CardDeck
-    var cardStacks: [CardStack]  // 이 부분도 Array의 속성을 갖고 있으니 [CardStack]을 객체로 표현하는게 좋을까요?
+    private let numberOfCardStacks: Int
+    private var cardDeck: CardDeckConvertible = CardDeck()
+    private var allCardStack: AllCardStack
     
-    init() {
-        self.cardDeck = CardDeck()
-        self.cardStacks = [CardStack](repeating: CardStack(), count: self.numberOfCardStacks)
+    init(_ numberOfCardStacks: Int) {
+        self.allCardStack = AllCardStack(numberOfCardStacks: numberOfCardStacks)
+        self.numberOfCardStacks = numberOfCardStacks
+    }
+    
+    func resetGame() {
+        self.cardDeck.resetCard()
+        self.allCardStack = AllCardStack(numberOfCardStacks: numberOfCardStacks)
+    }
+    
+    func shuffleCard() {
+        self.cardDeck.shuffleCard()
+    }
+    
+    func drawCard() {
+        for cardStackIndex in 0..<self.numberOfCardStacks {
+            let cards: [Card] = self.cardDeck.remove(numberOfCards: cardStackIndex + 1)
+            self.allCardStack.add(cards: cards, at: cardStackIndex)
+        }
+    }
+}
+
+extension CardGame: CardStackPrintable {
+    func descriptionOfCardStack(at index: Int) -> String {
+        return self.allCardStack.descriptionOfCardStack(at: index)
     }
 }
