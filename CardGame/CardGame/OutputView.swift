@@ -14,9 +14,9 @@ protocol CardStackPrintable {
 
 struct OutputView {
     
-    static func printCardStack(_ allCardStack: CardStackPrintable, numberOfCardStack: Int) {
+    static func printCardStack(_ cardGame: CardStackPrintable, numberOfCardStack: Int) {
         for indexOfCardStack in 0..<numberOfCardStack {
-            print(allCardStack.descriptionOfCardStack(at: indexOfCardStack))
+            print(cardGame.descriptionOfCardStack(at: indexOfCardStack))
         }
     }
 }

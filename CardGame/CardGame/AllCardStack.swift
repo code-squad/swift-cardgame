@@ -11,11 +11,6 @@ import Foundation
 struct AllCardStack {
     private var cardStacks: [CardStack]
     
-    func printCardStack(_ cardStack: CardStack) -> String {
-        var result: String = String()
-        return result
-    }
-    
     init(numberOfCardStacks: Int) {
         self.cardStacks = [CardStack](repeating: CardStack(), count: numberOfCardStacks)
     }
