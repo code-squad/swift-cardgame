@@ -8,26 +8,15 @@
 
 import Foundation
 
-protocol CardDeckable {
-    mutating func shuffle() -> String
-    mutating func removeOne() -> String
-    mutating func reset() -> String
+protocol CardStackPrintable {
+    func descriptionOfCardStack(at index: Int) -> String
 }
 
 struct OutputView {
-    static private let resetCard: Int = 1
-    static private let shuffleCard: Int = 2
-    static private let removeOneCard: Int = 3
     
-    static func printResult(cardDeck: inout CardDeckable, menu: Menu) {
-        switch menu {
-        case .resetCard:
-            print(cardDeck.reset())
-        case .shuffleCard:
-            print(cardDeck.shuffle())
-        case .removeOneCard:
-            print(cardDeck.removeOne())
+    static func printCardStack(_ allCardStack: CardStackPrintable, numberOfCardStack: Int) {
+        for indexOfCardStack in 0..<numberOfCardStack {
+            print(allCardStack.descriptionOfCardStack(at: indexOfCardStack))
         }
-        print()
     }
 }
