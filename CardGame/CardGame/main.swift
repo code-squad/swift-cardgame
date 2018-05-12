@@ -9,17 +9,17 @@
 import Foundation
 
 func main() {
-    var cardDeck: CardDeckable = CardDeck()
-    while true {
-        do {
-            let menu = try InputView.selectMenu()
-            OutputView.printResult(cardDeck: &cardDeck, menu: menu)
-        } catch let error as Menu.Error {
-            print(error.errorMessage)
-        } catch {
-            fatalError("Unexpected Error")
-        }
-    }
+    let numberOfCardStack: Int = 7
+    let cardGame: CardGame = CardGame(numberOfCardStack)
+    // 카드덱 섞지 않고 출력해보기
+    cardGame.drawCard()
+    OutputView.printCardStack(cardGame, numberOfCardStack: numberOfCardStack)
+    cardGame.resetGame()
+    // 카드덱을 섞고 출력해보기
+    print()
+    cardGame.shuffleCard()
+    cardGame.drawCard()
+    OutputView.printCardStack(cardGame, numberOfCardStack: numberOfCardStack)
 }
 
 main()
