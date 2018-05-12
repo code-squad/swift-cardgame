@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+struct AllCardStack {
+    private var cardStacks: [CardStack]
+    
+    func printCardStack(_ cardStack: CardStack) -> String {
+        var result: String = String()
+        return result
+    }
+    
+    init(numberOfCardStacks: Int) {
+        self.cardStacks = [CardStack](repeating: CardStack(), count: numberOfCardStacks)
+    }
+    
+    mutating func add(cards: [Card], at cardIndex: Int) {
+        self.cardStacks[cardIndex].add(cards: cards)
+    }
+    
+    func descriptionOfCardStack(at index: Int) -> String {
+        return self.cardStacks[index].description
+    }
+}
