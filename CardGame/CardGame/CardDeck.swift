@@ -8,29 +8,25 @@
 
 import Foundation
 
-struct CardDeck {
-    private var cardDeck: Deck = Deck()
+struct CardDeck: CardDeckConvertible {
+    private var deck: Deck = Deck()
     
     mutating func resetCard() {
-        self.cardDeck = Deck()
+        self.deck = Deck()
     }
     
     mutating func shuffleCard() {
         var shuffledCards = [Card]()
-        for count in stride(from: UInt32(self.cardDeck.cards.count), to: 0, by: -1) {
-            shuffledCards.append(self.cardDeck.cards.remove(at: Int(arc4random_uniform(count))))
+        for count in stride(from: UInt32(self.deck.cards.count), to: 0, by: -1) {
+            shuffledCards.append(self.deck.cards.remove(at: Int(arc4random_uniform(count))))
         }
-        self.cardDeck.cards = shuffledCards
-    }
-    
-    mutating func removeOneCard() -> Card? {
-        return self.cardDeck.cards.popLast()
+        self.deck.cards = shuffledCards
     }
     
     mutating func remove(numberOfCards: Int) -> [Card] {
         var removedCards: [Card] = [Card]()
-        [0..<numberOfCards].forEach { _ in
-            if let removedCard = self.cardDeck.cards.popLast() {
+        for _ in 0..<numberOfCards {
+            if let removedCard = self.deck.cards.popLast() {
                 removedCards.append(removedCard)
             }
         }
