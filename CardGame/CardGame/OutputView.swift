@@ -16,7 +16,6 @@ protocol CardGamePlayersPrintable {
 struct OutputView {
     
     static func descriptionOfPlayers(_ cardGame: CardGamePlayersPrintable) {
-        print(cardGame.descriptionOfPlayers())
-        print(cardGame.descriptionOfDealer())
+        print("\(cardGame.descriptionOfPlayers())\(cardGame.descriptionOfDealer())")
     }
 }
