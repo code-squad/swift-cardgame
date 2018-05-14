@@ -33,7 +33,7 @@ class CardGame {
         self.cardDeck.shuffleCard()
     }
     
-    func drawCard() {
+    func dealOutCard() {
         for cardStackIndex in 0..<self.numberOfCardStacks {
             let cards: [Card] = self.cardDeck.remove(numberOfCards: cardStackIndex + 1)
             self.allCardStack.add(cards: cards, at: cardStackIndex)
