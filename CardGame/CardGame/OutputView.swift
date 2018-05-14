@@ -8,15 +8,15 @@
 
 import Foundation
 
-protocol CardStackPrintable {
-    func descriptionOfCardStack(at index: Int) -> String
+protocol CardGamePlayersPrintable {
+    func descriptionOfPlayers() -> String
+    func descriptionOfDealer() -> String
 }
 
 struct OutputView {
     
-    static func printCardStack(_ cardGame: CardStackPrintable, numberOfCardStack: Int) {
-        for indexOfCardStack in 0..<numberOfCardStack {
-            print(cardGame.descriptionOfCardStack(at: indexOfCardStack))
-        }
+    static func descriptionOfPlayers(_ cardGame: CardGamePlayersPrintable) {
+        print(cardGame.descriptionOfPlayers())
+        print(cardGame.descriptionOfDealer())
     }
 }
