@@ -13,28 +13,28 @@ enum Question: String {
     case numberOfPlayers = "참여할 사람의 인원을 입력하세요.\n"
 }
 
+enum CardGameMode: String {
+    case sevenCardStud = "1"
+    case fiveCardStud = "2"
+}
+
 struct GameInputView {
     enum Error: Swift.Error {
-        case invalidMode
+        case invalidCardMode
         
         var errorMessage: String {
             switch self {
-            case .invalidMode:
+            case .invalidCardMode:
                 return "유효하지 않는 모드를 입력하셨습니다."
             }
         }
     }
     
-    enum Mode: String {
-        case sevenCardStudMode = "1"
-        case fiveCardStudMode = "2"
-    }
-    
-    static func readGameMode(askMessage: Question) throws -> Mode {
+    static func readGameMode(askMessage: Question) throws -> CardGameMode {
         print(askMessage.rawValue, terminator: "> ")
         let modeInput = readLine() ?? ""
-        guard let mode = Mode(rawValue: modeInput) else {
-            throw self.Error.invalidMode
+        guard let mode = CardGameMode(rawValue: modeInput) else {
+            throw self.Error.invalidCardMode
         }
         return mode
     }
