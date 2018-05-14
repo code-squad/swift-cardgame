@@ -11,7 +11,7 @@ import Foundation
 protocol CardDeckConvertible {
     mutating func shuffleCard()
     mutating func resetCard()
-    mutating func remove(numberOfCards: Int) -> [Card]
+    mutating func remove(numberOfCards: Int) throws -> [Card]
 }
 
 class CardGame {
@@ -50,12 +50,12 @@ class CardGame {
         self.cardDeck.shuffleCard()
     }
     
-    func dealOutCard() {
+    func dealOutCard() throws {
         for playerNumber in 0..<self.numberOfPlayers {
-            let removedCards:[Card] = self.cardDeck.remove(numberOfCards: self.numberOfCards)
+            let removedCards:[Card] = try self.cardDeck.remove(numberOfCards: self.numberOfCards)
             self.gamePlayers.add(cards: removedCards, to: playerNumber)
         }
-        self.dealer.add(cards: self.cardDeck.remove(numberOfCards: self.numberOfCards))
+        self.dealer.add(cards: try self.cardDeck.remove(numberOfCards: self.numberOfCards))
     }
 }
 

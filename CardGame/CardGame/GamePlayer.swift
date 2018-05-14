@@ -13,7 +13,7 @@ struct GamePlayer {
     private var cards: [Card] = [Card]()
     
     mutating func add(cards: [Card]){
-        self.cards += cards
+        self.cards = cards
     }
 }
 
