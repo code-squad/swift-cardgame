@@ -12,13 +12,13 @@ func main() {
     let numberOfCardStack: Int = 7
     let cardGame: CardGame = CardGame(numberOfCardStack)
     // 카드덱 섞지 않고 출력해보기
-    cardGame.drawCard()
+    cardGame.dealOutCard()
     OutputView.printCardStack(cardGame, numberOfCardStack: numberOfCardStack)
     cardGame.resetGame()
     // 카드덱을 섞고 출력해보기
     print()
     cardGame.shuffleCard()
-    cardGame.drawCard()
+    cardGame.dealOutCard()
     OutputView.printCardStack(cardGame, numberOfCardStack: numberOfCardStack)
 }
 
