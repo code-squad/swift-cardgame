@@ -52,7 +52,8 @@ class CardGame {
     
     func dealOutCard() {
         for playerNumber in 0..<self.numberOfPlayers {
-            self.gamePlayers.add(cards: self.cardDeck.remove(numberOfCards: self.numberOfCards), to: playerNumber)
+            let removedCards:[Card] = self.cardDeck.remove(numberOfCards: self.numberOfCards)
+            self.gamePlayers.add(cards: removedCards, to: playerNumber)
         }
         self.dealer.add(cards: self.cardDeck.remove(numberOfCards: self.numberOfCards))
     }

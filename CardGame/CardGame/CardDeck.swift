@@ -9,6 +9,18 @@
 import Foundation
 
 struct CardDeck: CardDeckConvertible {
+    
+    enum Error: Swift.Error {
+        case outOfDeck
+        
+        var errorMessage: String {
+            switch self {
+            case .outOfDeck:
+                return "덱의 카드가 부족하여 게임이 종료됩니다."
+            }
+        }
+    }
+    
     private var deck: Deck = Deck()
     
     mutating func resetCard() {
@@ -23,7 +35,10 @@ struct CardDeck: CardDeckConvertible {
         self.deck.cards = shuffledCards
     }
     
-    mutating func remove(numberOfCards: Int) -> [Card] {
+    mutating func remove(numberOfCards: Int) throws -> [Card] {
+        guard numberOfCards < self.deck.cards.count else {
+            throw CardDeck.Error.outOfDeck
+        }
         var removedCards: [Card] = [Card]()
         for _ in 0..<numberOfCards {
             if let removedCard = self.deck.cards.popLast() {
