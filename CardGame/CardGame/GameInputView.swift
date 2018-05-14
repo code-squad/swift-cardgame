@@ -21,11 +21,14 @@ enum CardGameMode: String {
 struct GameInputView {
     enum Error: Swift.Error {
         case invalidCardMode
+        case invalidNumberOfPlayers
         
         var errorMessage: String {
             switch self {
             case .invalidCardMode:
                 return "유효하지 않는 모드를 입력하셨습니다."
+            case .invalidNumberOfPlayers:
+                return "참여자는 딜러를 제외하고 1~4명만 가능합니다."
             }
         }
     }
@@ -39,7 +42,7 @@ struct GameInputView {
         return mode
     }
     
-    static func readNumberOfPlayers(askMessage: Question) throws -> Int {
+    static func readNumberOfPlayers(askMessage: Question) -> Int {
         print(askMessage.rawValue, terminator: "> ")
         let numberOfPlayers: Int = Int(readLine() ?? "0") ?? 0
         return numberOfPlayers
