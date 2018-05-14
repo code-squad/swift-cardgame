@@ -9,17 +9,20 @@
 import Foundation
 
 func main() {
-    let numberOfCardStack: Int = 7
-    let cardGame: CardGame = CardGame(numberOfCardStack)
-    // 카드덱 섞지 않고 출력해보기
-    cardGame.dealOutCard()
-    OutputView.printCardStack(cardGame, numberOfCardStack: numberOfCardStack)
-    cardGame.resetGame()
-    // 카드덱을 섞고 출력해보기
-    print()
-    cardGame.shuffleCard()
-    cardGame.dealOutCard()
-    OutputView.printCardStack(cardGame, numberOfCardStack: numberOfCardStack)
+    do {
+        let gameMode: CardGameMode = try GameInputView.readGameMode(askMessage: Question.selectMode)
+        let numberOfPlayers: Int = GameInputView.readNumberOfPlayers(askMessage: Question.numberOfPlayers)
+        guard let cardGame = CardGame(gameMode, numberOfPlayers) else {
+            throw GameInputView.Error.invalidNumberOfPlayers
+        }
+        cardGame.shuffleCard()
+        cardGame.dealOutCard()
+        OutputView.descriptionOfPlayers(cardGame)
+    } catch let error as GameInputView.Error {
+        print(error.errorMessage)
+    } catch {
+        fatalError("unexpected error")
+    }
 }
 
 main()
