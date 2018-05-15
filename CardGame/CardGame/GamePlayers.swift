@@ -8,15 +8,30 @@
 
 import Foundation
 
-struct GamePlayers {
+class GamePlayers {
     private var players: [GamePlayer]
     
     init(numberOfPlayers: Int) {
         self.players = [GamePlayer](repeating: GamePlayer(), count: numberOfPlayers)
     }
     
-    mutating func add(cards: [Card], to playerNumber: Int) {
-        self.players[playerNumber].add(cards: cards)
+    func add(cardDeck: CardDeckConvertible, numberOfCards: Int) -> Bool {
+        var result: Bool = true
+        for player in players {
+            if cardDeck.hasEnoughCards(numberOfCards: numberOfCards) {
+                result = false
+                break
+            }
+            let removedCards = cardDeck.remove(numberOfCards: numberOfCards)
+            player.add(cards: removedCards)
+        }
+        return result
+    }
+    
+    func reset() {
+        for player in players {
+            player.resetCards()
+        }
     }
     
     func descriptionOfPlayer(_ playerNumber: Int) -> String {

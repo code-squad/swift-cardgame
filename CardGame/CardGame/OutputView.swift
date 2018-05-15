@@ -9,12 +9,12 @@
 import Foundation
 
 protocol CardGamePlayersPrintable {
-    func descriptionOfPlayers() -> String
+    func descriptionOfPlayer() -> String
     func descriptionOfDealer() -> String
 }
 
 struct OutputView {
     static func descriptionOfPlayers(_ cardGame: CardGamePlayersPrintable) {
-        print("\(cardGame.descriptionOfPlayers())\(cardGame.descriptionOfDealer())")
+        
     }
 }

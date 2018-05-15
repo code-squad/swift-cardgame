@@ -16,14 +16,12 @@ func main() {
             throw GameInputView.Error.invalidNumberOfPlayers
         }
         cardGame.shuffleCard()
-        while true {
-            try cardGame.dealOutCard()
+        while cardGame.dealOutCard() {
             OutputView.descriptionOfPlayers(cardGame)
         }
     } catch let error as GameInputView.Error {
         print(error.errorMessage)
-    } catch let error as CardDeck.Error {
-        print(error.errorMessage)
+        return
     } catch {
         fatalError("unexpected error")
     }

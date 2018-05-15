@@ -9,63 +9,47 @@
 import Foundation
 
 protocol CardDeckConvertible {
-    mutating func shuffleCard()
-    mutating func resetCard()
-    mutating func remove(numberOfCards: Int) throws -> [Card]
+    func shuffleCard()
+    func resetCard()
+    func remove(numberOfCards: Int) -> [Card]
+    func hasEnoughCards(numberOfCards: Int) -> Bool
 }
 
 class CardGame {
     private let validNumberOfPlayers: [Int] = [1, 2, 3, 4]
     private let gameMode: CardGameMode
-    private let numberOfPlayers: Int
-    private var cardDeck: CardDeckConvertible = CardDeck()
+    private var cardDeck = CardDeck()
     private var gamePlayers: GamePlayers
     private var dealer: GamePlayer
-    private var numberOfCards: Int {
-        switch self.gameMode {
-        case .fiveCardStud:
-            return 5
-        case .sevenCardStud:
-            return 7
-        }
-    }
     
     init?(_ gameMode: CardGameMode, _ numberOfPlayers: Int) {
         guard self.validNumberOfPlayers.contains(numberOfPlayers) else {
             return nil
         }
         self.gameMode = gameMode
-        self.numberOfPlayers = numberOfPlayers
-        self.gamePlayers = GamePlayers(numberOfPlayers: self.numberOfPlayers)
+        self.gamePlayers = GamePlayers(numberOfPlayers: numberOfPlayers)
         self.dealer = GamePlayer()
     }
     
     func resetGame() {
         self.cardDeck.resetCard()
-        self.gamePlayers = GamePlayers(numberOfPlayers: self.numberOfPlayers)
-        self.dealer = GamePlayer()
+        self.gamePlayers.reset()
+        self.dealer.resetCards()
     }
     
     func shuffleCard() {
         self.cardDeck.shuffleCard()
     }
     
-    func dealOutCard() throws {
-        for playerNumber in 0..<self.numberOfPlayers {
-            let removedCards:[Card] = try self.cardDeck.remove(numberOfCards: self.numberOfCards)
-            self.gamePlayers.add(cards: removedCards, to: playerNumber)
-        }
-        self.dealer.add(cards: try self.cardDeck.remove(numberOfCards: self.numberOfCards))
+    func dealOutCard() -> Bool {
+        return self.gamePlayers.add(cardDeck: self.cardDeck, numberOfCards: self.gameMode.numberOfCards)
     }
+
 }
 
 extension CardGame: CardGamePlayersPrintable {
-    func descriptionOfPlayers() -> String {
-        var allPlayersDescription: String = String()
-        for playerNumber in 0..<self.numberOfPlayers {
-            allPlayersDescription += "\(self.gamePlayers.descriptionOfPlayer(playerNumber))\n"
-        }
-        return allPlayersDescription
+    func descriptionOfPlayer() -> String {
+        return ""
     }
     
     func descriptionOfDealer() -> String {

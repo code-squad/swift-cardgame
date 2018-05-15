@@ -16,6 +16,15 @@ enum Question: String {
 enum CardGameMode: String {
     case sevenCardStud = "1"
     case fiveCardStud = "2"
+    
+    var numberOfCards: Int {
+        switch self {
+        case .sevenCardStud:
+            return 7
+        case .fiveCardStud:
+            return 5
+        }
+    }
 }
 
 struct GameInputView {
