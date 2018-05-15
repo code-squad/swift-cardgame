@@ -9,8 +9,8 @@
 import Foundation
 
 protocol CardDeckConvertible {
-    func shuffleCard()
-    func resetCard()
+    func shuffleCards()
+    func resetCards()
     func remove(numberOfCards: Int) -> [Card]
     func hasEnoughCards(numberOfCards: Int) -> Bool
 }
@@ -20,7 +20,7 @@ class CardGame {
     private let gameMode: CardGameMode
     private var cardDeck = CardDeck()
     private var gamePlayers: GamePlayers
-    private var dealer: GamePlayer
+    private var dealer: GamePlayer = GamePlayer()
     
     init?(_ gameMode: CardGameMode, _ numberOfPlayers: Int) {
         guard self.validNumberOfPlayers.contains(numberOfPlayers) else {
@@ -28,31 +28,35 @@ class CardGame {
         }
         self.gameMode = gameMode
         self.gamePlayers = GamePlayers(numberOfPlayers: numberOfPlayers)
-        self.dealer = GamePlayer()
     }
     
     func resetGame() {
-        self.cardDeck.resetCard()
+        self.cardDeck.resetCards()
         self.gamePlayers.reset()
         self.dealer.resetCards()
     }
     
     func shuffleCard() {
-        self.cardDeck.shuffleCard()
+        self.cardDeck.shuffleCards()
     }
     
-    func dealOutCard() -> Bool {
-        return self.gamePlayers.add(cardDeck: self.cardDeck, numberOfCards: self.gameMode.numberOfCards)
+    func dealOutCard(_ numberOfPlayers: Int) -> Bool {
+        guard self.cardDeck.hasEnoughCards(numberOfCards: self.gameMode.numberOfCards * (numberOfPlayers + 1)) else {
+            return false
+        }
+        self.dealer.add(cards: cardDeck.remove(numberOfCards: gameMode.numberOfCards))
+        self.gamePlayers.add(cardDeck: self.cardDeck, numberOfCards: self.gameMode.numberOfCards)
+        return true
     }
 
 }
 
 extension CardGame: CardGamePlayersPrintable {
-    func descriptionOfPlayer() -> String {
-        return ""
+    func printPlayerCards(_ numberOfPlayers: Int, _ handler: (Int, GamePlayer) -> Void) {
+        self.gamePlayers.printPlayersCards(numberOfPlayers, by: handler)
     }
     
-    func descriptionOfDealer() -> String {
-        return "딜러 \(self.dealer.description)"
+    func printDealerCards(by handler: (GamePlayer) -> Void) {
+        handler(self.dealer)
     }
 }

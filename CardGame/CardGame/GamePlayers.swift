@@ -9,23 +9,18 @@
 import Foundation
 
 class GamePlayers {
-    private var players: [GamePlayer]
+    private var players: [GamePlayer] = [GamePlayer]()
     
     init(numberOfPlayers: Int) {
-        self.players = [GamePlayer](repeating: GamePlayer(), count: numberOfPlayers)
+         for _ in 0..<numberOfPlayers {
+            self.players.append(GamePlayer())
+        }
     }
     
-    func add(cardDeck: CardDeckConvertible, numberOfCards: Int) -> Bool {
-        var result: Bool = true
-        for player in players {
-            if cardDeck.hasEnoughCards(numberOfCards: numberOfCards) {
-                result = false
-                break
-            }
-            let removedCards = cardDeck.remove(numberOfCards: numberOfCards)
-            player.add(cards: removedCards)
+    func add(cardDeck: CardDeck, numberOfCards: Int) {
+        for player in self.players {
+            player.add(cards: cardDeck.remove(numberOfCards: numberOfCards))
         }
-        return result
     }
     
     func reset() {
@@ -34,7 +29,9 @@ class GamePlayers {
         }
     }
     
-    func descriptionOfPlayer(_ playerNumber: Int) -> String {
-        return "참가자#\(playerNumber + 1) \(self.players[playerNumber].description)"
+    func printPlayersCards(_ numberOfPlayers: Int, by handler: (Int, GamePlayer) -> Void) {
+        for playerIndex in 0..<numberOfPlayers {
+            handler(playerIndex + 1, self.players[playerIndex])
+        }
     }
 }

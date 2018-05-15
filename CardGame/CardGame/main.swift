@@ -9,21 +9,23 @@
 import Foundation
 
 func main() {
-    do {
-        let gameMode: CardGameMode = try GameInputView.readGameMode(askMessage: Question.selectMode)
-        let numberOfPlayers: Int = GameInputView.readNumberOfPlayers(askMessage: Question.numberOfPlayers)
-        guard let cardGame = CardGame(gameMode, numberOfPlayers) else {
-            throw GameInputView.Error.invalidNumberOfPlayers
+    while true {
+        do {
+            let gameMode: CardGameMode = try GameInputView.readGameMode(askMessage: Question.selectMode)
+            let numberOfPlayers: Int = GameInputView.readNumberOfPlayers(askMessage: Question.numberOfPlayers)
+            guard let cardGame = CardGame(gameMode, numberOfPlayers) else {
+                throw GameInputView.Error.invalidNumberOfPlayers
+            }
+            cardGame.shuffleCard()
+            while cardGame.dealOutCard(numberOfPlayers) {
+                OutputView.printCardsOfCardGame(cardGame, numberOfPlayers)
+            }
+        } catch let error as GameInputView.Error {
+            print(error.errorMessage)
+            continue
+        } catch {
+            fatalError("unexpected error")
         }
-        cardGame.shuffleCard()
-        while cardGame.dealOutCard() {
-            OutputView.descriptionOfPlayers(cardGame)
-        }
-    } catch let error as GameInputView.Error {
-        print(error.errorMessage)
-        return
-    } catch {
-        fatalError("unexpected error")
     }
 }
 

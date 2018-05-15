@@ -11,11 +11,11 @@ import Foundation
 class CardDeck: CardDeckConvertible {
     private var deck: Deck = Deck()
     
-    func resetCard() {
+    func resetCards() {
         self.deck = Deck()
     }
     
-    func shuffleCard() {
+    func shuffleCards() {
         var shuffledCards = [Card]()
         for count in stride(from: UInt32(self.deck.cards.count), to: 0, by: -1) {
             shuffledCards.append(self.deck.cards.remove(at: Int(arc4random_uniform(count))))
