@@ -8,26 +8,14 @@
 
 import Foundation
 
-struct CardDeck: CardDeckConvertible {
-    
-    enum Error: Swift.Error {
-        case outOfDeck
-        
-        var errorMessage: String {
-            switch self {
-            case .outOfDeck:
-                return "덱의 카드가 부족하여 게임이 종료됩니다."
-            }
-        }
-    }
-    
+class CardDeck: CardDeckConvertible {
     private var deck: Deck = Deck()
     
-    mutating func resetCard() {
+    func resetCard() {
         self.deck = Deck()
     }
     
-    mutating func shuffleCard() {
+    func shuffleCard() {
         var shuffledCards = [Card]()
         for count in stride(from: UInt32(self.deck.cards.count), to: 0, by: -1) {
             shuffledCards.append(self.deck.cards.remove(at: Int(arc4random_uniform(count))))
@@ -35,10 +23,7 @@ struct CardDeck: CardDeckConvertible {
         self.deck.cards = shuffledCards
     }
     
-    mutating func remove(numberOfCards: Int) throws -> [Card] {
-        guard numberOfCards < self.deck.cards.count else {
-            throw CardDeck.Error.outOfDeck
-        }
+    func remove(numberOfCards: Int) -> [Card] {
         var removedCards: [Card] = [Card]()
         for _ in 0..<numberOfCards {
             if let removedCard = self.deck.cards.popLast() {
@@ -47,9 +32,14 @@ struct CardDeck: CardDeckConvertible {
         }
         return removedCards
     }
+    
+    func hasEnoughCards(numberOfCards: Int) -> Bool {
+        return numberOfCards <= self.deck.cards.count
+    }
+    
 }
 
-fileprivate struct Deck {
+fileprivate class Deck {
     var cards: [Card]
     
     init() {

@@ -9,11 +9,15 @@
 import Foundation
 
 
-struct GamePlayer {
+class GamePlayer {
     private var cards: [Card] = [Card]()
     
-    mutating func add(cards: [Card]){
+    func add(cards: [Card]){
         self.cards = cards
+    }
+    
+    func resetCards() {
+        self.cards.removeAll()
     }
 }
 
