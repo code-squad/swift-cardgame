@@ -29,9 +29,10 @@ class GamePlayers {
         }
     }
     
-    func printPlayersCards(_ numberOfPlayers: Int, by handler: (Int, GamePlayer) -> Void) {
-        for playerIndex in 0..<numberOfPlayers {
-            handler(playerIndex + 1, self.players[playerIndex])
+    func printPlayersCards(_ handler: (GamePlayer) -> Void) {
+        for index in self.players.indices {
+            print("참가자#\(index + 1)", terminator: "")
+            handler(self.players[index])
         }
     }
 }

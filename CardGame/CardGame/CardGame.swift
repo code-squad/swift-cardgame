@@ -52,8 +52,8 @@ class CardGame {
 }
 
 extension CardGame: CardGamePlayersPrintable {
-    func printPlayerCards(_ numberOfPlayers: Int, _ handler: (Int, GamePlayer) -> Void) {
-        self.gamePlayers.printPlayersCards(numberOfPlayers, by: handler)
+    func printPlayerCards(_ handler: (GamePlayer) -> Void) {
+        self.gamePlayers.printPlayersCards(handler)
     }
     
     func printDealerCards(by handler: (GamePlayer) -> Void) {

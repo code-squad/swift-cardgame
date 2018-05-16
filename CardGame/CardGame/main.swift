@@ -18,7 +18,7 @@ func main() {
             }
             cardGame.shuffleCard()
             while cardGame.dealOutCard(numberOfPlayers) {
-                OutputView.printCardsOfCardGame(cardGame, numberOfPlayers)
+                OutputView.printCardsOfCardGame(cardGame)
             }
         } catch let error as GameInputView.Error {
             print(error.errorMessage)

@@ -9,13 +9,13 @@
 import Foundation
 
 protocol CardGamePlayersPrintable {
-    func printPlayerCards(_ numberOfPlayers: Int, _ handler: (Int, GamePlayer) -> Void)
+    func printPlayerCards(_ handler: (GamePlayer) -> Void)
     func printDealerCards(by handler: (GamePlayer) -> Void)
 }
 
 struct OutputView {
-    static func printCardsOfCardGame(_ cardGame: CardGamePlayersPrintable, _ numberOfPlayers: Int) {
-        cardGame.printPlayerCards(numberOfPlayers) { print("참가자#\($0) \($1)") }
+    static func printCardsOfCardGame(_ cardGame: CardGamePlayersPrintable) {
+        cardGame.printPlayerCards { print("\($0)") }
         cardGame.printDealerCards { print("딜러 \($0)") }
     }
 }
