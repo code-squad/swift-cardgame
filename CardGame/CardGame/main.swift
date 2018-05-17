@@ -17,8 +17,8 @@ func main() {
                 throw GameInputView.Error.invalidNumberOfPlayers
             }
             cardGame.shuffleCard()
-            cardGame.sortCard()
             while cardGame.dealOutCard(numberOfPlayers) {
+                cardGame.sortCard()
                 OutputView.printCardsOfCardGame(cardGame)
             }
         } catch let error as GameInputView.Error {
