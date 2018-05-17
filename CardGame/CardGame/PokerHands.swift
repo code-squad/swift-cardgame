@@ -20,5 +20,22 @@ struct PokerHands {
         }
         return pairCount
     }
+    
+    func hasStraight(_ cards: [Card]) -> Bool {
+        var cards = cards
+        var continuousCount: Int = 0
+        var previousCard = cards.removeFirst()
+        for card in cards {
+            if previousCard.isContinous(to: card) {
+                continuousCount += 1
+            }
+            previousCard = card
+        }
+        if continuousCount >= 4 {
+            return true
+        } else {
+            return false
+        }
+    }
 
 }

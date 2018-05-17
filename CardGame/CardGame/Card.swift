@@ -59,7 +59,7 @@ class Card {
     }
     
     func isContinous(to nextCard: Card) -> Bool {
-        return self.number.rawValue + 1 == nextCard.number.rawValue 
+        return self.number.rawValue - 1 == nextCard.number.rawValue 
     }
 }
 
