@@ -48,6 +48,11 @@ class CardGame {
         self.gamePlayers.add(cardDeck: self.cardDeck, numberOfCards: self.gameMode.numberOfCards)
         return true
     }
+    
+    func sortCard() {
+        self.gamePlayers.sortCard()
+        self.dealer.sortCard()
+    }
 
 }
 
