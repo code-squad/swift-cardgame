@@ -64,3 +64,19 @@ extension Card: CustomStringConvertible {
         return "\(self.suit)\(self.number)"
     }
 }
+
+extension Card: Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.number == rhs.number
+    }
+}
+
+extension Card: Comparable {
+    static func < (lhs: Card, rhs: Card) -> Bool {
+        return lhs.number.rawValue < rhs.number.rawValue
+    }
+    
+    static func > (lhs: Card, rhs: Card) -> Bool {
+        return lhs.number.rawValue > rhs.number.rawValue
+    }
+}

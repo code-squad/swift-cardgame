@@ -19,6 +19,10 @@ class GamePlayer {
     func resetCards() {
         self.cards.removeAll()
     }
+    
+    func sortCard() {
+        self.cards.sort { $0 < $1 }
+    }
 }
 
 extension GamePlayer: CustomStringConvertible {

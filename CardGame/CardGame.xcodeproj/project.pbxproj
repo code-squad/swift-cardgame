@@ -10,6 +10,7 @@
 		7325DB9620A1516C0085CF52 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325DB9520A1516C0085CF52 /* CardDeck.swift */; };
 		73541B6E20A062DA00858BB4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73541B6D20A062DA00858BB4 /* Card.swift */; };
 		73541B7020A06CA800858BB4 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73541B6F20A06CA800858BB4 /* OutputView.swift */; };
+		736F984920AD2D5900120BBB /* PokerHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F984820AD2D5900120BBB /* PokerHands.swift */; };
 		7393DCAD20A40B09004D03C0 /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7393DCAC20A40B09004D03C0 /* GamePlayer.swift */; };
 		7393DCAF20A45739004D03C0 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7393DCAE20A45739004D03C0 /* CardGame.swift */; };
 		7393DCB320A4ACF5004D03C0 /* GamePlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7393DCB220A4ACF5004D03C0 /* GamePlayers.swift */; };
@@ -33,6 +34,7 @@
 		7325DB9520A1516C0085CF52 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		73541B6D20A062DA00858BB4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		73541B6F20A06CA800858BB4 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		736F984820AD2D5900120BBB /* PokerHands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerHands.swift; sourceTree = "<group>"; };
 		7393DCAC20A40B09004D03C0 /* GamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayer.swift; sourceTree = "<group>"; };
 		7393DCAE20A45739004D03C0 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		7393DCB220A4ACF5004D03C0 /* GamePlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayers.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				7393DCAE20A45739004D03C0 /* CardGame.swift */,
 				7393DCB220A4ACF5004D03C0 /* GamePlayers.swift */,
 				73541B6F20A06CA800858BB4 /* OutputView.swift */,
+				736F984820AD2D5900120BBB /* PokerHands.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				7325DB9620A1516C0085CF52 /* CardDeck.swift in Sources */,
+				736F984920AD2D5900120BBB /* PokerHands.swift in Sources */,
 				7393DCAF20A45739004D03C0 /* CardGame.swift in Sources */,
 				73BB9A5220A94EFB007B3EED /* GameInputView.swift in Sources */,
 				7393DCAD20A40B09004D03C0 /* GamePlayer.swift in Sources */,

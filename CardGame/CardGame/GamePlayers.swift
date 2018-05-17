@@ -35,4 +35,10 @@ class GamePlayers {
             handler(self.players[index])
         }
     }
+    
+    func sortCard() {
+        for player in self.players {
+            player.sortCard()
+        }
+    }
 }
