@@ -21,7 +21,7 @@ class GamePlayer {
     }
     
     func sortCard() {
-        self.cards.sort { $0 < $1 }
+        self.cards.sort { $0 > $1 }
     }
 }
 
