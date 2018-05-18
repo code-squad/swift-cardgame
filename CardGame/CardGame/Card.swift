@@ -57,6 +57,10 @@ class Card {
         self.suit = suit
         self.number = number
     }
+    
+    func isSameSuit(_ suit: Suit) -> Bool {
+        return self.suit == suit
+    }
 }
 
 extension Card: CustomStringConvertible {
