@@ -57,10 +57,6 @@ class Card {
         self.suit = suit
         self.number = number
     }
-    
-    func isContinous(to nextCard: Card) -> Bool {
-        return self.number.rawValue - 1 == nextCard.number.rawValue 
-    }
 }
 
 extension Card: CustomStringConvertible {
@@ -71,7 +67,7 @@ extension Card: CustomStringConvertible {
 
 extension Card: Equatable {
     static func == (lhs: Card, rhs: Card) -> Bool {
-        return lhs.number == rhs.number
+        return lhs.number.rawValue == rhs.number.rawValue
     }
 }
 
