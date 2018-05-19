@@ -65,6 +65,10 @@ class Card {
     func isSameNumber(_ number: Number) -> Bool {
         return self.number == number
     }
+    
+    func isContinousNumber(_ nextCard: Card) -> Bool {
+        return self.number.rawValue - 1 == nextCard.number.rawValue
+    }
 }
 
 extension Card: CustomStringConvertible {
