@@ -210,5 +210,61 @@ class CardGameUnitTests: XCTestCase {
         XCTAssertFalse(pokerHands.hasRoyalStraightFlush(cards))
     }
     
-
+    /// 백스트레이트 O
+    func test_hasBackRoyalStraightFlush() {
+        let cards: [Card] = [Card(suit: .clubs, number: .ace),
+                             Card(suit: .clubs, number: .two),
+                             Card(suit: .clubs, number: .three),
+                             Card(suit: .clubs, number: .four),
+                             Card(suit: .clubs, number: .five)]
+        let pokerHands = PokerHands()
+        XCTAssertTrue(pokerHands.hasBackStraightFlush(cards))
+    }
+    
+    /// 백스트레이트 X
+    func test_noBackStraightFlush() {
+        let cards: [Card] = [Card(suit: .clubs, number: .ace),
+                             Card(suit: .clubs, number: .king),
+                             Card(suit: .clubs, number: .queen),
+                             Card(suit: .clubs, number: .seven),
+                             Card(suit: .diamonds, number: .ten)]
+        let pokerHands = PokerHands()
+        XCTAssertFalse(pokerHands.hasBackStraightFlush(cards))
+    }
+    
+    func test_noBackStraightFlush_differentSuit() {
+        let cards: [Card] = [Card(suit: .clubs, number: .ace),
+                             Card(suit: .clubs, number: .two),
+                             Card(suit: .clubs, number: .three),
+                             Card(suit: .clubs, number: .four),
+                             Card(suit: .diamonds, number: .five)]
+        let pokerHands = PokerHands()
+        XCTAssertFalse(pokerHands.hasBackStraightFlush(cards))
+    }
+    
+    
+    /// 스트레이트 test
+    func test_hasStraight() {
+        let cards: [Card] = [Card(suit: .spades, number: .ace),
+                             Card(suit: .spades, number: .king),
+                             Card(suit: .spades, number: .queen),
+                             Card(suit: .spades, number: .jack),
+                             Card(suit: .spades, number: .ten),
+                             Card(suit: .spades, number: .three),
+                             Card(suit: .spades, number: .two)]
+        let pokerHands = PokerHands()
+        XCTAssertTrue(pokerHands.hasStraight(cards))
+    }
+    
+    func test_hasStraight_2() {
+        let cards: [Card] = [Card(suit: .spades, number: .six),
+                             Card(suit: .spades, number: .five),
+                             Card(suit: .spades, number: .four),
+                             Card(suit: .spades, number: .three),
+                             Card(suit: .spades, number: .two),
+                             Card(suit: .spades, number: .ten),
+                             Card(suit: .spades, number: .jack)]
+        let pokerHands = PokerHands()
+        XCTAssertTrue(pokerHands.hasStraight(cards))
+    }
 }
