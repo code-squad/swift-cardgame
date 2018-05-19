@@ -6,28 +6,22 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
+// 카드를 생성하는 객체
 class Card {
+
+    // suits : 모양을 저장하는 변수
+    // rnak  : 숫자를 저장하는 변수
     
-    enum Suits : String {
-        case spade = "♠"
-        case clover = "♣"
-        case heart = "♥"
-        case diamond = "◆"
+    let suits: Suits
+    let rank: Rank
+    
+    init(_ suits: Suits, _ rank: Rank) {
+        self.suits = suits
+        self.rank = rank
     }
     
-    enum Rank: String {
-        case King
-        case Queen
-        case Jack
-        case Ace
-        case two = "2"
-        case three = "3"
-        case four = "4"
-        case five = "5"
-        case six = "6"
-        case seven = "7"
-        case eight = "8"
-        case nine = "9"
-        case ten = "10"
+    // 생성 된 카드를 출력하는 함수
+    func desription() -> String {
+        return "\(suits.rawValue) \(rank.description)"
     }
 }
