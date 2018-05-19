@@ -6,6 +6,9 @@
 //  Copyright © 2017 JK. All rights reserved.
 //
 
-import Foundation
+func main() {
+    let card  = Card(Suits.spade, Rank.Ace)
+    OutputView.showCard(card)
+}
 
-
+main()
