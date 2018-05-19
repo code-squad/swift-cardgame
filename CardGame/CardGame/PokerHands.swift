@@ -24,11 +24,11 @@ struct PokerHands {
             }
             // 같은 모양의 카드가 A, K, Q, J, 10가 있는지 확인
             if sameSuitCards.count >= 5 {
-                if sameSuitCards[0].isSameNumber(.ace) &&
-                    sameSuitCards[1].isSameNumber(.king) &&
-                    sameSuitCards[2].isSameNumber(.queen) &&
-                    sameSuitCards[3].isSameNumber(.jack) &&
-                    sameSuitCards[4].isSameNumber(.ten) {
+                if sameSuitCards.contains(Card(suit: suit, number: .ace)) &&
+                    sameSuitCards.contains(Card(suit: suit, number: .king)) &&
+                    sameSuitCards.contains(Card(suit: suit, number: .queen)) &&
+                    sameSuitCards.contains(Card(suit: suit, number: .jack)) &&
+                    sameSuitCards.contains(Card(suit: suit, number: .ten)) {
                     result = true
                 }
             }
@@ -171,8 +171,9 @@ struct PokerHands {
         // 숫자 연속 5개 체크
         var result: Bool = false
         var continueCount: Int = 0
-        for index in 0..<cards.count-1 {
-            if cards[index].isContinousNumber(cards[index+1]) {
+        guard cards.count > 1 else { return false }
+        for index in 0..<(cards.count-1)  {
+            if cards[index].isContinousNumber(cards[index + 1]) {
                 continueCount += 1
             } else {
                 // 연속된게 5개 이상이면 true
