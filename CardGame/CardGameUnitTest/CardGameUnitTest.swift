@@ -20,16 +20,20 @@ class CardGameUnitTest: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_Make_Suits() {
+        let suit = Suits.spade
+        XCTAssertNotNil(suit)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_Make_Rank() {
+        let rank = Rank.Ace
+        XCTAssertNotNil(rank)
     }
     
+    func test_Make_Card() {
+        let suit = Suits.spade
+        let rank = Rank.Ace
+        let card = Card(suit, rank)
+        XCTAssertNotNil(card)
+    }
 }
