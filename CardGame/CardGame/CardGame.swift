@@ -53,6 +53,11 @@ class CardGame {
         self.gamePlayers.sortCard()
         self.dealer.sortCard()
     }
+    
+    func handCheck() {
+        self.gamePlayers.handCheck()
+        self.dealer.handCheck()
+    }
 
 }
 
