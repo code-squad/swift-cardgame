@@ -11,11 +11,16 @@ import Foundation
 protocol CardGamePlayersPrintable {
     func printPlayerCards(_ handler: (GamePlayer) -> Void)
     func printDealerCards(by handler: (GamePlayer) -> Void)
+    func printWinnerOfPlayer(_ handler: (Int, PokerHands.Hand) -> Void)
 }
 
 struct OutputView {
     static func printCardsOfCardGame(_ cardGame: CardGamePlayersPrintable) {
         cardGame.printPlayerCards { print("\($0)") }
         cardGame.printDealerCards { print("딜러 \($0)") }
+    }
+    
+    static func printHandOfWinnerPlayer(_ cardGame: CardGamePlayersPrintable) {
+        cardGame.printWinnerOfPlayer { print("우승 참가자 :  참가자#\($0), 핸드: \($1)")}
     }
 }

@@ -42,7 +42,21 @@ class GamePlayers {
         }
     }
     
-    func selectWinner() {
-        
+    func selectWinner() -> (Int, PokerHands.Hand) {
+        var winnerHand = players.first!.bestHand
+        var winnerPlayerNumber: Int = 1
+        for (playerNumber, player) in players.enumerated() {
+            print("\(playerNumber + 1) 는 \(player.bestHand)")
+            if winnerHand < player.bestHand {
+                winnerHand = player.bestHand
+                winnerPlayerNumber = playerNumber + 1
+            } else if winnerHand == player.bestHand {
+                if player.bestHand.cardNumber.rawValue > winnerHand.cardNumber.rawValue {
+                    winnerHand = player.bestHand
+                    winnerPlayerNumber = playerNumber + 1
+                }
+            }
+        }
+        return (winnerPlayerNumber, winnerHand)
     }
 }
