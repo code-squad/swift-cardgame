@@ -19,7 +19,6 @@ func main() {
             cardGame.shuffleCard()
             while cardGame.dealOutCard(numberOfPlayers) {
                 cardGame.sortCard()
-                cardGame.handCheck()
                 OutputView.printCardsOfCardGame(cardGame)
             }
         } catch let error as GameInputView.Error {
