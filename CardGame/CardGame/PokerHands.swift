@@ -31,6 +31,21 @@ struct PokerHands {
                 return 4
             }
         }
+        
+        var cardNumber: Card.Number {
+            switch self {
+            case .highCard(let cardNumber):
+                return cardNumber
+            case .onePair(let cardNumber):
+                return cardNumber
+            case .twoPair(let cardNumber):
+                return cardNumber
+            case .triple(let cardNumber):
+                return cardNumber
+            case .fourCard(let cardNumber):
+                return cardNumber
+            }
+        }
     }
     
     private var cards: [Card]

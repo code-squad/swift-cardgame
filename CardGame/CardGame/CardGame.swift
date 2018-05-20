@@ -53,10 +53,6 @@ class CardGame {
         self.gamePlayers.sortCard()
         self.dealer.sortCard()
     }
-    
-    func selectWinner() {
-        self.gamePlayers.selectWinner()
-    }
 }
 
 extension CardGame: CardGamePlayersPrintable {
@@ -66,5 +62,10 @@ extension CardGame: CardGamePlayersPrintable {
     
     func printDealerCards(by handler: (GamePlayer) -> Void) {
         handler(self.dealer)
+    }
+    
+    func printWinnerOfPlayer(_ handler: (Int, PokerHands.Hand) -> Void) {
+        let (winnerPlayerNumber, winnerPlayerHand) = self.gamePlayers.selectWinner()
+        handler(winnerPlayerNumber, winnerPlayerHand)
     }
 }

@@ -20,7 +20,8 @@ func main() {
             while cardGame.dealOutCard(numberOfPlayers) {
                 cardGame.sortCard()
                 OutputView.printCardsOfCardGame(cardGame)
-                cardGame.selectWinner()
+                OutputView.printHandOfWinnerPlayer(cardGame)
+                
             }
         } catch let error as GameInputView.Error {
             print(error.errorMessage)
