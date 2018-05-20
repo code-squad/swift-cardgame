@@ -46,7 +46,6 @@ class GamePlayers {
         var winnerHand = players.first!.bestHand
         var winnerPlayerNumber: Int = 1
         for (playerNumber, player) in players.enumerated() {
-            print("\(playerNumber + 1) 는 \(player.bestHand)")
             if winnerHand < player.bestHand {
                 winnerHand = player.bestHand
                 winnerPlayerNumber = playerNumber + 1
