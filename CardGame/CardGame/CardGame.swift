@@ -53,6 +53,9 @@ class CardGame {
         self.gamePlayers.sortCard()
         self.dealer.sortCard()
     }
+    
+    func selectWinner() {
+    }
 }
 
 extension CardGame: CardGamePlayersPrintable {
