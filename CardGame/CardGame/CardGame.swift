@@ -55,6 +55,7 @@ class CardGame {
     }
     
     func selectWinner() {
+        self.gamePlayers.selectWinner()
     }
 }
 

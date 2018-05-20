@@ -41,4 +41,8 @@ class GamePlayers {
             player.sortCard()
         }
     }
+    
+    func selectWinner() {
+        
+    }
 }
