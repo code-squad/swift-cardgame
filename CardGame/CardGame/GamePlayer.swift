@@ -11,6 +11,12 @@ import Foundation
 
 class GamePlayer {
     private var cards: [Card] = [Card]()
+    
+    var bestHand: PokerHands.Hand {
+        let pokerHands = PokerHands(self.cards)
+        return pokerHands.selectBestHand(pokerHands.generateHands())
+    }
+    
     func add(cards: [Card]) {
         self.cards = cards
     }
@@ -21,9 +27,6 @@ class GamePlayer {
     
     func sortCard() {
         self.cards.sort { $0 > $1 }
-    }
-    
-    func handCheck() {
     }
 }
 
