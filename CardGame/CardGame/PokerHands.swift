@@ -92,3 +92,19 @@ extension Array where Element == Card {
         return highestNumber
     }
 }
+
+extension PokerHands.Hand: Equatable {
+    static func == (lhs: PokerHands.Hand, rhs: PokerHands.Hand) -> Bool {
+        return lhs.rank == rhs.rank
+    }
+}
+
+extension PokerHands.Hand: Comparable {
+    static func < (lhs: PokerHands.Hand, rhs: PokerHands.Hand) -> Bool {
+        return lhs.rank < rhs.rank
+    }
+    
+    static func > (lhs: PokerHands.Hand, rhs: PokerHands.Hand) -> Bool {
+        return lhs.rank > rhs.rank
+    }
+}
