@@ -21,7 +21,8 @@ func main() {
                 cardGame.sortCard()
                 OutputView.printCardsOfCardGame(cardGame)
                 OutputView.printHandOfWinnerPlayer(cardGame)
-                
+                OutputView.printHandOfDealer(cardGame)
+                OutputView.printHandOfGameWinner(cardGame)
             }
         } catch let error as GameInputView.Error {
             print(error.errorMessage)

@@ -68,4 +68,18 @@ extension CardGame: CardGamePlayersPrintable {
         let (winnerPlayerNumber, winnerPlayerHand) = self.gamePlayers.selectWinner()
         handler(winnerPlayerNumber, winnerPlayerHand)
     }
+    
+    func printDealerHand(_ handler: (PokerHands.Hand) -> Void) {
+        handler(self.dealer.bestHand)
+    }
+    
+    func printWinnerOfGame(_ handler: (String, PokerHands.Hand) -> Void) {
+        let (_, winnerPlayerHand) = self.gamePlayers.selectWinner()
+        let dealerHand = self.dealer.bestHand
+        if winnerPlayerHand > dealerHand {
+            handler("참가자", winnerPlayerHand)
+        } else {
+            handler("딜러", dealerHand)
+        }
+    }
 }
