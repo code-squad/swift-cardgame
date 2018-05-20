@@ -66,8 +66,16 @@ class Card {
         return self.number == number
     }
     
-    func isContinousNumber(_ nextCard: Card) -> Bool {
-        return self.number.rawValue + 1 == nextCard.number.rawValue
+    func selectHigherNumber(_ card: Card) -> Number {
+        var result: Number
+        if self > card {
+            result = self.number
+        } else if self < card {
+            result = card.number
+        } else {
+            result = self.number
+        }
+        return result
     }
 }
 
