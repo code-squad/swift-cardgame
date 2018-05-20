@@ -35,10 +35,6 @@ struct PokerHands {
     
     private var cards: [Card]
     
-    private let TRIPLE = 3
-    private let FOURCARD = 4...7
-    private let PAIR = 1
-    
     init(_ cardsOfPlayer: [Card]) {
         self.cards = cardsOfPlayer
     }
@@ -55,16 +51,16 @@ struct PokerHands {
             }
             
             switch sameNumberCards.count {
-            case self.FOURCARD:
+            case 4...7:
                 hands.append(Hand.fourCard(number))
-            case self.TRIPLE:
+            case 3:
                 hands.append(Hand.triple(number))
-            case self.PAIR:
-                pairCount += 1
-                if pairCount != 1 {
-                    hands.append(Hand.twoPair(number))
-                } else {
+            case 2:
+                if pairCount == 0 {
                     hands.append(Hand.onePair(number))
+                    pairCount += 1
+                } else {
+                    hands.append(Hand.twoPair(number))
                 }
             default:
                 continue
