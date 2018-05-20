@@ -41,10 +41,4 @@ class GamePlayers {
             player.sortCard()
         }
     }
-    
-    func handCheck() {
-        for player in self.players {
-            player.handCheck()
-        }
-    }
 }
