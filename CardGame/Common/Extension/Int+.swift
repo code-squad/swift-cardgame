@@ -7,7 +7,9 @@
 //
 
 extension Int {
+    
     func convertUInt32() -> UInt32 {
         return UInt32(self)
     }
+    
 }
