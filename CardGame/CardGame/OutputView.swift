@@ -11,9 +11,9 @@ import Foundation
 protocol CardGamePlayersPrintable {
     func printPlayerCards(_ handler: (GamePlayer) -> Void)
     func printDealerCards(by handler: (GamePlayer) -> Void)
-    func printWinnerOfPlayer(_ handler: (Int, PokerHands.Hand) -> Void)
-    func printDealerHand(_ handler: (PokerHands.Hand) -> Void)
-    func printWinnerOfGame(_ handler: (String, PokerHands.Hand) -> Void)
+    func printWinnerOfPlayer(_ handler: (Int, GamePlayer) -> Void)
+    func printDealerHand(_ handler: (GamePlayer) -> Void)
+    func printWinnerOfGame(_ handler: (String, GamePlayer) -> Void)
 }
 
 struct OutputView {
@@ -23,14 +23,14 @@ struct OutputView {
     }
     
     static func printHandOfWinnerPlayer(_ cardGame: CardGamePlayersPrintable) {
-        cardGame.printWinnerOfPlayer { print("우승 참가자 :  참가자#\($0), 핸드: \($1)")}
+        cardGame.printWinnerOfPlayer { print("우승 참가자 :  참가자#\($0), 핸드: \($1.bestHand)")}
     }
     
     static func printHandOfDealer(_ cardGame: CardGamePlayersPrintable) {
-        cardGame.printDealerHand { print("딜러의 핸드: \($0)") }
+        cardGame.printDealerHand { print("딜러의 핸드: \($0.bestHand)") }
     }
     
     static func printHandOfGameWinner(_ cardGame: CardGamePlayersPrintable) {
-        cardGame.printWinnerOfGame { print("게임의 최종 우승자는 \($0)입니다. 우승 핸드: \($1)") }
+        cardGame.printWinnerOfGame { print("게임의 최종 우승자는 \($0)입니다. 우승 핸드: \($1.bestHand)") }
     }
 }
