@@ -6,7 +6,7 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-// 모양을 가지는 enum
+//모양을 가지는 enum
 enum Suits : String {
     case spade   = "♠"
     case clover  = "♣"
