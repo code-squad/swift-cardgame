@@ -36,4 +36,44 @@ class CardGameUnitTest: XCTestCase {
         let card = Card(suit, rank)
         XCTAssertNotNil(card)
     }
+    
+    func test_Make_DecK() {
+        let deck = Deck()
+        XCTAssertNotNil(deck)
+    }
+    
+    func test_countOfDeck() {
+        let deck = Deck()
+        let expected = deck.count()
+        XCTAssertEqual(52, expected)
+    }
+    
+    func test_equaltDeck() {
+        let firstDeck = Deck()
+        let secondeDeck = Deck()
+        XCTAssertEqual(firstDeck, secondeDeck)
+    }
+    
+    func test_DeckShuffle() {
+        let firstDeck = Deck()
+        var secondDeck = Deck()
+        secondDeck.shuffle()
+        XCTAssertNotEqual(firstDeck, secondDeck)
+    }
+    
+    func test_drawDeckAfterDownCount() {
+        var deck = Deck()
+        let originCount = deck.count()
+        let _ = deck.removeOne()
+        let afterCount = deck.count()
+        XCTAssertNotEqual(originCount, afterCount)
+    }
+    
+    func test_deckReset() {
+        var deck = Deck()
+        let originCount = deck.count()
+        let _ = deck.removeOne()
+        deck.reset()
+        XCTAssertEqual(originCount, deck.count())
+    }
 }
