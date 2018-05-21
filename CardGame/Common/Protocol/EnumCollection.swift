@@ -7,5 +7,7 @@
 //
 
 protocol EnumCollection {
+
     static var allValues: [Self] { get }
+    
 }
