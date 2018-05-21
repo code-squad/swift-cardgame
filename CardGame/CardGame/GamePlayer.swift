@@ -28,6 +28,10 @@ class GamePlayer {
     func sortCard() {
         self.cards.sort { $0 > $1 }
     }
+    
+    func selectWinner(_ player: GamePlayer) -> GamePlayer {
+        return self < player ? player : self
+    }
 }
 
 extension GamePlayer: CustomStringConvertible {
@@ -38,5 +42,15 @@ extension GamePlayer: CustomStringConvertible {
         }
         result.removeLast(2)
         return result + "]"
+    }
+}
+
+extension GamePlayer: Comparable {
+    static func < (lhs: GamePlayer, rhs: GamePlayer) -> Bool {
+        return lhs.bestHand < rhs.bestHand
+    }
+    
+    static func == (lhs: GamePlayer, rhs: GamePlayer) -> Bool {
+        return lhs.bestHand == rhs.bestHand
     }
 }
