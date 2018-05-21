@@ -12,7 +12,7 @@ struct Deck {
     private var deck: [Card]!
     
     init() {
-        self.deck = reset()
+        self.reset()
     }
     
     // 카드의 갯수를 리턴하는 함수
@@ -37,7 +37,7 @@ struct Deck {
     }
     
     // 카드를 초기 상태로 되돌리고 섞는 함수
-    func reset() -> [Card] {
+    mutating func reset() {
         var resetCards: [Card] = []
         
         for suit in Suits.allValues {
@@ -45,12 +45,6 @@ struct Deck {
                 resetCards.append(Card( suit, rank))
             }
         }
-        return resetCards
-    }
-
-    func printAll() {
-        for card in deck {
-            print(card.desription())
-        }
+        self.deck = resetCards
     }
 }
