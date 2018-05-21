@@ -12,7 +12,6 @@ enum Rank: String {
     case King, Queen, Jack, Ace
     // 숫자
     case two = "2", three = "3", four = "4", five = "5", six = "6", seven = "7", eight = "8", nine = "9", ten = "10"
-    
     // 숫자를 출력하는 변수
     var description : String {
         switch self {
