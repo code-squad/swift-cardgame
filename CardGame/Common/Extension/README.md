@@ -44,3 +44,8 @@ var intValue: Int = 0       // return type : Int
 intValue.convertUInt32()    // return type : UInt32  
 
 ```
+
+- Deck+
+
+: Equatable 구현
+
