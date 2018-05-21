@@ -7,7 +7,9 @@
 //
 
 extension Suits: EnumCollection {
+    
     static var allValues: [Suits] {
         return [.spade, .clover, .diamond, .heart]
     }
+    
 }

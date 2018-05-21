@@ -7,7 +7,9 @@
 //
 
 extension Rank: EnumCollection {
+    
     static var allValues: [Rank] {
         return [ .Ace, .two, .three, .four, .five, .six, .seven, eight, nine, ten, .Jack, Queen, .King]
     }
+    
 }
