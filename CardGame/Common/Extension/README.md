@@ -47,5 +47,5 @@ intValue.convertUInt32()    // return type : UInt32
 
 - Deck+
 
-: Equatable 구현
+: Equatable 구현 (Unit 테스트에서 사용 할 Equaltable )
 
