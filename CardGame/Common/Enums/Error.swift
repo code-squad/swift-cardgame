@@ -9,11 +9,14 @@
 // 에러 저장
 enum CardGaemError: Error {
     case isNil
+    case isSelectNumber
     
     var description : String {
         switch self {
             case .isNil:
                 return "선택한 값이 없습니다."
+            case .isSelectNumber:
+                return "알 수 없는 번호"
         }
     }
 }
