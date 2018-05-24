@@ -8,32 +8,24 @@
 
 import Foundation
 
-func main() throws {
-    var deck = Deck()
-    while let selectNumber = try InputView.readInput() {
-        var resultMessgae = ""
+func main() {
+    let deck = Deck()
+    var deeler = Deeler(deck)
+    
+    while true {
+        OutputView.cardGameSelectMassgae()
+        var order: Order?
+        
         do {
-            switch selectNumber {
-                case CARD_RESET:
-                    deck.reset()
-                    resultMessgae = CARDGAME_RESET_MSG
-                case CARD_SHUFFLE:
-                    deck.shuffle()
-                    resultMessgae = "\(CARDGAME_SHUFFLE_TOTAL_COMAND)\(deck.count())\(CARDGAME_SHUFFLE_BACK_COMAND)"
-                case CARD_DRAW:
-                    let drawCard = deck.removeOne()
-                    resultMessgae = drawCard.desription()
-                    resultMessgae += "\n"
-                    resultMessgae += "\(CARDGAME_DRAW_TOTAL_COMAND)\(deck.count())\(CARDGAME_DRAW_BACK_COMAND)"
-                default :
-                    throw CardGaemError.isSelectNumber
-                }
+            order = try InputView.order()
+            try deeler.receivedOrder(order)
         }catch let e as CardGaemError {
             OutputView.errorMessage(e)
+        }catch {
+            print(error)
         }
-        
-        OutputView.showResult(resultMessgae)
+        OutputView.deelerMesage(deeler)
     }
 }
 
-try main()
+main()
