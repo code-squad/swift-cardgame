@@ -76,4 +76,41 @@ class CardGameUnitTest: XCTestCase {
         deck.reset()
         XCTAssertEqual(originCount, deck.count())
     }
+    
+    func test_Make_Deeler() {
+        let deck = Deck()
+        let deeler = Deeler(deck)
+        XCTAssertNotNil(deeler)
+    }
+    
+    func test_Deeler_recievedOrderReset() throws {
+        let deck = Deck()
+        var deeler = Deeler(deck)
+     
+        let expectedOrderReset = Order.init(rawValue: "1")
+        try deeler.receivedOrder(expectedOrderReset)
+        
+        XCTAssertEqual(deck, deeler.deck)
+        
+    }
+    
+    func test_DeelerRecievedOderShuffle() throws {
+        let deck = Deck()
+        var deeler = Deeler(deck)
+        
+        let expectedOrderShuffle = Order.init(rawValue: "2")
+        try deeler.receivedOrder(expectedOrderShuffle)
+        
+        XCTAssertNotEqual(deck, deeler.deck)
+    }
+    
+    func test_DeelerRecivedOderDraw() throws {
+        let deck = Deck()
+        var deeler = Deeler(deck)
+        
+        let expectedOrderDraw = Order.init(rawValue: "3")
+        try deeler.receivedOrder(expectedOrderDraw)
+        
+        XCTAssertNotEqual(deck.count(), deeler.deck.count())
+    }
 }
