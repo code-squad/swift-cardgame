@@ -6,6 +6,8 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
+import Foundation
+
 // 출력을 담당하는 객체
 struct OutputView {
     
@@ -28,8 +30,8 @@ struct OutputView {
         print(e.description)
     }
     
-    static func showResult(_ resultMessag: String) {
-        print(resultMessag)
+    static func deelerMesage(_ deeler: Deeler) {
+        print(deeler.desription)
     }
     
 }
