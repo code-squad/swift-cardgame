@@ -6,4 +6,8 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-import Foundation
+enum Order: String {
+    case reset = "1"
+    case shuffle = "2"
+    case draw = "3"
+}
