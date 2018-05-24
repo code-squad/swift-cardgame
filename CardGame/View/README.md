@@ -30,5 +30,5 @@ OutputView.errormessage(e) // error
 - InputView
 
 ```
-let seelctNumber = try InputView.readInput()
+let order = try InputView.order()
 ```
