@@ -6,46 +6,52 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-struct Deeler: RecivedAsk {
+struct Deeler: RecievedAsk {
     
     private var deck: Deck
-    private var oder: Order? = nil
+    private var order: CARDGAME.MENU? = nil
     private var drawCard: Card? = nil
     
     init(_ deck: Deck) {
         self.deck = deck
     }
     
-    mutating func receivedOrder(_ order: Order?) throws {
+    mutating func receivedOrder(_ order: CARDGAME.MENU?) throws {
        
+        self.order = order
+
         guard let order = order else {
-            throw CardGaemError.isOrder
+            throw CARDGAME.ERROR.isOrder
         }
         
-        self.oder = order
-        
         switch order {
-            case .reset:
+            case .RESET:
                 deck.reset()
-            case .shuffle:
+            case .SHUFFLE:
                 deck.shuffle()
-            case .draw:
+            case .DRAW:
                 drawCard = deck.removeOne()
+            case .ASK:
+                throw CARDGAME.ERROR.isOrder
         }
     }
     
     func answer() -> String {
         
-        switch self.oder {
-            case .reset?:
-                return CARDGAME_RESET_MSG
-            case .shuffle?:
-                return "\(CARDGAME_SHUFFLE_TOTAL_COMAND) \(deck.count()) \(CARDGAME_SHUFFLE_BACK_COMAND)"
-            case .draw?:
-                guard let card = drawCard else { return CARDGAME_UNEXPECTED_ERROR_MSG }
-                return "\(card.desription()) \n\(CARDGAME_DRAW_TOTAL_COMAND) \(deck.count()) \(CARDGAME_DRAW_BACK_COMAND)"
-            case .none:
-                return CARDGAME_UNEXPECTED_ERROR_MSG
+        guard let order = self.order else {
+            return CARDGAME.ERROR.isOrder.desription
+        }
+        
+        switch order {
+            case .RESET:
+                return GAMEMENU.RESET.rawValue
+            case .SHUFFLE:
+                return "\(GAMEMENU.SHUFFLE.TotalCommand.desription) \(deck.count()) \(GAMEMENU.SHUFFLE.BackCommand.desription)"
+            case .DRAW:
+                guard let drawCard = self.drawCard else { return CARDGAME.ERROR.unExpected.desription}
+                return "\(drawCard.desription()) \n\(GAMEMENU.DRAW.TotalCommand.desription) \(deck.count()) \(GAMEMENU.DRAW.BackCommand.desription)"
+            case .ASK:
+                return CARDGAME.ERROR.isOrder.desription
         }
     }
 }
