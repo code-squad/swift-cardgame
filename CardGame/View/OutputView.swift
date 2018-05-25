@@ -30,8 +30,8 @@ struct OutputView {
         print(e.description)
     }
     
-    static func deelerMesage(_ deeler: Deeler) {
-        print(deeler.desription)
+    static func deelerMesage(_ deeler: RecivedAsk) {
+        print(deeler.answer())
     }
     
 }
