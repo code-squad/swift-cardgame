@@ -14,7 +14,7 @@ func main() {
     
     while true {
         OutputView.cardGameSelectMassgae()
-        var order: Order?
+        var order: CARDGAME.MENU?
         
         do {
             order = try InputView.order()
@@ -24,7 +24,7 @@ func main() {
         }catch {
             print(error)
         }
-        OutputView.deelerMesage(deeler)
+        OutputView.deelerMessage(deeler)
     }
 }
 
