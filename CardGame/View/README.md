@@ -32,3 +32,7 @@ OutputView.errormessage(e) // error
 ```
 let order = try InputView.order()
 ```
+
+- ouptutview
+
+: 결과 값을 출력하는 함수 -> deelerMesage 추가 파라미터로 protocol을 받아서 실행
