@@ -34,4 +34,5 @@ let CARD_DRAW = "3"
 // ERROR
 let CARDGAME_ISNIL_ERROR_MSG = "선택한 값이 없습니다."
 let CARDGAME_ISORDER_ERROR_MSG = "잘 못 된 주문입니다."
+let CARDGAME_UNEXPECTED_ERROR_MSG = "unExpected Error"
 
