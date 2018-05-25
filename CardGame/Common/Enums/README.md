@@ -41,7 +41,7 @@ do {
 }
 ```
 
-- order 
+- order < - 삭제
 
 deeler가 행동하는 경우를 모아두어 관리 -> deeler가 받을 수 있는 주문을 모아두는 enum
 
