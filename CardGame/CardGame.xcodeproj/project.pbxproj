@@ -37,12 +37,10 @@
 		048C943820B7BC31006E61E1 /* Deeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C943720B7BC31006E61E1 /* Deeler.swift */; };
 		048C943A20B7CAA0006E61E1 /* RecievedAsk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C943920B7CAA0006E61E1 /* RecievedAsk.swift */; };
 		04B66D1820B660F3005F693A /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B3F4E20B26A00004901A1 /* Strings.swift */; };
-		04B66D1920B660F3005F693A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5200420B2CC3000155A32 /* Order.swift */; };
 		04B66D1B20B66252005F693A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B3F3E20B2638F004901A1 /* InputView.swift */; };
 		04B66D1C20B66252005F693A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C73FE20B0B3FC00A1D445 /* OutputView.swift */; };
 		04E51FFC20B2982D00155A32 /* Deck+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E51FFB20B2982D00155A32 /* Deck+.swift */; };
 		04E51FFD20B2998800155A32 /* Deck+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E51FFB20B2982D00155A32 /* Deck+.swift */; };
-		04E5200520B2CC3000155A32 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5200420B2CC3000155A32 /* Order.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +82,6 @@
 		048C943720B7BC31006E61E1 /* Deeler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeler.swift; sourceTree = "<group>"; };
 		048C943920B7CAA0006E61E1 /* RecievedAsk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedAsk.swift; sourceTree = "<group>"; };
 		04E51FFB20B2982D00155A32 /* Deck+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deck+.swift"; sourceTree = "<group>"; };
-		04E5200420B2CC3000155A32 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +123,6 @@
 				045C73F520B0AB0E00A1D445 /* Rank.swift */,
 				045C73F320B0AB0000A1D445 /* Suits.swift */,
 				046B3F3620B2630A004901A1 /* Error.swift */,
-				04E5200420B2CC3000155A32 /* Order.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -311,7 +307,6 @@
 				04B66D1B20B66252005F693A /* InputView.swift in Sources */,
 				04B66D1C20B66252005F693A /* OutputView.swift in Sources */,
 				04B66D1820B660F3005F693A /* Strings.swift in Sources */,
-				04B66D1920B660F3005F693A /* Order.swift in Sources */,
 				04E51FFD20B2998800155A32 /* Deck+.swift in Sources */,
 				046B3F4820B265FF004901A1 /* EnumCollection.swift in Sources */,
 				046B3F4920B265FF004901A1 /* Int+.swift in Sources */,
@@ -341,7 +336,6 @@
 				048C943820B7BC31006E61E1 /* Deeler.swift in Sources */,
 				04E51FFC20B2982D00155A32 /* Deck+.swift in Sources */,
 				045C73F420B0AB0000A1D445 /* Suits.swift in Sources */,
-				04E5200520B2CC3000155A32 /* Order.swift in Sources */,
 				046B3F3520B2611F004901A1 /* Int+.swift in Sources */,
 				046B3F3F20B2638F004901A1 /* InputView.swift in Sources */,
 				0476F86920AEC4BE000EA6CD /* Card.swift in Sources */,

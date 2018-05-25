@@ -19,10 +19,10 @@ struct OutputView {
     
     // 시작 시 실행 선택하는 메시지
     static func cardGameSelectMassgae() {
-        print(CARDGAME_SELECT_MSG)
-        print(CARDGAME_SELECT_RESET_MSG)
-        print(CARDGAME_SELECT_SHUFFLE_MSG)
-        print(CARDGAME_SELECT_DRAW_MSG)
+        print(CARDGAME.MENU.ASK.desription)
+        print(CARDGAME.MENU.RESET.desription)
+        print(CARDGAME.MENU.SHUFFLE.desription)
+        print(CARDGAME.MENU.DRAW.desription)
     }
     
     // 에러 메시지를 출력 하는 함수
@@ -30,7 +30,7 @@ struct OutputView {
         print(e.description)
     }
     
-    static func deelerMesage(_ deeler: RecivedAsk) {
+    static func deelerMessage(_ deeler: RecievedAsk) {
         print(deeler.answer())
     }
     
