@@ -9,10 +9,11 @@
 struct InputView {
     
     // readInput : 사용자에게 값을 입력 받기 위한 함수
-    static func order() throws -> Order? {
+    static func order() throws -> CARDGAME.MENU? {
         guard let readInput = readLine() else {
             throw CardGaemError.isNil
         }
-        return Order.init(rawValue: readInput)
+        return CARDGAME.MENU.init(rawValue: readInput)
+//        return Order.init(rawValue: readInput)
     }
 }
