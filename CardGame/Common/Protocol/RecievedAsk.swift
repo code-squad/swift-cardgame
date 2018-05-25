@@ -1,5 +1,5 @@
 //
-//  Deeler.swift
+//  RecievedAsk.swift
 //  CardGame
 //
 //  Created by Jung seoung Yeo on 2018. 5. 25..
