@@ -1,3 +1,4 @@
+
 //
 //  RecievedAsk.swift
 //  CardGame
@@ -6,4 +7,6 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-import Foundation
+protocol RecivedAsk {
+    func answer() -> String
+}
