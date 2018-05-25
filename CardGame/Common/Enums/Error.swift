@@ -14,9 +14,9 @@ enum CardGaemError: Error {
     var description : String {
         switch self {
             case .isNil:
-                return CARDGAME_ISNIL_ERROR_MSG
+                return CARDGAME.ERROR.isNil.desription
             case .isOrder:
-                return CARDGAME_ISORDER_ERROR_MSG
+                return CARDGAME.ERROR.isOrder.desription
         }
     }
 }
