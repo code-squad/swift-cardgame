@@ -7,5 +7,9 @@
 //
 
 class CardStack {
+    private var fieldCard: [Card]
     
+    init(_ cards: [Card]) {
+        self.fieldCard = cards
+    }
 }
