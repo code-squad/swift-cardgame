@@ -13,12 +13,13 @@ func main() {
     var deeler = Deeler(deck)
     
     while true {
-        OutputView.cardGameSelectMassgae()
-        var order: CARDGAME.MENU?
+//        입력 부 주석 처리
+//        OutputView.cardGameSelectMassgae()
+//        var order: CARDGAME.MENU?
         
         do {
-            order = try InputView.order()
-            try deeler.receivedOrder(order)
+//            order = try InputView.order()
+//            try deeler.receivedOrder(order)
         }catch let e as CardGaemError {
             OutputView.errorMessage(e)
         }catch {

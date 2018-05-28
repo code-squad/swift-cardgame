@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04415E2620B9099F00B83B3D /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04415E2520B9099F00B83B3D /* CardStack.swift */; };
 		045C73F420B0AB0000A1D445 /* Suits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C73F320B0AB0000A1D445 /* Suits.swift */; };
 		045C73F620B0AB0E00A1D445 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C73F520B0AB0E00A1D445 /* Rank.swift */; };
 		045C73F820B0AD4C00A1D445 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 045C73F720B0AD4B00A1D445 /* README.md */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04415E2520B9099F00B83B3D /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		045C73F320B0AB0000A1D445 /* Suits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suits.swift; sourceTree = "<group>"; };
 		045C73F520B0AB0E00A1D445 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		045C73F720B0AD4B00A1D445 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				046B3F4620B26553004901A1 /* REAMDE.md */,
 				046B3F3C20B26376004901A1 /* Deck.swift */,
 				0476F86820AEC4BE000EA6CD /* Card.swift */,
+				04415E2520B9099F00B83B3D /* CardStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				048C943820B7BC31006E61E1 /* Deeler.swift in Sources */,
 				04E51FFC20B2982D00155A32 /* Deck+.swift in Sources */,
 				045C73F420B0AB0000A1D445 /* Suits.swift in Sources */,
+				04415E2620B9099F00B83B3D /* CardStack.swift in Sources */,
 				046B3F3520B2611F004901A1 /* Int+.swift in Sources */,
 				046B3F3F20B2638F004901A1 /* InputView.swift in Sources */,
 				0476F86920AEC4BE000EA6CD /* Card.swift in Sources */,

@@ -14,6 +14,5 @@ struct InputView {
             throw CardGaemError.isNil
         }
         return CARDGAME.MENU.init(rawValue: readInput)
-//        return Order.init(rawValue: readInput)
     }
 }
