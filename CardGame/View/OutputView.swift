@@ -31,7 +31,7 @@ struct OutputView {
     }
     
     // 딜러가 결과 값을 말하는 함수
-    static func deelerMessage(_ deeler: RecievedAsk) {
+    static func deelerMessage(_ deeler: DeckStateAsk) {
         print(deeler.answer())
     }
     

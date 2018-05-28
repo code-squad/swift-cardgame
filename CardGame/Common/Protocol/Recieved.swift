@@ -7,6 +7,6 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-protocol RecievedAsk {
+protocol DeckStateAsk {
     func answer() -> String
 }
