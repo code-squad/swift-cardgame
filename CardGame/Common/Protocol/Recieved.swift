@@ -10,3 +10,8 @@
 protocol DeckStateAsk {
     func answer() -> String
 }
+
+protocol CardStackStateAsk {
+     func fieldCardAsk(_ fieldAsk: (CardStack) -> Void) 
+}
+
