@@ -6,11 +6,12 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-struct Deeler: RecievedAsk {
+struct Deeler: DeckStateAsk {
     
     private var deck: Deck
     private var order: CARDGAME.MENU? = nil
     private var drawCard: Card? = nil
+    private var fieldCard: [CardStack] = []
     
     init(_ deck: Deck) {
         self.deck = deck
@@ -33,6 +34,20 @@ struct Deeler: RecievedAsk {
                 drawCard = deck.removeOne()
             case .ASK:
                 throw CARDGAME.ERROR.isOrder
+        }
+    }
+    
+    mutating private func cardStackMaker(_ cardCount: Int) -> CardStack {
+        var cards: [Card] = []
+        for _ in 0 ..< cardCount {
+            cards.append(deck.removeOne())
+        }
+        return CardStack(cards)
+    }
+    
+    mutating func fieldCardMaker() {
+        for fieldCardCount in 1 ... 7 {
+            self.fieldCard.append(cardStackMaker(fieldCardCount))
         }
     }
     
