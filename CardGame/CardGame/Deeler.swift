@@ -70,3 +70,12 @@ struct Deeler: DeckStateAsk {
         }
     }
 }
+
+extension Deeler: CardStackStateAsk {
+    
+    func fieldCardAsk(_ fieldAsk: (CardStack) -> Void) {
+        for cards in fieldCard {
+            fieldAsk(cards)
+        }
+    }
+}

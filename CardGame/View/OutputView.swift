@@ -35,4 +35,11 @@ struct OutputView {
         print(deeler.answer())
     }
     
+    // 딜러가 필드의 카드를 말하는 함수
+    static func fieldAsk(_ deeler: CardStackStateAsk) {
+        deeler.fieldCardAsk { (cardStack) in
+            print(cardStack.description)
+        }
+    }
+    
 }
