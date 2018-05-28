@@ -12,4 +12,22 @@ class CardStack {
     init(_ cards: [Card]) {
         self.fieldCard = cards
     }
+    
+}
+
+extension CardStack: CustomStringConvertible {
+    var description: String {
+        var result = "["
+        
+        for (index, card) in fieldCard.enumerated() {
+            result += card.desription()
+            
+            if index != (fieldCard.count - 1) {
+                result += ", "
+            }
+            
+        }
+        result += "]"
+        return result
+    }
 }
