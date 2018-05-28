@@ -32,3 +32,11 @@ deck.removeOne()    // 맨위의 카드를 리턴
 deck.reset()        // 카드를 다시 세트
 
 ```
+
+### 3단계
+
+1. CustomStringConvertible [link](https://developer.apple.com/documentation/swift/customstringconvertible)
+
+-> CardStack에서 CustomStringConvertible 준수
+: stack 카드의 형식 나타내기 desription을 생성
+

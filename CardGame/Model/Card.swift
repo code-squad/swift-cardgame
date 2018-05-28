@@ -22,6 +22,6 @@ class Card {
     
     // 생성 된 카드를 출력하는 함수
     func desription() -> String {
-        return "\(suits.rawValue) \(rank.description)"
+        return "\(suits.rawValue)\(rank.description)"
     }
 }
