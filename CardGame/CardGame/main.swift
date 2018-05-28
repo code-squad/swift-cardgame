@@ -10,16 +10,16 @@ import Foundation
 
 func main() {
     let deck = Deck()
-    var deeler = Deeler(deck)
+    var dealer = Dealer(deck)
     do {
-        try deeler.receivedOrder(CARDGAME.MENU.SHUFFLE)
+        try dealer.receivedOrder(CARDGAME.MENU.SHUFFLE)
     }catch let e as CardGaemError {
         OutputView.errorMessage(e)
     }catch {
         print(error)
     }
-    deeler.fieldCardMaker()
-    OutputView.fieldAsk(deeler)
+    dealer.makeFieldCard()
+    OutputView.showFieldCard(dealer)
 }
 
 main()

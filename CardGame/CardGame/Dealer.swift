@@ -6,7 +6,7 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-struct Deeler: DeckStateAsk {
+struct Dealer: DeckStateAsk {
     
     private var deck: Deck
     private var order: CARDGAME.MENU? = nil
@@ -37,7 +37,7 @@ struct Deeler: DeckStateAsk {
         }
     }
     
-    mutating private func cardStackMaker(_ cardCount: Int) -> CardStack {
+    mutating private func makeStackCard(_ cardCount: Int) -> CardStack {
         var cards: [Card] = []
         for _ in 0 ..< cardCount {
             cards.append(deck.removeOne())
@@ -45,9 +45,9 @@ struct Deeler: DeckStateAsk {
         return CardStack(cards)
     }
     
-    mutating func fieldCardMaker() {
+    mutating func makeFieldCard() {
         for fieldCardCount in 1 ... 7 {
-            self.fieldCard.append(cardStackMaker(fieldCardCount))
+            self.fieldCard.append(makeStackCard(fieldCardCount))
         }
     }
     
@@ -71,7 +71,7 @@ struct Deeler: DeckStateAsk {
     }
 }
 
-extension Deeler: CardStackStateAsk {
+extension Dealer: CardStackStateAsk {
     
     func fieldCardAsk(_ fieldAsk: (CardStack) -> Void) {
         for cards in fieldCard {

@@ -31,13 +31,13 @@ struct OutputView {
     }
     
     // 딜러가 결과 값을 말하는 함수
-    static func deelerMessage(_ deeler: DeckStateAsk) {
-        print(deeler.answer())
+    static func deelerMessage(_ dealer: DeckStateAsk) {
+        print(dealer.answer())
     }
     
     // 딜러가 필드의 카드를 말하는 함수
-    static func fieldAsk(_ deeler: CardStackStateAsk) {
-        deeler.fieldCardAsk { (cardStack) in
+    static func showFieldCard(_ dealer: CardStackStateAsk) {
+        dealer.fieldCardAsk { (cardStack) in
             print(cardStack.description)
         }
     }
