@@ -7,7 +7,7 @@
 //
 
 // 에러 저장
-enum CardGaemError: Error {
+enum CardGaemError: Error, CustomStringConvertible {
     case isNil
     case isOrder
     
