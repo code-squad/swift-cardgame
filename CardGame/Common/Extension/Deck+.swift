@@ -12,7 +12,7 @@ extension Deck: Equatable {
         var rhsTmp = rhs
     
         for _ in 0 ..< lhs.count() {
-            if lhsTmp.removeOne().desription() != rhsTmp.removeOne().desription() {
+            if lhsTmp.removeOne().description != rhsTmp.removeOne().description {
                 return false
             }
         }

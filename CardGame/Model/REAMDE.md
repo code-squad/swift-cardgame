@@ -40,3 +40,4 @@ deck.reset()        // 카드를 다시 세트
 -> CardStack에서 CustomStringConvertible 준수
 : stack 카드의 형식 나타내기 desription을 생성
 
+-> CustomStringConvertible String형태로 나타나는 프로포톨이여서 배열등을 바로 호출시 String형태로 바로 사용가능

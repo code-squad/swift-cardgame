@@ -7,7 +7,7 @@
 //
 
 // 카드를 생성하는 객체
-class Card {
+class Card: CustomStringConvertible {
 
     // suits : 모양을 저장하는 변수
     // rnak  : 숫자를 저장하는 변수
@@ -21,7 +21,7 @@ class Card {
     }
     
     // 생성 된 카드를 출력하는 함수
-    func desription() -> String {
+    var description: String {
         return "\(suits.rawValue)\(rank.description)"
     }
 }
