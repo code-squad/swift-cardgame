@@ -7,11 +7,8 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-protocol DeckStateAsk {
-    func answer() -> String
-}
-
-protocol CardStackStateAsk {
-     func fieldCardAsk(_ fieldAsk: (CardStack) -> Void) 
+protocol Dealerable {
+    func makeResultFormat() -> String
+    func makeResultFormat(_ handler: (CardStack) -> Void)
 }
 
