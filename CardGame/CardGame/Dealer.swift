@@ -6,12 +6,12 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-struct Dealer: DeckStateAsk {
+struct Dealer: Dealerable {
     
     private var deck: Deck
     private var order: CARDGAME.MENU? = nil
     private var drawCard: Card? = nil
-    private var fieldCard: [CardStack] = []
+    private var cardStacks: [CardStack] = []
     
     init(_ deck: Deck) {
         self.deck = deck
@@ -37,21 +37,21 @@ struct Dealer: DeckStateAsk {
         }
     }
     
-    mutating private func makeStackCard(_ cardCount: Int) -> CardStack {
+    private mutating func makeStackCard(_ count: Int) -> CardStack {
         var cards: [Card] = []
-        for _ in 0 ..< cardCount {
+        for _ in 0 ..< count {
             cards.append(deck.removeOne())
         }
         return CardStack(cards)
     }
     
     mutating func makeFieldCard() {
-        for fieldCardCount in 1 ... 7 {
-            self.fieldCard.append(makeStackCard(fieldCardCount))
+        for count in 1 ... 7 {
+            self.cardStacks.append(makeStackCard(count))
         }
     }
     
-    func answer() -> String {
+    func makeResultFormat() -> String {
         
         guard let order = self.order else {
             return CARDGAME.ERROR.isOrder.desription
@@ -64,18 +64,16 @@ struct Dealer: DeckStateAsk {
                 return "\(GAMEMENU.SHUFFLE.TotalCommand.desription) \(deck.count()) \(GAMEMENU.SHUFFLE.BackCommand.desription)"
             case .DRAW:
                 guard let drawCard = self.drawCard else { return CARDGAME.ERROR.unExpected.desription}
-                return "\(drawCard.desription()) \n\(GAMEMENU.DRAW.TotalCommand.desription) \(deck.count()) \(GAMEMENU.DRAW.BackCommand.desription)"
+                return "\(drawCard) \n\(GAMEMENU.DRAW.TotalCommand.desription) \(deck.count()) \(GAMEMENU.DRAW.BackCommand.desription)"
             case .ASK:
                 return CARDGAME.ERROR.isOrder.desription
         }
     }
-}
-
-extension Dealer: CardStackStateAsk {
     
-    func fieldCardAsk(_ fieldAsk: (CardStack) -> Void) {
-        for cards in fieldCard {
-            fieldAsk(cards)
+    func makeResultFormat(_ handler: (CardStack) -> Void) {
+        for cards in self.cardStacks {
+            handler(cards)
         }
     }
 }
+
