@@ -8,6 +8,20 @@
 import Foundation
 enum CARDGAME {
     
+    enum TYPE: String, CustomStringConvertible {
+        case FiveCard = "1"
+        case SevenCard = "2"
+        
+        var description: String{
+            switch self {
+                case .FiveCard:
+                    return "5카드"
+                case .SevenCard:
+                    return "7카드"
+            }
+        }
+    }
+    
     enum MENU: String {
         case ASK
         case RESET = "1"
