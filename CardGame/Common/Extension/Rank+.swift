@@ -6,9 +6,9 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-extension Rank: EnumCollection {
+extension Shape: EnumCollection {
     
-    static var allValues: [Rank] {
+    static var allValues: [Shape] {
         return [ .Ace, .two, .three, .four, .five, .six, .seven, eight, nine, ten, .Jack, Queen, .King]
     }
     

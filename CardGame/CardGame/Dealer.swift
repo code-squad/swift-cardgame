@@ -54,19 +54,19 @@ struct Dealer: Dealerable {
     func makeResultFormat() -> String {
         
         guard let order = self.order else {
-            return CARDGAME.ERROR.isOrder.desription
+            return CARDGAME.ERROR.isOrder.description
         }
         
         switch order {
             case .RESET:
                 return GAMEMENU.RESET.rawValue
             case .SHUFFLE:
-                return "\(GAMEMENU.SHUFFLE.TotalCommand.desription) \(deck.count()) \(GAMEMENU.SHUFFLE.BackCommand.desription)"
+                return "\(GAMEMENU.SHUFFLE.TotalCommand) \(deck.count()) \(GAMEMENU.SHUFFLE.BackCommand)"
             case .DRAW:
-                guard let drawCard = self.drawCard else { return CARDGAME.ERROR.unExpected.desription}
-                return "\(drawCard) \n\(GAMEMENU.DRAW.TotalCommand.desription) \(deck.count()) \(GAMEMENU.DRAW.BackCommand.desription)"
+                guard let drawCard = self.drawCard else { return CARDGAME.ERROR.unExpected.description}
+                return "\(drawCard) \n\(GAMEMENU.DRAW.TotalCommand) \(deck.count()) \(GAMEMENU.DRAW.BackCommand)"
             case .ASK:
-                return CARDGAME.ERROR.isOrder.desription
+                return CARDGAME.ERROR.isOrder.description
         }
     }
     

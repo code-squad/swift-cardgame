@@ -13,9 +13,9 @@ class Card: CustomStringConvertible {
     // rnak  : 숫자를 저장하는 변수
     
     let suits: Suits
-    let rank: Rank
+    let rank: Shape
     
-    init(_ suits: Suits, _ rank: Rank) {
+    init(_ suits: Suits, _ rank: Shape) {
         self.suits = suits
         self.rank = rank
     }

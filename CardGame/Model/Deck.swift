@@ -41,8 +41,8 @@ struct Deck {
         var resetCards: [Card] = []
         
         for suit in Suits.allValues {
-            for rank in Rank.allValues {
-                resetCards.append(Card( suit, rank))
+            for shape in Shape.allValues {
+                resetCards.append(Card( suit, shape))
             }
         }
         self.deck = resetCards
