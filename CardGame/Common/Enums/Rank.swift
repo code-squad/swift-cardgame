@@ -7,7 +7,7 @@
 //
 
 // 숫자를 가지는 enum
-enum Rank: String {
+enum Shape: String {
     // 특별한 카드
     case King, Queen, Jack, Ace
     // 숫자
