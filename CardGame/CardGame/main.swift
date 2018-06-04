@@ -9,17 +9,17 @@
 import Foundation
 
 func main() {
-    let deck = Deck()
-    var dealer = Dealer(deck)
+    var cardGame: CardGame? = nil
     do {
-        try dealer.receivedOrder(CARDGAME.MENU.SHUFFLE)
-    }catch let e as CardGaemError {
+        let rule = try InputView.readGameRule()
+        let numberOfPlayer = try InputView.readNumberOfPlater()
+        cardGame = CardGame(rule, numberOfPlayer)
+    }catch let e as CARDGAME.ERROR {
         OutputView.errorMessage(e)
     }catch {
-        print(error)
+        fatalError("unexpected error")
     }
-    dealer.makeFieldCard()
-    OutputView.showFieldCard(dealer)
+    cardGame?.start()
 }
 
 main()

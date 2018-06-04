@@ -6,74 +6,51 @@
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
-struct Dealer: Dealerable {
+class Dealer: Dealerable, Playerable {
     
     private var deck: Deck
-    private var order: CARDGAME.MENU? = nil
-    private var drawCard: Card? = nil
-    private var cardStacks: [CardStack] = []
+    private var cards: [Card] = [Card]()
     
+    // 딜러가 덱을 관리 해야 하므로 Dealer 생성시 deck을 받아서 객체 생성
     init(_ deck: Deck) {
         self.deck = deck
     }
     
-    mutating func receivedOrder(_ order: CARDGAME.MENU?) throws {
-       
-        self.order = order
-
-        guard let order = order else {
-            throw CARDGAME.ERROR.isOrder
-        }
-        
-        switch order {
-            case .RESET:
-                deck.reset()
-            case .SHUFFLE:
-                deck.shuffle()
-            case .DRAW:
-                drawCard = deck.removeOne()
-            case .ASK:
-                throw CARDGAME.ERROR.isOrder
-        }
+    /// Dealerable
+    // 카드를 나누어주는 함수
+    func distributeCard() -> Card {
+        return deck.removeOne()
     }
     
-    private mutating func makeStackCard(_ count: Int) -> CardStack {
-        var cards: [Card] = []
-        for _ in 0 ..< count {
-            cards.append(deck.removeOne())
-        }
-        return CardStack(cards)
+    // 카드를 섞는 함수
+    func shuffleCard() {
+        self.deck.shuffle()
     }
     
-    mutating func makeFieldCard() {
-        for count in 1 ... 7 {
-            self.cardStacks.append(makeStackCard(count))
-        }
+    // 게임이 끝나는지 체크하는 함수
+    func isClose(_ rule: CARDGAME.RURE, _ player: CARDGAME.PLAYER) -> Bool {
+        return self.deck.count() >= (rule.Type * (player.Count + 1)) ? true : false
     }
     
-    func makeResultFormat() -> String {
-        
-        guard let order = self.order else {
-            return CARDGAME.ERROR.isOrder.description
-        }
-        
-        switch order {
-            case .RESET:
-                return GAMEMENU.RESET.rawValue
-            case .SHUFFLE:
-                return "\(GAMEMENU.SHUFFLE.TotalCommand) \(deck.count()) \(GAMEMENU.SHUFFLE.BackCommand)"
-            case .DRAW:
-                guard let drawCard = self.drawCard else { return CARDGAME.ERROR.unExpected.description}
-                return "\(drawCard) \n\(GAMEMENU.DRAW.TotalCommand) \(deck.count()) \(GAMEMENU.DRAW.BackCommand)"
-            case .ASK:
-                return CARDGAME.ERROR.isOrder.description
-        }
+    /// Playerable
+    // 자신의 패를 보여주는 함수
+    func showMyCard() -> [Card] {
+        return self.cards
     }
     
-    func makeResultFormat(_ handler: (CardStack) -> Void) {
-        for cards in self.cardStacks {
-            handler(cards)
-        }
+    // 자신의 카드를 버리는 함수
+    func resetMyCard() {
+        self.cards.removeAll()
+    }
+    
+    // 딜러에게 카드를 받는 함수
+    func receiveCard(_ card: Card) {
+        self.cards.append(card)
+    }
+    
+    func showPlayer(_ handler: (Playerable) -> Void) {
+        print("\(CARDGAME.playerNames.dealer)", terminator: "")
+        handler(self)
     }
 }
 

@@ -59,4 +59,14 @@ try - catch를 사용할 경우에 try로 예외처리가 발생할 부분만 tr
 fieldCard를 생성하여 필드위에 카드를 저장하는 프로퍼티생성 
  
 
+### 4 단계
+- CardGame 객체 생성
+    게임을 시작하고 객체로 player 수와 게임 rule을 가지고 실행
+
+- Player 객체 생성
+    Playerable 프로토콜을 준수하여 player가 할 숭 있는 역할을 나타냄
+
+- Dealer 객체 생성
+    Playerable 프로토콜과 Dealerable 프로토콜을 채택하여 구현ㄴ
+    
 
