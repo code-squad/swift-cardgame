@@ -5,88 +5,92 @@
 //  Created by Jung seoung Yeo on 2018. 5. 20..
 //  Copyright © 2018년 JK. All rights reserved.
 //
-import Foundation
+
 enum CARDGAME {
     
-    enum TYPE: String, CustomStringConvertible {
-        case FiveCard = "1"
-        case SevenCard = "2"
+    enum playerNames: CustomStringConvertible {
+        case player
+        case dealer
+        
+        var description: String {
+            switch self {
+            case .player:
+                return "참가자 #"
+            case .dealer:
+                return "딜러 "
+            }
+        }
+    }
+    
+    enum ASK: String, CustomStringConvertible {
+        case Rule
+        case NumberOfPlayer
         
         var description: String{
             switch self {
-                case .FiveCard:
-                    return "5카드"
-                case .SevenCard:
-                    return "7카드"
+            case .Rule:
+                return """
+                카드 게임 종류를 선택하세요
+                1. 7카드
+                2. 5카드
+                """
+            case .NumberOfPlayer:
+                return "참여 할 사람의 인원을 입력하세요"
             }
         }
     }
     
-    enum MENU: String {
-        case ASK
-        case RESET = "1"
-        case SHUFFLE = "2"
-        case DRAW = "3"
+    enum RURE: String {
+        case SevenCard = "1"
+        case FiveCard = "2"
         
-        var desription: String {
+        var `Type`: Int {
             switch self {
-                case .ASK:
-                    return "다음 메뉴를 선택해주세요."
-                case .RESET:
-                    return "1. 카드 초기화"
-                case .SHUFFLE:
-                    return "2. 카드 섞기"
-                case .DRAW:
-                    return "3. 카드 하나 뽑기"
+                case .SevenCard:
+                    return 7
+                case .FiveCard:
+                    return 5
             }
         }
     }
     
-    enum ERROR: Swift.Error {
-        case isNil
-        case isOrder
-        case unExpected
+    enum PLAYER: String {
+        case One = "1"
+        case Two = "2"
+        case Three = "3"
+        case Four = "4"
         
-        var desription: String {
+        var Count: Int {
+            switch self {
+                case .One:
+                    return 1
+                case .Two:
+                    return 2
+                case .Three:
+                    return 3
+                case .Four:
+                    return 4
+            }
+        }
+
+    }
+    
+    enum ERROR: Swift.Error, CustomStringConvertible {
+        case isNil
+        case unExpected
+        case inValidRule
+        case overPlayer
+        
+        var description: String {
             switch self {
                 case .isNil:
                     return "선택한 값이 없습니다."
-                case .isOrder:
-                    return "잘 못 된 주문입니다."
                 case .unExpected:
                     return "unExpected Error"
-            }
-        }
-    }
-}
-
-enum GAMEMENU: String {
-    case RESET = "카드 전체를 초기화 했습니다."
-    
-    enum DRAW {
-        case TotalCommand
-        case BackCommand
-        
-        var desription: String {
-            switch self {
-                case .TotalCommand:
-                    return "총"
-                case .BackCommand:
-                    return "장의 카드를 섞었습니다."
-            }
-        }
-    }
-    
-    enum SHUFFLE {
-        case TotalCommand
-        case BackCommand
-        
-        var desription: String {
-            switch self {
-                case .TotalCommand:
-                    return "전체"
-                case .BackCommand:
-                    return "의 카드가 남았습니다."
+                case .inValidRule:
+                    return "1, 2 번 중에 선택해주세요"
+                case .overPlayer:
+                    return "Payer 수는 1명 부터 4명까지만 가능합니다."
             }
         }
     }

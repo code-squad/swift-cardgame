@@ -28,3 +28,9 @@ Error : 에러 메시지 저장하는 enum
 : Rack+, Suits+ -> EnumCollection 채택 후 구현
 
 : Int+ -> Int 타입을 Uint32로 변환하는 함수 구현 
+
+
+### 4단계 
+
+- Strings
+불필요한 값 제거
