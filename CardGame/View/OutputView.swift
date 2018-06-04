@@ -11,34 +11,27 @@ import Foundation
 // 출력을 담당하는 객체
 struct OutputView {
     
-    // static을 선언 이유 : OutputView를 객체 생성하지 않고 바로 showCard함수를 실행하기 위하여 선언
-    static func showCard(_ card: Card) {
-        print(card)
+    // 시작 시 실행 선택하는 메시지
+    static func askCardGameType() {
+        print(CARDGAME.ASK.Rule)
     }
     
-    // 시작 시 실행 선택하는 메시지
-    static func cardGameSelectMassgae() {
-        print(CARDGAME.MENU.ASK.desription)
-        print(CARDGAME.MENU.RESET.desription)
-        print(CARDGAME.MENU.SHUFFLE.desription)
-        print(CARDGAME.MENU.DRAW.desription)
+    static func askPalyerCount() {
+        print(CARDGAME.ASK.NumberOfPlayer)
     }
     
     // 에러 메시지를 출력 하는 함수
-    static func errorMessage(_ e : CardGaemError) {
+    static func errorMessage(_ e : CARDGAME.ERROR) {
         print(e)
     }
     
-    // 딜러가 결과 값을 말하는 함수
-    static func dealerMessage(_ dealer: Dealerable) {
-        print(dealer.makeResultFormat())
-    }
-    
-    // 딜러가 필드의 카드를 말하는 함수
-    static func showFieldCard(_ dealer: Dealerable) {
-        dealer.makeResultFormat { (cardStack) in
-            print(cardStack)
+    // 자신의 패를 보여주는 함수
+    static func showPlayerCard(_ players: [Playerable]) {
+        for player in players {
+            player.showPlayer{
+                print($0.showMyCard())
+            }
         }
+        print()
     }
-    
 }

@@ -36,3 +36,7 @@ let order = try InputView.order()
 - ouptutview
 
 : 결과 값을 출력하는 함수 -> deelerMesage 추가 파라미터로 protocol을 받아서 실행
+
+### 4단계
+
+- print문을 사용한 이유 : outputview는 단순 print를 하는 역할이 아닌 해당 객체, 결과 값들을 나타내기 위한 역할

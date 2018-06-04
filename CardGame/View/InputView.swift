@@ -8,11 +8,24 @@
 
 struct InputView {
     
-    // readInput : 사용자에게 값을 입력 받기 위한 함수
-    static func order() throws -> CARDGAME.MENU? {
-        guard let readInput = readLine() else {
-            throw CardGaemError.isNil
+    // 카드게임 타입을 받는 함수
+    static func readGameRule() throws -> CARDGAME.RURE {
+        print(CARDGAME.ASK.Rule)
+        let readInput = readLine() ?? ""
+        guard let cardGameRule = CARDGAME.RURE.init(rawValue: readInput), cardGameRule == CARDGAME.RURE.SevenCard  || cardGameRule == CARDGAME.RURE.FiveCard else {
+            throw CARDGAME.ERROR.inValidRule
         }
-        return CARDGAME.MENU.init(rawValue: readInput)
+        
+        return cardGameRule
+    }
+    
+    // 카드게임 플레이어 수를 받는 함수
+    static func readNumberOfPlater() throws -> CARDGAME.PLAYER {
+        print(CARDGAME.ASK.NumberOfPlayer)
+        let readInput = readLine() ?? ""
+        guard let numberOfPlayer = CARDGAME.PLAYER.init(rawValue: readInput) else {
+            throw CARDGAME.ERROR.overPlayer
+        }
+        return numberOfPlayer
     }
 }
