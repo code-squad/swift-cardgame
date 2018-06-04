@@ -26,3 +26,23 @@ fieldCardAsk fieldAsk fieldCard 어떤게 함수 이름이고 어떤게 매개�
 
 파일 명의 경우 protocols와 같은 이름보다는 protocol의 이름과 동일하게 하는것이 좋음 또는 행위 혹은 able을 사용하는 것을 추천
 
+4단계 
+
+protocol 변경
+
+playerable -> 게임 참가자가 준수해야 될 프로토콜
+
+```
+func showMyCard() -> String     // 내 카드를 보여 주는 함수
+func resetMyCard()              // 게임이 끝나고 카드패를 버리는 함수
+func receiveCard(_ card: Card)  // 딜러에게 카드를 받아서 내 카드에 저장하는 함수
+func showPlayer(_ handler: (Playerable) -> Void) // player의 카드를 넘겨주어 값을 출력할 함수
+```
+
+dealerable -> 딜러가 준수해야 될 프로토콜
+
+```
+func distributeCard() -> Card   // Player에게 카드를 나누어 주기위한 함수
+func shuffleCard()              // 덱을 셔플
+func isClose(_ rule: CARDGAME.RURE, _ numberOfPlayer: CARDGAME.PLAYER) -> Bool  // 게임을 진행 할지 끝낼지 체크
+```
