@@ -9,5 +9,4 @@
 protocol Dealerable {
     func distributeCard() -> Card
     func shuffleCard()
-    func isClose(_ rule: CARDGAME.RURE, _ numberOfPlayer: CARDGAME.PLAYER) -> Bool
 }

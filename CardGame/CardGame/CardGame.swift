@@ -16,11 +16,11 @@ class CardGame {
     init(_ rule: CARDGAME.RURE, _ numberOfPlayer: CARDGAME.PLAYER) {
         self.rule = rule
         self.numberOfPlayer = numberOfPlayer
-        self.dealer = Dealer(Deck())
+        self.dealer = Dealer()
     }
     
     // 참가 선수를 만드는 함수
-    func makePlayers(_ player: CARDGAME.PLAYER) {
+    private func makePlayers(_ player: CARDGAME.PLAYER) {
         for index in 0 ..< player.Count {
             players.append(Player(index + 1))
         }
@@ -32,15 +32,19 @@ class CardGame {
         makePlayers(numberOfPlayer)
         self.dealer.shuffleCard()
         
-        while self.dealer.isClose(rule, numberOfPlayer) {
+        while isClose() {
             distributeCard()
             OutputView.showPlayerCard(players)
             resetCardGame()
         }
     }
     
+    private func isClose() -> Bool {
+        return self.dealer.deck.count() >= (rule.Type * (numberOfPlayer.Count + 1)) ? true : false
+    }
+    
     // 카드를 한장 씩 나누어 주기 위해 2중 for문 사용
-    func distributeCard() {
+    private func distributeCard() {
         for _ in 0 ..< rule.Type {
             for player in players {
                 player.receiveCard(dealer.distributeCard())
@@ -49,7 +53,7 @@ class CardGame {
     }
     
     // player 카드를 버리는 함수
-    func resetCardGame() {
+    private func resetCardGame() {
         for player in players {
             player.resetMyCard()
         }

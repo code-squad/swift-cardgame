@@ -8,12 +8,12 @@
 
 class Dealer: Dealerable, Playerable {
     
-    private var deck: Deck
+    public private(set) var deck: Deck
     private var cards: [Card] = [Card]()
     
     // 딜러가 덱을 관리 해야 하므로 Dealer 생성시 deck을 받아서 객체 생성
-    init(_ deck: Deck) {
-        self.deck = deck
+    init() {
+        self.deck = Deck()
     }
     
     /// Dealerable
@@ -25,11 +25,6 @@ class Dealer: Dealerable, Playerable {
     // 카드를 섞는 함수
     func shuffleCard() {
         self.deck.shuffle()
-    }
-    
-    // 게임이 끝나는지 체크하는 함수
-    func isClose(_ rule: CARDGAME.RURE, _ player: CARDGAME.PLAYER) -> Bool {
-        return self.deck.count() >= (rule.Type * (player.Count + 1)) ? true : false
     }
     
     /// Playerable
