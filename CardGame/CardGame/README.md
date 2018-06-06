@@ -69,4 +69,13 @@ fieldCard를 생성하여 필드위에 카드를 저장하는 프로퍼티생성
 - Dealer 객체 생성
     Playerable 프로토콜과 Dealerable 프로토콜을 채택하여 구현ㄴ
     
+    
+피드백
 
+여기 deck.count() 나 player.Count 등에 접근하지 않고 private 이라면 어떤식으로 개선이 가능할까요
+
+```
+private var deck // get 함수가 필요
+
+public private(set) var deck // set private get public 으로 선언
+```
