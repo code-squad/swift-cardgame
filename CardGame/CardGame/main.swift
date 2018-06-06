@@ -17,7 +17,7 @@ func main() {
     }catch let e as CARDGAME.ERROR {
         OutputView.errorMessage(e)
     }catch {
-        fatalError("unexpected error")
+        print(error)
     }
     cardGame?.start()
 }
