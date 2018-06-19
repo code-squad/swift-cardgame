@@ -8,4 +8,17 @@
 
 import Foundation
 
+func main(){
+    // 보드 생성
+    let gameBoard = GameBoard()
+    
+    // 카드 생성
+    guard let card = gameBoard.makeRandomCard() else {
+        return ()
+    }
+    // 생성된 카드 정보를 프린트
+    print(gameBoard.getInformation(card: card)!)
+}
+
+main()
 
