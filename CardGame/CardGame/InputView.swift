@@ -36,4 +36,9 @@ struct InputView {
     func getUserInput() -> String {
         return readLine()!
     }
+    
+    /// 카드가 0 인데 뽑기를 시도할 경우 에러메세지
+    func noMoreCardMessage(){
+        print("카드가 없습니다.")
+    }
 }
