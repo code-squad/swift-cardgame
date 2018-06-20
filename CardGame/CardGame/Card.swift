@@ -29,7 +29,6 @@ enum Mark {
 /// 카드 넘버링
 enum Numbering {
     case ace
-    case one
     case two
     case three
     case four
@@ -47,7 +46,6 @@ enum Numbering {
     func getValue() -> String {
         switch self {
         case .ace : return "A"
-        case .one : return "1"
         case .two : return "2"
         case .three : return "3"
         case .four : return "4"
