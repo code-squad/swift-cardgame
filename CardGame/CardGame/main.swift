@@ -17,7 +17,7 @@ func main(){
         return ()
     }
     // 생성된 카드 정보를 프린트
-    print(gameBoard.getInformation(card: card)!)
+    print(card.getInfo())
 }
 
 main()
