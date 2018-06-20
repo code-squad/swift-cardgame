@@ -34,7 +34,10 @@ struct Deck {
     }
     
     /// 카드 한장을 빼서 리턴
-    mutating func removeOne() -> Card {
+    mutating func removeOne() -> Card! {
+        guard count() != 0 else {
+            return nil
+        }
         return cardList.removeFirst()
     }
     
