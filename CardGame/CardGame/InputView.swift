@@ -42,6 +42,7 @@ struct InputView {
     
     /// 유저입력을 받아서 리턴하는 함수
     func getUserInput() -> CardMenu? {
+        printMenuMessage()
         let userInput = requestUserInput()
         let result = checkUserInput(userInput: userInput)
         return result
