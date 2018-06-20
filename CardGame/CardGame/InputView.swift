@@ -7,6 +7,12 @@
 //
 
 import Foundation
+/// 사용자 입력 종류
+enum CardMenu {
+    case reset
+    case shuffle
+    case removeOne
+}
 
 struct InputView {
     /// 메뉴 메세지 출력
@@ -19,26 +25,25 @@ struct InputView {
 """)
     }
     
-    /// 리셋 메세지
-    func printResetMessage(){
-        print("카드 전체를 초기화했습니다. ")
-    }
-    /// 셔플 메세지
-    func printShuffleMessage(cardCount: Int){
-        print("전체 \(cardCount)장의 카드를 섞었습니다.")
-    }
-    /// 카드뽑기 메세지
-    func printRmoveOneMessage(cardCount: Int){
-        print("총 \(cardCount)장의 카드가 남아있습니다.")
-    }
-    
     /// 유저입력을 받아서 리턴하는 함수
-    func getUserInput() -> String {
+    func requestUserInput() -> String {
         return readLine()!
     }
     
-    /// 카드가 0 인데 뽑기를 시도할 경우 에러메세지
-    func noMoreCardMessage(){
-        print("카드가 없습니다.")
+    /// 유저입력값이 메뉴에 있는지 체크
+    func checkUserInput(userInput: String) -> CardMenu? {
+        switch userInput {
+        case "1" : return CardMenu.reset
+        case "2" : return CardMenu.shuffle
+        case "3" : return CardMenu.removeOne
+        default : return nil
+        }
+    }
+    
+    /// 유저입력을 받아서 리턴하는 함수
+    func getUserInput() -> CardMenu? {
+        let userInput = requestUserInput()
+        let result = checkUserInput(userInput: userInput)
+        return result
     }
 }
