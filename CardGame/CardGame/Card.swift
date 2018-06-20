@@ -8,17 +8,75 @@
 
 import Foundation
 
+/// 카드 모양
+enum Mark {
+    case spade
+    case clover
+    case heart
+    case diamond
+    
+    /// 출력값 리턴을 위한 함수
+    func getValue() -> String {
+        switch self {
+        case .spade : return ("♠️")
+        case .clover : return ("♣️")
+        case .heart : return ("♥️")
+        case .diamond : return ("♦️")
+        }
+    }
+}
+
+/// 카드 넘버링
+enum Numbering {
+    case ace
+    case one
+    case two
+    case three
+    case four
+    case five
+    case six
+    case seven
+    case eight
+    case nine
+    case ten
+    case jack
+    case queen
+    case king
+    
+    /// 출력값 리턴용
+    func getValue() -> String {
+        switch self {
+        case .ace : return "A"
+        case .one : return "1"
+        case .two : return "2"
+        case .three : return "3"
+        case .four : return "4"
+        case .five : return "5"
+        case .six : return "6"
+        case .seven : return "7"
+        case .eight : return "8"
+        case .nine : return "9"
+        case .ten : return "10"
+        case .jack : return "J"
+        case .queen : return "Q"
+        case .king : return "K"
+        }
+    }
+}
+
 /// 카드 객체를 만든다
 class Card {
-    // 숫자, 마크는 계산의 편의성을 위해서 단순인트로 선언. 이니셜라이저에서 범위로 정해진 값만 입력받게함.
-    private let numbering : Int
-    private let mark : Int
+    // 카드 정보 선언
+    private let numbering : Numbering
+    private let mark : Mark
     
-    init?(mark: Int, numbering: Int){
-        guard  numbering > 0 && numbering < 14 && mark > 0 && mark < 5 else {
-            return nil
-        }
+    init(mark: Mark, numbering: Numbering){
         self.mark = mark
         self.numbering = numbering
+    }
+    
+    /// 카드정보 리턴
+    func getInfo() -> String {
+        return mark.getValue() + numbering.getValue()
     }
 }
