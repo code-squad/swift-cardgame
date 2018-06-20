@@ -18,6 +18,8 @@
 		D546EE6020DA216B0055CDC5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE5E20DA216B0055CDC5 /* InputView.swift */; };
 		D546EE6220DA41AA0055CDC5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE6120DA41AA0055CDC5 /* OutputView.swift */; };
 		D546EE6320DA41AA0055CDC5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE6120DA41AA0055CDC5 /* OutputView.swift */; };
+		D546EE6520DA52570055CDC5 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE6420DA52570055CDC5 /* Slot.swift */; };
+		D546EE6620DA52570055CDC5 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE6420DA52570055CDC5 /* Slot.swift */; };
 		D5751C4B20D8DA0700446C3A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5751C4A20D8DA0700446C3A /* Card.swift */; };
 		D5751C4D20D8F76500446C3A /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5751C4C20D8F76500446C3A /* GameBoard.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +45,7 @@
 		D546EE5620DA1EBC0055CDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D546EE5E20DA216B0055CDC5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D546EE6120DA41AA0055CDC5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D546EE6420DA52570055CDC5 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		D5751C4A20D8DA0700446C3A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D5751C4C20D8F76500446C3A /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +95,7 @@
 				D546EE4C20DA16330055CDC5 /* Deck.swift */,
 				D546EE5E20DA216B0055CDC5 /* InputView.swift */,
 				D546EE6120DA41AA0055CDC5 /* OutputView.swift */,
+				D546EE6420DA52570055CDC5 /* Slot.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -198,6 +202,7 @@
 				D546EE4D20DA16330055CDC5 /* Deck.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				D546EE5F20DA216B0055CDC5 /* InputView.swift in Sources */,
+				D546EE6520DA52570055CDC5 /* Slot.swift in Sources */,
 				D5751C4D20D8F76500446C3A /* GameBoard.swift in Sources */,
 				D5751C4B20D8DA0700446C3A /* Card.swift in Sources */,
 				D546EE6220DA41AA0055CDC5 /* OutputView.swift in Sources */,
@@ -215,6 +220,7 @@
 				D546EE6020DA216B0055CDC5 /* InputView.swift in Sources */,
 				D546EE5B20DA1F130055CDC5 /* Card.swift in Sources */,
 				D546EE5520DA1EBC0055CDC5 /* CardGameTest.swift in Sources */,
+				D546EE6620DA52570055CDC5 /* Slot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
