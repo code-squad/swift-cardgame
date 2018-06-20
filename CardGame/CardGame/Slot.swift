@@ -17,7 +17,7 @@ class Slot {
     }
     
     /// 내용을 출력하는 함수
-    func getInfo() -> String?{
+    func getInfo() -> String{
         // 카드가 없을경우 빈 배열모양을 리턴
         if cardList.count == 0 {
             return "[]"
