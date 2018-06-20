@@ -16,6 +16,8 @@
 		D546EE5D20DA1F130055CDC5 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE4C20DA16330055CDC5 /* Deck.swift */; };
 		D546EE5F20DA216B0055CDC5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE5E20DA216B0055CDC5 /* InputView.swift */; };
 		D546EE6020DA216B0055CDC5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE5E20DA216B0055CDC5 /* InputView.swift */; };
+		D546EE6220DA41AA0055CDC5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE6120DA41AA0055CDC5 /* OutputView.swift */; };
+		D546EE6320DA41AA0055CDC5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D546EE6120DA41AA0055CDC5 /* OutputView.swift */; };
 		D5751C4B20D8DA0700446C3A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5751C4A20D8DA0700446C3A /* Card.swift */; };
 		D5751C4D20D8F76500446C3A /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5751C4C20D8F76500446C3A /* GameBoard.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,7 @@
 		D546EE5420DA1EBC0055CDC5 /* CardGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTest.swift; sourceTree = "<group>"; };
 		D546EE5620DA1EBC0055CDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D546EE5E20DA216B0055CDC5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		D546EE6120DA41AA0055CDC5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		D5751C4A20D8DA0700446C3A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D5751C4C20D8F76500446C3A /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +91,7 @@
 				D5751C4C20D8F76500446C3A /* GameBoard.swift */,
 				D546EE4C20DA16330055CDC5 /* Deck.swift */,
 				D546EE5E20DA216B0055CDC5 /* InputView.swift */,
+				D546EE6120DA41AA0055CDC5 /* OutputView.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -196,6 +200,7 @@
 				D546EE5F20DA216B0055CDC5 /* InputView.swift in Sources */,
 				D5751C4D20D8F76500446C3A /* GameBoard.swift in Sources */,
 				D5751C4B20D8DA0700446C3A /* Card.swift in Sources */,
+				D546EE6220DA41AA0055CDC5 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +210,7 @@
 			files = (
 				D546EE5C20DA1F130055CDC5 /* GameBoard.swift in Sources */,
 				D546EE5A20DA1F130055CDC5 /* main.swift in Sources */,
+				D546EE6320DA41AA0055CDC5 /* OutputView.swift in Sources */,
 				D546EE5D20DA1F130055CDC5 /* Deck.swift in Sources */,
 				D546EE6020DA216B0055CDC5 /* InputView.swift in Sources */,
 				D546EE5B20DA1F130055CDC5 /* Card.swift in Sources */,
