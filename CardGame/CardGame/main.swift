@@ -13,43 +13,43 @@ func main(){
     var deck = Deck()
     // 인풋뷰 생성
     let inputView = InputView()
-    // 반복문용 플래그
-    var flag = true
-    repeat {
-        // 유저입력 요구 메세지
-        inputView.printMenuMessage()
-        // 유저입력을 받는다
-        let userInput = inputView.getUserInput()
+    // 아웃풋뷰 생성
+    let outputView = OutputView()
+    // 무한반복.
+    while true {
+        // 유저입력을 받는다. 잘못된 입력일경우 반복문 리셋
+        guard let userInput = inputView.getUserInput() else {
+            outputView.printWrongMenu()
+            continue
+        }
         // 입력값으로 분기
         switch userInput {
         // 리셋
-        case "1" :
+        case .reset :
             deck.reset()
-            inputView.printResetMessage()
+            outputView.printResetMessage()
         // 셔플
-        case "2" :
+        case .shuffle :
             // 카드가 없을경우 에러메세지 출력
             if deck.count() == 0 {
-                inputView.noMoreCardMessage()
+                outputView.noMoreCardMessage()
             }
             else {
                 deck.shuffle()
-                inputView.printShuffleMessage(cardCount: deck.count())
+                outputView.printShuffleMessage(cardCount: deck.count())
             }
         // 카드 뽑기
-        case "3" :
+        case .removeOne :
             if let removedCard = deck.removeOne() {
                 print(removedCard.getInfo())
-                inputView.printRmoveOneMessage(cardCount: deck.count())
+                outputView.printRmoveOneMessage(cardCount: deck.count())
             }
             // 카드가 없을경우 에러메세지 출력
             else {
-                inputView.noMoreCardMessage()
+                outputView.noMoreCardMessage()
             }
-        // 이외의 경우는 프로그램 종료
-        default : flag = false
         }
-    } while flag
+    }
 }
 
 main()
