@@ -9,55 +9,44 @@
 import Foundation
 /// 카드게임 진행을 하는 보드
 struct GameBoard {
-    /// 카드숫자값 을 받아서 문자열로 표시해주는 함수
-    private func getNumbering(numbering: Int) -> String? {
-        // 입력값을 조건문에 입력
-        switch numbering {
-        // 각 값에 맞는 알파벳,숫자를 리턴
-        case 1 : return "A"
-        case 2...10 : return "\(numbering)"
-        case 11 : return "J"
-        case 12 : return "Q"
-        case 13 : return "K"
-        // 이외의 경우는 에러처리
-        default : return nil
-        }
-    }
-    
-    /// 카드모양을 받아서 문자열로 리턴
-    private func getMark(mark: Int) -> String? {
-        switch mark {
-        // 1~4 까지 매치되는 마크 리턴
-        case 1 : return "♠️"
-        case 2 : return "♣️"
-        case 3 : return "♥️"
-        case 4 : return "♦️"
-        // 이외의 경우는 에러처리
-        default : return nil
-        }
-    }
-    
-    /// 카드를 받아서 정보를 리턴한다
-    func getInformation(card: Card) -> String? {
-        // 마크, 넘버링 정보 선언
-        guard let mark = getMark(mark: card.mark),let numbering = getNumbering(numbering: card.numbering) else {
-            print("카드 정보 추출 실패")
-            return nil
-        }
-        return mark+numbering
-    }
-    
     /// 랜덤한 카드 한장을 리턴한다
     func makeRandomCard() -> Card? {
         // 랜덤정수로 카드용 마크,숫자 생성
-        let randomMark = Int(arc4random_uniform(4)+1)
-        let randomNumbering = Int(arc4random_uniform(13) + 1)
-        // 랜덤값으로 카드 생성
-        guard let card = Card(mark: randomMark, numbering: randomNumbering) else {
-            print("카드생성 실패")
-            return nil
+        let randomMarkNumber = Int(arc4random_uniform(4)+1)
+        let randomNumberingNumber = Int(arc4random_uniform(13) + 1)
+        
+        // 카드 마크 선언
+        var randomMark : Mark
+        // 랜덤정수를 마크에 입력
+        switch randomMarkNumber {
+        case 1 : randomMark = Mark.spade
+        case 2 : randomMark = .clover
+        case 3 : randomMark = .heart
+        case 4 : randomMark = .diamond
+        default : return nil
         }
+        
+        // 카드 넘버링 선언
+        var randomNumbering : Numbering
+        // 랜덤정수를 넘버링에 입력
+        switch randomNumberingNumber {
+        case 1 : randomNumbering = Numbering.ace
+        case 2 : randomNumbering = .two
+        case 3 : randomNumbering = .three
+        case 4 : randomNumbering = .four
+        case 5 : randomNumbering = .five
+        case 6 : randomNumbering = .five
+        case 7 : randomNumbering = .seven
+        case 8 : randomNumbering = .eight
+        case 9 : randomNumbering = .nine
+        case 10 : randomNumbering = .ten
+        case 11 : randomNumbering = .jack
+        case 12 : randomNumbering = .queen
+        case 13 : randomNumbering = .king
+        default : return nil
+        }
+        
         // 카드 리턴
-        return card
+        return Card(mark: randomMark, numbering: randomNumbering)
     }
 }
