@@ -84,6 +84,8 @@ func step4(){
     let gameInputView = GameInputView()
     // 덱 생성
     var deck = Deck()
+    // 슬롯 생성을 위해 게임보드를 만든다
+    let gameBoard = GameBoard()
     // 카드가 다 떨어질때까지 게임을 계속한다
     while true {
         // 덱을 초기화한다
@@ -95,26 +97,18 @@ func step4(){
         let gameMode = gameInputView.selectGameMode()
         // 플레이어 수를 선택한다
         let playerNumber = gameInputView.selectPlayerNumber()
-        
+        // (플레이어수 + 딜러 1) * 게임모드 카드수 만큼 카드를 뽑는다
+        guard let cards = deck.removeCards((playerNumber+1)*gameMode.rawValue) else {
+            outputView.noMoreCardMessage()
+            return ()
+        }
         // slot 배열을 만든다. 인덱스 0 이 딜러, 이후 인덱스가 플레이어
-        var slotList : [Slot] = []
-        // 플레이어수 + 1 만큼 반복
-        for _ in 0...playerNumber {
-            // 게임 종류별로 필요한 만큼 카드를 뽑느다
-            guard let pickedCards = deck.removeCards(gameMode.rawValue) else {
-                // 카드가 다 떨어지면 게임을 종료한다
-                outputView.noMoreCardMessage()
-                return ()
-            }
-            // 뽑은 카드를 슬롯 리스트에 넣는다
-            slotList.append(Slot(pickedCards))
+        guard let slotList = gameBoard.makeSlots(gameMode: gameMode, playerNumber: playerNumber, cards: cards) else {
+            outputView.noMoreCardMessage()
+            return ()
         }
         // 모든 플레이어의 카드를 출력한다
-        for player in 1...playerNumber {
-            print("참가자#\(player) \(slotList[player])")
-        }
-        // 딜러의 카드를 출력한다
-        print("딜러 \(slotList[0])")
+        outputView.printAll(slotList: slotList, playerNumber: playerNumber)
     }
 }
 
