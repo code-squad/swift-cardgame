@@ -52,4 +52,29 @@ func main(){
     }
 }
 
-main()
+/// 기존 기능은 손대지 않고 새로운 메인함수를 만들어서 실행하도록 수정.
+func main2(){
+    // 아웃풋뷰 생성
+    let outputView = OutputView()
+    // 덱 생성
+    var deck = Deck()
+    // 덱에서 카드리스트 생성 후 셔플
+    deck.reset()
+    deck.shuffle()
+    // 슬롯 7개 생성
+    guard let cards1 = deck.removeCards(1), let cards2 = deck.removeCards(2), let cards3 = deck.removeCards(3), let cards4 = deck.removeCards(4), let cards5 = deck.removeCards(5), let cards6 = deck.removeCards(6), let cards7 = deck.removeCards(7) else {
+        outputView.noMoreCardMessage()
+        return ()
+    }
+    
+    print(Slot(cards1))
+    print(Slot(cards1))
+    print(Slot(cards2))
+    print(Slot(cards3))
+    print(Slot(cards4))
+    print(Slot(cards5))
+    print(Slot(cards6))
+    print(Slot(cards7))
+}
+
+main2()
