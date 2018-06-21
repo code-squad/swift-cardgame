@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum GameMode {
-    case sevenCard
-    case fiveCard
+enum GameMode : Int {
+    case sevenCard = 7
+    case fiveCard = 5
 }
 
 struct GameInputView {
