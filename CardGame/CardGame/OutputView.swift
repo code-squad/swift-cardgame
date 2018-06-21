@@ -31,4 +31,13 @@ struct OutputView {
     func printWrongMenu(){
         print("올바른 메뉴를 선택해 주십시요.")
     }
+    
+    /// 슬롯 배열을 받아서 게임결과 형태로 리턴
+    func printAll(slotList: [Slot], playerNumber: Int){
+        for player in 1...playerNumber {
+            print("참가자#\(player) \(slotList[player])")
+        }
+        // 딜러의 카드를 출력한다
+        print("딜러 \(slotList[0])")
+    }
 }
