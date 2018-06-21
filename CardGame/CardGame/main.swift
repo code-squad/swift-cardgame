@@ -62,43 +62,19 @@ func main2(){
     deck.reset()
     deck.shuffle()
     // 슬롯 7개 생성
-    guard let cards1 = deck.removeCards(1) else {
-        outputView.noMoreCardMessage()
-        return ()
-    }
-    guard let cards2 = deck.removeCards(2) else {
-        outputView.noMoreCardMessage()
-        return ()
-    }
-    guard let cards3 = deck.removeCards(3) else {
-        outputView.noMoreCardMessage()
-        return ()
-    }
-    guard let cards4 = deck.removeCards(4) else {
-        outputView.noMoreCardMessage()
-        return ()
-    }
-    guard let cards5 = deck.removeCards(5) else {
-        outputView.noMoreCardMessage()
-        return ()
-    }
-    guard let cards6 = deck.removeCards(6) else {
-        outputView.noMoreCardMessage()
-        return ()
-    }
-    guard let cards7 = deck.removeCards(7) else {
+    guard let cards1 = deck.removeCards(1), let cards2 = deck.removeCards(2), let cards3 = deck.removeCards(3), let cards4 = deck.removeCards(4), let cards5 = deck.removeCards(5), let cards6 = deck.removeCards(6), let cards7 = deck.removeCards(7) else {
         outputView.noMoreCardMessage()
         return ()
     }
     
-    print(Slot(cards1).getInfo())
-    print(Slot(cards2).getInfo())
-    print(Slot(cards3).getInfo())
-    print(Slot(cards4).getInfo())
-    print(Slot(cards5).getInfo())
-    print(Slot(cards6).getInfo())
-    print(Slot(cards7).getInfo())
-    
+    print(Slot(cards1))
+    print(Slot(cards1))
+    print(Slot(cards2))
+    print(Slot(cards3))
+    print(Slot(cards4))
+    print(Slot(cards5))
+    print(Slot(cards6))
+    print(Slot(cards7))
 }
 
 main2()

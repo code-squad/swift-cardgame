@@ -8,12 +8,17 @@
 
 import Foundation
 
-class Slot {
+class Slot : CustomStringConvertible{
     // 카드배열 선언
     private var cardList : [Card]
     // 이니셜라이저
     init(_ cardList: [Card]){
         self.cardList = cardList
+    }
+    
+    /// description 프로토콜을 준수한다
+    var description : String {
+        return getInfo()
     }
     
     /// 내용을 출력하는 함수
