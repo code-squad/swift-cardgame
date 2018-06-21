@@ -58,5 +58,28 @@ struct Deck {
         }
         // 기존덱을 셔플이 끝난 임시덱으로 바꾼다
         cardList = tempDeck
+<<<<<<< HEAD
     }    
+=======
+    }
+    
+    /// 카드를 입력받은 수만큼 배열로 리턴하는 함수
+    mutating func removeCards(_ number: Int) -> [Card]? {
+        // 리턴용 배열 선언
+        var result : [Card] = []
+        // 입력받은만큼 카드를 빼서 추가한다
+        for _ in 0..<number {
+            // 한장을 뺴서 임시카드를 만든다
+            if let tempCard = removeOne() {
+                // 임시카드를 결과배열에 추가한다
+                result.append(tempCard) 
+            } // 뽑을 카드가 없으면 닐 리턴
+            else {
+                return nil
+            }
+        }
+        // 결과배열 리턴
+        return result
+    }
+>>>>>>> card-step2_1
 }
