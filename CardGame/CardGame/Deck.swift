@@ -12,6 +12,12 @@ struct Deck {
     // 덱 선언
     private var cardList : [Card] = []
     
+    // 이니셜라이저는 두종류
+    init(){ }
+    init(cardList: [Card]){
+        self.cardList = cardList
+    }
+    
     /// 덱 초기화 함수
     mutating func reset(){
         // 모든 넘버링, 마크를 리스트로 만든다
