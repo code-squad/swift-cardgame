@@ -58,9 +58,6 @@ struct Deck {
         }
         // 기존덱을 셔플이 끝난 임시덱으로 바꾼다
         cardList = tempDeck
-<<<<<<< HEAD
-    }    
-=======
     }
     
     /// 카드를 입력받은 수만큼 배열로 리턴하는 함수
@@ -81,5 +78,4 @@ struct Deck {
         // 결과배열 리턴
         return result
     }
->>>>>>> card-step2_1
 }
