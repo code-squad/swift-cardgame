@@ -51,9 +51,7 @@ struct GameBoard {
     }
     
     /// 게임종류,인원수와 카드배열을 받아서 딜러,플레이어의 슬롯배열을 리턴
-    func makeSlots(gameMode: GameMode, playerNumber: Int, cards: [Card]) -> [Slot]? {
-        // 들어온 카드들을 덱으로 만든다
-        var deck = Deck(cardList: cards)
+    private mutating func makeSlots(gameMode: GameMode, playerNumber: Int) -> [Slot]? {
         // slot 배열을 만든다. 인덱스 0 이 딜러, 이후 인덱스가 플레이어
         var slotList : [Slot] = []
         // 플레이어수 + 1 만큼 반복
@@ -67,5 +65,32 @@ struct GameBoard {
             slotList.append(Slot(pickedCards))
         }
         return slotList
+    }
+    
+    /// 슬롯 배열을 받아서 문자형 배열로 리턴
+    private func getInfo(slots: [Slot]) -> [String] {
+        // 결과 리턴용
+        var result : [String] = []
+        
+        for slot in slots {
+            result.append(slot.getInfo())
+        }
+        // 결과를 리턴한다
+        return result
+    }
+    
+    /// 덱 선언
+    var deck = Deck()
+    
+    /// 게임모드,인원 을 받아서 게임결과를 문자형 배열로 리턴
+    mutating func startCardGame(gameMode: GameMode, playerNumber: Int) -> [String]? {
+        // 덱을 리셋하고 섞는다
+        deck.reset()
+        deck.shuffle()
+        // 슬롯 배열을 만든다. 카드가 다 떨어지면 닐 리턴
+        guard let slots = makeSlots(gameMode: gameMode, playerNumber: playerNumber) else {
+            return nil
+        }
+        return getInfo(slots: slots)
     }
 }
