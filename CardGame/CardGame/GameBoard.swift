@@ -72,9 +72,12 @@ struct GameBoard {
         // 결과 리턴용
         var result : [String] = []
         
-        for slot in slots {
-            result.append(slot.getInfo())
+        // 정보에 몇번 유저 슬롯인지 정보를 입력해준다.
+        for index in 1..<slots.count {
+            result.append("참가자#\(index) "+slots[index].getInfo())
         }
+        // 딜러 결과를 리턴한다
+        result.append("딜러 "+slots[0].getInfo())
         // 결과를 리턴한다
         return result
     }
