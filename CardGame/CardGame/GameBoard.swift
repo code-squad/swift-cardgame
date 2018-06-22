@@ -80,7 +80,7 @@ struct GameBoard {
     }
     
     /// 덱 선언
-    var deck = Deck()
+    private var deck = Deck()
     
     /// 게임모드,인원 을 받아서 게임결과를 문자형 배열로 리턴
     mutating func startCardGame(gameMode: GameMode, playerNumber: Int) -> [String]? {
