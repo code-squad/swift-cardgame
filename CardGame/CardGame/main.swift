@@ -76,39 +76,28 @@ func step3(){
     print(Slot(cards6))
     print(Slot(cards7))
 }
+
 /// 스텝4 용 메인함수
 func step4(){
     // 아웃풋뷰 생성
     let outputView = OutputView()
     // 게임인풋뷰 생성
     let gameInputView = GameInputView()
-    // 덱 생성
-    var deck = Deck()
     // 슬롯 생성을 위해 게임보드를 만든다
-    let gameBoard = GameBoard()
+    var gameBoard = GameBoard()
     // 카드가 다 떨어질때까지 게임을 계속한다
-    while true {
-        // 덱을 초기화한다
-        deck.reset()
-        // 덱을 섞어준다
-        deck.shuffle()
-        
+    while true {        
         // 게임 모드를 선택한다
         let gameMode = gameInputView.selectGameMode()
         // 플레이어 수를 선택한다
         let playerNumber = gameInputView.selectPlayerNumber()
-        // (플레이어수 + 딜러 1) * 게임모드 카드수 만큼 카드를 뽑는다
-        guard let cards = deck.removeCards((playerNumber+1)*gameMode.rawValue) else {
+        // 게임 결과를 생성한다
+        guard let gameResult = gameBoard.startCardGame(gameMode: gameMode, playerNumber: playerNumber) else {
             outputView.noMoreCardMessage()
             return ()
         }
-        // slot 배열을 만든다. 인덱스 0 이 딜러, 이후 인덱스가 플레이어
-        guard let slotList = gameBoard.makeSlots(gameMode: gameMode, playerNumber: playerNumber, cards: cards) else {
-            outputView.noMoreCardMessage()
-            return ()
-        }
-        // 모든 플레이어의 카드를 출력한다
-        outputView.printAll(slotList: slotList, playerNumber: playerNumber)
+        // 결과를 출력한다
+        outputView.printAll(gameResult: gameResult)
     }
 }
 
