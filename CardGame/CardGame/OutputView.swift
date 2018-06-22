@@ -33,11 +33,11 @@ struct OutputView {
     }
     
     /// 슬롯 배열을 받아서 게임결과 형태로 리턴
-    func printAll(slotList: [Slot], playerNumber: Int){
-        for player in 1...playerNumber {
-            print("참가자#\(player) \(slotList[player])")
+    func printAll(gameResult: [String]){
+        for index in 1..<gameResult.count {
+            print("참가자#\(index) \(gameResult[index])")
         }
         // 딜러의 카드를 출력한다
-        print("딜러 \(slotList[0])")
+        print("딜러 \(gameResult[0])")
     }
 }
