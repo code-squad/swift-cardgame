@@ -8,4 +8,14 @@
 
 import Foundation
 
+struct Main {
+    static func run(){
+        guard let symbol = Symbol(rawValue: Symbol.generator) else { return }
+        guard let number = Number(rawValue: Number.generator) else { return }
+        
+        let card = Card(symbol: symbol, number: number)
+        OutputView.display(card)
+    }
+}
 
+Main.run()
