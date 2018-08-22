@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CardProtocol : CustomStringConvertible {
-    static var allCases : [CardProtocol] { get }
+protocol CardProperty : CustomStringConvertible {
+    static var allCases : [CardProperty] { get }
 }
