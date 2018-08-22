@@ -13,13 +13,13 @@ import Foundation
  카드모양, 카드번호를 기본으로 하는 동작들만 추가 되기 때문에 열거형이 적합하다고 생각되었습니다
  */
 
-enum CardShapeEnum : CardProtocol {
+enum CardShapeEnum : CardProperty {
     case heart
     case spade
     case diamond
     case club
     
-    static var allCases: [CardProtocol] = [heart, spade, diamond, club]
+    static var allCases: [CardProperty] = [heart, spade, diamond, club]
     
     var description: String {
         switch self {
@@ -31,7 +31,7 @@ enum CardShapeEnum : CardProtocol {
     }
 }
 
-enum CardNumberEnum : CardProtocol {
+enum CardNumberEnum : CardProperty {
     case ace
     case two
     case three
@@ -46,7 +46,7 @@ enum CardNumberEnum : CardProtocol {
     case queen
     case king
     
-    static var allCases: [CardProtocol] = [ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king]
+    static var allCases: [CardProperty] = [ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king]
     
     var description: String {
         switch self {

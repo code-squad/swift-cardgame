@@ -29,21 +29,21 @@ class Card {
     }
     
     // 선택하는 함수
-    func pick(_ cardProtocols:[CardProtocol]) -> UnicodeScalar? {
+    func pick(_ cardProtocols:[CardProperty]) -> UnicodeScalar? {
         let cardProtocol = self.random(cardProtocols)
         let UnicodeNumber = self.convertUnicode(cardProtocol)
         return UnicodeNumber
     }
     
     // 랜덤으로 골라주는 함수
-    func random(_ cardProtocol: [CardProtocol]) -> CardProtocol {
+    func random(_ cardProtocol: [CardProperty]) -> CardProperty {
         let index = Int(arc4random_uniform(UInt32(cardProtocol.count)))
         let element = cardProtocol[index]
         return element
     }
     
     // 문자열 -> 유니코드 변경하는 함수
-    func convertUnicode(_ cardProtocol: CardProtocol) -> UnicodeScalar? {
+    func convertUnicode(_ cardProtocol: CardProperty) -> UnicodeScalar? {
         let element = cardProtocol.description
         let unicodeScalar = element.unicodeScalars.first
         guard let unicodeNumber = unicodeScalar?.value else { return nil }
