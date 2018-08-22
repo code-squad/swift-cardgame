@@ -8,4 +8,20 @@
 
 import Foundation
 
+/*
+ 데이터 타입 : 저장되는값 -> 전달값
+ CardProperty : String -> UnicodeScalar
+ Card : UnicodeScalar -> String
+ */
 
+func playGame() {
+    do {
+        try OutputView.printCard()
+    } catch CardError.cardNotFound {
+        print(CardError.cardNotFound.rawValue)
+    } catch {
+        print(CardError.unknown.rawValue)
+    }
+}
+
+playGame()
