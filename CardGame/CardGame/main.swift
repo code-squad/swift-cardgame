@@ -16,7 +16,8 @@ import Foundation
 
 func playGame() {
     do {
-        try OutputView.printCard()
+        let card = Card.init()
+        try OutputView.printCard(card)
     } catch CardError.cardNotFound {
         print(CardError.cardNotFound.rawValue)
     } catch {

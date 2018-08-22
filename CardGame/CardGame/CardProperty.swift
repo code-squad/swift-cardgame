@@ -13,57 +13,56 @@ import Foundation
  카드모양, 카드번호를 기본으로 하는 동작들만 추가 되기 때문에 열거형이 적합하다고 생각되었습니다
  */
 
-enum CardShape : String, CardProtocol {
-    case heart = "♥️"
-    case spade = "♠️"
-    case diamond = "♦️"
-    case club = "♣️"
+enum CardShapeEnum : CardProtocol {
+    case heart
+    case spade
+    case diamond
+    case club
     
     static var allCases: [CardProtocol] = [heart, spade, diamond, club]
     
-    static func pick() -> UnicodeScalar? {
-        let t = CardShape.random()
-        let y = CardShape.corvertUnicode(t)
-        return y
+    var description: String {
+        switch self {
+        case .heart: return "♥️"
+        case .spade: return "♠️"
+        case .diamond: return "♦️"
+        case .club: return "♣️"
+        }
     }
-    
-    static func random() -> CardProtocol {
-        let shapes = CardShape.allCases
-        let index = Int(arc4random_uniform(UInt32(shapes.count)))
-        let shape = shapes[index]
-        return shape
-    }
-    
 }
 
-enum CardNumber : String , CardProtocol {
-    case ace = "A"
-    case two = "2"
-    case three = "3"
-    case four = "4"
-    case five = "5"
-    case six = "6"
-    case seven = "7"
-    case eight = "8"
-    case nine = "9"
-    case ten = "10"
-    case jack = "J"
-    case queen = "Q"
-    case king = "K"
+enum CardNumberEnum : CardProtocol {
+    case ace
+    case two
+    case three
+    case four
+    case five
+    case six
+    case seven
+    case eight
+    case nine
+    case ten
+    case jack
+    case queen
+    case king
     
-    static let allCases: [CardProtocol] = [ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king]
+    static var allCases: [CardProtocol] = [ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king]
     
-    static func pick() -> UnicodeScalar? {
-        let t = CardNumber.random()
-        let y = CardShape.corvertUnicode(t)
-        return y
+    var description: String {
+        switch self {
+        case .ace: return "A"
+        case .two: return "2"
+        case .three: return "3"
+        case .four: return "4"
+        case .five: return "5"
+        case .six: return "6"
+        case .seven: return "7"
+        case .eight: return "8"
+        case .nine: return "9"
+        case .ten: return "10"
+        case .jack: return "J"
+        case .queen: return "Q"
+        case .king: return "K"
+        }
     }
-    
-    static func random() -> CardProtocol {
-        let numbers = CardNumber.allCases
-        let index = Int(arc4random_uniform(UInt32(numbers.count)))
-        let number = numbers[index]
-        return number
-    }
-    
 }

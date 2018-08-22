@@ -9,9 +9,8 @@
 import Foundation
 
 struct OutputView {
-    static func printCard() throws {
-        let card = Card.init()
-        guard let selectedCard = card.pick() else { throw CardError.cardNotFound }
+    static func printCard(_ card: Card) throws {
+        guard let selectedCard = card.getCard() else { throw CardError.cardNotFound }
         print(selectedCard)
     }
 }
