@@ -18,11 +18,11 @@ class Card {
     private var cardShape : CardShape?
     
     init() {
-        let pickNumber = self.pick(CardNumber.allCases)
+        let pickNumber = self.random(CardNumber.allCases)
         if let pick = pickNumber as? CardNumber {
             self.cardNumber = pick
         }
-        let pickShape = self.pick(CardShape.allCases)
+        let pickShape = self.random(CardShape.allCases)
         if let pick = pickShape as? CardShape {
             self.cardShape = pick
         }
@@ -32,12 +32,6 @@ class Card {
     func getCard() -> String? {
         guard let shape = self.cardShape , let number = self.cardNumber else { return nil }
         return "\(shape.description)\(number.description)"
-    }
-    
-    // 선택하는 함수
-    func pick(_ cardProtocols:[CardProperty]) -> CardProperty {
-        let cardProtocol = self.random(cardProtocols)
-        return cardProtocol
     }
     
     // 랜덤으로 골라주는 함수
