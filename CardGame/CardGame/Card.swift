@@ -13,31 +13,17 @@ import Foundation
  의도에 맞게 class를 사용하였는지 잘 모르겠으나 추후 코드수정을 조금이나마 줄이기 위해 구조체 대신 선택하였습니다.
  */
 
-class Card {
-    private var cardNumber : CardNumber?
-    private var cardShape : CardShape?
+class Card : CustomStringConvertible {
+    private var cardNumber : CardNumber
+    private var cardShape : CardShape
     
-    init() {
-        let pickNumber = self.random(CardNumber.allCases)
-        if let pick = pickNumber as? CardNumber {
-            self.cardNumber = pick
-        }
-        let pickShape = self.random(CardShape.allCases)
-        if let pick = pickShape as? CardShape {
-            self.cardShape = pick
-        }
+    init(number: CardNumber , shape: CardShape) {
+        self.cardNumber = number
+        self.cardShape = shape
     }
     
-    // 카드 선택하는 함수
-    func getCard() -> String? {
-        guard let shape = self.cardShape , let number = self.cardNumber else { return nil }
-        return "\(shape.description)\(number.description)"
+    var description: String {
+        return "\(self.cardShape.rawValue)\(self.cardNumber.rawValue)"
     }
     
-    // 랜덤으로 골라주는 함수
-    func random(_ cardProtocol: [CardProperty]) -> CardProperty {
-        let index = Int(arc4random_uniform(UInt32(cardProtocol.count)))
-        let element = cardProtocol[index]
-        return element
-    }
 }
