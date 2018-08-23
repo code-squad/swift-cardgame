@@ -13,7 +13,7 @@ import Foundation
  카드모양, 카드번호를 기본으로 하는 동작들만 추가 되기 때문에 열거형이 적합하다고 생각되었습니다
  */
 
-enum CardShapeEnum : CardProperty {
+enum CardShape : CardProperty {
     case heart
     case spade
     case diamond
@@ -31,7 +31,7 @@ enum CardShapeEnum : CardProperty {
     }
 }
 
-enum CardNumberEnum : CardProperty {
+enum CardNumber : CardProperty {
     case ace
     case two
     case three

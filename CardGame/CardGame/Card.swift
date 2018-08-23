@@ -14,12 +14,18 @@ import Foundation
  */
 
 class Card {
-    var number : UnicodeScalar?
-    var shape : UnicodeScalar?
+    private var number : CardNumber?
+    private var shape : CardShape?
     
     init() {
-        self.number = self.pick(CardNumberEnum.allCases)
-        self.shape = self.pick(CardShapeEnum.allCases)
+        let pickNumber = self.pick(CardNumber.allCases)
+        if let pick = pickNumber as? CardNumber {
+            self.number = pick
+        }
+        let pickShape = self.pick(CardShape.allCases)
+        if let pick = pickShape as? CardShape {
+            self.shape = pick
+        }
     }
     
     // 카드 선택하는 함수
@@ -29,10 +35,9 @@ class Card {
     }
     
     // 선택하는 함수
-    func pick(_ cardProtocols:[CardProperty]) -> UnicodeScalar? {
+    func pick(_ cardProtocols:[CardProperty]) -> CardProperty {
         let cardProtocol = self.random(cardProtocols)
-        let UnicodeNumber = self.convertUnicode(cardProtocol)
-        return UnicodeNumber
+        return cardProtocol
     }
     
     // 랜덤으로 골라주는 함수
