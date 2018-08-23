@@ -8,12 +8,6 @@
 
 import Foundation
 
-// 단일 카드를 구성하는데 필요한 데이터들이 공통으로 갖추어야 할 인터페이스를 프로토콜로 묶어주었습나다.
-protocol CardDataSource: CustomStringConvertible {
-    static var generator: Int { get }
-    var dataSource: [Int:String] { get }
-}
-
 /*
 
  Symbol과 Number
@@ -26,20 +20,16 @@ protocol CardDataSource: CustomStringConvertible {
     👉 enum으로 한다면 Symbol.spade, Number.J 처럼 보다 명확하게 구분이 가능하다 판단하였습니다.
  
 */
-enum Symbol: Int, CardDataSource {
+enum Symbol: Int, CustomStringConvertible {
     static var generator: Int = Int(arc4random_uniform(4) + 1)
-    
-    var dataSource: [Int: String] {
-        return [
-            1 : "♣️",
-            2 : "♠️",
-            3 : "♥️",
-            4 : "♦️"
-        ]
-    }
-    
+    static private let dataSource: [Int : String] = [
+        1 : "♣️",
+        2 : "♠️",
+        3 : "♥️",
+        4 : "♦️"
+    ]
     var description: String {
-        return dataSource[self.rawValue] ?? ""
+        return Symbol.dataSource[self.rawValue] ?? ""
     }
     
     case club = 1
@@ -48,29 +38,25 @@ enum Symbol: Int, CardDataSource {
     case diamond
 }
 
-enum Number: Int, CardDataSource {
+enum Number: Int, CustomStringConvertible {
     static var generator: Int = Int(arc4random_uniform(13) + 1)
-    
-    var dataSource: [Int: String] {
-        return [
-            1 : "A",
-            2 : "2",
-            3 : "3",
-            4 : "4",
-            5 : "5",
-            6 : "6",
-            7 : "7",
-            8 : "8",
-            9 : "9",
-            10 : "10",
-            11 : "J",
-            12 : "Q",
-            13 : "K"
-        ]
-    }
-    
+    static private let dataSource: [Int : String] = [
+        1 : "A",
+        2 : "2",
+        3 : "3",
+        4 : "4",
+        5 : "5",
+        6 : "6",
+        7 : "7",
+        8 : "8",
+        9 : "9",
+        10 : "10",
+        11 : "J",
+        12 : "Q",
+        13 : "K"
+    ]
     var description: String {
-        return dataSource[self.rawValue] ?? ""
+        return Number.dataSource[self.rawValue] ?? ""
     }
     
     case A = 1
