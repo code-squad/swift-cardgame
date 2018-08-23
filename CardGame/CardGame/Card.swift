@@ -9,14 +9,14 @@
 import Foundation
 
 class Card: CustomStringConvertible {
-    private let symbol: CardDataSource
-    private let number: CardDataSource
+    private let symbol: Symbol
+    private let number: Number
     
     var description: String {
         return "\(symbol)\(number)"
     }
     
-    init(symbol: CardDataSource, number: CardDataSource) {
+    init(symbol: Symbol, number: Number) {
         self.symbol = symbol
         self.number = number
     }
