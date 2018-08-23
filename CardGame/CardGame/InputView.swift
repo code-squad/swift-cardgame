@@ -16,7 +16,7 @@ enum MenuCategory: String {
         case .shuffle:
             return "2. 카드 섞기\n"
         case .pick:
-            return "3. 카드 하나 뽑기\n"
+            return "3. 카드 하나 뽑기"
         }
     }
     case reset = "1"
