@@ -20,7 +20,7 @@ import Foundation
     👉 enum으로 한다면 Symbol.spade, Number.J 처럼 보다 명확하게 구분이 가능하다 판단하였습니다.
  
 */
-enum Symbol: Int, CustomStringConvertible {
+enum Symbol: Int, CaseIterable, CustomStringConvertible {
     static var generator: Int = Int(arc4random_uniform(4) + 1)
     static var availables: Int = 4
     static private let dataSource: [Int : String] = [
@@ -39,7 +39,7 @@ enum Symbol: Int, CustomStringConvertible {
     case diamond
 }
 
-enum Number: Int, CustomStringConvertible {
+enum Number: Int, CaseIterable, CustomStringConvertible {
     static var generator: Int = Int(arc4random_uniform(13) + 1)
     static var availables: Int = 13
     static private let dataSource: [Int : String] = [
