@@ -7,7 +7,3 @@
 //
 
 import Foundation
-
-protocol CardProperty : CustomStringConvertible {
-    static var allCases : [CardProperty] { get }
-}

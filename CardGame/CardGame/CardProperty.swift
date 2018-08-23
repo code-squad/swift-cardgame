@@ -13,20 +13,20 @@ import Foundation
  카드모양, 카드번호를 기본으로 하는 동작들만 추가 되기 때문에 열거형이 적합하다고 생각되었습니다
  */
 
-enum CardShape : String, CardProperty {
+enum CardShape : String {
     case heart = "♥️"
     case spade = "♠️"
     case diamond = "♦️"
     case club = "♣️"
+
+    static var allCases: [CardShape] = [heart, spade, diamond, club]
     
-    static var allCases: [CardProperty] = [heart, spade, diamond, club]
-    
-    var description: String {
-        return self.rawValue
+    static var randomIndex: Int {
+        return Int(arc4random_uniform(UInt32(CardShape.allCases.count)))
     }
 }
 
-enum CardNumber : String, CardProperty {
+enum CardNumber : String {
     case ace = "A"
     case two = "2"
     case three = "3"
@@ -41,9 +41,10 @@ enum CardNumber : String, CardProperty {
     case queen = "Q"
     case king = "K"
     
-    static var allCases: [CardProperty] = [ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king]
+    static var allCases: [CardNumber] = [ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king]
     
-    var description: String {
-        return self.rawValue
+    static var randomIndex: Int {
+        return Int(arc4random_uniform(UInt32(CardNumber.allCases.count)))
     }
+
 }

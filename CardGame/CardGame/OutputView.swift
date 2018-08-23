@@ -10,7 +10,6 @@ import Foundation
 
 struct OutputView {
     static func printCard(_ card: Card) throws {
-        guard let selectedCard = card.getCard() else { throw CardError.cardNotFound }
-        print(selectedCard)
+        print(card.description)
     }
 }
