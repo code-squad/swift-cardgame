@@ -10,11 +10,28 @@ import Foundation
 
 struct Main {
     static func run(){
-        guard let symbol = Symbol(rawValue: Symbol.generator) else { return }
-        guard let number = Number(rawValue: Number.generator) else { return }
-        
-        let card = Card(symbol: symbol, number: number)
-        OutputView.display(card)
+        do {
+            let cards = try CardDeckGenerator.generateCards()
+            var deck = CardDeck(cards: cards)
+            while true {
+                let picked = try InputView.read()
+                switch picked {
+                case .reset:
+                    deck.reset()
+                    OutputView.display(CardGameResult.reset(deck.count))
+                case .shuffle:
+                    deck.shuffle()
+                    OutputView.display(CardGameResult.shuffle(deck.count))
+                case .pick:
+                    let picked = deck.removeOne()
+                    OutputView.display(CardGameResult.pick(picked, deck.count))
+                }
+            }
+        } catch let err as CardGameError {
+            OutputView.display(err)
+        } catch {
+            OutputView.display(CardGameError.unknown)
+        }
     }
 }
 
