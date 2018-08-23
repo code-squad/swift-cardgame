@@ -22,7 +22,6 @@ import Foundation
 */
 enum Symbol: Int, CaseIterable, CustomStringConvertible {
     static var generator: Int = Int(arc4random_uniform(4) + 1)
-    static var availables: Int = 4
     static private let dataSource: [Int : String] = [
         1 : "♣️",
         2 : "♠️",
@@ -41,7 +40,6 @@ enum Symbol: Int, CaseIterable, CustomStringConvertible {
 
 enum Number: Int, CaseIterable, CustomStringConvertible {
     static var generator: Int = Int(arc4random_uniform(13) + 1)
-    static var availables: Int = 13
     static private let dataSource: [Int : String] = [
         1 : "A",
         2 : "2",
