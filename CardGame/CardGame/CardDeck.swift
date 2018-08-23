@@ -10,11 +10,9 @@ import Foundation
 
 struct CardDeck {
     private var cards: [Card]
-    private var pickedCards: [Card] = []
-    private var pickedCardsIndexs: [Int] = []
     
     var count: Int {
-        return cards.count - pickedCards.count
+        return cards.count
     }
     
     init(cards: [Card]) {
@@ -28,7 +26,7 @@ struct CardDeck {
         
         for i in startIndex ... endIndex {
             let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
-            if i != j && !pickedCardsIndexs.contains(j){
+            if i != j {
                 cards.swapAt(i, j)
             }
         }
@@ -36,14 +34,11 @@ struct CardDeck {
     
     mutating func removeOne() -> Card {
         let randomIndex = Int(arc4random_uniform(UInt32(count - 1)))
-        let pickedCard = cards[randomIndex]
-        pickedCards.append(pickedCard)
-        pickedCardsIndexs.append(randomIndex)
+        let pickedCard = cards.remove(at: randomIndex)
         return pickedCard
     }
     
-    mutating func reset() {
-        pickedCards.removeAll()
-        pickedCardsIndexs.removeAll()
+    mutating func reset(with cards: [Card]) {
+        self.cards = cards
     }
 }
