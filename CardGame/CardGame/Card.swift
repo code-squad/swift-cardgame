@@ -14,23 +14,23 @@ import Foundation
  */
 
 class Card {
-    private var number : CardNumber?
-    private var shape : CardShape?
+    private var cardNumber : CardNumber?
+    private var cardShape : CardShape?
     
     init() {
         let pickNumber = self.pick(CardNumber.allCases)
         if let pick = pickNumber as? CardNumber {
-            self.number = pick
+            self.cardNumber = pick
         }
         let pickShape = self.pick(CardShape.allCases)
         if let pick = pickShape as? CardShape {
-            self.shape = pick
+            self.cardShape = pick
         }
     }
     
     // 카드 선택하는 함수
     func getCard() -> String? {
-        guard let shape = self.shape , let number = self.number else { return nil }
+        guard let shape = self.cardShape , let number = self.cardNumber else { return nil }
         return "\(shape.description)\(number.description)"
     }
     
@@ -45,13 +45,5 @@ class Card {
         let index = Int(arc4random_uniform(UInt32(cardProtocol.count)))
         let element = cardProtocol[index]
         return element
-    }
-    
-    // 문자열 -> 유니코드 변경하는 함수
-    func convertUnicode(_ cardProtocol: CardProperty) -> UnicodeScalar? {
-        let element = cardProtocol.description
-        let unicodeScalar = element.unicodeScalars.first
-        guard let unicodeNumber = unicodeScalar?.value else { return nil }
-        return UnicodeScalar(unicodeNumber)
     }
 }
