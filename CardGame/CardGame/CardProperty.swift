@@ -13,56 +13,37 @@ import Foundation
  카드모양, 카드번호를 기본으로 하는 동작들만 추가 되기 때문에 열거형이 적합하다고 생각되었습니다
  */
 
-enum CardShape : CardProperty {
-    case heart
-    case spade
-    case diamond
-    case club
+enum CardShape : String, CardProperty {
+    case heart = "♥️"
+    case spade = "♠️"
+    case diamond = "♦️"
+    case club = "♣️"
     
     static var allCases: [CardProperty] = [heart, spade, diamond, club]
     
     var description: String {
-        switch self {
-        case .heart: return "♥️"
-        case .spade: return "♠️"
-        case .diamond: return "♦️"
-        case .club: return "♣️"
-        }
+        return self.rawValue
     }
 }
 
-enum CardNumber : CardProperty {
-    case ace
-    case two
-    case three
-    case four
-    case five
-    case six
-    case seven
-    case eight
-    case nine
-    case ten
-    case jack
-    case queen
-    case king
+enum CardNumber : String, CardProperty {
+    case ace = "A"
+    case two = "2"
+    case three = "3"
+    case four = "4"
+    case five = "5"
+    case six = "6"
+    case seven = "7"
+    case eight = "8"
+    case nine = "9"
+    case ten = "10"
+    case jack = "J"
+    case queen = "Q"
+    case king = "K"
     
     static var allCases: [CardProperty] = [ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king]
     
     var description: String {
-        switch self {
-        case .ace: return "A"
-        case .two: return "2"
-        case .three: return "3"
-        case .four: return "4"
-        case .five: return "5"
-        case .six: return "6"
-        case .seven: return "7"
-        case .eight: return "8"
-        case .nine: return "9"
-        case .ten: return "10"
-        case .jack: return "J"
-        case .queen: return "Q"
-        case .king: return "K"
-        }
+        return self.rawValue
     }
 }
