@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static func display(_ data: CustomStringConvertible) {
-        print(data)
+    static func display(_ value: CustomStringConvertible) {
+        print(value)
     }
 }
