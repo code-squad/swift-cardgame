@@ -11,13 +11,13 @@ import Foundation
 struct Main {
     static func run(){
         do {
-            let cards = try CardDeckGenerator.generateCards()
-            var deck = CardDeck(cards: cards)
+            let originCards = CardDeckGenerator.generateCards()
+            var deck = CardDeck(cards: originCards)
             while true {
                 let picked = try InputView.read()
                 switch picked {
                 case .reset:
-                    deck.reset()
+                    deck.reset(with: originCards)
                     OutputView.display(CardGameResult.reset(deck.count))
                 case .shuffle:
                     deck.shuffle()
