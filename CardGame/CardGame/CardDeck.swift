@@ -23,7 +23,31 @@ import Foundation
 struct CardDeck{
     private static var cards = [Card]()
     
-    public static func reset() {
+    public static func act(_ action : Int) throws {
+        switch action {
+        case 1:
+            // reset
+            CardDeck.reset()
+            print("카드 전체를 초기화했습니다.")
+            print("총 \(CardDeck.count())장의 카드가 있습니다.")
+            print()
+        case 2:
+            // shuffle
+            CardDeck.shuffle()
+            print("전체 \(CardDeck.count())장의 카드를 섞었습니다.")
+            print()
+        case 3:
+            // removeOne
+            guard let removeCard = CardDeck.removeOne() else { throw CardError.noCardsRemaining }
+            print(removeCard)
+            print("총 \(CardDeck.count())장의 카드가 남아있습니다.")
+            print()
+        default:
+            throw CardError.inputError
+        }
+    }
+    
+    private static func reset() {
         cards.removeAll()
         
         let numbers = CardNumber.allCases
@@ -36,7 +60,7 @@ struct CardDeck{
         }
     }
     
-    public static func shuffle() {
+    private static func shuffle() {
         var randomIndex = 0
         var lastIndex = self.cards.endIndex - 1
         
@@ -47,12 +71,12 @@ struct CardDeck{
         }
     }
     
-    public static func removeOne() -> Card? {
+    private static func removeOne() -> Card? {
         guard self.cards.count > 0 else { return nil }
         return self.cards.removeFirst()
     }
     
-    public static func count() -> Int {
+    private static func count() -> Int {
         return self.cards.count
     }
     
