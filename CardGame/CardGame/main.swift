@@ -15,30 +15,28 @@ func playGame() throws {
     guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
     
     // 카드
-    var card = [Card]()
     
     switch input {
     case "1":
         // reset
-        card = CardDeck.reset()
-        let action = "카드 전체를 초기화했습니다."
-        let message = "총 \(card.count)장의 카드가 있습니다."
-        print(action)
-        print(message)
-        print()
+        CardDeck.reset()
+        CardDeck.countMessage()
     case "2":
         // shuffle
-        print("2")
+        CardDeck.shuffle()
     case "3":
         // removeOne
         print("3")
+        CardDeck.countMessage()
     default:
         throw CardError.inputError
     }
     
+    
 }
 
 var play = true
+
 while play {
     do {
         try playGame()
