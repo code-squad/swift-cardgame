@@ -10,6 +10,6 @@ import Foundation
 
 struct OutputView {
     static func printCard(_ card: Card) throws {
-        print(card.description)
+        print(card)
     }
 }
