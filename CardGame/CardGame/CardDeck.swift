@@ -45,6 +45,10 @@ struct CardDeck{
         }
     }
     
+    public static func removeOne() -> Card {
+        return self.cards.removeFirst()
+    }
+    
     public static func count() -> Int {
         return self.cards.count
     }
