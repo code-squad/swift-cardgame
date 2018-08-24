@@ -14,10 +14,18 @@ func playGame() throws {
     // 입력값 비어있는지 확인
     guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
     
+    // 카드
+    var card = [Card]()
+    
     switch input {
     case "1":
         // reset
-        print("1")
+        card = CardDeck.reset()
+        let action = "카드 전체를 초기화했습니다."
+        let message = "총 \(card.count)장의 카드가 있습니다."
+        print(action)
+        print(message)
+        print()
     case "2":
         // shuffle
         print("2")
