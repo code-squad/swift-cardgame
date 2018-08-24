@@ -20,14 +20,17 @@ func playGame() throws {
     case "1":
         // reset
         CardDeck.reset()
-        CardDeck.countMessage()
+        print("카드 전체를 초기화했습니다.")
+        print("총 \(CardDeck.count())장의 카드가 있습니다.")
+        print()
     case "2":
         // shuffle
         CardDeck.shuffle()
+        print("전체 \(CardDeck.count())장의 카드를 섞었습니다.")
+        print()
     case "3":
         // removeOne
         print("3")
-        CardDeck.countMessage()
     default:
         throw CardError.inputError
     }
