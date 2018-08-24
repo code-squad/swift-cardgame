@@ -24,6 +24,8 @@ struct CardDeck{
     private static var cards = [Card]()
     
     public static func reset() {
+        cards.removeAll()
+        
         let numbers = CardNumber.allCases
         let shapes = CardShape.allCases
         for number in numbers {
