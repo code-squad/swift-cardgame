@@ -30,7 +30,9 @@ func playGame() throws {
         print()
     case "3":
         // removeOne
-        print("3")
+        let removeCard = CardDeck.removeOne()
+        print(removeCard)
+        print("총 \(CardDeck.count())장의 카드가 남아있습니다.")
     default:
         throw CardError.inputError
     }
