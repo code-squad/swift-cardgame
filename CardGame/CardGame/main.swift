@@ -8,21 +8,37 @@
 
 import Foundation
 
-func playGame() {
+func playGame() throws {
+    let inputValue = InputView.readInput()
+    
+    // 입력값 비어있는지 확인
+    guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
+    
+    switch input {
+    case "1":
+        // reset
+        print("1")
+    case "2":
+        // shuffle
+        print("2")
+    case "3":
+        // removeOne
+        print("3")
+    default:
+        throw CardError.inputError
+    }
+    
+}
+
+var play = true
+while play {
     do {
-        let numbers = CardNumber.allCases
-        let number = numbers[CardNumber.randomIndex]
-        
-        let shapes = CardShape.allCases
-        let shape = shapes[CardShape.randomIndex]
-        
-        let card = Card.init(number: number, shape: shape)
-        try OutputView.printCard(card)
-    } catch CardError.cardNotFound {
-        print(CardError.cardNotFound.rawValue)
+        try playGame()
+    } catch CardError.inputError {
+        print(CardError.inputError.rawValue)
+    }  catch CardError.inputNil {
+        print(CardError.inputNil.rawValue)
     } catch {
         print(CardError.unknown.rawValue)
     }
 }
-
-playGame()
