@@ -15,12 +15,30 @@ func playGame() throws {
     guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
     
     guard let action = Int(input) else { throw CardError.inputError }
-    
-    do {
-        try CardDeck.act(action)
-    } catch CardError.noCardsRemaining {
-        throw CardError.noCardsRemaining
-    } catch {
+
+    switch action {
+    case 1:
+        // reset
+        CardDeck.reset()
+        let action = "카드 전체를 초기화했습니다."
+        let count = CardDeck.count()
+        let countAction = "장의 카드가 있습니다."
+        OutputView.printCard(action: action, count: count, countAction: countAction)
+    case 2:
+        // shuffle
+        CardDeck.shuffle()
+        let action = ""
+        let count = CardDeck.count()
+        let countAction = "장의 카드를 섞었습니다."
+        OutputView.printCard(action: action, count: count, countAction: countAction)
+    case 3:
+        // removeOne
+        guard let removeCard = CardDeck.removeOne() else { throw CardError.noCardsRemaining }
+        let action = "\(removeCard)"
+        let count = CardDeck.count()
+        let countAction = "장의 카드가 남아있습니다."
+        OutputView.printCard(action: action, count: count, countAction: countAction)
+    default:
         throw CardError.inputError
     }
 }
