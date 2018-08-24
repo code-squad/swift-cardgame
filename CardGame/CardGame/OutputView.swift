@@ -9,7 +9,9 @@
 import Foundation
 
 struct OutputView {
-    static func printCard(_ card: Card) throws {
-        print(card)
+    static func printCard(action:String, count:Int, countAction:String) {
+        print(action)
+        print("총 \(count)\(countAction)")
+        print()
     }
 }

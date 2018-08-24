@@ -28,20 +28,24 @@ struct CardDeck{
         case 1:
             // reset
             CardDeck.reset()
-            print("카드 전체를 초기화했습니다.")
-            print("총 \(CardDeck.count())장의 카드가 있습니다.")
-            print()
+            let action = "카드 전체를 초기화했습니다."
+            let count = self.count()
+            let countAction = "장의 카드가 있습니다."
+            OutputView.printCard(action: action, count: count, countAction: countAction)
         case 2:
             // shuffle
             CardDeck.shuffle()
-            print("전체 \(CardDeck.count())장의 카드를 섞었습니다.")
-            print()
+            let action = ""
+            let count = self.count()
+            let countAction = "장의 카드를 섞었습니다."
+            OutputView.printCard(action: action, count: count, countAction: countAction)
         case 3:
             // removeOne
-            guard let removeCard = CardDeck.removeOne() else { throw CardError.noCardsRemaining }
-            print(removeCard)
-            print("총 \(CardDeck.count())장의 카드가 남아있습니다.")
-            print()
+            guard let removeCard = self.removeOne() else { throw CardError.noCardsRemaining }
+            let action = "\(removeCard)"
+            let count = self.count()
+            let countAction = "장의 카드가 남아있습니다."
+            OutputView.printCard(action: action, count: count, countAction: countAction)
         default:
             throw CardError.inputError
         }
@@ -64,7 +68,7 @@ struct CardDeck{
         var randomIndex = 0
         var lastIndex = self.cards.endIndex - 1
         
-        for _ in CardDeck.cards {
+        for _ in self.cards {
             randomIndex = Int(arc4random_uniform(UInt32(self.cards.count)))
             self.cards.swapAt(randomIndex, lastIndex)
             lastIndex = lastIndex - 1 // 마지막 인덱스
