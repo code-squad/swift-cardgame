@@ -45,7 +45,8 @@ struct CardDeck{
         }
     }
     
-    public static func removeOne() -> Card {
+    public static func removeOne() -> Card? {
+        guard self.cards.count > 0 else { return nil }
         return self.cards.removeFirst()
     }
     
