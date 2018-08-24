@@ -30,7 +30,7 @@ func playGame() throws {
         print()
     case "3":
         // removeOne
-        let removeCard = CardDeck.removeOne()
+        guard let removeCard = CardDeck.removeOne() else { throw CardError.noCardsRemaining }
         print(removeCard)
         print("총 \(CardDeck.count())장의 카드가 남아있습니다.")
     default:
@@ -47,8 +47,10 @@ while play {
         try playGame()
     } catch CardError.inputError {
         print(CardError.inputError.rawValue)
-    }  catch CardError.inputNil {
+    } catch CardError.inputNil {
         print(CardError.inputNil.rawValue)
+    } catch CardError.noCardsRemaining {
+        print(CardError.noCardsRemaining.rawValue)
     } catch {
         print(CardError.unknown.rawValue)
     }
