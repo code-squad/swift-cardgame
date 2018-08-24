@@ -21,9 +21,9 @@ import Foundation
  
 */
 struct CardDeck{
+    private static var cards = [Card]()
     
-    static func reset() -> [Card] {
-        var cards = [Card]()
+    public static func reset() {
         let numbers = CardNumber.allCases
         let shapes = CardShape.allCases
         for number in numbers {
@@ -32,7 +32,40 @@ struct CardDeck{
                 cards.append(card)
             }
         }
-        return cards
+        
+        let action = "카드 전체를 초기화했습니다."
+        print(action)
+    }
+    
+    public static func shuffle() {
+        var randomIndex = 0
+        var lastIndex = cards.endIndex - 1
+        
+        for _ in CardDeck.cards {
+            randomIndex = Int(arc4random_uniform(UInt32(CardDeck.cards.count)))
+            CardDeck.cards.swapAt(randomIndex, lastIndex)
+            lastIndex = lastIndex - 1 // 마지막 인덱스
+        }
+        
+        let action = "전체 \(cards.count)장의 카드를 섞었습니다."
+        print(action)
+        print()
+        
+    }
+    
+    public static func countMessage() {
+        let message = "총 \(CardDeck.cards.count)장의 카드가 있습니다."
+        print(message)
+        print()
     }
     
 }
+
+
+
+
+
+
+
+
+
