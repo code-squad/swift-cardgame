@@ -18,4 +18,9 @@ struct OutputView {
     static func printCards(cards:[Card]) {
         print(cards)
     }
+    
+    static func printError(error:CardError) {
+        print(error.rawValue)
+        print()
+    }
 }
