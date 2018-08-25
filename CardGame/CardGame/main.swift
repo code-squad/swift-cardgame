@@ -55,19 +55,19 @@ struct CardGame {
             let action = "카드 전체를 초기화했습니다."
             let count = CardDeck.count()
             let countAction = "장의 카드가 있습니다."
-            OutputView.printCard(action: action, count: count, countAction: countAction)
+            OutputView.printAction(action: action, count: count, countAction: countAction)
         case .shuffle:
             CardDeck.shuffle()
             let action = ""
             let count = CardDeck.count()
             let countAction = "장의 카드를 섞었습니다."
-            OutputView.printCard(action: action, count: count, countAction: countAction)
+            OutputView.printAction(action: action, count: count, countAction: countAction)
         case .removeOne:
             guard let removeCard = CardDeck.removeOne() else { throw CardError.noCardsRemaining }
             let action = "\(removeCard)"
             let count = CardDeck.count()
             let countAction = "장의 카드가 남아있습니다."
-            OutputView.printCard(action: action, count: count, countAction: countAction)
+            OutputView.printAction(action: action, count: count, countAction: countAction)
         }
     }
 }
