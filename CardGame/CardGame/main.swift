@@ -47,7 +47,7 @@ struct CardGame {
     
     private static func pickMenu(_ input: String) throws {
 
-        guard let action = Action.init(rawValue: input) else { throw CardError.inputError }
+        guard let action = CardAction.init(rawValue: input) else { throw CardError.inputError }
         
         switch action {
         case .reset:
