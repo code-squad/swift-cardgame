@@ -52,6 +52,16 @@ struct CardDeck{
         return self.cards.removeFirst()
     }
     
+    public static func remove(_ count:Int) -> [Card]? {
+        guard self.cards.count > 0 else { return nil }
+        var cards = [Card]()
+        for _ in 0..<count {
+            guard let card = self.removeOne() else { return nil }
+            cards.append(card)
+        }
+        return cards
+    }
+    
     public static func count() -> Int {
         return self.cards.count
     }
