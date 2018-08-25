@@ -14,4 +14,8 @@ struct OutputView {
         print("총 \(count)\(countAction)")
         print()
     }
+    
+    static func printCards(cards:[Card]) {
+        print(cards)
+    }
 }

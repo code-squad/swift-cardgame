@@ -8,13 +8,30 @@
 
 import Foundation
 
+/*
+ 일시적으로 기능을 제거할 때 어떤 방법이 좋은지 고민
+ : 객체단위로 코드를 구현되있기 때문에 아래와 같이 간단하게 처리하였습니다.
+ 1. 입력받는 것으로 시작하는 메소드 호출을 주석처리
+ 2. 카드생성 & 카드섞기 메소드 호출
+ 3. 카드출력
+ */
+
 struct CardGame {
+    public static func cardStack() {
+        CardDeck.reset()
+        CardDeck.shuffle()
+        for i in 1...7 {
+            if let cards = CardDeck.remove(i) {
+                OutputView.printCards(cards: cards)
+            }
+        }
+    }
+    
     public static func play() {
         while true {
             do {
                 let inputValue = InputView.readInput()
                 guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
-                
                 try self.pickMenu(input)
             } catch CardError.inputError {
                 print(CardError.inputError.rawValue)
@@ -59,4 +76,5 @@ struct CardGame {
     }
 }
 
-CardGame.play()
+//CardGame.play()
+CardGame.cardStack()
