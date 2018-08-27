@@ -10,8 +10,8 @@ import Foundation
 
 struct OutputView {
     static func printAction(message: Message) {
-        print(message.action)
-        print("총 \(message.count)\(message.countAction)")
+        print(message.condition)
+        print("총 \(message.count)\(message.action)")
         print()
     }
     

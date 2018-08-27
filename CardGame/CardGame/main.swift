@@ -43,38 +43,37 @@ struct CardGame {
     }
     
     private static func pickMenu(_ cardAction: CardAction) throws {
-        var action = ""
+        var condition = ""
         var count = 0
-        var countAction = ""
+        var action = ""
         
         switch cardAction {
         case .reset:
             CardDeck.reset()
-            action = "카드 전체를 초기화했습니다."
+            condition = "카드 전체를 초기화했습니다."
             count = CardDeck.count()
-            countAction = "장의 카드가 있습니다."
-            
+            action = "장의 카드가 있습니다."
         case .shuffle:
             CardDeck.shuffle()
-            action = ""
+            condition = ""
             count = CardDeck.count()
-            countAction = "장의 카드를 섞었습니다."
+            action = "장의 카드를 섞었습니다."
         case .removeOne:
             guard let removeCard = CardDeck.removeOne() else { throw CardError.noCardsRemaining }
-            action = "\(removeCard)"
+            condition = "\(removeCard)"
             count = CardDeck.count()
-            countAction = "장의 카드가 남아있습니다."
+            action = "장의 카드가 남아있습니다."
         }
         
-        let message = Message.init(action: action, count: count, countAction: countAction)
+        let message = Message.init(condition: condition, count: count, action: action)
         OutputView.printAction(message: message)
     }
 }
 
 struct Message {
-    var action: String
+    var condition: String
     var count: Int
-    var countAction: String
+    var action: String
 }
 
 CardGame.play()
