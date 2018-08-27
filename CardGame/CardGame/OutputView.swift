@@ -9,9 +9,9 @@
 import Foundation
 
 struct OutputView {
-    static func printAction(action:String, count:Int, countAction:String) {
-        print(action)
-        print("총 \(count)\(countAction)")
+    static func printAction(message: Message) {
+        print(message.action)
+        print("총 \(message.count)\(message.countAction)")
         print()
     }
     
