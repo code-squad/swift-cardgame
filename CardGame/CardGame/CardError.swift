@@ -14,6 +14,7 @@ enum CardError: Error , CustomStringConvertible {
     case inputError
     case inputNil
     case noCardsRemaining
+    case inputRangeExceeded
     
     var description: String {
         switch self {
@@ -27,6 +28,8 @@ enum CardError: Error , CustomStringConvertible {
             return "입력값이 비어있습니다."
         case .noCardsRemaining:
             return "남아있는 카드가 없습니다."
+        case .inputRangeExceeded:
+            return "입력를 범위 초과하였습니다."
         }
     }
 }
