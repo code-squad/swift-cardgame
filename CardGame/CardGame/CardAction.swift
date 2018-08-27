@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum CardAction : String {
-    case reset = "1"
-    case shuffle = "2"
-    case removeOne = "3"
-}
+//enum CardAction : String {
+//    case reset = "1"
+//    case shuffle = "2"
+//    case removeOne = "3"
+//}
