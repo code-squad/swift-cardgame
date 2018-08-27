@@ -9,14 +9,8 @@
 import Foundation
 
 struct OutputView {
-    static func printAction(message: Message) {
-        print(message.condition)
-        print("총 \(message.count)\(message.action)")
-        print()
-    }
-    
-    static func printCards(cards:[Card]) {
-        print(cards)
+    static func printCards(elements:CardsWithPerson) {
+        print("\(elements.players) \(elements.cards)")
     }
     
     static func printError(error:CardError) {

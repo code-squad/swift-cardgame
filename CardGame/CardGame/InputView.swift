@@ -7,17 +7,23 @@
 //
 
 import Foundation
-
+//        카드 게임 종류를 선택하세요.
+//        참여할 사람의 인원을 입력하세요.
 struct InputView {
     // 입력값 받는 함수
-    public static func readInput() -> String? {
+    public static func readGameType() -> String? {
         let message =
         """
-        다음 메뉴를 선택해주세요.
-        1. 카드 초기화
-        2. 카드 섞기
-        3. 카드 하나 뽑기
+        카드 게임 종류를 선택하세요.
+        1. 7카드
+        2. 5카드
         """
+        print(message)
+        return readLine()
+    }
+    
+    public static func readPlayer() -> String? {
+        let message = "참여할 사람의 인원을 입력하세요."
         print(message)
         return readLine()
     }
