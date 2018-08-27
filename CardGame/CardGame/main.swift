@@ -16,65 +16,108 @@ import Foundation
  3. 카드출력
  */
 
-struct CardGame {
-    public static func cardStack() {
-        CardDeck.reset()
-        CardDeck.shuffle()
-        for i in 1...7 {
-            if let cards = CardDeck.remove(i) {
-                OutputView.printCards(cards: cards)
-            }
+enum GameType : String {
+    case seven = "1"
+    case five = "2"
+    
+    var number: Int {
+        switch self {
+        case .seven:
+            return 7
+        case .five:
+            return 5
         }
     }
+}
+
+enum NumberOfPlayers : String {
+    case one = "1"
+    case two = "2"
+    case three = "3"
+    case four = "4"
     
+    var number: Int {
+        switch self {
+        case .one:
+            return 1
+        case .two:
+            return 2
+        case .three:
+            return 3
+        case .four:
+            return 4
+        }
+    }
+}
+
+struct Player {
+    var cards = [Card]()
+}
+
+struct Players {
+    var player = [Player]()
+}
+
+struct Dealer {
+    var cards = [Card]()
+}
+
+struct CardsWithPerson {
+    var players : String
+    var cards : [Card]
+}
+
+struct Game {
+    var gameType : GameType
+    var player : NumberOfPlayers
+    
+    func shareCard() {
+        CardDeck.reset()
+        CardDeck.shuffle()
+        
+        // Players
+        for i in 0..<self.player.number {
+            if let cards = CardDeck.remove(self.gameType.number) {
+                let player = Player.init(cards: cards)
+                let cardsWithPerson = CardsWithPerson.init(players: "참가자#\(i + 1)", cards: player.cards)
+                OutputView.printCards(elements: cardsWithPerson)
+            }
+        }
+        
+        // Dealer
+        if let cards = CardDeck.remove(self.gameType.number) {
+            let cardsWithPerson = CardsWithPerson.init(players: "딜러", cards: cards)
+            OutputView.printCards(elements: cardsWithPerson)
+            
+        }
+        
+    }
+}
+
+struct CardGame {
     public static func play() {
         while true {
             do {
-                let inputValue = InputView.readInput()
-                guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
-                guard let action = CardAction.init(rawValue: input) else { throw CardError.inputError }
-                try self.pickMenu(action)
-            } catch let error {
-                if let cardError = error as? CardError {
-                    OutputView.printError(error: cardError)
-                }
+                // GameType
+                let inputGameType = InputView.readGameType()
+                guard let gameType = InputView.isEmpty(to: inputGameType) else { throw CardError.inputNil }
+                guard let pickGameType = GameType.init(rawValue: gameType) else { throw CardError.unknown }
+                
+                // NumberOfPlayers
+                let inputPlayer = InputView.readPlayer()
+                guard let number = InputView.isEmpty(to: inputPlayer) else { throw CardError.inputNil }
+                guard let numberOfplayers = NumberOfPlayers.init(rawValue: number) else { throw CardError.unknown }
+
+                // Game
+                let game = Game.init(gameType: pickGameType, player: numberOfplayers)
+                game.shareCard()
+            } catch let cardError as CardError {
+                OutputView.printError(error: cardError)
+            } catch {
+                OutputView.printError(error: CardError.unknown)
             }
         }
     }
-    
-    private static func pickMenu(_ cardAction: CardAction) throws {
-        var condition = ""
-        var count = 0
-        var action = ""
-        
-        switch cardAction {
-        case .reset:
-            CardDeck.reset()
-            condition = "카드 전체를 초기화했습니다."
-            count = CardDeck.count()
-            action = "장의 카드가 있습니다."
-        case .shuffle:
-            CardDeck.shuffle()
-            condition = ""
-            count = CardDeck.count()
-            action = "장의 카드를 섞었습니다."
-        case .removeOne:
-            guard let removeCard = CardDeck.removeOne() else { throw CardError.noCardsRemaining }
-            condition = "\(removeCard)"
-            count = CardDeck.count()
-            action = "장의 카드가 남아있습니다."
-        }
-        
-        let message = Message.init(condition: condition, count: count, action: action)
-        OutputView.printAction(message: message)
-    }
-}
-
-struct Message {
-    var condition: String
-    var count: Int
-    var action: String
 }
 
 CardGame.play()
-//CardGame.cardStack()
