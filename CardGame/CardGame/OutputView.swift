@@ -20,7 +20,7 @@ struct OutputView {
     }
     
     static func printError(error:CardError) {
-        print(error.rawValue)
+        print(error.description)
         print()
     }
 }

@@ -34,14 +34,10 @@ struct CardGame {
                 guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
                 guard let action = CardAction.init(rawValue: input) else { throw CardError.inputError }
                 try self.pickMenu(action)
-            } catch CardError.inputError {
-                OutputView.printError(error: CardError.inputError)
-            } catch CardError.inputNil {
-                OutputView.printError(error: CardError.inputNil)
-            } catch CardError.noCardsRemaining {
-                OutputView.printError(error: CardError.noCardsRemaining)
-            } catch {
-                OutputView.printError(error: CardError.unknown)
+            } catch let error {
+                if let cardError = error as? CardError {
+                    OutputView.printError(error: cardError)
+                }
             }
         }
     }
@@ -70,5 +66,5 @@ struct CardGame {
     }
 }
 
-//CardGame.play()
-CardGame.cardStack()
+CardGame.play()
+//CardGame.cardStack()
