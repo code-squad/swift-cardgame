@@ -32,7 +32,8 @@ struct CardGame {
             do {
                 let inputValue = InputView.readInput()
                 guard let input = InputView.isEmpty(to: inputValue) else { throw CardError.inputNil }
-                try self.pickMenu(input)
+                guard let action = CardAction.init(rawValue: input) else { throw CardError.inputError }
+                try self.pickMenu(action)
             } catch CardError.inputError {
                 OutputView.printError(error: CardError.inputError)
             } catch CardError.inputNil {
@@ -45,10 +46,7 @@ struct CardGame {
         }
     }
     
-    private static func pickMenu(_ input: String) throws {
-
-        guard let action = CardAction.init(rawValue: input) else { throw CardError.inputError }
-        
+    private static func pickMenu(_ action: CardAction) throws {
         switch action {
         case .reset:
             CardDeck.reset()
