@@ -9,8 +9,8 @@
 import Foundation
 
 struct OutputView {
-    static func printCards(elements:CardsWithPerson) {
-        print("\(elements.players) \(elements.cards)")
+    static func printCards(elements:CardsWithPlayer) {
+        print(elements.generate())
     }
     
     static func printError(error:CardError) {
