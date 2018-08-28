@@ -32,7 +32,7 @@ struct Main {
             } catch let cardError as CardError {
                 throw cardError
             } catch {
-                OutputView.printError(error: CardError.unknown)
+                throw CardError.unknown
             }
         }
     }
