@@ -20,23 +20,25 @@ import Foundation
  3. 카드 하나 뽑기 : removeOne -> count -> print
  
 */
-struct CardDeck{
-    private static var cards = [Card]()
+class CardDeck{
+    private var cards = [Card]()
     
-    public static func reset() {
-        cards.removeAll()
-        
+    init() {
         let numbers = CardNumber.allCases
         let shapes = CardShape.allCases
         for number in numbers {
             for shape in shapes {
                 let card = Card.init(number: number, shape: shape)
-                cards.append(card)
+                self.cards.append(card)
             }
         }
     }
     
-    public static func shuffle() {
+    public func reset() {
+        self.cards = CardDeck().cards
+    }
+    
+    public func shuffle() {
         var randomIndex = 0
         var lastIndex = self.cards.endIndex - 1
         
@@ -47,12 +49,12 @@ struct CardDeck{
         }
     }
     
-    public static func removeOne() -> Card? {
+    private func removeOne() -> Card? {
         guard self.cards.count > 0 else { return nil }
         return self.cards.removeFirst()
     }
     
-    public static func remove(_ count:Int) -> [Card]? {
+    public func remove(_ count:Int) -> [Card]? {
         guard self.cards.count > 0 else { return nil }
         var cards = [Card]()
         for _ in 0..<count {
@@ -62,7 +64,7 @@ struct CardDeck{
         return cards
     }
     
-    public static func count() -> Int {
+    public func count() -> Int {
         return self.cards.count
     }
     

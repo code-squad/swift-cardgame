@@ -10,8 +10,9 @@ import Foundation
 
 struct Main {
     public static func run() throws {
-        CardDeck.reset()
-        CardDeck.shuffle()
+        let cardDeck = CardDeck.init()
+        cardDeck.reset()
+        cardDeck.shuffle()
         
         while true {
             // GameType
@@ -21,7 +22,7 @@ struct Main {
             let numberOfplayers =  try InputView.readPlayer()
 
             let game = Game.init(gameType, numberOfplayers)
-            guard let cards = game.shareCards() else { throw CardError.noCardsRemaining }
+            guard let cards = game.shareCards(cardDeck) else { throw CardError.noCardsRemaining }
             
             // Print
             OutputView.printCards(elements: cards)
