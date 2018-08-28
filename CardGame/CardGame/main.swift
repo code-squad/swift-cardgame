@@ -24,17 +24,10 @@ struct Main {
 
             let game = Game.init(gameType, numberOfplayers)
             
-            // Players
-            guard let players = game.playerCards() else { throw CardError.noCardsRemaining }
-            
-            // Dealer
-            guard let dealer = game.dealerCards() else { throw CardError.noCardsRemaining }
-            
-            // Print
-            for player in players {
-                OutputView.printCards(elements: player)
+            guard let cards = game.shareCards() else { throw CardError.noCardsRemaining }
+            for card in cards {
+                OutputView.printCards(elements: card)
             }
-            OutputView.printCards(elements: dealer)
         }
     }
 }
