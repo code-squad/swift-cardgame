@@ -15,15 +15,12 @@ struct Main {
         
         while true {
             // GameType
-            guard let inputGameType = InputView.readGameType() else { throw CardError.inputNil }
-            guard let gameType = GameType.init(rawValue: inputGameType) else { throw CardError.inputRangeExceeded }
+            guard let gameType = try InputView.readGameType() else { throw CardError.inputNil }
 
             // NumberOfPlayers
-            guard let inputPlayer = InputView.readPlayer() else { throw CardError.inputNil }
-            guard let numberOfplayers = NumberOfPlayers.init(rawValue: inputPlayer) else { throw CardError.inputRangeExceeded }
+            guard let numberOfplayers =  try InputView.readPlayer() else { throw CardError.inputNil }
 
             let game = Game.init(gameType, numberOfplayers)
-            
             guard let cards = game.shareCards() else { throw CardError.noCardsRemaining }
             for card in cards {
                 OutputView.printCards(elements: card)

@@ -43,7 +43,8 @@ enum NumberOfPlayers : String {
 }
 
 struct InputView {
-    public static func readGameType() -> String? {
+    // return GameType
+    public static func readGameType() throws -> GameType? {
         let message =
         """
         카드 게임 종류를 선택하세요.
@@ -51,14 +52,16 @@ struct InputView {
         2. 5카드
         """
         print(message)
-        let gameType = InputView.isEmpty(to: readLine())
+        guard let inputGameType = InputView.isEmpty(to: readLine()) else { return nil }
+        guard let gameType = GameType.init(rawValue: inputGameType) else { throw CardError.inputRangeExceeded }
         return gameType
     }
     
-    public static func readPlayer() -> String? {
+    public static func readPlayer() throws -> NumberOfPlayers? {
         let message = "참여할 사람의 인원을 입력하세요."
         print(message)
-        let player = InputView.isEmpty(to: readLine())
+        guard let inputPlayer = InputView.isEmpty(to: readLine()) else { return nil }
+        guard let player = NumberOfPlayers.init(rawValue: inputPlayer) else { throw CardError.inputRangeExceeded }
         return player
     }
     
