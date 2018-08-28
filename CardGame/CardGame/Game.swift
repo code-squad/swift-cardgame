@@ -17,19 +17,17 @@ struct Game {
         self.players = numberOfPlayers
     }
     
-    func playerCards() -> [CardsWithPlayer]? {
+    func shareCards() -> [CardsWithPlayer]? {
         var cardsWithPersons = [CardsWithPlayer]()
+        // players
         for i in 0..<self.players.number {
-            guard let cards = CardDeck.remove(self.gameType.number) else { return nil }
-            let cardsWithPerson = CardsWithPlayer.init("참가자#\(i + 1)", cards)
-            cardsWithPersons.append(cardsWithPerson)
+            guard let playerCards = CardDeck.remove(self.gameType.number) else { return nil }
+            cardsWithPersons.append(CardsWithPlayer.init("참가자#\(i + 1)", playerCards))
         }
+        // dealer
+        guard let dealerCards = CardDeck.remove(self.gameType.number) else { return nil }
+        cardsWithPersons.append(CardsWithPlayer.init("딜러", dealerCards))
+        
         return cardsWithPersons
-    }
-    
-    func dealerCards() -> CardsWithPlayer? {
-        guard let cards = CardDeck.remove(self.gameType.number) else { return nil }
-        let cardsWithPerson = CardsWithPlayer.init("딜러", cards)
-        return cardsWithPerson
     }
 }
