@@ -17,15 +17,15 @@ struct Game {
         self.players = numberOfPlayers
     }
     
-    func shareCards() -> [CardsWithPlayer]? {
+    func shareCards(_ cardDeck:CardDeck) -> [CardsWithPlayer]? {
         var cardsWithPersons = [CardsWithPlayer]()
         // players
         for i in 0..<self.players.number {
-            guard let playerCards = CardDeck.remove(self.gameType.number) else { return nil }
+            guard let playerCards = cardDeck.remove(self.gameType.number) else { return nil }
             cardsWithPersons.append(CardsWithPlayer.init("참가자#\(i + 1)", playerCards))
         }
         // dealer
-        guard let dealerCards = CardDeck.remove(self.gameType.number) else { return nil }
+        guard let dealerCards = cardDeck.remove(self.gameType.number) else { return nil }
         cardsWithPersons.append(CardsWithPlayer.init("딜러", dealerCards))
         
         return cardsWithPersons

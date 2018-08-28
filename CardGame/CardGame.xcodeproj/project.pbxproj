@@ -73,15 +73,15 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
-				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				47DBF5572133DD1F00267C63 /* CardsWithPlayer.swift */,
+				47075F63212D4225006F0D4B /* CardProperty.swift */,
 				47097783212CE6E70031CEC8 /* Card.swift */,
+				47DBF5572133DD1F00267C63 /* CardsWithPlayer.swift */,
+				47DBF5592133DD4900267C63 /* Game.swift */,
+				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				47075F5D212D3C0F006F0D4B /* OutputView.swift */,
 				47075F5F212D41CE006F0D4B /* CardError.swift */,
-				47075F63212D4225006F0D4B /* CardProperty.swift */,
 				47DBF54F212FBD3A00267C63 /* CardDeck.swift */,
 				47DBF551212FC0E400267C63 /* InputView.swift */,
-				47DBF5592133DD4900267C63 /* Game.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
