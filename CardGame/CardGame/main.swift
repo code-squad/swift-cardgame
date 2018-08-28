@@ -10,30 +10,20 @@ import Foundation
 
 struct Main {
     public static func run() throws {
-        
         CardDeck.reset()
         CardDeck.shuffle()
         
         while true {
             // GameType
-            let inputGameType = InputView.readGameType()
-            guard let gameType = InputView.isEmpty(to: inputGameType) else { throw CardError.inputNil }
-            guard let pickGameType = GameType.init(rawValue: gameType) else { throw CardError.inputRangeExceeded }
+            guard let inputGameType = InputView.readGameType() else { throw CardError.inputNil }
+            guard let gameType = GameType.init(rawValue: inputGameType) else { throw CardError.inputRangeExceeded }
 
             // NumberOfPlayers
-            let inputPlayer = InputView.readPlayer()
-            guard let number = InputView.isEmpty(to: inputPlayer) else { throw CardError.inputNil }
-            guard let numberOfplayers = NumberOfPlayers.init(rawValue: number) else { throw CardError.inputRangeExceeded }
-            
-            do {
-                // Game
-                let game = Game.init(gameType: pickGameType, player: numberOfplayers)
-                try game.shareCard()
-            } catch let cardError as CardError {
-                throw cardError
-            } catch {
-                throw CardError.unknown
-            }
+            guard let inputPlayer = InputView.readPlayer() else { throw CardError.inputNil }
+            guard let numberOfplayers = NumberOfPlayers.init(rawValue: inputPlayer) else { throw CardError.inputRangeExceeded }
+
+            let game = Game.init(gameType: gameType, player: numberOfplayers)
+            try game.shareCard()
         }
     }
 }
