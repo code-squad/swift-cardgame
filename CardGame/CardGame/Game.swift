@@ -9,22 +9,27 @@
 import Foundation
 
 struct Game {
-    var gameType : GameType
-    var player : NumberOfPlayers
+    private var gameType : GameType
+    private var players : NumberOfPlayers
+
+    init(_ type : GameType , _ numberOfPlayers : NumberOfPlayers) {
+        self.gameType = type
+        self.players = numberOfPlayers
+    }
     
-    func shareCard() throws {
-        // Players
-        for i in 0..<self.player.number {
-            guard let cards = CardDeck.remove(self.gameType.number) else { throw CardError.noCardsRemaining }
-            let player = Player.init(cards: cards)
-            let cardsWithPerson = CardsWithPerson.init(players: "참가자#\(i + 1)", cards: player.cards)
-            OutputView.printCards(elements: cardsWithPerson)
+    func playerCards() -> [CardsWithPlayer]? {
+        var cardsWithPersons = [CardsWithPlayer]()
+        for i in 0..<self.players.number {
+            guard let cards = CardDeck.remove(self.gameType.number) else { return nil }
+            let cardsWithPerson = CardsWithPlayer.init("참가자#\(i + 1)", cards)
+            cardsWithPersons.append(cardsWithPerson)
         }
-        
-        // Dealer
-        guard let cards = CardDeck.remove(self.gameType.number) else { throw CardError.noCardsRemaining }
-        let cardsWithPerson = CardsWithPerson.init(players: "딜러", cards: cards)
-        OutputView.printCards(elements: cardsWithPerson)
-        
+        return cardsWithPersons
+    }
+    
+    func dealerCards() -> CardsWithPlayer? {
+        guard let cards = CardDeck.remove(self.gameType.number) else { return nil }
+        let cardsWithPerson = CardsWithPlayer.init("딜러", cards)
+        return cardsWithPerson
     }
 }

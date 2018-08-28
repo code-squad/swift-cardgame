@@ -22,8 +22,19 @@ struct Main {
             guard let inputPlayer = InputView.readPlayer() else { throw CardError.inputNil }
             guard let numberOfplayers = NumberOfPlayers.init(rawValue: inputPlayer) else { throw CardError.inputRangeExceeded }
 
-            let game = Game.init(gameType: gameType, player: numberOfplayers)
-            try game.shareCard()
+            let game = Game.init(gameType, numberOfplayers)
+            
+            // Players
+            guard let players = game.playerCards() else { throw CardError.noCardsRemaining }
+            
+            // Dealer
+            guard let dealer = game.dealerCards() else { throw CardError.noCardsRemaining }
+            
+            // Print
+            for player in players {
+                OutputView.printCards(elements: player)
+            }
+            OutputView.printCards(elements: dealer)
         }
     }
 }
