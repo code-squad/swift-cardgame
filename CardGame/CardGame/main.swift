@@ -15,10 +15,10 @@ struct Main {
         
         while true {
             // GameType
-            guard let gameType = try InputView.readGameType() else { throw CardError.inputNil }
-
+            let gameType = try InputView.readGameType()
+            
             // NumberOfPlayers
-            guard let numberOfplayers =  try InputView.readPlayer() else { throw CardError.inputNil }
+            let numberOfplayers =  try InputView.readPlayer()
 
             let game = Game.init(gameType, numberOfplayers)
             guard let cards = game.shareCards() else { throw CardError.noCardsRemaining }

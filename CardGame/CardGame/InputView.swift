@@ -42,27 +42,39 @@ enum NumberOfPlayers : String {
     }
 }
 
+enum Message : CustomStringConvertible {
+    case gameType
+    case readPlayer
+
+    var description: String {
+        switch self {
+        case .gameType:
+            return "카드 게임 종류를 선택하세요. \n1. 7카드 \n2. 5카드"
+        case .readPlayer:
+            return "참여할 사람의 인원을 입력하세요."
+        }
+    }
+}
+
 struct InputView {
     // return GameType
-    public static func readGameType() throws -> GameType? {
-        let message =
-        """
-        카드 게임 종류를 선택하세요.
-        1. 7카드
-        2. 5카드
-        """
-        print(message)
-        guard let inputGameType = InputView.isEmpty(to: readLine()) else { return nil }
+    public static func readGameType() throws -> GameType {
+        guard let inputGameType = InputView.readInput(with: Message.gameType) else { throw CardError.inputNil }
         guard let gameType = GameType.init(rawValue: inputGameType) else { throw CardError.inputRangeExceeded }
         return gameType
     }
     
-    public static func readPlayer() throws -> NumberOfPlayers? {
-        let message = "참여할 사람의 인원을 입력하세요."
-        print(message)
-        guard let inputPlayer = InputView.isEmpty(to: readLine()) else { return nil }
+    public static func readPlayer() throws -> NumberOfPlayers {
+        guard let inputPlayer = InputView.readInput(with: Message.readPlayer) else { throw CardError.inputNil }
         guard let player = NumberOfPlayers.init(rawValue: inputPlayer) else { throw CardError.inputRangeExceeded }
         return player
+    }
+    
+    // 입력값 받는 함수
+    public static func readInput(with message:Message) -> String? {
+        print(message.description)
+        guard let inputGameType = InputView.isEmpty(to: readLine()) else { return nil }
+        return inputGameType
     }
     
     // 입력값 비어 있는지 확인하는 함수
