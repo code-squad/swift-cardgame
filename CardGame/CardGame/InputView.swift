@@ -51,22 +51,21 @@ struct InputView {
         2. 5카드
         """
         print(message)
-        return readLine()
+        let gameType = InputView.isEmpty(to: readLine())
+        return gameType
     }
     
     public static func readPlayer() -> String? {
         let message = "참여할 사람의 인원을 입력하세요."
         print(message)
-        return readLine()
+        let player = InputView.isEmpty(to: readLine())
+        return player
     }
     
     // 입력값 비어 있는지 확인하는 함수
     public static func isEmpty(to value:String?) -> String? {
         guard let inputValue = value else { return nil }
-        if inputValue.isEmpty {
-            return nil
-        }
-        
+        if inputValue.isEmpty { return nil }
         return inputValue
     }
 }
