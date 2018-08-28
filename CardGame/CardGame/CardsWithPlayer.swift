@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardsWithPlayer {
+struct CardsWithPlayer : CustomStringConvertible {
     private var players : String
     private var cards : [Card]
     
@@ -17,7 +17,7 @@ struct CardsWithPlayer {
         self.cards = cards
     }
     
-    func generate() -> String {
+    var description: String {
         return "\(self.players) \(self.cards)"
     }
 }
