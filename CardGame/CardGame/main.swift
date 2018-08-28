@@ -22,9 +22,9 @@ struct Main {
 
             let game = Game.init(gameType, numberOfplayers)
             guard let cards = game.shareCards() else { throw CardError.noCardsRemaining }
-            for card in cards {
-                OutputView.printCards(elements: card)
-            }
+            
+            // Print
+            OutputView.printCards(elements: cards)
         }
     }
 }
