@@ -9,11 +9,8 @@
 import Foundation
 
 struct OutputView {
-    public static func printCards(elements:[CardsWithPlayer]) {
-        for element in elements {
-            print(element.description)
-        }
-        print()
+    public static func printCards(game : Game) {
+        print(game.description)
     }
     
     public static func printError(error:CardError) {

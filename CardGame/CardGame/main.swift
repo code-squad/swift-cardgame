@@ -22,10 +22,10 @@ struct Main {
             let numberOfplayers =  try InputView.readPlayer()
 
             let game = Game.init(gameType, numberOfplayers)
-            guard let cards = game.shareCards(cardDeck) else { throw CardError.noCardsRemaining }
+            guard game.shareCards(cardDeck) else { throw CardError.noCardsRemaining }
             
             // Print
-            OutputView.printCards(elements: cards)
+            OutputView.printCards(game: game)
         }
     }
 }
