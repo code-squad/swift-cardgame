@@ -8,26 +8,23 @@
 
 import Foundation
 
-struct Game {
+class Game : CustomStringConvertible {
     private var gameType : GameType
-    private var players : NumberOfPlayers
+    private var numberOfPlayers : NumberOfPlayers
+    private var players : Players
 
     init(_ type : GameType , _ numberOfPlayers : NumberOfPlayers) {
         self.gameType = type
-        self.players = numberOfPlayers
+        self.numberOfPlayers = numberOfPlayers
+        self.players = Players()
     }
-    
-    func shareCards(_ cardDeck:CardDeck) -> [CardsWithPlayer]? {
-        var cardsWithPersons = [CardsWithPlayer]()
+
+    func shareCards(_ cardDeck:CardDeck) -> Bool {
         // players
-        for i in 0..<self.players.number {
-            guard let playerCards = cardDeck.remove(self.gameType.number) else { return nil }
-            cardsWithPersons.append(CardsWithPlayer.init("참가자#\(i + 1)", playerCards))
-        }
-        // dealer
-        guard let dealerCards = cardDeck.remove(self.gameType.number) else { return nil }
-        cardsWithPersons.append(CardsWithPlayer.init("딜러", dealerCards))
-        
-        return cardsWithPersons
+        return players.add(self.numberOfPlayers, self.gameType, cardDeck)
+    }
+
+    var description: String {
+        return self.players.description
     }
 }
