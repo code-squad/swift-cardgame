@@ -9,17 +9,18 @@
 import Foundation
 
 class Players : CustomStringConvertible {
-    private var players : [Player] = []
+    private var players : [Player]
     
-    func add(_ numberOfPlayers: NumberOfPlayers , _ gameType: GameType , _ cardDeck: CardDeck) -> Bool  {
+    init?(_ numberOfPlayers: NumberOfPlayers , _ gameType: GameType , _ cardDeck: CardDeck) {
+        var players = [Player]()
         for i in 0..<numberOfPlayers.number {
-            guard let cards = cardDeck.remove(gameType.number) else { return false }
-            self.players.append(Player.init(cards , "참가자#\(i + 1)"))
+            guard let cards = cardDeck.remove(gameType.number) else { return nil }
+            players.append(Player.init(cards , "참가자#\(i + 1)"))
         }
-        guard let cards = cardDeck.remove(gameType.number) else { return false }
-        self.players.append(Player.init(cards , "딜러"))
+        guard let cards = cardDeck.remove(gameType.number) else { return nil }
+        players.append(Player.init(cards , "딜러"))
         
-        return true
+        self.players = players
     }
     
     var description: String {

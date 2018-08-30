@@ -11,20 +11,16 @@ import Foundation
 class Game : CustomStringConvertible {
     private var gameType : GameType
     private var numberOfPlayers : NumberOfPlayers
-    private var players : Players
+    private var players : Players?
 
-    init(_ type : GameType , _ numberOfPlayers : NumberOfPlayers) {
+    init?(_ type : GameType , _ numberOfPlayers : NumberOfPlayers , _ cardDeck : CardDeck) {
         self.gameType = type
         self.numberOfPlayers = numberOfPlayers
-        self.players = Players()
-    }
-
-    func shareCards(_ cardDeck:CardDeck) -> Bool {
-        // players
-        return players.add(self.numberOfPlayers, self.gameType, cardDeck)
+        guard let players = Players.init(self.numberOfPlayers, self.gameType, cardDeck) else { return nil }
+        self.players = players
     }
 
     var description: String {
-        return self.players.description
+        return self.players?.description ?? ""
     }
 }

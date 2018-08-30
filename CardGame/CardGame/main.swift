@@ -15,16 +15,9 @@ struct Main {
         cardDeck.shuffle()
         
         while true {
-            // GameType
             let gameType = try InputView.readGameType()
-            
-            // NumberOfPlayers
             let numberOfplayers =  try InputView.readPlayer()
-
-            let game = Game.init(gameType, numberOfplayers)
-            guard game.shareCards(cardDeck) else { throw CardError.noCardsRemaining }
-            
-            // Print
+            guard let game = Game.init(gameType, numberOfplayers, cardDeck) else { throw CardError.noCardsRemaining }
             OutputView.printCards(game: game)
         }
     }
