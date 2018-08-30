@@ -13,8 +13,13 @@ struct OutputView {
         print(game.description)
     }
     
-    public static func printError(error:CardError) {
-        print(error.description)
+    public static func printError(error:Error) {
+        if let inputError = error as? InputError {
+            print(inputError.description)
+        }
+        if let cardError = error as? CardError {
+            print(cardError.description)
+        }
         print()
     }
 }

@@ -34,6 +34,8 @@ do {
     try Main.run()
 } catch let cardError as CardError {
     OutputView.printError(error: cardError)
+} catch let inputError as InputError {
+    OutputView.printError(error: inputError)
 } catch {
     OutputView.printError(error: CardError.unknown)
 }
