@@ -18,7 +18,7 @@ struct InputView {
     
     public static func readPlayer() throws -> NumberOfPlayers {
         guard let inputPlayer = InputView.readInput(with: Message.readPlayer) else { throw InputError.inputNil }
-        guard let player = NumberOfPlayers.init(rawValue: Int(inputPlayer)!) else { throw InputError.inputRangeExceeded }
+        guard let player = NumberOfPlayers.init(rawValue: Int(inputPlayer) ?? 0) else { throw InputError.inputRangeExceeded }
         return player
     }
     
