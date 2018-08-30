@@ -22,24 +22,11 @@ enum GameType : String {
     }
 }
 
-enum NumberOfPlayers : String {
-    case one = "1"
-    case two = "2"
-    case three = "3"
-    case four = "4"
-    
-    var number: Int {
-        switch self {
-        case .one:
-            return 1
-        case .two:
-            return 2
-        case .three:
-            return 3
-        case .four:
-            return 4
-        }
-    }
+enum NumberOfPlayers : Int {
+    case one = 1
+    case two = 2
+    case three = 3
+    case four = 4
 }
 
 enum Message : CustomStringConvertible {
@@ -66,7 +53,7 @@ struct InputView {
     
     public static func readPlayer() throws -> NumberOfPlayers {
         guard let inputPlayer = InputView.readInput(with: Message.readPlayer) else { throw InputError.inputNil }
-        guard let player = NumberOfPlayers.init(rawValue: inputPlayer) else { throw InputError.inputRangeExceeded }
+        guard let player = NumberOfPlayers.init(rawValue: Int(inputPlayer)!) else { throw InputError.inputRangeExceeded }
         return player
     }
     

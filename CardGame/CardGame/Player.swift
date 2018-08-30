@@ -13,7 +13,7 @@ class Players : CustomStringConvertible {
     
     init?(_ numberOfPlayers: NumberOfPlayers , _ gameType: GameType , _ cardDeck: CardDeck) {
         var players = [Player]()
-        for i in 0..<numberOfPlayers.number {
+        for i in 0..<numberOfPlayers.rawValue {
             guard let cards = cardDeck.remove(gameType.number) else { return nil }
             players.append(Player.init(cards , "참가자#\(i + 1)"))
         }
