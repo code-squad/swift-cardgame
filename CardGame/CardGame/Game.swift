@@ -21,6 +21,11 @@ class Game : CustomStringConvertible {
     }
 
     var description: String {
-        return self.players?.description ?? ""
+        guard let players = self.players else { return "" }
+        var result = ""
+        for player in players.printCardsOfPlayers() {
+            result += "\(player.description)\n"
+        }
+        return result
     }
 }

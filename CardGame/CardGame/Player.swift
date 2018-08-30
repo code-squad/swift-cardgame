@@ -31,6 +31,10 @@ class Players : CustomStringConvertible {
         return cardsWithPlayers
     }
     
+    func printCardsOfPlayers() -> [Player] {
+        return self.players
+    }
+    
 }
 
 class Player : CustomStringConvertible {
