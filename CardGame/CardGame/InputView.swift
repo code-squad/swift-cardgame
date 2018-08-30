@@ -59,14 +59,14 @@ enum Message : CustomStringConvertible {
 struct InputView {
     // return GameType
     public static func readGameType() throws -> GameType {
-        guard let inputGameType = InputView.readInput(with: Message.gameType) else { throw CardError.inputNil }
-        guard let gameType = GameType.init(rawValue: inputGameType) else { throw CardError.inputRangeExceeded }
+        guard let inputGameType = InputView.readInput(with: Message.gameType) else { throw InputError.inputNil }
+        guard let gameType = GameType.init(rawValue: inputGameType) else { throw InputError.inputRangeExceeded }
         return gameType
     }
     
     public static func readPlayer() throws -> NumberOfPlayers {
-        guard let inputPlayer = InputView.readInput(with: Message.readPlayer) else { throw CardError.inputNil }
-        guard let player = NumberOfPlayers.init(rawValue: inputPlayer) else { throw CardError.inputRangeExceeded }
+        guard let inputPlayer = InputView.readInput(with: Message.readPlayer) else { throw InputError.inputNil }
+        guard let player = NumberOfPlayers.init(rawValue: inputPlayer) else { throw InputError.inputRangeExceeded }
         return player
     }
     
