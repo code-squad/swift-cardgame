@@ -9,7 +9,8 @@
 import Foundation
 
 struct OutputView {
-    public static func printCards(game : Game) {
+    
+    public static func printCards(game : GamePrintable) {
         print(game.description)
     }
     

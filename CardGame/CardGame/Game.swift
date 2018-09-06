@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Game : CustomStringConvertible {
+protocol GamePrintable : CustomStringConvertible {
+    var description: String { get }
+}
+
+class Game : GamePrintable {
     private var gameType : GameType
     private var numberOfPlayers : NumberOfPlayers
     private var players : Players?
@@ -27,5 +31,9 @@ class Game : CustomStringConvertible {
             result += "\(player.description)\n"
         }
         return result
+    }
+    
+    func printGameWinner(){
+        
     }
 }
