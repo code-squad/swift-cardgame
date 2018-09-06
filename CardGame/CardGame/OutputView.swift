@@ -11,7 +11,7 @@ import Foundation
 struct OutputView {
     
     public static func printCards(game : GamePrintable) {
-        print(game.description)
+        game.printPlayerCards { print("\($0)") }
     }
     
     public static func printError(error:Error) {
