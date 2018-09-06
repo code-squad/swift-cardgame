@@ -26,4 +26,8 @@ class Card : CustomStringConvertible {
         return "\(self.cardShape.rawValue)\(self.cardNumber.rawValue)"
     }
     
+    func compareSameCard(_ card: Card) -> Bool {
+        return self.cardNumber == card.cardNumber ? true : false
+    }
+    
 }

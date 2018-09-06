@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Players : CustomStringConvertible {
+class Players {
     private var players : [Player]
     
     init?(_ numberOfPlayers: NumberOfPlayers , _ gameType: GameType , _ cardDeck: CardDeck) {
@@ -23,18 +23,11 @@ class Players : CustomStringConvertible {
         self.players = players
     }
     
-    var description: String {
-        var cardsWithPlayers = ""
-        for player in players {
-            cardsWithPlayers += "\(player.description)\n"
+    func printPlayersCards(_ handler: (Player) -> Void) {
+        for index in 0..<self.players.count {
+            handler(self.players[index])
         }
-        return cardsWithPlayers
     }
-    
-    func printCardsOfPlayers() -> [Player] {
-        return self.players
-    }
-    
 }
 
 class Player : CustomStringConvertible {

@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol GamePrintable : CustomStringConvertible {
-    var description: String { get }
+protocol GamePrintable {
+    func printPlayerCards(_ handler: (Player) -> Void)
 }
 
 class Game : GamePrintable {
@@ -23,17 +23,9 @@ class Game : GamePrintable {
         guard let players = Players.init(self.numberOfPlayers, self.gameType, cardDeck) else { return nil }
         self.players = players
     }
-
-    var description: String {
-        guard let players = self.players else { return "" }
-        var result = ""
-        for player in players.printCardsOfPlayers() {
-            result += "\(player.description)\n"
-        }
-        return result
+    
+    func printPlayerCards(_ handler: (Player) -> Void) {
+        self.players?.printPlayersCards(handler)
     }
     
-    func printGameWinner(){
-        
-    }
 }
