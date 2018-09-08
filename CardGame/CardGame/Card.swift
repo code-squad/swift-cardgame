@@ -25,9 +25,18 @@ class Card : CustomStringConvertible {
     var description: String {
         return "\(self.cardShape.rawValue)\(self.cardNumber.rawValue)"
     }
-    
-    func compareSameCard(_ card: Card) -> Bool {
-        return self.cardNumber == card.cardNumber ? true : false
+}
+
+extension Card : Equatable , Comparable {
+    static func == (lhs: Card ,rhs: Card) -> Bool {
+        return lhs.cardNumber == rhs.cardNumber
     }
     
+    static func < (lhs: Card, rhs: Card) -> Bool {
+        return lhs.cardNumber.hashValue < rhs.cardNumber.hashValue
+    }
+    
+    static func > (lhs: Card, rhs: Card) -> Bool {
+        return lhs.cardNumber.hashValue > rhs.cardNumber.hashValue
+    }
 }

@@ -37,9 +37,14 @@ class Player : CustomStringConvertible {
     init(_ cards: [Card] , _ name: String) {
         self.cards = cards
         self.name = name
+        sort()
     }
     
     var description: String {
         return "\(self.name) \(self.cards)"
+    }
+    
+    func sort(){
+        self.cards.sort(by: <)
     }
 }
