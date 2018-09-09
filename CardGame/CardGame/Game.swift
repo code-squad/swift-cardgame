@@ -10,6 +10,7 @@ import Foundation
 
 protocol GamePrintable {
     func printPlayerCards(_ handler: (Player) -> Void)
+    func printWinner(_ handler: (Player) -> Void)
 }
 
 class Game : GamePrintable {
@@ -26,6 +27,10 @@ class Game : GamePrintable {
     
     func printPlayerCards(_ handler: (Player) -> Void) {
         self.players?.printPlayersCards(handler)
+    }
+    
+    func printWinner(_ handler: (Player) -> Void) {
+        self.players?.printWinner(handler)
     }
     
 }

@@ -8,28 +8,6 @@
 
 import Foundation
 
-class Players {
-    private var players : [Player]
-    
-    init?(_ numberOfPlayers: NumberOfPlayers , _ gameType: GameType , _ cardDeck: CardDeck) {
-        var players = [Player]()
-        for i in 0..<numberOfPlayers.rawValue {
-            guard let cards = cardDeck.remove(gameType.number) else { return nil }
-            players.append(Player.init(cards , "참가자#\(i + 1)"))
-        }
-        guard let cards = cardDeck.remove(gameType.number) else { return nil }
-        players.append(Player.init(cards , "딜러"))
-        
-        self.players = players
-    }
-    
-    func printPlayersCards(_ handler: (Player) -> Void) {
-        for index in 0..<self.players.count {
-            handler(self.players[index])
-        }
-    }
-}
-
 class Player : CustomStringConvertible {
     private var cards : [Card] = []
     private var name : String
@@ -37,14 +15,63 @@ class Player : CustomStringConvertible {
     init(_ cards: [Card] , _ name: String) {
         self.cards = cards
         self.name = name
-        sort()
+        self.cards.sort(by: <)
     }
     
     var description: String {
         return "\(self.name) \(self.cards)"
     }
     
-    func sort(){
-        self.cards.sort(by: <)
+    func findLargestNumber() -> Card {
+        return self.cards.last!
     }
+    
+    func hands() -> (Hands, Card) {
+        let (cardCounts , target) = duplicateCard()
+        let hands = selectHands(with: cardCounts)
+        return (hands , target)
+    }
+    
+    /*
+     target
+     1. 빈카드를 생성할 수 없어서 임의로 생성
+     2. 투페어 경우에는 더 큰 숫자가 target으로 설정되므로
+     나중에 투페어끼리 비교시에는 더 큰 숫자로 비교 가능
+     */
+    private func duplicateCard() -> ([Int] , Card) {
+        var cardCounts = [Int]()
+        var count = 0
+        var target = Card(number: .ace, shape: .club)
+        
+        // 중복 숫자 찾아서 배열에 추가
+        for index in 0..<self.cards.count {
+            for index2 in index + 1..<self.cards.count {
+                if self.cards[index] == self.cards[index2] {
+                    count += 1
+                    target = self.cards[index]
+                }
+            }
+            if count > 0 {
+                cardCounts.append(count)
+                count = 0
+            }
+        }
+        
+        return (cardCounts , target)
+    }
+    
+    // 핸즈 선택
+    private func selectHands(with cardCounts : [Int]) -> Hands {
+        switch cardCounts {
+        case _ where cardCounts.contains(3) :
+            return Hands.fourcard
+        case _ where cardCounts.contains(2) :
+            return Hands.triple
+        case _ where cardCounts.contains(1) :
+            return cardCounts.count >= 2 ? Hands.twopair : Hands.onepair
+        default:
+            return Hands.nothing
+        }
+    }
+    
 }

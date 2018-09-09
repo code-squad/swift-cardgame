@@ -19,6 +19,7 @@ struct Main {
             let numberOfplayers =  try InputView.readPlayer()
             guard let game = Game.init(gameType, numberOfplayers, cardDeck) else { throw CardError.noCardsRemaining }
             OutputView.printCards(game: game)
+            OutputView.printWinner(game: game)
         }
     }
 }

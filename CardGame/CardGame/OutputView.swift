@@ -14,6 +14,12 @@ struct OutputView {
         game.printPlayerCards { print("\($0)") }
     }
     
+    public static func printWinner(game : GamePrintable) {
+        print()
+        game.printWinner { print("우승자 \($0) : \($0.hands().0) 핸즈로 우승!") }
+        print()
+    }
+    
     public static func printError(error:Error) {
         if let inputError = error as? InputError {
             print(inputError.description)
