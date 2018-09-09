@@ -25,6 +25,12 @@ class Card : CustomStringConvertible {
     var description: String {
         return "\(self.cardShape.rawValue)\(self.cardNumber.rawValue)"
     }
+    
+    func isHighNumber(with anotherCard : Card) -> Bool {
+        let result = self.cardNumber.hashValue > anotherCard.cardNumber.hashValue ? true : false
+        return result
+    }
+    
 }
 
 extension Card : Equatable , Comparable {
