@@ -10,6 +10,7 @@ import Foundation
 
 struct CardDeck {
     private var cards: [Card]
+    private let stacksHeight = 7
     
     var count: Int {
         return cards.count
@@ -40,5 +41,17 @@ struct CardDeck {
     
     mutating func reset(with cards: [Card]) {
         self.cards = cards
+    }
+    
+    mutating func generateStacks() -> [CardStack] {
+        var stacks: [CardStack] = []
+        for i in 1...stacksHeight {
+            var stack: [Card] = []
+            for _ in 0..<i {
+                stack.append(removeOne())
+            }
+            stacks.append(CardStack(cards: stack))
+        }
+        return stacks
     }
 }
