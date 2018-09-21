@@ -13,6 +13,10 @@ struct Main {
         do {
             let originCards = CardDeckGenerator.generateCards()
             var deck = CardDeck(cards: originCards)
+            let stacks = deck.generateStacks()
+            stacks.forEach {
+                OutputView.display(CardGameResult.stack($0))
+            }
             while false {
                 let picked = try InputView.read()
                 switch picked {

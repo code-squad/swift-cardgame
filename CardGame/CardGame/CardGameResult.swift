@@ -23,10 +23,13 @@ enum CardGameResult: CustomStringConvertible {
             \(card)
             총 \(remains)장의 카드가 남았습니다.
             """
+        case .stack(let stack):
+            return "\(stack)"
         }
     }
     
     case reset(Int)
     case shuffle(Int)
     case pick(Card, Int)
+    case stack(CardStack)
 }
