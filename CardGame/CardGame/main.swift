@@ -13,7 +13,7 @@ struct Main {
         do {
             let originCards = CardDeckGenerator.generateCards()
             var deck = CardDeck(cards: originCards)
-            while true {
+            while false {
                 let picked = try InputView.read()
                 switch picked {
                 case .reset:
