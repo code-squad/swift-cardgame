@@ -17,7 +17,8 @@ struct Main {
             stacks.forEach {
                 OutputView.display(CardGameResult.stack($0))
             }
-            while false {
+            // while문의 true로 입력을 받는 기존의 기능 프로그램에서 false를 넣어 입력문으로 진입하지 않게 막는다.
+            while false { // true -> false 
                 let picked = try InputView.read()
                 switch picked {
                 case .reset:
