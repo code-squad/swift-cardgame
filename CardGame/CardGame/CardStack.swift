@@ -19,7 +19,6 @@ class CardStack: CustomStringConvertible {
                 result += ","
             }
         }
-        result += "]"
         return result
     }
     
