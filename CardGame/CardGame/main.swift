@@ -14,28 +14,26 @@ struct Main {
             let originCards = CardDeckGenerator.generateCards()
             var deck = CardDeck(cards: originCards)
             let stacks = deck.generateStacks()
-            stacks.forEach {
-                OutputView.display(CardGameResult.stack($0))
-            }
+            OutputView.display(.stack(stacks))
             // while문의 true로 입력을 받는 기존의 기능 프로그램에서 false를 넣어 입력문으로 진입하지 않게 막는다.
             while false { // true -> false 
                 let picked = try InputView.read()
                 switch picked {
                 case .reset:
                     deck.reset(with: originCards)
-                    OutputView.display(CardGameResult.reset(deck.count))
+                    OutputView.display(.reset(deck.count))
                 case .shuffle:
                     deck.shuffle()
-                    OutputView.display(CardGameResult.shuffle(deck.count))
+                    OutputView.display(.shuffle(deck.count))
                 case .pick:
                     let picked = deck.removeOne()
-                    OutputView.display(CardGameResult.pick(picked, deck.count))
+                    OutputView.display(.pick(picked, deck.count))
                 }
             }
         } catch let err as CardGameError {
             OutputView.display(err)
         } catch {
-            OutputView.display(CardGameError.unknown)
+            OutputView.display(.unknown)
         }
     }
 }
