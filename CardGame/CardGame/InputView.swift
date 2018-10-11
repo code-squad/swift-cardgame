@@ -8,36 +8,44 @@
 
 import Foundation
 
-enum MenuCategory: String {
-    var description: String {
-        switch self {
-        case .reset:
-            return "1. 카드 초기화\n"
-        case .shuffle:
-            return "2. 카드 섞기\n"
-        case .pick:
-            return "3. 카드 하나 뽑기"
-        }
+protocol MenuDescription: RawRepresentable {
+    static var menu: String { get }
+}
+enum GameCategory: String, MenuDescription {
+    static var menu: String {
+        return "카드 게임 종류를 선택하세요.\n1.7카드\n2.5카드\n> "
+    }
+    
+    case seven = "1"
+    case five = "2"
+}
+
+enum GamePlayer: String, MenuDescription {
+    static var menu: String {
+        return "참여할 사람의 인원을 입력하세요.\n> "
+    }
+    
+    case one = "1"
+    case two = "2"
+    case three = "3"
+    case four = "4"
+}
+
+enum MenuCategory: String, MenuDescription {
+    static var menu: String {
+        return "다음 메뉴를 선택해주세요.\n1. 카드 초기화\n2.카드 섞기\n3.카드 하나 뽑기\n> "
     }
     case reset = "1"
     case shuffle = "2"
     case pick = "3"
 }
 
-struct InputView {
-    static private var menuDiscriptions: String {
-        var menus = ""
-        menus += MenuCategory.reset.description
-        menus += MenuCategory.shuffle.description
-        menus += MenuCategory.pick.description
-        return menus
-    }
+struct InputView<T: MenuDescription> where T.RawValue == String {
     
-    static func read() throws -> MenuCategory {
-        print(menuDiscriptions)
-        print("> ", terminator: "")
+    static func read() throws -> T {
+        print(T.menu, terminator: "")
         let picked = readLine() ?? ""
-        if let menu = MenuCategory(rawValue: picked) {
+        if let menu = T(rawValue: picked) {
             return menu
         }
         throw CardGameError.invalidMenu
