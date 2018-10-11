@@ -12,7 +12,7 @@ struct CardDeck {
     private var cards: [Card]
     private let stacksHeight = 7
     
-    var count: Int {
+    var total: Int {
         return cards.count
     }
     
@@ -23,7 +23,7 @@ struct CardDeck {
     mutating func shuffle() {
         let startIndex = 0
         let endIndex = cards.count - 1
-        if count < 2 { return }
+        if total < 2 { return }
         
         for i in startIndex ... endIndex {
             let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
@@ -33,10 +33,13 @@ struct CardDeck {
         }
     }
     
-    mutating func removeOne() -> Card {
-        let randomIndex = Int(arc4random_uniform(UInt32(count - 1)))
-        let pickedCard = cards.remove(at: randomIndex)
-        return pickedCard
+    mutating func remove(_ count: Int) -> [Card] {
+        var picked: [Card] = []
+        for _ in 0..<count {
+            let randomIndex = Int(arc4random_uniform(UInt32(total - 1)))
+            picked.append(cards.remove(at: randomIndex))
+        }
+        return picked
     }
     
     mutating func reset(with cards: [Card]) {
@@ -46,10 +49,7 @@ struct CardDeck {
     mutating func generateStacks() -> [CardStack] {
         var stacks: [CardStack] = []
         for i in 1...stacksHeight {
-            var stack: [Card] = []
-            for _ in 0..<i {
-                stack.append(removeOne())
-            }
+            let stack: [Card] = remove(i)
             stacks.append(CardStack(cards: stack))
         }
         return stacks
