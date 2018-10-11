@@ -11,20 +11,30 @@ import Foundation
 protocol MenuDescription: RawRepresentable {
     static var menu: String { get }
 }
+
 enum GameCategory: String, MenuDescription {
     static var menu: String {
         return "카드 게임 종류를 선택하세요.\n1.7카드\n2.5카드\n> "
     }
-    
+    var count: Int {
+        switch self {
+        case .seven:
+            return 7
+        case .five:
+            return 5
+        }
+    }
     case seven = "1"
     case five = "2"
 }
 
-enum GamePlayer: String, MenuDescription {
+enum GamePlayerCategory: String, MenuDescription {
     static var menu: String {
         return "참여할 사람의 인원을 입력하세요.\n> "
     }
-    
+    var count: Int {
+        return Int(self.rawValue)!
+    }
     case one = "1"
     case two = "2"
     case three = "3"
