@@ -13,4 +13,5 @@ enum CardGameResult {
     case shuffle(Int)
     case pick(Card, Int)
     case stack([CardStack])
+    case players([Player])
 }
