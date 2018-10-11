@@ -12,7 +12,7 @@ enum CardGameError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .invalidMenu:
-            return "올바르지 않은 메뉴입니다."
+            return "올바르지 않은 입력값입니다."
         case .unknown:
             return "예상치 못한 에러가 발생하였습니다."
         }
