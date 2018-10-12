@@ -32,16 +32,11 @@ struct OutputView {
             \(card)
             총 \(remains)장의 카드가 남았습니다.
             """
-        case .stack(let stacks):
-            var result = ""
-            stacks.forEach {
-                result += "\($0)\n"
-            }
-            return result
-        case .players(let players):
-            var result = ""
-            players.playerCards.forEach {
-                result += "\($0)\n"
+        case .group(let group):
+            let result = group.display { (group) -> (String) in
+                return group.reduce("", { (group, component) -> String in
+                    return group + "\(component)\n"
+                })
             }
             return result
         }

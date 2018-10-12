@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Players {
+class Players: GroupProtocol {
     private var players: [Player]
-    var playerCards: [String] {
-        return players.map {"\($0)"}
+    func display(convert: ([String])->(String)) -> String {
+        let cards: [String] = players.map {"\($0)"}
+        return convert(cards)
     }
-    
     init(_ players: [Player]) {
         self.players = players
     }

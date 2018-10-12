@@ -21,7 +21,7 @@ class Game {
         do {
             while deck.isAvailable() {
                 guard let result = try playRound() else { break }
-                OutputView.display(CardGameResult.players(result))
+                OutputView.display(CardGameResult.group(result))
             }
         }catch let err as CardGameError {
             OutputView.display(err)
