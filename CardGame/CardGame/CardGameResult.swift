@@ -8,10 +8,13 @@
 
 import Foundation
 
+protocol GroupProtocol {
+    func display(convert: ([String])->(String)) -> String
+}
+
 enum CardGameResult {    
     case reset(Int)
     case shuffle(Int)
     case pick(Card, Int)
-    case stack([CardStack])
-    case players(Players)
+    case group(GroupProtocol)
 }
