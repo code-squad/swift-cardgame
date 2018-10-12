@@ -34,9 +34,11 @@ struct OutputView {
             """
         case .group(let group):
             let result = group.display { (group) -> (String) in
-                return group.reduce("", { (group, component) -> String in
-                    return group + "\(component)\n"
-                })
+                var text = ""
+                group.forEach {
+                    text += "\($0)\n"
+                }
+                return text
             }
             return result
         }
