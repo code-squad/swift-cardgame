@@ -15,11 +15,7 @@ struct OutputView {
     }
     
     static func display(_ values: CardGameResult) {
-        convert(from: values)
-    }
-    
-    static private func convert(from type: CardGameResult) {
-        switch type {
+        switch values {
         case .reset(let count):
             print("카드 전체를 초기화했습니다.\n총 \(count)장의 카드가 있습니다.")
         case .shuffle(let count):
