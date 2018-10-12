@@ -17,7 +17,7 @@ struct CardDeck {
     
     func isAvailable(_ required: Int? = nil) -> Bool {
         guard let required = required else {
-            return total >= 10 // minimum required cards count -> 5 cards, 1 player, 1 dealer
+            return total >= GameCategory.minimumRequired // minimum required cards count -> 5 cards, 1 player, 1 dealer
         }
         return required < total
     }
