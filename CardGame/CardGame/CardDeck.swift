@@ -11,9 +11,15 @@ import Foundation
 struct CardDeck {
     private var cards: [Card]
     private let stacksHeight = 7
-    
-    var total: Int {
+    private var total: Int {
         return cards.count
+    }
+    
+    func isAvailable(_ required: Int? = nil) -> Bool {
+        guard let required = required else {
+            return total >= 10 // minimum required cards count -> 5 cards, 1 player, 1 dealer
+        }
+        return required < total
     }
     
     init(cards: [Card]) {

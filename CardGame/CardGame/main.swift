@@ -19,7 +19,7 @@ class Game {
     func play() {
         deck.shuffle()
         do {
-            while deck.total >= 15 {
+            while deck.isAvailable() {
                 guard let result = try playRound() else { break }
                 OutputView.display(CardGameResult.players(result))
             }
@@ -35,8 +35,7 @@ class Game {
         let player = try InputView<GamePlayerCategory>.read()
         
         let required = picked.count * (player.count + 1)
-        
-        if deck.total < required {
+        if !deck.isAvailable(required) {
             return nil
         }
         
