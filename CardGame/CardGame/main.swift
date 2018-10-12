@@ -30,7 +30,7 @@ class Game {
         }
     }
     
-    private func playRound() throws -> [Player]? {
+    private func playRound() throws -> Players? {
         let picked = try InputView<GameCategory>.read()
         let player = try InputView<GamePlayerCategory>.read()
         
@@ -41,12 +41,12 @@ class Game {
         
         var players: [Player] = []
         
-        for _ in 0..<player.count {
-            players.append(Player(.player, with: deck.remove(picked.count)))
+        for i in 0..<player.count {
+            players.append(Player(.player(i), with: deck.remove(picked.count)))
         }
         players.append(Player(.dealer, with: deck.remove(picked.count)))
         
-        return players
+        return Players(players)
     }
 }
 

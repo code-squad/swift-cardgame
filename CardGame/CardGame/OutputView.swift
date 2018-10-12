@@ -40,13 +40,8 @@ struct OutputView {
             return result
         case .players(let players):
             var result = ""
-            players.enumerated().forEach {
-                switch $0.element.type {
-                case .player:
-                    result += "참가자#\($0.offset + 1) \($0.element)\n"
-                case .dealer:
-                    result += "딜러 \($0.element)"
-                }
+            players.playerCards.forEach {
+                result += "\($0)\n"
             }
             return result
         }
