@@ -16,6 +16,11 @@ enum GameCategory: String, MenuDescription {
     static var menu: String {
         return "카드 게임 종류를 선택하세요.\n1.7카드\n2.5카드\n> "
     }
+    
+    static var minimumRequired: Int {
+        return GameCategory.five.count * 2
+    }
+    
     var count: Int {
         switch self {
         case .seven:
