@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GroupProtocol {
-    func display(convert: ([String])->(String)) -> String
+    func display(convert: ([String])->())
 }
 
 enum CardGameResult {    

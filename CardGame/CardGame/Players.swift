@@ -10,7 +10,7 @@ import Foundation
 
 class Players: GroupProtocol {
     private var players: [Player]
-    func display(convert: ([String])->(String)) -> String {
+    func display(convert: ([String])->()) {
         let cards: [String] = players.map {"\($0)"}
         return convert(cards)
     }

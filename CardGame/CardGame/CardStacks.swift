@@ -11,7 +11,7 @@ import Foundation
 class CardStacks: GroupProtocol {
     private var cardStacks: [CardStack]
     
-    func display(convert: ([String])->(String)) -> String {
+    func display(convert: ([String])->()) {
         let stacks = cardStacks.map {"\($0)"}
         return convert(stacks)
     }
