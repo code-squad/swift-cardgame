@@ -25,6 +25,8 @@ extension CardDeck: ResultShowable {
         case .draw:
             let card = removeOne()
             return "\(card)\n총 \(self.count())장의 카드가 남아있습니다."
+        case .quit:
+            return "---- END ----"
         }
     }
 
