@@ -10,6 +10,7 @@ import Foundation
 
 enum MenuItem: Int, CaseIterable {
     case reset = 1, shuffle, draw
+    case quit
     
     var message: String{
         switch self {
@@ -19,6 +20,8 @@ enum MenuItem: Int, CaseIterable {
             return "카드 섞기"
         case .draw:
             return "카드 하나 뽑기"
+        case .quit:
+            return "끝내기"
         }
     }
 }
