@@ -17,7 +17,7 @@ enum Rank: Int {
     case A = 1
     case two, three, four, five, six, seven, eight, nine, ten
     case J, Q, K
-    
+
     var value: String {
         switch self {
         case .A:
