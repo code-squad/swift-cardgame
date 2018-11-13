@@ -78,18 +78,50 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				A3F1117F219ADA94005B848A /* MenuItem.swift */,
-				A3F11181219ADB1D005B848A /* MenuController.swift */,
+				A3F11185219AF214005B848A /* View */,
+				A3F11186219AF22A005B848A /* Menu */,
+				A3F11187219AF254005B848A /* Card */,
+				A3F11188219AF259005B848A /* Deck */,
+			);
+			path = CardGame;
+			sourceTree = "<group>";
+		};
+		A3F11185219AF214005B848A /* View */ = {
+			isa = PBXGroup;
+			children = (
 				A3F1117D219ABF8A005B848A /* InputView.swift */,
 				A3F11175219A982C005B848A /* OutputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A3F11186219AF22A005B848A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A3F1117F219ADA94005B848A /* MenuItem.swift */,
+				A3F11181219ADB1D005B848A /* MenuController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		A3F11187219AF254005B848A /* Card */ = {
+			isa = PBXGroup;
+			children = (
 				A3F11171219A77C1005B848A /* Suit.swift */,
 				A3F11173219A77CE005B848A /* Rank.swift */,
 				A3F1116F219A670C005B848A /* Card.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		A3F11188219AF259005B848A /* Deck */ = {
+			isa = PBXGroup;
+			children = (
 				A3F11179219AB128005B848A /* CardDeck.swift */,
 				A3F1117B219ABE8F005B848A /* Playable.swift */,
 				A3F11183219ADDDC005B848A /* ResultShowable.swift */,
 			);
-			path = CardGame;
+			path = Deck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
