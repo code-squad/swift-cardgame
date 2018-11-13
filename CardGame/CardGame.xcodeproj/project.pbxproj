@@ -18,7 +18,18 @@
 		A3F11180219ADA94005B848A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1117F219ADA94005B848A /* MenuItem.swift */; };
 		A3F11182219ADB1D005B848A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11181219ADB1D005B848A /* MenuController.swift */; };
 		A3F11184219ADDDC005B848A /* ResultShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11183219ADDDC005B848A /* ResultShowable.swift */; };
-		A3F11191219AF7EA005B848A /* CardGameUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11190219AF7EA005B848A /* CardGameUnitTest.swift */; };
+		A3F11191219AF7EA005B848A /* UnitTestMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11190219AF7EA005B848A /* UnitTestMenuController.swift */; };
+		A3F11196219AF8D7005B848A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11181219ADB1D005B848A /* MenuController.swift */; };
+		A3F11197219AF949005B848A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1117F219ADA94005B848A /* MenuItem.swift */; };
+		A3F11198219AFB94005B848A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11175219A982C005B848A /* OutputView.swift */; };
+		A3F11199219AFBAB005B848A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1116F219A670C005B848A /* Card.swift */; };
+		A3F1119A219AFBAE005B848A /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11173219A77CE005B848A /* Rank.swift */; };
+		A3F1119B219AFBB1005B848A /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11171219A77C1005B848A /* Suit.swift */; };
+		A3F1119D219AFC32005B848A /* UnitTestCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1119C219AFC32005B848A /* UnitTestCard.swift */; };
+		A3F1119F219AFE67005B848A /* UnitTestCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1119E219AFE67005B848A /* UnitTestCardDeck.swift */; };
+		A3F111A0219AFE86005B848A /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11179219AB128005B848A /* CardDeck.swift */; };
+		A3F111A1219AFE8C005B848A /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1117B219ABE8F005B848A /* Playable.swift */; };
+		A3F111A2219AFE91005B848A /* ResultShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11183219ADDDC005B848A /* ResultShowable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,8 +58,10 @@
 		A3F11181219ADB1D005B848A /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		A3F11183219ADDDC005B848A /* ResultShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultShowable.swift; sourceTree = "<group>"; };
 		A3F1118E219AF7EA005B848A /* CardGameUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3F11190219AF7EA005B848A /* CardGameUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameUnitTest.swift; sourceTree = "<group>"; };
+		A3F11190219AF7EA005B848A /* UnitTestMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMenuController.swift; sourceTree = "<group>"; };
 		A3F11192219AF7EA005B848A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3F1119C219AFC32005B848A /* UnitTestCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCard.swift; sourceTree = "<group>"; };
+		A3F1119E219AFE67005B848A /* UnitTestCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCardDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +153,10 @@
 		A3F1118F219AF7EA005B848A /* CardGameUnitTest */ = {
 			isa = PBXGroup;
 			children = (
-				A3F11190219AF7EA005B848A /* CardGameUnitTest.swift */,
+				A3F11190219AF7EA005B848A /* UnitTestMenuController.swift */,
 				A3F11192219AF7EA005B848A /* Info.plist */,
+				A3F1119C219AFC32005B848A /* UnitTestCard.swift */,
+				A3F1119E219AFE67005B848A /* UnitTestCardDeck.swift */,
 			);
 			path = CardGameUnitTest;
 			sourceTree = "<group>";
@@ -254,7 +269,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3F11191219AF7EA005B848A /* CardGameUnitTest.swift in Sources */,
+				A3F11197219AF949005B848A /* MenuItem.swift in Sources */,
+				A3F11196219AF8D7005B848A /* MenuController.swift in Sources */,
+				A3F11199219AFBAB005B848A /* Card.swift in Sources */,
+				A3F1119A219AFBAE005B848A /* Rank.swift in Sources */,
+				A3F1119F219AFE67005B848A /* UnitTestCardDeck.swift in Sources */,
+				A3F11191219AF7EA005B848A /* UnitTestMenuController.swift in Sources */,
+				A3F111A1219AFE8C005B848A /* Playable.swift in Sources */,
+				A3F111A2219AFE91005B848A /* ResultShowable.swift in Sources */,
+				A3F111A0219AFE86005B848A /* CardDeck.swift in Sources */,
+				A3F11198219AFB94005B848A /* OutputView.swift in Sources */,
+				A3F1119B219AFBB1005B848A /* Suit.swift in Sources */,
+				A3F1119D219AFC32005B848A /* UnitTestCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +419,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CardGameUnitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -412,6 +439,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CardGameUnitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
