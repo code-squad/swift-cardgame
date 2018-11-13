@@ -8,6 +8,37 @@
 
 import Foundation
 
-struct CardDeck {
-    private let cards: [Card]
+struct CardDeck: Playable {
+    private var cards: [Card] = []
+
+    init() {
+        reset()
+    }
+
+    private mutating func fill() {
+        for suit in Suit.allCases {
+            for rank in Rank.allCases {
+                self.cards.append(Card(suit: suit, rank: rank))
+            }
+        }
+    }
+
+    func count() -> Int {
+        return cards.count
+    }
+
+    mutating func shuffle() {
+        cards.shuffle()
+    }
+
+    mutating func removeOne() -> Card {
+        return cards.removeFirst()
+    }
+
+    mutating func reset() {
+        cards.removeAll()
+        fill()
+        shuffle()
+    }
+
 }
