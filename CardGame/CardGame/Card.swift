@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card {
+class Card: CustomStringConvertible {
     private let suit: Suit
     private let rank: Rank
 
