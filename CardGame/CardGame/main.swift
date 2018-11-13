@@ -15,10 +15,15 @@ struct Main {
         let rank = Rank.allCases.randomElement() ?? .A
         return Card(suit, rank)
     }
-
+    
     static func run() {
-        let card = makeRandomCard()
-        OutputView.show(card)
+        var cardDeck = CardDeck.init()
+        while(!cardDeck.isEmpty) {
+            let numSelected = InputView.readInput()
+            guard let menuSelected = MenuController.getMenu(of: numSelected) else { continue }
+            let result = cardDeck.makeResult(of: menuSelected)
+            print(result)
+        }
     }
 
 }
