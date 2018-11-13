@@ -13,7 +13,7 @@ struct OutputView {
         case notInt = "메뉴는 번호로 입력해주세요."
         case outOfMenu = "위 메뉴 내에서 골라주세요."
     }
-    
+
     static func notifyError(_ error: Error) {
         print(error.rawValue)
     }
@@ -21,9 +21,9 @@ struct OutputView {
     static func show(_ card: Card) {
         print(card)
     }
-    
+
     static func show(_ result: String) {
         print(result)
     }
-    
+
 }

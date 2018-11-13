@@ -26,4 +26,5 @@ struct InputView {
         guard let input: String = readLine() else { return String() }
         return input
     }
+
 }
