@@ -11,7 +11,7 @@ import Foundation
 struct OutputView {
 
     static func show(_ card: Card) {
-        print(card.description)
+        print(card)
     }
 
 }
