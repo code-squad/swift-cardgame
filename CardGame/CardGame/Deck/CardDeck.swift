@@ -22,7 +22,7 @@ struct CardDeck: Playable {
             }
         }
     }
-    
+
     var isEmpty: Bool {
         return cards.isEmpty
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct MenuController {
-    
+
     private static func makeInt(str: String) -> Int? {
         return Int(str)
     }
@@ -29,6 +29,5 @@ struct MenuController {
         }
         return menuSelected
     }
-    
-    
+
 }

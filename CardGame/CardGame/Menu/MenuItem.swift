@@ -11,7 +11,7 @@ import Foundation
 enum MenuItem: Int, CaseIterable {
     case reset = 1, shuffle, draw
     case quit
-    
+
     var message: String{
         switch self {
         case .reset:
