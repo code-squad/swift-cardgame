@@ -18,7 +18,7 @@ struct CardDeck: Playable {
     private mutating func fill() {
         for suit in Suit.allCases {
             for rank in Rank.allCases {
-                self.cards.append(Card(suit: suit, rank: rank))
+                self.cards.append(Card(suit, rank))
             }
         }
     }
