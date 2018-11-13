@@ -11,12 +11,12 @@ import Foundation
 class Card {
     private let suit: Suit
     private let rank: Rank
-    
+
     init(suit: Suit, rank: Rank) {
         self.suit = suit
         self.rank = rank
     }
-    
+
     var description: String {
         return "\(suit.value)\(rank.value)"
     }

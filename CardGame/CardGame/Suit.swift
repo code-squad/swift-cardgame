@@ -14,7 +14,7 @@ import Foundation
 
 enum Suit: Int {
     case spades = 1, hearts, diamonds, clubs
-    
+
     var value: Character {
         switch self {
         case .spades:
