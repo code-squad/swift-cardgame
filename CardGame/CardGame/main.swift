@@ -18,7 +18,7 @@ struct Main {
 
     static func run() {
         let card = makeRandomCard()
-        print(card.description)
+        OutputView.show(card)
     }
 
 }
