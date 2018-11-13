@@ -18,6 +18,6 @@ class Card {
     }
 
     var description: String {
-        return "\(suit.value)\(rank.value)"
+        return "\(suit.rawValue)\(rank.value)"
     }
 }
