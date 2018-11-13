@@ -22,4 +22,8 @@ struct OutputView {
         print(card)
     }
     
+    static func show(_ result: String) {
+        print(result)
+    }
+    
 }

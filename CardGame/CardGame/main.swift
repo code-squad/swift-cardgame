@@ -16,7 +16,8 @@ struct Main {
             let numSelected = InputView.readInput()
             guard let menuSelected = MenuController.getMenu(of: numSelected) else { continue }
             let result = cardDeck.makeResult(of: menuSelected)
-            print(result)
+            OutputView.show(result)
+            guard menuSelected != .quit else { break }
         }
     }
 
