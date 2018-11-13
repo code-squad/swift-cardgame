@@ -11,8 +11,8 @@ import Foundation
 struct Main {
 
     private static func makeRandomCard() -> Card {
-        let suit = Suit(rawValue: Int.random(in: 1...4)) ?? .spades
-        let rank = Rank(rawValue: Int.random(in: 1...13)) ?? .A
+        let suit = Suit.allCases.randomElement() ?? .spades
+        let rank = Rank.allCases.randomElement() ?? .A
         return Card(suit: suit, rank: rank)
     }
 
