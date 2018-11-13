@@ -10,12 +10,6 @@ import Foundation
 
 struct Main {
 
-    private static func makeRandomCard() -> Card {
-        let suit = Suit.allCases.randomElement() ?? .spades
-        let rank = Rank.allCases.randomElement() ?? .A
-        return Card(suit, rank)
-    }
-    
     static func run() {
         var cardDeck = CardDeck.init()
         while(!cardDeck.isEmpty) {
