@@ -12,7 +12,7 @@ class Card: CustomStringConvertible {
     private let suit: Suit
     private let rank: Rank
 
-    init(_ suit: Suit, _ rank: Rank) {
+    init(suit: Suit, rank: Rank) {
         self.suit = suit
         self.rank = rank
     }
