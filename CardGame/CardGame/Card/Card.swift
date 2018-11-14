@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card: CustomStringConvertible {
+class Card: NSObject {
     private let suit: Suit
     private let rank: Rank
 
@@ -17,7 +17,8 @@ class Card: CustomStringConvertible {
         self.rank = rank
     }
 
-    var description: String {
+    override var description: String {
         return "\(suit.rawValue)\(rank.value)"
     }
+
 }
