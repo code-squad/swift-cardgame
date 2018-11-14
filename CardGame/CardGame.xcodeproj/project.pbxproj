@@ -17,7 +17,6 @@
 		A3F1117E219ABF8A005B848A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1117D219ABF8A005B848A /* InputView.swift */; };
 		A3F11180219ADA94005B848A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1117F219ADA94005B848A /* MenuItem.swift */; };
 		A3F11182219ADB1D005B848A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11181219ADB1D005B848A /* MenuController.swift */; };
-		A3F11184219ADDDC005B848A /* ResultShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11183219ADDDC005B848A /* ResultShowable.swift */; };
 		A3F11191219AF7EA005B848A /* UnitTestMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11190219AF7EA005B848A /* UnitTestMenuController.swift */; };
 		A3F11196219AF8D7005B848A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11181219ADB1D005B848A /* MenuController.swift */; };
 		A3F11197219AF949005B848A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1117F219ADA94005B848A /* MenuItem.swift */; };
@@ -29,7 +28,6 @@
 		A3F1119F219AFE67005B848A /* UnitTestCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1119E219AFE67005B848A /* UnitTestCardDeck.swift */; };
 		A3F111A0219AFE86005B848A /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11179219AB128005B848A /* CardDeck.swift */; };
 		A3F111A1219AFE8C005B848A /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1117B219ABE8F005B848A /* Playable.swift */; };
-		A3F111A2219AFE91005B848A /* ResultShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11183219ADDDC005B848A /* ResultShowable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,7 +54,6 @@
 		A3F1117D219ABF8A005B848A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A3F1117F219ADA94005B848A /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		A3F11181219ADB1D005B848A /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		A3F11183219ADDDC005B848A /* ResultShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultShowable.swift; sourceTree = "<group>"; };
 		A3F1118E219AF7EA005B848A /* CardGameUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F11190219AF7EA005B848A /* UnitTestMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMenuController.swift; sourceTree = "<group>"; };
 		A3F11192219AF7EA005B848A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,7 +142,6 @@
 			children = (
 				A3F11179219AB128005B848A /* CardDeck.swift */,
 				A3F1117B219ABE8F005B848A /* Playable.swift */,
-				A3F11183219ADDDC005B848A /* ResultShowable.swift */,
 			);
 			path = Deck;
 			sourceTree = "<group>";
@@ -255,7 +251,6 @@
 				A3F1117A219AB128005B848A /* CardDeck.swift in Sources */,
 				A3F11176219A982C005B848A /* OutputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
-				A3F11184219ADDDC005B848A /* ResultShowable.swift in Sources */,
 				A3F11174219A77CE005B848A /* Rank.swift in Sources */,
 				A3F11172219A77C1005B848A /* Suit.swift in Sources */,
 				A3F1117E219ABF8A005B848A /* InputView.swift in Sources */,
@@ -276,7 +271,6 @@
 				A3F1119F219AFE67005B848A /* UnitTestCardDeck.swift in Sources */,
 				A3F11191219AF7EA005B848A /* UnitTestMenuController.swift in Sources */,
 				A3F111A1219AFE8C005B848A /* Playable.swift in Sources */,
-				A3F111A2219AFE91005B848A /* ResultShowable.swift in Sources */,
 				A3F111A0219AFE86005B848A /* CardDeck.swift in Sources */,
 				A3F11198219AFB94005B848A /* OutputView.swift in Sources */,
 				A3F1119B219AFBB1005B848A /* Suit.swift in Sources */,
