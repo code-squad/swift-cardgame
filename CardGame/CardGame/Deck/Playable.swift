@@ -11,6 +11,6 @@ import Foundation
 protocol Playable {
     func count() -> Int
     mutating func shuffle()
-    mutating func removeOne() -> Card
+    mutating func removeOne() -> Card?
     mutating func reset()
 }

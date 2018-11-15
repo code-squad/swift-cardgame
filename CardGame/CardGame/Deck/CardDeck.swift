@@ -31,14 +31,19 @@ struct CardDeck: Playable {
         return cards.count
     }
 
-    mutating func removeOne() -> Card {
+    mutating func removeOne() -> Card? {
+        if isEmpty {
+            return nil
+        }
         return cards.removeFirst()
     }
 
-    mutating func removeMultiple(by number: Int) -> CardStack {
+    mutating func removeMultiple(by number: Int) -> CardStack? {
+        guard number > 0 else { return nil }
         var cardsRemoved: [Card] = []
         for _ in 0..<number {
-            cardsRemoved.append(removeOne())
+            guard let cardRemoved = removeOne() else { break }
+            cardsRemoved.append(cardRemoved)
         }
         return CardStack.init(cards: cardsRemoved)
     }
@@ -62,8 +67,10 @@ struct CardDeck: Playable {
             shuffle()
             return "전체 \(self.count())장의 카드를 섞었습니다."
         case .draw:
-            let card = removeOne()
-            return "\(card)\n총 \(self.count())장의 카드가 남아있습니다."
+            if let card = removeOne() {
+                return "\(card)\n총 \(self.count())장의 카드가 남아있습니다."
+            }
+            return "남아있는 카드가 없습니다."
         case .quit:
             return "---- END ----"
         }
