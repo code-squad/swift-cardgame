@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		A3DEE4FD219D197100BCB4E4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEE4FC219D197100BCB4E4 /* CardStack.swift */; };
+		A3DEE4FE219D1FBD00BCB4E4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEE4FC219D197100BCB4E4 /* CardStack.swift */; };
 		A3F11170219A670C005B848A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1116F219A670C005B848A /* Card.swift */; };
 		A3F11172219A77C1005B848A /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11171219A77C1005B848A /* Suit.swift */; };
 		A3F11174219A77CE005B848A /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11173219A77CE005B848A /* Rank.swift */; };
@@ -45,6 +47,7 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A3DEE4FC219D197100BCB4E4 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		A3F1116F219A670C005B848A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A3F11171219A77C1005B848A /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		A3F11173219A77CE005B848A /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		A3F11188219AF259005B848A /* Deck */ = {
 			isa = PBXGroup;
 			children = (
+				A3DEE4FC219D197100BCB4E4 /* CardStack.swift */,
 				A3F11179219AB128005B848A /* CardDeck.swift */,
 				A3F1117B219ABE8F005B848A /* Playable.swift */,
 			);
@@ -254,6 +258,7 @@
 				A3F11174219A77CE005B848A /* Rank.swift in Sources */,
 				A3F11172219A77C1005B848A /* Suit.swift in Sources */,
 				A3F1117E219ABF8A005B848A /* InputView.swift in Sources */,
+				A3DEE4FD219D197100BCB4E4 /* CardStack.swift in Sources */,
 				A3F11180219ADA94005B848A /* MenuItem.swift in Sources */,
 				A3F11170219A670C005B848A /* Card.swift in Sources */,
 				A3F1117C219ABE8F005B848A /* Playable.swift in Sources */,
@@ -266,6 +271,7 @@
 			files = (
 				A3F11197219AF949005B848A /* MenuItem.swift in Sources */,
 				A3F11196219AF8D7005B848A /* MenuController.swift in Sources */,
+				A3DEE4FE219D1FBD00BCB4E4 /* CardStack.swift in Sources */,
 				A3F11199219AFBAB005B848A /* Card.swift in Sources */,
 				A3F1119A219AFBAE005B848A /* Rank.swift in Sources */,
 				A3F1119F219AFE67005B848A /* UnitTestCardDeck.swift in Sources */,
