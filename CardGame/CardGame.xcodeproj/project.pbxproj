@@ -136,6 +136,7 @@
 				A3F11171219A77C1005B848A /* Suit.swift */,
 				A3F11173219A77CE005B848A /* Rank.swift */,
 				A3F1116F219A670C005B848A /* Card.swift */,
+				A3DEE4FC219D197100BCB4E4 /* CardStack.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 		A3F11188219AF259005B848A /* Deck */ = {
 			isa = PBXGroup;
 			children = (
-				A3DEE4FC219D197100BCB4E4 /* CardStack.swift */,
 				A3F11179219AB128005B848A /* CardDeck.swift */,
 				A3F1117B219ABE8F005B848A /* Playable.swift */,
 			);
