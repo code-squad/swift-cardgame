@@ -1,57 +1,60 @@
-# 진행 방법
+> `CardDeck` 구조체의 내용, 변수 및 메소드 명에 대한 설명을 기술하였습니다. 
 
-- 카드게임에 대한 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+## CardDeck
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+모든 종류의 `Card` 객체 인스턴스를 포함하는 카드팩 역할의 구조체입니다. 내부 변수 및 메소드로는 아래와 같은 내용을 담고 있습니다.
+
+###변수
+
+- `private var cards: [Card]` : 모든 종류의  `Suit`와 `Rank`  조합의 `Card`를 배열로 담고 있습니다.
+- `var isEmpty: Bool` : `cards` 변수가 비어있는지의 여부를 나타냅니다.
+
+###메소드
+
+#####따로 정의한 `Playable` 프로토콜을 채택하여 구현한 메소드입니다.
+
+- ` count() -> Int`
+
+- ` shuffle()`
+- `removeOne() -> Card?`
+- `reset()`
+  - `fill()` :  `Suit`와 `Rank` 케이스를 탐색하면서 `cards` 변수에 모든 조합의 카드객체를 **채워**줍니다.
+
+#####추가로 생성한  `CardStack` 을 만들어주는 메소드입니다. 
+
+- `removeMultiple( : ) -> CardStack?` : 기존의 `removeOne()` 메소드와 비슷한 역할을 하기 때문에 메소드 이름에 리턴되는 카드객체의 **단복수** 의미만 더해질 수 있도록 하였습니다. 
+
+#####선택한 메뉴항목에 따라 해당하는 메소드를 실행시킨 후, 출력할 결과 문자열을 만들어주는 메소드입니다.
+
+- `makeResult( : ) -> String` : 단순히 결과값만 보여주는 것이 아니라, 파라미터로 받은 `MenuItem` 에 따라 해당하는 메소드를 **수행**한 후에 **결과**값을 **만들어**주는 역할을 하기 때문에 *make* 동사를 사용했습니다. 
+
+
+
+아래는 `CardDeck` 구조체의 `removeMultiple()` 메소드를 활용해 `CardStack` 을 출력해본 결과입니다.
+
+```swift
+var cardDeck = CardDeck.init()
+var cardStacks: [CardStack] = []
+for number in 1...7 {
+    guard let cardStack = cardDeck.removeMultiple(by: number) else { break }
+    cardStacks.append(cardStack)
+}
+let result = cardStacks
+	.map { "\($0)" }
+	.joined(separator: "\n")
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-cardgame
+
+```swift
+print(result)
+// Prints below
+[♦️5]
+[♦️A, ♦️J]
+[♦️7, ♦️8, ♣️3]
+[♠️9, ♣️8, ♣️2, ♦️3]
+[♣️Q, ♠️8, ♣️A, ♥️8, ♦️6]
+[♠️10, ♠️Q, ♥️A, ♣️J, ♦️4, ♣️5]
+[♠️2, ♥️9, ♠️7, ♠️3, ♦️K, ♦️Q, ♥️3]
 ```
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-cardgame
-```
-
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
-
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
