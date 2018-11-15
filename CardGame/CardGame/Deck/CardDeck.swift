@@ -31,12 +31,20 @@ struct CardDeck: Playable {
         return cards.count
     }
 
-    mutating func shuffle() {
-        cards.shuffle()
-    }
-
     mutating func removeOne() -> Card {
         return cards.removeFirst()
+    }
+
+    mutating func removeMultiple(by number: Int) -> CardStack {
+        var cardsRemoved: [Card] = []
+        for _ in 0..<number {
+            cardsRemoved.append(removeOne())
+        }
+        return CardStack.init(cards: cardsRemoved)
+    }
+
+    mutating func shuffle() {
+        cards.shuffle()
     }
 
     mutating func reset() {
