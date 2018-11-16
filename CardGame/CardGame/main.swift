@@ -16,10 +16,14 @@ struct Main {
             let cardGame = try CardGame.init(gameMode: gameInfo.mode, numberOfPlayers: gameInfo.numberOfPlayers)
             while true {
                 guard try cardGame.play() else { break }
-                print(cardGame.showCards())
+                OutputView.showCards(of: cardGame)
             }
+        } catch let error as GameInputError {
+            OutputView.notifyError(error)
+        } catch GameError.noCard {
+            OutputView.notifyEndOfGame()
         } catch {
-            print(error)
+            fatalError()
         }
     }
 

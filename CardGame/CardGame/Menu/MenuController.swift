@@ -16,7 +16,7 @@ struct MenuController {
             return nil
         }
         guard let menuSelected = MenuItem(rawValue: numSelected) else {
-            OutputView.notifyError(.outOfMenu)
+            OutputView.notifyError(.notMenuSupported)
             return nil
         }
         return menuSelected
