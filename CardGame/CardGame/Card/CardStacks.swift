@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardStacks: CustomStringConvertible {
+class CardStacks: CustomStringConvertible {
     private var cardStacks: [CardStack] = []
 
     init(from cardDeck: CardDeck, by num: Int = 7) {
