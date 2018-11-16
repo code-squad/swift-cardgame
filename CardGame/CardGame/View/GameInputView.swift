@@ -35,10 +35,3 @@ struct GameInputView {
     }
 
 }
-
-enum GameInputError: String, Error {
-    case notInt = "숫자로 입력해주세요."
-    case notMenuSupported = "메뉴 내에서 골라주세요"
-    case noPlayer = "1명 이상의 플레이어가 필요합니다."
-    case tooManyPlayer = "최대 4명까지 플레이가 가능합니다."
-}

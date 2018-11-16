@@ -27,7 +27,7 @@ struct Main {
         let cardStacks = CardStacks(from: cardDeck)
         OutputView.showDescription(of: cardStacks)
     }
-    
+
     static func runGame() {
         do {
             let gameInfo = try GameInputView.readGameInfo()
