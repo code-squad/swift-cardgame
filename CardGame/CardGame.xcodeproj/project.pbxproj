@@ -10,6 +10,8 @@
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 		A3DEE4FD219D197100BCB4E4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEE4FC219D197100BCB4E4 /* CardStack.swift */; };
 		A3DEE4FE219D1FBD00BCB4E4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEE4FC219D197100BCB4E4 /* CardStack.swift */; };
+		A3DF3ADA219E5944005EC896 /* CardStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AD9219E5944005EC896 /* CardStacks.swift */; };
+		A3DF3ADB219E5944005EC896 /* CardStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AD9219E5944005EC896 /* CardStacks.swift */; };
 		A3F11170219A670C005B848A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1116F219A670C005B848A /* Card.swift */; };
 		A3F11172219A77C1005B848A /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11171219A77C1005B848A /* Suit.swift */; };
 		A3F11174219A77CE005B848A /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11173219A77CE005B848A /* Rank.swift */; };
@@ -48,6 +50,7 @@
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A3DEE4FC219D197100BCB4E4 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
+		A3DF3AD9219E5944005EC896 /* CardStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStacks.swift; sourceTree = "<group>"; };
 		A3F1116F219A670C005B848A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A3F11171219A77C1005B848A /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		A3F11173219A77CE005B848A /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 				A3F11173219A77CE005B848A /* Rank.swift */,
 				A3F1116F219A670C005B848A /* Card.swift */,
 				A3DEE4FC219D197100BCB4E4 /* CardStack.swift */,
+				A3DF3AD9219E5944005EC896 /* CardStacks.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -252,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F11182219ADB1D005B848A /* MenuController.swift in Sources */,
+				A3DF3ADA219E5944005EC896 /* CardStacks.swift in Sources */,
 				A3F1117A219AB128005B848A /* CardDeck.swift in Sources */,
 				A3F11176219A982C005B848A /* OutputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
@@ -279,6 +284,7 @@
 				A3F111A1219AFE8C005B848A /* Playable.swift in Sources */,
 				A3F111A0219AFE86005B848A /* CardDeck.swift in Sources */,
 				A3F11198219AFB94005B848A /* OutputView.swift in Sources */,
+				A3DF3ADB219E5944005EC896 /* CardStacks.swift in Sources */,
 				A3F1119B219AFBB1005B848A /* Suit.swift in Sources */,
 				A3F1119D219AFC32005B848A /* UnitTestCard.swift in Sources */,
 			);
