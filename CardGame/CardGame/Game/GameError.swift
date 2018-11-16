@@ -8,7 +8,20 @@
 
 import Foundation
 
-enum GameError: Error {
+enum GameError: Error, GameErrorMessage {
     case noPlayer
     case noCard
+
+    var message: String {
+        switch self {
+        case .noPlayer:
+            return "플레이어가 없어 게임을 진행할 수 없습니다."
+        case .noCard:
+            return "다음 게임을 진행하기에 카드가 부족합니다."
+        }
+    }
+}
+
+protocol GameErrorMessage {
+    var message: String { get }
 }

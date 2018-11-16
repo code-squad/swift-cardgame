@@ -18,12 +18,8 @@ struct Main {
                 guard try cardGame.play() else { break }
                 OutputView.showCards(of: cardGame)
             }
-        } catch let error as GameInputError {
-            OutputView.notifyError(error)
-        } catch GameError.noCard {
-            OutputView.notifyEndOfGame()
         } catch {
-            fatalError()
+            OutputView.notify(error: error)
         }
     }
 

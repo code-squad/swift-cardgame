@@ -10,15 +10,11 @@ import Foundation
 
 struct OutputView {
 
-    static func notifyError(_ error: GameInputError) {
-        print(error.rawValue)
+    static func notify(error: Error) {
+        guard let error = error as? GameErrorMessage else { return }
+        print(error.message)
     }
-    
-    static func notifyEndOfGame() {
-        let endMessage = "다음 게임을 진행하기에 카드가 부족합니다."
-        print(endMessage)
-    }
-    
+
     static func showCards(of cardGame: CardGame){
         print(cardGame.showCards())
     }
