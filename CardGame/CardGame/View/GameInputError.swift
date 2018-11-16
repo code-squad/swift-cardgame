@@ -8,9 +8,22 @@
 
 import Foundation
 
-enum GameInputError: String, Error {
-    case notInt = "숫자로 입력해주세요."
-    case notMenuSupported = "메뉴 내에서 골라주세요"
-    case noPlayer = "1명 이상의 플레이어가 필요합니다."
-    case tooManyPlayer = "최대 4명까지 플레이가 가능합니다."
+enum GameInputError: Error, GameErrorMessage {
+    case notInt
+    case notMenuSupported
+    case noPlayer
+    case tooManyPlayer
+
+    var message: String {
+        switch self {
+        case .notInt:
+            return "숫자로 입력해주세요."
+        case .notMenuSupported:
+            return "메뉴 내에서 골라주세요"
+        case .noPlayer:
+            return "1명 이상의 플레이어가 필요합니다."
+        case .tooManyPlayer:
+            return "최대 4명까지 플레이가 가능합니다."
+        }
+    }
 }

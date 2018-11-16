@@ -12,11 +12,11 @@ struct MenuController {
 
     static func getMenu(of stringSelected: String) -> MenuItem? {
         guard let numSelected = Int(stringSelected) else {
-            OutputView.notifyError(.notInt)
+            OutputView.notify(error: GameInputError.notInt)
             return nil
         }
         guard let menuSelected = MenuItem(rawValue: numSelected) else {
-            OutputView.notifyError(.notMenuSupported)
+            OutputView.notify(error: GameInputError.notMenuSupported)
             return nil
         }
         return menuSelected

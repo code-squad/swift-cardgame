@@ -23,7 +23,7 @@ struct GameInputView {
         guard let number: Int = Int(input) else { return nil }
         return number
     }
-    
+
     static func readGameInfo() throws -> (mode: GameMode, numberOfPlayers: Int) {
         print(Guide.start)
         guard let menuNumber = readNumber(with: Guide.gameMode) else { throw GameInputError.notInt }
