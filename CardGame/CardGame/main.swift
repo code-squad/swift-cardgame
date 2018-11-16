@@ -24,15 +24,12 @@ struct Main {
     // 임시 실행 함수를 따로 구현하여 기존의 입력, 처리 및 출력 기능을 잠시 비활성화합니다.
     static func runTest() {
         var cardDeck = CardDeck.init()
-        var cardStacks: [CardStack] = []
+        var cardStacks = CardStacks()
         for number in 1...7 {
             guard let cardStack = cardDeck.removeMultiple(by: number) else { break }
-            cardStacks.append(cardStack)
+            cardStacks.add(stack: cardStack)
         }
-        let result = cardStacks
-            .map { "\($0)" }
-            .joined(separator: "\n")
-        OutputView.show(result)
+        OutputView.showDescription(of: cardStacks)
     }
 
 }
