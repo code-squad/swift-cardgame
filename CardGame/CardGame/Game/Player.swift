@@ -7,3 +7,32 @@
 //
 
 import Foundation
+
+class Player: GamePlayer {
+    private let number: Int
+    private var cards: CardStack
+
+    init(number: Int) {
+        self.number = number
+        self.cards = CardStack(cards: [])
+    }
+
+    func take(card: Card) {
+        cards.add(card)
+    }
+    
+    func showCards() -> String {
+        return "참가자#\(number) \(cards)"
+    }
+
+    func resetCards() {
+        cards.reset()
+    }
+
+}
+
+protocol GamePlayer {
+    func take(card: Card)
+    func showCards() -> String
+    func resetCards()
+}
