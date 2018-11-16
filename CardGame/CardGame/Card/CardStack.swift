@@ -8,11 +8,19 @@
 
 import Foundation
 
-struct CardStack: CustomStringConvertible {
+class CardStack: CustomStringConvertible {
     private var cards: [Card]
 
     init(cards: [Card]) {
         self.cards = cards
+    }
+
+    func add(_ card: Card) {
+        cards.append(card)
+    }
+
+    func reset() {
+        cards.removeAll()
     }
 
     var description: String {
