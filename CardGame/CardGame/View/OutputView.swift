@@ -18,8 +18,8 @@ struct OutputView {
         print(error.rawValue)
     }
 
-    static func show(_ card: Card) {
-        print(card)
+    static func showDescription(of customString: CustomStringConvertible) {
+        print(customString)
     }
 
     static func show(_ result: String) {
