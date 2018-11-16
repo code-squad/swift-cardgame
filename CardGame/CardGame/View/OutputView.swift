@@ -9,21 +9,18 @@
 import Foundation
 
 struct OutputView {
-    enum Error: String {
-        case notInt = "메뉴는 번호로 입력해주세요."
-        case outOfMenu = "위 메뉴 내에서 골라주세요."
-    }
 
-    static func notifyError(_ error: Error) {
+    static func notifyError(_ error: GameInputError) {
         print(error.rawValue)
     }
-
-    static func showDescription(of customString: CustomStringConvertible) {
-        print(customString)
+    
+    static func notifyEndOfGame() {
+        let endMessage = "다음 게임을 진행하기에 카드가 부족합니다."
+        print(endMessage)
     }
-
-    static func show(_ result: String) {
-        print(result)
+    
+    static func showCards(of cardGama: CardGame){
+        print(cardGama.showCards())
     }
 
 }
