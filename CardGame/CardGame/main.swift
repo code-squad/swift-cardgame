@@ -27,7 +27,20 @@ struct Main {
         let cardStacks = CardStacks(from: cardDeck)
         OutputView.showDescription(of: cardStacks)
     }
+    
+    static func runGame() {
+        do {
+            let gameInfo = try GameInputView.readGameInfo()
+            let cardGame = try CardGame.init(gameMode: gameInfo.mode, numberOfPlayers: gameInfo.numberOfPlayers)
+            while true {
+                guard try cardGame.play() else { break }
+                print(cardGame.showCards())
+            }
+        } catch {
+            print(error)
+        }
+    }
 
 }
 
-Main.runTest()
+Main.runGame()
