@@ -11,8 +11,13 @@ import Foundation
 struct CardStacks: CustomStringConvertible {
     private var cardStacks: [CardStack] = []
 
-    mutating func add(stack: CardStack) {
-        cardStacks.append(stack)
+    init(from cardDeck: CardDeck, by num: Int = 7) {
+        guard num > 0 else { return }
+        var cardDeck = cardDeck
+        for number in 1...num {
+            guard let cardStack = cardDeck.removeMultiple(by: number) else { break }
+            self.cardStacks.append(cardStack)
+        }
     }
 
     var description: String {
