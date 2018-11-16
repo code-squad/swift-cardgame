@@ -19,8 +19,8 @@ struct OutputView {
         print(endMessage)
     }
     
-    static func showCards(of cardGama: CardGame){
-        print(cardGama.showCards())
+    static func showCards(of cardGame: CardGame){
+        print(cardGame.showCards())
     }
 
 }
