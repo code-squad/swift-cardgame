@@ -20,7 +20,7 @@ class Player: GamePlayer {
     func take(card: Card) {
         cards.add(card)
     }
-    
+
     func showCards() -> String {
         return "참가자#\(number) \(cards)"
     }
@@ -29,10 +29,4 @@ class Player: GamePlayer {
         cards.reset()
     }
 
-}
-
-protocol GamePlayer {
-    func take(card: Card)
-    func showCards() -> String
-    func resetCards()
 }

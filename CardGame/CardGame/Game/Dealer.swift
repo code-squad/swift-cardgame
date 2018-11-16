@@ -11,7 +11,7 @@ import Foundation
 class Dealer: GamePlayer{
     private var deck: CardDeck
     private var cards: CardStack
-    
+
     init(with deck: CardDeck) {
         self.deck = deck
         self.cards = CardStack(cards: [])

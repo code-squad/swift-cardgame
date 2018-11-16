@@ -16,6 +16,14 @@
 		A3DF3AE0219EC1A3005EC896 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3ADF219EC1A3005EC896 /* CardGame.swift */; };
 		A3DF3AE2219EC1B0005EC896 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE1219EC1B0005EC896 /* Player.swift */; };
 		A3DF3AE4219EC1E3005EC896 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE3219EC1E3005EC896 /* Dealer.swift */; };
+		A3DF3AE6219EE6CF005EC896 /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE5219EE6CF005EC896 /* GamePlayer.swift */; };
+		A3DF3AE7219EE6CF005EC896 /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE5219EE6CF005EC896 /* GamePlayer.swift */; };
+		A3DF3AE9219EE750005EC896 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE8219EE750005EC896 /* GameMode.swift */; };
+		A3DF3AEA219EE750005EC896 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE8219EE750005EC896 /* GameMode.swift */; };
+		A3DF3AEC219EE79E005EC896 /* GameInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AEB219EE79E005EC896 /* GameInputError.swift */; };
+		A3DF3AED219EE79E005EC896 /* GameInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AEB219EE79E005EC896 /* GameInputError.swift */; };
+		A3DF3AEF219EE7C0005EC896 /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AEE219EE7C0005EC896 /* GameError.swift */; };
+		A3DF3AF0219EE7C0005EC896 /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AEE219EE7C0005EC896 /* GameError.swift */; };
 		A3F11170219A670C005B848A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1116F219A670C005B848A /* Card.swift */; };
 		A3F11172219A77C1005B848A /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11171219A77C1005B848A /* Suit.swift */; };
 		A3F11174219A77CE005B848A /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F11173219A77CE005B848A /* Rank.swift */; };
@@ -59,6 +67,10 @@
 		A3DF3ADF219EC1A3005EC896 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		A3DF3AE1219EC1B0005EC896 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A3DF3AE3219EC1E3005EC896 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		A3DF3AE5219EE6CF005EC896 /* GamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayer.swift; sourceTree = "<group>"; };
+		A3DF3AE8219EE750005EC896 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		A3DF3AEB219EE79E005EC896 /* GameInputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputError.swift; sourceTree = "<group>"; };
+		A3DF3AEE219EE7C0005EC896 /* GameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameError.swift; sourceTree = "<group>"; };
 		A3F1116F219A670C005B848A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A3F11171219A77C1005B848A /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		A3F11173219A77CE005B848A /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
@@ -114,10 +126,10 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
-				A3DF3ADE219EC18C005EC896 /* Game */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				A3F11185219AF214005B848A /* View */,
 				A3F11186219AF22A005B848A /* Menu */,
+				A3DF3ADE219EC18C005EC896 /* Game */,
 				A3F11187219AF254005B848A /* Card */,
 				A3F11188219AF259005B848A /* Deck */,
 			);
@@ -127,7 +139,10 @@
 		A3DF3ADE219EC18C005EC896 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A3DF3AE8219EE750005EC896 /* GameMode.swift */,
+				A3DF3AEE219EE7C0005EC896 /* GameError.swift */,
 				A3DF3ADF219EC1A3005EC896 /* CardGame.swift */,
+				A3DF3AE5219EE6CF005EC896 /* GamePlayer.swift */,
 				A3DF3AE1219EC1B0005EC896 /* Player.swift */,
 				A3DF3AE3219EC1E3005EC896 /* Dealer.swift */,
 			);
@@ -140,6 +155,7 @@
 				A3F1117D219ABF8A005B848A /* InputView.swift */,
 				A3F11175219A982C005B848A /* OutputView.swift */,
 				A3DF3ADC219EA93F005EC896 /* GameInputView.swift */,
+				A3DF3AEB219EE79E005EC896 /* GameInputError.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,14 +296,18 @@
 				A3F1117A219AB128005B848A /* CardDeck.swift in Sources */,
 				A3F11176219A982C005B848A /* OutputView.swift in Sources */,
 				A3DF3AE4219EC1E3005EC896 /* Dealer.swift in Sources */,
+				A3DF3AEC219EE79E005EC896 /* GameInputError.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				A3DF3AE6219EE6CF005EC896 /* GamePlayer.swift in Sources */,
 				A3F11174219A77CE005B848A /* Rank.swift in Sources */,
 				A3F11172219A77C1005B848A /* Suit.swift in Sources */,
+				A3DF3AEF219EE7C0005EC896 /* GameError.swift in Sources */,
 				A3F1117E219ABF8A005B848A /* InputView.swift in Sources */,
 				A3DEE4FD219D197100BCB4E4 /* CardStack.swift in Sources */,
 				A3DF3AE0219EC1A3005EC896 /* CardGame.swift in Sources */,
 				A3F11180219ADA94005B848A /* MenuItem.swift in Sources */,
 				A3F11170219A670C005B848A /* Card.swift in Sources */,
+				A3DF3AE9219EE750005EC896 /* GameMode.swift in Sources */,
 				A3DF3ADD219EA93F005EC896 /* GameInputView.swift in Sources */,
 				A3DF3AE2219EC1B0005EC896 /* Player.swift in Sources */,
 				A3F1117C219ABE8F005B848A /* Playable.swift in Sources */,
@@ -298,10 +318,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DF3AE7219EE6CF005EC896 /* GamePlayer.swift in Sources */,
 				A3F11197219AF949005B848A /* MenuItem.swift in Sources */,
 				A3F11196219AF8D7005B848A /* MenuController.swift in Sources */,
+				A3DF3AED219EE79E005EC896 /* GameInputError.swift in Sources */,
 				A3DEE4FE219D1FBD00BCB4E4 /* CardStack.swift in Sources */,
+				A3DF3AF0219EE7C0005EC896 /* GameError.swift in Sources */,
 				A3F11199219AFBAB005B848A /* Card.swift in Sources */,
+				A3DF3AEA219EE750005EC896 /* GameMode.swift in Sources */,
 				A3F1119A219AFBAE005B848A /* Rank.swift in Sources */,
 				A3F1119F219AFE67005B848A /* UnitTestCardDeck.swift in Sources */,
 				A3F11191219AF7EA005B848A /* UnitTestMenuController.swift in Sources */,
