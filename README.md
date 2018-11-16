@@ -36,18 +36,13 @@
 
 ```swift
 var cardDeck = CardDeck.init()
-var cardStacks: [CardStack] = []
+var cardStacks = CardStacks()
 for number in 1...7 {
     guard let cardStack = cardDeck.removeMultiple(by: number) else { break }
-    cardStacks.append(cardStack)
+    cardStacks.add(stack: cardStack)
 }
-let result = cardStacks
-	.map { "\($0)" }
-	.joined(separator: "\n")
-```
 
-```swift
-print(result)
+print(cardStacks)
 // Prints below
 [♦️5]
 [♦️A, ♦️J]
