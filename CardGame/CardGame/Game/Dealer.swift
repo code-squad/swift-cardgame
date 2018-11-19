@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Dealer: GamePlayer{
+class Dealer{
     private var deck: CardDeck
     private var cards: CardStack
 
@@ -21,6 +21,10 @@ class Dealer: GamePlayer{
         guard let card = deck.removeOne() else { return nil }
         return card
     }
+
+}
+
+extension Dealer: GamePlayer {
 
     func take(card: Card) {
         cards.add(card)
