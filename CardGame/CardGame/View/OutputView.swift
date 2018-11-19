@@ -14,13 +14,13 @@ struct OutputView {
         print(error.rawValue)
     }
 
-    private static func card(player: GamePlayer, number: Int, cardStack: String) {
-        let name = ((player as? Dealer) != nil) ? "딜러" : "참가자#\(number)"
+    private static func card(dealer: Bool, number: Int, cardStack: String) {
+        let name = dealer ? "딜러" : "참가자#\(number)"
         print("\(name) \(cardStack)")
     }
 
     static func showResults(of cardGame: CardGame) {
-        cardGame.showResult(of: card(player:number:cardStack:))
+        cardGame.showResult(of: card(dealer:number:cardStack:))
         print("턴 종료")
     }
 
