@@ -16,7 +16,7 @@ class CardGame {
 
     init(gameMode: GameMode, numberOfPlayers: Int) throws {
         self.gameMode = gameMode
-        guard numberOfPlayers > 0 else { throw GameError.noPlayer }
+        guard numberOfPlayers > 0 else { throw GameInputError.noPlayer }
         self.numberOfPlayers = numberOfPlayers
         self.dealer = Dealer(with: CardDeck())
         setPlayers()

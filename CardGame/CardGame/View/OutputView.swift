@@ -10,9 +10,8 @@ import Foundation
 
 struct OutputView {
 
-    static func notify(error: Error) {
-        guard let error = error as? GameErrorMessage else { return }
-        print(error.message)
+    static func notify(error: GameInputError) {
+        print(error.rawValue)
     }
 
     private static func card(player: GamePlayer, number: Int, cardStack: String) {
