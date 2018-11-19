@@ -52,9 +52,12 @@ class CardGame {
         return true
     }
 
-    func showResult(of closure: (GamePlayer, Int, String) -> Void) {
+    func showResult(of result: (Bool, Int, String) -> Void) {
         for index in players.indices {
-            closure(players[index], index+1, players[index].showCards())
+            let isDealer = players[index] is Dealer
+            let number = index+1
+            let cards = players[index].showCards()
+            result(isDealer, number, cards)
         }
     }
 
