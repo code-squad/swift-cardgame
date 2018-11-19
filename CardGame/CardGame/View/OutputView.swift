@@ -19,7 +19,7 @@ struct OutputView {
         print("\(name) \(cardStack)")
     }
 
-    static func showResults(cardGame: CardGame) {
+    static func showResults(of cardGame: CardGame) {
         cardGame.showResult(of: card(player:number:cardStack:))
         print("턴 종료")
     }
