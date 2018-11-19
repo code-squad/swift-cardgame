@@ -23,8 +23,8 @@ class CardGame {
     }
 
     private func setPlayers() {
-        for number in 1...numberOfPlayers {
-            let player = Player(number: number)
+        for _ in 1...numberOfPlayers {
+            let player = Player()
             players.append(player)
         }
         players.append(dealer)
@@ -52,15 +52,10 @@ class CardGame {
         return true
     }
 
-    func showCards() -> () -> String {
-        func cards() -> String {
-            let cardsOfAllPlayers = players
-                .map { $0.showCards() }
-                .joined(separator: "\n")
-            let endOfTurn = String(repeating: "-", count: gameMode.numberOfCards * 6)
-            return "\(cardsOfAllPlayers)\n\(endOfTurn)"
+    func showResult(of closure: (GamePlayer, Int, String) -> Void) {
+        for index in players.indices {
+            closure(players[index], index+1, players[index].showCards())
         }
-        return cards
     }
 
 }

@@ -31,7 +31,7 @@ extension Dealer: GamePlayer {
     }
 
     func showCards() -> String {
-        return "딜러 \(cards)"
+        return "\(cards)"
     }
 
     func resetCards() {
