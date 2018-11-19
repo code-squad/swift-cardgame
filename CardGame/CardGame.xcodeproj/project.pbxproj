@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		A3BF1AD821A2A1E900D296B0 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE3219EC1E3005EC896 /* Dealer.swift */; };
+		A3BF1AD921A2A23000D296B0 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3ADF219EC1A3005EC896 /* CardGame.swift */; };
+		A3BF1ADA21A2A2D900D296B0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AE1219EC1B0005EC896 /* Player.swift */; };
 		A3DEE4FD219D197100BCB4E4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEE4FC219D197100BCB4E4 /* CardStack.swift */; };
 		A3DEE4FE219D1FBD00BCB4E4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEE4FC219D197100BCB4E4 /* CardStack.swift */; };
 		A3DF3ADA219E5944005EC896 /* CardStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF3AD9219E5944005EC896 /* CardStacks.swift */; };
@@ -320,11 +323,13 @@
 			files = (
 				A3DF3AE7219EE6CF005EC896 /* GamePlayer.swift in Sources */,
 				A3F11197219AF949005B848A /* MenuItem.swift in Sources */,
+				A3BF1AD821A2A1E900D296B0 /* Dealer.swift in Sources */,
 				A3F11196219AF8D7005B848A /* MenuController.swift in Sources */,
 				A3DF3AED219EE79E005EC896 /* GameInputError.swift in Sources */,
 				A3DEE4FE219D1FBD00BCB4E4 /* CardStack.swift in Sources */,
 				A3DF3AF0219EE7C0005EC896 /* GameError.swift in Sources */,
 				A3F11199219AFBAB005B848A /* Card.swift in Sources */,
+				A3BF1ADA21A2A2D900D296B0 /* Player.swift in Sources */,
 				A3DF3AEA219EE750005EC896 /* GameMode.swift in Sources */,
 				A3F1119A219AFBAE005B848A /* Rank.swift in Sources */,
 				A3F1119F219AFE67005B848A /* UnitTestCardDeck.swift in Sources */,
@@ -333,6 +338,7 @@
 				A3F111A0219AFE86005B848A /* CardDeck.swift in Sources */,
 				A3F11198219AFB94005B848A /* OutputView.swift in Sources */,
 				A3DF3ADB219E5944005EC896 /* CardStacks.swift in Sources */,
+				A3BF1AD921A2A23000D296B0 /* CardGame.swift in Sources */,
 				A3F1119B219AFBB1005B848A /* Suit.swift in Sources */,
 				A3F1119D219AFC32005B848A /* UnitTestCard.swift in Sources */,
 			);
