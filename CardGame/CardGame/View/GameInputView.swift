@@ -30,7 +30,7 @@ struct GameInputView {
         guard let mode = GameMode(rawValue: menuNumber) else { throw GameInputError.notMenuSupported }
         guard let numberOfPlayers = readNumber(with: Guide.numberOfPlayers) else { throw GameInputError.notInt}
         guard numberOfPlayers > 0 else { throw GameInputError.noPlayer }
-        guard numberOfPlayers < 5 else { throw GameInputError.tooManyPlayer }
+        guard numberOfPlayers < 5 else { throw GameInputError.tooManyPlayers }
         return (mode, numberOfPlayers)
     }
 
