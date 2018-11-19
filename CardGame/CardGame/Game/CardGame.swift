@@ -36,18 +36,19 @@ class CardGame {
         }
     }
 
-    private func deal() throws {
+    private func deal() -> Bool {
         for _ in 1...gameMode.numberOfCards {
             for player in players {
-                guard let card = dealer.dealOut() else { throw GameError.noCard }
+                guard let card = dealer.dealOut() else { return false }
                 player.take(card: card)
             }
         }
+        return true
     }
 
-    func play() throws -> Bool {
+    func play() -> Bool {
         reset()
-        try deal()
+        guard deal() else { return false }
         return true
     }
 
