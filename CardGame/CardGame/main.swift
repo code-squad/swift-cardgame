@@ -16,7 +16,7 @@ struct Main {
             let cardGame = try CardGame.init(gameMode: gameInfo.mode, numberOfPlayers: gameInfo.numberOfPlayers)
             while true {
                 guard cardGame.play() else { break }
-                OutputView.showCards(of: cardGame)
+                OutputView.showCards(of: cardGame.showCards())
             }
         } catch {
             OutputView.notify(error: error)

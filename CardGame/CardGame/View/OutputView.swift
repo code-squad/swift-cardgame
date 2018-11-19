@@ -15,8 +15,8 @@ struct OutputView {
         print(error.message)
     }
 
-    static func showCards(of cardGame: CardGame){
-        print(cardGame.showCards())
+    static func showCards(of cards: () -> String){
+        print(cards())
     }
 
 }

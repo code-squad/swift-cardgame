@@ -52,12 +52,15 @@ class CardGame {
         return true
     }
 
-    func showCards() -> String {
-        let cardsOfAllPlayers = players
-            .map { $0.showCards() }
-            .joined(separator: "\n")
-        let endOfTurn = String(repeating: "-", count: gameMode.numberOfCards * 6)
-        return "\(cardsOfAllPlayers)\n\(endOfTurn)"
+    func showCards() -> () -> String {
+        func cards() -> String {
+            let cardsOfAllPlayers = players
+                .map { $0.showCards() }
+                .joined(separator: "\n")
+            let endOfTurn = String(repeating: "-", count: gameMode.numberOfCards * 6)
+            return "\(cardsOfAllPlayers)\n\(endOfTurn)"
+        }
+        return cards
     }
 
 }
