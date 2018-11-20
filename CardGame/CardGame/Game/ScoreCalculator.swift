@@ -29,6 +29,15 @@ struct ScoreCalculator {
         }
         return numberOfRanks
     }
+    
+    static private func getTwoPair(in hands: [Hand]) -> Hand? {
+        let onePairs = hands
+            .compactMap { $0.ranking == Hand.onePair($0.rank).ranking ? $0 : nil }
+        guard onePairs.count > 1 else { return nil }
+        guard let higherOnePair = onePairs.max() else { return nil }
+        let rank = higherOnePair.rank
+        return Hand.twoPair(rank)
+    }
 
     static private func makeHands(from cards: [Card]) -> [Hand] {
         let numberOfRanks: [Rank: Int] = countRank(of: cards)
@@ -42,6 +51,9 @@ struct ScoreCalculator {
             case 1: hands.append(Hand.highCard(rank))
             default: continue
             }
+        }
+        if let twoPair = getTwoPair(in: hands) {
+            hands.append(twoPair)
         }
         return hands
     }

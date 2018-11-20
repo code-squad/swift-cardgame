@@ -44,6 +44,36 @@ class UnitTestCardGameResult: XCTestCase {
         XCTAssertEqual(cardGame.pickWinnerIndex(), 1)
     }
 
+    func testCardGameMockPickWinner_whoHasTwoPair() {
+        let twoPair = [Card.init(suit: .hearts, rank: .nine),
+                       Card.init(suit: .clubs, rank: .K),
+                       Card.init(suit: .diamonds, rank: .K),
+                       Card.init(suit: .diamonds, rank: .A),
+                       Card.init(suit: .clubs, rank: .four),
+                       Card.init(suit: .hearts, rank: .A),
+                       Card.init(suit: .clubs, rank: .two)]
+        let onePair = [Card.init(suit: .clubs, rank: .four),
+                            Card.init(suit: .spades, rank: .five),
+                            Card.init(suit: .hearts, rank: .six),
+                            Card.init(suit: .spades, rank: .J),
+                            Card.init(suit: .hearts, rank: .Q),
+                            Card.init(suit: .diamonds, rank: .four),
+                            Card.init(suit: .spades, rank: .K)]
+        let highCard = [Card.init(suit: .clubs, rank: .A),
+                        Card.init(suit: .clubs, rank: .six),
+                        Card.init(suit: .clubs, rank: .ten),
+                        Card.init(suit: .diamonds, rank: .nine),
+                        Card.init(suit: .spades, rank: .Q),
+                        Card.init(suit: .hearts, rank: .five),
+                        Card.init(suit: .diamonds, rank: .four)]
+        let threeCardStacks = [twoPair, onePair, highCard]
+        let cardGame = try! CardGameMock.init(gameMode: .sevenStud, numberOfPlayers: 3)
+        for cardStack in threeCardStacks {
+            cardGame.addPlayer(with: cardStack)
+        }
+        XCTAssertEqual(cardGame.pickWinnerIndex(), 0)
+    }
+
     func testCardGameMockPickWinner_whenPlayersHaveSameHands() {
         let highCard = [Card.init(suit: .clubs, rank: .A),
                           Card.init(suit: .clubs, rank: .six),
