@@ -29,4 +29,8 @@ class CardStack: CustomStringConvertible {
             .joined(separator: ", ")
         return "[\(allCards)]"
     }
+    
+    var bestHand: Hand? {
+        return ScoreCalculator.getBestHand(from: cards)
+    }
 }

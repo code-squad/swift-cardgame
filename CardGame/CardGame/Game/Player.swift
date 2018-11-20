@@ -31,4 +31,7 @@ class Player: GamePlayer {
         cards.reset()
     }
 
+    var bestHand: Hand? {
+        return cards.bestHand
+    }
 }
