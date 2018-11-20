@@ -70,6 +70,7 @@ class CardGame {
         }
         if let result = pickWinner() {
             winner(result.winner.getName(with: result.number+1))
+            sleep(2)
         }
         return true
     }
