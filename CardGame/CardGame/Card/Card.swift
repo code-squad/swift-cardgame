@@ -21,4 +21,8 @@ class Card: CustomStringConvertible {
         return "\(suit.rawValue)\(rank.value)"
     }
 
+    func hasSame(_ rank: Rank) -> Bool {
+        return self.rank == rank
+    }
+
 }

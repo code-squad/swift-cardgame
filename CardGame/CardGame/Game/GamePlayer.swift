@@ -13,4 +13,5 @@ protocol GamePlayer {
     func take(card: Card)
     func showCards() -> String
     func resetCards()
+    var bestHand: Hand? { get }
 }

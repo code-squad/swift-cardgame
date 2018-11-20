@@ -49,6 +49,7 @@ class CardGame {
 
     func play(visually cards: (String, String) -> Void, screen clear: () -> ()) -> Bool {
         reset()
+        guard dealer.hasEnoughCards(for: players.count, in: gameMode) else { return false }
         guard deal(visually: cards, screen: clear) else { return false }
         return true
     }
