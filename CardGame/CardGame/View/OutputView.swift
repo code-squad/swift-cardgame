@@ -23,7 +23,7 @@ struct OutputView {
     }
 
     private static func winner(name: String) {
-        print("\(name) 우승")
+        print("\n👤 \(name) 우승 🏆\n🎉 축하드립니다 👏🏻👏🏻👏🏻")
     }
 
     static func playVisually(of cardGame: CardGame) -> Bool{
