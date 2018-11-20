@@ -60,7 +60,7 @@ class CardGame {
         return (winner, number)
     }
 
-    private func deal(visually cards: (String, String) -> Void, screen clear: () -> (), ended winner: (String) -> Void) -> Bool {
+    private func deal(visually cards: (String, String) -> Void, screen clear: () -> ()) -> Bool {
         for _ in 1...gameMode.numberOfCards {
             for player in players {
                 guard let card = dealer.dealOut() else { return false }
@@ -68,17 +68,17 @@ class CardGame {
                 showResult(of: cards, screen: clear)
             }
         }
-        if let result = pickWinner() {
-            winner(result.winner.getName(with: result.number+1))
-            sleep(2)
-        }
         return true
     }
 
     func play(visually cards: (String, String) -> Void, screen clear: () -> (), ended winner: (String) -> Void) -> Bool {
         reset()
         guard dealer.hasEnoughCards(for: players.count, in: gameMode) else { return false }
-        guard deal(visually: cards, screen: clear, ended: winner) else { return false }
+        guard deal(visually: cards, screen: clear) else { return false }
+        if let result = pickWinner() {
+            winner(result.winner.getName(with: result.number+1))
+            sleep(2)
+        }
         return true
     }
 

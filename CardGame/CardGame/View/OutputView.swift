@@ -26,7 +26,7 @@ struct OutputView {
         print("\n👤 \(name) 우승 🏆\n🎉 축하드립니다 👏🏻👏🏻👏🏻")
     }
 
-    static func playVisually(of cardGame: CardGame) -> Bool{
+    static func playVisually(of cardGame: CardGame) -> Bool {
         return cardGame.play(visually: card(name:cardStack:), screen: clear, ended: winner)
     }
 
