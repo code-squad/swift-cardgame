@@ -46,7 +46,21 @@ class CardGame {
         sleep(1)
     }
 
-    private func deal(visually cards: (String, String) -> Void, screen clear: () -> ()) -> Bool {
+    private func pickWinner() -> (winner: GamePlayer, number: Int)? {
+        guard var winner = players.first else { return nil }
+        var number = 0
+        for index in players.indices {
+            guard let bestHandOfWinner = winner.bestHand else { continue }
+            guard let bestHandOfPlayer = players[index].bestHand else { continue }
+            if bestHandOfWinner < bestHandOfPlayer {
+                winner = players[index]
+                number = index
+            }
+        }
+        return (winner, number)
+    }
+
+    private func deal(visually cards: (String, String) -> Void, screen clear: () -> (), ended winner: (String) -> Void) -> Bool {
         for _ in 1...gameMode.numberOfCards {
             for player in players {
                 guard let card = dealer.dealOut() else { return false }
@@ -54,13 +68,16 @@ class CardGame {
                 showResult(of: cards, screen: clear)
             }
         }
+        if let result = pickWinner() {
+            winner(result.winner.getName(with: result.number+1))
+        }
         return true
     }
 
-    func play(visually cards: (String, String) -> Void, screen clear: () -> ()) -> Bool {
+    func play(visually cards: (String, String) -> Void, screen clear: () -> (), ended winner: (String) -> Void) -> Bool {
         reset()
         guard dealer.hasEnoughCards(for: players.count, in: gameMode) else { return false }
-        guard deal(visually: cards, screen: clear) else { return false }
+        guard deal(visually: cards, screen: clear, ended: winner) else { return false }
         return true
     }
 
