@@ -36,6 +36,16 @@ class CardGame {
         }
     }
 
+    private func showResult(of result: (String, String) -> Void, screen clear: () -> ()) {
+        clear()
+        for index in players.indices {
+            let name = players[index].getName(with: index+1)
+            let cards = players[index].showCards()
+            result(name, cards)
+        }
+        sleep(1)
+    }
+
     private func deal(visually cards: (String, String) -> Void, screen clear: () -> ()) -> Bool {
         for _ in 1...gameMode.numberOfCards {
             for player in players {
@@ -52,16 +62,6 @@ class CardGame {
         guard dealer.hasEnoughCards(for: players.count, in: gameMode) else { return false }
         guard deal(visually: cards, screen: clear) else { return false }
         return true
-    }
-
-    func showResult(of result: (String, String) -> Void, screen clear: () -> ()) {
-        clear()
-        for index in players.indices {
-            let name = players[index].getName(with: index+1)
-            let cards = players[index].showCards()
-            result(name, cards)
-        }
-        sleep(1)
     }
 
 }
