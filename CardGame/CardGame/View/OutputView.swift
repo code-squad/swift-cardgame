@@ -18,9 +18,12 @@ struct OutputView {
         print("\(name) \(cardStack)")
     }
 
-    static func showResults(of cardGame: CardGame) {
-        cardGame.showResult(of: card(name:cardStack:))
-        print("턴 종료")
+    private static func clear() {
+        print("\(ANSICode.clear)\(ANSICode.home)")
+    }
+
+    static func playVisually(of cardGame: CardGame) -> Bool{
+        return cardGame.play(visually: card(name:cardStack:), screen: clear)
     }
 
 }
