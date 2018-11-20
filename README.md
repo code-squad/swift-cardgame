@@ -1,6 +1,16 @@
-> `CardDeck` 구조체의 내용, 변수 및 메소드 명에 대한 설명을 기술하였습니다. 
+## 실행화면 예시
 
 
+
+![카드게임 실행화면](/Users/yxxjy/DevNote/swift-cardgame/images/rungame.gif)
+
+
+
+----------------------
+
+
+
+> 아래는 CardDeck` 구조체의 내용, 변수 및 메소드 명에 대한 설명입니다.
 
 ## CardDeck
 
