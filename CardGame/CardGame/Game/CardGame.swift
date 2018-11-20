@@ -52,12 +52,11 @@ class CardGame {
         return true
     }
 
-    func showResult(of result: (Bool, Int, String) -> Void) {
+    func showResult(of result: (String, String) -> Void) {
         for index in players.indices {
-            let isDealer = players[index] is Dealer
-            let number = index+1
+            let name = players[index].getName(with: index+1)
             let cards = players[index].showCards()
-            result(isDealer, number, cards)
+            result(name, cards)
         }
     }
 

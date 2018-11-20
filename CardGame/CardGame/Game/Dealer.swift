@@ -26,6 +26,10 @@ class Dealer{
 
 extension Dealer: GamePlayer {
 
+    func getName(with number: Int) -> String {
+        return "딜러"
+    }
+
     func take(card: Card) {
         cards.add(card)
     }
