@@ -9,9 +9,9 @@
 import Foundation
 
 protocol GamePlayer {
-    func getName(with number: Int) -> String
     func take(card: Card)
     func showCards() -> String
     func resetCards()
+    var name: String { get }
     var bestHand: Hand? { get }
 }

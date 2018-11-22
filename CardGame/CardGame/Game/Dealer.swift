@@ -30,10 +30,6 @@ class Dealer{
 
 extension Dealer: GamePlayer {
 
-    func getName(with number: Int) -> String {
-        return "딜러"
-    }
-
     func take(card: Card) {
         cards.add(card)
     }
@@ -44,6 +40,10 @@ extension Dealer: GamePlayer {
 
     func resetCards() {
         cards.reset()
+    }
+
+    var name: String {
+        return "딜러"
     }
 
     var bestHand: Hand? {
