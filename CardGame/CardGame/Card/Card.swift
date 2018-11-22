@@ -18,7 +18,7 @@ class Card: CustomStringConvertible {
     }
 
     var description: String {
-        return "\(suit.value)\(rank.value)"
+        return "\(suit.value) \(rank.value)"
     }
 
     func hasSame(_ rank: Rank) -> Bool {
