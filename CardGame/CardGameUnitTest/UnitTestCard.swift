@@ -16,7 +16,7 @@ class UnitTestCard: XCTestCase {
     }
 
     func testCardDescription_withClubsAndA() {
-        let rank = Rank(rawValue: 1)!
+        let rank = Rank(rawValue: 14)!
         let card = Card(suit: .clubs, rank: rank)
         XCTAssertEqual(card.description, "♣️A")
     }
