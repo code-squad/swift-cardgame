@@ -2,7 +2,7 @@
 
 
 
-![카드게임 실행화면](/Users/yxxjy/DevNote/swift-cardgame/images/rungame.gif)
+![카드게임 실행화면](./images/rungame.gif)
 
 
 
