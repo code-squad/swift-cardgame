@@ -49,11 +49,7 @@ enum Hand {
 extension Hand: Comparable {
     static func < (lhs: Hand, rhs: Hand) -> Bool {
         if lhs.ranking == rhs.ranking {
-            if lhs.rank.rawValue == rhs.rank.rawValue {
-                return lhs.suit.rawValue < rhs.suit.rawValue
-            } else {
-                return lhs.rank.rawValue < rhs.rank.rawValue
-            }
+            return Card(suit: lhs.suit, rank: lhs.rank) < Card(suit: rhs.suit, rank: rhs.rank)
         }
         return lhs.ranking < rhs.ranking
     }
