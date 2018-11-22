@@ -15,10 +15,6 @@ class Player: GamePlayer {
         self.cards = CardStack(cards: [])
     }
 
-    func getName(with number: Int) -> String {
-        return "참가자#\(number)"
-    }
-
     func take(card: Card) {
         cards.add(card)
     }
@@ -29,6 +25,10 @@ class Player: GamePlayer {
 
     func resetCards() {
         cards.reset()
+    }
+
+    var name: String {
+        return "참가자"
     }
 
     var bestHand: Hand? {

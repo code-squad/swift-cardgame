@@ -12,7 +12,8 @@ class CardGame {
     private let gameMode: GameMode
     private let numberOfPlayers: Int
     private var dealer: Dealer
-    private var players: [GamePlayer] = []
+    private var gamePlayers: [GamePlayer] = []
+    private var players: [Player] = []
 
     init(gameMode: GameMode, numberOfPlayers: Int) throws {
         self.gameMode = gameMode
@@ -27,11 +28,12 @@ class CardGame {
             let player = Player()
             players.append(player)
         }
-        players.append(dealer)
+        gamePlayers = players
+        gamePlayers.append(dealer)
     }
 
     private func reset() {
-        for player in players {
+        for player in gamePlayers {
             player.resetCards()
         }
     }
@@ -39,14 +41,26 @@ class CardGame {
     private func showResult(of result: (String, String) -> Void, screen clear: () -> ()) {
         clear()
         for index in players.indices {
-            let name = players[index].getName(with: index+1)
+            let name = "\(players[index].name)#\(index+1)"
             let cards = players[index].showCards()
             result(name, cards)
         }
+        result(dealer.name, dealer.showCards())
         sleep(1)
     }
 
-    private func pickWinner() -> (winner: GamePlayer, number: Int)? {
+    private func deal(visually cards: (String, String) -> Void, screen clear: () -> ()) -> Bool {
+        for _ in 1...gameMode.numberOfCards {
+            for player in gamePlayers {
+                guard let card = dealer.dealOut() else { return false }
+                player.take(card: card)
+                showResult(of: cards, screen: clear)
+            }
+        }
+        return true
+    }
+
+    private func pickWinnerAmongPlayers() -> (winner: Player, number: Int)? {
         guard var winner = players.first else { return nil }
         var number = 0
         for index in players.indices {
@@ -60,25 +74,29 @@ class CardGame {
         return (winner, number)
     }
 
-    private func deal(visually cards: (String, String) -> Void, screen clear: () -> ()) -> Bool {
-        for _ in 1...gameMode.numberOfCards {
-            for player in players {
-                guard let card = dealer.dealOut() else { return false }
-                player.take(card: card)
-                showResult(of: cards, screen: clear)
+    private func dealerWin(over player: Player) -> Bool? {
+        guard let bestHandOfDealer = dealer.bestHand else { return nil }
+        guard let bestHandOfPlayer = player.bestHand else { return nil }
+        return bestHandOfPlayer < bestHandOfDealer
+    }
+
+    private func showName(of winner: (String) -> Void) {
+        if let result = pickWinnerAmongPlayers() {
+            guard let dealerWins = dealerWin(over: result.winner) else { return }
+            if dealerWins {
+                winner(dealer.name)
+            } else {
+                winner("\(result.winner.name)\(result.number+1)")
             }
+            sleep(2)
         }
-        return true
     }
 
     func play(visually cards: (String, String) -> Void, screen clear: () -> (), ended winner: (String) -> Void) -> Bool {
         reset()
-        guard dealer.hasEnoughCards(for: players.count, in: gameMode) else { return false }
+        guard dealer.hasEnoughCards(for: gamePlayers.count, in: gameMode) else { return false }
         guard deal(visually: cards, screen: clear) else { return false }
-        if let result = pickWinner() {
-            winner(result.winner.getName(with: result.number+1))
-            sleep(2)
-        }
+        showName(of: winner)
         return true
     }
 
