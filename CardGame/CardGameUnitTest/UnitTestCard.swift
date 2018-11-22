@@ -12,31 +12,31 @@ class UnitTestCard: XCTestCase {
 
     func testCardDescription_withNumberRank() {
         let card = Card(suit: .clubs, rank: .eight)
-        XCTAssertEqual(card.description, "♣️8")
+        XCTAssertEqual(card.description, "♣️ 8")
     }
 
     func testCardDescription_withClubsAndA() {
         let rank = Rank(rawValue: 14)!
         let card = Card(suit: .clubs, rank: rank)
-        XCTAssertEqual(card.description, "♣️A")
+        XCTAssertEqual(card.description, "♣️ A")
     }
 
     func testCardDescription_withDiamondsAndJ() {
         let rank = Rank(rawValue: 11)!
         let card = Card(suit: .diamonds, rank: rank)
-        XCTAssertEqual(card.description, "♦️J")
+        XCTAssertEqual(card.description, "♦️ J")
     }
 
     func testCardDescription_withHeartsAndQ() {
         let rank = Rank(rawValue: 12)!
         let card = Card(suit: .hearts, rank: rank)
-        XCTAssertEqual(card.description, "♥️Q")
+        XCTAssertEqual(card.description, "♥️ Q")
     }
 
     func testCardDescription_withSpadesAndK() {
         let rank = Rank(rawValue: 13)!
         let card = Card(suit: .spades, rank: rank)
-        XCTAssertEqual(card.description, "♠️K")
+        XCTAssertEqual(card.description, "♠️ K")
     }
 
 }
