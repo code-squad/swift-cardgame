@@ -122,6 +122,25 @@ class UnitTestCardGameResult: XCTestCase {
         XCTAssertEqual(cardGame.pickWinnerIndex(), 0)
     }
 
+    func testCardGameMockPickWinner_whenPlayersHaveSameHandsAndDifferentRank() {
+        let twoPairWithThree = [Card.init(suit: .spades, rank: .three),
+                                Card.init(suit: .hearts, rank: .three),
+                                Card.init(suit: .clubs, rank: .two),
+                                Card.init(suit: .spades, rank: .two),
+                                Card.init(suit: .spades, rank: .Q)]
+        let twoPairWithA = [Card.init(suit: .diamonds, rank: .three),
+                            Card.init(suit: .clubs, rank: .three),
+                            Card.init(suit: .hearts, rank: .A),
+                            Card.init(suit: .spades, rank: .A),
+                            Card.init(suit: .hearts, rank: .seven)]
+        let threeCardStacks = [twoPairWithThree, twoPairWithA]
+        let cardGame = try! CardGameMock.init(gameMode: .fiveStud, numberOfPlayers: 2)
+        for cardStack in threeCardStacks {
+            cardGame.addPlayer(with: cardStack)
+        }
+        XCTAssertEqual(cardGame.pickWinnerIndex(), 1)
+    }
+
 }
 
 class CardGameMock: CardGame {
