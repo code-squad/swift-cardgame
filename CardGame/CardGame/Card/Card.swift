@@ -18,11 +18,30 @@ class Card: CustomStringConvertible {
     }
 
     var description: String {
-        return "\(suit.rawValue)\(rank.value)"
+        return "\(suit.value)\(rank.value)"
     }
 
     func hasSame(_ rank: Rank) -> Bool {
         return self.rank == rank
     }
 
+    func hasSame(_ suit: Suit) -> Bool {
+        return self.suit == suit
+    }
+}
+
+extension Card: Comparable {
+    static func < (lhs: Card, rhs: Card) -> Bool {
+        if lhs.rank == rhs.rank {
+            return lhs.suit.rawValue < rhs.suit.rawValue
+        }
+        if lhs.suit == rhs.suit {
+            return lhs.rank.rawValue < rhs.rank.rawValue
+        }
+        return lhs.rank.rawValue < rhs.rank.rawValue
+    }
+
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank == rhs.rank && lhs.suit == rhs.suit
+    }
 }
