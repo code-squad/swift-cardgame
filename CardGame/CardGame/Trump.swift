@@ -13,12 +13,12 @@ class Trump: CardFormat {
     private var rank = Rank(rawValue: String())     //숫자
     
     init() {
-        let shuffled = shuffleCard()
-        self.suits = Suits(rawValue: shuffled.randSuits) ?? nil
-        self.rank = Rank(rawValue: shuffled.randRank) ?? nil
+        let elements = makeRandomElements()
+        self.suits = Suits(rawValue: elements.randSuits) ?? nil
+        self.rank = Rank(rawValue: elements.randRank) ?? nil
     }
     
-    private func shuffleCard() -> (randSuits: String, randRank: String) {
+    private func makeRandomElements() -> (randSuits: String, randRank: String) {
         let suits = ["spade", "club", "diamond", "heart"]
         let rank = ["ace", "two", "three", "four", "five", "six", "eight", "nine", "ten", "jack", "queen", "king"]
 
