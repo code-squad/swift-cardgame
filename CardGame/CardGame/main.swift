@@ -8,4 +8,10 @@
 
 import Foundation
 
+func main() {
+    InputView.readStart(ment: "카드를 무작위로 생성합니다.")
+    let trump = Trump()
+    OutputView.printCard(with: trump)
+}
 
+main()

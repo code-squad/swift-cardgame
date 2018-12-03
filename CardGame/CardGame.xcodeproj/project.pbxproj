@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5947F79F21B4BD9A0087FD4A /* Trump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F79E21B4BD9A0087FD4A /* Trump.swift */; };
+		5947F7A121B4E7860087FD4A /* TrumpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A021B4E7860087FD4A /* TrumpData.swift */; };
+		5947F7A321B4F64B0087FD4A /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A221B4F64B0087FD4A /* ANSICode.swift */; };
+		5947F7A521B4FF400087FD4A /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A421B4FF400087FD4A /* protocol.swift */; };
+		5947F7A721B5002C0087FD4A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A621B5002C0087FD4A /* OutputView.swift */; };
+		5947F7A921B506B20087FD4A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A821B506B20087FD4A /* InputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +29,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5947F79E21B4BD9A0087FD4A /* Trump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trump.swift; sourceTree = "<group>"; };
+		5947F7A021B4E7860087FD4A /* TrumpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrumpData.swift; sourceTree = "<group>"; };
+		5947F7A221B4F64B0087FD4A /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		5947F7A421B4FF400087FD4A /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
+		5947F7A621B5002C0087FD4A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		5947F7A821B506B20087FD4A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				5947F7A621B5002C0087FD4A /* OutputView.swift */,
+				5947F7A421B4FF400087FD4A /* protocol.swift */,
+				5947F79E21B4BD9A0087FD4A /* Trump.swift */,
+				5947F7A821B506B20087FD4A /* InputView.swift */,
+				5947F7A021B4E7860087FD4A /* TrumpData.swift */,
+				5947F7A221B4F64B0087FD4A /* ANSICode.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -89,11 +107,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
 					839DA8E01F8CDBC9009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -120,7 +139,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5947F79F21B4BD9A0087FD4A /* Trump.swift in Sources */,
+				5947F7A921B506B20087FD4A /* InputView.swift in Sources */,
+				5947F7A121B4E7860087FD4A /* TrumpData.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				5947F7A321B4F64B0087FD4A /* ANSICode.swift in Sources */,
+				5947F7A521B4FF400087FD4A /* protocol.swift in Sources */,
+				5947F7A721B5002C0087FD4A /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +166,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -148,6 +174,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -198,6 +225,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -205,6 +233,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -238,7 +267,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -247,7 +276,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
