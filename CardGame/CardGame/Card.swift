@@ -16,6 +16,19 @@ class Card {
         case hearts = 2
         case diamonds = 3
         case spades = 4
+        //출력을 간편하게 하기 위해 문양을 출력해주는 메소드를 추가하였습니다.
+        func suitOutput() -> Character {
+            switch self {
+            case .clubs:
+                return "♣️"
+            case .hearts:
+                return "♥️"
+            case .diamonds:
+                return "♦️"
+            case .spades:
+                return "♠️"
+            }
+        }
     }
     
     //Suit와 마찬가지 이유로 enum과 Int타입의 rawValue를 사용했습니다.
@@ -30,5 +43,9 @@ class Card {
     init(suit:Suit, number:Number) {
         self.suit = suit
         self.number = number
+    }
+    
+    func description() -> String {
+        return "\(self.suit.suitOutput())"
     }
 }
