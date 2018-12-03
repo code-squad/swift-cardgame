@@ -19,13 +19,13 @@ class Trump: CardFormat {
     }
     
     private func makeRandomElements() -> (randSuits: String, randRank: String) {
-        let suits = ["spade", "club", "diamond", "heart"]
-        let rank = ["ace", "two", "three", "four", "five", "six", "eight", "nine", "ten", "jack", "queen", "king"]
+        let suits = Suits.allCases
+        let rank = Rank.allCases
 
         let randSuits = suits[Int.random(in: 0 ..< suits.count)]
         let randRank = rank[Int.random(in: 0 ..< rank.count)]
         
-        return (randSuits: randSuits, randRank: randRank)
+        return (randSuits: randSuits.rawValue, randRank: randRank.rawValue)
     }
     
     func description() -> (suits: Suits?, rank: Rank?) {
