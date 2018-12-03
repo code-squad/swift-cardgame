@@ -45,7 +45,6 @@
 			children = (
 				839DA8E31F8CDBC9009E05F3 /* CardGame */,
 				839DA8E21F8CDBC9009E05F3 /* Products */,
-				7D84855B21B54A5800EC2EA2 /* Card.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				7D84855B21B54A5800EC2EA2 /* Card.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
