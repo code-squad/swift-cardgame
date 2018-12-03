@@ -11,3 +11,13 @@ import Foundation
 protocol CardFormat {
     func description() -> (suits: Suits?, rank: Rank?)
 }
+
+protocol CardCountable {
+    func count() -> Int
+}
+
+protocol DeckFormat: CardCountable {
+    mutating func reset()
+    mutating func shuffle()
+    mutating func removeOne() -> CardFormat
+}
