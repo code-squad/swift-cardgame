@@ -9,6 +9,5 @@
 import Foundation
 
 protocol CardFormat {
-    func extractSuits() -> Suits?
-    func extractRank() -> Rank?
+    func description() -> (suits: Suits?, rank: Rank?)
 }

@@ -28,11 +28,7 @@ class Trump: CardFormat {
         return (randSuits: randSuits, randRank: randRank)
     }
     
-    func extractSuits() -> Suits? {
-        return self.suits
-    }
-    
-    func extractRank() -> Rank? {
-        return self.rank
+    func description() -> (suits: Suits?, rank: Rank?) {
+        return (suits: self.suits, rank: self.rank)
     }
 }
