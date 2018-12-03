@@ -17,7 +17,7 @@ class Card {
         case diamonds = 3
         case spades = 4
         //출력을 간편하게 하기 위해 문양을 출력해주는 메소드를 추가하였습니다.
-        func suitOutput() -> Character {
+        func output() -> Character {
             switch self {
             case .clubs:
                 return "♣️"
@@ -36,6 +36,15 @@ class Card {
         case A = 1
         case two, three, four, five, six, seven, eight, nine, ten
         case J, Q, K
+        //편하게 출력하도록 도와주는 메소드를 추가하였습니다.
+        func output() -> String {
+            switch self {
+            case .A, .J, .Q, .K:
+                return "\(self)"
+            default:
+                return "\(self.rawValue)"
+            }
+        }
     }
     
     private let suit : Suit, number : Number
@@ -46,6 +55,6 @@ class Card {
     }
     
     func description() -> String {
-        return "\(self.suit.suitOutput())"
+        return "\(self.suit.output())\(self.number.output())"
     }
 }
