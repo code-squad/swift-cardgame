@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct InputView {
+    static func readStart(ment: String) {
+        print(ment)
+    }
+}

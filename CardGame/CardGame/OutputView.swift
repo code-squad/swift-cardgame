@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct OutputView {
+    static func printCard(with trump: CardFormat) {
+        guard let suits = trump.extractSuits(), let rank = trump.extractRank() else {
+            print("예상하지 못한 오류가 발생했습니다")
+            return
+        }
+
+        print("\(suits.description)\(rank.description)")
+    }
+}
