@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol CardFormat {
+    func extractSuits() -> Suits?
+    func extractRank() -> Rank?
+}

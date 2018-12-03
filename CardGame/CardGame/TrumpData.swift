@@ -8,18 +8,20 @@
 
 import Foundation
 
+// Suits(모양)와 Rank(숫자)를 동일한 형태로 추상화 & 표현
+
 enum Suits: String {
+    case spade
     case club
     case diamond
     case heart
-    case spade
     
     var description: String {
         switch self {
-        case .club:     return "\u{2663}"
-        case .diamond:  return "\u{2666}"
-        case .heart:    return "\u{2764}"
-        case .spade:    return "\u{2660}"
+        case .spade:    return ANSICode.spade
+        case .club:     return ANSICode.club
+        case .diamond:  return ANSICode.diamond
+        case .heart:    return ANSICode.heart
         }
     }
 }
@@ -44,7 +46,7 @@ enum Rank: String {
         case .ace:      return "A"
         case .two:      return "2"
         case .three:    return "3"
-        case .four:return "4"
+        case .four:     return "4"
         case .five:     return "5"
         case .six:      return "6"
         case .seven:    return "7"
