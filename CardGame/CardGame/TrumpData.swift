@@ -10,7 +10,7 @@ import Foundation
 
 // Suits(모양)와 Rank(숫자)를 동일한 형태로 추상화 & 표현
 
-enum Suits: String {
+enum Suits: String, CaseIterable {
     case spade
     case club
     case diamond
@@ -26,7 +26,7 @@ enum Suits: String {
     }
 }
 
-enum Rank: String {
+enum Rank: String, CaseIterable {
     case ace
     case two
     case three
