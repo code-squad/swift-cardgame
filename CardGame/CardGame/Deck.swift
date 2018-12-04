@@ -40,4 +40,18 @@ struct CardDeck: DeckFormat {
     func count() -> Int {
         return self.trumps.count
     }
+    
+    mutating func drawCardStud(of cards: Int) -> [Trump] {
+        var stud = [Trump]()
+        
+        for _ in 0...cards {
+            guard let card = self.removeOne() as? Trump else {
+                print("예상하지 못한 오류가 발생했습니다")
+                return stud
+            }
+            stud.append(card)
+        }
+        
+        return stud
+    }
 }
