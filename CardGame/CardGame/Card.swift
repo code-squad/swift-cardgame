@@ -9,13 +9,13 @@
 import Foundation
 
 class Card : CustomStringConvertible {
-    private let suit : Suit, number : Rank
+    private let suit : Suit, rank : Rank
     var description: String {
-        return "\(self.suit)\(self.number)"
+        return "\(self.suit)\(self.rank)"
     }
     
-    init(suit:Suit, number:Rank) {
+    init(suit:Suit, rank:Rank) {
         self.suit = suit
-        self.number = number
+        self.rank = rank
     }
 }
