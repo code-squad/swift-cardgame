@@ -28,7 +28,10 @@ class Trump: CardFormat {
         return (randSuits: randSuits.rawValue, randRank: randRank.rawValue)
     }
     
-    func description() -> (suits: Suits?, rank: Rank?) {
-        return (suits: self.suits, rank: self.rank)
+    func description() -> String {
+        guard let suits = suits, let rank = rank else {
+            return "예상하지 못한 오류가 발생했습니다"
+        }
+        return "\(suits.description)\(rank.description)"
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CardFormat {
-    func description() -> (suits: Suits?, rank: Rank?)
+    func description() -> String
 }
 
 protocol CardCountable {
