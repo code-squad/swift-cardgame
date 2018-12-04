@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardStack: StackFormat {
+class CardStack: StackFormat {
     private let stud: [Trump]
     
     init(stud: [Trump]) {
