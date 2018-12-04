@@ -11,7 +11,7 @@
 		7D84856021B6246400EC2EA2 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84855F21B6246400EC2EA2 /* Deck.swift */; };
 		7D84856221B62A9A00EC2EA2 /* CardGameDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856121B62A9A00EC2EA2 /* CardGameDeck.swift */; };
 		7D84856421B66CAE00EC2EA2 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856321B66CAE00EC2EA2 /* Suit.swift */; };
-		7D84856621B66CC000EC2EA2 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856521B66CC000EC2EA2 /* Number.swift */; };
+		7D84856621B66CC000EC2EA2 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856521B66CC000EC2EA2 /* Rank.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		7D84855F21B6246400EC2EA2 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		7D84856121B62A9A00EC2EA2 /* CardGameDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameDeck.swift; sourceTree = "<group>"; };
 		7D84856321B66CAE00EC2EA2 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
-		7D84856521B66CC000EC2EA2 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		7D84856521B66CC000EC2EA2 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +72,7 @@
 				7D84855F21B6246400EC2EA2 /* Deck.swift */,
 				7D84856121B62A9A00EC2EA2 /* CardGameDeck.swift */,
 				7D84856321B66CAE00EC2EA2 /* Suit.swift */,
-				7D84856521B66CC000EC2EA2 /* Number.swift */,
+				7D84856521B66CC000EC2EA2 /* Rank.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			files = (
 				7D84856221B62A9A00EC2EA2 /* CardGameDeck.swift in Sources */,
 				7D84856421B66CAE00EC2EA2 /* Suit.swift in Sources */,
-				7D84856621B66CC000EC2EA2 /* Number.swift in Sources */,
+				7D84856621B66CC000EC2EA2 /* Rank.swift in Sources */,
 				7D84856021B6246400EC2EA2 /* Deck.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				7D84855C21B54A5800EC2EA2 /* Card.swift in Sources */,

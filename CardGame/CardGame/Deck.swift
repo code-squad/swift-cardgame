@@ -14,7 +14,7 @@ struct Deck {
     init() {
         var cards = [Card]()
         let suits : [Suit] = [.clubs,.hearts,.spades,.diamonds]
-        let numbers : [Number] = [.A,.two,.three,.four,.five,.six,.seven,.eight,.nine,.ten,.J,.Q,.K]
+        let numbers : [Rank] = [.A,.two,.three,.four,.five,.six,.seven,.eight,.nine,.ten,.J,.Q,.K]
         
         for suit in suits {
             for number in numbers {
