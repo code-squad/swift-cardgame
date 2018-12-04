@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Shape : Int, CustomStringConvertible {
+enum CardShape : Int, CustomStringConvertible {
     case spade = 1
     case clover = 2
     case diamond = 3

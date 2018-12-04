@@ -9,10 +9,10 @@
 import Foundation
 
 class Card {
-    private(set) var shape : Shape
-    private(set) var number : Number
+    private(set) var shape : CardShape
+    private(set) var number : CardNumber
     
-    init(shape : Shape, number : Number) {
+    init(_ shape : CardShape, _ number : CardNumber) {
         self.shape = shape
         self.number = number
     }

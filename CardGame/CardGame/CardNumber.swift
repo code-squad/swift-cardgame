@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Number : Int, CustomStringConvertible {
+enum CardNumber : Int, CustomStringConvertible {
     case one = 1
     case two = 2
     case three = 3

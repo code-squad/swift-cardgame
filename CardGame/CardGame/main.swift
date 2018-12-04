@@ -8,8 +8,6 @@
 
 import Foundation
 
-func main() {
-    PlayCardGame.playGame()
-}
 
-main()
+PlayCardGame.playGame()
+
