@@ -12,9 +12,10 @@ func main() {
     var menu = InputView.readStart()
     var cardDeck = CardDeck()
     let output = OutputView()
+    var turn = 0
     cardDeck.reset()
     
-    while true {
+    while turn < 52 {
         switch menu {
         case "1":
             cardDeck.reset()
@@ -25,10 +26,6 @@ func main() {
             output.printShuffle(by: cardDeck)
             menu = InputView.readStart()
         case "3":
-            if cardDeck.count() == 1 {
-                print("카드덱에 더 이상 카드가 없습니다.")
-                return
-            }
             let firstCard = cardDeck.removeOne()
             output.printRemoveOne(by: cardDeck, firstCard)
             menu = InputView.readStart()
@@ -38,6 +35,12 @@ func main() {
         default:
             print("올바른 메뉴를 선택하세요.")
             menu = InputView.readStart()
+        }
+        turn += 1
+        if turn == 52 {
+            print("카드덱이 비었으므로 초기화합니다.")
+            cardDeck.reset()
+            turn = 0
         }
     }
 }
