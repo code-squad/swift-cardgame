@@ -31,9 +31,9 @@ func main() {
         default:
             print("올바른 메뉴를 선택하세요.")
         }
-        
+
         turn += 1
-        
+
         if turn == 52 {
             print("카드덱이 비었으므로 초기화합니다.")
             cardDeck.reset()
