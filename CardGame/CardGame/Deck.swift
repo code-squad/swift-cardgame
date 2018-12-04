@@ -28,4 +28,8 @@ struct Deck : CardGameDeck {
     func count() -> Int {
         return cards.count
     }
+    
+    mutating func shuffle() {
+        cards.shuffle()
+    }
 }

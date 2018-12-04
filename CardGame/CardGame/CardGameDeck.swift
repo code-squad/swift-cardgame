@@ -10,4 +10,6 @@ import Foundation
 
 protocol CardGameDeck {
     func count() -> Int
+    mutating func shuffle()
+    
 }
