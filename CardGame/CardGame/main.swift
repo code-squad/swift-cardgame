@@ -8,4 +8,9 @@
 
 import Foundation
 
+func main() {
+    let card = Card(shape: .diamond, number: .one)
+    print(card.getInformation())
+}
 
+main()
