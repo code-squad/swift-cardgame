@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Deck {
+struct Deck : CardGameDeck {
     private var cards : [Card] = [Card.init(suit: .clubs, number: .A),
                                   Card.init(suit: .clubs, number: .two),
                                   Card.init(suit: .clubs, number: .three),
@@ -61,4 +61,8 @@ struct Deck {
         Card.init(suit: .spades, number: .J),
         Card.init(suit: .spades, number: .Q),
         Card.init(suit: .spades, number: .K)]   //spades
+    
+    func count() -> Int {
+        return cards.count
+    }
 }
