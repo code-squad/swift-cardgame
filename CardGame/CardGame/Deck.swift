@@ -26,7 +26,7 @@ struct CardDeck: DeckFormat {
     
     private func isDuplicate(_ trump: Trump, in trumps: [Trump]) -> Bool {
         for card in trumps {
-            if trump.description() == card.description() {
+            if trump == card {
                 return true
             }
         }
