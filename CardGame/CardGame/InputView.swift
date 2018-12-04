@@ -9,7 +9,17 @@
 import Foundation
 
 struct InputView {
-    /*
-     입력, 로직, 출력에서 입력에 해당하는 부분을 제거
-     */
+    func readGameMode() -> String {
+        print("카드 게임 종류를 선택하세요.")
+        print("1. 7카드")
+        print("2. 5카드")
+        
+        return readLine() ?? ""
+    }
+    
+    func readPlayersNumber() -> String {
+        print("참여할 사람의 인원을 입력하세요.")
+        
+        return readLine() ?? ""
+    }
 }
