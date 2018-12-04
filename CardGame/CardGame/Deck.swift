@@ -22,7 +22,7 @@ struct Deck : CardGameDeck {
             }
         }
         
-        self.cards = cards
+        self.cards = cards.shuffled()
     }
     
     func count() -> Int {
