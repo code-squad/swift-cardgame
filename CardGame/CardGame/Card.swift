@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card {
+class Card : CustomStringConvertible {
     //저는 종류를 한정하는 방법중에 enum이 가장 적합한 것같아 enum을 이용했고
     //값 비교를 편하게 하기 위해 rawValue를 Int타입으로 만들었습니다.
     enum Suit : Int {
@@ -48,13 +48,12 @@ class Card {
     }
     
     private let suit : Suit, number : Number
+    var description: String {
+        return "\(self.suit.output())\(self.number.output())"
+    }
     
     init(suit:Suit, number:Number) {
         self.suit = suit
         self.number = number
-    }
-    
-    func description() -> String {
-        return "\(self.suit.output())\(self.number.output())"
     }
 }

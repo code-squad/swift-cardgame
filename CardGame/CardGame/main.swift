@@ -12,8 +12,8 @@ func main () {
     let spadeA = Card.init(suit: .spades, number: .A)
     let heart7 = Card.init(suit: .hearts, number: .seven)
     
-    print(spadeA.description())
-    print(heart7.description())
+    print(spadeA)
+    print(heart7)
 }
 
 main()
