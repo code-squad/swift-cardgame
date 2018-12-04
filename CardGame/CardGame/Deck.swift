@@ -8,6 +8,20 @@
 
 import Foundation
 
+protocol CardCountable {
+    func count() -> Int
+}
+
+protocol DeckFormat: CardCountable, CardScatterable {
+    mutating func reset()
+    mutating func shuffle()
+    mutating func removeOne() -> CustomStringConvertible
+}
+
+protocol CardScatterable {
+    mutating func drawCardStud(of cards: Int) -> [Trump]
+}
+
 struct CardDeck: DeckFormat {
     private var trumps = [Trump]()
     
