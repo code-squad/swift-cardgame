@@ -13,11 +13,7 @@ struct OutputView {
      입력, 로직, 출력에서 출력에 해당하는 부분을 제거
      */
     
-    func printCardStack(by stack: StackFormat) {
-        guard let cardStack = stack.description else {
-            print(Error.invalidStud)
-            return
-        }
-        print(cardStack)
+    func printCardStack(by stack: CustomStringConvertible) {
+        print(stack.description)
     }
 }
