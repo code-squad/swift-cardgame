@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Trump: CardFormat {
+class Trump: CardFormat, Equatable {
     private var suits = Suits(rawValue: String())   //모양
     private var rank = Rank(rawValue: String())     //숫자
     
@@ -33,5 +33,9 @@ class Trump: CardFormat {
             return "예상하지 못한 오류가 발생했습니다"
         }
         return "\(suits.description)\(rank.description)"
+    }
+    
+    static func == (lhs: Trump, rhs: Trump) -> Bool {
+        return (lhs.suits == rhs.suits) && (lhs.rank == rhs.rank)
     }
 }
