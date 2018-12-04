@@ -25,8 +25,6 @@ struct Deck {
         self.cards = cards
     }
     
-//    private func 
-    
     func count() -> Int {
         return cards.count
     }
