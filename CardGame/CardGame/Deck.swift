@@ -8,21 +8,7 @@
 
 import Foundation
 
-protocol CardCountable {
-    func count() -> Int
-}
-
-protocol DeckFormat: CardCountable, CardScatterable {
-    mutating func reset()
-    mutating func shuffle()
-    mutating func removeOne() -> CardFormat
-}
-
-protocol CardScatterable {
-    mutating func drawCardStud(of cards: Int) -> [Trump]?
-}
-
-struct CardDeck: DeckFormat {
+struct CardDeck {
     private var trumps = [Trump]()
     
     mutating func reset() {
@@ -47,7 +33,7 @@ struct CardDeck: DeckFormat {
         self.trumps = self.trumps.shuffled()
     }
     
-    mutating func removeOne() -> CardFormat {
+    mutating func removeOne() -> CustomStringConvertible {
         return self.trumps.removeFirst()
     }
     
