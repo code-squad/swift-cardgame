@@ -9,7 +9,7 @@
 import Foundation
 
 class CardDeck {
-    private var cardDeck : [Card?]
+    private var cardDeck : [Card]
     init() { cardDeck = [] }
     
     // 카드 덱 초기화
@@ -20,7 +20,7 @@ class CardDeck {
     
     // 카드 덱을 초기화 하기 전 이전 덱 클리어
     private func deckClear() {
-        for index in 0..<cardDeck.count {
+        for index in (0..<cardDeck.count).reversed() {
             cardDeck.remove(at: index)
         }
     }
@@ -43,8 +43,16 @@ class CardDeck {
         return cardDeck.count
     }
     
+    // 카드 덱을 섞음
     func shuffle() {
-        print("")
+        var tempCardDeck : [Card] = []
+        var tempCard : Card
+        let range = (0..<cardDeck.count).reversed().map{ UInt32($0) }
+        for stepRange in range {
+            tempCard = cardDeck.remove(at: Int(arc4random_uniform(stepRange)))
+            tempCardDeck.append(tempCard)
+        }
+        cardDeck = tempCardDeck
     }
     
     // 카드 덱의 젤 위를 반환하고 카드 덱에서 삭제
