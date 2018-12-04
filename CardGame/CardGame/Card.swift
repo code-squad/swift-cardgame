@@ -9,52 +9,6 @@
 import Foundation
 
 class Card {
-    enum Shape : CustomStringConvertible {
-        case spade, clover, diamond, heart
-        var description: String {
-            switch self {
-            case .spade:
-                return "♠️"
-            case .clover:
-                return "♣️"
-            case .heart:
-                return "♥️"
-            case .diamond:
-                return "♦️"
-            }
-        }
-    }
-    enum Number : Int, CustomStringConvertible {
-        case one = 1
-        case two = 2
-        case three = 3
-        case four = 4
-        case five = 5
-        case six = 6
-        case seven = 7
-        case eight = 8
-        case nine = 9
-        case ten = 10
-        case eleven = 11
-        case twelve = 12
-        case thirteen = 13
-        
-        var description: String {
-            switch self {
-            case .one:
-                return "A"
-            case .eleven:
-                return "J"
-            case .twelve:
-                return "Q"
-            case .thirteen:
-                return "K"
-            default:
-                return "\(self.rawValue)"
-            }
-        }
-    }
-    
     private(set) var shape : Shape
     private(set) var number : Number
     
