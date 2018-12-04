@@ -16,8 +16,16 @@ protocol CardCountable {
     func count() -> Int
 }
 
-protocol DeckFormat: CardCountable {
+protocol DeckFormat: CardCountable, CardScatterable {
     mutating func reset()
     mutating func shuffle()
     mutating func removeOne() -> CardFormat
+}
+
+protocol CardScatterable {
+    mutating func drawCardStud(of cards: Int) -> [Trump]
+}
+
+protocol StackFormat {
+    func description() -> String
 }
