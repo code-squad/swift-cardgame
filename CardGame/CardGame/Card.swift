@@ -9,28 +9,26 @@
 import Foundation
 
 class Card {
-    enum Shape : String {        // 범위 외의 값을 예외처리하기 쉬워진다. Enum은 또한 일급 클래스로 내부에 함수를 구현해 카드 정보를 출력할 때 편리하다.
-        case spade = "♠️"
-        case clover = "♣️"
-        case heart = "♥️"
-        case diamond = "♦️"
+    enum Shape : CustomStringConvertible {
+        var description: String {
+            switch self {
+            case .spade:
+                return "♠️"
+            case .clover:
+                return "♣️"
+            case .heart:
+                return "♥️"
+            case .diamond:
+                return "♦️"
+            }
+        }
+        case spade
+        case clover
+        case heart
+        case diamond
     }
-    enum Number : Int {
-        case one = 1
-        case two = 2
-        case three = 3
-        case four = 4
-        case five = 5
-        case six = 6
-        case seven = 7
-        case eight = 8
-        case nine = 9
-        case ten = 10
-        case eleven = 11
-        case twelve = 12
-        case thirteen = 13
-        
-        func returnString() -> String {
+    enum Number : Int, CustomStringConvertible {
+        var description: String {
             switch self {
             case .one:
                 return "A"
@@ -44,6 +42,19 @@ class Card {
                 return "\(self.rawValue)"
             }
         }
+        case one = 1
+        case two = 2
+        case three = 3
+        case four = 4
+        case five = 5
+        case six = 6
+        case seven = 7
+        case eight = 8
+        case nine = 9
+        case ten = 10
+        case eleven = 11
+        case twelve = 12
+        case thirteen = 13
     }
     
     private(set) var shape : Shape
@@ -53,9 +64,11 @@ class Card {
         self.shape = shape
         self.number = number
     }
-    
-    // 카드의 정보를 가져옴
-    func getInformation() -> String {
-        return "\(shape.rawValue)\(number.returnString())"
+}
+
+// CustomStringConvertible 프로토콜 채택 -> 인스턴스의 고유 String 표현법으로 만들 수 있다.
+extension Card : CustomStringConvertible {
+    var description: String {
+        return "\(shape)\(number)"
     }
 }
