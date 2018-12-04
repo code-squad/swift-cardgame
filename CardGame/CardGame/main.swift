@@ -10,10 +10,10 @@ import Foundation
 
 func main () {
     var deck : CardGameDeck = Deck()
-    let question = "다음 메뉴를 선택해주세요.\n1. 카드 초기화\n2. 카드 섞기\n3. 카드 하나 뽑기"
+    let help = "다음 메뉴를 선택해주세요.\n1. 카드 초기화\n2. 카드 섞기\n3. 카드 하나 뽑기\n> "
     
     while true {
-        let input = InputView.readInput(ment: question)
+        let input = InputView.readInput(ment: help)
         
         switch input {
         case "1":
