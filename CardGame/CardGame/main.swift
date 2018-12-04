@@ -37,7 +37,7 @@ func main() {
             menu = InputView.readStart()
         }
         turn += 1
-        if turn == 52 {
+        if turn == 51 {
             print("카드덱이 비었으므로 초기화합니다.")
             cardDeck.reset()
             turn = 0
