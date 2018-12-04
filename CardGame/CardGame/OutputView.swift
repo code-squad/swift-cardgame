@@ -9,21 +9,12 @@
 import Foundation
 
 struct OutputView {
-    private func printCard(with trump: CardFormat) {
-        print("\(trump.description())")
-    }
+    /*
+     입력, 로직, 출력에서 출력에 해당하는 부분을 제거
+     */
     
-    func printReset(by deck: DeckFormat) {
-        print("카드 전체를 초기화했습니다.")
-        print("총 \(deck.count())장의 카드가 있습니다.\n")
-    }
-    
-    func printShuffle(by deck: DeckFormat) {
-        print("총 \(deck.count())장의 카드를 섞었습니다.\n")
-    }
-    
-    func printRemoveOne(by deck: DeckFormat, _ trump: CardFormat) {
-        printCard(with: trump)
-        print("총 \(deck.count())장의 카드가 남았습니다.\n")
+    func printCardStack(by stack: StackFormat) {
+        let cardStack = stack.description().components(separatedBy: " ")
+        print(cardStack)
     }
 }
