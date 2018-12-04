@@ -35,6 +35,11 @@ struct CardDeck: DeckFormat {
     }
     
     mutating func shuffle() {
+        for i in 0..<self.trumps.count {
+            let j = Int(arc4random_uniform(UInt32(self.trumps.count - i))) + i
+            self.trumps.swapAt(i, j)
+        }
+        
         self.trumps = self.trumps.shuffled()
     }
     
