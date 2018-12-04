@@ -12,26 +12,16 @@ struct CardDeck: DeckFormat {
     private var trumps = [Trump]()
     
     mutating func reset() {
+        let suits = Suits.allCases
+        let rank = Rank.allCases
         self.trumps = [Trump]()
         
-        for _ in 0...51 {
-            var trump = Trump()
-            
-            while isDuplicate(trump, in: self.trumps) {
-                trump = Trump()
-            }
-            self.trumps.append(trump)
-        }
-    }
-    
-    private func isDuplicate(_ trump: Trump, in trumps: [Trump]) -> Bool {
-        for card in trumps {
-            if trump == card {
-                return true
+        for mark in suits {
+            for num in rank {
+                self.trumps.append(Trump(suits: mark.rawValue, rank: num.rawValue))
             }
         }
-        
-        return false
+        self.shuffle()
     }
     
     mutating func shuffle() {
