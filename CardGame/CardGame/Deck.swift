@@ -35,7 +35,7 @@ struct CardDeck: DeckFormat {
     }
     
     mutating func shuffle() {
-        self.trumps.shuffle()
+        self.trumps = self.trumps.shuffled()
     }
     
     mutating func removeOne() -> CardFormat {
