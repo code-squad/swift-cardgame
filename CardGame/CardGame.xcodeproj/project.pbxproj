@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		590A2B7121B6482E00467798 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590A2B7021B6482E00467798 /* CardStack.swift */; };
+		592AD02621B670DA0056C4B3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AD02521B670DA0056C4B3 /* Error.swift */; };
 		5947F79F21B4BD9A0087FD4A /* Trump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F79E21B4BD9A0087FD4A /* Trump.swift */; };
 		5947F7A121B4E7860087FD4A /* TrumpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A021B4E7860087FD4A /* TrumpData.swift */; };
 		5947F7A321B4F64B0087FD4A /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A221B4F64B0087FD4A /* ANSICode.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		590A2B7021B6482E00467798 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
+		592AD02521B670DA0056C4B3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		5947F79E21B4BD9A0087FD4A /* Trump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trump.swift; sourceTree = "<group>"; };
 		5947F7A021B4E7860087FD4A /* TrumpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrumpData.swift; sourceTree = "<group>"; };
 		5947F7A221B4F64B0087FD4A /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				592AD02521B670DA0056C4B3 /* Error.swift */,
 				5947F7A621B5002C0087FD4A /* OutputView.swift */,
 				5947F79E21B4BD9A0087FD4A /* Trump.swift */,
 				5947F7AA21B521920087FD4A /* Deck.swift */,
@@ -149,6 +152,7 @@
 				5947F7AB21B521920087FD4A /* Deck.swift in Sources */,
 				5947F7A321B4F64B0087FD4A /* ANSICode.swift in Sources */,
 				5947F7A721B5002C0087FD4A /* OutputView.swift in Sources */,
+				592AD02621B670DA0056C4B3 /* Error.swift in Sources */,
 				590A2B7121B6482E00467798 /* CardStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

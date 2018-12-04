@@ -15,11 +15,11 @@ protocol CardCountable {
 protocol DeckFormat: CardCountable, CardScatterable {
     mutating func reset()
     mutating func shuffle()
-    mutating func removeOne() -> CustomStringConvertible
+    mutating func removeOne() -> CardFormat
 }
 
 protocol CardScatterable {
-    mutating func drawCardStud(of cards: Int) -> [Trump]
+    mutating func drawCardStud(of cards: Int) -> [Trump]?
 }
 
 struct CardDeck: DeckFormat {
@@ -47,7 +47,7 @@ struct CardDeck: DeckFormat {
         self.trumps = self.trumps.shuffled()
     }
     
-    mutating func removeOne() -> CustomStringConvertible {
+    mutating func removeOne() -> CardFormat {
         return self.trumps.removeFirst()
     }
     
@@ -55,13 +55,12 @@ struct CardDeck: DeckFormat {
         return self.trumps.count
     }
     
-    mutating func drawCardStud(of cards: Int) -> [Trump] {
+    mutating func drawCardStud(of cards: Int) -> [Trump]? {
         var stud = [Trump]()
         
         for _ in 0...cards {
             guard let card = self.removeOne() as? Trump else {
-                print("예상하지 못한 오류가 발생했습니다")
-                return stud
+                return nil
             }
             stud.append(card)
         }

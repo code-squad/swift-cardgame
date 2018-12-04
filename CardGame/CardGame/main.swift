@@ -15,7 +15,10 @@ func main() {
     
     // 카드스택을 바로 출력하는 반복문
     for i in 0...6 {
-        let stud = cardDeck.drawCardStud(of: i)
+        guard let stud = cardDeck.drawCardStud(of: i) else {
+            print(Error.invalidStud)
+            return
+        }
         let stack = CardStack(stud: stud)
         output.printCardStack(by: stack)
     }
