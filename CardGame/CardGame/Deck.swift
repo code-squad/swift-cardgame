@@ -32,4 +32,8 @@ struct Deck : CardGameDeck {
     mutating func shuffle() {
         cards.shuffle()
     }
+    
+    mutating func removeOne() -> Card? {
+        return cards.popLast()
+    }
 }
