@@ -9,9 +9,7 @@
 import Foundation
 
 func main () {
-    let deck = Deck()
     
-    print(deck.count())
 }
 
 main()
