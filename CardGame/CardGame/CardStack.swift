@@ -8,25 +8,14 @@
 
 import Foundation
 
-protocol StackFormat {
-    var description: String? { get }
-}
-
-class CardStack: StackFormat {
+class CardStack: CustomStringConvertible {
     private let stud: [Trump]
     
     init(stud: [Trump]) {
         self.stud = stud
     }
     
-    var description: String? {
-        var result = [String]()
-        
-        for i in 0..<self.stud.count {
-            guard let card = self.stud[i].description else { return nil }
-            result.append(card)
-        }
-        
-        return result.description
+    var description: String {
+        return self.stud.description
     }
 }

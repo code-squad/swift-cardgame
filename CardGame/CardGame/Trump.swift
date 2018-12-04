@@ -8,11 +8,7 @@
 
 import Foundation
 
-protocol CardFormat {
-    var description: String? { get }
-}
-
-class Trump: CardFormat {
+class Trump: CustomStringConvertible {
     private var suits = Suits(rawValue: String())   //모양
     private var rank = Rank(rawValue: String())     //숫자
     
@@ -21,10 +17,7 @@ class Trump: CardFormat {
         self.rank = Rank(rawValue: rank)
     }
 
-    var description: String? {
-        guard let suits = suits, let rank = rank else {
-            return nil
-        }
-        return "\(suits.description)\(rank.description)"
+    var description: String {
+        return "\(suits!.description)\(rank!.description)"
     }
 }
