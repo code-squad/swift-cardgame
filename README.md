@@ -1,57 +1,24 @@
-# 진행 방법
+## CardDeck
 
-- 카드게임에 대한 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+### 메서드 
+* 카드 여러 장을 한꺼번에 배열로 뽑아내는 메서드
+* 카드 스터드를 나눠주는 카지노 용어로부터 차용해서  `drawCardStud` 라고 네이밍
+* 메서드를 구현해주기 위한 *프로토콜*의 사용
+    1. 추상화 수준에 맞게 `CardScatterable` 프로토콜을 생성 
+    2. 카드덱이 상속하는 `DeckFormat`이 위의 프로토콜을 상속한다.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+## CardStack
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+### 클래스
+* 카드스택 모델을 드러내도록 `CardStack`으로 네이밍
+* 추상화 수준에 맞게 `StackFormat` 프로토콜을 생성
+* 카드스택은 위의 프로토콜을 상속한다.
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-cardgame
-```
+### 변수
+* 카드 스택을 5 카드 스터드 & 7카드 스터드로 사용하는 카지노 용어로부터 차용해서 `stud` 저장 프로퍼티 생성
+* `stud`는 사용자의 요구에 따라 크기가 달라질 수 있다
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-cardgame
-```
-
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
-
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+### 메서드
+* 객체지향 설계 방식에 맞도록 내부 속성을 감추고 인터페이스를 통해 정보를 얻을 수 있도록 설정
+* 클래스 내부의 정보를 그대로 전달하지 않도록 `NSObject.description` 메서드를 사용
+* 이를 통해 필요한 정보만 전달하고, OutputView 구조체를 통해 출력하도록 구현
