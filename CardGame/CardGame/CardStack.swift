@@ -8,18 +8,18 @@
 
 import Foundation
 
-class CardStack: StackFormat {
+class CardStack: CustomStringConvertible {
     private let stud: [Trump]
     
     init(stud: [Trump]) {
         self.stud = stud
     }
     
-    func description() -> String {
+    var description: String {
         var result = String()
         
         for i in 0..<self.stud.count {
-            result += (self.stud[i].description() + (i == self.stud.count ? "" : " "))
+            result += (self.stud[i].description + (i == self.stud.count ? "" : " "))
         }
         
         return result.trimmingCharacters(in: CharacterSet(charactersIn: " "))

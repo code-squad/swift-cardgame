@@ -33,7 +33,7 @@ struct CardDeck: DeckFormat {
         self.trumps = self.trumps.shuffled()
     }
     
-    mutating func removeOne() -> CardFormat {
+    mutating func removeOne() -> CustomStringConvertible {
         return self.trumps.removeFirst()
     }
     
