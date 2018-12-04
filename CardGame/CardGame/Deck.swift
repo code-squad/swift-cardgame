@@ -24,8 +24,4 @@ struct Deck {
         
         self.cards = cards
     }
-    
-    func count() -> Int {
-        return cards.count
-    }
 }
