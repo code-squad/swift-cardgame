@@ -10,13 +10,7 @@ import Foundation
 
 struct OutputView {
     private func printCard(with trump: CardFormat) {
-        let trumpData = trump.description()
-        guard let suits = trumpData.suits, let rank = trumpData.rank else {
-            print("예상하지 못한 오류가 발생했습니다")
-            return
-        }
-
-        print("\(suits.description)\(rank.description)")
+        print("\(trump.description())")
     }
     
     func printReset(by deck: DeckFormat) {
