@@ -9,15 +9,8 @@
 import Foundation
 
 struct PlayCardGame {
-    enum ChoiceMenu : String {
-        case resetCard = "1"
-        case shuffleCard = "2"
-        case pickCard = "3"
-    }
-    
     // 게임을 실행
-    static func playGame() {
-        let cardDeck = CardDeck()
+    static func playGame(with cardDeck : CardDeck) {
         var input : String
         repeat {
             input = InputView.inputUser(message: "다음 메뉴를 선택해주세요.")
@@ -36,11 +29,14 @@ struct PlayCardGame {
         guard let menu = menu else { return }
         switch menu {
         case .pickCard:
-            cardDeck.removeOne()
+            let card = cardDeck.removeOne()
+            OutputView.printPickText(in: cardDeck.count(), with: card)
         case .resetCard:
             cardDeck.reset()
+            OutputView.printResetText(in: cardDeck.count())
         case .shuffleCard:
             cardDeck.shuffle()
+            OutputView.printShuffleText(in: cardDeck.count())
         }
     }
 }

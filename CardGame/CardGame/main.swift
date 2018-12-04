@@ -8,6 +8,11 @@
 
 import Foundation
 
+func main() {
+    let cardDeck : CardDeck = CardDeck()
+    while true { PlayCardGame.playGame(with: cardDeck) }
+}
 
-PlayCardGame.playGame()
+main()
+
 
