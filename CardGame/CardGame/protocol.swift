@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol CardFormat {
-    func description() -> String
-}
-
 protocol CardCountable {
     func count() -> Int
 }
@@ -19,13 +15,9 @@ protocol CardCountable {
 protocol DeckFormat: CardCountable, CardScatterable {
     mutating func reset()
     mutating func shuffle()
-    mutating func removeOne() -> CardFormat
+    mutating func removeOne() -> CustomStringConvertible
 }
 
 protocol CardScatterable {
     mutating func drawCardStud(of cards: Int) -> [Trump]
-}
-
-protocol StackFormat {
-    func description() -> String
 }
