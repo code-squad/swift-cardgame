@@ -14,13 +14,13 @@ struct CardDeck: DeckFormat {
     mutating func reset() {
         self.trumps = [Trump]()
         
-        while true {
-            let trump = Trump()
-            if !isDuplicate(trump, in: self.trumps) {
-                self.trumps.append(trump)
-            }
+        for _ in 0...51 {
+            var trump = Trump()
             
-            if self.trumps.count == 52 { break }
+            while isDuplicate(trump, in: self.trumps) {
+                trump = Trump()
+            }
+            self.trumps.append(trump)
         }
     }
     
