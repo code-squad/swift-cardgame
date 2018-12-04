@@ -11,13 +11,13 @@ import Foundation
 class Card : CustomStringConvertible {
     //저는 종류를 한정하는 방법중에 enum이 가장 적합한 것같아 enum을 이용했고
     //값 비교를 편하게 하기 위해 rawValue를 Int타입으로 만들었습니다.
-    enum Suit : Int {
+    enum Suit : Int, CustomStringConvertible {
         case clubs = 1
         case hearts = 2
         case diamonds = 3
         case spades = 4
         //출력을 간편하게 하기 위해 문양을 출력해주는 메소드를 추가하였습니다.
-        func output() -> Character {
+        var description: String {
             switch self {
             case .clubs:
                 return "♣️"
@@ -32,15 +32,21 @@ class Card : CustomStringConvertible {
     }
     
     //Suit와 마찬가지 이유로 enum과 Int타입의 rawValue를 사용했습니다.
-    enum Number : Int {
+    enum Number : Int, CustomStringConvertible {
         case A = 1
         case two, three, four, five, six, seven, eight, nine, ten
         case J, Q, K
         //편하게 출력하도록 도와주는 메소드를 추가하였습니다.
-        func output() -> String {
+        var description: String {
             switch self {
-            case .A, .J, .Q, .K:
-                return "\(self)"
+            case .A:
+                return "A"
+            case .J:
+                return "J"
+            case .Q:
+                return "Q"
+            case .K:
+                return "K"
             default:
                 return "\(self.rawValue)"
             }
@@ -49,7 +55,7 @@ class Card : CustomStringConvertible {
     
     private let suit : Suit, number : Number
     var description: String {
-        return "\(self.suit.output())\(self.number.output())"
+        return "\(self.suit)\(self.number)"
     }
     
     init(suit:Suit, number:Number) {
