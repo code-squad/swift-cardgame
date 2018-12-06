@@ -15,6 +15,8 @@
 		5947F7A721B5002C0087FD4A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A621B5002C0087FD4A /* OutputView.swift */; };
 		5947F7A921B506B20087FD4A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7A821B506B20087FD4A /* InputView.swift */; };
 		5947F7AB21B521920087FD4A /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5947F7AA21B521920087FD4A /* Deck.swift */; };
+		59B00FA621B8AE8400D08AB5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B00FA521B8AE8400D08AB5 /* Player.swift */; };
+		59B00FA821B8CDEC00D08AB5 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B00FA721B8CDEC00D08AB5 /* CardGame.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		5947F7A621B5002C0087FD4A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		5947F7A821B506B20087FD4A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		5947F7AA21B521920087FD4A /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		59B00FA521B8AE8400D08AB5 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		59B00FA721B8CDEC00D08AB5 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				59B00FA721B8CDEC00D08AB5 /* CardGame.swift */,
 				592AD02521B670DA0056C4B3 /* Error.swift */,
+				59B00FA521B8AE8400D08AB5 /* Player.swift */,
 				5947F7A621B5002C0087FD4A /* OutputView.swift */,
 				5947F79E21B4BD9A0087FD4A /* Trump.swift */,
 				5947F7AA21B521920087FD4A /* Deck.swift */,
@@ -145,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59B00FA821B8CDEC00D08AB5 /* CardGame.swift in Sources */,
 				5947F79F21B4BD9A0087FD4A /* Trump.swift in Sources */,
 				5947F7A921B506B20087FD4A /* InputView.swift in Sources */,
 				5947F7A121B4E7860087FD4A /* TrumpData.swift in Sources */,
@@ -153,6 +160,7 @@
 				5947F7A321B4F64B0087FD4A /* ANSICode.swift in Sources */,
 				5947F7A721B5002C0087FD4A /* OutputView.swift in Sources */,
 				592AD02621B670DA0056C4B3 /* Error.swift in Sources */,
+				59B00FA621B8AE8400D08AB5 /* Player.swift in Sources */,
 				590A2B7121B6482E00467798 /* CardStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

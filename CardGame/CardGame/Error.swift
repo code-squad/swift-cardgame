@@ -8,13 +8,8 @@
 
 import Foundation
 
-enum Error {
-    case invalidStud
-    
-    var description: String {
-        switch self {
-        case .invalidStud:
-            return "카드 스택이 생성되지 않았습니다."
-        }
-    }
+enum ProcessError: String {
+    case invalidMode = "게임 종류를 정확히 선택하세요."
+    case invalidPlayer = "참여할 사람을 정확히 입력하세요."
+    case gameOver = "카드가 부족합니다. 종료합니다."
 }

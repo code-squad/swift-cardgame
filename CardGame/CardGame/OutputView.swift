@@ -12,4 +12,15 @@ struct OutputView {
     func printCardStack(by stack: CustomStringConvertible) {
         print(stack)
     }
+    
+    func printError(_ error: String) {
+        print(error)
+    }
+    
+    func showResults(of cardGame: CardGame) {
+        let players = cardGame.playerStatus()
+        players.forEach {
+            print($0.description)
+        }
+    }
 }

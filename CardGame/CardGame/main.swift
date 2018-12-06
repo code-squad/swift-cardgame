@@ -9,24 +9,34 @@
 import Foundation
 
 func main() {
-    var cardDeck = CardDeck()
-    let output = OutputView()
-    cardDeck.reset()
+    let input = InputView(), output = OutputView(), cardDeck = CardDeck()
+    var mode = input.readGameMode(), number = input.readPlayersNumber()
     
-    // 카드스택을 바로 출력하는 반복문
-    for i in 0...6 {
-        guard let stud = cardDeck.drawCardStud(of: i) else {
-            print(Error.invalidStud)
-            return
-        }
-        let stack = CardStack(stud: stud)
-        output.printCardStack(by: stack)
+    while !["1", "2"].contains(mode) {
+        mode = input.readGameMode()
+        output.printError(ProcessError.invalidMode.rawValue)
     }
     
-    /*
-        입력, 로직, 출력에서 로직에 해당하는 부분을 제거
-        일시적으로 기능을 제거하는데 입력부터 출력까지 매개변수를 따라가면서 불필요한 부분을 순차적으로 제거
-     */
+    while !["1", "2", "3", "4"].contains(number) {
+        number = input.readPlayersNumber()
+        output.printError(ProcessError.invalidPlayer.rawValue)
+    }
+    
+    let cardGame = CardGame(cardDeck: cardDeck, mode: GameType(rawValue: mode)!, number: Int(number)!)
+    
+    var flag = true
+    while flag {
+        cardGame.play()
+        output.showResults(of: cardGame)
+        
+        print(cardGame.countOfCards())
+        if cardGame.countOfCards() < GameType(rawValue: mode)!.mode * (Int(number) ?? 0) {
+            flag = false
+        }
+    }
+    
+    output.printError(ProcessError.gameOver.rawValue)
+    return
 }
 
 main()
