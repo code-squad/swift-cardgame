@@ -25,12 +25,16 @@ enum PlayerType: CustomStringConvertible {
 class Player: CardStack {
     private var type: PlayerType
     
-    init(stud: [Trump], name: PlayerType) {
+    init(name: PlayerType) {
         self.type = name
-        super.init(stud: stud)
+        super.init(stud: [Trump]())
     }
     
     override var description: String {
         return "\(self.type) \(super.description)"
+    }
+    
+    func get(_ stud: [Trump]) {
+        super.take(stud)
     }
 }
