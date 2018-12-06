@@ -10,7 +10,11 @@ import Foundation
 
 class CardDeck {
     private var cardDeck : [Card]
-    init() { cardDeck = [] }
+    
+    // cardDeck을 초기화
+    init() {
+        cardDeck = []
+    }
     
     // 카드 덱 초기화
     func reset() {
@@ -20,9 +24,7 @@ class CardDeck {
     
     // 카드 덱을 초기화 하기 전 이전 덱 클리어
     private func deckClear() {
-        for index in (0..<cardDeck.count).reversed() {
-            cardDeck.remove(at: index)
-        }
+        cardDeck.removeAll()
     }
     
     // 새로운 카드 덱 생성
