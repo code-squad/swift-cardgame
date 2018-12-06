@@ -12,10 +12,12 @@ struct OutputView {
     static func printResetText(in count : Int) {
         print("카드 전체를 초기화했습니다.")
         print("총 \(count)의 카드가 있습니다.")
+        print("")
     }
     
     static func printShuffleText(in count : Int) {
         print("전체 \(count)장의 카드를 섞었습니다.")
+        print("")
     }
     
     static func printPickText(in count : Int, with card : Card?) {
@@ -25,6 +27,7 @@ struct OutputView {
         }
         print("\(card)")
         print("총 \(count)의 카드가 남아있습니다.")
+        print("")
     }
 }
 
