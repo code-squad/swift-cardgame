@@ -53,3 +53,5 @@ func relateWithFriends(firstFriend: String, secondFriend: String,
   // Code
 }
 ```
+
+참조 링크 https://github.com/raywenderlich/swift-style-guide/
