@@ -31,9 +31,10 @@ struct OutputView {
         print("총 \(count)의 카드가 남아있습니다.\n")
     }
     
-    // cardStack 출력
-    static func printCardStack(with stack : [Card]) {
-        print(stack)
+    static func printCardStack(with stack: [[Card]]) {
+        for raw in stack {
+            print(raw)
+        }
     }
 }
 

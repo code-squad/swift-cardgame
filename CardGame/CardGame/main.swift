@@ -12,9 +12,7 @@ import Foundation
 func main() {
     let cardDeck : CardDeck = CardDeck()
 //    while true { PlayCardGame.playGame(with: cardDeck) }
-    for count in 1..<8 {
-        OutputView.printCardStack(with: cardDeck.pickCardStack(by: count))
-    }
+    OutputView.printCardStack(with: cardDeck.makeCardStack())
 }
 
 main()

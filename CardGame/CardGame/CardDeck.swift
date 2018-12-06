@@ -10,10 +10,12 @@ import Foundation
 
 class CardDeck {
     private var cardDeck : [Card] = []
+    private var cardStack : [[Card]] = [[]]
     
     // cardDeck을 초기화
     init() {
         createNewDeck()
+        cardStack.remove(at: 0)
     }
     
     // 카드 덱 초기화
@@ -59,8 +61,14 @@ class CardDeck {
         return cardDeck.remove(at: cardDeck.count-1)
     }
     
+    // CardStack을 만듬
+    func makeCardStack() -> [[Card]]{
+        for count in 1..<8 { cardStack.append(pickCardStack(by: count)) }
+        return cardStack
+    }
+    
     // 카드에서 여러장을 뽑음
-    func pickCardStack(by count : Int) -> [Card] {
+    private func pickCardStack(by count : Int) -> [Card] {
         var cardStack : [Card] = []
         for _ in 0..<count {
             guard let pickCard = removeOne() else { return [] }
