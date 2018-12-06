@@ -49,9 +49,9 @@ class CardDeck {
     func shuffle() {
         var tempCardDeck : [Card] = []
         var tempCard : Card
-        let range = (0..<cardDeck.count).reversed().map{ UInt32($0) }
-        for stepRange in range {
-            tempCard = cardDeck.remove(at: Int(arc4random_uniform(stepRange)))
+        
+        for step in stride(from: cardDeck.count-1, through: 0, by: -1) {
+            tempCard = cardDeck.remove(at: Int(arc4random_uniform(UInt32(step))))
             tempCardDeck.append(tempCard)
         }
         cardDeck = tempCardDeck
