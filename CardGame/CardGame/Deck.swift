@@ -29,8 +29,6 @@ struct CardDeck {
             let j = Int(arc4random_uniform(UInt32(self.trumps.count - i))) + i
             self.trumps.swapAt(i, j)
         }
-        
-        self.trumps = self.trumps.shuffled()
     }
     
     mutating func removeOne() -> CustomStringConvertible {
