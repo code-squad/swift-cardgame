@@ -9,7 +9,7 @@
 import Foundation
 
 class CardGameSetter {
-    static func printSetting(of cardSets:[[Card]]) {
-        
+    static func printSetting(with cards:[Card]) {
+        print(cards)
     }
 }
