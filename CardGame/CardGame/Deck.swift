@@ -39,8 +39,12 @@ struct CardDeck {
         return self.trumps.count
     }
     
-    mutating func drawCardStud(of cards: Int) -> [Trump] {
+    mutating func drawCardStud(of mode: GameType) -> [Trump] {
+        var cards = Int()
         var stud = [Trump]()
+        
+        if mode == GameType.seven { cards = 7 }
+        if mode == GameType.five { cards = 5 }
         
         for _ in 0..<cards {
             stud.append(self.removeOne() as! Trump)

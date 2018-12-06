@@ -9,7 +9,7 @@
 import Foundation
 
 class CardStack: CustomStringConvertible {
-    private let stud: [Trump]
+    private var stud: [Trump]
     
     init(stud: [Trump]) {
         self.stud = stud
@@ -17,5 +17,9 @@ class CardStack: CustomStringConvertible {
     
     var description: String {
         return self.stud.description
+    }
+    
+    func take(_ stud: [Trump]) {
+        self.stud = stud
     }
 }
