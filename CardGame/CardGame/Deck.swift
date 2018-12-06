@@ -43,14 +43,11 @@ struct Deck : CardGameDeck {
     
     func shuffle(cards:[Card]) -> [Card] {
         var willSuffleCards = cards
-        var shuffledCards = [Card]()
         
-        for _ in 0..<willSuffleCards.count {
-            guard let randomCard = willSuffleCards.randomElement() else {break}
-            shuffledCards.append(randomCard)
-            willSuffleCards = willSuffleCards.filter() {$0.description != randomCard.description}
+        for index in 0..<willSuffleCards.count {
+            willSuffleCards.swapAt(index, Int(arc4random()) % willSuffleCards.count)
         }
         
-        return shuffledCards
+        return willSuffleCards
     }
 }
