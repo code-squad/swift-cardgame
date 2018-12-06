@@ -14,10 +14,8 @@ func main () {
 //    var ment = ""
     
     deck.shuffle()
-    for number in 1...7 {
-        let drawnCards = deck.draw(few: number)
-        CardGameSetter.printSetting(with: drawnCards)
-    }
+    let cardStacks = deck.willSetDeck(few: 7)
+    CardGameSetter.printSetting(with: cardStacks)
     
     //처음에는 기존 기능을 다른 함수로 만들어서 뺀다음에 호출하는 부분을 잠시 없애는 방법도 생각해보고
     //일시적으로 main()말고 다른 함수를 만들어서 해볼까 생각도 해봤는데

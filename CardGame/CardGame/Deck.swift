@@ -51,7 +51,7 @@ struct Deck : CardGameDeck {
         self.cards = Deck().cards
     }
     
-    mutating func draw(few: Int) -> [Card] {
+    mutating func draw(few: Int) -> CardStack {
         var drawnCards = [Card]()
         
         for _ in 0..<few {
@@ -59,6 +59,14 @@ struct Deck : CardGameDeck {
             drawnCards.append(drawnCard)
         }
         
-        return drawnCards
+        return CardStack.init(cards: drawnCards)
+    }
+    
+    mutating func willSetDeck(few:Int) -> [CardStack] {
+        var setDeck = [CardStack]()
+        for number in 1...7 {
+            setDeck.append(self.draw(few: number))
+        }
+        return setDeck
     }
 }
