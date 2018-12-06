@@ -38,6 +38,6 @@ struct Deck : CardGameDeck {
     }
     
     mutating func reset() {
-        self = Deck()
+        self.cards = Deck().cards
     }
 }
