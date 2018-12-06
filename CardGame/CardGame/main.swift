@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 주석을 활용해 기능 일시 제거
 func main() {
     let cardDeck : CardDeck = CardDeck()
 //    while true { PlayCardGame.playGame(with: cardDeck) }
