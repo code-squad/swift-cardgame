@@ -15,6 +15,7 @@
 		7D84856621B66CC000EC2EA2 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856521B66CC000EC2EA2 /* Rank.swift */; };
 		7DECB8AE21B8BAFA00F1D805 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8AD21B8BAFA00F1D805 /* OutputView.swift */; };
 		7DECB8B221B9122C00F1D805 /* CardGameSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */; };
+		7DECB8B421B9308400F1D805 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B321B9308400F1D805 /* CardStack.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		7D84856521B66CC000EC2EA2 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		7DECB8AD21B8BAFA00F1D805 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameSetter.swift; sourceTree = "<group>"; };
+		7DECB8B321B9308400F1D805 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */,
 				7DECB8AD21B8BAFA00F1D805 /* OutputView.swift */,
 				7D39239B21B689E000720971 /* InputView.swift */,
+				7DECB8B321B9308400F1D805 /* CardStack.swift */,
 				7D84855B21B54A5800EC2EA2 /* Card.swift */,
 				7D84855F21B6246400EC2EA2 /* Deck.swift */,
 				7D39239921B6876C00720971 /* CardGameDeck.swift */,
@@ -148,6 +151,7 @@
 				7D39239A21B6876C00720971 /* CardGameDeck.swift in Sources */,
 				7D39239C21B689E000720971 /* InputView.swift in Sources */,
 				7D84856421B66CAE00EC2EA2 /* Suit.swift in Sources */,
+				7DECB8B421B9308400F1D805 /* CardStack.swift in Sources */,
 				7D84856621B66CC000EC2EA2 /* Rank.swift in Sources */,
 				7D84856021B6246400EC2EA2 /* Deck.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
