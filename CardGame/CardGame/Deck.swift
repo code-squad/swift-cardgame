@@ -41,14 +41,11 @@ struct CardDeck {
         return self.trumps.count
     }
     
-    mutating func drawCardStud(of cards: Int) -> [Trump]? {
+    mutating func drawCardStud(of cards: Int) -> [Trump] {
         var stud = [Trump]()
         
-        for _ in 0...cards {
-            guard let card = self.removeOne() as? Trump else {
-                return nil
-            }
-            stud.append(card)
+        for _ in 0..<cards {
+            stud.append(self.removeOne() as! Trump)
         }
         
         return stud

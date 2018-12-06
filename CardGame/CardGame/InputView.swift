@@ -19,6 +19,7 @@ struct InputView {
     
     func readPlayersNumber() -> String {
         print("참여할 사람의 인원을 입력하세요.")
+        print("최대 4명까지 가능합니다.")
         
         return readLine() ?? ""
     }
