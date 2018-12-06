@@ -1,57 +1,57 @@
-# 진행 방법
+## 코딩 컨벤션
 
-- 카드게임에 대한 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+#### **Naming**
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
-
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+- 클래스와 구조체 이름은 대문자로 시작, 메소드 이름과 변수 이름은 소문자로 시작한다.
+- 메소드명을 정할 때 시작은 동사형태로 시작하도록 한다.
+- 클래스에 구조체에 대해서는 Upper Camel Case를 적용, 메스드와 변수명에 대해서는 Lower Camel Case를 적용한다.
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-cardgame
+class Person {
+let name: String = "dong min"
+let age: Int = 24
+let livingAdderss = "111/100"
+}
 ```
-
-3. clone한 프로젝트 이동
+- 열거형에 대해서는 선언에는 Upper Camel Case를 활용, case에 대해서는 Lower Camel Case를 활용한다.
 ```
-cd {저장소 아이디}
-ex) cd swift-cardgame
+Enum Shape {
+case triangle
+case rectangle
+}
 ```
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
+
+#### **Spacing**
+
+- if/else/switch/while 의 중괄호는 항상 같은 라인에 사용한다.
 ```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
+if isArray {
+} else {
+}
 ```
 
-5. commit
+
+#### **Comment**
+
+- 코드와 같은 줄에는 주석을 사용하지 않는다.
+
+
+#### **Use of Self**
+
+- init()함수에서 초기화할 때, 이름과 속성 이름을 구분하는 데 필요할 때 self를 사용한다.
+- 그 외에는 사용하지 않는다.
+
+
+#### **Function Declarations**
+
+- 짧은 함수를 선언할 시에는 한줄에 중괄호를 포함한다.
+- 함수가 길어져서 줄바꿈이 생길 경우, 적절한 길이에서 줄바꿈을 하고 다음줄에는 들여쓰기를 포함한다.
 ```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
+func relateWithFriends(firstFriend: String, secondFriend: String, 
+thirdFriend: String) -> [String] {
+// Code
+}
 ```
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+참조 링크 https://github.com/raywenderlich/swift-style-guide/
