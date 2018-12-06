@@ -25,4 +25,15 @@ enum CardShape : Int, CustomStringConvertible {
             return "♦️"
         }
     }
+    
+    // Shape의 모든 케이스 리스트
+    static var allCases: [CardShape] {
+        var cases : [CardShape] = []
+        var index = 1
+        while let element = CardShape(rawValue: index) {
+            cases.append(element)
+            index += 1
+        }
+        return cases
+    }
 }

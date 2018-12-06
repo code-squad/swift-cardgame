@@ -37,4 +37,15 @@ enum CardNumber : Int, CustomStringConvertible {
             return "\(self.rawValue)"
         }
     }
+    
+    // Number의 모든 케이스 리스트
+    static var allCases: [CardNumber] {
+        var cases : [CardNumber] = []
+        var index = 1
+        while let element = CardNumber(rawValue: index) {
+            cases.append(element)
+            index += 1
+        }
+        return cases
+    }
 }

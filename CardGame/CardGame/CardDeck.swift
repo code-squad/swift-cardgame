@@ -29,13 +29,9 @@ class CardDeck {
     
     // 새로운 카드 덱 생성
     private func createNewDeck() {
-        let shapeCount = 5
-        let numberCount = 14
-        for shapeRaw in 1..<shapeCount {
-            for numberRaw in 1..<numberCount {
-                guard let shape = CardShape(rawValue: shapeRaw) else { return }
-                guard let number = CardNumber(rawValue: numberRaw) else { return }
-                cardDeck.append( Card(shape, number) )
+        for shape in CardShape.allCases {
+            for number in CardNumber.allCases {
+                cardDeck.append(Card(shape, number))
             }
         }
     }

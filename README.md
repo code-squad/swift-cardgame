@@ -8,16 +8,27 @@
 - 클래스에 구조체에 대해서는 Upper Camel Case를 적용, 메스드와 변수명에 대해서는 Lower Camel Case를 적용한다.
 ```
 class Person {
+<<<<<<< HEAD
 let name: String = "dong min"
 let age: Int = 24
 let livingAdderss = "111/100"
+=======
+  let name: String = "dong min"
+  let age: Int = 24
+  let livingAdderss = "111/100"
+>>>>>>> dd079f3f8483c95b20fed9f951c925fec0101506
 }
 ```
 - 열거형에 대해서는 선언에는 Upper Camel Case를 활용, case에 대해서는 Lower Camel Case를 활용한다.
 ```
 Enum Shape {
+<<<<<<< HEAD
 case triangle
 case rectangle
+=======
+  case triangle
+  case rectangle
+>>>>>>> dd079f3f8483c95b20fed9f951c925fec0101506
 }
 ```
 
@@ -49,8 +60,13 @@ if isArray {
 - 함수가 길어져서 줄바꿈이 생길 경우, 적절한 길이에서 줄바꿈을 하고 다음줄에는 들여쓰기를 포함한다.
 ```
 func relateWithFriends(firstFriend: String, secondFriend: String, 
+<<<<<<< HEAD
 thirdFriend: String) -> [String] {
 // Code
+=======
+  thirdFriend: String) -> [String] {
+  // Code
+>>>>>>> dd079f3f8483c95b20fed9f951c925fec0101506
 }
 ```
 
