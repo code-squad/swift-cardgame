@@ -33,14 +33,6 @@ struct Deck : CardGameDeck {
         self.cards = shuffle(cards: self.cards)
     }
     
-    mutating func removeOne() -> Card? {
-        return cards.popLast()
-    }
-    
-    mutating func reset() {
-        self.cards = Deck().cards
-    }
-    
     func shuffle(cards:[Card]) -> [Card] {
         var willSuffleCards = cards
         
@@ -49,5 +41,24 @@ struct Deck : CardGameDeck {
         }
         
         return willSuffleCards
+    }
+    
+    mutating func removeOne() -> Card? {
+        return cards.popLast()
+    }
+    
+    mutating func reset() {
+        self.cards = Deck().cards
+    }
+    
+    mutating func draw(few: Int) -> [Card] {
+        var drawnCards = [Card]()
+        
+        for _ in 0..<few {
+            guard let drawnCard = self.cards.popLast() else {break}
+            drawnCards.append(drawnCard)
+        }
+        
+        return drawnCards
     }
 }
