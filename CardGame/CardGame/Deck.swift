@@ -13,8 +13,8 @@ struct Deck : CardGameDeck {
     
     init() {
         var cards = [Card]()
-        let suits : [Suit] = [.clubs,.hearts,.spades,.diamonds]
-        let ranks : [Rank] = [.A,.two,.three,.four,.five,.six,.seven,.eight,.nine,.ten,.J,.Q,.K]
+        let suits : [Suit] = Suit.allCases
+        let ranks : [Rank] = Rank.allCases
         
         for suit in suits {
             for rank in ranks {

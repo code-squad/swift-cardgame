@@ -9,7 +9,7 @@
 import Foundation
 
 //Suit와 마찬가지 이유로 enum과 Int타입의 rawValue를 사용했습니다.
-enum Rank : Int, CustomStringConvertible {
+enum Rank : Int, CustomStringConvertible, CaseIterable {
     case A = 1
     case two, three, four, five, six, seven, eight, nine, ten
     case J, Q, K
