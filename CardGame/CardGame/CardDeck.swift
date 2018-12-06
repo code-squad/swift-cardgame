@@ -9,11 +9,11 @@
 import Foundation
 
 class CardDeck {
-    private var cardDeck : [Card]
+    private var cardDeck : [Card] = []
     
     // cardDeck을 초기화
     init() {
-        cardDeck = []
+        createNewDeck()
     }
     
     // 카드 덱 초기화
@@ -61,5 +61,15 @@ class CardDeck {
     func removeOne() -> Card? {
         guard cardDeck.count != 0 else { return nil }
         return cardDeck.remove(at: cardDeck.count-1)
+    }
+    
+    // 카드에서 여러장을 뽑음
+    func pickCardStack(by count : Int) -> [Card] {
+        var cardStack : [Card] = []
+        for _ in 0..<count {
+            guard let pickCard = removeOne() else { return [] }
+            cardStack.append(pickCard)
+        }
+        return cardStack
     }
 }
