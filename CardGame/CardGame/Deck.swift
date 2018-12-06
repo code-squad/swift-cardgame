@@ -22,7 +22,7 @@ struct Deck : CardGameDeck {
             }
         }
         
-        self.cards = cards.shuffled()
+        self.cards = cards
     }
     
     func count() -> Int {
@@ -30,7 +30,7 @@ struct Deck : CardGameDeck {
     }
     
     mutating func shuffle() {
-        cards.shuffle()
+        self.cards = shuffle(cards: self.cards)
     }
     
     mutating func removeOne() -> Card? {
@@ -39,5 +39,18 @@ struct Deck : CardGameDeck {
     
     mutating func reset() {
         self.cards = Deck().cards
+    }
+    
+    func shuffle(cards:[Card]) -> [Card] {
+        var willSuffleCards = cards
+        var shuffledCards = [Card]()
+        
+        for _ in 0..<willSuffleCards.count {
+            guard let randomCard = willSuffleCards.randomElement() else {break}
+            shuffledCards.append(randomCard)
+            willSuffleCards = willSuffleCards.filter() {$0.description != randomCard.description}
+        }
+        
+        return shuffledCards
     }
 }
