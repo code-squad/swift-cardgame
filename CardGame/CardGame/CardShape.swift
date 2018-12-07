@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum CardShape : Int, CustomStringConvertible {
-    case spade = 1
-    case clover = 2
-    case diamond = 3
-    case heart = 4
+enum CardShape : CustomStringConvertible, CaseIterable {
+    case spade
+    case clover
+    case diamond
+    case heart
     var description: String {
         switch self {
         case .spade:
@@ -24,16 +24,5 @@ enum CardShape : Int, CustomStringConvertible {
         case .diamond:
             return "♦️"
         }
-    }
-    
-    // Shape의 모든 케이스 리스트
-    static var allCases: [CardShape] {
-        var cases : [CardShape] = []
-        var index = 1
-        while let element = CardShape(rawValue: index) {
-            cases.append(element)
-            index += 1
-        }
-        return cases
     }
 }
