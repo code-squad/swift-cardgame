@@ -9,15 +9,15 @@
 import Foundation
 
 struct GameInputView {
-    static func readGameType() -> Int {
+    static func readGameType() -> GameType? {
         let input = InputView.readInput(ment: "카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드\n> ")
         switch input {
         case "1":
-            return 7
+            return .one
         case "2":
-            return 5
+            return .two
         default:
-            return 0
+            return nil
         }
     }
     
