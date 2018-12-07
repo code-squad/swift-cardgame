@@ -66,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D52BBF821BA4869002E4B8D /* CardProperty */ = {
+			isa = PBXGroup;
+			children = (
+				7D84856321B66CAE00EC2EA2 /* Suit.swift */,
+				7D84856521B66CC000EC2EA2 /* Rank.swift */,
+			);
+			path = CardProperty;
+			sourceTree = "<group>";
+		};
 		839DA8D81F8CDBC9009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -94,12 +103,11 @@
 				7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */,
 				7DECB8AD21B8BAFA00F1D805 /* OutputView.swift */,
 				7D39239B21B689E000720971 /* InputView.swift */,
-				7DECB8B321B9308400F1D805 /* CardStack.swift */,
 				7D84855B21B54A5800EC2EA2 /* Card.swift */,
 				7D84855F21B6246400EC2EA2 /* Deck.swift */,
 				7D39239921B6876C00720971 /* CardGameDeck.swift */,
-				7D84856321B66CAE00EC2EA2 /* Suit.swift */,
-				7D84856521B66CC000EC2EA2 /* Rank.swift */,
+				7DECB8B321B9308400F1D805 /* CardStack.swift */,
+				7D52BBF821BA4869002E4B8D /* CardProperty */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
