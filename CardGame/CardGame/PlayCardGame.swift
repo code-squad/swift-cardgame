@@ -47,8 +47,7 @@ struct PlayCardGame {
         case .fiveCard: playersCardStack = dealer.makeCardStack(by: 5, with: players.count)
         case .sevenCard: playersCardStack = dealer.makeCardStack(by: 7, with: players.count)
         }
-        
-        
+        dealer.distributeCardToPlayer(to: players, what: playersCardStack)
     }
     
     static func isOverGame(_ deck: CardDeck) -> Bool {
