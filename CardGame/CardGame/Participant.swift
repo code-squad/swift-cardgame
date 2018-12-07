@@ -12,6 +12,11 @@ struct Participant : GamePlayer {
     private let name : String
     private var cards : [Card]
     
+    init(name:String, cards:[Card]) {
+        self.name = name
+        self.cards = cards
+    }
+    
     func showCardInHand() {
         print(self.cards, terminator:"")
     }
