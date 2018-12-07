@@ -9,15 +9,15 @@
 import Foundation
 
 struct Participant : GamePlayer {
-    private let name : String
+    private let role : String
     private var cards : [Card]
     
     var description: String {
-        return "\(self.name) \(self.cards)"
+        return "\(self.role) \(self.cards)"
     }
     
     init(name:String, cards:[Card]) {
-        self.name = name
+        self.role = name
         self.cards = cards
     }
     
@@ -26,6 +26,6 @@ struct Participant : GamePlayer {
     }
     
     func showName() {
-        print(self.name, terminator:"")
+        print(self.role, terminator:"")
     }
 }
