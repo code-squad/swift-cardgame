@@ -15,7 +15,6 @@ struct ValidChecker {
     }
     
     static func check(gameType:Int) -> Bool {
-        let oneAndTwo = 1...2
-        return oneAndTwo.contains(gameType)
+        return gameType == 5 || gameType == 7
     }
 }

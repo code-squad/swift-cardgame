@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GamePlayer {
+protocol GamePlayer: CustomStringConvertible {
     func showCardInHand()
     func showName()
 }
