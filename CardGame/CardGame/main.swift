@@ -17,6 +17,8 @@ func main () {
         guard ValidChecker.check(gameType: gameType) else {return}
         let numberOfParticipant = GameInputView.readNumberOfParticipant()
         guard ValidChecker.check(numberOfParticipant: numberOfParticipant) else {return}
+        
+        
     }
 }
 
