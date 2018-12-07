@@ -1,5 +1,5 @@
 //
-//  Dealer.swift
+//  Participant.swift
 //  CardGame
 //
 //  Created by 조재흥 on 18. 12. 7..
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Dealer: GamePlayer {
-    private let name = "딜러"
+struct Participant : GamePlayer {
+    private let name : String
     private var cards : [Card]
     
     func showCardInHand() {

@@ -20,6 +20,7 @@
 		7DECB8B821B988E900F1D805 /* ValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B721B988E900F1D805 /* ValidChecker.swift */; };
 		7DECB8BA21BA131B00F1D805 /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B921BA131B00F1D805 /* GamePlayer.swift */; };
 		7DECB8BC21BA16FF00F1D805 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8BB21BA16FF00F1D805 /* Dealer.swift */; };
+		7DECB8BE21BA1AB500F1D805 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8BD21BA1AB500F1D805 /* Participant.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		7DECB8B721B988E900F1D805 /* ValidChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidChecker.swift; sourceTree = "<group>"; };
 		7DECB8B921BA131B00F1D805 /* GamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayer.swift; sourceTree = "<group>"; };
 		7DECB8BB21BA16FF00F1D805 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		7DECB8BD21BA1AB500F1D805 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				7DECB8B921BA131B00F1D805 /* GamePlayer.swift */,
 				7DECB8BB21BA16FF00F1D805 /* Dealer.swift */,
+				7DECB8BD21BA1AB500F1D805 /* Participant.swift */,
 				7DECB8B521B984D400F1D805 /* GameInputView.swift */,
 				7DECB8B721B988E900F1D805 /* ValidChecker.swift */,
 				7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */,
@@ -161,6 +164,7 @@
 			files = (
 				7DECB8B621B984D400F1D805 /* GameInputView.swift in Sources */,
 				7DECB8B221B9122C00F1D805 /* CardGameSetter.swift in Sources */,
+				7DECB8BE21BA1AB500F1D805 /* Participant.swift in Sources */,
 				7DECB8BC21BA16FF00F1D805 /* Dealer.swift in Sources */,
 				7D39239A21B6876C00720971 /* CardGameDeck.swift in Sources */,
 				7D39239C21B689E000720971 /* InputView.swift in Sources */,

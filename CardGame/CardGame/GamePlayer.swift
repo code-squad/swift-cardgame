@@ -10,4 +10,5 @@ import Foundation
 
 protocol GamePlayer {
     func showCardInHand()
+    func showName()
 }
