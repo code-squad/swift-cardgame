@@ -11,11 +11,11 @@ import Foundation
 struct Dealer: GamePlayer {
     static var deck : CardGameDeck = Deck()
     
-    private let name = "딜러"
+    private let role = "딜러"
     private var cards : [Card]
     
     var description: String {
-        return "\(self.name) \(self.cards)"
+        return "\(self.role) \(self.cards)"
     }
     
     init(cards:[Card]) {
@@ -27,7 +27,7 @@ struct Dealer: GamePlayer {
     }
     
     func showName() {
-        print(self.name, terminator:"")
+        print(self.role, terminator:"")
     }
     
     static func distributeCard(gameType:Int, numberOfParticipant:Int) -> [GamePlayer] {
