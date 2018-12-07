@@ -20,12 +20,4 @@ struct Participant : GamePlayer {
         self.role = name
         self.cards = cards
     }
-    
-    func showCardInHand() {
-        print(self.cards, terminator:"")
-    }
-    
-    func showName() {
-        print(self.role, terminator:"")
-    }
 }
