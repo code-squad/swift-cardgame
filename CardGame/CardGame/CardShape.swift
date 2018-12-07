@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum CardShape : Int, CustomStringConvertible {
-    case spade = 1
-    case clover = 2
-    case diamond = 3
-    case heart = 4
+enum CardShape : CustomStringConvertible, CaseIterable {
+    case spade
+    case clover
+    case diamond
+    case heart
     var description: String {
         switch self {
         case .spade:
