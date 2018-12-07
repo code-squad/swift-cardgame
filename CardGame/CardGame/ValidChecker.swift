@@ -14,7 +14,8 @@ struct ValidChecker {
         return oneToFour.contains(Int(numberOfParticipant) ?? 0)
     }
     
-    static func check(gameType:String) -> Bool {
-        return gameType == "1" || gameType == "2"
+    static func check(gameType:Int) -> Bool {
+        let oneAndTwo = 1...2
+        return oneAndTwo.contains(gameType)
     }
 }

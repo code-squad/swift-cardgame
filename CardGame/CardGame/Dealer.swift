@@ -19,4 +19,13 @@ struct Dealer: GamePlayer {
     func showName() {
         print(self.name, terminator:"")
     }
+    
+    static func cardDistribution(gameType:String, numberOfParticipant:Int) -> [GamePlayer] {
+        var gamePlayers = [GamePlayer]()
+        var nubmerOfDistributionCard = 0
+
+        
+        return gamePlayers
+    }
 }
+
