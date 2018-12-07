@@ -9,9 +9,9 @@
 import Foundation
 
 struct ValidChecker {
-    static func check(numberOfParticipant:String) -> Bool {
+    static func check(numberOfParticipant:Int) -> Bool {
         let oneToFour = 1...4
-        return oneToFour.contains(Int(numberOfParticipant) ?? 0)
+        return oneToFour.contains(numberOfParticipant)
     }
     
     static func check(gameType:Int) -> Bool {
