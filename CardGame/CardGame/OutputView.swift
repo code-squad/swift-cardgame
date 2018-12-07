@@ -10,11 +10,13 @@ import Foundation
 
 struct OutputView {
     
-    static func printPlayerCasds(with stack: [[Card]]) {
-        for player in 0..<stack.count-1 {
-            print("참가자#\(player+1) \(stack[player])")
+    static func printPlayerCasds(with players: [Player], _ dealer: Dealer) {
+        var playerNumber = 1
+        for player in players {
+            print("참가자#\(playerNumber) \(player.cards)")
+            playerNumber += 1
         }
-        print("딜러 \(stack[stack.index(before: stack.endIndex)])\n")
+        print("딜러 \(dealer.cards)")
     }
     
     // 카드 초기화 명령어일 시 콘솔 출력
