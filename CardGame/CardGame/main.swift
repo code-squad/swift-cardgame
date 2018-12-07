@@ -18,6 +18,13 @@ func main () {
         let numberOfParticipant = GameInputView.readNumberOfParticipant()
         guard ValidChecker.check(numberOfParticipant: numberOfParticipant) else {return}
         
+        var gamePlayers = [GamePlayer]()
+        for number in 1...numberOfParticipant {
+           gamePlayers.append(Participant.init(name: "참가자#\(number)",
+                                               cards: deck.draw(few: numberOfParticipant)))
+        }
+        gamePlayers.append(Dealer.init(cards: deck.draw(few: numberOfParticipant)))
+        
         
     }
 }
