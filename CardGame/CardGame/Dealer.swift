@@ -11,16 +11,23 @@ import Foundation
 class Dealer {
     var deck: CardDeck
     var cards: [Card]
-    var cardStack : [[Card]]
     
     init(of deck: CardDeck) {
         self.deck = deck
         cards = []
-        cardStack = []
+    }
+    
+    func distributeCardToPlayer(to players: [Player], stack: [[Card]]) {
+        var cardOrder = 0
+        for player in players {
+            player.receiveCards(stack[cardOrder])
+            cardOrder += 1
+        }
     }
     
     // 사용자에게 나눠줄 패들을 만듬
     func makeCardStack(by menu: Int, with players: Int) -> [[Card]] {
+        var cardStack : [[Card]] = []
         for _ in 0..<players { cardStack.append(makeOneStack(by: menu)) }
         return cardStack
     }
@@ -34,8 +41,4 @@ class Dealer {
         }
         return playerCards
     }
-
-
-    
-    
 }
