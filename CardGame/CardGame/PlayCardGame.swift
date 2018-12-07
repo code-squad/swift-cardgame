@@ -51,6 +51,7 @@ struct PlayCardGame {
         OutputView.printPlayerCasds(with: players, dealer)
     }
     
+    // 게임이 끝난 상태를 확인
     static func isOverGame(_ deck: CardDeck) -> Bool {
         guard deck.count() == 0 else { return false }
         return true
