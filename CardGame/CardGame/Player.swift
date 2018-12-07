@@ -9,9 +9,14 @@
 import Foundation
 
 class Player {
-    private var cards : [Card]
+    private(set) var cards : [Card]
     
     init() {
         cards = []
+    }
+    
+    // 카드 패를 받음
+    func receiveCards(_ cards: [Card]) {
+        self.cards = cards
     }
 }
