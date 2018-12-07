@@ -12,4 +12,11 @@ struct OutputView {
     static func outputState(ment:String) {
         print(ment)
     }
+    
+    static func outputPlayers(players:[GamePlayer]) {
+        for player in players {
+            print(player)
+        }
+    }
 }
+
