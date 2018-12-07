@@ -13,9 +13,9 @@ struct GameInputView {
         let input = InputView.readInput(ment: "카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드\n> ")
         switch input {
         case "1":
-            return 5
-        case "2":
             return 7
+        case "2":
+            return 5
         default:
             return 0
         }

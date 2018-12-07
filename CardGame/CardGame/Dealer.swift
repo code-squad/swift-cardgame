@@ -12,6 +12,10 @@ struct Dealer: GamePlayer {
     private let name = "딜러"
     private var cards : [Card]
     
+    var description: String {
+        return "\(self.name) \(self.cards)"
+    }
+    
     init(cards:[Card]) {
         self.cards = cards
     }
@@ -22,13 +26,6 @@ struct Dealer: GamePlayer {
     
     func showName() {
         print(self.name, terminator:"")
-    }
-    
-    static func cardDistribution(gameType:Int, numberOfParticipant:Int, deck:Deck) -> [GamePlayer] {
-        var gamePlayers = [GamePlayer]()
-
-        
-        return gamePlayers
     }
 }
 

@@ -12,6 +12,10 @@ struct Participant : GamePlayer {
     private let name : String
     private var cards : [Card]
     
+    var description: String {
+        return "\(self.name) \(self.cards)"
+    }
+    
     init(name:String, cards:[Card]) {
         self.name = name
         self.cards = cards
