@@ -12,13 +12,13 @@ struct Dealer: GamePlayer {
     static var deck : CardGameDeck = Deck()
     
     private let role = "딜러"
-    private var cards : [Card]
+    private var cards : CardStack
     
     var description: String {
         return "\(self.role) \(self.cards)"
     }
     
-    init(cards:[Card]) {
+    init(cards:CardStack) {
         self.cards = cards
     }
     

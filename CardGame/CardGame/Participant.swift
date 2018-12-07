@@ -10,13 +10,13 @@ import Foundation
 
 struct Participant : GamePlayer {
     private let role : String
-    private var cards : [Card]
+    private var cards : CardStack
     
     var description: String {
         return "\(self.role) \(self.cards)"
     }
     
-    init(name:String, cards:[Card]) {
+    init(name:String, cards:CardStack) {
         self.role = name
         self.cards = cards
     }

@@ -8,8 +8,11 @@
 
 import Foundation
 
-class CardStack {
+class CardStack : CustomStringConvertible {
     var cards : [Card]
+    var description: String {
+        return "\(self.cards)"
+    }
     
     init(cards:[Card]) {
         self.cards = cards
@@ -25,9 +28,5 @@ class CardStack {
     
     func peek() -> Card? {
         return cards.last
-    }
-    
-    func show() {
-        print(self.cards)
     }
 }
