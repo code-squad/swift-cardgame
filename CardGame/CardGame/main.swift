@@ -11,13 +11,13 @@ import Foundation
 func main () {
     while true {
         guard let gameType = GameInputView.readGameType() else {return}
-        let numberOfParticipant = GameInputView.readNumberOfParticipant()
-        guard ValidChecker.check(numberOfParticipant: numberOfParticipant) else {return}
+        guard let numberOfParticipant = GameInputView.readNumberOfParticipant() else {return}
         guard ValidChecker.checkContinuable(gameType: gameType.rawValue,
-                                            numberOfParticipant: numberOfParticipant,
+                                            numberOfParticipant: numberOfParticipant.rawValue,
                                             numberOfCards: Dealer.numberOfDeck()) else {return}
         
-        let players = Dealer.distributeCard(gameType: gameType.rawValue, numberOfParticipant: numberOfParticipant)
+        let players = Dealer.distributeCard(gameType: gameType.rawValue,
+                                            numberOfParticipant: numberOfParticipant.rawValue)
         
         OutputView.outputPlayers(players: players)
     }
