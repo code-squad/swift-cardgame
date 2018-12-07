@@ -18,7 +18,7 @@ struct ValidChecker {
         return gameType == 5 || gameType == 7
     }
     
-    static func checkContinuable(numberOfParticipant:Int, gameType:Int, numberOfCards:Int) -> Bool {
+    static func checkContinuable(gameType:Int, numberOfParticipant:Int, numberOfCards:Int) -> Bool {
         return numberOfCards > (numberOfParticipant + 1) * gameType
     }
 }

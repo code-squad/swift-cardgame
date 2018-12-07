@@ -9,23 +9,18 @@
 import Foundation
 
 func main () {
-    var deck : CardGameDeck = Deck()
-    deck.shuffle()
-    
     while true {
         let gameType = GameInputView.readGameType()
         guard ValidChecker.check(gameType: gameType) else {return}
         let numberOfParticipant = GameInputView.readNumberOfParticipant()
         guard ValidChecker.check(numberOfParticipant: numberOfParticipant) else {return}
-        guard ValidChecker.checkContinuable(numberOfParticipant: numberOfParticipant, gameType: gameType, numberOfCards: deck.count()) else {return}
+        guard ValidChecker.checkContinuable(gameType: gameType,
+                                            numberOfParticipant: numberOfParticipant,
+                                            numberOfCards: Dealer.numberOfDeck()) else {return}
         
-        var gamePlayers = [GamePlayer]()
-        for number in 1...numberOfParticipant {
-           gamePlayers.append(Participant.init(name: "참가자#\(number)",cards: deck.draw(few: gameType)))
-        }
-        gamePlayers.append(Dealer.init(cards: deck.draw(few: gameType)))
+        let players = Dealer.distributeCard(gameType: gameType, numberOfParticipant: numberOfParticipant)
         
-        OutputView.outputPlayers(players: gamePlayers)
+        OutputView.outputPlayers(players: players)
     }
 }
 
