@@ -9,6 +9,5 @@
 import Foundation
 
 protocol GamePlayer: CustomStringConvertible {
-    func showCardInHand()
-    func showName()
+    var description: String {get}
 }

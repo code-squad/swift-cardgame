@@ -22,14 +22,6 @@ struct Dealer: GamePlayer {
         self.cards = cards
     }
     
-    func showCardInHand() {
-        print(self.cards, terminator:"")
-    }
-    
-    func showName() {
-        print(self.role, terminator:"")
-    }
-    
     static func distributeCard(gameType:Int, numberOfParticipant:Int) -> [GamePlayer] {
         var gamePlayers = [GamePlayer]()
         deck.shuffle()
