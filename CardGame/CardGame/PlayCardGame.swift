@@ -48,6 +48,7 @@ struct PlayCardGame {
         case .sevenCard: playersCardStack = dealer.makeCardStack(by: 7, with: players.count)
         }
         dealer.distributeCardToPlayer(to: players, what: playersCardStack)
+        OutputView.printPlayerCasds(with: players, dealer)
     }
     
     static func isOverGame(_ deck: CardDeck) -> Bool {

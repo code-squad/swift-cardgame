@@ -9,8 +9,8 @@
 import Foundation
 
 class Dealer {
-    var deck: CardDeck
-    var cards: [Card]
+    private var deck: CardDeck
+    private(set) var cards: [Card]
     
     init(of deck: CardDeck) {
         self.deck = deck
