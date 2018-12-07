@@ -10,12 +10,12 @@ import Foundation
 
 class CardDeck {
     private var cardDeck : [Card] = []
-    private var cardStack : [[Card]] = [[]]
     
     // cardDeck을 초기화
     init() {
         createNewDeck()
-        cardStack.remove(at: 0)
+        shuffle()
+
     }
     
     // 카드 덱 초기화
@@ -47,7 +47,6 @@ class CardDeck {
     func shuffle() {
         var tempCardDeck : [Card] = []
         var tempCard : Card
-        
         for step in stride(from: cardDeck.count-1, through: 0, by: -1) {
             tempCard = cardDeck.remove(at: Int(arc4random_uniform(UInt32(step))))
             tempCardDeck.append(tempCard)
@@ -59,21 +58,5 @@ class CardDeck {
     func removeOne() -> Card? {
         guard cardDeck.count != 0 else { return nil }
         return cardDeck.remove(at: cardDeck.count-1)
-    }
-    
-    // CardStack을 만듬
-    func makeCardStack() -> [[Card]]{
-        for count in 1..<8 { cardStack.append(pickCardStack(by: count)) }
-        return cardStack
-    }
-    
-    // 카드에서 여러장을 뽑음
-    private func pickCardStack(by count : Int) -> [Card] {
-        var cardStack : [Card] = []
-        for _ in 0..<count {
-            guard let pickCard = removeOne() else { return [] }
-            cardStack.append(pickCard)
-        }
-        return cardStack
     }
 }

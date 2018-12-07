@@ -9,7 +9,6 @@
 import Foundation
 
 enum ChoiceMenu : String {
-    case resetCard = "1"
-    case shuffleCard = "2"
-    case pickCard = "3"
+    case sevenCard = "1"
+    case fiveCard = "2"
 }
