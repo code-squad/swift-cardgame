@@ -21,7 +21,8 @@ struct GameInputView {
         }
     }
     
-    static func readNumberOfParticipant() -> String {
-        return InputView.readInput(ment: "참여할 사람의 인원을 입력하세요.\n> ")
+    static func readNumberOfParticipant() -> Int {
+        let input = InputView.readInput(ment: "참여할 사람의 인원을 입력하세요.\n> ")
+        return Int(input) ?? 0
     }
 }
