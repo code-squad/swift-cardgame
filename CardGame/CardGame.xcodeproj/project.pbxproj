@@ -33,6 +33,7 @@
 		7D84856421B66CAE00EC2EA2 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856321B66CAE00EC2EA2 /* Suit.swift */; };
 		7D84856621B66CC000EC2EA2 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856521B66CC000EC2EA2 /* Rank.swift */; };
 		7DB13DB521BD0197004DD1D2 /* ValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B721B988E900F1D805 /* ValidChecker.swift */; };
+		7DB13DB721BD0399004DD1D2 /* UnitTestCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB13DB621BD0399004DD1D2 /* UnitTestCard.swift */; };
 		7DECB8AE21B8BAFA00F1D805 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8AD21B8BAFA00F1D805 /* OutputView.swift */; };
 		7DECB8B221B9122C00F1D805 /* CardGameSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */; };
 		7DECB8B421B9308400F1D805 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B321B9308400F1D805 /* CardStack.swift */; };
@@ -70,6 +71,7 @@
 		7D84855F21B6246400EC2EA2 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		7D84856321B66CAE00EC2EA2 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		7D84856521B66CC000EC2EA2 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		7DB13DB621BD0399004DD1D2 /* UnitTestCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCard.swift; sourceTree = "<group>"; };
 		7DECB8AD21B8BAFA00F1D805 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameSetter.swift; sourceTree = "<group>"; };
 		7DECB8B321B9308400F1D805 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				7D1DBCB721BCFC3C00579C33 /* UnitTestDealer.swift */,
 				7D1DBCDC21BD00EE00579C33 /* UnitTestValidChecker.swift */,
+				7DB13DB621BD0399004DD1D2 /* UnitTestCard.swift */,
 				7D1DBCB921BCFC3C00579C33 /* Info.plist */,
 			);
 			path = UnitTestCardGame;
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB13DB721BD0399004DD1D2 /* UnitTestCard.swift in Sources */,
 				7D1DBCC121BCFE8400579C33 /* Deck.swift in Sources */,
 				7D1DBCDA21BD005D00579C33 /* InputView.swift in Sources */,
 				7DB13DB521BD0197004DD1D2 /* ValidChecker.swift in Sources */,
