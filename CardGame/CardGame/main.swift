@@ -19,6 +19,7 @@ func main () {
         let players = Dealer.distributeCard(gameType: gameType.rawValue,
                                             numberOfParticipant: numberOfParticipant.rawValue)
         
+        print(players[0].score())
         OutputView.outputPlayers(players: players)
     }
 }

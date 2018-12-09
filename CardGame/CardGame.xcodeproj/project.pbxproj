@@ -79,6 +79,15 @@
 			path = CardProperty;
 			sourceTree = "<group>";
 		};
+		7D52BBFE21BA5DEC002E4B8D /* GameSetValue */ = {
+			isa = PBXGroup;
+			children = (
+				7D52BBFA21BA5B23002E4B8D /* GameType.swift */,
+				7D52BBFC21BA5B76002E4B8D /* NumberOfParticipant.swift */,
+			);
+			path = GameSetValue;
+			sourceTree = "<group>";
+		};
 		839DA8D81F8CDBC9009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				7D52BBFA21BA5B23002E4B8D /* GameType.swift */,
-				7D52BBFC21BA5B76002E4B8D /* NumberOfParticipant.swift */,
 				7DECB8B921BA131B00F1D805 /* GamePlayer.swift */,
 				7DECB8BB21BA16FF00F1D805 /* Dealer.swift */,
 				7DECB8BD21BA1AB500F1D805 /* Participant.swift */,
@@ -113,6 +120,7 @@
 				7D84855F21B6246400EC2EA2 /* Deck.swift */,
 				7D39239921B6876C00720971 /* CardGameDeck.swift */,
 				7DECB8B321B9308400F1D805 /* CardStack.swift */,
+				7D52BBFE21BA5DEC002E4B8D /* GameSetValue */,
 				7D52BBF821BA4869002E4B8D /* CardProperty */,
 			);
 			path = CardGame;

@@ -10,4 +10,5 @@ import Foundation
 
 protocol GamePlayer: CustomStringConvertible {
     var description: String {get}
+    func score() -> Int
 }

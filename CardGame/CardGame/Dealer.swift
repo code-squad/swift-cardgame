@@ -35,5 +35,9 @@ struct Dealer: GamePlayer {
     static func numberOfDeck() -> Int {
         return self.deck.count()
     }
+    
+    func score() -> Int {
+        return self.cards.score()
+    }
 }
 

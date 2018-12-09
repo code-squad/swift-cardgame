@@ -20,4 +20,8 @@ struct Participant : GamePlayer {
         self.role = name
         self.cards = cards
     }
+    
+    func score() -> Int {
+        return self.cards.score()
+    }
 }
