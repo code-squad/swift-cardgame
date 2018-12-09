@@ -82,7 +82,7 @@ class CardStack : CustomStringConvertible {
     private func calculateScore(handRankingScore:Int, bundle:Int) -> Int {
         var score = handRankingScore
         let handRanking = self.gatherInPairs().filter(){$0.count == bundle}
-        let maxValueCard = handRanking[0].max { a, b in a.score() < b.score()}
+        let maxValueCard = handRanking[0].max { cardA, cardB in cardA.score() < cardB.score()}
         guard let suitRankScore = maxValueCard?.score() else {return 0}
         score += suitRankScore
         return score

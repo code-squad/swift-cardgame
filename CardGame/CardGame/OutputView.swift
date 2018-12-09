@@ -18,5 +18,9 @@ struct OutputView {
             print(player)
         }
     }
+    
+    static func announceTheWinner(_ winnerDescription:String) {
+        print("\n우승자는 \(winnerDescription)입니다!\n")
+    }
 }
 
