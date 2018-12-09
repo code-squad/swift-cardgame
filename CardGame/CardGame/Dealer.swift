@@ -9,7 +9,7 @@
 import Foundation
 
 struct Dealer: GamePlayer {
-    static var deck : CardGameDeck = Deck()
+    static private var deck : CardGameDeck = Deck()
     
     private let role = "딜러"
     private var cards : CardStack
