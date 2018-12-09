@@ -19,4 +19,12 @@ class Card : CustomStringConvertible {
         self.suit = suit
         self.rank = rank
     }
+    
+    func isSame(rank: Rank) -> Bool {
+        return self.rank == rank
+    }
+    
+    func score() -> Int {
+        return self.rank.rawValue * 10 + self.suit.rawValue
+    }
 }
