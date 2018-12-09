@@ -42,14 +42,20 @@ class CardStack : CustomStringConvertible {
         return pairs.reversed()
     }
     
-    func score() -> Int {
-        let pairs = gatherInPairs()
+    private func numberOfPairs(pairs:[[Card]]) -> [Int] {
         var numberOfPair = [0,0,0,0,0]
-        var score = 0
         
         for pair in pairs {
             numberOfPair[pair.count] += 1
         }
+        
+        return numberOfPair
+    }
+    
+    func score() -> Int {
+        let pairs = self.gatherInPairs()
+        var numberOfPair = self.numberOfPairs(pairs: pairs)
+        var score = 0
         
         if numberOfPair[4] == 1 {
             score += 4000
