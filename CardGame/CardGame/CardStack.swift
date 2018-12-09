@@ -30,10 +30,8 @@ class CardStack : CustomStringConvertible {
         return cards.last
     }
     
-    func score() -> Int {
+    private func gatherInPairs() -> [[Card]] {
         var pairs = [[Card]]()
-        var numberOfPair = [0,0,0,0,0]
-        var score = 0
         
         for rank in Rank.allCases {
             let cards = self.cards.filter(){$0.isSame(rank: rank)}
@@ -41,7 +39,13 @@ class CardStack : CustomStringConvertible {
             pairs.append(cards)
         }
         
-        pairs.reverse()
+        return pairs.reversed()
+    }
+    
+    func score() -> Int {
+        let pairs = gatherInPairs()
+        var numberOfPair = [0,0,0,0,0]
+        var score = 0
         
         for pair in pairs {
             numberOfPair[pair.count] += 1
