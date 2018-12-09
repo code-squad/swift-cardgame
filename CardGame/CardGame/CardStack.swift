@@ -55,52 +55,36 @@ class CardStack : CustomStringConvertible {
     func score() -> Int {
         let pairs = self.gatherInPairs()
         var numberOfPair = self.numberOfPairs(pairs: pairs)
-        var score = 0
         
         if numberOfPair[4] == 1 {
-            score += 4000
-            let fourCard = pairs.filter(){$0.count == 4}
-            let maxValueCard = fourCard[0].max { a, b in a.score() < b.score()}
-            guard let suitRankScore = maxValueCard?.score() else {return 0}
-            score += suitRankScore
-            return score
+            return calculateScore(handRankingScore: 4000, bundle: 4)
         }
         
         if numberOfPair[3] >= 1 {
-            score += 3000
-            let triple = pairs.filter(){$0.count == 3}
-            let maxValueCard = triple[0].max { a, b in a.score() < b.score()}
-            guard let suitRankScore = maxValueCard?.score() else {return 0}
-            score += suitRankScore
-            return score
+            return calculateScore(handRankingScore: 3000, bundle: 3)
         }
         
         if numberOfPair[2] >= 2 {
-            score += 2000
-            let twoPair = pairs.filter(){$0.count == 2}
-            let maxValueCard = twoPair[0].max { a, b in a.score() < b.score()}
-            guard let suitRankScore = maxValueCard?.score() else {return 0}
-            score += suitRankScore
-            return score
+            return calculateScore(handRankingScore: 2000, bundle: 2)
         }
         
         if numberOfPair[2] == 1 {
-            score += 1000
-            let onePair = pairs.filter(){$0.count == 2}
-            let maxValueCard = onePair[0].max { a, b in a.score() < b.score()}
-            guard let suitRankScore = maxValueCard?.score() else {return 0}
-            score += suitRankScore
-            return score
+            return calculateScore(handRankingScore: 1000, bundle: 2)
         }
         
         if numberOfPair[1] >= 1 {
-            let nothing = pairs.filter(){$0.count == 1}
-            let maxValueCard = nothing[0].max { a, b in a.score() < b.score()}
-            guard let suitRankScore = maxValueCard?.score() else {return 0}
-            score += suitRankScore
-            return score
+            return calculateScore(handRankingScore: 0, bundle: 1)
         }
         
+        return 0
+    }
+    
+    private func calculateScore(handRankingScore:Int, bundle:Int) -> Int {
+        var score = handRankingScore
+        let handRanking = self.gatherInPairs().filter(){$0.count == bundle}
+        let maxValueCard = handRanking[0].max { a, b in a.score() < b.score()}
+        guard let suitRankScore = maxValueCard?.score() else {return 0}
+        score += suitRankScore
         return score
     }
 }
