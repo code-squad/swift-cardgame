@@ -20,11 +20,7 @@ func main () {
                                             numberOfParticipant: numberOfParticipant.rawValue)
         
         OutputView.outputPlayers(players: players)
-        
-        let winner = players.max { playerA, playerB in playerA.score() < playerB.score()}
-        guard let winnerDescription = winner?.description else {return}
-        
-        OutputView.announceTheWinner(winnerDescription)
+        OutputView.announceTheWinner(players: players)
     }
 }
 
