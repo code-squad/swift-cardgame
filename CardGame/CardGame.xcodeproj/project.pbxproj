@@ -11,6 +11,8 @@
 		9D4A3C9021BA50DE00189690 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C8F21BA50DE00189690 /* Dealer.swift */; };
 		9D4A3C9221BA51AA00189690 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C9121BA51AA00189690 /* Player.swift */; };
 		9D4A3C9421BE3A6200189690 /* GameParticiapte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C9321BE3A6200189690 /* GameParticiapte.swift */; };
+		9D4A3C9621BE571200189690 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C9521BE571200189690 /* Players.swift */; };
+		9D4A3C9821BE588900189690 /* ChoiceParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C9721BE588900189690 /* ChoiceParticipate.swift */; };
 		9D51546B21B64DBA003ECF5C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51546A21B64DBA003ECF5C /* Card.swift */; };
 		9D51546D21B67423003ECF5C /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51546C21B67423003ECF5C /* CardDeck.swift */; };
 		9D51546F21B674A0003ECF5C /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51546E21B674A0003ECF5C /* GameInputView.swift */; };
@@ -39,6 +41,8 @@
 		9D4A3C8F21BA50DE00189690 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		9D4A3C9121BA51AA00189690 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9D4A3C9321BE3A6200189690 /* GameParticiapte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameParticiapte.swift; sourceTree = "<group>"; };
+		9D4A3C9521BE571200189690 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		9D4A3C9721BE588900189690 /* ChoiceParticipate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceParticipate.swift; sourceTree = "<group>"; };
 		9D51546A21B64DBA003ECF5C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9D51546C21B67423003ECF5C /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		9D51546E21B674A0003ECF5C /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
@@ -84,10 +88,12 @@
 				9D51546E21B674A0003ECF5C /* GameInputView.swift */,
 				9D51547A21B69DD5003ECF5C /* OutputView.swift */,
 				9D51547C21B69E1A003ECF5C /* ChoiceMenu.swift */,
+				9D4A3C9721BE588900189690 /* ChoiceParticipate.swift */,
 				9D51547421B6888C003ECF5C /* CardShape.swift */,
 				9D51547221B68881003ECF5C /* CardNumber.swift */,
 				9D51546C21B67423003ECF5C /* CardDeck.swift */,
 				9D51546A21B64DBA003ECF5C /* Card.swift */,
+				9D4A3C9521BE571200189690 /* Players.swift */,
 				9D4A3C8F21BA50DE00189690 /* Dealer.swift */,
 				9D4A3C9121BA51AA00189690 /* Player.swift */,
 				9D4A3C9321BE3A6200189690 /* GameParticiapte.swift */,
@@ -155,6 +161,8 @@
 			files = (
 				9D4A3C9221BA51AA00189690 /* Player.swift in Sources */,
 				9D51546D21B67423003ECF5C /* CardDeck.swift in Sources */,
+				9D4A3C9621BE571200189690 /* Players.swift in Sources */,
+				9D4A3C9821BE588900189690 /* ChoiceParticipate.swift in Sources */,
 				9D51546F21B674A0003ECF5C /* GameInputView.swift in Sources */,
 				9D51547321B68881003ECF5C /* CardNumber.swift in Sources */,
 				9D51547521B6888C003ECF5C /* CardShape.swift in Sources */,

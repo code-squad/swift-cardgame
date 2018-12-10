@@ -16,8 +16,8 @@ class Dealer : GameParticipate {
     }
     
     // 카드패를 사용자들에게 나누어줌
-    func distributeCardToPlayer(to players: [GameParticipate], by count: Int) {
-        for player in players { player.receiveCard(makeOneStack(by: count)) }
+    func distributeCardToPlayer(to players: Players, by count: Int) {
+        for player in players.players { player.receiveCard(makeOneStack(by: count)) }
     }
     
     // 한 사용자의 패를 만듦
