@@ -58,4 +58,9 @@ class CardDeck {
         guard cardDeck.count != 0 else { return nil }
         return cardDeck.remove(at: cardDeck.count-1)
     }
+    
+    func isOverGame() -> Bool {
+        guard cardDeck.count == 0 else { return false }
+        return true
+    }
 }

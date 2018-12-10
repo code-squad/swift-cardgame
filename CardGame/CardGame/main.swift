@@ -12,7 +12,7 @@ import Foundation
 func main() {
     let cardDeck : CardDeck = CardDeck()
     let dealer : Dealer = Dealer(of: cardDeck)
-    while !PlayCardGame.isOverGame(cardDeck) { PlayCardGame.playGame(with: cardDeck, who: dealer) }
+    while !cardDeck.isOverGame() { PlayCardGame.playGame(with: cardDeck, who: dealer) }
 }
 
 main()
