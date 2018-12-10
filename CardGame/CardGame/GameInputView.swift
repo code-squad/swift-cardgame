@@ -23,17 +23,10 @@ struct GameInputView {
     
     static func readNumberOfParticipant() -> NumberOfParticipant? {
         let input = InputView.readInput(ment: "참여할 사람의 인원을 입력하세요.\n> ")
-        switch input {
-        case "1":
-            return .one
-        case "2":
-            return .two
-        case "3":
-            return .three
-        case "4":
-            return .four
-        default:
-            return nil
+        guard let intInput = Int(input) else {return nil}
+        for number in NumberOfParticipant.allCases {
+            if intInput == number.rawValue {return number}
         }
+        return nil
     }
 }

@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum NumberOfParticipant : Int {
+enum NumberOfParticipant : Int, CaseIterable {
     case one = 1, two, three, four
 }
