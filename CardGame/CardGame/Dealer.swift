@@ -34,7 +34,8 @@ struct Dealer: GamePlayer, GameOperator {
     }
     
     func score() -> Int {
-        return self.cards?.score() ?? 0
+        guard let cardStack = self.cards else {return 0}
+        return ScoreCalculator.calculateScore(cardStack: cardStack)
     }
 }
 

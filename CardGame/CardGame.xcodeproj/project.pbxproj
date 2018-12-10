@@ -169,9 +169,9 @@
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				7DECB8B921BA131B00F1D805 /* GamePlayer.swift */,
+				7DECB8BD21BA1AB500F1D805 /* Participant.swift */,
 				7DECB8BB21BA16FF00F1D805 /* Dealer.swift */,
 				7D7582AA21BE282D0033A784 /* GameOperator.swift */,
-				7DECB8BD21BA1AB500F1D805 /* Participant.swift */,
 				7DECB8B521B984D400F1D805 /* GameInputView.swift */,
 				7DECB8B721B988E900F1D805 /* ValidChecker.swift */,
 				7DECB8B121B9122C00F1D805 /* CardGameSetter.swift */,
