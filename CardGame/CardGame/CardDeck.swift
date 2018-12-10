@@ -15,7 +15,6 @@ class CardDeck {
     init() {
         createNewDeck()
         shuffle()
-
     }
     
     // 카드 덱 초기화

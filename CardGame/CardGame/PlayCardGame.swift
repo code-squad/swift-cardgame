@@ -41,13 +41,11 @@ struct PlayCardGame {
 
     // 메뉴에 따라 패를 플레이어에게 나눌 수 있게 구현
     static private func excuteByMenu(by menu: ChoiceMenu?, to players: [Player], with deck: CardDeck, who dealer: Dealer) {
-        var playersCardStack : [[Card]]
         guard let menu = menu else { return }
-        switch menu{
-        case .fiveCard: playersCardStack = dealer.makeCardStack(by: 5, with: players.count)
-        case .sevenCard: playersCardStack = dealer.makeCardStack(by: 7, with: players.count)
+        switch menu {
+        case .fiveCard: dealer.distributeCardToPlayer(to: players, by: 5)
+        case .sevenCard: dealer.distributeCardToPlayer(to: players, by: 7)
         }
-        dealer.distributeCardToPlayer(to: players, what: playersCardStack)
         OutputView.printPlayerCasds(with: players, dealer)
     }
     
