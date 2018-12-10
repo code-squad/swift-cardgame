@@ -17,7 +17,7 @@ struct PlayCardGame {
             menuInput = GameInputView.inputMenu(message: "카드 게임 종류를 선택하세요.")
             playerInput = GameInputView.inputPlayer(message: "참여할 사람의 인원을 입력하세요.")
         }while !checkMenu(of: menuInput) || !checkPlayer(of: playerInput)
-        excuteByMenu(by: ChoiceMenu(rawValue: menuInput), to: makePlayers(number: playerInput), with: cardDeck, who: dealar)
+        excuteByMenu(by: ChoiceMenu(rawValue: menuInput), to: makePlayers(number: playerInput, dealerPlayer: dealar), with: cardDeck, who: dealar)
     }
     
     // 메뉴에 있는 선택지인지 확인
@@ -33,14 +33,15 @@ struct PlayCardGame {
     }
     
     // 플레이어를 생성
-    static private func makePlayers(number: Int) -> [Player] {
-        var players: [Player] = []
+    static private func makePlayers(number: Int, dealerPlayer: Dealer) -> [GameParticipate] {
+        var players: [GameParticipate] = []
         for _ in 0..<number { players.append(Player()) }
+        players.append(dealerPlayer)
         return players
     }
 
     // 메뉴에 따라 패를 플레이어에게 나눌 수 있게 구현
-    static private func excuteByMenu(by menu: ChoiceMenu?, to players: [Player], with deck: CardDeck, who dealer: Dealer) {
+    static private func excuteByMenu(by menu: ChoiceMenu?, to players: [GameParticipate], with deck: CardDeck, who dealer: Dealer) {
         guard let menu = menu else { return }
         switch menu {
         case .fiveCard: dealer.distributeCardToPlayer(to: players, by: 5)

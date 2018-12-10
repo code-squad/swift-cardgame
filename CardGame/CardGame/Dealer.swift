@@ -8,19 +8,16 @@
 
 import Foundation
 
-class Dealer {
+class Dealer : GameParticipate {
     private var deck: CardDeck
-    private(set) var cards: [Card]
     
     init(of deck: CardDeck) {
         self.deck = deck
-        cards = []
     }
     
     // 카드패를 사용자들에게 나누어줌
-    func distributeCardToPlayer(to players: [Player], by count: Int) {
-        for player in players { player.receiveCards(makeOneStack(by: count)) }
-        cards = makeOneStack(by: count)
+    func distributeCardToPlayer(to players: [GameParticipate], by count: Int) {
+        for player in players { player.receiveCard(makeOneStack(by: count)) }
     }
     
     // 한 사용자의 패를 만듦
