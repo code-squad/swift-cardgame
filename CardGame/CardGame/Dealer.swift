@@ -15,7 +15,8 @@ struct Dealer: GamePlayer, GameOperator {
     private var cards : CardStack?
     
     var description: String {
-        return "\(self.role) \(self.cards)"
+        guard let cards = self.cards else {return ""}
+        return "\(self.role) \(cards)"
     }
     
     mutating func distributeCard(gameType:Int, numberOfParticipant:Int) -> [GamePlayer] {
