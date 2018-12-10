@@ -19,7 +19,9 @@ struct OutputView {
         }
     }
     
-    static func announceTheWinner(_ winnerDescription:String) {
+    static func announceTheWinner(players:[GamePlayer]) {
+        let winner = players.max { playerA, playerB in playerA.score() < playerB.score()}
+        guard let winnerDescription = winner?.description else {return}
         print("\n우승자는 \(winnerDescription)입니다!\n")
     }
 }
