@@ -14,6 +14,9 @@ class CardStack : CustomStringConvertible {
         return "\(self.cards)"
     }
     
+    private var pairs : [[Card]]?
+    private var numberOfPair = [0,0,0,0,0]
+    
     init(cards:[Card]) {
         self.cards = cards
     }
@@ -30,7 +33,7 @@ class CardStack : CustomStringConvertible {
         return cards.last
     }
     
-    func gatherInPairs() -> [[Card]] {
+    func gatherInPairs(){
         var pairs = [[Card]]()
         
         for rank in Rank.allCases {
@@ -39,6 +42,22 @@ class CardStack : CustomStringConvertible {
             pairs.append(cards)
         }
         
-        return pairs.reversed()
+        self.pairs = pairs.reversed()
+    }
+    
+    func countNumberOfPair() {
+        guard let pairs = self.pairs else {return}
+        for pair in pairs {
+            self.numberOfPair[pair.count] += 1
+        }
+    }
+    
+    func numberPair(_ number : Int) -> Int {
+        return self.numberOfPair[number]
+    }
+    
+    func handRanking(bundle:Int) -> [[Card]]? {
+        guard let pairs = self.pairs else {return nil}
+        return pairs.filter(){$0.count == bundle}
     }
 }
