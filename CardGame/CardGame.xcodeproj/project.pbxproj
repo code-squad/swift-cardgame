@@ -30,6 +30,7 @@
 		7D52BBFD21BA5B76002E4B8D /* NumberOfParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52BBFC21BA5B76002E4B8D /* NumberOfParticipant.swift */; };
 		7D7582A921BE11C30033A784 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582A821BE11C30033A784 /* ScoreCalculator.swift */; };
 		7D7582AB21BE282D0033A784 /* GameOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582AA21BE282D0033A784 /* GameOperator.swift */; };
+		7D7582AF21BE385E0033A784 /* HandRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582AE21BE385E0033A784 /* HandRanking.swift */; };
 		7D84855C21B54A5800EC2EA2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84855B21B54A5800EC2EA2 /* Card.swift */; };
 		7D84856021B6246400EC2EA2 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84855F21B6246400EC2EA2 /* Deck.swift */; };
 		7D84856421B66CAE00EC2EA2 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856321B66CAE00EC2EA2 /* Suit.swift */; };
@@ -72,6 +73,7 @@
 		7D52BBFC21BA5B76002E4B8D /* NumberOfParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfParticipant.swift; sourceTree = "<group>"; };
 		7D7582A821BE11C30033A784 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 		7D7582AA21BE282D0033A784 /* GameOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOperator.swift; sourceTree = "<group>"; };
+		7D7582AE21BE385E0033A784 /* HandRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRanking.swift; sourceTree = "<group>"; };
 		7D84855B21B54A5800EC2EA2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		7D84855F21B6246400EC2EA2 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		7D84856321B66CAE00EC2EA2 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				7D39239921B6876C00720971 /* CardGameDeck.swift */,
 				7DECB8B321B9308400F1D805 /* CardStack.swift */,
 				7D7582A821BE11C30033A784 /* ScoreCalculator.swift */,
+				7D7582AE21BE385E0033A784 /* HandRanking.swift */,
 				7D52BBFE21BA5DEC002E4B8D /* GameSetValue */,
 				7D52BBF821BA4869002E4B8D /* CardProperty */,
 			);
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DECB8B621B984D400F1D805 /* GameInputView.swift in Sources */,
+				7D7582AF21BE385E0033A784 /* HandRanking.swift in Sources */,
 				7DECB8B221B9122C00F1D805 /* CardGameSetter.swift in Sources */,
 				7D7582AB21BE282D0033A784 /* GameOperator.swift in Sources */,
 				7DECB8BE21BA1AB500F1D805 /* Participant.swift in Sources */,
