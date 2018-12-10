@@ -56,8 +56,10 @@ class CardStack : CustomStringConvertible {
         return self.numberOfPair[number]
     }
     
-    func handRanking(bundle:Int) -> [[Card]]? {
-        guard let pairs = self.pairs else {return nil}
-        return pairs.filter(){$0.count == bundle}
+    func maxValuedCardScore(bundle:Int) -> Int {
+        guard let pairs = self.pairs else {return 0}
+        let handRanking = pairs.filter(){$0.count == bundle}
+        let maxValuedCard = handRanking[0].max { cardA, cardB in cardA.score() < cardB.score()}
+        return maxValuedCard?.score() ?? 0
     }
 }
