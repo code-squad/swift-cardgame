@@ -20,10 +20,8 @@
 		7D1DBCC621BCFE9900579C33 /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52BBFA21BA5B23002E4B8D /* GameType.swift */; };
 		7D1DBCC721BCFEB000579C33 /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B921BA131B00F1D805 /* GamePlayer.swift */; };
 		7D1DBCD821BD004C00579C33 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B521B984D400F1D805 /* GameInputView.swift */; };
-		7D1DBCD921BD005500579C33 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39239B21B689E000720971 /* InputView.swift */; };
 		7D1DBCDA21BD005D00579C33 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39239B21B689E000720971 /* InputView.swift */; };
 		7D1DBCDB21BD006000579C33 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECB8B521B984D400F1D805 /* GameInputView.swift */; };
-		7D1DBCDD21BD00EE00579C33 /* UnitTestValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1DBCDC21BD00EE00579C33 /* UnitTestValidChecker.swift */; };
 		7D39239A21B6876C00720971 /* CardGameDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39239921B6876C00720971 /* CardGameDeck.swift */; };
 		7D39239C21B689E000720971 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39239B21B689E000720971 /* InputView.swift */; };
 		7D52BBFB21BA5B23002E4B8D /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52BBFA21BA5B23002E4B8D /* GameType.swift */; };
@@ -31,6 +29,9 @@
 		7D7582A921BE11C30033A784 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582A821BE11C30033A784 /* ScoreCalculator.swift */; };
 		7D7582AB21BE282D0033A784 /* GameOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582AA21BE282D0033A784 /* GameOperator.swift */; };
 		7D7582AF21BE385E0033A784 /* HandRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582AE21BE385E0033A784 /* HandRanking.swift */; };
+		7D7582B221BEC6E50033A784 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582A821BE11C30033A784 /* ScoreCalculator.swift */; };
+		7D7582B321BEC6EA0033A784 /* HandRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582AE21BE385E0033A784 /* HandRanking.swift */; };
+		7D7582B421BEC70A0033A784 /* GameOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7582AA21BE282D0033A784 /* GameOperator.swift */; };
 		7D84855C21B54A5800EC2EA2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84855B21B54A5800EC2EA2 /* Card.swift */; };
 		7D84856021B6246400EC2EA2 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84855F21B6246400EC2EA2 /* Deck.swift */; };
 		7D84856421B66CAE00EC2EA2 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84856321B66CAE00EC2EA2 /* Suit.swift */; };
@@ -66,7 +67,6 @@
 		7D1DBCB721BCFC3C00579C33 /* UnitTestDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestDealer.swift; sourceTree = "<group>"; };
 		7D1DBCB921BCFC3C00579C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D1DBCCE21BCFFEA00579C33 /* UnitTestGameInputView.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestGameInputView.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D1DBCDC21BD00EE00579C33 /* UnitTestValidChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestValidChecker.swift; sourceTree = "<group>"; };
 		7D39239921B6876C00720971 /* CardGameDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameDeck.swift; sourceTree = "<group>"; };
 		7D39239B21B689E000720971 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		7D52BBFA21BA5B23002E4B8D /* GameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType.swift; sourceTree = "<group>"; };
@@ -121,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				7D1DBCB721BCFC3C00579C33 /* UnitTestDealer.swift */,
-				7D1DBCDC21BD00EE00579C33 /* UnitTestValidChecker.swift */,
 				7DB13DB621BD0399004DD1D2 /* UnitTestCard.swift */,
 				7DB13DB821BD04E6004DD1D2 /* UnitTestScore.swift */,
 				7D1DBCB921BCFC3C00579C33 /* Info.plist */,
@@ -313,10 +312,11 @@
 				7DB13DB721BD0399004DD1D2 /* UnitTestCard.swift in Sources */,
 				7D1DBCC121BCFE8400579C33 /* Deck.swift in Sources */,
 				7D1DBCDA21BD005D00579C33 /* InputView.swift in Sources */,
+				7D7582B421BEC70A0033A784 /* GameOperator.swift in Sources */,
 				7DB13DB521BD0197004DD1D2 /* ValidChecker.swift in Sources */,
-				7D1DBCDD21BD00EE00579C33 /* UnitTestValidChecker.swift in Sources */,
 				7D1DBCC521BCFE9700579C33 /* NumberOfParticipant.swift in Sources */,
 				7D1DBCC721BCFEB000579C33 /* GamePlayer.swift in Sources */,
+				7D7582B221BEC6E50033A784 /* ScoreCalculator.swift in Sources */,
 				7D1DBCC321BCFE8F00579C33 /* Rank.swift in Sources */,
 				7DB13DB921BD04E6004DD1D2 /* UnitTestScore.swift in Sources */,
 				7D1DBCBD21BCFE6900579C33 /* Dealer.swift in Sources */,
@@ -325,6 +325,7 @@
 				7D1DBCB821BCFC3C00579C33 /* UnitTestDealer.swift in Sources */,
 				7D1DBCC621BCFE9900579C33 /* GameType.swift in Sources */,
 				7D1DBCBF21BCFE7E00579C33 /* CardStack.swift in Sources */,
+				7D7582B321BEC6EA0033A784 /* HandRanking.swift in Sources */,
 				7D1DBCBE21BCFE7700579C33 /* Participant.swift in Sources */,
 				7D1DBCC421BCFE9100579C33 /* Suit.swift in Sources */,
 				7D1DBCC021BCFE8100579C33 /* CardGameDeck.swift in Sources */,
@@ -336,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D1DBCD821BD004C00579C33 /* GameInputView.swift in Sources */,
-				7D1DBCD921BD005500579C33 /* InputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
