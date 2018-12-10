@@ -22,6 +22,6 @@ struct Participant : GamePlayer {
     }
     
     func score() -> Int {
-        return self.cards.score()
+        return ScoreCalculator.calculateScore(cardStack: self.cards)
     }
 }

@@ -14,8 +14,8 @@ func main () {
     while true {
         guard let gameType = GameInputView.readGameType() else {return}
         guard let numberOfParticipant = GameInputView.readNumberOfParticipant() else {return}
-        guard ValidChecker.checkContinuable(gameType: gameType.rawValue,
-                                            numberOfParticipant: numberOfParticipant.rawValue,
+        guard ValidChecker.checkContinuable(gameType: gameType,
+                                            numberOfParticipant: numberOfParticipant,
                                             numberOfCards: dealer.numberOfDeck()) else {return}
         
         let players = dealer.distributeCard(gameType: gameType.rawValue,

@@ -9,18 +9,6 @@
 import Foundation
 
 struct ScoreCalculator {
-    private static func gatherInPairs(cards:[Card]) -> [[Card]] {
-        var pairs = [[Card]]()
-        
-        for rank in Rank.allCases {
-            let cards = cards.filter(){$0.isSame(rank: rank)}
-            guard !cards.isEmpty else {continue}
-            pairs.append(cards)
-        }
-        
-        return pairs.reversed()
-    }
-    
     private static func numberOfPairs(pairs:[[Card]]) -> [Int] {
         var numberOfPair = [0,0,0,0,0]
         
@@ -31,8 +19,8 @@ struct ScoreCalculator {
         return numberOfPair
     }
     
-    static func calculateScore(cards:[Card]) -> Int {
-        let pairs = self.gatherInPairs(cards:cards)
+    static func calculateScore(cardStack:CardStack) -> Int {
+        let pairs = cardStack.gatherInPairs()
         var numberOfPair = self.numberOfPairs(pairs: pairs)
         
         if numberOfPair[4] == 1 {
