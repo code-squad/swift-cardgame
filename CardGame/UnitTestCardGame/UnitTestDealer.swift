@@ -11,6 +11,7 @@ import XCTest
 
 class UnitTestCardGame: XCTestCase {
 
+    let dealer = Dealer()
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -18,13 +19,9 @@ class UnitTestCardGame: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
-    func testDistributeCard() {
-        XCTAssertEqual(Dealer.distributeCard(gameType: 5, numberOfParticipant: 2).count, 3)
-    }
 
     func testNumberOfDeck() {
-        XCTAssertEqual(Dealer.numberOfDeck(), 37) 
+        XCTAssertEqual(dealer.numberOfDeck(), 52)
     }
 
     func testPerformanceExample() {
