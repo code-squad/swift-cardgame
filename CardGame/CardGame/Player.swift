@@ -8,15 +8,5 @@
 
 import Foundation
 
-class Player {
-    private(set) var cards : [Card]
-    
-    init() {
-        cards = []
-    }
-    
-    // 카드 패를 받음
-    func receiveCards(_ cards: [Card]) {
-        self.cards = cards
-    }
+class Player : GameParticipate {
 }
