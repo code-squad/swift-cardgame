@@ -43,6 +43,7 @@ struct PlayCardGame {
         case .fiveCard: dealer.distributeCardToPlayer(to: players, by: 5)
         case .sevenCard: dealer.distributeCardToPlayer(to: players, by: 7)
         }
+        players.judgePlayersState()
         OutputView.printPlayerCards(with: players, of: players.countPlayers())
     }
 }

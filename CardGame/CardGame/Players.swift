@@ -30,8 +30,8 @@ class Players {
         for player in players { player.receiveCard(makeStack(cardCount)) }
     }
     
-    func judgePlayersCardState() {
-        
+    func judgePlayersState() {
+        for player in players { player.judgeMyCard() }
     }
 }
 
