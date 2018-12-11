@@ -29,6 +29,10 @@ class Players {
     func distributeCard(cardCount: Int, makeStack: (Int) -> [Card]) {
         for player in players { player.receiveCard(makeStack(cardCount)) }
     }
+    
+    func judgePlayersCardState() {
+        
+    }
 }
 
 extension Players : PlayersPrintable {

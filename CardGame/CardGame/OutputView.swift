@@ -12,7 +12,7 @@ struct OutputView {
     // 사용자 카드패를 출력
     static func printPlayerCards(with players: PlayersPrintable, of playersCount: Int) {
         for number in 0..<playersCount {
-            players.iterate(at: number) { //closure
+            players.iterate(at: number) {
                 (name, cards) in
                 print(name, cards)
             }
