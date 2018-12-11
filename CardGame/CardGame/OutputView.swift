@@ -18,6 +18,10 @@ struct OutputView {
             }
         }
     }
+    
+    static func printWinner(of name: String) {
+        print("승리자는 \(name) 입니다.\n")
+    }
 }
 
 
