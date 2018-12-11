@@ -33,6 +33,21 @@ class Players {
     func judgePlayersState() {
         for player in players { player.judgeMyCard() }
     }
+    
+    func judgeWinner() -> String {
+        var rankInPlayers = players.sorted(by: {$0.state.rawValue >  $1.state.rawValue})
+        let candidate = rankInPlayers.filter { $0.state == rankInPlayers[0].state }
+        if candidate.count != 1 { return highCardNumberSearch(in: candidate) }
+        return rankInPlayers[0].name
+    }
+    
+    private func highCardNumberSearch(in searchList: [GameParticipate]) -> String {
+        var highCardOwner = searchList[0]
+        for player in searchList {
+            if highCardOwner.searchHighNumberCard() < player.searchHighNumberCard() { highCardOwner = player }
+        }
+        return highCardOwner.name
+    }
 }
 
 extension Players : PlayersPrintable {

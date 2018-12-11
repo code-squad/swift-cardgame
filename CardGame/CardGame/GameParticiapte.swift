@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum CardRule {
-    case onePair
-    case twoPair
-    case tripple
-    case fourCard
-    case noPair
+enum CardRule : Int {
+    case noPair = 0
+    case onePair = 1
+    case twoPair = 2
+    case tripple = 3
+    case fourCard = 4
 }
 
 class GameParticipate {
@@ -79,5 +79,13 @@ class GameParticipate {
             if sortedCard[index].number == sortedCard[index+1].number { return true }
         }
         return false
+    }
+    
+    func searchHighNumberCard() -> Int {
+        var highNumberCard = cards[0].number.rawValue
+        for card in cards {
+            if card.number.rawValue > highNumberCard { highNumberCard = card.number.rawValue }
+        }
+        return highNumberCard
     }
 }
