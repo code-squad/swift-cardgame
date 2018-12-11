@@ -36,13 +36,13 @@ struct PlayCardGame {
     static private func excuteByMenu(by choiceMenu: ChoiceMenu?, to choicePlayer: ChoiceParticipate?, with deck: CardDeck, who dealer: Dealer) {
         guard let menu = choiceMenu else { return }
         guard let player = choicePlayer else { return }
-        var players: Players = Players()
+        let players: Players = Players()
         players.makePlayer(by: player, dealer)
         
         switch menu {
         case .fiveCard: dealer.distributeCardToPlayer(to: players, by: 5)
         case .sevenCard: dealer.distributeCardToPlayer(to: players, by: 7)
         }
-        OutputView.printPlayerCasds(with: players)
+        OutputView.printPlayerCards(with: players, of: players.countPlayers())
     }
 }
