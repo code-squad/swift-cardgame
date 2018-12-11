@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum CardRule {
+    case onePair
+    case twoPair
+    case tripple
+    case fourCard
+}
+
 class GameParticipate {
     var cards: [Card]
     var name: String
@@ -19,5 +26,10 @@ class GameParticipate {
 
     func receiveCard(_ cards: [Card]) {
         self.cards = cards
+    }
+    
+    func judgeMyCard() -> CardRule {
+        cards.sorted(by: {$0.number.rawValue < $1.number.rawValue})
+        return .onePair
     }
 }
