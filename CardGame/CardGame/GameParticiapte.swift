@@ -9,7 +9,13 @@
 import Foundation
 
 class GameParticipate {
-    var cards : [Card] = []
+    var cards: [Card]
+    var name: String
+    
+    init(_ name: String) {
+        cards = []
+        self.name = name
+    }
 
     func receiveCard(_ cards: [Card]) {
         self.cards = cards

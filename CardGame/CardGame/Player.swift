@@ -9,4 +9,7 @@
 import Foundation
 
 class Player : GameParticipate {
+    init(name: String) {
+        super.init(name)
+    }
 }

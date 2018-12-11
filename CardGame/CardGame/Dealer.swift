@@ -13,11 +13,12 @@ class Dealer : GameParticipate {
     
     init(of deck: CardDeck) {
         self.deck = deck
+        super.init("딜러")
     }
     
     // 카드패를 사용자들에게 나누어줌
     func distributeCardToPlayer(to players: Players, by count: Int) {
-        for player in players.players { player.receiveCard(makeOneStack(by: count)) }
+        for player in players.getPlayers() { player.receiveCard(makeOneStack(by: count)) }
     }
     
     // 한 사용자의 패를 만듦
