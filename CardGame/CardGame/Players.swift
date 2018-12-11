@@ -9,8 +9,7 @@
 import Foundation
 
 protocol PlayersPrintable {
-    func getNames() -> [String]
-    func getCards() -> [[Card]]
+    func iterate(at playerNumber: Int, form: (String, [Card]) -> Void)
 }
 
 class Players {
@@ -33,15 +32,7 @@ class Players {
 }
 
 extension Players : PlayersPrintable {
-    func getNames() -> [String] {
-        var playerNames: [String] = []
-        for player in players { playerNames.append(player.name) }
-        return playerNames
-    }
-    
-    func getCards() -> [[Card]] {
-        var playerCards: [[Card]] = []
-        for player in players { playerCards.append(player.cards) }
-        return playerCards
+    func iterate(at number: Int, form: (String, [Card]) -> Void) {
+        form(players[number].name, players[number].cards)
     }
 }
