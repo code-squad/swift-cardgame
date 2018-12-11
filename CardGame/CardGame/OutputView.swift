@@ -11,10 +11,11 @@ import Foundation
 struct OutputView {
     // 사용자 카드패를 출력
     static func printPlayerCards(with players: PlayersPrintable, of playersCount: Int) {
-        let playerNames = players.getNames()
-        let playerCards = players.getCards()
-        for playerNumber in 0..<playersCount {
-            print("\(playerNames[playerNumber]) \(playerCards[playerNumber])")
+        for number in 0..<playersCount {
+            players.iterate(at: number) { //closure
+                (name, cards) in
+                print(name, cards)
+            }
         }
     }
 }
