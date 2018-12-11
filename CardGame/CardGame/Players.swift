@@ -27,8 +27,8 @@ class Players {
         return players.count
     }
     
-    func getPlayers() -> [GameParticipate] {
-        return players
+    func distributeCard(cardCount: Int, makeStack: (Int) -> [Card]) {
+        for player in players { player.receiveCard(makeStack(cardCount)) }
     }
 }
 
