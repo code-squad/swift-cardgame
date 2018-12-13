@@ -34,36 +34,4 @@ class UnitTestGameParticipate: XCTestCase {
         }
         return true
     }
-    
-    // Four 카드가 맞는지 확인
-    func testJudgeFourCard() {
-        let cardStack: [Card] = [Card(.diamond, .five), Card(.clover, .five), Card(.spade, .five), Card(.heart, .five)]
-        player.receiveCard(cardStack)
-        player.judgeMyCard()
-        XCTAssertEqual(player.state, .fourCard, "Don't judge Card State exactly")
-    }
-    
-    // Tripple 카드가 맞는지 확인
-    func testJudgeTripple() {
-        let cardStack: [Card] = [Card(.diamond, .five), Card(.clover, .five), Card(.spade, .five)]
-        player.receiveCard(cardStack)
-        player.judgeMyCard()
-        XCTAssertEqual(player.state, .tripple, "Don't judge Card State exactly")
-    }
-    
-    // TwoPair 카드가 맞는지 확인
-    func testJudgeTwoPair() {
-        let cardStack: [Card] = [Card(.diamond, .three), Card(.spade, .four), Card(.heart, .three), Card(.clover, .four), Card(.heart, .six)]
-        player.receiveCard(cardStack)
-        player.judgeMyCard()
-        XCTAssertEqual(player.state, .twoPair, "Don't judge Card State exactly")
-    }
-    
-    // OnePair 카드가 맞는지 확인
-    func testJudgeOnePair() {
-        let cardStack: [Card] = [Card(.diamond, .three), Card(.spade, .four), Card(.heart, .three)]
-        player.receiveCard(cardStack)
-        player.judgeMyCard()
-        XCTAssertEqual(player.state, .onePair, "Don't judge Card State exactly")
-    }
 }
