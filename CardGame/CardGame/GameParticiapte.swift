@@ -68,9 +68,9 @@ class GameParticipate {
     private func judgeTwoPair(of sortedCard: [Card]) -> Bool {
         var pairCount: Int = 0
         for index in 0..<sortedCard.count-1 {
-            if pairCount == 2 { return true }
             if sortedCard[index].number == sortedCard[index+1].number { pairCount += 1 }
         }
+        if pairCount > 1 { return true }
         return false
     }
     
