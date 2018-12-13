@@ -48,4 +48,35 @@ struct PlayCardGame {
         OutputView.printPlayerCards(with: players, of: players.countPlayers())
         OutputView.printWinner(of: players.judgeWinner())
     }
+    
+    static func judgeFourCard(of sortedCard: [Card]) -> Bool {
+        for index in 0..<sortedCard.count-3 {
+            if sortedCard[index].number == sortedCard[index+1].number && sortedCard[index+1].number == sortedCard[index+2].number && sortedCard[index+2].number == sortedCard[index+3].number { return true }
+        }
+        return false
+    }
+    
+    static func judgeTripple(of sortedCard: [Card]) -> Bool {
+        for index in 0..<sortedCard.count-2 {
+            if sortedCard[index].number == sortedCard[index+1].number && sortedCard[index+1].number == sortedCard[index+2].number { return true }
+        }
+        return false
+    }
+    
+    static func judgeTwoPair(of sortedCard: [Card]) -> Bool {
+        var pairCount: Int = 0
+        for index in 0..<sortedCard.count-1 {
+            if sortedCard[index].number == sortedCard[index+1].number { pairCount += 1 }
+        }
+        if pairCount > 1 { return true }
+        return false
+    }
+    
+    static func judgeOnePair(of sortedCard: [Card]) -> Bool {
+        for index in 0..<sortedCard.count-1 {
+            if sortedCard[index].number == sortedCard[index+1].number { return true }
+        }
+        return false
+    }
+    
 }

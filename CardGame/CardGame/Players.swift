@@ -31,11 +31,20 @@ class Players {
     }
     
     func judgePlayersState() {
-        for player in players { player.judgeMyCard() }
+        let judgeLogic = {(cards: [Card]) -> CardRule in
+            let tempCard = cards.sorted(by: {$0.number.rawValue < $1.number.rawValue})
+            guard !PlayCardGame.judgeFourCard(of: tempCard) else { return .fourCard }
+            guard !PlayCardGame.judgeTripple(of: tempCard) else { return .tripple }
+            guard !PlayCardGame.judgeTwoPair(of: tempCard) else { return .twoPair }
+            guard !PlayCardGame.judgeOnePair(of: tempCard) else { return .onePair }
+            return .noPair
+        }
+    
+        for player in players { player.judgeMyCard(method: judgeLogic) }
     }
     
     func judgeWinner() -> String {
-        var rankInPlayers = players.sorted(by: {$0.state.rawValue >  $1.state.rawValue})
+        var rankInPlayers = players.sorted(by: {$0.state.rawValue > $1.state.rawValue})
         let candidate = rankInPlayers.filter { $0.state == rankInPlayers[0].state }
         if candidate.count != 1 { return highCardNumberSearch(in: candidate) }
         return rankInPlayers[0].name
