@@ -27,14 +27,4 @@ class Dealer : GameParticipate {
             return playerCards
         }
     }
-    
-    // 한 사용자의 패를 만듦
-    private func makeOneStack(by menu: Int) -> [Card] {
-        var playerCards : [Card] = []
-        for _ in 0..<menu {
-            guard let pickCard = deck.removeOne() else { return [] }
-            playerCards.append(pickCard)
-        }
-        return playerCards
-    }
 }

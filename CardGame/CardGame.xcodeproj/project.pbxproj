@@ -37,6 +37,7 @@
 		9DACE7BC21C2344E003A1337 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C9121BA51AA00189690 /* Player.swift */; };
 		9DACE7BD21C23450003A1337 /* GameParticiapte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C9321BE3A6200189690 /* GameParticiapte.swift */; };
 		9DACE7BF21C2462F003A1337 /* UnitTestDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACE7BE21C2462F003A1337 /* UnitTestDealer.swift */; };
+		9DACE7C121C24CFD003A1337 /* UnitTestPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACE7C021C24CFD003A1337 /* UnitTestPlayers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,7 @@
 		9DACE7AA21C2341D003A1337 /* UnitTestCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCardDeck.swift; sourceTree = "<group>"; };
 		9DACE7AC21C2341D003A1337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DACE7BE21C2462F003A1337 /* UnitTestDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestDealer.swift; sourceTree = "<group>"; };
+		9DACE7C021C24CFD003A1337 /* UnitTestPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestPlayers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				9DACE7AA21C2341D003A1337 /* UnitTestCardDeck.swift */,
 				9DACE7AC21C2341D003A1337 /* Info.plist */,
 				9DACE7BE21C2462F003A1337 /* UnitTestDealer.swift */,
+				9DACE7C021C24CFD003A1337 /* UnitTestPlayers.swift */,
 			);
 			path = UnitTestCardGame;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DACE7C121C24CFD003A1337 /* UnitTestPlayers.swift in Sources */,
 				9DACE7BA21C2344A003A1337 /* Players.swift in Sources */,
 				9DACE7B321C2343A003A1337 /* OutputView.swift in Sources */,
 				9DACE7BB21C2344C003A1337 /* Dealer.swift in Sources */,
