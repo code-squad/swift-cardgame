@@ -38,6 +38,7 @@
 		9DACE7BD21C23450003A1337 /* GameParticiapte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A3C9321BE3A6200189690 /* GameParticiapte.swift */; };
 		9DACE7BF21C2462F003A1337 /* UnitTestDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACE7BE21C2462F003A1337 /* UnitTestDealer.swift */; };
 		9DACE7C121C24CFD003A1337 /* UnitTestPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACE7C021C24CFD003A1337 /* UnitTestPlayers.swift */; };
+		9DACE7C321C24FC3003A1337 /* UnitTestGameParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACE7C221C24FC3003A1337 /* UnitTestGameParticipate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +79,7 @@
 		9DACE7AC21C2341D003A1337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DACE7BE21C2462F003A1337 /* UnitTestDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestDealer.swift; sourceTree = "<group>"; };
 		9DACE7C021C24CFD003A1337 /* UnitTestPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestPlayers.swift; sourceTree = "<group>"; };
+		9DACE7C221C24FC3003A1337 /* UnitTestGameParticipate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestGameParticipate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				9DACE7AC21C2341D003A1337 /* Info.plist */,
 				9DACE7BE21C2462F003A1337 /* UnitTestDealer.swift */,
 				9DACE7C021C24CFD003A1337 /* UnitTestPlayers.swift */,
+				9DACE7C221C24FC3003A1337 /* UnitTestGameParticipate.swift */,
 			);
 			path = UnitTestCardGame;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				9DACE7B521C2343E003A1337 /* ChoiceParticipate.swift in Sources */,
 				9DACE7B121C23435003A1337 /* PlayCardGame.swift in Sources */,
 				9DACE7B821C23445003A1337 /* CardDeck.swift in Sources */,
+				9DACE7C321C24FC3003A1337 /* UnitTestGameParticipate.swift in Sources */,
 				9DACE7B621C23441003A1337 /* CardShape.swift in Sources */,
 				9DACE7BF21C2462F003A1337 /* UnitTestDealer.swift in Sources */,
 				9DACE7AB21C2341D003A1337 /* UnitTestCardDeck.swift in Sources */,
