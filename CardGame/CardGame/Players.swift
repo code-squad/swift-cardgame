@@ -44,8 +44,8 @@ class Players {
     }
     
     func judgeWinner() -> String {
-        var rankInPlayers = players.sorted(by: {$0.state.rawValue > $1.state.rawValue})
-        let candidate = rankInPlayers.filter { $0.state == rankInPlayers[0].state }
+        var rankInPlayers = players.sorted(by: {$0 > $1})
+        let candidate = rankInPlayers.filter { $0 == rankInPlayers[0] }
         if candidate.count != 1 { return highCardNumberSearch(in: candidate) }
         return rankInPlayers[0].name
     }
@@ -59,7 +59,7 @@ class Players {
     }
 }
 
-extension Players : PlayersPrintable {
+extension Players: PlayersPrintable {
     func iterate(at number: Int, form: (String, [Card]) -> Void) {
         form(players[number].name, players[number].cards)
     }

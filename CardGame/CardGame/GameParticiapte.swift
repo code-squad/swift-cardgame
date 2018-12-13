@@ -8,12 +8,24 @@
 
 import Foundation
 
-enum CardRule : Int {
+enum CardRule: Int {
     case noPair = 0
     case onePair = 1
     case twoPair = 2
     case tripple = 3
     case fourCard = 4
+}
+
+extension GameParticipate: Comparable {
+    static func < (lhs: GameParticipate, rhs: GameParticipate) -> Bool {
+        if lhs.state.rawValue < rhs.state.rawValue { return true }
+        return false
+    }
+    
+    static func == (lhs: GameParticipate, rhs: GameParticipate) -> Bool {
+        if lhs.state == rhs.state { return true }
+        return false
+    }
 }
 
 class GameParticipate {
@@ -43,3 +55,4 @@ class GameParticipate {
         return highNumberCard
     }
 }
+
