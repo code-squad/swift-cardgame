@@ -62,6 +62,4 @@ class UnitTestCardDeck: XCTestCase {
         for _ in 0..<52 { testCard.removeOne() }
         XCTAssertTrue(testCard.removeOne() == nil)
     }
-    
-    
 }
