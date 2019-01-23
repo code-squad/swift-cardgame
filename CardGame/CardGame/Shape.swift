@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+//enum을 만들고 스위프트에게 allCases 배열을 자동으로 만들어달라고 하는 구조
+enum Shape: Character, CaseIterable {
+    case spades = "♠️", heart = "♥️", diamond = "♦️", club = "♣️"
+}
