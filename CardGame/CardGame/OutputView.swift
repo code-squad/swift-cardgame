@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct OutputView {
+    
+    static func output(_ card: Card) {
+        print(card)
+    }
+    
+}
