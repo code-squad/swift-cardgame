@@ -8,10 +8,16 @@
 
 import Foundation
 
-// 만들고 -> 출력
 func main() {
-    let card = CardFactory.createRandomCard()
-    OutputView.output(card)
+    var cardDeck = CardDeck.init()
+    while(!cardDeck.isEmpty) {
+        let numSelect = InputView.getCardGameStart()
+        guard let menuNumber = InputView.getMenu(numSelect) else { continue }
+        let result = cardDeck.getResult(menuNumber)
+        OutputView.output(result)
+        guard menuNumber != .quit else { break }
+    }
 }
 
 main()
+
