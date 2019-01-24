@@ -9,9 +9,21 @@
 import Foundation
 
 struct OutputView {
+
+    enum Error: String {
+        case notMenu = "메뉴의 내용이 아닙니다."
+        case notNumber = "숫자 입력하세요."
+    }
     
+    static func errorResult(_ error: Error) {
+        print(error.rawValue)
+    }
+    // Overloading
     static func output(_ card: Card) {
         print(card)
     }
-    
+    // Overloading
+    static func output(_ result: String) {
+        print(result)
+    }
 }
