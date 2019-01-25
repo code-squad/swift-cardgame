@@ -62,13 +62,13 @@ struct CardDeck: CardGameSet{
         switch menu {
         case .reset:
             reset()
-            return "카드 전체를 초기화했습니다."
+            return "카드 전체를 초기화했습니다.\n총 \(self.count())장의 카드가 남아있습니다. \n"
         case .shuffle:
             shuffle()
-            return "전체 \(self.count())장의 카드를 섞었습니다."
+            return "전체 \(self.count())장의 카드를 섞었습니다. \n"
         case .pullOut:
             let card = removeOne()
-            return "\(card)\n총 \(self.count())장의 카드가 남아있습니다."
+            return "\(card)\n총 \(self.count())장의 카드가 남아있습니다. \n"
         case .quit:
             return "종료"
         }
