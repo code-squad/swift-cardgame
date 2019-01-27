@@ -25,6 +25,7 @@
 		F34A5A9621FA8B3D0069F449 /* cardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5A8221F9A0A00069F449 /* cardDeck.swift */; };
 		F34A5A9721FA8B3D0069F449 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5A8021F957D40069F449 /* InputView.swift */; };
 		F34A5A9921FD6A540069F449 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5A9821FD6A540069F449 /* Menu.swift */; };
+		F34A5A9A21FDEC470069F449 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5A9821FD6A540069F449 /* Menu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -222,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34A5A9A21FDEC470069F449 /* Menu.swift in Sources */,
 				F34A5A9021FA8B3D0069F449 /* main.swift in Sources */,
 				F34A5A9121FA8B3D0069F449 /* Card.swift in Sources */,
 				F34A5A9221FA8B3D0069F449 /* Shape.swift in Sources */,

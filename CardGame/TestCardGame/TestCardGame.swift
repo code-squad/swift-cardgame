@@ -31,27 +31,27 @@ class TestCardGame: XCTestCase {
     // 메뉴에 영어를 입력 할 경우
     func testGetMenuInputString_Z() {
         let menuDataNilData = "z"
-        XCTAssertNil(InputView.getMenu(menuDataNilData))
+        XCTAssertNil(MenuBox.getMenu(menuDataNilData))
     }
     // 메뉴에 1 입력 할 경우
     func testGetMenuInputInt_1() {
         let menuDataData = "1"
-        XCTAssertEqual(InputView.getMenu(menuDataData),Menu.reset)
+        XCTAssertEqual(MenuBox.getMenu(menuDataData),Menu.reset)
     }
     // 메뉴에 2 입력 할 경우
     func testGetMenuInputInt_2() {
         let menuDataData = "2"
-        XCTAssertEqual(InputView.getMenu(menuDataData),Menu.shuffle)
+        XCTAssertEqual(MenuBox.getMenu(menuDataData),Menu.shuffle)
     }
     // 메뉴에 3 입력 할 경우
     func testGetMenuInputInt_3() {
         let menuDataData = "3"
-        XCTAssertEqual(InputView.getMenu(menuDataData),Menu.pullOut)
+        XCTAssertEqual(MenuBox.getMenu(menuDataData),Menu.pullOut)
     }
     // 메뉴에 4 입력 할 경우
     func testGetMenuInputInt_4() {
         let menuDataData = "4"
-        XCTAssertEqual(InputView.getMenu(menuDataData),Menu.quit)
+        XCTAssertEqual(MenuBox.getMenu(menuDataData),Menu.quit)
     }
     
     //cardDeck.swift Test code
