@@ -12,7 +12,10 @@ func main() {
     var cardDeck = CardDeck.init()
     while(!cardDeck.isEmpty) {
         let numSelect = InputView.getCardGameStart()
-        guard let menuNumber = MenuBox.getMenu(numSelect) else { continue }
+        guard let menuNumber = MenuBox.getMenu(numSelect) else {
+            OutputView.errorResult(.notMenu)
+            continue
+        }
         let result = cardDeck.makeStatus(menuNumber)
         OutputView.output(result)
         guard menuNumber != .quit else { break }
