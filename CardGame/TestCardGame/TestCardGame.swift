@@ -28,11 +28,7 @@ class TestCardGame: XCTestCase {
     }
     
     //InputView.swift Test code
-    // 메뉴에 영어를 입력 할 경우
-    func testGetMenuInputString_Z() {
-        let menuDataNilData = "z"
-        XCTAssertNil(MenuBox.getMenu(menuDataNilData))
-    }
+
     // 메뉴에 1 입력 할 경우
     func testGetMenuInputInt_1() {
         let menuDataData = "1"

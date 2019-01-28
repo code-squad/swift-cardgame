@@ -31,15 +31,12 @@ struct MenuBox {
     // 매개변수 : String , 반환형 : Menu
     static func getMenu(_ menuStringNumber: String) -> Menu? {
         guard let menuNumber = Int(menuStringNumber) else {
-            OutputView.errorResult(.notNumber)
             return nil
         }
         guard let menuSelected = Menu(rawValue: menuNumber) else {
-            OutputView.errorResult(.notMenu)
             return nil
         }
         return menuSelected
     }
     
 }
-
