@@ -55,23 +55,5 @@ struct CardDeck: CardGameSet{
     var isEmpty: Bool {
         return cards.isEmpty
     }
-    // 역할 : 메뉴선택에 따라 출력결과를 다르게 반환
-    // 역할 : 카드덱의 상태를 만들어서 반환
-    // 매개변수 : Menu , 반환형 : String
-    mutating func makeStatus(_ menu: Menu) -> String {
-        switch menu {
-        case .reset:
-            reset()
-            return "카드 전체를 초기화했습니다.\n총 \(self.count())장의 카드가 남아있습니다. \n"
-        case .shuffle:
-            shuffle()
-            return "전체 \(self.count())장의 카드를 섞었습니다. \n"
-        case .pullOut:
-            let card = removeOne()
-            return "\(card)\n총 \(self.count())장의 카드가 남아있습니다. \n"
-        case .quit:
-            return "종료"
-        }
-    }
    
 }
