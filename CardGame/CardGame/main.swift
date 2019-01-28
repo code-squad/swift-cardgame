@@ -16,8 +16,11 @@ func main() {
             OutputView.errorResult(.notMenu)
             continue
         }
-        let result = cardDeck.makeStatus(menuNumber)
-        OutputView.output(result)
+        let result = CardFactory.makeCardStatus(menuNumber,cardDeck)
+        if result.1.count() > 0 {
+            cardDeck = result.1
+        }
+        OutputView.output(result.0)
         guard menuNumber != .quit else { break }
     }
 }
