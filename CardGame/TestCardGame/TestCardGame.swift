@@ -81,10 +81,7 @@ class TestCardGame: XCTestCase {
         _ = card.reset()
         XCTAssertEqual(card.count(), 52)
     }
-    
-    //GameInputView.swift
-    //
-    
+   
     //CardGame.swift
     //
     
