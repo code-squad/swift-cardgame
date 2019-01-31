@@ -29,20 +29,18 @@ protocol GamePlayer {
 
 class CardGame {
     private let gameMode: GameMode
-    private let numberOfPlayers: Int
     private var dealer: Dealer
     private var gamePlayers: [GamePlayer] = []
     
     //초기화
     init(gameMode: GameMode, players: Int) throws {
         self.gameMode = gameMode
-        self.numberOfPlayers = players
         self.dealer = Dealer(CardDeck())
-        setPlayers()
+        setPlayers(add: players)
     }
     // 입력받은 참가자와, 딜러를 추가하기 위한 함수
-    private func setPlayers() {
-        for _ in 0..<numberOfPlayers {
+    private func setPlayers(add players: Int) {
+        for _ in 0..<players {
             let player = Player()
             gamePlayers.append(player)
         }
