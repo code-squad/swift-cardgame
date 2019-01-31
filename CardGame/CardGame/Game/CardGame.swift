@@ -32,7 +32,7 @@ class CardGame {
     let gameMakePlays: GameMakePlayers
     
     //초기화
-    init(gameMode: GameMode, players: Int) throws {
+    init(gameMode: GameMode, players: Int){
         self.gameMode = gameMode
         let make = GameMakePlayers.init(players: players)
         self.gameMakePlays = make
