@@ -7,3 +7,35 @@
 //
 
 import Foundation
+
+class Dealer{
+    private var deck: CardDeck
+    private var cards: CardDataCollection
+    
+    init(_ deck: CardDeck) {
+        self.deck = deck
+        self.cards = CardDataCollection(cards: [])
+    }
+    
+    func removeDeal() -> Card? {
+        guard let card = deck.removeOne() else { return nil }
+        return card
+    }
+    
+}
+
+extension Dealer: GamePlayer {
+    
+    func takeCards(card: Card) {
+        cards.add(card)
+    }
+    
+    func showCards() -> String {
+        return "\(cards)"
+    }
+    
+    func resetCards() {
+        cards.reset()
+    }
+    
+}
