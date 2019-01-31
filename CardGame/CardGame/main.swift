@@ -28,17 +28,14 @@ func main() {
 func step3Main() {
     do {
         let game = try GameInputView.readCardGameInfo()
-        let cardGame = try CardGame.init(gameMode: game.mode, players: game.numberPlayer)
+        let cardGame = CardGame.init(gameMode: game.mode, players: game.numberPlayer)
         
         while cardGame.play() {
             OutputView.showResults(cardGame.gameMakePlays)
         }
     } catch let error as GameInputError {
         OutputView().errorResult(error)
-    } catch {
-        //Swift에는 내장 함수가 호출 fatalError()되어 응용 프로그램을 강제 종료
-        fatalError("Fail")
-    }
+    } catch { }
 }
 
 //main()
