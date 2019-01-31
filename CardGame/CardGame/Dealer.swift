@@ -26,7 +26,7 @@ class Dealer{
 
 extension Dealer: GamePlayer {
     
-    func takeCards(card: Card) {
+    func take(card: Card) {
         cards.add(card)
     }
     

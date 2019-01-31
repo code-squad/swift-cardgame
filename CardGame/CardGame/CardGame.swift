@@ -22,7 +22,7 @@ enum GameMode: Int, CaseIterable {
 }
 
 protocol GamePlayer {
-    func takeCards(card: Card)
+    func take(card: Card)
     func showCards() -> String
     func resetCards()
 }
@@ -59,7 +59,7 @@ class CardGame {
         for _ in 0..<gameMode.modeCardNumber {
             for player in gamePlayers {
                 guard let card = dealer.removeDeal() else { return false }
-                player.takeCards(card: card)
+                player.take(card: card)
             }
         }
         return true
