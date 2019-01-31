@@ -10,11 +10,11 @@ import Foundation
 
 class Dealer{
     private var deck: CardDeck
-    private var cards: CardDataCollection
+    private var cards: CardStack
     
     init(_ deck: CardDeck) {
         self.deck = deck
-        self.cards = CardDataCollection(cards: [])
+        self.cards = CardStack(cards: [])
     }
     
     func removeDeal() -> Card? {

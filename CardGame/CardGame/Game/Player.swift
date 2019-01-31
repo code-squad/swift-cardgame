@@ -9,10 +9,10 @@
 import Foundation
 
 class Player: GamePlayer {
-    private var cards: CardDataCollection
+    private var cards: CardStack
     
     init() {
-        self.cards = CardDataCollection(cards: [])
+        self.cards = CardStack(cards: [])
     }
     
     func take(card: Card) {

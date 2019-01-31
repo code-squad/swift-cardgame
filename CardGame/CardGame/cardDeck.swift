@@ -63,13 +63,13 @@ struct CardDeck: CardGameSet{
 
 extension CardDeck {
     // 카드 인스턴스를 매개변수만큼 만들어서 반환하고 목록에서 삭제한다.
-    mutating func removeMultiple(_ number: Int) -> CardDataCollection? {
+    mutating func removeMultiple(_ number: Int) -> CardStack? {
         guard number > 0 else { return nil }
         var cardsRemoved: [Card] = []
         for _ in 0..<number {
             guard let cardRemoved = removeOne() else { break }
             cardsRemoved.append(cardRemoved)
         }
-        return CardDataCollection.init(cards: cardsRemoved)
+        return CardStack.init(cards: cardsRemoved)
     }
 }
