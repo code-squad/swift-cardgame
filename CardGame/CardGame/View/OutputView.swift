@@ -39,7 +39,7 @@ extension OutputView {
         print("\(name) \(cardStack)")
     }
     // 결과 출력
-    static func showResults(_ cardGame: CardGame) {
+    static func showResults(_ cardGame: GameMakePlayers) {
         cardGame.showResult(card(dealer:number:cardStack:))
     }
     
