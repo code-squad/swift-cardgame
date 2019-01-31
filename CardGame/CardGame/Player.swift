@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+class Player: GamePlayer {
+    private var cards: CardDataCollection
+    
+    init() {
+        self.cards = CardDataCollection(cards: [])
+    }
+    
+    func takeCards(card: Card) {
+        cards.add(card)
+    }
+    
+    func showCards() -> String {
+        return "\(cards)"
+    }
+    
+    func resetCards() {
+        cards.reset()
+    }
+    
+}
+
+
