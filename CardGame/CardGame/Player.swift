@@ -15,7 +15,7 @@ class Player: GamePlayer {
         self.cards = CardDataCollection(cards: [])
     }
     
-    func takeCards(card: Card) {
+    func take(card: Card) {
         cards.add(card)
     }
     
