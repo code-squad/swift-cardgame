@@ -31,7 +31,7 @@ func step3Main() {
         let cardGame = try CardGame.init(gameMode: game.mode, players: game.numberPlayer)
         
         while cardGame.play() {
-            OutputView.showResults(cardGame)
+            OutputView.showResults(cardGame.gameMakePlays)
         }
     } catch let error as GameInputError {
         OutputView().errorResult(error)

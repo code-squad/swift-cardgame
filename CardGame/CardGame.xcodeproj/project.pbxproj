@@ -11,6 +11,7 @@
 		F32B19172202C0E700A5312B /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5AB9220195E60069F449 /* CardGame.swift */; };
 		F32B19182202C0E700A5312B /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5AC32201A5410069F449 /* Dealer.swift */; };
 		F32B19192202C0E700A5312B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5AC12201A5060069F449 /* Player.swift */; };
+		F32B191B220338A400A5312B /* GameMakePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32B191A220338A400A5312B /* GameMakePlayer.swift */; };
 		F34A5A6421F847CD0069F449 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5A6321F847CD0069F449 /* Card.swift */; };
 		F34A5A6621F84DCF0069F449 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5A6521F84DCF0069F449 /* Number.swift */; };
 		F34A5A6821F84DE90069F449 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5A6721F84DE90069F449 /* Shape.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F32B191A220338A400A5312B /* GameMakePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMakePlayer.swift; sourceTree = "<group>"; };
 		F34A5A6321F847CD0069F449 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F34A5A6521F84DCF0069F449 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		F34A5A6721F84DE90069F449 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
@@ -111,15 +113,36 @@
 			isa = PBXGroup;
 			children = (
 				F34A5AC0220196510069F449 /* Card */,
-				F34A5ABE220196140069F449 /* View */,
-				F34A5AB82201958C0069F449 /* Game */,
-				F34A5A8221F9A0A00069F449 /* cardDeck.swift */,
+				F32B191C220338B300A5312B /* Game */,
+				F32B191F2203393000A5312B /* View */,
 				F34A5AC522028FF00069F449 /* CardStack.swift */,
-				F34A5A7E21F955120069F449 /* CardFactory.swift */,
 				F34A5A9821FD6A540069F449 /* Menu.swift */,
+				F34A5A7E21F955120069F449 /* CardFactory.swift */,
+				F34A5A8221F9A0A00069F449 /* cardDeck.swift */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 			);
 			path = CardGame;
+			sourceTree = "<group>";
+		};
+		F32B191C220338B300A5312B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				F34A5AB9220195E60069F449 /* CardGame.swift */,
+				F32B191A220338A400A5312B /* GameMakePlayer.swift */,
+				F34A5AC32201A5410069F449 /* Dealer.swift */,
+				F34A5AC12201A5060069F449 /* Player.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		F32B191F2203393000A5312B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F34A5A8021F957D40069F449 /* InputView.swift */,
+				F34A5AB121FEEE280069F449 /* GameInputView.swift */,
+				F34A5A6921F84DFE0069F449 /* OutputView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F34A5A8921FA8B180069F449 /* TestCardGame */ = {
@@ -129,26 +152,6 @@
 				F34A5A8C21FA8B180069F449 /* Info.plist */,
 			);
 			path = TestCardGame;
-			sourceTree = "<group>";
-		};
-		F34A5AB82201958C0069F449 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				F34A5AB9220195E60069F449 /* CardGame.swift */,
-				F34A5AC32201A5410069F449 /* Dealer.swift */,
-				F34A5AC12201A5060069F449 /* Player.swift */,
-			);
-			name = Game;
-			sourceTree = "<group>";
-		};
-		F34A5ABE220196140069F449 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F34A5A8021F957D40069F449 /* InputView.swift */,
-				F34A5AB121FEEE280069F449 /* GameInputView.swift */,
-				F34A5A6921F84DFE0069F449 /* OutputView.swift */,
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 		F34A5AC0220196510069F449 /* Card */ = {
@@ -253,6 +256,7 @@
 			files = (
 				F34A5ABA220195E60069F449 /* CardGame.swift in Sources */,
 				F34A5A7F21F955120069F449 /* CardFactory.swift in Sources */,
+				F32B191B220338A400A5312B /* GameMakePlayer.swift in Sources */,
 				F34A5AC42201A5410069F449 /* Dealer.swift in Sources */,
 				F34A5AB221FEEE280069F449 /* GameInputView.swift in Sources */,
 				F34A5A8121F957D40069F449 /* InputView.swift in Sources */,
