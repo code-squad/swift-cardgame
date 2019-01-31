@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
 
-    private static func readInput(ment: String , menu: String) -> String {
+    static func readInput(ment: String , menu: String) -> String {
         print(ment)
         print(menu)
         return readLine() ?? ""
@@ -20,7 +20,7 @@ struct InputView {
         let menu = Menu.allCases
             .map { "\($0.rawValue). \($0.menuPrint)" }
             .joined(separator: "\n")
-        let cardGameStart = readInput(ment: "다음 메뉴를 선택해주세요.",menu: menu)
+        let cardGameStart = InputView.readInput(ment: "다음 메뉴를 선택해주세요.",menu: menu)
         return cardGameStart
     }
 
