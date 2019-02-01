@@ -38,9 +38,7 @@ class CardGame {
     }
     
     private func reset() {
-        for player in gameMakePlays.gamePlayers {
-            player.resetCards()
-        }
+        gameMakePlays.gamePlayersReset()
     }
     
     func play() -> Bool {
