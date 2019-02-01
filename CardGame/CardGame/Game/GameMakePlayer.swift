@@ -10,14 +10,19 @@ import Foundation
 
 struct GameMakePlayers {
     
-    var gamePlayers: [GamePlayer] = []
+    private var gamePlayers: [GamePlayer] = []
     private var dealer: Dealer
     
     init(players: Int) {
         self.dealer = Dealer(CardDeck())
         setPlayers(add: players)
     }
-    
+    //gamePlayers reset 하려고 만든 함수
+    func gamePlayersReset() {
+        for player in gamePlayers {
+            player.resetCards()
+        }
+    }
     // 입력받은 참가자와, 딜러를 추가하기 위한 함수
     mutating func setPlayers(add players: Int) {
         for _ in 0..<players {
