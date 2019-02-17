@@ -27,6 +27,14 @@ class Player: GamePlayer {
         cards.reset()
     }
     
+    var name: String {
+        return "참가자"
+    }
+    
+    var handBetting: HandBetting? {
+        return cards.bestHand
+    }
+
 }
 
 
