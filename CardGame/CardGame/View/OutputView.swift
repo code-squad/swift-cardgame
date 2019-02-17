@@ -33,20 +33,31 @@ extension OutputView {
     func errorResult(_ error: GameInputError) {
         print(error.rawValue)
     }
+    
     //카드라는 함수를 만들어서 한번에 딜러와, 참가자를 출력하고 싶었다.
     private static func card(dealer: Bool, number: Int, cardStack: String) {
         let name = dealer ? "딜러" : "참가자#\(number+1)"
         print("\(name) \(cardStack)")
     }
+    
+    private static func card(name: String, cardStack: String) {
+        print("\(name) \(cardStack)")
+    }
+    
     // 결과 출력
     static func showResults(_ cardGame: GameMakePlayers) {
         cardGame.showResult(card(dealer:number:cardStack:))
     }
     
-    private static func card(name: String, cardStack: String) {
-        print("\(name) \(cardStack)")
+    static func showResults(_ cardGame: CardGame) -> Bool {
+        return cardGame.play(card(name:cardStack:),winner)
     }
-
+    
+    private static func winner(name: String) {
+        print("\n 이번 게임의 승자는 🏆 \(name) 입니다. ")
+    }
+    
+    
 }
 
 enum GameInputError: String, Error {
