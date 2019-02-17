@@ -22,6 +22,9 @@ class Dealer{
         return card
     }
     
+    func enoughCards(_ number: Int,_ gameMode: GameMode) -> Bool {
+        return deck.count() >= number * gameMode.modeCardNumber
+    }
 }
 
 extension Dealer: GamePlayer {
@@ -37,5 +40,12 @@ extension Dealer: GamePlayer {
     func resetCards() {
         cards.reset()
     }
+    var name: String {
+        return "딜러"
+    }
     
+    var handBetting: HandBetting? {
+        return cards.bestHand
+        
+    }
 }
