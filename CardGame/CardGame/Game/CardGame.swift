@@ -6,7 +6,11 @@
 //  Copyright © 2019 JK. All rights reserved.
 //
 
+typealias resultNameCard = (String, String) -> Void
+typealias resultName = (String) -> Void
+
 import Foundation
+
 //GameMode : 1번을 누르면 7장 카드 , 2번을 누르면 5장의 카드를 출력하기 위해
 enum GameMode: Int, CaseIterable {
     case sevenCard = 1 , fiveCard
@@ -25,6 +29,8 @@ protocol GamePlayer {
     func take(card: Card)
     func showCards() -> String
     func resetCards()
+    var name: String { get }
+    var handBetting: HandBetting? { get }
 }
 
 class CardGame {
@@ -47,4 +53,18 @@ class CardGame {
         return true
     }
 
+    private func deal(_ cards: resultNameCard) -> Bool {
+        for _ in 0..<gameMode.modeCardNumber {
+            guard gameMakePlays.sendRoundCards(cards) else { return false }
+        }
+        return true
+    }
+    
+    func play(_ cards: resultNameCard, _ winner: resultName) -> Bool {
+        reset()
+        guard gameMakePlays.isLimitCards(gameMode) else { return false }
+        guard deal(cards) else { return false }
+        gameMakePlays.winnerNameStorage(winner)
+        return true
+    }
 }
