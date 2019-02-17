@@ -29,4 +29,7 @@ class CardStack: CustomStringConvertible {
         let cardLump = cards.map { "\($0)" }.joined(separator: ", ")
         return "[\(cardLump)]"
     }
+    var bestHand: HandBetting? {
+        return ScoreCalculator.getRank(cards)
+    }
 }

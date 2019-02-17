@@ -14,17 +14,17 @@ class TestCardGame: XCTestCase {
     //Shape : ♥️ , Number: A
     func testCardDescription_Shape_Heart_Number_Ace() {
         let card = Card(number: .ace, shape: .heart)
-        XCTAssertEqual(card.description, "♥️A")
+        XCTAssertEqual(card.description, "2A")
     }
     //Shape : ♥️ , Number: 2
     func testCardDescription_Shape_Heart_Number_Two() {
         let card = Card(number: .two, shape: .heart)
-        XCTAssertEqual(card.description, "♥️2")
+        XCTAssertEqual(card.description, "22")
     }
     //Shape : ♥️ , Number: J
     func testCardDescription_Shape_Heart_Number_Jack() {
         let card = Card(number: .jack, shape: .heart)
-        XCTAssertEqual(card.description, "♥️J")
+        XCTAssertEqual(card.description, "2J")
     }
     
     //InputView.swift Test code
@@ -81,6 +81,5 @@ class TestCardGame: XCTestCase {
         _ = card.reset()
         XCTAssertEqual(card.count(), 52)
     }
-
-
+    
 }
