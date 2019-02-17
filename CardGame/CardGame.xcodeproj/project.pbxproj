@@ -37,6 +37,12 @@
 		F34A5AC42201A5410069F449 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5AC32201A5410069F449 /* Dealer.swift */; };
 		F34A5AC622028FF00069F449 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5AC522028FF00069F449 /* CardStack.swift */; };
 		F34A5AC72202909E0069F449 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A5AC522028FF00069F449 /* CardStack.swift */; };
+		F3787CF2220815F400E9F6B4 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3787CF1220815F400E9F6B4 /* Score.swift */; };
+		F3B989E0220D49E2006FF53D /* HandBetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B989DF220D49E2006FF53D /* HandBetting.swift */; };
+		F3B989FA221506BA006FF53D /* TestCardGameMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B989F422150674006FF53D /* TestCardGameMock.swift */; };
+		F3B989FB221509A9006FF53D /* GameMakePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32B191A220338A400A5312B /* GameMakePlayer.swift */; };
+		F3B989FC221509A9006FF53D /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3787CF1220815F400E9F6B4 /* Score.swift */; };
+		F3B989FD221509A9006FF53D /* HandBetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B989DF220D49E2006FF53D /* HandBetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +77,9 @@
 		F34A5AC12201A5060069F449 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F34A5AC32201A5410069F449 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		F34A5AC522028FF00069F449 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
+		F3787CF1220815F400E9F6B4 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		F3B989DF220D49E2006FF53D /* HandBetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandBetting.swift; sourceTree = "<group>"; };
+		F3B989F422150674006FF53D /* TestCardGameMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardGameMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +139,9 @@
 				F34A5AB9220195E60069F449 /* CardGame.swift */,
 				F32B191A220338A400A5312B /* GameMakePlayer.swift */,
 				F34A5AC32201A5410069F449 /* Dealer.swift */,
+				F3787CF1220815F400E9F6B4 /* Score.swift */,
 				F34A5AC12201A5060069F449 /* Player.swift */,
+				F3B989DF220D49E2006FF53D /* HandBetting.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				F34A5A8A21FA8B180069F449 /* TestCardGame.swift */,
+				F3B989F422150674006FF53D /* TestCardGameMock.swift */,
 				F34A5A8C21FA8B180069F449 /* Info.plist */,
 			);
 			path = TestCardGame;
@@ -256,7 +268,9 @@
 			files = (
 				F34A5ABA220195E60069F449 /* CardGame.swift in Sources */,
 				F34A5A7F21F955120069F449 /* CardFactory.swift in Sources */,
+				F3787CF2220815F400E9F6B4 /* Score.swift in Sources */,
 				F32B191B220338A400A5312B /* GameMakePlayer.swift in Sources */,
+				F3B989E0220D49E2006FF53D /* HandBetting.swift in Sources */,
 				F34A5AC42201A5410069F449 /* Dealer.swift in Sources */,
 				F34A5AB221FEEE280069F449 /* GameInputView.swift in Sources */,
 				F34A5A8121F957D40069F449 /* InputView.swift in Sources */,
@@ -276,6 +290,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B989FB221509A9006FF53D /* GameMakePlayer.swift in Sources */,
+				F3B989FC221509A9006FF53D /* Score.swift in Sources */,
+				F3B989FD221509A9006FF53D /* HandBetting.swift in Sources */,
 				F32B19172202C0E700A5312B /* CardGame.swift in Sources */,
 				F32B19182202C0E700A5312B /* Dealer.swift in Sources */,
 				F32B19192202C0E700A5312B /* Player.swift in Sources */,
@@ -291,6 +308,7 @@
 				F34A5ABC2201960B0069F449 /* InputView.swift in Sources */,
 				F34A5A8B21FA8B180069F449 /* TestCardGame.swift in Sources */,
 				F34A5ABB2201960B0069F449 /* OutputView.swift in Sources */,
+				F3B989FA221506BA006FF53D /* TestCardGameMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
