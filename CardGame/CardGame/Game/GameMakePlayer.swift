@@ -57,7 +57,7 @@ struct GameMakePlayers {
     
     // 카드 갯수 확인
     func isLimitCards(_ gameMode: GameMode) -> Bool {
-        return dealer.enoughCards(gamePlayers.count, gameMode)
+        return dealer.enoughCards(player: gamePlayers.count, modeCardNumber: gameMode)
     }
     
     // 플레이어랑 딜러를 배열에 담아서 그 숫자만큼 한명씩 카드를 나눠주기 위해서 -> showResults 를 호출한다.
@@ -69,6 +69,7 @@ struct GameMakePlayers {
             guard let card = dealer.removeDeal() else { return false }
             player.take(card: card)
             showResults(cards)
+            sleep(1)
         }
         return true
     }
@@ -82,13 +83,12 @@ struct GameMakePlayers {
             result(name, cards)
         }
         result(dealer.name, dealer.showCards())
-        sleep(1)
     }
     
     // 딜러가 우승일까?
     private func dealerWin(_ player: GamePlayer) -> Bool? {
-        guard let bestDealer = dealer.handBetting else { return nil }
-        guard let bestPlayer = player.handBetting else { return nil }
+        guard let bestDealer = dealer.winnerHand else { return nil }
+        guard let bestPlayer = player.winnerHand else { return nil }
         return bestPlayer < bestDealer
     }
     
@@ -97,8 +97,9 @@ struct GameMakePlayers {
         guard var winner = gamePlayers.first else { return nil }
         var number = 0
         for index in gamePlayers.indices {
-            guard let bestWinner = winner.handBetting else { continue }
-            guard let bestPlayer = gamePlayers[index].handBetting else { continue }
+            
+            guard let bestWinner = winner.winnerHand else { continue }
+            guard let bestPlayer = gamePlayers[index].winnerHand else { continue }
             if bestWinner < bestPlayer {
                 winner = gamePlayers[index]
                 number = index
