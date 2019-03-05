@@ -8,9 +8,8 @@
 
 import XCTest
 
-
-class CardGameMocks: CardGame {
-    private var gamePlayersMock: [GamePlayer] = []
+class CardGameTest: CardGame {
+    private var gamePlayersTest: [GamePlayer] = []
     
     // dealer가 필요없어서 새롭게 카드를 생성하는것을 만들게 되었다.
     func addSendRoundPlayer(_ cards: [Card]) {
@@ -18,18 +17,23 @@ class CardGameMocks: CardGame {
         for card in cards {
             player.take(card: card)
         }
-        gamePlayersMock.append(player)
+        gamePlayersTest.append(player)
     }
     
     // Winner 인덱스를 확인하려고 반환형을 Int
+    /*
+     findWinner()까지 직접 구현을 하면 CardGame 객체를 테스트하는게 아니라 뭘 테스트하는거죠?
+     - Player() 를 추가해서 카드(highCard,onePair 등) 를 테스트 하려고 만들었습니다.
+     
+     */
     func findWinner() -> Int? {
-        guard var winner = gamePlayersMock.first else { return nil }
+        guard var winner = gamePlayersTest.first else { return nil }
         var number = 0
-        for index in gamePlayersMock.indices {
-            guard let bestWinner = winner.handBetting else { continue }
-            guard let bestPlayer = gamePlayersMock[index].handBetting else { continue }
+        for index in gamePlayersTest.indices {
+            guard let bestWinner = winner.winnerHand else { continue }
+            guard let bestPlayer = gamePlayersTest[index].winnerHand else { continue }
             if bestWinner < bestPlayer {
-                winner = gamePlayersMock[index]
+                winner = gamePlayersTest[index]
                 number = index
             }
         }
@@ -65,7 +69,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard, onePair, fourOfKind]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }
@@ -97,7 +101,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard1, highCard2, highCard3]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }
@@ -128,7 +132,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard1, highCard2, onePair]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }
@@ -159,7 +163,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard1, highCard2, twoPair]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }
@@ -190,7 +194,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard1, twoPair1, twoPair2]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }
@@ -221,7 +225,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard1, highCard2, threeOfKind]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }
@@ -253,7 +257,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard1, highCard2, straight]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }
@@ -284,7 +288,7 @@ class TestCardGameMock: XCTestCase {
         ]
         
         let threeCard = [highCard1, highCard2, fourOfKind]
-        let cardGame = CardGameMocks.init(gameMode: .fiveCard, players: 3)
+        let cardGame = CardGameTest.init(gameMode: .fiveCard, players: 3)
         for index in threeCard {
             cardGame.addSendRoundPlayer(index)
         }

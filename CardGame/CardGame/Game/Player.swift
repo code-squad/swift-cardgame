@@ -31,8 +31,12 @@ class Player: GamePlayer {
         return "참가자"
     }
     
-    var handBetting: HandBetting? {
-        return cards.bestHand
+    var winnerHand: HandBetting? {
+        return self.bestHand
+    }
+    
+    var bestHand: HandBetting? {
+        return ScoreCalculator.getRank(cards)
     }
 
 }

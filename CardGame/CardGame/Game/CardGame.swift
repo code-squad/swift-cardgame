@@ -30,7 +30,7 @@ protocol GamePlayer {
     func showCards() -> String
     func resetCards()
     var name: String { get }
-    var handBetting: HandBetting? { get }
+    var winnerHand: HandBetting? { get }
 }
 
 class CardGame {
@@ -64,7 +64,10 @@ class CardGame {
         reset()
         guard gameMakePlays.isLimitCards(gameMode) else { return false }
         guard deal(cards) else { return false }
+        
         gameMakePlays.winnerNameStorage(winner)
         return true
     }
+    
+    
 }

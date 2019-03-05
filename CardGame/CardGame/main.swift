@@ -26,20 +26,20 @@ func main() {
 }
 
 //step3 Main
-//func step3Main() {
-//    do {
-//        let game = try GameInputView.readCardGameInfo()
-//        let cardGame = CardGame.init(gameMode: game.mode, players: game.numberPlayer)
-//
-//        while cardGame.play() {
-//            OutputView.showResults(cardGame.gameMakePlays)
-//        }
-//    } catch let error as GameInputError {
-//        OutputView().errorResult(error)
-//    } catch {
-//        //흐름제어가 꼭 들어가야 합니다.
-//    }
-//}
+func step3Main() {
+    do {
+        let game = try GameInputView.readCardGameInfo()
+        let cardGame = CardGame.init(gameMode: game.mode, players: game.numberPlayer)
+
+        while cardGame.play() {
+            OutputView.showResults(cardGame.gameMakePlays)
+        }
+    } catch let error as GameInputError {
+        OutputView().errorResult(error)
+    } catch {
+        OutputView().errorResult(OutputView.Error.notMenu)
+    }
+}
 
 //step4 Main
 func step4Main() {

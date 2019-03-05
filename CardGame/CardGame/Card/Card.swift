@@ -17,10 +17,6 @@ class Card: CustomStringConvertible {
         self.number = number
         self.shape = shape
     }
-    //Score에서 고민!
-    var getNumber: Number {
-        return number
-    }
     
     var description: String {
         return "\(shape.value)\(number.value)"
