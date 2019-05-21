@@ -9,8 +9,22 @@
 import Foundation
 
 func main() {
-    let cardDeck = CardDeck()
-
+    var cardDeck = CardDeck()
+    var inputView = InputView()
+    var menu = 0
+    
+    while true {
+        inputView.printMenu()
+        inputView.readInput()
+        do {
+            menu = try MenuChecker.checkMenu(inputView.valueEntered)
+            break
+        }
+        catch let error as InputError { print(error.rawValue) }
+        catch { print(error) }
+    }
+    
+    
 }
 
 main()
