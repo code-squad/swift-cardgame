@@ -10,6 +10,9 @@
 		33F69CB5229398A6007E31D4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CB4229398A6007E31D4 /* Card.swift */; };
 		33F69CB72293C8C1007E31D4 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CB62293C8C1007E31D4 /* CardDeck.swift */; };
 		33F69CBB2293DD9E007E31D4 /* CardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CBA2293DD9E007E31D4 /* CardError.swift */; };
+		33F69CBD2293E02A007E31D4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CBC2293E02A007E31D4 /* InputView.swift */; };
+		33F69CBF2293E45D007E31D4 /* MenuChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CBE2293E45D007E31D4 /* MenuChecker.swift */; };
+		33F69CC12293E791007E31D4 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CC02293E791007E31D4 /* InputError.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		33F69CB4229398A6007E31D4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		33F69CB62293C8C1007E31D4 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		33F69CBA2293DD9E007E31D4 /* CardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardError.swift; sourceTree = "<group>"; };
+		33F69CBC2293E02A007E31D4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		33F69CBE2293E45D007E31D4 /* MenuChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChecker.swift; sourceTree = "<group>"; };
+		33F69CC02293E791007E31D4 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +73,9 @@
 				33F69CB4229398A6007E31D4 /* Card.swift */,
 				33F69CB62293C8C1007E31D4 /* CardDeck.swift */,
 				33F69CBA2293DD9E007E31D4 /* CardError.swift */,
+				33F69CBC2293E02A007E31D4 /* InputView.swift */,
+				33F69CBE2293E45D007E31D4 /* MenuChecker.swift */,
+				33F69CC02293E791007E31D4 /* InputError.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -130,7 +139,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				33F69CB72293C8C1007E31D4 /* CardDeck.swift in Sources */,
+				33F69CC12293E791007E31D4 /* InputError.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				33F69CBF2293E45D007E31D4 /* MenuChecker.swift in Sources */,
+				33F69CBD2293E02A007E31D4 /* InputView.swift in Sources */,
 				33F69CBB2293DD9E007E31D4 /* CardError.swift in Sources */,
 				33F69CB5229398A6007E31D4 /* Card.swift in Sources */,
 			);
