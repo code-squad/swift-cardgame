@@ -24,12 +24,12 @@ class Card {
     // Card properties and methods
     private let rank: Rank, suit: Suit
     
+    var description: String {
+        return "\(suit.rawValue)\(rank.rawValue)"
+    }
+    
     init(rank: Rank, suit: Suit) {
         self.rank = rank
         self.suit = suit
-    }
-    
-    var description: String {
-        return "\(suit.rawValue)\(rank.rawValue)"
     }
 }
