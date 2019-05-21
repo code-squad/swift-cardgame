@@ -30,8 +30,6 @@ class Card {
     }
     
     var description: String {
-        let output = "\(suit.rawValue)\(rank.rawValue)"
-        
-        return output
+        return "\(suit.rawValue)\(rank.rawValue)"
     }
 }
