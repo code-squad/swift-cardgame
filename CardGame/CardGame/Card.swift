@@ -22,7 +22,7 @@ class Card {
     }
     
     // Card properties and methods
-    let rank: Rank, suit: Suit
+    private let rank: Rank, suit: Suit
     
     init(rank: Rank, suit: Suit) {
         self.rank = rank
