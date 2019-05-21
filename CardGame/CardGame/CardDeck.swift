@@ -35,8 +35,11 @@ struct CardDeck {
     }
     
     /// 기능은 카드 인스턴스 중에 하나를 반환하고 목록에서 삭제한다.
-    func removeOne () {
+    mutating func removeOne () throws -> Card {
+        guard let firstCard = cards.first else { throw CardError.NotExistCard }
         
+        cards.removeFirst()
+        return firstCard
     }
     
     /// 처음처럼 모든 카드를 다시 채워넣는다.
