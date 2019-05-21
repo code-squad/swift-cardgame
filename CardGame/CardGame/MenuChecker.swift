@@ -9,9 +9,11 @@
 import Foundation
 
 struct MenuChecker {
-    func checkMenu (_ input: String) throws {
+    static func checkMenu (_ input: String) throws -> Int {
         guard let menu = Int(input), menu < 4 && menu > 0 else {
             throw InputError.notExistsMenu
         }
+        
+        return menu
     }
 }
