@@ -9,9 +9,8 @@
 import Foundation
 
 func main() {
-    let card = Card(rank: Card.Rank.seven, suit: Card.Suit.spades)
-    
-    print(card.description)
+    let cardDeck = CardDeck()
+
 }
 
 main()
