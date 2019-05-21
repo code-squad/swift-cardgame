@@ -8,8 +8,7 @@
 
 import Foundation
 
-func main() {
-    var cardDeck = CardDeck()
+func getMenu() -> Int {
     var inputView = InputView()
     var menu = 0
     
@@ -22,6 +21,17 @@ func main() {
         }
         catch let error as InputError { print(error.rawValue) }
         catch { print(error) }
+    }
+    
+    return menu
+}
+func main() {
+    var cardDeck = CardDeck()
+    var menu = 0
+    
+    while true {
+        menu = getMenu()
+        
     }
     
     
