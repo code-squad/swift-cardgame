@@ -12,12 +12,12 @@ class Card {
     // Swift 는 클래스보다 구조체, enum 을 선호한다는 이야기를 들어서 nested enum 으로 구현해봤습니다.
     
     // nested Suit enumeration
-    enum Suit: Character {
+    enum Suit: Character, CaseIterable {
         case spades = "♠️", hearts = "♥️", diamonds = "♦️", clubs = "♣️"
     }
     
     // nested Rank enumeration
-    enum Rank: Int {
+    enum Rank: Int, CaseIterable {
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
     }
     
