@@ -40,8 +40,12 @@ struct CardDeck {
     }
     
     /// 처음처럼 모든 카드를 다시 채워넣는다.
-    func reset () {
+    mutating func reset () {
+        cards.removeAll()
         
+        for suit in Card.Suit.allCases {
+            initSuit(suit: suit)
+        }
     }
 
 }
