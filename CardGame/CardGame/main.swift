@@ -2,8 +2,8 @@
 //  main.swift
 //  CardGame
 //
-//  Created by JK on 10/10/2017.
-//  Copyright © 2017 JK. All rights reserved.
+//  Created by joon-ho kil on 5/21/19.
+//  Copyright © 2019 JK. All rights reserved.
 //
 
 import Foundation
