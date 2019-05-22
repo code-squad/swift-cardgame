@@ -32,7 +32,7 @@ func main() {
     while true {
         menu = getMenu()
         do {
-            try cardDeck.executeMenu(menu)
+            print(try cardDeck.executeMenu(menu))
         }
         catch let error as InputError { print(error.rawValue) }
         catch let error as CardError { print(error.rawValue) }
