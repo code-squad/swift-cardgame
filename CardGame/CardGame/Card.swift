@@ -34,6 +34,12 @@ class Card {
 
 extension Card: CustomStringConvertible {
     var description: String {
-        return "\(suit.rawValue)\(rank.rawValue)"
+        switch(rank.rawValue) {
+        case 1: return "\(suit.rawValue)A"
+        case 11: return "\(suit.rawValue)J"
+        case 12: return "\(suit.rawValue)Q"
+        case 13: return "\(suit.rawValue)K"
+        default: return "\(suit.rawValue)\(rank.rawValue)"
+        }
     }
 }
