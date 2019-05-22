@@ -51,4 +51,13 @@ struct CardDeck {
         }
     }
 
+    /// 메뉴 숫자에 따라 함수를 실행시켜준다.
+    mutating func executeMenu (_ menu: Int) throws {
+        switch menu {
+        case 1: reset()
+        case 2: shuffle()
+        case 3: try removeOne()
+        default: throw InputError.notExistsMenu
+        }
+    }
 }
