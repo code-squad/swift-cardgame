@@ -11,21 +11,25 @@ import Foundation
 
 
 func main() {
-    var cardDeck = CardDeck()
     let inputView = InputView()
     let outputView = OutputView()
-    let menuGetter = MenuGetter()
+    var cardGame = CardGame()
     var menu: Menu
     
     while true {
         do {
-            menu = try menuGetter.getMenu(inputView)
-            outputView.printMessage(menu, cardReturned: try cardDeck.executeMenu(menu), cardDeck.count())
+            menu = try MenuGetter.getMenu(inputView)
         }
-        catch let error as InputError { print(error.rawValue) }
+        catch let error as InputError { print(error.rawValue); continue; }
+        catch { print(error); continue; }
+        
+        do {
+            outputView.printMessage(menu, try cardGame.executeMenu(menu))
+        }
         catch let error as CardError { print(error.rawValue) }
         catch { print(error) }
     }
 }
 
 main()
+
