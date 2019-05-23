@@ -15,6 +15,7 @@ func main() {
     let outputView = OutputView()
     var cardGame = CardGame()
     var menu: Menu
+    var result: (Card?, Int)
     
     while true {
         do {
@@ -24,7 +25,8 @@ func main() {
         catch { print(error); continue; }
         
         do {
-            outputView.printMessage(menu, try cardGame.executeMenu(menu))
+            result = try cardGame.executeMenu(menu)
+            outputView.printMessage(menu, result)
         }
         catch let error as CardError { print(error.rawValue) }
         catch { print(error) }
