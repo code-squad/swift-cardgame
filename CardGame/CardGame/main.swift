@@ -8,9 +8,9 @@
 
 import Foundation
 
-func getMenu() -> Int {
+func getMenu() -> Menu {
     var inputView = InputView()
-    var menu = 0
+    var menu: Menu = Menu.reset
     
     while true {
         inputView.printMenu()
@@ -25,20 +25,21 @@ func getMenu() -> Int {
     
     return menu
 }
+
 func main() {
     var cardDeck = CardDeck()
-    var menu = 0
+    var menu: Menu
+    let outputView = OutputView()
     
     while true {
         menu = getMenu()
         do {
-            print(try cardDeck.executeMenu(menu))
+            outputView.printMessage(menu, cardReturned: try cardDeck.executeMenu(menu), cardDeck.count())
         }
         catch let error as InputError { print(error.rawValue) }
         catch let error as CardError { print(error.rawValue) }
         catch { print(error) }
     }
-    
     
 }
 
