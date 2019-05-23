@@ -52,17 +52,17 @@ struct CardDeck {
     }
 
     /// 메뉴 숫자에 따라 함수를 실행시켜준다.
-    mutating func executeMenu (_ menu: Int) throws -> String {
-        let resultMessage: String
+    mutating func executeMenu (_ menu: Int) throws -> Card? {
+        var returnCard: Card? = nil
         switch menu {
         case 1: reset()
-        resultMessage = "카드 전체를 초기화했습니다.\n총 52장의 카드가 있습니다."
+//        resultMessage = "카드 전체를 초기화했습니다.\n총 52장의 카드가 있습니다."
         case 2: shuffle()
-        resultMessage = "전체 \(cards.count) 장의 카드를 섞었습니다."
-        case 3: resultMessage = "\(try removeOne())\n총 \(cards.count)장의 카드가 남아있습니다."
+//        resultMessage = "전체 \(cards.count) 장의 카드를 섞었습니다."
+        case 3: returnCard = try removeOne()
         default: throw InputError.notExistsMenu
         }
         
-        return resultMessage
+        return returnCard
     }
 }
