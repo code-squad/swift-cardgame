@@ -8,39 +8,24 @@
 
 import Foundation
 
-func getMenu() -> Menu {
-    var inputView = InputView()
-    var menu: Menu = Menu.reset
-    
-    while true {
-        inputView.printMenu()
-        inputView.readInput()
-        do {
-            menu = try MenuChecker.checkMenu(inputView.valueEntered)
-            break
-        }
-        catch let error as InputError { print(error.rawValue) }
-        catch { print(error) }
-    }
-    
-    return menu
-}
+
 
 func main() {
     var cardDeck = CardDeck()
-    var menu: Menu
+    let inputView = InputView()
     let outputView = OutputView()
+    let menuGetter = MenuGetter()
+    var menu: Menu
     
     while true {
-        menu = getMenu()
         do {
+            menu = try menuGetter.getMenu(inputView)
             outputView.printMessage(menu, cardReturned: try cardDeck.executeMenu(menu), cardDeck.count())
         }
         catch let error as InputError { print(error.rawValue) }
         catch let error as CardError { print(error.rawValue) }
         catch { print(error) }
     }
-    
 }
 
 main()
