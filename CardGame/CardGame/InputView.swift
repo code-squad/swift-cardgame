@@ -9,8 +9,6 @@
 import Foundation
 
 struct InputView {
-    private(set) var valueEntered: String = ""
-    
     func printMenu () {
         print("다음 메뉴를 선택해주세요.")
         print("1. 카드 초기화")
@@ -18,8 +16,8 @@ struct InputView {
         print("3. 카드 하나 뽑기")
     }
     
-    mutating func readInput () {
+    func readInput () -> String {
         print("> ", terminator: "")
-        valueEntered = readLine() ?? "0"
+        return readLine() ?? "0"
     }
 }
