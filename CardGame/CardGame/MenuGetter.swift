@@ -9,8 +9,9 @@
 import Foundation
 
 struct MenuGetter {
-    func getMenu(_ inputView: InputView) throws -> Menu {
+    static func getMenu(_ inputView: InputView) throws -> Menu {
         inputView.printMenu()
+        
         let input = inputView.readInput()
         let menu = try MenuChecker.checkMenu(input)
         
