@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 func main() {
     let inputView = InputView()
     let outputView = OutputView()
