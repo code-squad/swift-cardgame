@@ -14,6 +14,7 @@ struct InputView {
         print("1. 카드 초기화")
         print("2. 카드 섞기")
         print("3. 카드 하나 뽑기")
+        print("9. 종료")
     }
     
     func readInput () -> String {

@@ -27,7 +27,9 @@ func main() {
             print(error)
             continue
         }
-        
+        if menu == .exit {
+            exit(0)
+        }
         do {
             result = try cardGame.executeMenu(menu)
             outputView.printMessage(menu, result)
