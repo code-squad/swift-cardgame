@@ -24,8 +24,6 @@ class Card {
     // Card properties and methods
     private let rank: Rank, suit: Suit
     
-    
-    
     init(rank: Rank, suit: Suit) {
         self.rank = rank
         self.suit = suit
