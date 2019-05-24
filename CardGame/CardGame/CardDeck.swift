@@ -12,11 +12,18 @@ struct CardDeck {
     private var cards = [Card]()
     
     init() {
-        reset()
+        initCards()
     }
     
-    /// 모양 별 초기화
-    private mutating func initSuit (suit: Card.Suit) {
+    /// 모든 카드 초기화
+    private mutating func initCards () {
+        for suit in Card.Suit.allCases {
+            initSuitCards(suit: suit)
+        }
+    }
+    
+    /// 모양 별 카드 초기화
+    private mutating func initSuitCards (suit: Card.Suit) {
         for rank in Card.Rank.allCases {
             cards.append(Card(rank: rank, suit: suit))
         }
@@ -46,9 +53,6 @@ struct CardDeck {
     /// 처음처럼 모든 카드를 다시 채워넣는다.
     mutating func reset () {
         cards.removeAll()
-        
-        for suit in Card.Suit.allCases {
-            initSuit(suit: suit)
-        }
+        initCards()
     }
 }
