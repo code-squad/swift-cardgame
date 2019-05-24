@@ -23,4 +23,8 @@ struct CardDeck {
             cards.append(Card(rank: rank, suit: suit))
         }
     }
+    
+    func count() -> Int {
+        return cards.count
+    }
 }
