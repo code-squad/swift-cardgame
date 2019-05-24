@@ -50,6 +50,7 @@ struct CardDeck {
         cards.removeAll()
         
         for suit in Card.Suit.allCases {
+            
             initSuit(suit: suit)
         }
     }
