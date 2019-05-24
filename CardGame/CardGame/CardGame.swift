@@ -14,6 +14,7 @@ struct CardGame {
     /// 메뉴 숫자에 따라 함수를 실행시켜준다.
     mutating func executeMenu (_ menu: Menu) throws -> (Card?, Int) {
         var returnCard: Card? = nil
+        
         switch menu {
         case .removeOne:
             returnCard = try cardDeck.removeOne()
