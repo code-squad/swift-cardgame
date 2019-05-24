@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		33F678FC229632B700D79CAD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F678FB229632B700D79CAD /* OutputView.swift */; };
 		33F678FE229635EA00D79CAD /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F678FD229635EA00D79CAD /* Menu.swift */; };
-		33F67900229686EF00D79CAD /* MenuGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F678FF229686EF00D79CAD /* MenuGetter.swift */; };
 		33F6790222968D6200D79CAD /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6790122968D6200D79CAD /* CardGame.swift */; };
 		33F69CB5229398A6007E31D4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CB4229398A6007E31D4 /* Card.swift */; };
 		33F69CB72293C8C1007E31D4 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CB62293C8C1007E31D4 /* CardDeck.swift */; };
@@ -35,7 +34,6 @@
 /* Begin PBXFileReference section */
 		33F678FB229632B700D79CAD /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		33F678FD229635EA00D79CAD /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		33F678FF229686EF00D79CAD /* MenuGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGetter.swift; sourceTree = "<group>"; };
 		33F6790122968D6200D79CAD /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		33F69CB4229398A6007E31D4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		33F69CB62293C8C1007E31D4 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				33F69CC02293E791007E31D4 /* InputError.swift */,
 				33F678FB229632B700D79CAD /* OutputView.swift */,
 				33F678FD229635EA00D79CAD /* Menu.swift */,
-				33F678FF229686EF00D79CAD /* MenuGetter.swift */,
 				33F6790122968D6200D79CAD /* CardGame.swift */,
 			);
 			path = CardGame;
@@ -152,7 +149,6 @@
 			files = (
 				33F6790222968D6200D79CAD /* CardGame.swift in Sources */,
 				33F69CB72293C8C1007E31D4 /* CardDeck.swift in Sources */,
-				33F67900229686EF00D79CAD /* MenuGetter.swift in Sources */,
 				33F69CC12293E791007E31D4 /* InputError.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				33F69CBF2293E45D007E31D4 /* MenuChecker.swift in Sources */,
