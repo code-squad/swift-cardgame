@@ -12,4 +12,5 @@ enum Menu: Int {
     case reset = 1
     case shuffle = 2
     case removeOne = 3
+    case exit = 9
 }
