@@ -17,17 +17,16 @@ struct CardGame {
         switch menu {
         case .removeOne: returnCard = try removeOne()
         case .reset: reset()
-        case .shuffle: shuffle()
-        case .exit: break
+        case .shuffle:
+            cardDeck.shuffle()
+        case .exit:
+            break
         }
         
-        return (returnCard, count())
+        return (returnCard, cardDeck.count())
     }
     
-    /// 전체 카드를 랜덤하게 섞는다.
-    private mutating func shuffle () {
-        cardDeck.cards = cardDeck.cards.shuffled()
-    }
+    
     
     /// 카드 인스턴스 중에 하나를 반환하고 목록에서 삭제한다.
     private mutating func removeOne () throws -> Card {
