@@ -19,15 +19,25 @@ func main() {
         do {
             menu = try MenuGetter.getMenu(inputView)
         }
-        catch let error as InputError { print(error.rawValue); continue; }
-        catch { print(error); continue; }
+        catch let error as InputError {
+            print(error.rawValue)
+            continue
+        }
+        catch {
+            print(error)
+            continue
+        }
         
         do {
             result = try cardGame.executeMenu(menu)
             outputView.printMessage(menu, result)
         }
-        catch let error as CardError { print(error.rawValue) }
-        catch { print(error) }
+        catch let error as CardError {
+            print(error.rawValue)
+        }
+        catch {
+            print(error)
+        }
     }
 }
 
