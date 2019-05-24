@@ -24,7 +24,13 @@ struct CardDeck {
         }
     }
     
+    /// 갖고 있는 카드 개수를 반환한다.
     func count() -> Int {
         return cards.count
+    }
+    
+    /// 전체 카드를 랜덤하게 섞는다.
+    mutating func shuffle () {
+        cards = cards.shuffled()
     }
 }
