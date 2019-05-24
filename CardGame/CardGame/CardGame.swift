@@ -18,7 +18,7 @@ struct CardGame {
         case .removeOne:
             returnCard = try cardDeck.removeOne()
         case .reset:
-            reset()
+            cardDeck.reset()
         case .shuffle:
             cardDeck.shuffle()
         case .exit:
@@ -26,16 +26,5 @@ struct CardGame {
         }
         
         return (returnCard, cardDeck.count())
-    }
-    
-    
-    
-    
-    
-    /// 처음처럼 모든 카드를 다시 채워넣는다.
-    private mutating func reset () {
-        cardDeck.cards.removeAll()
-        
-        cardDeck = CardDeck()
     }
 }
