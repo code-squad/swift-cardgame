@@ -18,22 +18,18 @@ struct CardGame {
         case .removeOne: returnCard = try removeOne()
         case .reset: reset()
         case .shuffle: shuffle()
+        case .exit: break
         }
         
         return (returnCard, count())
     }
-
-    /// 갖고 있는 카드 개수를 반환한다.
-    private func count () -> Int {
-        return cardDeck.cards.count
-    }
     
-    /// 기능은 전체 카드를 랜덤하게 섞는다.
+    /// 전체 카드를 랜덤하게 섞는다.
     private mutating func shuffle () {
         cardDeck.cards = cardDeck.cards.shuffled()
     }
     
-    /// 기능은 카드 인스턴스 중에 하나를 반환하고 목록에서 삭제한다.
+    /// 카드 인스턴스 중에 하나를 반환하고 목록에서 삭제한다.
     private mutating func removeOne () throws -> Card {
         guard let firstCard = cardDeck.cards.first else {
             throw CardError.NotExistCard
