@@ -14,10 +14,14 @@ func main() {
     var cardGame = CardGame()
     var menu: Menu
     var result: (Card?, Int)
+    var input: String
     
     while true {
+        inputView.printMenu()
+        input = inputView.readInput()
+
         do {
-            menu = try MenuGetter.getMenu(inputView)
+            menu = try MenuChecker.checkMenu(input)
         }
         catch let error as InputError {
             print(error.rawValue)
@@ -27,9 +31,11 @@ func main() {
             print(error)
             continue
         }
+        
         if menu == .exit {
             exit(0)
         }
+        
         do {
             result = try cardGame.executeMenu(menu)
             outputView.printMessage(menu, result)
