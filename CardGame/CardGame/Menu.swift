@@ -9,8 +9,7 @@
 import Foundation
 
 enum Menu: Int {
-    case reset = 1
-    case shuffle = 2
-    case removeOne = 3
+    case fiveCard = 1
+    case sevenCard = 2
     case exit = 9
 }

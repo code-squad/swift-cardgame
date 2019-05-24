@@ -10,11 +10,14 @@ import Foundation
 
 struct InputView {
     func printMenu () {
-        print("다음 메뉴를 선택해주세요.")
-        print("1. 카드 초기화")
-        print("2. 카드 섞기")
-        print("3. 카드 하나 뽑기")
+        print("카드 게임 종류를 선택하세요.")
+        print("1. 7카드")
+        print("2. 5카드")
         print("9. 종료")
+    }
+    
+    func printPeopleInput () {
+        print("참여할 사람의 인원을 입력하세요.")
     }
     
     func readInput () -> String {
