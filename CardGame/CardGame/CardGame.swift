@@ -9,7 +9,7 @@
 import Foundation
 
 struct CardGame {
-    var cardDeck = CardDeck()
+    private var cardDeck = CardDeck()
     
     /// 메뉴 숫자에 따라 함수를 실행시켜준다.
     mutating func executeMenu (_ menu: Menu) throws -> (Card?, Int) {
