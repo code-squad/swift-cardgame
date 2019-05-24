@@ -12,9 +12,7 @@ struct CardDeck {
     private var cards = [Card]()
     
     init() {
-        for suit in Card.Suit.allCases {
-            initSuit(suit: suit)
-        }
+        reset()
     }
     
     /// 모양 별 초기화
@@ -50,7 +48,6 @@ struct CardDeck {
         cards.removeAll()
         
         for suit in Card.Suit.allCases {
-            
             initSuit(suit: suit)
         }
     }
