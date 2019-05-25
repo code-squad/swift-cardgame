@@ -9,18 +9,24 @@
 import Foundation
 
 struct OutputView {
-    func printMessage (_ menu: Menu, _ result: (cardReturned: Card?, cardCount: Int)) {
-        switch menu {
-        case .reset:
-            print("카드 전체를 초기화했습니다.\n총 \(result.cardCount)장의 카드가 있습니다.")
-        case .shuffle:
-            print("전체 \(result.cardCount) 장의 카드를 섞었습니다.")
-        case .removeOne:
-            if let card = result.cardReturned {
-                print("\(String(describing: card))\n총 \(result.cardCount)장의 카드가 남아있습니다.")
-            }
-        case .exit:
-            break
+    func printMessage (_ result: [String: [Card]]) {
+        for (userName, cards) in result {
+            print("\(userName) " + changeCardsToString(cards))
         }
+    }
+    
+    private func changeCardsToString (_ cards: [Card]) -> String {
+        var cardString: String = "["
+        
+        for card in cards {
+            cardString += "\(String(describing: card)), "
+        }
+        
+        cardString.removeLast()
+        cardString.removeLast()
+        
+        cardString += "]"
+        
+        return cardString
     }
 }
