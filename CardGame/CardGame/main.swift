@@ -42,6 +42,7 @@ func main() {
         }
         catch let error as CardError {
             print(error.rawValue)
+            exit(0)
         }
         catch {
             print(error)
