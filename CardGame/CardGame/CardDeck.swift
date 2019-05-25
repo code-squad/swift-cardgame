@@ -13,6 +13,7 @@ struct CardDeck {
     
     init() {
         initCards()
+        shuffle() 
     }
     
     /// 모든 카드 초기화
