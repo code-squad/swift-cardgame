@@ -12,4 +12,12 @@ enum Menu: Int {
     case fiveCard = 1
     case sevenCard = 2
     case exit = 9
+    
+    func userCardCount () -> Int {
+        switch self {
+        case .exit: return 0
+        case .fiveCard: return 5
+        case .sevenCard: return 7
+        }
+    }
 }

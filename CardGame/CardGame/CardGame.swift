@@ -26,7 +26,7 @@ struct CardGame {
     private mutating func getOneUserCard (_ menu: Menu) throws -> [Card] {
         var oneUserCards = [Card]()
         
-        for _ in 0..<menu.rawValue {
+        for _ in 0..<menu.userCardCount() {
             oneUserCards.append(try cardDeck.removeOne())
         }
         
