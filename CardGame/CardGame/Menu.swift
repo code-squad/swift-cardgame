@@ -9,8 +9,8 @@
 import Foundation
 
 enum Menu: Int {
-    case fiveCard = 1
-    case sevenCard = 2
+    case sevenCard = 1
+    case fiveCard = 2
     case exit = 9
     
     func userCardCount () -> Int {
