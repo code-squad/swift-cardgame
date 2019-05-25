@@ -10,8 +10,16 @@ import Foundation
 
 struct OutputView {
     func printMessage (_ result: [String: [Card]]) {
-        for (userName, cards) in result {
+        let resultSorted = result.sorted(by: { (arg0, arg1) -> Bool in
+            return arg0.key < arg1.key
+        })
+        
+        for (userName, cards) in resultSorted where userName != "딜러" {
             print("\(userName) " + changeCardsToString(cards))
+        }
+        
+        if let dealerCards = result["딜러"] {
+            print("딜러 " + changeCardsToString(dealerCards))
         }
     }
     
