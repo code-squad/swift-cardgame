@@ -19,6 +19,8 @@ struct CardGame {
             result["참가자#"+String(user)] = try getOneUserCard(menu)
         }
         
+        result["딜러"] = try getOneUserCard(menu)
+        
         return result
     }
     
