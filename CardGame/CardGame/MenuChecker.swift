@@ -9,11 +9,15 @@
 import Foundation
 
 struct MenuChecker {
-    static func checkMenu (_ input: String) throws -> Menu {
-        guard let menu = Menu(rawValue: Int(input) ?? 0) else {
+    static func checkMenu (_ input: (menu: String, people: String)) throws -> (Menu, UserCount) {
+        guard let menu = Menu(rawValue: Int(input.menu) ?? 0) else {
             throw InputError.notExistsMenu
         }
         
-        return menu
+        guard let userCount = UserCount(rawValue: Int(input.people) ?? 0) else {
+            throw InputError.notSupportUserCount
+        }
+        
+        return (menu, userCount)
     }
 }
