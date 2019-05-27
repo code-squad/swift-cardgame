@@ -14,7 +14,7 @@ func main() {
     var cardGame = CardGame()
     var menu: Menu
     var userCount: UserCount
-    var human: ([Player], Dealer)
+    var Participant: ([Player], Dealer)
     var input: (String, String)
     
     while true {
@@ -37,8 +37,8 @@ func main() {
         }
 
         do {
-            human = try cardGame.executeMenu(menu, userCount)
-            outputView.printMessage(human)
+            Participant = try cardGame.executeMenu(menu, userCount)
+            outputView.printMessage(Participant)
             cardGame.gameEnd()
         }
         catch let error as CardError {
