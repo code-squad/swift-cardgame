@@ -33,7 +33,7 @@ func main() {
         }
 
         if menu == .exit {
-            exit(0)
+            return
         }
 
         do {
@@ -43,7 +43,7 @@ func main() {
         }
         catch let error as CardError {
             print(error.rawValue)
-            exit(0)
+            return
         }
         catch {
             print(error)
