@@ -9,6 +9,19 @@
 import Foundation
 
 struct Player: Participant {
-    let name: String
-    var cards = [Card]()
+    private let name: String
+    private var cards = [Card]()
+    
+    init(name: String, cards: [Card]){
+        self.name = name
+        self.cards = cards
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func getCards() -> [Card] {
+        return cards
+    }
 }

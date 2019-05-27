@@ -9,13 +9,14 @@
 import Foundation
 
 protocol Participant: CustomStringConvertible {
-    var name: String { get }
-    var cards: [Card] { get set }
+    func getName() -> String
+    func getCards() -> [Card]
 }
 
 extension Participant {
     var description: String {
-        return "\(name) " + changeCardsToString(cards)
+        let cards = getCards()
+        return "\(getName()) " + changeCardsToString(cards)
     }
     
     private func changeCardsToString (_ cards: [Card]) -> String {
