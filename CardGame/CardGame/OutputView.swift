@@ -11,7 +11,7 @@ import Foundation
 struct OutputView {
     func printMessage (_ Participant: (players: [Player], dealer: Dealer)) {
         let playersSorted = Participant.players.sorted(by: { (arg0, arg1) -> Bool in
-            return arg0.name < arg1.name
+            return arg0.getName() < arg1.getName()
         })
         
         for player in playersSorted {
