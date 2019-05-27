@@ -9,18 +9,16 @@
 import Foundation
 
 struct OutputView {
-    func printMessage (_ result: [String: [Card]]) {
-        let resultSorted = result.sorted(by: { (arg0, arg1) -> Bool in
-            return arg0.key < arg1.key
+    func printMessage (_ human: (players: [Player], dealer: Dealer)) {
+        let playersSorted = human.players.sorted(by: { (arg0, arg1) -> Bool in
+            return arg0.name < arg1.name
         })
         
-        for (userName, cards) in resultSorted where userName != "딜러" {
-            print("\(userName) " + changeCardsToString(cards))
+        for player in playersSorted where player.name != "딜러" {
+            print("\(player.name) " + changeCardsToString(player.cards))
         }
         
-        if let dealerCards = result["딜러"] {
-            print("딜러 " + changeCardsToString(dealerCards))
-        }
+        print("\(human.dealer.name) " + changeCardsToString(human.dealer.cards))
     }
     
     private func changeCardsToString (_ cards: [Card]) -> String {
