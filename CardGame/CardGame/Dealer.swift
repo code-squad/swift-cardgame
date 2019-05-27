@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Dealer: Human {
+struct Dealer: Participant {
     let name = "딜러"
     var cards = [Card]()
 }

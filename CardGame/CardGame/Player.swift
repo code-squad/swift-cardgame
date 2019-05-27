@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Player: Human {
+struct Player: Participant {
     let name: String
-    private(set) var cards = [Card]()
+    var cards = [Card]()
 }
