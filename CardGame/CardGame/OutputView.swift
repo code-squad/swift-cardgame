@@ -20,6 +20,4 @@ struct OutputView {
         
         print(Participant.dealer)
     }
-    
-    
 }
