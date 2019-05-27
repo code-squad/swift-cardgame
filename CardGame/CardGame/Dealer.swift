@@ -9,6 +9,22 @@
 import Foundation
 
 struct Dealer: Participant {
-    let name = "딜러"
-    var cards = [Card]()
+    private let name = "딜러"
+    private var cards = [Card]()
+    
+    init(cards: [Card]){
+        self.cards = cards
+    }
+    
+    init(){
+        
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func getCards() -> [Card] {
+        return cards
+    }
 }
