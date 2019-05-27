@@ -10,18 +10,18 @@ import Foundation
 
 struct CardGame {
     private var cardDeck = CardDeck()
+    private var players = [Player]()
+    private var dealer = Dealer()
     
     /// 메뉴 숫자에 따라 함수를 실행시켜준다.
-    mutating func executeMenu (_ menu: Menu, _ userCount: UserCount) throws -> [String: [Card]] {
-        var result = [String: [Card]]()
-        
+    mutating func executeMenu (_ menu: Menu, _ userCount: UserCount) throws -> ([Player], Dealer) {
         for user in 1...userCount.rawValue {
-            result["참가자#"+String(user)] = try getOneUserCard(menu)
+            players.append(Player(name: "참가자#"+String(user), cards: try getOneUserCard(menu)))
         }
         
-        result["딜러"] = try getOneUserCard(menu)
+        dealer = Dealer(cards: try getOneUserCard(menu))
         
-        return result
+        return (players, dealer)
     }
     
     /// 한 유저의 모든 카드 리턴 {
