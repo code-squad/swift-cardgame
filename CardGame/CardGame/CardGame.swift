@@ -16,7 +16,11 @@ struct CardGame {
     /// 메뉴 숫자에 따라 함수를 실행시켜준다.
     mutating func executeMenu (_ menu: Menu, _ userCount: UserCount) throws -> ([Player], Dealer) {
         for user in 1...userCount.rawValue {
-            players.append(Player(name: "참가자#"+String(user), cards: try getOneUserCard(menu)))
+            let playerName = "참가자#"+String(user)
+            let playerCards = try getOneUserCard(menu)
+            let player = Player(name: playerName, cards: playerCards)
+            
+            players.append(player)
         }
         
         dealer = Dealer(cards: try getOneUserCard(menu))
