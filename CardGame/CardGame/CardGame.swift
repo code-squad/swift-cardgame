@@ -34,4 +34,10 @@ struct CardGame {
         
         return oneUserCards
     }
+    
+    /// 게임 종료
+    mutating func gameEnd () {
+        players.removeAll()
+        dealer = Dealer()
+    }
 }
