@@ -12,6 +12,6 @@ enum Score: Int {
     case pair = 1
     case twoPair
     case threeOfAKind
-    case fourOfAKind
     case straight
+    case fourOfAKind
 }
