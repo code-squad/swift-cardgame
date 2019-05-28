@@ -28,6 +28,10 @@ class Card {
         self.rank = rank
         self.suit = suit
     }
+    
+    func equalRank (_ card: Card) -> Bool {
+        return rank == card.rank
+    }
 }
 
 extension Card: CustomStringConvertible {
