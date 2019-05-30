@@ -39,6 +39,7 @@ func main() {
         do {
             Participant = try cardGame.executeMenu(menu, userCount)
             outputView.printMessage(Participant)
+            outputView.printResult(Participant.0)
             cardGame.gameEnd()
         }
         catch let error as CardError {
