@@ -14,6 +14,15 @@ class Card {
     // nested Suit enumeration
     enum Suit: Character, CaseIterable {
         case spades = "♠️", hearts = "♥️", diamonds = "♦️", clubs = "♣️"
+    
+        func getPoint () -> Int {
+            switch self {
+            case .clubs: return 4
+            case .diamonds: return 3
+            case .hearts: return 2
+            case .spades: return 1
+            }
+        }
     }
     
     // nested Rank enumeration
