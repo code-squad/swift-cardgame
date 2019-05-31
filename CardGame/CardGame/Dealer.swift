@@ -12,19 +12,15 @@ struct Dealer: Participant {
     private let name = "딜러"
     private var cards = [Card]()
     
+    var description: String {
+        return "\(name) " + changeCardsToString(cards)
+    }
+    
     init(cards: [Card]){
         self.cards = cards
     }
     
     init(){
         
-    }
-    
-    func getName() -> String {
-        return name
-    }
-    
-    func getCards() -> [Card] {
-        return cards
     }
 }
