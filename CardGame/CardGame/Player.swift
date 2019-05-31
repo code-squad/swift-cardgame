@@ -12,23 +12,21 @@ struct Player: Participant {
     private let name: String
     private var cards = [Card]()
     
+    var description: String {
+        return "\(name) " + changeCardsToString(cards)
+    }
+    
     init(name: String, cards: [Card]){
         self.name = name
         self.cards = cards
     }
     
-    func getName() -> String {
-        return name
+    func compareNameOrdered (otherPlayer: Player) -> Bool {
+        return name < otherPlayer.name
     }
     
     func getCards() -> [Card] {
         return cards
-    }
-    
-    func getScore() -> Int {
-        
-        
-        return checkEqualRankCount()
     }
     
     private func checkEqualRankCount () -> Int {
@@ -60,4 +58,14 @@ struct Player: Participant {
         
         return count
     }
+    
+//    private func checkStraight () -> Bool {
+//        var maxCount = 0
+//        for card in cards {
+//            let sameCardCount = getSameCardCount(card, cards)
+//            if sameCardCount > maxCount {
+//                maxCount = sameCardCount
+//            }
+//        }
+//    }
 }
