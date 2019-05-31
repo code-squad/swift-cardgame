@@ -9,6 +9,8 @@
 import Foundation
 
 protocol Participant: CustomStringConvertible {
+    var description: String { get }
+    
     func changeCardsToString(_ cards: [Card]) -> String
 }
 
