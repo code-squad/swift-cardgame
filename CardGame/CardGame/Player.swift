@@ -25,10 +25,6 @@ struct Player: Participant {
         return name < otherPlayer.name
     }
     
-    func getCards() -> [Card] {
-        return cards
-    }
-    
     private func checkEqualRankCount () -> Int {
         var maxCount = 0
         for card in cards {
