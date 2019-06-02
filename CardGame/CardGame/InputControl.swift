@@ -1,6 +1,6 @@
 import Foundation
 
-struct InputControl {
+class InputControl {
     
     private var deck = Deck()
     
@@ -33,10 +33,15 @@ struct InputControl {
     }
     
     private func shuffleDeck() {
-        
+        deck.shuffle()
+        OutputView.show("\(deck.count)장의 카드를 섞었습니다.")
     }
     
     private func drawCard() {
-        
+        guard let card = deck.drawCard() else {
+            OutputView.show("카드가 없어 뽑을 수 없습니다.")
+            return
+        }
+        OutputView.show(card: card)
     }
 }
