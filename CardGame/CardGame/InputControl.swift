@@ -4,23 +4,27 @@ class InputControl {
     
     private var deck = Deck()
     
-    enum Option: Int, CaseIterable, CustomStringConvertible {
-        case resetDeck = 1
-        case shuffleDeck
-        case drawCard
-        case showOptions
-        var description: String {
-            switch self {
-            case .drawCard: return "카드 뽑기"
-            case .resetDeck: return "덱 초기화"
-            case .showOptions: return "선택지 보기"
-            case .shuffleDeck: return "덱 섞기"
-            }
-        }
-    }
+    private let options = [
+        "덱 초기화",
+        "덱 섞기",
+        "카드 뽑기",
+        "선택지 보기"
+    ]
     
     func playCardGame() {
+        InputView.show(options: options)
         
+        while true {
+            let choosenNumber = InputView.askForChoice(options: options)
+            switch choosenNumber {
+            case 1: resetDeck()
+            case 2: shuffleDeck()
+            case 3: drawCard()
+            case 4: InputView.show(options: options)
+            default: OutputView.show("없는 선택지입니다.")
+            }
+            OutputView.nextLine()
+        }
     }
     
     private func showDeckCount() {
