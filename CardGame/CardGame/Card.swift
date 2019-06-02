@@ -17,4 +17,18 @@ class Card: CustomStringConvertible {
             }
         }
     }
+    
+    // 무늬의 종류가 4가지로 제한되어 있기 때문에 열거형을 선택함.
+    enum Suit: CaseIterable, CustomStringConvertible {
+        case spades, hearts, diamonds, clubs
+        
+        var description: String {
+            switch self {
+            case .spades: return "♠"
+            case .hearts: return "♥"
+            case .diamonds: return "♦"
+            case .clubs: return "♣"
+            }
+        }
+    }
 }
