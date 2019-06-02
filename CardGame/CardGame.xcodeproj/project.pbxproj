@@ -10,6 +10,7 @@
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 		F24F9AD722A3BB5D00A4A00E /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24F9AD622A3BB5D00A4A00E /* Deck.swift */; };
 		F24F9AD922A3C43600A4A00E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24F9AD822A3C43600A4A00E /* InputView.swift */; };
+		F2BF760822A3C4D600981B8A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF760722A3C4D600981B8A /* OutputView.swift */; };
 		F2C7D44622A34D26008345B7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7D44522A34D26008345B7 /* Card.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F24F9AD622A3BB5D00A4A00E /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		F24F9AD822A3C43600A4A00E /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		F2BF760722A3C4D600981B8A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		F2C7D44522A34D26008345B7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				F2C7D44522A34D26008345B7 /* Card.swift */,
 				F24F9AD822A3C43600A4A00E /* InputView.swift */,
 				F24F9AD622A3BB5D00A4A00E /* Deck.swift */,
+				F2BF760722A3C4D600981B8A /* OutputView.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2BF760822A3C4D600981B8A /* OutputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				F24F9AD922A3C43600A4A00E /* InputView.swift in Sources */,
 				F2C7D44622A34D26008345B7 /* Card.swift in Sources */,
