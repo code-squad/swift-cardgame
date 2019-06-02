@@ -43,5 +43,6 @@ class InputControl {
             return
         }
         OutputView.show(card: card)
+        showDeckCount()
     }
 }
