@@ -1,27 +1,32 @@
 import Foundation
 
-typealias Deck = [Card]
-
-private let initialDeck: [Card] = {
-    var temporaryDeck = [Card]()
-    for suit in Card.Suit.allCases {
-        for rank in Card.Rank.allCases {
-            temporaryDeck.append(Card(rank: rank, suit: suit))
+struct Deck {
+    
+    private let initialDeck: [Card] = {
+        var temporaryDeck = [Card]()
+        for suit in Card.Suit.allCases {
+            for rank in Card.Rank.allCases {
+                temporaryDeck.append(Card(rank: rank, suit: suit))
+            }
         }
-    }
-    return temporaryDeck
-}()
-
-extension Deck {
+        return temporaryDeck
+    }()
+    
+    private var deck: [Card]
     
     init() {
-        self = initialDeck
+        deck = initialDeck
     }
+    
+    var count: Int { return deck.count }
+    
+    mutating func shuffle() { deck.shuffle() }
     
     mutating func drawCard() -> Card? {
-        guard !self.isEmpty else { return nil }
-        return self.removeFirst()
+        guard !deck.isEmpty else { return nil }
+        return deck.removeFirst()
     }
     
-    mutating func resetDeck() { self = initialDeck }
+    mutating func reset() { deck = initialDeck }
+    
 }
