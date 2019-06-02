@@ -1,6 +1,6 @@
 import Foundation
 
-struct Card: CustomStringConvertible {
+class Card: CustomStringConvertible {
     /* 카드 숫자는 종류가 13가지로 제한되어 있기 때문에 열거형을 선택함. 또한 Card 유형과 연관된 유형이기에 내포되도록 함.
      RawValue를 통한 인스턴스 생성도 가능하도록 카드 실제 숫자를 나타내는 Int를 RawValue로 가지도록 함.
      카드 덱을 만들기 용이하게 하기 위하여 CaseIterable을 Rank와 Suit에 채택함.
@@ -35,8 +35,8 @@ struct Card: CustomStringConvertible {
         }
     }
     
-    let rank: Rank
-    let suit: Suit
+    private var rank: Rank
+    private var suit: Suit
     
     init(rank: Rank, suit: Suit) {
         self.rank = rank
