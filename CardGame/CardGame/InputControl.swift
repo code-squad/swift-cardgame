@@ -24,11 +24,12 @@ struct InputControl {
     }
     
     private func showDeckCount() {
-        
+        OutputView.show("총 \(deck.count)장의 카드가 남아있습니다.")
     }
     
     private func resetDeck() {
-        
+        deck.reset()
+        OutputView.show("카드 덱을 초기화했습니다.")
     }
     
     private func shuffleDeck() {
