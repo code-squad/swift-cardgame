@@ -8,19 +8,15 @@ class InputControl {
         "덱 초기화",
         "덱 섞기",
         "카드 뽑기",
-        "선택지 보기"
     ]
     
     func playCardGame() {
-        InputView.show(options: options)
-        
         while true {
             let choosenNumber = InputView.askForChoice(options: options)
             switch choosenNumber {
             case 1: resetDeck()
             case 2: shuffleDeck()
             case 3: drawCard()
-            case 4: InputView.show(options: options)
             default: OutputView.show("없는 선택지입니다.")
             }
             OutputView.nextLine()
