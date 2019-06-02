@@ -1,7 +1,5 @@
 import Foundation
 
-let threeOfSpades = Card(rank: .three, suit: .spades)
-let kingOfHearts = Card(rank: .king, suit: .hearts)
+var control = InputControl()
 
-print(threeOfSpades)
-print(kingOfHearts)
+control.playCardGame()
