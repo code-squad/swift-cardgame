@@ -2,7 +2,7 @@ import Foundation
 
 struct Deck {
     
-    private let initialDeck: [Card] = {
+    private let defaultDeck: [Card] = {
         var temporaryDeck = [Card]()
         for suit in Card.Suit.allCases {
             for rank in Card.Rank.allCases {
@@ -15,7 +15,7 @@ struct Deck {
     private var deck: [Card]
     
     init() {
-        deck = initialDeck
+        deck = defaultDeck
     }
     
     var count: Int { return deck.count }
@@ -27,6 +27,6 @@ struct Deck {
         return deck.removeFirst()
     }
     
-    mutating func reset() { deck = initialDeck }
+    mutating func reset() { deck = defaultDeck }
     
 }
