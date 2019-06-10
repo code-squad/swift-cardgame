@@ -1,6 +1,6 @@
 import Foundation
 
-struct InputView {
+class InputView: TextView {
     
     static func ask(_ something: String) -> String {
         print("\(something): ", terminator: "")
@@ -10,7 +10,7 @@ struct InputView {
     /// 선택지에 번호를 붙여 텍스트로 나타냅니다.
     private static func show(options: [String]) {
         for index in options.indices {
-            print("\(index + 1). \(options[index])")
+            show("\(index + 1). \(options[index])")
         }
     }
     
@@ -20,7 +20,7 @@ struct InputView {
         while true {
             guard let choice = Int(ask("숫자 선택")),
                 (1...options.count).contains(choice) else {
-                    print("유효하지 않은 선택입니다. 다시 입력하세요.")
+                    show("유효하지 않은 선택입니다. 다시 입력하세요.")
                     continue
             }
             return choice
