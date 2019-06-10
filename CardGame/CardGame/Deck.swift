@@ -18,15 +18,21 @@ struct Deck {
         deck = defaultDeck
     }
     
-    var count: Int { return deck.count }
+    var count: Int {
+        return deck.count
+    }
     
-    mutating func shuffle() { deck.shuffle() }
+    mutating func shuffle() {
+        deck.shuffle()
+    }
     
     mutating func drawCard() -> Card? {
         guard !deck.isEmpty else { return nil }
         return deck.removeFirst()
     }
     
-    mutating func reset() { deck = defaultDeck }
+    mutating func reset() {
+        deck = defaultDeck
+    }
     
 }
