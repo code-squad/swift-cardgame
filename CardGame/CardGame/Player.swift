@@ -26,6 +26,7 @@ struct Player: Participant {
     }
     
     func getWinner(_ other: Player?) -> (Player?, String?) {
+        let maxCards: (Card, Card)
         guard let otherPlayer = other else {
             return (self, name)
         }
@@ -33,14 +34,27 @@ struct Player: Participant {
         let playerScore = self.checkEqualRankCount()
         let otherPlayerScore = otherPlayer.checkEqualRankCount()
         
-        if playerScore.rawValue > otherPlayerScore.rawValue {
+        if playerScore.0.rawValue > otherPlayerScore.0.rawValue {
             return (self, name)
         }
+        if playerScore.0.rawValue < otherPlayerScore.0.rawValue {
+            return (otherPlayer, otherPlayer.name)
+        }
         
-        return (otherPlayer, otherPlayer.name)
+        if playerScore.0 == Score.nonScore {
+            return (nil, nil)
+        }
+        
+        let win = getWinnerWhenSameScore(maxCards)
+        
+        if win {
+            return (self, name)
+        } else {
+            return (otherPlayer, otherPlayer.name)
+        }
     }
     
-    private func checkEqualRankCount () -> Score {
+    private func checkEqualRankCount () -> (Score, Card?) {
         var allSameCardCount = [Int]()
         
         for card in cards {
@@ -49,8 +63,8 @@ struct Player: Participant {
         }
         
         let existStraigt = checkStraight()
-        if existStraigt {
-            return Score.straight
+        if existStraigt.0 {
+            return (Score.straight, existStraigt.1)
         }
         
         if allSameCardCount.max() == 4 {
@@ -98,25 +112,27 @@ struct Player: Participant {
         return Score.pair
     }
     
-    private func checkStraight () -> Bool {
+    private func checkStraight () -> (Bool, Card?) {
         var continuousRankCount = 0
+        var maxCard: Card?
         
         for card in cards {
-            continuousRankCount = getContinuousRankCount(card, continuousRankCount)
+            (continuousRankCount, maxCard) = getContinuousRankCount(card, continuousRankCount)
         }
         
-        return continuousRankCount == 4
+        return (continuousRankCount == 5, maxCard)
     }
     
-    private func getContinuousRankCount (_ minRankCard: Card, _ continuousRankCount: Int) -> Int {
+    private func getContinuousRankCount (_ maxRankCard: Card, _ continuousRankCount: Int) -> (Int, Card?) {
         var resultContinuousRankCount = continuousRankCount
+        var resultMaxCard: Card?
         
         for card in cards {
-            if minRankCard.checkPrevRank(card) {
-                resultContinuousRankCount = getContinuousRankCount(card, continuousRankCount + 1)
+            if maxRankCard.checkNextRank(card) {
+                (resultContinuousRankCount,  resultMaxCard) = getContinuousRankCount(card, continuousRankCount + 1)
             }
         }
         
-        return resultContinuousRankCount
+        return (resultContinuousRankCount, resultMaxCard)
     }
 }
