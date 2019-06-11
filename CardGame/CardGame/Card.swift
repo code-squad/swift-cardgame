@@ -51,6 +51,25 @@ class Card {
         
         return rank == Rank(rawValue: card.rank.rawValue + 1)
     }
+    
+    func checkHigherThanCard (_ card: Card) -> Bool {
+        let rankPoint = rank.rawValue == 1 ? 13 : rank.rawValue
+        let cardRankPoint = card.rank.rawValue == 1 ? 13 : card.rank.rawValue
+        
+        if rankPoint > cardRankPoint {
+            return true
+        }
+        
+        if rankPoint < cardRankPoint {
+            return false
+        }
+        
+        if suit.getPoint() > card.suit.getPoint() {
+            return true
+        }
+        
+        return false
+    }
 }
 
 extension Card: CustomStringConvertible {
