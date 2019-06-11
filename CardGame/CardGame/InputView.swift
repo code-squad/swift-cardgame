@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    private func printMenu () {
+    private func printMenuInputGuidance () {
         print("카드 게임 종류를 선택하세요.")
         print("1. 7카드")
         print("2. 5카드")
@@ -24,7 +24,7 @@ struct InputView {
         let menu: String
         let people: String
         
-        printMenu()
+        printMenuInputGuidance()
         print("> ", terminator: "")
         menu = readLine() ?? "0"
         

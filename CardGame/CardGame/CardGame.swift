@@ -44,4 +44,18 @@ struct CardGame {
         players.removeAll()
         dealer = Dealer()
     }
+    
+    /// 우승자 구하기
+    func getChanpion () -> (Player?, String?) {
+        var champion: Player?
+        var championName: String?
+        
+        for player in players {
+            (champion, championName) = player.getWinner(champion)
+        }
+        
+        return (champion, championName)
+    }
+    
+    
 }

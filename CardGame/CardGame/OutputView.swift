@@ -10,8 +10,8 @@ import Foundation
 
 struct OutputView {
     func printMessage (_ Participant: (players: [Player], dealer: Dealer)) {
-        let playersSorted = Participant.players.sorted(by: { (arg0, arg1) -> Bool in
-            return arg0.getName() < arg1.getName()
+        let playersSorted = Participant.players.sorted(by: { (playerBefore, playerAfter) -> Bool in
+            return playerBefore.compareNameOrdered(otherPlayer: playerAfter)
         })
         
         for player in playersSorted {
@@ -21,12 +21,11 @@ struct OutputView {
         print(Participant.dealer)
     }
     
-    func printResult (_ players: [Player]) {
-        let playersSorted = players.sorted(by: { (arg0, arg1) -> Bool in
-            return arg0.getScore() > arg1.getScore()
-        })
-        
-        print("이번 게임의 승자는 \(playersSorted[0].getName()) 입니다.")
-//      이번 게임의 승자는 참가자#2 입니다.
+    func printResult (_ champion: Player?, _ championName: String?) {
+        if let _ = champion, let championName = championName {
+            print("이번 게임의 승자는 \(championName) 입니다.")
+        } else {
+            print("이번 게임은 무승부입니다.")
+        }
     }
 }

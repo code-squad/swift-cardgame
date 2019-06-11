@@ -25,16 +25,43 @@ struct Player: Participant {
         return name < otherPlayer.name
     }
     
-    private func checkEqualRankCount () -> Int {
-        var maxCount = 0
-        for card in cards {
-            let sameCardCount = getSameCardCount(card, cards)
-            if sameCardCount > maxCount {
-                maxCount = sameCardCount
-            }
+    func getWinner(_ other: Player?) -> (Player?, String?) {
+        guard let otherPlayer = other else {
+            return (self, name)
         }
         
-        return maxCount
+        let playerScore = self.checkEqualRankCount()
+        let otherPlayerScore = otherPlayer.checkEqualRankCount()
+        
+        if playerScore.rawValue > otherPlayerScore.rawValue {
+            return (self, name)
+        }
+        
+        return (otherPlayer, otherPlayer.name)
+    }
+    
+    private func checkEqualRankCount () -> Score {
+        var allSameCardCount = [Int]()
+        
+        for card in cards {
+            let sameCardCount = getSameCardCount(card, cards)
+            allSameCardCount.append(sameCardCount)
+        }
+        
+//        for card in cards {
+//
+//        }
+        
+        if allSameCardCount.max() == 4 {
+            return Score.fourOfAKind
+        } else if allSameCardCount.max() == 3 {
+            return Score.threeOfAKind
+        } else if allSameCardCount.max() == 2 {
+            let score = checkTwoPair(allSameCardCount)
+            return score
+        }
+
+        return Score.nonScore
     }
 
     private func getSameCardCount (_ card: Card, _ cards: [Card]) -> Int {
@@ -55,6 +82,20 @@ struct Player: Participant {
         return count
     }
     
+    private func checkTwoPair(_ allSameCardCount: [Int]) -> Score {
+        var numberTwoCount = 0
+        for sameCardCount in allSameCardCount {
+            if sameCardCount == 2 {
+                numberTwoCount += 1
+            }
+        }
+        
+        if numberTwoCount > 2 {
+            return Score.twoPair
+        }
+        
+        return Score.pair
+    }
 //    private func checkStraight () -> Bool {
 //        var maxCount = 0
 //        for card in cards {

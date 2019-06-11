@@ -9,6 +9,7 @@
 import Foundation
 
 enum Score: Int {
+    case nonScore = 0
     case pair = 1
     case twoPair
     case threeOfAKind
