@@ -41,6 +41,16 @@ class Card {
     func equalRank (_ card: Card) -> Bool {
         return rank == card.rank
     }
+    
+    func checkPrevRank (_ card: Card) -> Bool {
+        if rank == .ace {
+            if card.rank == Rank.king {
+                return true
+            }
+        }
+        
+        return rank == Rank(rawValue: card.rank.rawValue - 1)
+    }
 }
 
 extension Card: CustomStringConvertible {
