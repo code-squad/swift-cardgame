@@ -56,6 +56,4 @@ struct CardGame {
         
         return (champion, championName)
     }
-    
-    
 }

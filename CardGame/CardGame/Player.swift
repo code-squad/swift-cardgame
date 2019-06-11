@@ -48,9 +48,10 @@ struct Player: Participant {
             allSameCardCount.append(sameCardCount)
         }
         
-//        for card in cards {
-//
-//        }
+        let existStraigt = checkStraight()
+        if existStraigt {
+            return Score.straight
+        }
         
         if allSameCardCount.max() == 4 {
             return Score.fourOfAKind
@@ -96,13 +97,26 @@ struct Player: Participant {
         
         return Score.pair
     }
-//    private func checkStraight () -> Bool {
-//        var maxCount = 0
-//        for card in cards {
-//            let sameCardCount = getSameCardCount(card, cards)
-//            if sameCardCount > maxCount {
-//                maxCount = sameCardCount
-//            }
-//        }
-//    }
+    
+    private func checkStraight () -> Bool {
+        var continuousRankCount = 0
+        
+        for card in cards {
+            continuousRankCount = getContinuousRankCount(card, continuousRankCount)
+        }
+        
+        return continuousRankCount == 4
+    }
+    
+    private func getContinuousRankCount (_ minRankCard: Card, _ continuousRankCount: Int) -> Int {
+        var resultContinuousRankCount = continuousRankCount
+        
+        for card in cards {
+            if minRankCard.checkPrevRank(card) {
+                resultContinuousRankCount = getContinuousRankCount(card, continuousRankCount + 1)
+            }
+        }
+        
+        return resultContinuousRankCount
+    }
 }
