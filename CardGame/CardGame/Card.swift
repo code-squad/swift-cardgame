@@ -52,7 +52,7 @@ class Card {
         return rank == Rank(rawValue: card.rank.rawValue + 1)
     }
     
-    func checkHigherThanCard (_ card: Card) -> Bool {
+    func checkHigherThan (_ card: Card) -> Bool {
         let rankPoint = rank.rawValue == 1 ? 13 : rank.rawValue
         let cardRankPoint = card.rank.rawValue == 1 ? 13 : card.rank.rawValue
         

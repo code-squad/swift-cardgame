@@ -26,7 +26,6 @@ struct Player: Participant {
     }
     
     func getWinner(_ other: Player?) -> (Player?, String?) {
-        let maxCards: (Card, Card)
         guard let otherPlayer = other else {
             return (self, name)
         }
@@ -45,13 +44,19 @@ struct Player: Participant {
             return (nil, nil)
         }
         
-        let win = getWinnerWhenSameScore(maxCards)
-        
-        if win {
-            return (self, name)
-        } else {
+        guard let playerMaxCard = playerScore.1 else {
             return (otherPlayer, otherPlayer.name)
         }
+        
+        guard let otherPlayerMaxCard = otherPlayerScore.1 else {
+            return (self, name)
+        }
+        
+        if playerMaxCard.checkHigherThan(otherPlayerMaxCard) {
+            return (self, name)
+        }
+        
+        return (otherPlayer, otherPlayer.name)
     }
     
     private func checkEqualRankCount () -> (Score, Card?) {
@@ -68,15 +73,23 @@ struct Player: Participant {
         }
         
         if allSameCardCount.max() == 4 {
-            return Score.fourOfAKind
-        } else if allSameCardCount.max() == 3 {
-            return Score.threeOfAKind
-        } else if allSameCardCount.max() == 2 {
+            let maxCard = getMaxPointCard(allSameCardCount, sameCardNumber: 4)
+            
+            return (Score.fourOfAKind, maxCard)
+        }
+        if allSameCardCount.max() == 3 {
+            let maxCard = getMaxPointCard(allSameCardCount, sameCardNumber: 3)
+            
+            return (Score.threeOfAKind, maxCard)
+        }
+        if allSameCardCount.max() == 2 {
             let score = checkTwoPair(allSameCardCount)
-            return score
+            let maxCard = getMaxPointCard(allSameCardCount, sameCardNumber: 2)
+            
+            return (score, maxCard)
         }
 
-        return Score.nonScore
+        return (Score.nonScore, nil)
     }
 
     private func getSameCardCount (_ card: Card, _ cards: [Card]) -> Int {
@@ -134,5 +147,24 @@ struct Player: Participant {
         }
         
         return (resultContinuousRankCount, resultMaxCard)
+    }
+    
+    private func getMaxPointCard (_ allSameCardCount: [Int], sameCardNumber: Int) -> Card {
+        let sameCardIndex = allSameCardCount.enumerated().filter({ $0.element == sameCardNumber }).map({ $0.offset })
+        var sameCards = [Card]()
+        
+        for index in sameCardIndex {
+            sameCards.append(cards[index])
+        }
+        
+        var maxCard = sameCards.removeFirst()
+        
+        for card in sameCards {
+            if card.checkHigherThan(maxCard) {
+                maxCard = card
+            }
+        }
+        
+        return maxCard
     }
 }
