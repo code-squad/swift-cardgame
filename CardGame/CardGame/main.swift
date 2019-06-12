@@ -10,9 +10,8 @@ func main() {
     // 카드 게임의 종류를 저장합니다.
     inputView.show("카드 게임 종류를 선택하세요.")
     let ruleChoice = inputView.askForChoice(options: ["7카드", "5카드"])
-    
-    // 반드시 options의 개수만큼 케이스를 작성해야 합니다.
     let rule: CardGame.GameRule!
+    // 반드시 options의 개수만큼 케이스를 작성해야 합니다.
     switch ruleChoice {
     case 1: rule = .sevenCardStud
     case 2: rule = .fiveCardStud
@@ -35,13 +34,11 @@ func main() {
         }
     }
     
-    
+    // 카드를 뽑고 패를 출력합니다. 카드가 다 떨어지면 게임을 종료합니다.
     var hasEnoughCards = true
     while hasEnoughCards {
-        // 카드를 뽑습니다. 카드가 다 떨어지면 게임을 종료합니다.
         do {
             try game.giveCardsToPlayers(rule: rule)
-            // 플레이어 및 딜러 패를 출력합니다.
             outputView.showAllHands(game: game)
         } catch CardGame.Error.outOfCards {
             outputView.show("카드가 다 떨어짐")
