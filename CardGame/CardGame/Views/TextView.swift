@@ -10,15 +10,11 @@ import Foundation
 
 class TextView {
     
-    static func show(_ text: String) {
+    func show(_ text: String) {
         print(text)
     }
     
-    static func nextLine() {
+    func nextLine() {
         print()
-    }
-    
-    static func show(card: Card) {
-        print("[\(card)]")
     }
 }
