@@ -31,6 +31,17 @@ struct Deck {
         return deck.removeFirst()
     }
     
+    mutating func drawCards(count: Int) -> [Card]? {
+        var cards = [Card]()
+        for _ in 1...count {
+            guard let card = drawCard() else {
+                return nil
+            }
+            cards.append(card)
+        }
+        return cards
+    }
+    
     mutating func reset() {
         deck = defaultDeck
     }
