@@ -52,7 +52,7 @@ struct Player: Participant {
             return (self, name)
         }
         
-        if playerMaxCard.checkHigherThan(otherPlayerMaxCard) {
+        if playerMaxCard.isHigherThan(otherPlayerMaxCard) {
             return (self, name)
         }
         
@@ -103,7 +103,7 @@ struct Player: Participant {
     }
 
     private func addCountIfSameCard (cards: (Card, Card), count: Int) -> Int {
-        if cards.0.equalRank(cards.1) {
+        if cards.0.isEqualToRank(cards.1) {
             return count+1
         }
         
@@ -141,7 +141,7 @@ struct Player: Participant {
         var resultMaxCard: Card?
         
         for card in cards {
-            if maxRankCard.checkNextRankThan(card) {
+            if maxRankCard.isNextRankThan(card) {
                 (resultContinuousRankCount,  resultMaxCard) = getContinuousRankCount(card, continuousRankCount + 1)
             }
         }
@@ -160,7 +160,7 @@ struct Player: Participant {
         var maxCard = sameCards.removeFirst()
         
         for card in sameCards {
-            if card.checkHigherThan(maxCard) {
+            if card.isHigherThan(maxCard) {
                 maxCard = card
             }
         }

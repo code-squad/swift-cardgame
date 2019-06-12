@@ -38,11 +38,11 @@ class Card {
         self.suit = suit
     }
     
-    func equalRank (_ card: Card) -> Bool {
+    func isEqualToRank (_ card: Card) -> Bool {
         return rank == card.rank
     }
     
-    func checkNextRankThan (_ card: Card) -> Bool {
+    func isNextRankThan (_ card: Card) -> Bool {
         if rank == .two && card.rank == Rank.ace {
             return true
         }
@@ -50,7 +50,7 @@ class Card {
         return rank == Rank(rawValue: card.rank.rawValue + 1)
     }
     
-    func checkHigherThan (_ card: Card) -> Bool {
+    func isHigherThan (_ card: Card) -> Bool {
         let rankPoint = rank.rawValue == 1 ? 13 : rank.rawValue
         let cardRankPoint = card.rank.rawValue == 1 ? 13 : card.rank.rawValue
         
