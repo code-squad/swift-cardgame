@@ -3,12 +3,12 @@ import Foundation
 class InputView: TextView {
     
     func ask(_ something: String) -> String {
-        print("\(something): ", terminator: "")
+        show("\(something): ", terminator: "")
         return readLine() ?? ""
     }
     
     func askForNumber(_ something: String) -> Int {
-        print("\(something): ", terminator: "")
+        show("\(something): ", terminator: "")
         while true {
             guard let number = Int(readLine() ?? "") else {
                     show("숫자가 아닙니다. 다시 입력하세요.")
