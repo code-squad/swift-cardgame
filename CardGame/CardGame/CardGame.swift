@@ -26,6 +26,7 @@ class CardGame {
     }
     
     func giveCardsToPlayers(rule: GameRule) throws {
+        deck.shuffle()
         for index in players.indices {
             players[index].hand = try drawCards(count: rule.rawValue)
         }
