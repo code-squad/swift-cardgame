@@ -42,11 +42,9 @@ class Card {
         return rank == card.rank
     }
     
-    func checkNextRank (_ card: Card) -> Bool {
-        if rank == .ace {
-            if card.rank == Rank.two {
-                return true
-            }
+    func checkNextRankThan (_ card: Card) -> Bool {
+        if rank == .two && card.rank == Rank.ace {
+            return true
         }
         
         return rank == Rank(rawValue: card.rank.rawValue + 1)
