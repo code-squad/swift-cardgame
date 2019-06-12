@@ -141,7 +141,7 @@ struct Player: Participant {
         var resultMaxCard: Card?
         
         for card in cards {
-            if maxRankCard.checkNextRank(card) {
+            if maxRankCard.checkNextRankThan(card) {
                 (resultContinuousRankCount,  resultMaxCard) = getContinuousRankCount(card, continuousRankCount + 1)
             }
         }
