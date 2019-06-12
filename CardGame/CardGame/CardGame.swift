@@ -3,19 +3,23 @@ import Foundation
 class CardGame {
     
     private var deck = Deck()
-    private var players = [Player]()
-    private var dealer = Player(name: "딜러")
+    private(set) var players = [Player]()
+    private(set) var dealer = Player(name: "딜러")
     
     enum GameRule: Int {
         case fiveCardStud = 5
         case sevenCardStud = 7
     }
     
-    enum CardGameError: Error {
-        case notEnoughCards
+    enum Error: Swift.Error {
+        case outOfCards
+        case playerLimitExceeded
     }
     
-    func addPlayers(count: Int) {
+    func addPlayers(count: Int) throws {
+        guard count <= 4, count >= 1 else {
+            throw Error.playerLimitExceeded
+        }
         for index in 1...count {
             players.append(Player(name: "참가자#\(index)"))
         }
@@ -32,7 +36,7 @@ class CardGame {
         var cards = [Card]()
         for _ in 1...count {
             guard let card = deck.drawCard() else {
-                throw CardGameError.notEnoughCards
+                throw Error.outOfCards
             }
             cards.append(card)
         }
