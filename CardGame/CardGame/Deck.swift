@@ -34,5 +34,4 @@ struct Deck {
     mutating func reset() {
         deck = defaultDeck
     }
-    
 }
