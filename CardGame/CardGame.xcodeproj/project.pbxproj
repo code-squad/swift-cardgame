@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		C598F9B322B1139B00DE223D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B222B1139B00DE223D /* Card.swift */; };
+		C598F9B622B115A100DE223D /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B522B115A100DE223D /* CardType.swift */; };
+		C598F9B822B1176500DE223D /* CardNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B722B1176500DE223D /* CardNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C598F9B222B1139B00DE223D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C598F9B522B115A100DE223D /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		C598F9B722B1176500DE223D /* CardNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,8 @@
 		839DA8D81F8CDBC9009E05F3 = {
 			isa = PBXGroup;
 			children = (
+				C598F9B422B1156900DE223D /* Enums */,
+				C598F9B122B1139000DE223D /* CardDTO */,
 				839DA8E31F8CDBC9009E05F3 /* CardGame */,
 				839DA8E21F8CDBC9009E05F3 /* Products */,
 			);
@@ -60,6 +68,23 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 			);
 			path = CardGame;
+			sourceTree = "<group>";
+		};
+		C598F9B122B1139000DE223D /* CardDTO */ = {
+			isa = PBXGroup;
+			children = (
+				C598F9B222B1139B00DE223D /* Card.swift */,
+			);
+			path = CardDTO;
+			sourceTree = "<group>";
+		};
+		C598F9B422B1156900DE223D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C598F9B522B115A100DE223D /* CardType.swift */,
+				C598F9B722B1176500DE223D /* CardNumber.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				C598F9B322B1139B00DE223D /* Card.swift in Sources */,
+				C598F9B822B1176500DE223D /* CardNumber.swift in Sources */,
+				C598F9B622B115A100DE223D /* CardType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
