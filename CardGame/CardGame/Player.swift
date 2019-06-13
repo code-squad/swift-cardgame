@@ -10,7 +10,7 @@ class Player {
     
     func drawCard(from deck: inout Deck) throws {
         guard let card = deck.drawCard() else {
-            throw CardGame.Error.outOfCards
+            throw CardGameError.outOfCards
         }
         hand.append(card)
     }
