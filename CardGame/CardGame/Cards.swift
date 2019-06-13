@@ -12,22 +12,7 @@ struct Cards: CustomStringConvertible {
     var cards = [Card]()
     
     var description: String {
-        return changeCardsToString()
-    }
-    
-    private func changeCardsToString () -> String {
-        var cardString: String = "["
-        
-        for card in cards {
-            cardString += "\(String(describing: card)), "
-        }
-        
-        cardString.removeLast()
-        cardString.removeLast()
-        
-        cardString += "]"
-        
-        return cardString
+        return cards.description
     }
     
     func checkEqualRankCount () -> (Score, Card?) {
