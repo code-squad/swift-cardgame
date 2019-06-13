@@ -25,6 +25,7 @@ func main() {
             outputView.show("플레이어 제한 초과")
         } catch {
             outputView.showUnexpectedError(error)
+            return
         }
     }
     
@@ -39,6 +40,7 @@ func main() {
             hasEnoughCards = false
         } catch {
             outputView.showUnexpectedError(error)
+            return
         }
     }
 }
