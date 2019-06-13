@@ -34,13 +34,14 @@ class CardGame {
         }
     }
     
-    func addPlayers(count: Int) throws {
+    func addPlayers(count: Int) -> Result<String, CardGameError> {
         guard count <= 4, count >= 1 else {
-            throw CardGameError.playerLimitExceeded
+            return .failure(.playerLimitExceeded)
         }
         for index in 1...count {
             players.append(Player(name: "참가자#\(index)"))
         }
+        return .success(players.map { $0.name }.joined())
     }
     
     func giveCardsToPlayers(rule: Rule) throws {
