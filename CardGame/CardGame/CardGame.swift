@@ -15,7 +15,7 @@ class CardGame {
         case fiveCardStud = 5
         case sevenCardStud = 7
         
-        static let options = ["7카드", "5카드"]
+        static let options = ["5카드", "7카드"]
         
         init?(choice: String) {
             switch choice {
@@ -38,8 +38,10 @@ class CardGame {
     func giveCardsToPlayers(rule: Rule) throws {
         deck.shuffle()
         for player in players {
+            player.resetHand()
             try player.drawCards(from: &deck, count: rule.rawValue)
         }
+        dealer.resetHand()
         try dealer.drawCards(from: &deck, count: rule.rawValue)
     }
 }

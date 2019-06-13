@@ -21,6 +21,9 @@ class Player {
         }
     }
     
+    func resetHand() {
+        hand.removeAll()
+    }
 }
 
 class Dealer: Player {
