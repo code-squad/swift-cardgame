@@ -10,24 +10,5 @@ import Foundation
 
 protocol Participant: CustomStringConvertible {
     var description: String { get }
-    
-    func changeCardsToString(_ cards: [Card]) -> String
-}
-
-extension Participant {
-    internal func changeCardsToString (_ cards: [Card]) -> String {
-        var cardString: String = "["
-        
-        for card in cards {
-            cardString += "\(String(describing: card)), "
-        }
-        
-        cardString.removeLast()
-        cardString.removeLast()
-        
-        cardString += "]"
-        
-        return cardString
-    }
 }
 

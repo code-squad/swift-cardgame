@@ -19,6 +19,7 @@
 		33F69CBF2293E45D007E31D4 /* MenuChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CBE2293E45D007E31D4 /* MenuChecker.swift */; };
 		33F69CC12293E791007E31D4 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F69CC02293E791007E31D4 /* InputError.swift */; };
 		33FBE654229CCFA3002A654E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FBE653229CCFA3002A654E /* Score.swift */; };
+		33FC333622B1E81E00E939A7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FC333522B1E81E00E939A7 /* Cards.swift */; };
 		33FC79FF229BA6A80024405A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FC79FE229BA6A80024405A /* Player.swift */; };
 		33FC7A01229BA6EA0024405A /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FC7A00229BA6EA0024405A /* Dealer.swift */; };
 		33FC7A03229BA9150024405A /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FC7A02229BA9150024405A /* Participant.swift */; };
@@ -52,6 +53,7 @@
 		33F69CBE2293E45D007E31D4 /* MenuChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChecker.swift; sourceTree = "<group>"; };
 		33F69CC02293E791007E31D4 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		33FBE653229CCFA3002A654E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		33FC333522B1E81E00E939A7 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		33FC79FE229BA6A80024405A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		33FC7A00229BA6EA0024405A /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		33FC7A02229BA9150024405A /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				33FC7A00229BA6EA0024405A /* Dealer.swift */,
 				33FC7A02229BA9150024405A /* Participant.swift */,
 				33FBE653229CCFA3002A654E /* Score.swift */,
+				33FC333522B1E81E00E939A7 /* Cards.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				33F6790222968D6200D79CAD /* CardGame.swift in Sources */,
 				33FC7A03229BA9150024405A /* Participant.swift in Sources */,
 				33F69CB72293C8C1007E31D4 /* CardDeck.swift in Sources */,
+				33FC333622B1E81E00E939A7 /* Cards.swift in Sources */,
 				33FC7A01229BA6EA0024405A /* Dealer.swift in Sources */,
 				33FBE654229CCFA3002A654E /* Score.swift in Sources */,
 				33F69CC12293E791007E31D4 /* InputError.swift in Sources */,

@@ -50,6 +50,7 @@ func main() {
         }
         catch {
             print(error)
+            return
         }
     }
 }
