@@ -10,13 +10,13 @@ import Foundation
 
 struct Dealer: Participant {
     private let name = "딜러"
-    private var cards = [Card]()
+    private var cards = Cards()
     
     var description: String {
-        return "\(name) " + changeCardsToString(cards)
+        return "\(name) \(cards)"
     }
     
-    init(cards: [Card]){
+    init(cards: Cards){
         self.cards = cards
     }
     

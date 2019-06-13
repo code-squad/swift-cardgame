@@ -29,11 +29,11 @@ struct CardGame {
     }
     
     /// 한 유저의 모든 카드 리턴 {
-    private mutating func getOneUserCard (_ menu: Menu) throws -> [Card] {
-        var oneUserCards = [Card]()
+    private mutating func getOneUserCard (_ menu: Menu) throws -> Cards {
+        var oneUserCards = Cards()
         
         for _ in 0..<menu.userCardCount() {
-            oneUserCards.append(try cardDeck.removeOne())
+            oneUserCards.cards.append(try cardDeck.removeOne())
         }
         
         return oneUserCards
@@ -51,7 +51,7 @@ struct CardGame {
         var championName: String?
         
         for player in players {
-            (champion, championName) = player.getWinner(champion)
+            (champion, championName) = player.comparePoint(champion)
         }
         
         return (champion, championName)
