@@ -25,7 +25,7 @@ struct Player: Participant {
         return name < otherPlayer.name
     }
     
-    func getWinner(_ other: Player?) -> (Player?, String?) {
+    func comparePoint(_ other: Player?) -> (Player?, String?) {
         guard let otherPlayer = other else {
             return (self, name)
         }
