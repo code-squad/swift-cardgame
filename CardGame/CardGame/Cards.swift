@@ -67,13 +67,13 @@ struct Cards: CustomStringConvertible {
         var equalRankCount = 0
         
         for cardCompared in cards {
-            equalRankCount = addCountIfSameCard (cards: (card, cardCompared), count: equalRankCount)
+            equalRankCount = addCountIfSameRank (cards: (card, cardCompared), count: equalRankCount)
         }
         
         return equalRankCount
     }
     
-    private func addCountIfSameCard (cards: (Card, Card), count: Int) -> Int {
+    private func addCountIfSameRank (cards: (Card, Card), count: Int) -> Int {
         if cards.0.isEqualToRank(cards.1) {
             return count+1
         }
