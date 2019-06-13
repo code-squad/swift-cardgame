@@ -25,7 +25,7 @@ class InputView: TextView {
         }
     }
     
-    func askForChoice(options: [String]) -> Int {
+    func askForChoice(options: [String]) -> String {
         show(options: options)
         // 제공된 선택지 중 유효한 선택지가 선택될 때 까지 반복합니다.
         while true {
@@ -34,7 +34,7 @@ class InputView: TextView {
                     show("유효하지 않은 선택입니다. 다시 입력하세요.")
                     continue
             }
-            return choice
+            return options[choice - 1]
         }
     }
 }
