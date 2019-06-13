@@ -12,6 +12,7 @@
 		F24F9AD922A3C43600A4A00E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24F9AD822A3C43600A4A00E /* InputView.swift */; };
 		F2AFB7D122AE8DE40005FB00 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFB7D022AE8DE40005FB00 /* CardGame.swift */; };
 		F2AFB7D322AE8EA40005FB00 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFB7D222AE8EA40005FB00 /* TextView.swift */; };
+		F2B2A3C622B229470075C95E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B2A3C522B229470075C95E /* Message.swift */; };
 		F2BF760822A3C4D600981B8A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF760722A3C4D600981B8A /* OutputView.swift */; };
 		F2C7D44622A34D26008345B7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7D44522A34D26008345B7 /* Card.swift */; };
 		F2CE226A22B09BA8005B3E9B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE226922B09BA8005B3E9B /* Player.swift */; };
@@ -36,6 +37,7 @@
 		F24F9AD822A3C43600A4A00E /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		F2AFB7D022AE8DE40005FB00 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		F2AFB7D222AE8EA40005FB00 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		F2B2A3C522B229470075C95E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F2BF760722A3C4D600981B8A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		F2C7D44522A34D26008345B7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F2CE226922B09BA8005B3E9B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		F2BF760C22A3CD2800981B8A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F2B2A3C522B229470075C95E /* Message.swift */,
 				F24F9AD822A3C43600A4A00E /* InputView.swift */,
 				F2BF760722A3C4D600981B8A /* OutputView.swift */,
 				F2AFB7D222AE8EA40005FB00 /* TextView.swift */,
@@ -152,6 +155,7 @@
 				F2BF760822A3C4D600981B8A /* OutputView.swift in Sources */,
 				F2AFB7D322AE8EA40005FB00 /* TextView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				F2B2A3C622B229470075C95E /* Message.swift in Sources */,
 				F2AFB7D122AE8DE40005FB00 /* CardGame.swift in Sources */,
 				F24F9AD922A3C43600A4A00E /* InputView.swift in Sources */,
 				F2C7D44622A34D26008345B7 /* Card.swift in Sources */,
