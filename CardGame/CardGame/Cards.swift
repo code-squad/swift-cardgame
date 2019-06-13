@@ -19,7 +19,7 @@ struct Cards: CustomStringConvertible {
         var allSameCardCount = [Int]()
         
         for card in cards {
-            let sameCardCount = getSameCardCount(card, cards)
+            let sameCardCount = getSameCardCount(card)
             allSameCardCount.append(sameCardCount)
         }
         
@@ -48,7 +48,7 @@ struct Cards: CustomStringConvertible {
         return (Score.nonScore, nil)
     }
     
-    private func getSameCardCount (_ card: Card, _ cards: [Card]) -> Int {
+    private func getSameCardCount (_ card: Card) -> Int {
         var equalRankCount = 0
         
         for cardCompared in cards {
