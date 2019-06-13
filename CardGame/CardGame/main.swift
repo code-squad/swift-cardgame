@@ -18,14 +18,11 @@ func main() {
         inputView.show(Message.playerCountQuestion)
         let players = inputView.askForNumber(Message.playerCount)
         
-        do {
-            try game.addPlayers(count: players)
+        switch game.addPlayers(count: players) {
+        case .success(_):
             isPlayerReady = true
-        } catch CardGameError.playerLimitExceeded {
-            outputView.show(ErrorMessage.playerLimitExceeded)
-        } catch {
-            outputView.showUnexpectedError(error)
-            return
+        case .failure(let error):
+            outputView.show(error.description)
         }
     }
     
@@ -35,8 +32,8 @@ func main() {
         do {
             try game.giveCardsToPlayers(rule: rule)
             outputView.showAllHands(game: game)
-        } catch CardGameError.outOfCards {
-            outputView.show(ErrorMessage.outOfCards)
+        } catch let error as CardGameError {
+            outputView.show(error.description)
             hasEnoughCards = false
         } catch {
             outputView.showUnexpectedError(error)
