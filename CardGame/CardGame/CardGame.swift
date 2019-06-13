@@ -4,7 +4,7 @@ class CardGame {
     
     private var deck = Deck()
     private(set) var players = [Player]()
-    private(set) var dealer = Player(name: "딜러")
+    private(set) var dealer = Dealer()
     
     enum GameRule: Int {
         case fiveCardStud = 5
@@ -27,20 +27,9 @@ class CardGame {
     
     func giveCardsToPlayers(rule: GameRule) throws {
         deck.shuffle()
-        for index in players.indices {
-            players[index].hand = try drawCards(count: rule.rawValue)
+        for player in players {
+            try player.drawCards(from: &deck, count: rule.rawValue)
         }
-        dealer.hand = try drawCards(count: rule.rawValue)
-    }
-    
-    func drawCards(count: Int) throws -> [Card] {
-        var cards = [Card]()
-        for _ in 1...count {
-            guard let card = deck.drawCard() else {
-                throw Error.outOfCards
-            }
-            cards.append(card)
-        }
-        return cards
+        try dealer.drawCards(from: &deck, count: rule.rawValue)
     }
 }
