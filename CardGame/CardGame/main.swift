@@ -10,13 +10,7 @@ func main() {
     // 카드 게임의 종류를 저장합니다.
     inputView.show("카드 게임 종류를 선택하세요.")
     let ruleChoice = inputView.askForChoice(options: ["7카드", "5카드"])
-    let rule: CardGame.GameRule!
-    // 반드시 options의 개수만큼 케이스를 작성해야 합니다.
-    switch ruleChoice {
-    case 1: rule = .sevenCardStud
-    case 2: rule = .fiveCardStud
-    default: rule = nil
-    }
+    let rule: CardGame.GameRule! = CardGame.GameRule(choice: ruleChoice)
     
     // 참여 인원을 결정합니다. 인원의 범위를 초과한 경우 다시 입력 받습니다.
     var isPlayerReady = false
