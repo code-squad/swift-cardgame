@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+enum DrawCardError : Error, CustomStringConvertible {
+    case noMoreCardInDeck
+    var description: String {
+        switch self {
+        case .noMoreCardInDeck:
+            return "카드 덱에 카드가 더이상 없습니다."
+        }
+    }
+}
