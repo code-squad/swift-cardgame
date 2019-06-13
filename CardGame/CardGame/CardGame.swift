@@ -1,8 +1,16 @@
 import Foundation
 
-enum CardGameError: Error {
+enum CardGameError: Error, CustomStringConvertible {
     case outOfCards
     case playerLimitExceeded
+    var description: String {
+        switch self {
+        case .outOfCards:
+            return "카드가 다 떨어짐"
+        case .playerLimitExceeded:
+            return "플레이어 제한 초과함"
+        }
+    }
 }
 
 class CardGame {
