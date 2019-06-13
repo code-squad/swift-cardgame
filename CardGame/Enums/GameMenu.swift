@@ -9,7 +9,6 @@
 import Foundation
 
 enum GameMenu : CustomStringConvertible{
-    
     case initialization
     case shuffle
     case drawOne
@@ -21,6 +20,17 @@ enum GameMenu : CustomStringConvertible{
             return "2. 카드 섞기"
         case .drawOne:
             return "3. 카드 하나 뽑기"
+        }
+    }
+    
+    func getResultMessage( cardDeck: CardDeck) -> String{
+        switch self {
+        case .initialization:
+            return "카드 전체를 초기화했습니다.\n총 \(cardDeck.deckSize)장의 카드가 있습니다."
+        case .shuffle:
+            return "전체 \(cardDeck.deckSize)장의 카드를 섞었습니다."
+        case .drawOne:
+            return "총 \(cardDeck.deckSize)장의 카드가 남아있습니다."
         }
     }
 }
