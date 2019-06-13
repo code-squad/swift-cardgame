@@ -9,6 +9,14 @@ class CardGame {
     enum GameRule: Int {
         case fiveCardStud = 5
         case sevenCardStud = 7
+        
+        init?(choice: Int) {
+            switch choice {
+            case 1: self = .fiveCardStud
+            case 2: self = .sevenCardStud
+            default: return nil
+            }
+        }
     }
     
     enum Error: Swift.Error {
