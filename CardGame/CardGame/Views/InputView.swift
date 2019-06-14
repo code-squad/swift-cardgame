@@ -2,7 +2,7 @@ import Foundation
 
 class InputView: TextView {
     
-    private func showInputDescription(_ description: String) {
+    func showInputDescription(_ description: String) {
         show("\(description): ", terminator: "")
     }
     
@@ -22,7 +22,7 @@ class InputView: TextView {
     }
     
     /// 선택지에 번호를 붙여 텍스트로 나타냅니다.
-    private func show(options: [String]) {
+    func show(options: [String]) {
         for index in options.indices {
             show("\(index + 1). \(options[index])")
         }
