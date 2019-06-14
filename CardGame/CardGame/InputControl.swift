@@ -1,9 +1,10 @@
 import Foundation
 
-enum InputControlError: Error, CustomStringConvertible {
+enum InputControlError: Error {
     case notNumber
     case invalidChoice
-    var description: String {
+    
+    var localizedDescription: String {
         switch self {
         case .invalidChoice:
             return "유효하지 않은 선택"

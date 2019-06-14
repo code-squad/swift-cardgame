@@ -8,13 +8,13 @@ class OutputView: TextView {
     
     func showAllHands(game: CardGame) {
         for player in game.players {
-            outputView.showPlayerHand(player)
+            showPlayerHand(player)
         }
-        outputView.showPlayerHand(game.dealer)
+        showPlayerHand(game.dealer)
         nextLine()
     }
     
-    func showUnexpectedError(_ error: Error) {
-        show("예상치 못한 오류: \(error)")
+    func showError(_ error: Error) {
+        show("\(error.localizedDescription)")
     }
 }
