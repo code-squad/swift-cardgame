@@ -11,7 +11,6 @@ import Foundation
 struct Main {
     
     static func startGame() throws -> Void{
-        /// 초기 세팅
         var cardDeck : CardDeck = CardDeck.init()
         var drawCard : Card = Card(type: CardType.spade, number: CardNumber.ace)
         var input: String

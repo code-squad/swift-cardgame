@@ -32,9 +32,23 @@ class CardDeck {
         return .success(drawOne)
     }
     
-    ///카드 셔플
+    ///카드 셔플 by mordern method
+    //    for i from n−1 downto 1 do
+    //    j ← random integer such that 0 ≤ j ≤ i
+    //    exchange a[j] and a[i]
     func shuffle(){
-        self.cardList.shuffle()
+        for index in 0..<deckSize {
+            let randomNumber = Int.random(in: 0..<deckSize-index)
+            if randomNumber != index {
+                swap(lhs: index, rhs: randomNumber)
+            }
+        }
+    }
+    
+    private func swap (lhs: Int, rhs: Int) {
+        let temp: Card = cardList[lhs]
+        cardList[lhs] = cardList[rhs]
+        cardList[rhs] = temp
     }
     
     private func fillCardList()  {
