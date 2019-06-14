@@ -25,9 +25,17 @@ func main() {
     var isPlayerReady = false
     while !isPlayerReady {
         inputView.show(Message.playerCountQuestion)
-        let players = inputView.askForNumber(Message.playerCount)
+        let playerCountInput = inputView.ask(Message.playerCount)
+        let playerCount: Int
+        switch inputControl.number(from: playerCountInput) {
+        case .failure(let error):
+            outputView.show("\(error)")
+            continue
+        case .success(let number):
+            playerCount = number
+        }
         
-        switch game.addPlayers(count: players) {
+        switch game.addPlayers(count: playerCount) {
         case .success(_):
             isPlayerReady = true
         case .failure(let error):
