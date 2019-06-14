@@ -19,18 +19,13 @@ class CardGame {
     private(set) var players = [Player]()
     private(set) var dealer = Dealer()
     
-    enum Rule: Int {
+    /// Raw Value로 나눠주어야 하는 카드 개수를 가지고 있습니다.
+    enum Rule: Int, CaseIterable, CustomStringConvertible {
         case fiveCardStud = 5
         case sevenCardStud = 7
         
-        static let options = ["5카드", "7카드"]
-        
-        init?(choice: String) {
-            switch choice {
-            case CardGame.Rule.options[0]: self = .fiveCardStud
-            case CardGame.Rule.options[1]: self = .sevenCardStud
-            default: return nil
-            }
+        var description: String {
+            return "\(self.rawValue)카드 스터드"
         }
     }
     
