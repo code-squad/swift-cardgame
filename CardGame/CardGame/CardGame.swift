@@ -51,7 +51,7 @@ class CardGame {
         return .success(players.map { $0.name }.joined())
     }
     
-    func giveCardsToPlayers(rule: Rule) throws {
+    func giveCardsToPlayers() throws {
         deck.shuffle()
         for player in players {
             player.resetHand()

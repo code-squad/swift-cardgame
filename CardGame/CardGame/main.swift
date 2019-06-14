@@ -7,26 +7,13 @@ class Main {
     
     func startGame() {
         
-        let rule = readGameRule()
-        let playerCount = readPlayerCount()
-        var game: CardGame
-        do {
-            game = try CardGame(rule: rule, playerCount: playerCount)
-        } catch let error as CardGameError {
-            outputView.showError(error)
-            return
-        } catch {
-            outputView.showError(error)
-            return
-        }
-        
-        
+        var game = generateGame()
         
         // 카드를 뽑고 패를 출력합니다. 카드가 다 떨어지면 게임을 종료합니다.
         var hasEnoughCards = true
         while hasEnoughCards {
             do {
-                try game.giveCardsToPlayers(rule: rule)
+                try game.giveCardsToPlayers()
                 outputView.showAllHands(game: game)
             } catch let error as CardGameError {
                 outputView.showError(error)
@@ -63,6 +50,20 @@ class Main {
                 continue
             case .success(let number):
                 return number
+            }
+        }
+    }
+    
+    func generateGame() -> CardGame {
+        while true {
+            let rule = readGameRule()
+            let playerCount = readPlayerCount()
+            do {
+                return try CardGame(rule: rule, playerCount: playerCount)
+            } catch let error as CardGameError {
+                outputView.showError(error)
+            } catch {
+                outputView.showError(error)
             }
         }
     }
