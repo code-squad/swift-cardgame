@@ -2,15 +2,24 @@ import Foundation
 
 var outputView = OutputView()
 var inputView = InputView()
+var inputControl = InputControl()
 
 func main() {
     
     var game = CardGame()
     
-    // 카드 게임의 종류를 저장합니다.
+    // 카드 게임의 규칙을 지정합니다.
     inputView.show(Message.gameRuleQuestion)
-    let ruleChoice = inputView.askForChoice(options: CardGame.Rule.options)
-    let rule: CardGame.Rule! = CardGame.Rule(choice: ruleChoice)
+    inputView.showOptions(CardGame.Rule.allCases)
+    let choiceInput = inputView.ask(Message.selectOption)
+    let rule: CardGame.Rule
+    switch inputControl.choice(from: choiceInput, options: CardGame.Rule.allCases) {
+    case .failure(let error):
+        outputView.show("\(error)")
+        return
+    case .success(let choice):
+        rule = choice
+    }
     
     // 참여 인원을 결정합니다. 인원의 범위를 초과한 경우 다시 입력 받습니다.
     var isPlayerReady = false
