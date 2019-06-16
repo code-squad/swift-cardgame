@@ -2,106 +2,77 @@ import Foundation
 
 enum PokerHand: Comparable {
     
-    case highCard([Card.Rank])
-    case onePair([Card.Rank])
-    case twoPair([Card.Rank])
-    case threeOfAKind([Card.Rank])
-    case straight([Card.Rank])
-    case fourOfAKind([Card.Rank])
+    case highCard([Card])
+    case onePair([Card])
+    case twoPair([Card])
+    case threeOfAKind([Card])
+    case straight([Card])
+    case fourOfAKind([Card])
     
-    static func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
-        if lhs.score == rhs.score {
-            var lhs = lhs.ranks
-            var rhs = rhs.ranks
-            
-            while !(lhs.isEmpty || rhs.isEmpty) {
-                if lhs.removeFirst() < rhs.removeFirst() {
-                    return true
-                }
-            }
+    init(cards: [Card]) {
+        
+        let sortedCards = cards.sorted { $0.rank > $1.rank }
+        
+        let groupedByRank = Dictionary(grouping: cards, by: { $0.rank })
+        let groupedByCount = Dictionary(grouping: groupedByRank, by: { $1.count })
+        
+        //MARK: PokerHand 분석
+        func isFourOfAKind() -> Bool {
+            if groupedByCount[4] != nil { return true }
             return false
         }
-        return lhs.score < rhs.score
-    }
-    
-    var ranks: [Card.Rank] {
-        switch self {
-        case .highCard(let ranks): return ranks
-        case .onePair(let ranks): return ranks
-        case .twoPair(let ranks): return ranks
-        case .threeOfAKind(let ranks): return ranks
-        case .straight(let ranks): return ranks
-        case .fourOfAKind(let ranks): return ranks
-        }
-    }
-    
-    var score: Int {
-        switch self {
-        case .highCard(_): return 1
-        case .onePair(_): return 2
-        case .twoPair(_): return 3
-        case .threeOfAKind(_): return 4
-        case .straight(_): return 5
-        case .fourOfAKind(_): return 6
-        }
-    }
-}
-
-struct Score: Comparable {
-    
-    
-    
-    
-    
-    private var cards: [Card]
-    private var matchedRanks: [Int: [Card.Rank]] {
-        let groupedByRank = Dictionary(grouping: cards) { $0.rank }
-        let groupedByCount = Dictionary(grouping: groupedByRank) { $1.count }
-        let matchInfo = groupedByCount.mapValues { $0.map { $0.key } }
-        return matchInfo.mapValues { $0.sorted { $0 > $1 } }
-    }
-    
-    static func < (lhs: Score, rhs: Score) -> Bool {
         
-        func compare(matchCount: Int) -> Bool? {
-            if var lhs = lhs.matchedRanks[matchCount],
-                var rhs = rhs.matchedRanks[matchCount] {
-                while !(lhs.isEmpty || rhs.isEmpty) {
-                    if lhs.removeFirst() < rhs.removeFirst() {
-                        return true
-                    }
+        func isStraight() -> Bool {
+            var straightCount = 0
+            
+            for index in 0..<sortedCards.count - 1 {
+                if sortedCards[index].rank.rawValue == sortedCards[index].rank.rawValue - 1 {
+                    straightCount += 1
+                } else if sortedCards[index].rank.rawValue == sortedCards[index].rank.rawValue {
+                    
+                } else {
+                    straightCount = 0
                 }
-                return false
-            } else if lhs.matchedRanks[matchCount] == nil,
-                rhs.matchedRanks[matchCount] != nil {
-                return true
-            } else if lhs.matchedRanks[matchCount] != nil,
-                rhs.matchedRanks[matchCount] == nil {
-                return false
             }
-            return nil
+            return straightCount >= 5
         }
         
-        // 포카드를 확인합니다.
-        if let fourOfAKind = compare(matchCount: 4) {
-            return fourOfAKind
+        func isThreeOfAKind() -> Bool {
+            if groupedByCount[3] != nil { return true }
+            return false
         }
         
-        // 스트레이트를 확인합니다.
-        
-        
-        // 트리플을 확인합니다.
-        if let threeOfAKind = compare(matchCount: 3) {
-            return threeOfAKind
+        func isTwoPair() -> Bool {
+            if let ranks = groupedByCount[2], ranks.count == 2 { return true }
+            return false
         }
         
-        // 투페어를 확인합니다.
+        func isOnePair() -> Bool {
+            if let ranks = groupedByCount[2], ranks.count == 1 { return true }
+            return false
+        }
         
-        
-        // 원페어를 확인합니다.
-        
-        
-        
-        return true
+        if isFourOfAKind() { self = .fourOfAKind(sortedCards) }
+        else if isStraight() { self = .straight(sortedCards) }
+        else if isThreeOfAKind() { self = .threeOfAKind(sortedCards) }
+        else if isTwoPair() { self = .twoPair(sortedCards) }
+        else if isOnePair() { self = .onePair(sortedCards) }
+        self = .highCard(sortedCards)
     }
+    
+    static func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
+        <#code#>
+    }
+    
+    var ranking: Int {
+        switch self {
+        case .highCard(_): return 0
+        case .onePair(_): return 1
+        case .twoPair(_): return 2
+        case .threeOfAKind(_): return 3
+        case .straight(_): return 4
+        case .fourOfAKind(_): return 5
+        }
+    }
+    
 }
