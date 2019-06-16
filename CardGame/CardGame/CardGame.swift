@@ -51,4 +51,9 @@ class CardGame {
         dealer.resetHand()
         try dealer.drawCards(from: &deck, count: rule.rawValue)
     }
+    
+    var winner: Player {
+        let sorted = players.sorted { $0.score > $1.score }
+        return sorted[0]
+    }
 }
