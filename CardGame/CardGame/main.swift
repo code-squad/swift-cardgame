@@ -70,6 +70,5 @@ class Main {
     
 }
 
-print(PokerHand.fourOfAKind(.ace) < .fourOfAKind(.eight))
 
 Main().startGame()
