@@ -61,7 +61,28 @@ enum PokerHand: Comparable {
     }
     
     static func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
-        <#code#>
+        guard lhs.ranking == rhs.ranking else {
+            return lhs.ranking < rhs.ranking
+        }
+        var (lhs, rhs) = (lhs.cards, rhs.cards)
+        
+        while !(lhs.isEmpty || rhs.isEmpty) {
+            if lhs.removeFirst().rank < rhs.removeFirst().rank {
+                return true
+            }
+        }
+        return false
+    }
+    
+    var cards: [Card] {
+        switch self {
+        case .highCard(let cards): return cards
+        case .onePair(let cards): return cards
+        case .twoPair(let cards): return cards
+        case .threeOfAKind(let cards): return cards
+        case .straight(let cards): return cards
+        case .fourOfAKind(let cards): return cards
+        }
     }
     
     var ranking: Int {
