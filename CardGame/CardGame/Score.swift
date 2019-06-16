@@ -1,18 +1,50 @@
 import Foundation
 
-enum PokerHand: Int, Comparable {
+enum PokerHand: Comparable {
     
-    case highCard
-    case onePair
-    case twoPair
-    case threeOfAKind
-    case straight
-    case fourOfAKind
+    case highCard([Card.Rank])
+    case onePair([Card.Rank])
+    case twoPair([Card.Rank])
+    case threeOfAKind([Card.Rank])
+    case straight([Card.Rank])
+    case fourOfAKind([Card.Rank])
     
     static func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
-        return lhs.rawValue < rhs.rawValue
+        if lhs.score == rhs.score {
+            var lhs = lhs.ranks
+            var rhs = rhs.ranks
+            
+            while !(lhs.isEmpty || rhs.isEmpty) {
+                if lhs.removeFirst() < rhs.removeFirst() {
+                    return true
+                }
+            }
+            return false
+        }
+        return lhs.score < rhs.score
     }
     
+    var ranks: [Card.Rank] {
+        switch self {
+        case .highCard(let ranks): return ranks
+        case .onePair(let ranks): return ranks
+        case .twoPair(let ranks): return ranks
+        case .threeOfAKind(let ranks): return ranks
+        case .straight(let ranks): return ranks
+        case .fourOfAKind(let ranks): return ranks
+        }
+    }
+    
+    var score: Int {
+        switch self {
+        case .highCard(_): return 1
+        case .onePair(_): return 2
+        case .twoPair(_): return 3
+        case .threeOfAKind(_): return 4
+        case .straight(_): return 5
+        case .fourOfAKind(_): return 6
+        }
+    }
 }
 
 struct Score: Comparable {
