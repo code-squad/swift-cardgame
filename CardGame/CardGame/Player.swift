@@ -25,6 +25,11 @@ class Player {
     func resetHand() {
         hand.removeAll()
     }
+    
+    var score: Score {
+        return Score(cards: hand)
+    }
+    
 }
 
 class Dealer: Player {
