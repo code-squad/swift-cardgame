@@ -1,6 +1,6 @@
 import Foundation
 
-enum PokerHand: Comparable {
+enum Score: Comparable {
     
     case highCard([Card])
     case onePair([Card])
@@ -60,7 +60,7 @@ enum PokerHand: Comparable {
         self = .highCard(sortedCards)
     }
     
-    static func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
+    static func < (lhs: Score, rhs: Score) -> Bool {
         guard lhs.ranking == rhs.ranking else {
             return lhs.ranking < rhs.ranking
         }
