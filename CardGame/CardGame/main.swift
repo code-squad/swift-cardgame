@@ -15,7 +15,9 @@ class Main {
             do {
                 try game.giveCardsToPlayers()
                 outputView.showAllHands(game: game)
-                outputView.show(game.winner.name)
+                outputView.show(Message.winnerIs + game.winner.name)
+                outputView.nextLine()
+                
             } catch let error as CardGameError {
                 outputView.showError(error)
                 hasEnoughCards = false

@@ -11,7 +11,6 @@ class OutputView: TextView {
             showPlayerHand(player)
         }
         showPlayerHand(game.dealer)
-        nextLine()
     }
     
     func showError(_ error: Error) {
