@@ -27,7 +27,8 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssert(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
     }
     
     func testStraight() {
@@ -47,7 +48,8 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssert(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
     }
     
     func testThreeOfAKind() {
@@ -67,7 +69,8 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssert(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
     }
     
     func testTwoPair() {
@@ -87,7 +90,8 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssert(Score(cards: cardsA) > Score(cards: cardsB))
+        XCTAssertTrue(Score(cards: cardsA) > Score(cards: cardsB))
+        XCTAssertFalse(Score(cards: cardsA) < Score(cards: cardsB))
     }
     
     func testOnePair() {
@@ -107,7 +111,8 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssert(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
+        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
     }
     
     func testHighCard() {
@@ -126,7 +131,8 @@ class ScoreTest: XCTestCase {
             Card(rank: .five, suit: .hearts),
             Card(rank: .six, suit: .clubs),
         ]
-        XCTAssert(Score(cards: cardsA) > Score(cards: cardsB))
+        XCTAssertTrue(Score(cards: cardsA) > Score(cards: cardsB))
+        XCTAssertFalse(Score(cards: cardsA) < Score(cards: cardsB))
     }
 
 }
