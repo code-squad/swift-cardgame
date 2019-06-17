@@ -93,8 +93,8 @@ struct Score: Comparable {
             pokerHand = .highCard
             matchedCards = cards
         }
-        self.matchedCards = matchedCards
-        extraCards = cards.filter { matchedCards.contains($0) }
+        self.matchedCards = matchedCards.sorted { $0.rank > $1.rank }
+        extraCards = cards.filter { matchedCards.contains($0) }.sorted { $0.rank > $1.rank }
     }
     
     static func < (lhs: Score, rhs: Score) -> Bool {
@@ -102,10 +102,17 @@ struct Score: Comparable {
         guard lhs.pokerHand == rhs.pokerHand else {
             return lhs.pokerHand < rhs.pokerHand
         }
-        var (lhs, rhs) = (lhs.matchedCards, rhs.matchedCards)
         
-        while !(lhs.isEmpty || rhs.isEmpty) {
-            if lhs.removeFirst().rank < rhs.removeFirst().rank {
+        var (lhsMatched, rhsMatched) = (lhs.matchedCards, rhs.matchedCards)
+        while !(lhsMatched.isEmpty || rhsMatched.isEmpty) {
+            if lhsMatched.removeFirst().rank < rhsMatched.removeFirst().rank {
+                return true
+            }
+        }
+        
+        var (lhsExtra, rhsExtra) = (lhs.extraCards, rhs.extraCards)
+        while !(lhsExtra.isEmpty || rhsExtra.isEmpty) {
+            if lhsExtra.removeFirst().rank < rhsExtra.removeFirst().rank {
                 return true
             }
         }
