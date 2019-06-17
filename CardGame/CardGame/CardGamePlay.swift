@@ -9,8 +9,9 @@
 import Foundation
 
 class CardGamePlay {
+    
     func playGame() throws -> Void{
-        var cardDeck : CardDeck = CardDeck.init()
+        let cardDeck : CardDeck = CardDeck.init()
         var input: String
         var selectedGameType: GameType
         var numberOfPlayers: Int
@@ -33,23 +34,48 @@ class CardGamePlay {
                 print(errorType.description)
                 continue
             }
-            //처리
+            // 처리
             var playerList = buildPlayersList(num: numberOfPlayers)
+            do {
+                playerList = try fillDeckOfPlayers(players: playerList, deck: cardDeck, type: selectedGameType).get()
+            } catch let errorType as DrawCardError {
+                print(errorType.description)
+                break
+            }
+            //출력
+            OutputView.showPlayersDistributedCardList(playerList)
         }
+    }
+    
+    private func isValidGame(deck : CardDeck, numberOfPlayers: Int, distributionSize: Int) -> Bool {
+        if deck.deckSize < numberOfPlayers * distributionSize {
+            return false
+        }
+        return true
     }
     
     private func buildPlayersList(num numbers: Int) -> [GamePlayer] {
         var playerList = [GamePlayer]()
         for index in 1..<(numbers+1) {
-            let player = GamePlayer("참가자#\(index)")
+            let player = GamePlayer("\(PlayerType.participant.description)\(index)")
             playerList.append(player)
         }
-        let player = GamePlayer("딜러")
+        let player = GamePlayer("\(PlayerType.dealer.description)")
         playerList.append(player)
         return playerList
     }
     
-    private func fillDeckOfPlayers(players: [GamePlayer]) -> [GamePlayer]{
-        return players
+    private func fillDeckOfPlayers(players: [GamePlayer], deck : CardDeck, type: GameType) -> Result<[GamePlayer], DrawCardError>{
+        if !isValidGame(deck: deck, numberOfPlayers: players.count, distributionSize: type.rawValue) {
+             return .failure(DrawCardError.notEnoughCardInDeck)
+        }
+        for _ in 0..<type.rawValue {
+            deck.shuffle()
+            for player in players {
+                let drewCard = try! deck.removeOne().get()
+                player.addMyCard(drewCard)
+            }
+        }
+        return .success(players)
     }
 }
