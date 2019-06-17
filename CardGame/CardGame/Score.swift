@@ -39,7 +39,7 @@ struct Score: Comparable {
             var straightCards = [Card]()
             
             for rank in Card.Rank.allCases {
-                if let index = ranks.index(of: rank) {
+                if let index = ranks.firstIndex(of: rank) {
                     straightCards.append(cards[index])
                     if straightCards.count >= 5 {
                         return straightCards
@@ -102,12 +102,14 @@ struct Score: Comparable {
         guard lhs.pokerHand == rhs.pokerHand else {
             return lhs.pokerHand < rhs.pokerHand
         }
-        
-        var (lhsMatched, rhsMatched) = (lhs.matchedCards, rhs.matchedCards)
-        while !(lhsMatched.isEmpty || rhsMatched.isEmpty) {
-            if lhsMatched.removeFirst().rank < rhsMatched.removeFirst().rank {
-                return true
+        if lhs.matchedCards != rhs.matchedCards {
+            var (lhsMatched, rhsMatched) = (lhs.matchedCards, rhs.matchedCards)
+            while !(lhsMatched.isEmpty || rhsMatched.isEmpty) {
+                if lhsMatched.removeFirst().rank < rhsMatched.removeFirst().rank {
+                    return true
+                }
             }
+            return false
         }
         
         var (lhsExtra, rhsExtra) = (lhs.extraCards, rhs.extraCards)
