@@ -1,70 +1,108 @@
 import Foundation
 
-enum Score: Comparable {
+struct Score: Comparable {
     
-    case highCard([Card])
-    case onePair([Card])
-    case twoPair([Card])
-    case threeOfAKind([Card])
-    case straight([Card])
-    case fourOfAKind([Card])
+    enum PokerHand: Int, Comparable {
+        case highCard
+        case onePair
+        case twoPair
+        case threeOfAKind
+        case straight
+        case fourOfAKind
+        
+        static func < (lhs: Score.PokerHand, rhs: Score.PokerHand) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+    }
+    
+    private var pokerHand: PokerHand
+    private var matchedCards: [Card]
+    private var extraCards: [Card]
     
     init(cards: [Card]) {
         
-        let sortedCards = cards.sorted { $0.rank > $1.rank }
-        
-        let groupedByRank = Dictionary(grouping: cards, by: { $0.rank })
-        let groupedByCount = Dictionary(grouping: groupedByRank, by: { $1.count })
+        let groupedByRank = Dictionary(grouping: cards) { $0.rank }
+        let groupedByCount = Dictionary(grouping: groupedByRank) { $1.count }
+        let matchInfo = groupedByCount.mapValues { $0.flatMap { $0.value } }
         
         //MARK: PokerHand 분석
-        func isFourOfAKind() -> Bool {
-            if groupedByCount[4] != nil { return true }
-            return false
+        func makeFourOfAKind() -> [Card]? {
+            if let matchedRanks = matchInfo[4] {
+                return matchedRanks
+            }
+            return nil
         }
         
-        func isStraight() -> Bool {
-            var straightCount = 0
+        func makeStraight() -> [Card]? {
             
-            for index in 0..<sortedCards.count - 1 {
-                if sortedCards[index].rank.rawValue == sortedCards[index].rank.rawValue - 1 {
-                    straightCount += 1
-                } else if sortedCards[index].rank.rawValue == sortedCards[index].rank.rawValue {
-                    
+            let ranks = cards.map { $0.rank }
+            var straightCards = [Card]()
+            
+            for rank in Card.Rank.allCases {
+                if let index = ranks.index(of: rank) {
+                    straightCards.append(cards[index])
+                    if straightCards.count >= 5 {
+                        return straightCards
+                    }
                 } else {
-                    straightCount = 0
+                    straightCards.removeAll()
                 }
             }
-            return straightCount >= 5
+            return nil
         }
         
-        func isThreeOfAKind() -> Bool {
-            if groupedByCount[3] != nil { return true }
-            return false
+        func makeThreeOfAKind() -> [Card]? {
+            if let matchedRanks = matchInfo[3] {
+                return matchedRanks
+            }
+            return nil
         }
         
-        func isTwoPair() -> Bool {
-            if let ranks = groupedByCount[2], ranks.count == 2 { return true }
-            return false
+        func makeTwoPair() -> [Card]? {
+            if let matchedRanks = matchInfo[2], matchedRanks.count == 2 {
+                return matchedRanks
+            }
+            return nil
         }
         
-        func isOnePair() -> Bool {
-            if let ranks = groupedByCount[2], ranks.count == 1 { return true }
-            return false
+        func makeOnePair() -> [Card]? {
+            if let matchedRanks = matchInfo[2], matchedRanks.count == 1 {
+                return matchedRanks
+            }
+            return nil
         }
         
-        if isFourOfAKind() { self = .fourOfAKind(sortedCards) }
-        else if isStraight() { self = .straight(sortedCards) }
-        else if isThreeOfAKind() { self = .threeOfAKind(sortedCards) }
-        else if isTwoPair() { self = .twoPair(sortedCards) }
-        else if isOnePair() { self = .onePair(sortedCards) }
-        self = .highCard(sortedCards)
+        let matchedCards: [Card]
+        
+        if let fourOfAKind = makeFourOfAKind() {
+            pokerHand = .fourOfAKind
+            matchedCards = fourOfAKind
+        } else if let straight = makeStraight() {
+            pokerHand = .straight
+            matchedCards = straight
+        } else if let threeOfAKind = makeThreeOfAKind() {
+            pokerHand = .threeOfAKind
+            matchedCards = threeOfAKind
+        } else if let twoPair = makeTwoPair() {
+            pokerHand = .twoPair
+            matchedCards = twoPair
+        } else if let onePair = makeOnePair() {
+            pokerHand = .onePair
+            matchedCards = onePair
+        } else {
+            pokerHand = .highCard
+            matchedCards = cards
+        }
+        self.matchedCards = matchedCards
+        extraCards = cards.filter { matchedCards.contains($0) }
     }
     
     static func < (lhs: Score, rhs: Score) -> Bool {
-        guard lhs.ranking == rhs.ranking else {
-            return lhs.ranking < rhs.ranking
+        
+        guard lhs.pokerHand == rhs.pokerHand else {
+            return lhs.pokerHand < rhs.pokerHand
         }
-        var (lhs, rhs) = (lhs.cards, rhs.cards)
+        var (lhs, rhs) = (lhs.matchedCards, rhs.matchedCards)
         
         while !(lhs.isEmpty || rhs.isEmpty) {
             if lhs.removeFirst().rank < rhs.removeFirst().rank {
@@ -74,26 +112,6 @@ enum Score: Comparable {
         return false
     }
     
-    var cards: [Card] {
-        switch self {
-        case .highCard(let cards): return cards
-        case .onePair(let cards): return cards
-        case .twoPair(let cards): return cards
-        case .threeOfAKind(let cards): return cards
-        case .straight(let cards): return cards
-        case .fourOfAKind(let cards): return cards
-        }
-    }
-    
-    var ranking: Int {
-        switch self {
-        case .highCard(_): return 0
-        case .onePair(_): return 1
-        case .twoPair(_): return 2
-        case .threeOfAKind(_): return 3
-        case .straight(_): return 4
-        case .fourOfAKind(_): return 5
-        }
-    }
-    
 }
+
+
