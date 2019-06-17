@@ -10,7 +10,8 @@ import Foundation
 
 class CardGamePlay {
 
-    func playGame() throws -> Void{
+    
+    func playGame() throws {
         let cardDeck : CardDeck = CardDeck.init()
         //게임 종류
         while true {
@@ -64,12 +65,15 @@ class CardGamePlay {
     private func handleCardDistributionProcess(playerNumbers: Int, cardDeck: CardDeck, type: GameType) throws -> Result<[GamePlayer], DrawCardError>{
         var playerList = buildPlayersList(num: playerNumbers)
             // 처리
-        playerList = buildPlayersList(num: playerNumbers)
         do {
             playerList = try fillDeckOfPlayers(players: playerList, deck: cardDeck, type: type).get()
         } catch let errorType as DrawCardError {
             print(errorType.description)
             return .failure(errorType)
+            //출력
+            OutputView.showPlayersDistributedCardList(playerList)
+            let gameResult = CardGameResult.init(playerList)
+            gameResult.sortPlayerCardDeck()
         }
         return .success(playerList)
     }
