@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
-		C5402E2B22B75E5500F3B33F /* CardDeckPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */; };
-		C5402E2D22B760ED00F3B33F /* SystemMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2C22B760ED00F3B33F /* SystemMessage.swift */; };
 		C5402E2522B4846500F3B33F /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2422B4846500F3B33F /* GamePlayer.swift */; };
 		C5402E2722B48B3D00F3B33F /* CardGamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2622B48B3D00F3B33F /* CardGamePlay.swift */; };
+		C5402E2B22B75E5500F3B33F /* CardDeckPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */; };
+		C5402E2D22B760ED00F3B33F /* SystemMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2C22B760ED00F3B33F /* SystemMessage.swift */; };
 		C5402E2F22B7654D00F3B33F /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2E22B7654D00F3B33F /* PlayerType.swift */; };
 		C598F9B322B1139B00DE223D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B222B1139B00DE223D /* Card.swift */; };
 		C598F9B622B115A100DE223D /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B522B115A100DE223D /* CardType.swift */; };
@@ -43,10 +43,10 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckPlay.swift; sourceTree = "<group>"; };
-		C5402E2C22B760ED00F3B33F /* SystemMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMessage.swift; sourceTree = "<group>"; };
 		C5402E2422B4846500F3B33F /* GamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayer.swift; sourceTree = "<group>"; };
 		C5402E2622B48B3D00F3B33F /* CardGamePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGamePlay.swift; sourceTree = "<group>"; };
+		C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckPlay.swift; sourceTree = "<group>"; };
+		C5402E2C22B760ED00F3B33F /* SystemMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMessage.swift; sourceTree = "<group>"; };
 		C5402E2E22B7654D00F3B33F /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
 		C598F9B222B1139B00DE223D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C598F9B522B115A100DE223D /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
@@ -77,6 +77,7 @@
 		839DA8D81F8CDBC9009E05F3 = {
 			isa = PBXGroup;
 			children = (
+				C5402E3022B780A600F3B33F /* Validation */,
 				C598F9E422B4840000DE223D /* PlayerDTO */,
 				C598F9C422B25DA400DE223D /* Views */,
 				C598F9C122B24A2B00DE223D /* Errors */,
@@ -99,11 +100,18 @@
 			isa = PBXGroup;
 			children = (
 				C5402E2622B48B3D00F3B33F /* CardGamePlay.swift */,
-				C5402E2822B48EF300F3B33F /* CardDeckPlay.swift */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */,
 			);
 			path = CardGame;
+			sourceTree = "<group>";
+		};
+		C5402E3022B780A600F3B33F /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				C598F9CD22B2603000DE223D /* Validation.swift */,
+			);
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		C598F9B122B1139000DE223D /* CardDTO */ = {
@@ -143,7 +151,6 @@
 			children = (
 				C598F9C522B25DAB00DE223D /* InputView.swift */,
 				C598F9E022B482D100DE223D /* GameInputView.swift */,
-				C598F9CD22B2603000DE223D /* Validation.swift */,
 				C598F9C922B25E6300DE223D /* OutputView.swift */,
 			);
 			path = Views;
@@ -219,7 +226,6 @@
 				C598F9CC22B25EC300DE223D /* GameMenuError.swift in Sources */,
 				C5402E2D22B760ED00F3B33F /* SystemMessage.swift in Sources */,
 				C5402E2522B4846500F3B33F /* GamePlayer.swift in Sources */,
-				C5402E2922B48EF300F3B33F /* CardDeckPlay.swift in Sources */,
 				C5402E2F22B7654D00F3B33F /* PlayerType.swift in Sources */,
 				C598F9CE22B2603000DE223D /* Validation.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
