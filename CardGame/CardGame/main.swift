@@ -9,9 +9,9 @@
 import Foundation
 
 struct Main {
-    
     static func start() throws {
-        try CardDeckPlay.startGame()
+        let cardGame = CardGamePlay()
+        try cardGame.playGame()
     }
 }
 
