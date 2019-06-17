@@ -26,9 +26,11 @@ class ScoreTest: XCTestCase {
             Card(rank: .two, suit: .hearts),
             Card(rank: .six, suit: .clubs),
         ]
-        
-        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
-        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
+        let scoreA = Score(cards: cardsA)
+        let scoreB = Score(cards: cardsB)
+         
+        XCTAssertTrue(scoreA < scoreB)
+        XCTAssertFalse(scoreA > scoreB)
     }
     
     func testStraight() {
@@ -48,8 +50,11 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
-        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
+        let scoreA = Score(cards: cardsA)
+        let scoreB = Score(cards: cardsB)
+        
+        XCTAssertTrue(scoreA < scoreB)
+        XCTAssertFalse(scoreA > scoreB)
     }
     
     func testThreeOfAKind() {
@@ -69,8 +74,11 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
-        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
+        let scoreA = Score(cards: cardsA)
+        let scoreB = Score(cards: cardsB)
+        
+        XCTAssertTrue(scoreA < scoreB)
+        XCTAssertFalse(scoreA > scoreB)
     }
     
     func testTwoPair() {
@@ -90,8 +98,11 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssertTrue(Score(cards: cardsA) > Score(cards: cardsB))
-        XCTAssertFalse(Score(cards: cardsA) < Score(cards: cardsB))
+        let scoreA = Score(cards: cardsA)
+        let scoreB = Score(cards: cardsB)
+        
+        XCTAssertTrue(scoreA > scoreB)
+        XCTAssertFalse(scoreA < scoreB)
     }
     
     func testOnePair() {
@@ -111,8 +122,11 @@ class ScoreTest: XCTestCase {
             Card(rank: .six, suit: .clubs),
         ]
         
-        XCTAssertTrue(Score(cards: cardsA) < Score(cards: cardsB))
-        XCTAssertFalse(Score(cards: cardsA) > Score(cards: cardsB))
+        let scoreA = Score(cards: cardsA)
+        let scoreB = Score(cards: cardsB)
+        
+        XCTAssertTrue(scoreA < scoreB)
+        XCTAssertFalse(scoreA > scoreB)
     }
     
     func testHighCard() {
@@ -131,8 +145,12 @@ class ScoreTest: XCTestCase {
             Card(rank: .five, suit: .hearts),
             Card(rank: .six, suit: .clubs),
         ]
-        XCTAssertTrue(Score(cards: cardsA) > Score(cards: cardsB))
-        XCTAssertFalse(Score(cards: cardsA) < Score(cards: cardsB))
+        
+        let scoreA = Score(cards: cardsA)
+        let scoreB = Score(cards: cardsB)
+        
+        XCTAssertTrue(scoreA > scoreB)
+        XCTAssertFalse(scoreA < scoreB)
     }
 
 }
