@@ -8,15 +8,16 @@
 
 import Foundation
 
+// enum을 선택한 이유: 다양한 속성 중 특정한 속성 하나를 뽑기 편한것 같아서
 enum CardSuit {
     case diamond, heart, clover, spade
     
     var suit: String {
         switch self {
-        case .diamond : return "♦️" 
-        case .heart : return "♥️"
-        case .clover : return "♣️"
-        case .spade : return "♠️"
+        case .diamond : return "♦️" //"\u{2666}\u{fe0f}"
+        case .heart : return "♥️" //"\u{2665}\u{fe0f}"
+        case .clover : return "♣️" //"\u{2663}\u{fe0f}"
+        case .spade : return "♠️" //"\u{2660}\u{fe0f}"
 
         }
     }
