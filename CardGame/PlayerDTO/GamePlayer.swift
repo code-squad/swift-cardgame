@@ -9,7 +9,7 @@
 import Foundation
 
 class GamePlayer{
-    private (set) var myCardDeck : [Card]
+    private var myCardDeck : [Card]
     private (set) var name: String
     
     init(_ name: String = "참가자"){
