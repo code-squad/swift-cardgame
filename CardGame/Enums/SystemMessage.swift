@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SystemMessage: CustomStringConvertible {
+enum SystemMessage: CustomStringConvertible{
     case autoInitializeDeck
     
     var description : String {
