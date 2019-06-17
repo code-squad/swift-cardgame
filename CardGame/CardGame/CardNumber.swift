@@ -8,6 +8,17 @@
 
 import Foundation
 
-enum CardNumber {
-    case one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve
+enum CardNumber: Int, CustomStringConvertible {
+    case one = 1
+    case two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen
+    
+    var description: String {
+        switch self {
+        case .one: return "A"
+        case .eleven: return "J"
+        case .twelve: return "Q"
+        case .thirteen: return "K"
+        default: return "\(self.rawValue)"
+        }
+    }
 }
