@@ -121,6 +121,9 @@ struct Score: Comparable {
         return false
     }
     
+    static func == (lhs: Score, rhs: Score) -> Bool {
+        return lhs.pokerHand == rhs.pokerHand && lhs.matchedCards.map { $0.rank } == rhs.matchedCards.map { $0.rank } && lhs.extraCards.map { $0.rank } == rhs.extraCards.map { $0.rank }
+    }
 }
 
 
