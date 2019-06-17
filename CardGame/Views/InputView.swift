@@ -10,7 +10,7 @@ import Foundation
 
 class InputView {
     static func introduce() -> Void {
-        print("다음 메뉴를 선택해주세요.")
+        print(GameMenuScript.selectMenu)
         print(GameMenu.initialization.description)
         print(GameMenu.shuffle.description)
         print(GameMenu.drawOne.description)
