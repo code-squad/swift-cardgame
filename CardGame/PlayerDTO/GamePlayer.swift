@@ -9,7 +9,7 @@
 import Foundation
 
 class GamePlayer{
-    private var myCardDeck : [Card]
+    private (set) var myCardDeck : [Card]
     private (set) var name: String
     
     init(_ name: String = "참가자"){
@@ -20,14 +20,15 @@ class GamePlayer{
     func addMyCard(_ card: Card){
         myCardDeck.append(card)
     }
-    func getMyDeck() -> [Card]{
-        return myCardDeck
+    
+    func getMyDeckDescription() -> String{
+        return myCardDeck.map{ $0.description }.joined(separator: ", ")
     }
 }
 
 extension String.StringInterpolation {
     mutating func appendInterpolation (_ target: GamePlayer){
-        let description = target.getMyDeck().map{ $0.description }.joined(separator: ", ")
+        let description = target.getMyDeckDescription()
         appendLiteral(target.name)
         appendLiteral(" [")
         appendLiteral(description)
