@@ -18,4 +18,9 @@ class OutputView {
     static func displayDrawCardErrorAutoHandleMessage(){
         print(SystemMessage.autoInitializeDeck)
     }
+    static func showPlayersDistributedCardList (_ list: [GamePlayer]){
+        for player in list {
+            print("\(player)")
+        }
+    }
 }
