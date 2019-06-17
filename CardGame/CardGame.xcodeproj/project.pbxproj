@@ -15,6 +15,10 @@
 		F2AFB7D122AE8DE40005FB00 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFB7D022AE8DE40005FB00 /* CardGame.swift */; };
 		F2AFB7D322AE8EA40005FB00 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFB7D222AE8EA40005FB00 /* TextView.swift */; };
 		F2B2A3C622B229470075C95E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B2A3C522B229470075C95E /* Message.swift */; };
+		F2B9733F22B7225E007019B4 /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B9733E22B7225E007019B4 /* ScoreTest.swift */; };
+		F2B9734622B722DB007019B4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2B9734022B7225E007019B4 /* Info.plist */; };
+		F2B9734922B7234F007019B4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7D44522A34D26008345B7 /* Card.swift */; };
+		F2B9734D22B7234F007019B4 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21538E322B5C207001A8E1F /* Score.swift */; };
 		F2BF760822A3C4D600981B8A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF760722A3C4D600981B8A /* OutputView.swift */; };
 		F2C7D44622A34D26008345B7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7D44522A34D26008345B7 /* Card.swift */; };
 		F2CE226A22B09BA8005B3E9B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE226922B09BA8005B3E9B /* Player.swift */; };
@@ -42,6 +46,9 @@
 		F2AFB7D022AE8DE40005FB00 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		F2AFB7D222AE8EA40005FB00 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		F2B2A3C522B229470075C95E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F2B9733C22B7225E007019B4 /* ScoreTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoreTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2B9733E22B7225E007019B4 /* ScoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTest.swift; sourceTree = "<group>"; };
+		F2B9734022B7225E007019B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2BF760722A3C4D600981B8A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		F2C7D44522A34D26008345B7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F2CE226922B09BA8005B3E9B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -55,6 +62,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2B9733922B7225E007019B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -62,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E31F8CDBC9009E05F3 /* CardGame */,
+				F2B9733D22B7225E007019B4 /* ScoreTest */,
 				839DA8E21F8CDBC9009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E11F8CDBC9009E05F3 /* CardGame */,
+				F2B9733C22B7225E007019B4 /* ScoreTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +103,15 @@
 				F2BF760C22A3CD2800981B8A /* Views */,
 			);
 			path = CardGame;
+			sourceTree = "<group>";
+		};
+		F2B9733D22B7225E007019B4 /* ScoreTest */ = {
+			isa = PBXGroup;
+			children = (
+				F2B9733E22B7225E007019B4 /* ScoreTest.swift */,
+				F2B9734022B7225E007019B4 /* Info.plist */,
+			);
+			path = ScoreTest;
 			sourceTree = "<group>";
 		};
 		F2BF760C22A3CD2800981B8A /* Views */ = {
@@ -120,18 +145,39 @@
 			productReference = 839DA8E11F8CDBC9009E05F3 /* CardGame */;
 			productType = "com.apple.product-type.tool";
 		};
+		F2B9733B22B7225E007019B4 /* ScoreTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2B9734322B7225E007019B4 /* Build configuration list for PBXNativeTarget "ScoreTest" */;
+			buildPhases = (
+				F2B9733822B7225E007019B4 /* Sources */,
+				F2B9733922B7225E007019B4 /* Frameworks */,
+				F2B9733A22B7225E007019B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScoreTest;
+			productName = ScoreTest;
+			productReference = F2B9733C22B7225E007019B4 /* ScoreTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		839DA8D91F8CDBC9009E05F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
 					839DA8E01F8CDBC9009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					F2B9733B22B7225E007019B4 = {
+						CreatedOnToolsVersion = 10.2.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -149,9 +195,21 @@
 			projectRoot = "";
 			targets = (
 				839DA8E01F8CDBC9009E05F3 /* CardGame */,
+				F2B9733B22B7225E007019B4 /* ScoreTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2B9733A22B7225E007019B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2B9734622B722DB007019B4 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		839DA8DD1F8CDBC9009E05F3 /* Sources */ = {
@@ -169,6 +227,16 @@
 				F2CE226A22B09BA8005B3E9B /* Player.swift in Sources */,
 				F21538E422B5C207001A8E1F /* Score.swift in Sources */,
 				F24F9AD722A3BB5D00A4A00E /* Deck.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2B9733822B7225E007019B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2B9734D22B7234F007019B4 /* Score.swift in Sources */,
+				F2B9734922B7234F007019B4 /* Card.swift in Sources */,
+				F2B9733F22B7225E007019B4 /* ScoreTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +367,43 @@
 			};
 			name = Release;
 		};
+		F2B9734122B7225E007019B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ScoreTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "sunghyun-k.ScoreTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F2B9734222B7225E007019B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ScoreTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "sunghyun-k.ScoreTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -316,6 +421,15 @@
 			buildConfigurations = (
 				839DA8E91F8CDBCA009E05F3 /* Debug */,
 				839DA8EA1F8CDBCA009E05F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2B9734322B7225E007019B4 /* Build configuration list for PBXNativeTarget "ScoreTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2B9734122B7225E007019B4 /* Debug */,
+				F2B9734222B7225E007019B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
