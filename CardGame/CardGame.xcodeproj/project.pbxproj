@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		C5402E2B22B75E5500F3B33F /* CardDeckPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */; };
 		C598F9B322B1139B00DE223D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B222B1139B00DE223D /* Card.swift */; };
 		C598F9B622B115A100DE223D /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B522B115A100DE223D /* CardType.swift */; };
 		C598F9B822B1176500DE223D /* CardNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9B722B1176500DE223D /* CardNumber.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckPlay.swift; sourceTree = "<group>"; };
 		C598F9B222B1139B00DE223D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C598F9B522B115A100DE223D /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		C598F9B722B1176500DE223D /* CardNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumber.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				C5402E2A22B75E5500F3B33F /* CardDeckPlay.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				C598F9CC22B25EC300DE223D /* GameMenuError.swift in Sources */,
 				C598F9CE22B2603000DE223D /* Validation.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				C5402E2B22B75E5500F3B33F /* CardDeckPlay.swift in Sources */,
 				C598F9C622B25DAB00DE223D /* InputView.swift in Sources */,
 				C598F9C022B2444200DE223D /* CardDeck.swift in Sources */,
 				C598F9B322B1139B00DE223D /* Card.swift in Sources */,
