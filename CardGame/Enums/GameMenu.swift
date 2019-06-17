@@ -9,9 +9,23 @@
 import Foundation
 
 enum GameMenu : CustomStringConvertible{
+
     case initialization
     case shuffle
     case drawOne
+    
+    init (_ number : Int) throws {
+        switch number {
+        case 1:
+            self = .initialization
+        case 2:
+            self = .shuffle
+        case 3:
+            self = .drawOne
+        default:
+            throw GameMenuError.outOfRange
+        }
+    }
     var description: String {
         switch self {
         case .initialization:
