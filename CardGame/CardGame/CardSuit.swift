@@ -13,7 +13,7 @@ enum CardSuit {
     
     var suit: String {
         switch self {
-        case .diamond : return "♦️"
+        case .diamond : return "♦️" 
         case .heart : return "♥️"
         case .clover : return "♣️"
         case .spade : return "♠️"
