@@ -8,4 +8,9 @@
 
 import Foundation
 
+func main(){
+    Card(suit: .diamond, rank: .one).printCard()
+    Card(suit: .clover, rank: .three).printCard()
+}
 
+main()
