@@ -69,13 +69,17 @@ class CardGamePlay {
         if !isValidGame(deck: deck, numberOfPlayers: players.count, distributionSize: type.rawValue) {
              return .failure(DrawCardError.notEnoughCardInDeck)
         }
+        deck.shuffle()
         for _ in 0..<type.rawValue {
-            deck.shuffle()
-            for player in players {
-                let drewCard = try! deck.removeOne().get()
-                player.addMyCard(drewCard)
-            }
+            distributeCardsByGameRule(players: players, deck: deck)
         }
         return .success(players)
+    }
+    
+    private func distributeCardsByGameRule(players: [GamePlayer], deck: CardDeck) {
+        for player in players {
+            let drewCard = try! deck.removeOne().get()
+            player.addMyCard(drewCard)
+        }
     }
 }
