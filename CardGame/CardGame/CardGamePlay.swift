@@ -9,42 +9,68 @@
 import Foundation
 
 class CardGamePlay {
-    
+
     func playGame() throws -> Void{
         let cardDeck : CardDeck = CardDeck.init()
-        var input: String
-        var selectedGameType: GameType
-        var numberOfPlayers: Int
+        //게임 종류
         while true {
-            //게임 종류
+            let selectedGameType = try handleGameTypeInput().get()
+            let numberOfPlayers = try handlePlayersInput() ?? 1
+            let playerList = try handleCardDistributionProcess(playerNumbers: numberOfPlayers, cardDeck: cardDeck, type: selectedGameType)
+            switch playerList {
+            case .success(let players):
+                OutputView.showPlayersDistributedCardList(players)
+                break
+            case .failure(_):
+                return
+            }
+        }
+    }
+    
+    private func handleGameTypeInput() throws -> Result<GameType, GameMenuError> {
+        var selectedGameType: GameType = GameType.sevenCard
+        while true {
             GameInputView.selectGame()
             do {
-                input = try InputView.readInput()
+                let input = try InputView.readInput()
                 selectedGameType = try Validation.validateGameType(input)
+                break
             } catch let errorType as GameMenuError {
                 print(errorType.description)
                 continue
             }
+        }
+        return .success(selectedGameType)
+    }
+    
+    private func handlePlayersInput() throws -> Int? {
+        var numberOfPlayers: Int = 1
+        while true {
             //인원
             GameInputView.selectNumberOfPlayers()
             do {
-                input = try InputView.readInput()
+                let input = try InputView.readInput()
                 numberOfPlayers = try Validation.validateGamePlayerNumbers(input)
+                break
             } catch let errorType as GameMenuError {
                 print(errorType.description)
                 continue
             }
-            // 처리
-            var playerList = buildPlayersList(num: numberOfPlayers)
-            do {
-                playerList = try fillDeckOfPlayers(players: playerList, deck: cardDeck, type: selectedGameType).get()
-            } catch let errorType as DrawCardError {
-                print(errorType.description)
-                break
-            }
-            //출력
-            OutputView.showPlayersDistributedCardList(playerList)
         }
+        return numberOfPlayers
+    }
+    
+    private func handleCardDistributionProcess(playerNumbers: Int, cardDeck: CardDeck, type: GameType) throws -> Result<[GamePlayer], DrawCardError>{
+        var playerList = buildPlayersList(num: playerNumbers)
+            // 처리
+        playerList = buildPlayersList(num: playerNumbers)
+        do {
+            playerList = try fillDeckOfPlayers(players: playerList, deck: cardDeck, type: type).get()
+        } catch let errorType as DrawCardError {
+            print(errorType.description)
+            return .failure(errorType)
+        }
+        return .success(playerList)
     }
     
     private func isValidGame(deck : CardDeck, numberOfPlayers: Int, distributionSize: Int) -> Bool {
