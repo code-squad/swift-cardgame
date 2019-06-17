@@ -59,14 +59,14 @@ struct Score: Comparable {
         }
         
         func makeTwoPair() -> [Card]? {
-            if let matchedRanks = matchInfo[2], matchedRanks.count == 2 {
+            if let matchedRanks = matchInfo[2], matchedRanks.count == 4 {
                 return matchedRanks
             }
             return nil
         }
         
         func makeOnePair() -> [Card]? {
-            if let matchedRanks = matchInfo[2], matchedRanks.count == 1 {
+            if let matchedRanks = matchInfo[2], matchedRanks.count == 2 {
                 return matchedRanks
             }
             return nil
@@ -102,7 +102,7 @@ struct Score: Comparable {
         guard lhs.pokerHand == rhs.pokerHand else {
             return lhs.pokerHand < rhs.pokerHand
         }
-        if lhs.matchedCards != rhs.matchedCards {
+        if (lhs.matchedCards.map { $0.rank }) != (rhs.matchedCards.map { $0.rank }) {
             var (lhsMatched, rhsMatched) = (lhs.matchedCards, rhs.matchedCards)
             while !(lhsMatched.isEmpty || rhsMatched.isEmpty) {
                 if lhsMatched.removeFirst().rank < rhsMatched.removeFirst().rank {
