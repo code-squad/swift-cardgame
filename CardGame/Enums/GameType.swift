@@ -9,6 +9,20 @@
 import Foundation
 
 enum GameType: Int, CustomStringConvertible{
+    
+    case sevenCard = 7
+    case fiveCard = 5
+    
+    init (_ number: Int) throws {
+        switch number {
+        case 1:
+            self = .sevenCard
+        case 2:
+            self = .fiveCard
+        default:
+            throw GameMenuError.outOfRangePlayer
+        }
+    }
     var description: String {
         switch self {
         case .sevenCard:
@@ -17,8 +31,4 @@ enum GameType: Int, CustomStringConvertible{
             return "5카드"
         }
     }
-    
-    case sevenCard = 7
-    case fiveCard = 5
-    
 }

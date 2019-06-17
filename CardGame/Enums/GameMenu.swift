@@ -23,9 +23,10 @@ enum GameMenu : CustomStringConvertible{
         case 3:
             self = .drawOne
         default:
-            throw GameMenuError.outOfRange
+            throw GameMenuError.outOfRangeMenu
         }
     }
+    
     var description: String {
         switch self {
         case .initialization:
