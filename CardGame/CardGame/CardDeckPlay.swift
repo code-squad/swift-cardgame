@@ -21,7 +21,7 @@ class CardDeckPlay {
             InputView.introduce()
             do {
                 input = try InputView.readInput()
-                convertedNumber = try Validation.validate(input)
+                convertedNumber = try Validation.validateGameMenu(input)
             } catch let errorType as GameMenuError {
                 print(errorType.description)
                 continue
