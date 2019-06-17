@@ -11,9 +11,9 @@ import Foundation
 class CardDeckPlay {
     static func startGame() throws -> Void{
         let cardDeck : CardDeck = CardDeck.init()
-        var drawCard : Card = Card(type: CardType.spade, number: CardNumber.ace)
+        let drawCard : Card = Card(type: CardType.spade, number: CardNumber.ace)
         var input: String
-        var convertedNumber: GameMenu = .initialization
+        var selectedMenu: GameMenu = .initialization
         
         /// start
         while true {
@@ -21,15 +21,17 @@ class CardDeckPlay {
             InputView.introduce()
             do {
                 input = try InputView.readInput()
-                convertedNumber = try Validation.validateGameMenu(input)
+                let numericInstruction = try Validation.convertInteger(input)
+                selectedMenu = try GameMenu(numericInstruction)
+
             } catch let errorType as GameMenuError {
                 print(errorType.description)
                 continue
             }
             /// 처리
-            let card = try handleInstruction(menuNumber: convertedNumber, cardDeck: cardDeck, drawCard: drawCard)
+            let card = try handleInstruction(menuNumber: selectedMenu, cardDeck: cardDeck, drawCard: drawCard)
             ///출력
-            printMessage(menuNumber: convertedNumber, cardDeck: cardDeck, drawCard: card)
+            printMessage(menuNumber: selectedMenu, cardDeck: cardDeck, drawCard: card)
         }
     }
     

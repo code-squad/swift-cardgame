@@ -33,7 +33,8 @@ class CardGamePlay {
             GameInputView.selectGame()
             do {
                 let input = try InputView.readInput()
-                selectedGameType = try Validation.validateGameType(input)
+                let numericInstruction = try Validation.convertInteger(input)
+                let selectedGameType: GameType = try GameType(numericInstruction)
                 break
             } catch let errorType as GameMenuError {
                 print(errorType.description)
