@@ -8,9 +8,16 @@
 
 import Foundation
 
-enum CardSuit: Character {
-    case diamond = "♦️"
-    case heart = "♥️"
-    case clover = "♣️"
-    case spade = "♠️"
+enum CardSuit {
+    case diamond, heart, clover, spade
+    
+    var suit: String {
+        switch self {
+        case .diamond : return "♦️"
+        case .heart : return "♥️"
+        case .clover : return "♣️"
+        case .spade : return "♠️"
+
+        }
+    }
 }
