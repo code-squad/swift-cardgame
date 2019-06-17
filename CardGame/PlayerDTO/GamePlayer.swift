@@ -24,4 +24,15 @@ class GamePlayer: CustomStringConvertible{
     var description: String {
         return "\(self.name) \(myCardDeck.description)"
     }
+    
+    func getMyDeck() -> [Card]{
+        return myCardDeck
+    }
+    
+    func sortMyDeck() {
+        self.myCardDeck.sort(by: { (card1, card2) in
+            return card1.number.rawValue <= card2.number.rawValue
+        })
+    }
 }
+
