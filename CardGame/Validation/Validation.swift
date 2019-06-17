@@ -11,7 +11,7 @@ import Foundation
 class Validation {
     static func validateGamePlayerNumbers(_ input: String) throws -> Int {
         let number = try convertInteger(input)
-        if !isInRange(number, base: 1, limit: 3) {
+        if !isInRange(number, base: PlayerRange.base.rawValue, limit: PlayerRange.limit.rawValue) {
             throw GameMenuError.outOfRangePlayer
         }
         return number
@@ -19,9 +19,6 @@ class Validation {
     
     static func validateGameType(_ input: String) throws -> GameType{
         let number = try convertInteger(input)
-        if !isInRange(number, base: 1, limit: 3) {
-            throw GameMenuError.outOfRangeMenu
-        }
         let instruction : GameType = try GameType(number)
         return instruction
     }

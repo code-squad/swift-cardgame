@@ -20,7 +20,7 @@ enum GameType: Int, CustomStringConvertible{
         case 2:
             self = .fiveCard
         default:
-            throw GameMenuError.outOfRangePlayer
+            throw GameMenuError.outOfRangeMenu
         }
     }
     var description: String {
