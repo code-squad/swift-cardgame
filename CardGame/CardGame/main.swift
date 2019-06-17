@@ -11,7 +11,7 @@ import Foundation
 struct Main {
     
     static func startGame() throws -> Void{
-        var cardDeck : CardDeck = CardDeck.init()
+        let cardDeck : CardDeck = CardDeck.init()
         var drawCard : Card = Card(type: CardType.spade, number: CardNumber.ace)
         var input: String
         var convertedNumber: GameMenu = .initialization
@@ -28,13 +28,13 @@ struct Main {
                 continue
             }
             /// 처리
-            try handleInstruction(menuNumber: convertedNumber, cardDeck: cardDeck, drawCard: &drawCard)
+            let card = try handleInstruction(menuNumber: convertedNumber, cardDeck: cardDeck, drawCard: drawCard) 
             ///출력
-            printMessage(menuNumber: convertedNumber, cardDeck: cardDeck, drawCard: drawCard)
+            printMessage(menuNumber: convertedNumber, cardDeck: cardDeck, drawCard: card)
         }
     }
     
-    private static func handleInstruction (menuNumber: GameMenu, cardDeck: CardDeck, drawCard: inout Card) throws {
+    private static func handleInstruction (menuNumber: GameMenu, cardDeck: CardDeck, drawCard: Card) throws -> Card{
         switch menuNumber {
         case .initialization:
             cardDeck.reset()
@@ -42,13 +42,14 @@ struct Main {
             cardDeck.shuffle()
         case .drawOne:
             do {
-                drawCard = try cardDeck.removeOne().get()
+                return try cardDeck.removeOne().get()
             } catch let drawError as DrawCardError {
                 print(drawError.description)
                 OutputView.displayDrawCardErrorAutoHandleMessage()
                 cardDeck.reset()
             }
         }
+        return drawCard
     }
     
     private static func printMessage(menuNumber: GameMenu, cardDeck: CardDeck, drawCard: Card){
