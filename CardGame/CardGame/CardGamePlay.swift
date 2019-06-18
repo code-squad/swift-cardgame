@@ -72,8 +72,8 @@ class CardGamePlay {
             return .failure(errorType)
             //출력
             OutputView.showPlayersDistributedCardList(playerList)
-            let gameResult = CardGameResult.init(playerList)
-            gameResult.sortPlayerCardDeck()
+//            let gameResult = CardGameResult.init(playerList)
+//            gameResult.sortPlayerCardDeck()
         }
         return .success(playerList)
     }
