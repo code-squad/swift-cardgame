@@ -10,14 +10,14 @@ import Foundation
 
 class Card{
     private (set) var suit: String
-    private (set) var rank: String
+    private (set) var rank: Int
     
     init(suit: CardSuit, rank: CardNumber){
         self.suit = suit.suit
-        self.rank = rank.description
+        self.rank = rank.rawValue
     }
     
     func printCard() {
-        print("\(suit)\(rank)")
+        print("\(suit)\(rank.description)")
     }
 }

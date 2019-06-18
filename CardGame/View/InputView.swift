@@ -12,7 +12,7 @@ import Foundation
 
 struct InputView {
 
-func printMent() -> String {
+static func printMent() -> String {
     let ment: String = """
                         다음 메뉴를 선택해주세요.
                         1. 카드 초기화
