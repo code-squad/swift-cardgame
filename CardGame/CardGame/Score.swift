@@ -103,12 +103,16 @@ struct Score: Comparable {
             return lhs.pokerHand < rhs.pokerHand
         }
         
-        if (lhs.matchedCards.map { $0.rank } != rhs.matchedCards.map { $0.rank }) {
-            return lhs.matchedCards.map { $0.rank } < rhs.matchedCards.map { $0.rank }
+        let lhsMatchedRanks = lhs.matchedCards.map { $0.rank }
+        let rhsMatchedRanks = rhs.matchedCards.map { $0.rank }
+        if lhsMatchedRanks != rhsMatchedRanks {
+            return lhsMatchedRanks < rhsMatchedRanks
         }
         
-        if (lhs.extraCards.map { $0.rank } != rhs.extraCards.map { $0.rank }) {
-            return lhs.extraCards.map { $0.rank } < rhs.extraCards.map { $0.rank }
+        let lhsExtraRanks = lhs.extraCards.map { $0.rank }
+        let rhsExtraRanks = rhs.extraCards.map { $0.rank }
+        if lhsExtraRanks != rhsExtraRanks {
+            return lhsExtraRanks < rhsExtraRanks
         }
         
         return false
@@ -125,9 +129,11 @@ extension Array where Element == Card.Rank {
         
         var (lhs, rhs) = (lhs, rhs)
         while !(lhs.isEmpty || rhs.isEmpty) {
-            if lhs.removeFirst() < rhs.removeFirst() {
-                return true
+            let (lhs, rhs) = (lhs.removeFirst(), rhs.removeFirst())
+            guard lhs != rhs else {
+                continue
             }
+            return lhs < rhs
         }
         return false
     }
