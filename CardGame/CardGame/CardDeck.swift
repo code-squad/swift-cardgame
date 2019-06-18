@@ -17,18 +17,42 @@
 import Foundation
 
 struct CardDeck {
-    func distinctNumber(of input: String) throws{
-        let menuNumber = Int(input)
+    var oneCard: Card
+    var totalCard:[Card] = []
+    
+    mutating func distinctNumber(of input: String) throws -> Int{
+        reset()
+        guard let menuNumber:Int = Int(input) else {
+            throw ErrorMessage.notInt
+        }
         switch menuNumber{
-        case 1:
-        case 2:
-        case 3:
-        case nil: throw ErrorMessage.notInt
+        case 1: reset()
+        case 2: shuffle()
+        case 3: removeOne()
         default: throw ErrorMessage.outOfRange
         }
+        return count()
     }
-    func count(){}
-    func shuffle(){}
-    func removeOne(){}
-    func reset(){}
+    
+    mutating func count() -> Int{
+        return totalCard.count
+    }
+    
+    mutating func shuffle(){
+        totalCard.shuffle()
+    }
+    
+    mutating func removeOne() {
+        oneCard = totalCard[0]
+        totalCard.removeFirst()
+    }
+    
+    mutating func reset(){
+        totalCard = []
+        for suit in CardSuit.allCases {
+            for number in CardNumber.allCases {
+                totalCard.append(Card(suit: suit, rank: number))
+            }
+        }
+    }
 }

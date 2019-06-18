@@ -9,7 +9,7 @@
 import Foundation
 
 // enum을 선택한 이유: 다양한 속성 중 특정한 속성 하나를 뽑기 편한것 같아서
-enum CardSuit {
+enum CardSuit: CaseIterable {
     case diamond, heart, clover, spade
     
     var suit: String {

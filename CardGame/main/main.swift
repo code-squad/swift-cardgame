@@ -9,9 +9,9 @@
 import Foundation
 
 func main(){
-    let input = InputView().printMent()
-    Card(suit: .diamond, rank: .one).printCard()
-    Card(suit: .clover, rank: .three).printCard()
+    let cardDeck = CardDeck()
+    let input = InputView.printMent()
+    cardDeck.distinctNumber(input)
 }
 
 main()
