@@ -94,7 +94,7 @@ struct Score: Comparable {
             matchedCards = cards
         }
         self.matchedCards = matchedCards.sorted { $0.rank > $1.rank }
-        extraCards = cards.filter { matchedCards.contains($0) }.sorted { $0.rank > $1.rank }
+        extraCards = cards.filter { !matchedCards.contains($0) }.sorted { $0.rank > $1.rank }
     }
     
     static func < (lhs: Score, rhs: Score) -> Bool {
@@ -102,22 +102,15 @@ struct Score: Comparable {
         guard lhs.pokerHand == rhs.pokerHand else {
             return lhs.pokerHand < rhs.pokerHand
         }
-        if (lhs.matchedCards.map { $0.rank }) != (rhs.matchedCards.map { $0.rank }) {
-            var (lhsMatched, rhsMatched) = (lhs.matchedCards, rhs.matchedCards)
-            while !(lhsMatched.isEmpty || rhsMatched.isEmpty) {
-                if lhsMatched.removeFirst().rank < rhsMatched.removeFirst().rank {
-                    return true
-                }
-            }
-            return false
+        
+        if (lhs.matchedCards.map { $0.rank } != rhs.matchedCards.map { $0.rank }) {
+            return lhs.matchedCards.map { $0.rank } < rhs.matchedCards.map { $0.rank }
         }
         
-        var (lhsExtra, rhsExtra) = (lhs.extraCards, rhs.extraCards)
-        while !(lhsExtra.isEmpty || rhsExtra.isEmpty) {
-            if lhsExtra.removeFirst().rank < rhsExtra.removeFirst().rank {
-                return true
-            }
+        if (lhs.extraCards.map { $0.rank } != rhs.extraCards.map { $0.rank }) {
+            return lhs.extraCards.map { $0.rank } < rhs.extraCards.map { $0.rank }
         }
+        
         return false
     }
     
@@ -126,4 +119,17 @@ struct Score: Comparable {
     }
 }
 
-
+extension Array where Element == Card.Rank {
+    
+    static func < (lhs: [Card.Rank], rhs: [Card.Rank]) -> Bool {
+        
+        var (lhs, rhs) = (lhs, rhs)
+        while !(lhs.isEmpty || rhs.isEmpty) {
+            if lhs.removeFirst() < rhs.removeFirst() {
+                return true
+            }
+        }
+        return false
+    }
+    
+}
