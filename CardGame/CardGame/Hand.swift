@@ -1,8 +1,12 @@
 import Foundation
 
-class Hand {
+class Hand: CustomStringConvertible {
     
     private var cards = [Card]()
+    
+    var description: String {
+        return "\(cards)"
+    }
     
     var score: Score {
         return Score(cards: cards)
