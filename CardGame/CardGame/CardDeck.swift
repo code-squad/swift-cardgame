@@ -15,3 +15,20 @@
  reset() 처음처럼 모든 카드를 다시 채워넣는다.
  */
 import Foundation
+
+struct CardDeck {
+    func distinctNumber(of input: String) throws{
+        let menuNumber = Int(input)
+        switch menuNumber{
+        case 1:
+        case 2:
+        case 3:
+        case nil: throw ErrorMessage.notInt
+        default: throw ErrorMessage.outOfRange
+        }
+    }
+    func count(){}
+    func shuffle(){}
+    func removeOne(){}
+    func reset(){}
+}
