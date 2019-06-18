@@ -31,8 +31,10 @@ struct Deck {
         return deck.removeFirst()
     }
     
-    mutating func drawCards(count: Int) -> [Card]? {
-        guard deck.count >= count else { return nil }
+    mutating func drawCards(count: Int) throws -> [Card] {
+        guard deck.count >= count else {
+            throw CardGameError.outOfCards
+        }
         var cards = [Card]()
         for _ in 1...count {
             cards.append(drawCard()!)
