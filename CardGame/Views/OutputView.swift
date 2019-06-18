@@ -20,7 +20,7 @@ class OutputView {
     }
     static func showPlayersDistributedCardList (_ list: [GamePlayer]){
         for player in list {
-            print("\(player)")
+            print("\(player.description)")
         }
     }
 }

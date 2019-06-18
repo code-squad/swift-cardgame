@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GamePlayer{
+class GamePlayer: CustomStringConvertible{
     private var myCardDeck : [Card]
     private (set) var name: String
     
@@ -21,17 +21,7 @@ class GamePlayer{
         myCardDeck.append(card)
     }
     
-    func getMyDeckDescription() -> String{
-        return myCardDeck.map{ $0.description }.joined(separator: ", ")
-    }
-}
-
-extension String.StringInterpolation {
-    mutating func appendInterpolation (_ target: GamePlayer){
-        let description = target.getMyDeckDescription()
-        appendLiteral(target.name)
-        appendLiteral(" [")
-        appendLiteral(description)
-        appendLiteral("]")
+    var description: String {
+        return "\(self.name) \(myCardDeck.description)"
     }
 }
