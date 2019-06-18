@@ -9,6 +9,7 @@
 import Foundation
 
 func main(){
+    InputView().printMent()
     Card(suit: .diamond, rank: .one).printCard()
     Card(suit: .clover, rank: .three).printCard()
 }
