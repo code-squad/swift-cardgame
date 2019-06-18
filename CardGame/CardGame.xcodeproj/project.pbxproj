@@ -22,6 +22,7 @@
 		F2BF760822A3C4D600981B8A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF760722A3C4D600981B8A /* OutputView.swift */; };
 		F2C7D44622A34D26008345B7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7D44522A34D26008345B7 /* Card.swift */; };
 		F2CE226A22B09BA8005B3E9B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE226922B09BA8005B3E9B /* Player.swift */; };
+		F2DD495522B8BCD70083BB11 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD495422B8BCD70083BB11 /* Hand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,7 @@
 		F2BF760722A3C4D600981B8A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		F2C7D44522A34D26008345B7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F2CE226922B09BA8005B3E9B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F2DD495422B8BCD70083BB11 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				F2AFB7D022AE8DE40005FB00 /* CardGame.swift */,
 				F2CE226922B09BA8005B3E9B /* Player.swift */,
 				F21538E322B5C207001A8E1F /* Score.swift */,
+				F2DD495422B8BCD70083BB11 /* Hand.swift */,
 				F20D49B822B3378700BBF2C6 /* InputControl.swift */,
 				F2BF760C22A3CD2800981B8A /* Views */,
 			);
@@ -218,6 +221,7 @@
 			files = (
 				F2BF760822A3C4D600981B8A /* OutputView.swift in Sources */,
 				F2AFB7D322AE8EA40005FB00 /* TextView.swift in Sources */,
+				F2DD495522B8BCD70083BB11 /* Hand.swift in Sources */,
 				F20D49B922B3378700BBF2C6 /* InputControl.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				F2B2A3C622B229470075C95E /* Message.swift in Sources */,
