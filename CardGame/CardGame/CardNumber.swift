@@ -8,7 +8,7 @@
 
 import Foundation
 // enum을 선택한 이유: 다양한 속성 중 특정한 속성 하나를 뽑기 편한것 같아서
-enum CardNumber: Int, CustomStringConvertible {
+enum CardNumber: Int {
     case one = 1
     case two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen
     
