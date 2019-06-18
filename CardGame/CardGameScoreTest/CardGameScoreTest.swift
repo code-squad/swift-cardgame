@@ -9,25 +9,84 @@
 import XCTest
 
 class CardGameScoreTest: XCTestCase {
-
+    var playerList : [GamePlayer] = []
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let cardDeck : CardDeck = CardDeck.init()
+        var input: String
+        var selectedGameType: GameType = GameType.sevenCard
+        var numberOfPlayers: Int = 3
+        // 처리
+        playerList = buildPlayersList(num: numberOfPlayers)
+        playerList = try! fillDeckOfPlayers(players: playerList, deck: cardDeck, type: selectedGameType).get()
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var result = CardGameResult(playerList[0])
+        result.sortPlayerCardDeck()
+        
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+//    func sortPlayerCardDeck() {
+//        //        for player in self.playerList {
+//        player.sortMyDeck()
+//        print("\(player)")
+//        //        }
+//    }
+//    
+//    private func calculateScores(){
+//        //        for (index, player) in playerList.enumerated(){
+//        scores = calculateEachPlayerHand(player)
+//        //        }
+//    }
+//    
+    private func calculateEachPlayerHand(_ player: GamePlayer) -> Int{
+        var maxScore = player.myCardDeck[player.myCardDeck.count-1].number.rawValue * CardScore.highCard.rawValue
+        
+        return maxScore
+    }
+    
+    func onePairCheck(_ deck: [Card]) -> Int {
+        var onePairScore = 0
+        var count = 0
+        for index in deck.startIndex..<deck.endIndex {
+            print(index)
+        }
+        
+        return onePairScore * CardScore.onePair.rawValue
+    }
+    ///
+    private func buildPlayersList(num numbers: Int) -> [GamePlayer] {
+        var playerList = [GamePlayer]()
+        for index in 1..<(numbers+1) {
+            let player = GamePlayer("\(PlayerType.participant.description)\(index)")
+            playerList.append(player)
+        }
+        let player = GamePlayer("\(PlayerType.dealer.description)")
+        playerList.append(player)
+        return playerList
+    }
+    
+    private func fillDeckOfPlayers(players: [GamePlayer], deck : CardDeck, type: GameType) -> Result<[GamePlayer], DrawCardError>{
+        if !isValidGame(deck: deck, numberOfPlayers: players.count, distributionSize: type.rawValue) {
+            return .failure(DrawCardError.notEnoughCardInDeck)
+        }
+        deck.shuffle()
+        for _ in 0..<type.rawValue {
+            distributeCardsByGameRule(players: players, deck: deck)
+        }
+        return .success(players)
+    }
+    
+    private func distributeCardsByGameRule(players: [GamePlayer], deck: CardDeck) {
+        for player in players {
+            let drewCard = try! deck.removeOne().get()
+            player.addMyCard(drewCard)
         }
     }
-
+    private func isValidGame(deck : CardDeck, numberOfPlayers: Int, distributionSize: Int) -> Bool {
+        if deck.deckSize < numberOfPlayers * distributionSize {
+            return false
+        }
+        return true
+    }
+    
 }
