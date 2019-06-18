@@ -9,7 +9,8 @@
 import Foundation
 
 class GamePlayer: CustomStringConvertible{
-    private var myCardDeck : [Card]
+
+    private (set) var myCardDeck : [Card]
     private (set) var name: String
     
     init(_ name: String = "참가자"){
@@ -20,19 +21,18 @@ class GamePlayer: CustomStringConvertible{
     func addMyCard(_ card: Card){
         myCardDeck.append(card)
     }
-    
-    var description: String {
-        return "\(self.name) \(myCardDeck.description)"
-    }
-    
-    func getMyDeck() -> [Card]{
-        return myCardDeck
-    }
-    
+
     func sortMyDeck() {
         self.myCardDeck.sort(by: { (card1, card2) in
             return card1.number.rawValue <= card2.number.rawValue
         })
     }
-}
 
+    var description : String {
+        return "\(name) \(myCardDeck)"
+    }
+    
+    func receivePrintFormat(_ output: (String, [Card]) -> Void){
+        output(name, myCardDeck)
+    }
+}

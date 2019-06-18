@@ -19,8 +19,11 @@ class OutputView {
         print(SystemMessage.autoInitializeDeck)
     }
     static func showPlayersDistributedCardList (_ list: [GamePlayer]){
+        let output = { (name: String, myCardDeck: [Card]) -> Void in
+            print("\(name) \(myCardDeck)")
+        }
         for player in list {
-            print("\(player)")
+            player.receivePrintFormat(output)
         }
     }
 }
