@@ -53,7 +53,7 @@ class CardGame {
     }
     
     var winner: Player {
-        let sorted = players.sorted { $0.hand.score > $1.hand.score }
+        let sorted = players.sorted(by: >)
         return sorted[0]
     }
 }
