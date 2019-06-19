@@ -9,16 +9,14 @@
 import Foundation
 
 func main(){
-    var cardDeck = CardDeck()
+    let cardDeck = CardDeck()
+    var menu = Menu(deck: cardDeck)
     
     while true {
         let input = InputView.announceMent()
         do {
-            if input == "0" {
-                break
-            }
-            let totalCardCount = try cardDeck.distinctNumber(of: input)
-            OutputView.printResult(menuNumber: input, inputNumber: totalCardCount, card: cardDeck.oneCard)
+            let totalCardCount = try menu.select(of: input)
+            OutputView.printResult(menuNumber: input, inputNumber: totalCardCount)
         } catch let error as ErrorMessage {
             print(error.rawValue)
         } catch {

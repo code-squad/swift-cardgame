@@ -9,15 +9,16 @@
 import Foundation
 
 class Card{
-    private (set) var suit: String
-    private (set) var rank: String
+    private (set) var suit: CardSuit
+    private (set) var rank: CardNumber
     
     init(suit: CardSuit, rank: CardNumber){
-        self.suit = suit.suit
-        self.rank = rank.description
+        self.suit = suit
+        self.rank = rank
     }
     
+    /// 카드를 형식에 맞게 출력하는 함수
     func printCard() {
-        print("\(suit)\(rank)")
+        print("\(suit.suit)\(rank.description)")
     }
 }
