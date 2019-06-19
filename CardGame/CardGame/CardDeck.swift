@@ -28,8 +28,7 @@ struct CardDeck {
     
     /// 카드를 한장 뽑는 함수
     mutating func removeOne() -> String{
-        oneCard = totalCard[0]
-        totalCard.removeFirst()
+        oneCard = totalCard.popLast()
         if oneCard != nil {
             return "\(oneCard!.suit.suit)\(oneCard!.rank.description)"
         } else {
