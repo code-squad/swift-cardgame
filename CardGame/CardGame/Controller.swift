@@ -1,11 +1,3 @@
-//
-//  Controller.swift
-//  CardGame
-//
-//  Created by 김성현 on 18/06/2019.
-//  Copyright © 2019 JK. All rights reserved.
-//
-
 import Foundation
 
 class Controller {
@@ -35,46 +27,40 @@ class Controller {
         }
     }
     
-    func generateGame() -> CardGame {
-        while true {
-            let rule = readGameRule()
-            let playerCount = readPlayerCount()
-            do {
-                return try CardGame(rule: rule, playerCount: playerCount)
-            } catch let error as CardGameError {
-                outputView.showError(error)
-            } catch {
-                outputView.showError(error)
-            }
+    func generateGame(rule: CardGame.Rule, playerCount: Int) -> CardGame? {
+        do {
+            return try CardGame(rule: rule, playerCount: playerCount)
+        } catch CardGameError.playerLimitExceeded {
+            outputView.showError(CardGameError.playerLimitExceeded)
+        } catch {
+            outputView.showError(error)
+        }
+        return nil
+    }
+    
+    
+    func readGameRule() -> CardGame.Rule? {
+        inputView.show(Message.gameRuleQuestion)
+        inputView.showOptions(CardGame.Rule.allCases)
+        let choiceInput = inputView.ask(Message.selectOption)
+        switch inputControl.choice(from: choiceInput, options: CardGame.Rule.allCases) {
+        case .failure(let error):
+            outputView.showError(error)
+            return nil
+        case .success(let choice):
+            return choice
         }
     }
     
-    func readGameRule() -> CardGame.Rule {
-        while true {
-            inputView.show(Message.gameRuleQuestion)
-            inputView.showOptions(CardGame.Rule.allCases)
-            let choiceInput = inputView.ask(Message.selectOption)
-            switch inputControl.choice(from: choiceInput, options: CardGame.Rule.allCases) {
-            case .failure(let error):
-                outputView.showError(error)
-                continue
-            case .success(let choice):
-                return choice
-            }
-        }
-    }
-    
-    func readPlayerCount() -> Int {
-        while true {
-            inputView.show(Message.playerCountQuestion)
-            let playerCountInput = inputView.ask(Message.playerCount)
-            switch inputControl.number(from: playerCountInput) {
-            case .failure(let error):
-                outputView.showError(error)
-                continue
-            case .success(let number):
-                return number
-            }
+    func readPlayerCount() -> Int? {
+        inputView.show(Message.playerCountQuestion)
+        let playerCountInput = inputView.ask(Message.playerCount)
+        switch inputControl.number(from: playerCountInput) {
+        case .failure(let error):
+            outputView.showError(error)
+            return nil
+        case .success(let number):
+            return number
         }
     }
     
