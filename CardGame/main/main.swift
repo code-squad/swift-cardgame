@@ -16,7 +16,11 @@ func main(){
         let input = InputView.announceMent()
         do {
             let totalCardCountAndMent = try menu.select(of: input)
+            if menu.endGame == true {
+                break
+            }
             OutputView.printResult(menuNumber: input, input: totalCardCountAndMent)
+            
         } catch let error as ErrorMessage {
             OutputView.errorPrint(of: error)
         } catch {

@@ -9,7 +9,14 @@
 import Foundation
 
 struct Menu {
-    var deck: CardDeck
+    private (set) var deck: CardDeck
+    private (set) var endGame: Bool
+    
+    init(deck: CardDeck){
+        self.deck = deck
+        self.endGame = false
+    }
+    
     /// 입력된 숫자를 판단하여 해당 메뉴의 기능을 동작하는 함수
     mutating func select(of input: String) throws -> (cardCount: Int, ment: String){
         var ment: String = ""
@@ -18,7 +25,7 @@ struct Menu {
         }
         switch menuNumber{
         case 0:
-            exit(9)
+            endGame = true
         case 1:
             deck.reset()
             ment = "카드 전체를 초기화 했습니다."
