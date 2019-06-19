@@ -16,9 +16,4 @@ class Card{
         self.suit = suit
         self.rank = rank
     }
-    
-    /// 카드를 형식에 맞게 출력하는 함수
-    func printCard() {
-        print("\(suit.suit)\(rank.description)")
-    }
 }

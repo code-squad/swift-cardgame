@@ -27,11 +27,13 @@ struct CardDeck {
     }
     
     /// 카드를 한장 뽑는 함수
-    mutating func removeOne() {
+    mutating func removeOne() -> String{
         oneCard = totalCard[0]
         totalCard.removeFirst()
         if oneCard != nil {
-            oneCard!.printCard()
+            return "\(oneCard!.suit.suit)\(oneCard!.rank.description)"
+        } else {
+            return ""
         }
     }
     

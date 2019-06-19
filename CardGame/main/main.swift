@@ -15,8 +15,8 @@ func main(){
     while true {
         let input = InputView.announceMent()
         do {
-            let totalCardCount = try menu.select(of: input)
-            OutputView.printResult(menuNumber: input, inputNumber: totalCardCount)
+            let totalCardCountAndMent = try menu.select(of: input)
+            OutputView.printResult(menuNumber: input, input: totalCardCountAndMent)
         } catch let error as ErrorMessage {
             print(error.rawValue)
         } catch {
