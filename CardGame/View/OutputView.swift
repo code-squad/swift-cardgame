@@ -9,10 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static func printResult(menuNumber: String, inputNumber: Int, card: Card?) {
-        if card != nil {
-            (card)!.printCard()
-        }
+    static func printResult(menuNumber: String, inputNumber: Int) {
         if menuNumber == "2" {
             print("총 \(inputNumber)장의 카드를 섞었습니다.")
         } else {

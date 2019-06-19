@@ -9,8 +9,9 @@
 import Foundation
 
 struct Menu {
-    func select(of input: String) throws -> Int{
-        var deck = CardDeck()
+    var deck: CardDeck
+    /// 입력된 숫자를 판단하여 해당 메뉴의 기능을 동작하는 함수
+    mutating func select(of input: String) throws -> Int{
         guard let menuNumber:Int = Int(input) else {
             throw ErrorMessage.notInt
         }
