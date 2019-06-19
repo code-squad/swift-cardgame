@@ -18,9 +18,9 @@ func main(){
             let totalCardCountAndMent = try menu.select(of: input)
             OutputView.printResult(menuNumber: input, input: totalCardCountAndMent)
         } catch let error as ErrorMessage {
-            print(error.rawValue)
+            OutputView.errorPrint(of: error)
         } catch {
-            print(error)
+            OutputView.otherErrorPrint(of: error)
         }
     }
 }

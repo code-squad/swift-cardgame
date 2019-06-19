@@ -10,11 +10,19 @@ import Foundation
 
 struct OutputView {
     static func printResult(menuNumber: String, input: (cardCount: Int, ment: String)) {
-        print(input.ment)
+        if input.ment != "" {
+            print(input.ment)
+        }
         if menuNumber == "2" {
             print("총 \(input.cardCount)장의 카드를 섞었습니다.")
         } else {
             print("총 \(input.cardCount)장의 카드가 남아있습니다")
         }
+    }
+    static func errorPrint(of error: ErrorMessage) {
+        print(error.rawValue)
+    }
+    static func otherErrorPrint(of error: Error) {
+        print(error)
     }
 }
