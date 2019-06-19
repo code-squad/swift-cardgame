@@ -45,11 +45,11 @@ class CardGame {
     func giveCardsToPlayers() throws {
         deck.shuffle()
         for player in players {
-            player.hand.reset()
-            player.hand.addCards(try deck.drawCards(count: rule.rawValue))
+            player.resetHand()
+            player.addCards(try deck.drawCards(count: rule.rawValue))
         }
-        dealer.hand.reset()
-        dealer.hand.addCards(try deck.drawCards(count: rule.rawValue))
+        dealer.resetHand()
+        dealer.addCards(try deck.drawCards(count: rule.rawValue))
     }
     
     var winner: Player {
