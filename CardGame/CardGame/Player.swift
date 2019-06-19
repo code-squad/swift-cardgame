@@ -9,6 +9,18 @@ class Player: Comparable {
         self.name = name
     }
     
+    func addCard(_ card: Card) {
+        hand.addCard(card)
+    }
+    
+    func addCards(_ cards: [Card]) {
+        hand.addCards(cards)
+    }
+    
+    func resetHand() {
+        hand.reset()
+    }
+    
     static func < (lhs: Player, rhs: Player) -> Bool {
         return lhs.hand.score < rhs.hand.score
     }
