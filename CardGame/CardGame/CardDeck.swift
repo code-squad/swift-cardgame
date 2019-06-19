@@ -17,7 +17,7 @@ struct CardDeck {
     }
     
     /// 카드의 총 수를 카운트하는 함수
-    mutating func count() -> Int{
+    func count() -> Int{
         return totalCard.count
     }
     

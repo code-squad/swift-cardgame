@@ -16,6 +16,8 @@ struct Menu {
             throw ErrorMessage.notInt
         }
         switch menuNumber{
+        case 0:
+            exit(9)
         case 1:
             deck.reset()
             print("카드 전체를 초기화 했습니다.")
