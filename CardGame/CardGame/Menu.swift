@@ -11,7 +11,8 @@ import Foundation
 struct Menu {
     var deck: CardDeck
     /// 입력된 숫자를 판단하여 해당 메뉴의 기능을 동작하는 함수
-    mutating func select(of input: String) throws -> Int{
+    mutating func select(of input: String) throws -> (cardCount: Int, ment: String){
+        var ment: String = ""
         guard let menuNumber:Int = Int(input) else {
             throw ErrorMessage.notInt
         }
@@ -20,13 +21,13 @@ struct Menu {
             exit(9)
         case 1:
             deck.reset()
-            print("카드 전체를 초기화 했습니다.")
+            ment = "카드 전체를 초기화 했습니다."
         case 2:
             deck.shuffle()
         case 3:
-            deck.removeOne()
+            ment = deck.removeOne()
         default: throw ErrorMessage.outOfRange
         }
-        return deck.count()
+        return (cardCount: deck.count(), ment: ment)
     }
 }
