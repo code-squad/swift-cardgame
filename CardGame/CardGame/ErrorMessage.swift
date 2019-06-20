@@ -11,4 +11,5 @@ import Foundation
 enum ErrorMessage: String, Error {
     case notInt = "숫자를 입력해주세요"
     case outOfRange = "메뉴에 나와있는 숫자를 입력해주세요"
+    case overNumber = "참가자는 1~4명 입니다"
 }
