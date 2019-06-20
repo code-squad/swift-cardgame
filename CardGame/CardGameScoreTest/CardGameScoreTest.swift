@@ -21,6 +21,15 @@ class CardGameScoreTest: XCTestCase {
         playerList = try! fillDeckOfPlayers(players: playerList, deck: cardDeck, type: selectedGameType).get()
     }
     
+    func testSortPlayerDeck() {
+        var result = CardGameResult(playerList[0])
+        result.sortPlayerCardDeck()
+        for index in 0..<playerList[0].myCardDeck.count-1 {
+            XCTAssert(playerList[0].myCardDeck[index].number.rawValue <= playerList[0].myCardDeck[index+1].number.rawValue,
+                      "fail to ascending order deck")
+        }
+    }
+    
     func testCalculatePlayerScore() {
         var result = CardGameResult(playerList[0])
         result.sortPlayerCardDeck()
@@ -46,7 +55,8 @@ class CardGameScoreTest: XCTestCase {
     }
     
     func testDecideWinner(){
-        
+        var result = CardGameResult(playerList[0])
+
     }
 
     private func prepareTriplePlayer( ) -> GamePlayer {
