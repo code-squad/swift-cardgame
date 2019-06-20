@@ -22,11 +22,11 @@ struct OutputView {
     }
     
     /// ErrorMessage에 해당하는 Error를 출력하는 함수
-    static func errorPrint(of error: ErrorMessage) {
-        print(error.rawValue)
+    static func errorPrint(of error: String) {
+        print(error)
     }
     
-    /// 열거형으로 정의되지 않은 Error를 출력하는 함수
+    /// Error를 출력하는 함수
     static func otherErrorPrint(of error: Error) {
         print(error)
     }

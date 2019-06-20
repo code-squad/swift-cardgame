@@ -15,25 +15,34 @@ struct Menu {
         self.deck = deck
     }
     
-    /// 입력된 숫자를 판단하여 해당 메뉴의 기능을 동작하는 함수
-    mutating func select(of input: String) throws -> (cardCount: Int, ment: String){
-        var ment: String = ""
+    /// 입력받은 수를 판단해서 어떤 게임을 시작할지 결정하고 카드의 수를 반환하는 함수
+    mutating func selectGame(of input: String) throws -> Int {
+        var countOfCard: Int
         guard let menuNumber:Int = Int(input) else {
             throw ErrorMessage.notInt
         }
         switch menuNumber{
         case 0:
             deck.noCard()
+            countOfCard = 0
         case 1:
-            deck.reset()
-            ment = "카드 전체를 초기화 했습니다."
+            countOfCard = 7
         case 2:
-            deck.shuffle()
-        case 3:
-            let card = deck.removeOne()
-            ment = "\(card.suit.suit)\(card.rank.description)"
+            countOfCard = 5
         default: throw ErrorMessage.outOfRange
         }
-        return (cardCount: deck.count(), ment: ment)
+        return countOfCard
+    }
+    
+    /// 입력받은 수를 판단해서 플레이어가 몇명인지 판단하는 함수
+    mutating func distinctPlayerNumber(of input: String) throws -> Int {
+        guard let countOfPlayer:Int = Int(input) else {
+            throw ErrorMessage.notInt
+        }
+        if countOfPlayer > 4 || countOfPlayer < 1 {
+            throw ErrorMessage.overNumber
+        } else {
+            return countOfPlayer
+        }
     }
 }
