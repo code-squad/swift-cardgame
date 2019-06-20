@@ -37,7 +37,7 @@ class CardGamePlay {
             do {
                 let input = try InputView.readInput()
                 let numericInstruction = try Validation.convertInteger(input)
-                let selectedGameType: GameType = try GameType(numericInstruction)
+                selectedGameType = try GameType(numericInstruction)
                 break
             } catch let errorType as GameMenuError {
                 print(errorType.description)
@@ -73,9 +73,6 @@ class CardGamePlay {
             print(errorType.description)
             return .failure(errorType)
             //출력
-            OutputView.showPlayersDistributedCardList(playerList)
-//            let gameResult = CardGameResult.init(playerList)
-//            gameResult.sortPlayerCardDeck()
         }
         return .success(playerList)
     }
