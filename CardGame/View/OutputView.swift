@@ -31,24 +31,12 @@ struct OutputView {
         print(error)
     }
     
-    /// 카드 배열을 출력하기 위한 함수
-    static func cardToPrint(cards: [Card]) -> String {
-        var cardForPrint: String = "["
-        for card in cards {
-            cardForPrint += "\(card.suit.suit)\(card.rank.description),"
-        }
-        cardForPrint.removeLast()
-        cardForPrint += "]"
-        return cardForPrint
-    }
-    
     /// 참가자와 딜러가 가지고 있는 카드들을 출력하는 함수
-    static func printPlayersCards(of playerAndCard: [[Card]]) {
-        let participant: String = "참가자#"
-        let dealer: String = "딜러"
-        for playerNumber in 0..<playerAndCard.count-1 {
-            print(participant+"\(playerNumber+1) \(cardToPrint(cards: playerAndCard[playerNumber]))")
+    static func printPlayersCards(of players: [Player]) {
+        var playerAndCard = players
+        for index in 0..<playerAndCard.count-1 {
+            print(playerAndCard[index].getName()+"\(index+1) \(playerAndCard[index].cardToPrint())")
         }
-        print(dealer+" \(cardToPrint(cards: playerAndCard[playerAndCard.endIndex-1]))")
+        print(playerAndCard[playerAndCard.endIndex-1].getName()+" \(playerAndCard[playerAndCard.endIndex-1].cardToPrint())")
     }
 }

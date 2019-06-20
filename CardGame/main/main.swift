@@ -16,16 +16,14 @@ func main(){
     
     while true {
         do {
-            let inputType = GameInputView.announceGameType()
+            let inputType = GameInputView.announceGameType(totalCard: cardGame.deck.totalCard.count)
             let gameType = try menu.selectGame(of: inputType)
             if menu.deck.totalCard.count == 0 {
                 break
             }
             let inputPlayer = GameInputView.inputPlayerNumber()
             let playerNumber = try menu.distinctPlayerNumber(of: inputPlayer)
-
             let allocatedCards = try cardGame.cardAllocation(cardCount: gameType, playerCount: playerNumber)
-            print(cardGame.deck.totalCard.count)
             OutputView.printPlayersCards(of: allocatedCards)
         } catch let error as ErrorMessage {
             OutputView.errorPrint(of: error.rawValue)

@@ -9,9 +9,10 @@
 import Foundation
 
 struct GameInputView {
-    static func announceGameType() -> String {
+    static func announceGameType(totalCard remainingCard: Int) -> String {
         let gameSelectMent: String = """
-                            카드 게임 종류를 선택하세요.
+                            카드 게임 종류를 선택하세요.(0을 입력하면 종료)
+                            ** 남은 카드 (\(remainingCard)장) **
                             1. 7카드
                             2. 5카드
                             >

@@ -17,6 +17,9 @@
 		15A71AE722BB50C200896DE7 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AE622BB50C200896DE7 /* GameInputView.swift */; };
 		15A71AE922BB57B300896DE7 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AE822BB57B300896DE7 /* CardGame.swift */; };
 		15A71AEB22BB9BE700896DE7 /* DrawError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AEA22BB9BE700896DE7 /* DrawError.swift */; };
+		15A71AED22BBDB2F00896DE7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AEC22BBDB2F00896DE7 /* Player.swift */; };
+		15A71AEF22BBDBB500896DE7 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AEE22BBDBB500896DE7 /* Participant.swift */; };
+		15A71AF122BBDCA300896DE7 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF022BBDCA300896DE7 /* Dealer.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		15A71AE622BB50C200896DE7 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		15A71AE822BB57B300896DE7 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		15A71AEA22BB9BE700896DE7 /* DrawError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawError.swift; sourceTree = "<group>"; };
+		15A71AEC22BBDB2F00896DE7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		15A71AEE22BBDBB500896DE7 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		15A71AF022BBDCA300896DE7 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,9 +81,19 @@
 			path = main;
 			sourceTree = "<group>";
 		};
+		15A71AF222BBE42C00896DE7 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				15A71ADF22B8B9E500896DE7 /* ErrorMessage.swift */,
+				15A71AEA22BB9BE700896DE7 /* DrawError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		839DA8D81F8CDBC9009E05F3 = {
 			isa = PBXGroup;
 			children = (
+				15A71AF222BBE42C00896DE7 /* Error */,
 				15A71AE122B8CB9200896DE7 /* main */,
 				15A71ADA22B8AB1E00896DE7 /* View */,
 				839DA8E31F8CDBC9009E05F3 /* CardGame */,
@@ -100,10 +116,11 @@
 				15A71AD622B75B8E00896DE7 /* CardNumber.swift */,
 				15A71AD822B764FE00896DE7 /* Card.swift */,
 				15A71ADD22B8AB6D00896DE7 /* CardDeck.swift */,
-				15A71ADF22B8B9E500896DE7 /* ErrorMessage.swift */,
-				15A71AEA22BB9BE700896DE7 /* DrawError.swift */,
 				15A71AE422BA293100896DE7 /* Menu.swift */,
 				15A71AE822BB57B300896DE7 /* CardGame.swift */,
+				15A71AEC22BBDB2F00896DE7 /* Player.swift */,
+				15A71AEE22BBDBB500896DE7 /* Participant.swift */,
+				15A71AF022BBDCA300896DE7 /* Dealer.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -168,8 +185,11 @@
 			files = (
 				15A71AE922BB57B300896DE7 /* CardGame.swift in Sources */,
 				15A71AEB22BB9BE700896DE7 /* DrawError.swift in Sources */,
+				15A71AF122BBDCA300896DE7 /* Dealer.swift in Sources */,
 				15A71ADE22B8AB6D00896DE7 /* CardDeck.swift in Sources */,
 				15A71AE722BB50C200896DE7 /* GameInputView.swift in Sources */,
+				15A71AEF22BBDBB500896DE7 /* Participant.swift in Sources */,
+				15A71AED22BBDB2F00896DE7 /* Player.swift in Sources */,
 				15A71AE022B8B9E500896DE7 /* ErrorMessage.swift in Sources */,
 				15A71AD722B75B8E00896DE7 /* CardNumber.swift in Sources */,
 				15A71AD522B75A7800896DE7 /* CardSuit.swift in Sources */,
