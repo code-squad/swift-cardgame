@@ -22,7 +22,8 @@ class CardGamePlay {
             case .success(let players):
                 OutputView.showPlayersDistributedCardList(players)
                 let cardGameResult = CardGameResult.init(players)
-                OutputView.showWinner(cardGameResult.selectWinnerName())
+                let winner = cardGameResult.selectWinnerName()
+                OutputView.showWinner(winner.name, winner.type)
                 break
             case .failure(_):
                 return
