@@ -8,8 +8,7 @@
 
 import Foundation
 
-class GamePlayer: CustomStringConvertible{
-
+class GamePlayer {
     private (set) var myCardDeck : [Card]
     private (set) var name: String
     
@@ -22,16 +21,12 @@ class GamePlayer: CustomStringConvertible{
         myCardDeck.append(card)
     }
 
-    func sortMyDeck() {
+    func sortOwnDeck() {
         self.myCardDeck.sort(by: { (card1, card2) in
             return card1.number.rawValue <= card2.number.rawValue
         })
     }
 
-    var description : String {
-        return "\(name) \(myCardDeck)"
-    }
-    
     func receivePrintFormat(_ output: (String, [Card]) -> Void){
         output(name, myCardDeck)
     }
