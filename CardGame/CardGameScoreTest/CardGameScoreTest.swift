@@ -19,11 +19,13 @@ class CardGameScoreTest: XCTestCase {
         // 처리
         playerList = buildPlayersList(num: numberOfPlayers)
         playerList = try! fillDeckOfPlayers(players: playerList, deck: cardDeck, type: selectedGameType).get()
+       
     }
     
     func testSortPlayerDeck() {
-        var result = CardGameResult(playerList[0])
-        result.sortPlayerCardDeck()
+        for player in self.playerList {
+            player.sortOwnDeck()
+        }
         for index in 0..<playerList[0].myCardDeck.count-1 {
             XCTAssert(playerList[0].myCardDeck[index].number.rawValue <= playerList[0].myCardDeck[index+1].number.rawValue,
                       "fail to ascending order deck")
@@ -31,33 +33,26 @@ class CardGameScoreTest: XCTestCase {
     }
     
     func testCalculatePlayerScore() {
-        var result = CardGameResult(playerList[0])
-        result.sortPlayerCardDeck()
-        for index in 0..<playerList[0].myCardDeck.count-1 {
-            XCTAssert(playerList[0].myCardDeck[index].number.rawValue <= playerList[0].myCardDeck[index+1].number.rawValue,
-                      "fail to ascending order deck")
+        for player in self.playerList {
+            player.sortOwnDeck()
         }
         let score = calculateEachPlayerHand(playerList[0])
-        print(playerList[0].myCardDeck)
-        if score < CardScore.onePair.rawValue {
+        if score < CardScore.onePair.weightedValue {
             print(" high Card : \(score)")
-        }else if score < CardScore.twoPair.rawValue {
-            print(" one Pair : \(score/CardScore.onePair.rawValue)")
-        }else if score < CardScore.triple.rawValue {
-            print(" two Pair : \(score/CardScore.twoPair.rawValue)")
-        }else if score < CardScore.straight.rawValue {
-            print(" triple : \(score/CardScore.triple.rawValue)")
-        }else if (score < CardScore.fourCard.rawValue) {
-            print(" straight : \(score/CardScore.straight.rawValue)")
+        }else if score < CardScore.twoPair.weightedValue {
+            print(" one Pair : \(score/CardScore.onePair.weightedValue)")
+        }else if score < CardScore.triple.weightedValue {
+            print(" two Pair : \(score/CardScore.twoPair.weightedValue)")
+        }else if score < CardScore.straight.weightedValue {
+            print(" triple : \(score/CardScore.triple.weightedValue)")
+        }else if (score < CardScore.fourCard.weightedValue) {
+            print(" straight : \(score/CardScore.straight.weightedValue)")
         }else {
-            print(" four card : \(score/CardScore.fourCard.rawValue)")
+            print(" four card : \(score/CardScore.fourCard.weightedValue)")
         }
     }
     
-    func testDecideWinner(){
-        var result = CardGameResult(playerList[0])
-
-    }
+ 
 
     private func prepareTriplePlayer( ) -> GamePlayer {
         //        [☘5, 🔶6, ☘6, ♥️6, ♠️7, ♥️9, ☘10]
@@ -246,37 +241,37 @@ class CardGameScoreTest: XCTestCase {
     }
     
     private func getOnePairScore(_ result: handSet) -> Int {
-        let onePairNumber = getMultipleNumber(result, coefficient: 2)
-        let handValue = onePairNumber * CardScore.onePair.rawValue
+        let onePairNumber = getMultipleNumber(result, coefficient: CardScore.onePair.rawValue)
+        let handValue = onePairNumber * CardScore.onePair.weightedValue
         return handValue
     }
 
     private func getTwoPairScore(_ result: handSet) -> Int {
-        let onePairNumber = getMultipleNumber(result, coefficient: 2)
-        let twoPairNumber = getTwoPairNumber(result: result, coefficient: 2, prevNumber: onePairNumber)
+        let onePairNumber = getMultipleNumber(result, coefficient: CardScore.onePair.rawValue)
+        let twoPairNumber = getTwoPairNumber(result: result, coefficient: CardScore.onePair.rawValue, prevNumber: onePairNumber)
         var handValue = 0
         if onePairNumber == 0 {
             return handValue
         }
-        handValue = twoPairNumber == 0 ? (onePairNumber * CardScore.onePair.rawValue): (onePairNumber * CardScore.twoPair.rawValue)
+        handValue = twoPairNumber == 0 ? (onePairNumber * CardScore.onePair.weightedValue): (onePairNumber * CardScore.twoPair.weightedValue)
         return handValue
     }
     
     private func getTriplePairScore(_ result : handSet) -> Int {
-        let tripleNumber = getMultipleNumber(result, coefficient: 3)
-        let handValue = tripleNumber * CardScore.triple.rawValue
+        let tripleNumber = getMultipleNumber(result, coefficient: CardScore.triple.rawValue)
+        let handValue = tripleNumber * CardScore.triple.weightedValue
         return handValue
     }
     
     private func getStraightScore(_ result: handSet) -> Int {
-        let straightNumber = getStraightNumber(handSet: result, count: 5)
-        let handValue = straightNumber * CardScore.straight.rawValue
+        let straightNumber = getStraightNumber(handSet: result, count: CardScore.straight.rawValue)
+        let handValue = straightNumber * CardScore.straight.weightedValue
         return handValue
     }
     
     private func getFourCardScore(_ result: handSet) -> Int {
-        let quardNumber = getMultipleNumber(result, coefficient: 4)
-        let handValue = quardNumber * CardScore.fourCard.rawValue
+        let quardNumber = getMultipleNumber(result, coefficient: CardScore.fourCard.rawValue)
+        let handValue = quardNumber * CardScore.fourCard.weightedValue
         return handValue
     }
     
@@ -303,19 +298,19 @@ class CardGameScoreTest: XCTestCase {
         if (handSet[handSet.endIndex-1].value.count == 0){  //ACE 보유 체크
             return false
         }
-        for element in handSet.startIndex..<(from){
+        for element in handSet.startIndex..<(from+1){
             count += (handSet[element].value.count > 0) ? 1: 0
         }
-        let result = count == 4 ? true : false
+        let result = count == CardScore.straight.rawValue ? true : false
         return result
     }
     
     private func isStraight(handSet: handSet, from: Int) -> Bool{
         var count = 0
-        for element in from-4..<(from){
+        for element in from-4..<(from+1){
             count += (handSet[element].value.count > 0) ? 1 : 0
         }
-        let result = count == 4 ? true : false
+        let result = count == CardScore.straight.rawValue ? true : false
         return result
     }
     
@@ -345,7 +340,7 @@ class CardGameScoreTest: XCTestCase {
     
     private func calculateEachPlayerHand(_ player: GamePlayer) -> Int{
         //highScore
-        var maxScore = player.myCardDeck[player.myCardDeck.count-1].number.rawValue * CardScore.highCard.rawValue
+        var maxScore = player.myCardDeck[player.myCardDeck.count-1].number.rawValue * CardScore.highCard.weightedValue
         guard let orderedHandSet = getOrderedHandSet(player) else{
             return maxScore
         }
