@@ -27,9 +27,11 @@ struct CardDeck {
     }
     
     /// 카드를 한장 뽑는 함수
-    mutating func removeOne() -> Card{
-        oneCard = totalCard.popLast()
-        return oneCard ?? Card(suit: CardSuit.diamond, rank: CardNumber.one)
+    mutating func removeOne() throws -> Card{
+        guard let oneCard: Card = totalCard.popLast() else {
+            throw DrawError.noCard
+        }
+        return oneCard
     }
     
     /// 카드를 초기화 하는 함수

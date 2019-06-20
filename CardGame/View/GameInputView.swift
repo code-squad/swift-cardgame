@@ -9,21 +9,25 @@
 import Foundation
 
 struct GameInputView {
-    static func announceMent() -> (gameType: String, playerCount: String) {
+    static func announceGameType() -> String {
         let gameSelectMent: String = """
                             카드 게임 종류를 선택하세요.
                             1. 7카드
                             2. 5카드
                             >
                             """
+        print(gameSelectMent, terminator:"")
+        let gameType = readLine()
+        return gameType ?? ""
+    }
+    
+    static func inputPlayerNumber() -> String {
         let playerCountMent: String = """
                                     참여할 사람의 인원을 입력하세요.
                                     >
                                     """
-        print(gameSelectMent, terminator:"")
-        let gameType = readLine()
         print(playerCountMent, terminator:"")
         let playerCount = readLine()
-        return (gameType: gameType ?? "", playerCount: playerCount ?? "")
+        return playerCount ?? ""
     }
 }

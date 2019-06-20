@@ -11,17 +11,27 @@ import Foundation
 func main(){
     var cardDeck = CardDeck()
     cardDeck.shuffle()
+    var cardGame = CardGame(deck: cardDeck)
+    var menu = Menu(deck: cardDeck)
     
     while true {
-        let input = GameInputView.announceMent()
         do {
-            var cardGame = CardGame(deck: cardDeck)
-            let gameData = try cardGame.gameAndPlayer(of: input)
-            let allocatedCards = cardGame.cardAllocation(cardCount: gameData.type, playerCount: gameData.player)
+            let inputType = GameInputView.announceGameType()
+            let gameType = try menu.selectGame(of: inputType)
+            if menu.deck.totalCard.count == 0 {
+                break
+            }
+            let inputPlayer = GameInputView.inputPlayerNumber()
+            let playerNumber = try menu.distinctPlayerNumber(of: inputPlayer)
+
+            let allocatedCards = try cardGame.cardAllocation(cardCount: gameType, playerCount: playerNumber)
+            print(cardGame.deck.totalCard.count)
             OutputView.printPlayersCards(of: allocatedCards)
-            
         } catch let error as ErrorMessage {
-            OutputView.errorPrint(of: error)
+            OutputView.errorPrint(of: error.rawValue)
+        } catch let error as DrawError{
+            OutputView.errorPrint(of: error.rawValue)
+            break
         } catch {
             OutputView.otherErrorPrint(of: error)
         }
