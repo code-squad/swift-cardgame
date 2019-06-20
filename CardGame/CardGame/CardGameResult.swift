@@ -10,6 +10,7 @@ import Foundation
 
 private typealias HandSet =  [(key: Int, value: [CardType])]
 private typealias CardScoreSet = (one: Int, two: Int, triple: Int, straight: Int, quad: Int )
+private typealias GameWinner = (name: String, winScore: Int)
 
 class CardGameResult {
     private var playerList : [GamePlayer]
@@ -47,7 +48,7 @@ class CardGameResult {
     }
     
     private func calculateEachPlayerHand(_ player: GamePlayer) -> Int{
-        var maxScore = player.myCardDeck[player.myCardDeck.count-1].number.rawValue * CardScore.highCard.rawValue
+        var maxScore = player.myCardDeck[player.myCardDeck.count-1].number.rawValue * CardScore.highCard.weightedValue
         guard let orderedHandSet = getOrderedHandSet(player) else{
             return maxScore
         }
@@ -81,37 +82,37 @@ class CardGameResult {
     }
     
     private func getOnePairScore(_ result: HandSet) -> Int {
-        let onePairNumber = getMultipleNumber(result, coefficient: 2)
-        let handValue = onePairNumber * CardScore.onePair.rawValue
+        let onePairNumber = getMultipleNumber(result, coefficient: CardScore.onePair.rawValue)
+        let handValue = onePairNumber * CardScore.onePair.weightedValue
         return handValue
     }
     
     private func getTwoPairScore(_ result: HandSet) -> Int {
-        let onePairNumber = getMultipleNumber(result, coefficient: 2)
-        let twoPairNumber = getTwoPairNumber(result: result, coefficient: 2, prevNumber: onePairNumber)
+        let onePairNumber = getMultipleNumber(result, coefficient: CardScore.onePair.rawValue)
+        let twoPairNumber = getTwoPairNumber(result: result, coefficient: CardScore.onePair.rawValue, prevNumber: onePairNumber)
         var handValue = 0
         if onePairNumber == 0 {
             return handValue
         }
-        handValue = twoPairNumber == 0 ? (onePairNumber * CardScore.onePair.rawValue): (onePairNumber * CardScore.twoPair.rawValue)
+        handValue = twoPairNumber == 0 ? (onePairNumber * CardScore.onePair.weightedValue): (onePairNumber * CardScore.twoPair.weightedValue)
         return handValue
     }
     
     private func getTriplePairScore(_ result : HandSet) -> Int {
-        let tripleNumber = getMultipleNumber(result, coefficient: 3)
-        let handValue = tripleNumber * CardScore.triple.rawValue
+        let tripleNumber = getMultipleNumber(result, coefficient: CardScore.triple.rawValue)
+        let handValue = tripleNumber * CardScore.triple.weightedValue
         return handValue
     }
     
     private func getStraightScore(_ result: HandSet) -> Int {
-        let straightNumber = getStraightNumber(handSet: result, count: 5)
-        let handValue = straightNumber * CardScore.straight.rawValue
+        let straightNumber = getStraightNumber(handSet: result, count: CardScore.straight.rawValue)
+        let handValue = straightNumber * CardScore.straight.weightedValue
         return handValue
     }
     
     private func getFourCardScore(_ result: HandSet) -> Int {
-        let quardNumber = getMultipleNumber(result, coefficient: 4)
-        let handValue = quardNumber * CardScore.fourCard.rawValue
+        let quardNumber = getMultipleNumber(result, coefficient: CardScore.fourCard.rawValue)
+        let handValue = quardNumber * CardScore.fourCard.weightedValue
         return handValue
     }
     
@@ -138,19 +139,19 @@ class CardGameResult {
         if (handSet[handSet.endIndex-1].value.count == 0){
             return false
         }
-        for element in handSet.startIndex..<(from){
+        for element in handSet.startIndex..<(from+1){
             count += (handSet[element].value.count > 0) ? 1: 0
         }
-        let result = count == 4 ? true : false
+        let result = count == CardScore.straight.rawValue ? true : false
         return result
     }
     
     private func isStraight(handSet: HandSet, from: Int) -> Bool{
         var count = 0
-        for element in from-4..<(from){
+        for element in from-4..<(from+1){
             count += (handSet[element].value.count > 0) ? 1 : 0
         }
-        let result = count == 4 ? true : false
+        let result = count == CardScore.straight.rawValue ? true : false
         return result
     }
     
