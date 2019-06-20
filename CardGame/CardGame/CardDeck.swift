@@ -27,22 +27,23 @@ struct CardDeck {
     }
     
     /// 카드를 한장 뽑는 함수
-    mutating func removeOne() -> String{
+    mutating func removeOne() -> Card{
         oneCard = totalCard.popLast()
-        if oneCard != nil {
-            return "\(oneCard!.suit.suit)\(oneCard!.rank.description)"
-        } else {
-            return ""
-        }
+        return oneCard ?? Card(suit: CardSuit.diamond, rank: CardNumber.one)
     }
     
     /// 카드를 초기화 하는 함수
     mutating func reset(){
-        totalCard = []
+        noCard()
         for suit in CardSuit.allCases {
             for number in CardNumber.allCases {
                 totalCard.append(Card(suit: suit, rank: number))
             }
         }
+    }
+    
+    /// 카드를 0장으로 만드는 함수
+    mutating func noCard() {
+        totalCard = []
     }
 }

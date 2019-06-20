@@ -10,11 +10,9 @@ import Foundation
 
 struct Menu {
     private (set) var deck: CardDeck
-    private (set) var endGame: Bool
     
     init(deck: CardDeck){
         self.deck = deck
-        self.endGame = false
     }
     
     /// 입력된 숫자를 판단하여 해당 메뉴의 기능을 동작하는 함수
@@ -25,14 +23,15 @@ struct Menu {
         }
         switch menuNumber{
         case 0:
-            endGame = true
+            deck.noCard()
         case 1:
             deck.reset()
             ment = "카드 전체를 초기화 했습니다."
         case 2:
             deck.shuffle()
         case 3:
-            ment = deck.removeOne()
+            let card = deck.removeOne()
+            ment = "\(card.suit.suit)\(card.rank.description)"
         default: throw ErrorMessage.outOfRange
         }
         return (cardCount: deck.count(), ment: ment)
