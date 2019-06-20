@@ -12,16 +12,15 @@ import Foundation
 
 struct InputView {
     /// 멘트를 출력하고 입력값을 받는 함수
-    static func announceMent() -> String {
-        let ment: String = """
-                            다음 메뉴를 선택해주세요.(0을 입력하면 종료)
-                            1. 카드 초기화
-                            2. 카드 섞기
-                            3. 카드 하나 뽑기
-                            >
-                            """
-        print(ment, terminator:"")
-        let selectNumber = readLine()
-        return selectNumber ?? ""
+    static func announceMent(selectNumber: String) -> String {
+//        let ment: String = """
+//                            다음 메뉴를 선택해주세요.(0을 입력하면 종료)
+//                            1. 카드 초기화
+//                            2. 카드 섞기
+//                            3. 카드 하나 뽑기
+//                            >
+//                            """
+//        print(ment, terminator:"")
+        return selectNumber
     }
 }
