@@ -30,4 +30,25 @@ struct OutputView {
     static func otherErrorPrint(of error: Error) {
         print(error)
     }
+    
+    /// 카드 배열을 출력하기 위한 함수
+    static func cardToPrint(cards: [Card]) -> String {
+        var cardForPrint: String = "["
+        for card in cards {
+            cardForPrint += "\(card.suit.suit)\(card.rank.description),"
+        }
+        cardForPrint.removeLast()
+        cardForPrint += "]"
+        return cardForPrint
+    }
+    
+    /// 참가자와 딜러가 가지고 있는 카드들을 출력하는 함수
+    static func printPlayersCards(of playerAndCard: [[Card]]) {
+        let participant: String = "참가자#"
+        let dealer: String = "딜러"
+        for playerNumber in 0..<playerAndCard.count-1 {
+            print(participant+"\(playerNumber+1) \(cardToPrint(cards: playerAndCard[playerNumber]))")
+        }
+        print(dealer+" \(cardToPrint(cards: playerAndCard[playerAndCard.endIndex-1]))")
+    }
 }
