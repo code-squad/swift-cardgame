@@ -10,7 +10,7 @@ import Foundation
 
 private typealias HandSet =  [(key: Int, value: [CardType])]
 private typealias CardScoreSet = (one: Int, two: Int, triple: Int, straight: Int, quad: Int )
-private typealias GameWinner = (name: String, winScore: Int)
+typealias GameWinner = (name: String, type: String)
 
 class CardGameResult {
     private var playerList : [GamePlayer]
@@ -29,7 +29,23 @@ class CardGameResult {
         }
     }
     
-    func selectWinnerName() -> String {
+    func decideWinningType(_ score: Int) -> String{
+        var result = CardScore.fourCard.description
+        if score <= CardScore.highCard.weightedScoreValue * CardNumber.ace.rawValue  {
+            result = CardScore.highCard.description
+        }else if score <= CardScore.onePair.weightedScoreValue * CardNumber.ace.rawValue{
+            result = CardScore.onePair.description
+        }else if score <= CardScore.twoPair.weightedScoreValue * CardNumber.ace.rawValue{
+            result = CardScore.twoPair.description
+        }else if score <= CardScore.triple.weightedScoreValue * CardNumber.ace.rawValue{
+            result = CardScore.triple.description
+        }else if score <= CardScore.straight.weightedScoreValue * CardNumber.ace.rawValue{
+            result = CardScore.straight.description
+        }
+        return result
+    }
+    
+    func selectWinnerName() -> GameWinner {
         var currentMaxScore = scores[0]
         var currentIndex = 0
         for index in 1..<scores.endIndex{
@@ -38,7 +54,8 @@ class CardGameResult {
                 currentIndex = index
             }
         }
-        return playerList[currentIndex].name
+        let winType = decideWinningType(currentMaxScore)
+        return GameWinner(name: playerList[currentIndex].name, type: winType)
     }
     
     private func calculateScores(){
@@ -48,7 +65,7 @@ class CardGameResult {
     }
     
     private func calculateEachPlayerHand(_ player: GamePlayer) -> Int{
-        var maxScore = player.myCardDeck[player.myCardDeck.count-1].number.rawValue * CardScore.highCard.weightedValue
+        var maxScore = player.myCardDeck[player.myCardDeck.count-1].number.rawValue * CardScore.highCard.weightedScoreValue
         guard let orderedHandSet = getOrderedHandSet(player) else{
             return maxScore
         }
@@ -83,7 +100,7 @@ class CardGameResult {
     
     private func getOnePairScore(_ result: HandSet) -> Int {
         let onePairNumber = getMultipleNumber(result, coefficient: CardScore.onePair.rawValue)
-        let handValue = onePairNumber * CardScore.onePair.weightedValue
+        let handValue = onePairNumber * CardScore.onePair.weightedScoreValue
         return handValue
     }
     
@@ -94,25 +111,25 @@ class CardGameResult {
         if onePairNumber == 0 {
             return handValue
         }
-        handValue = twoPairNumber == 0 ? (onePairNumber * CardScore.onePair.weightedValue): (onePairNumber * CardScore.twoPair.weightedValue)
+        handValue = twoPairNumber == 0 ? (onePairNumber * CardScore.onePair.weightedScoreValue): (onePairNumber * CardScore.twoPair.weightedScoreValue)
         return handValue
     }
     
     private func getTriplePairScore(_ result : HandSet) -> Int {
         let tripleNumber = getMultipleNumber(result, coefficient: CardScore.triple.rawValue)
-        let handValue = tripleNumber * CardScore.triple.weightedValue
+        let handValue = tripleNumber * CardScore.triple.weightedScoreValue
         return handValue
     }
     
     private func getStraightScore(_ result: HandSet) -> Int {
         let straightNumber = getStraightNumber(handSet: result, count: CardScore.straight.rawValue)
-        let handValue = straightNumber * CardScore.straight.weightedValue
+        let handValue = straightNumber * CardScore.straight.weightedScoreValue
         return handValue
     }
     
     private func getFourCardScore(_ result: HandSet) -> Int {
         let quardNumber = getMultipleNumber(result, coefficient: CardScore.fourCard.rawValue)
-        let handValue = quardNumber * CardScore.fourCard.weightedValue
+        let handValue = quardNumber * CardScore.fourCard.weightedScoreValue
         return handValue
     }
     
