@@ -21,6 +21,8 @@ class CardGamePlay {
             switch playerList {
             case .success(let players):
                 OutputView.showPlayersDistributedCardList(players)
+                let cardGameResult = CardGameResult.init(players)
+                OutputView.showWinner(cardGameResult.selectWinnerName())
                 break
             case .failure(_):
                 return
