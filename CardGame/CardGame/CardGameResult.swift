@@ -19,7 +19,6 @@ class CardGameResult {
     func sortPlayerCardDeck() {
 //        for player in self.playerList {
             player.sortMyDeck()
-            print("\(player)")
 //        }
     }
     
