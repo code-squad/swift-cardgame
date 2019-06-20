@@ -199,5 +199,4 @@ class CardGameResult {
         }
         return dictionary
     }
-    
 }
