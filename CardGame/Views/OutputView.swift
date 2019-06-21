@@ -22,11 +22,19 @@ class OutputView {
         print(SystemMessage.gameWinner(winner, type))
     }
     static func showPlayersDistributedCardList (_ list: [GamePlayer]){
-        let output = { (name: String, myCardDeck: [Card]) -> Void in
-            print("\(name) \(myCardDeck)")
+        let output = { (name: String, myHand: Hand) -> Void in
+            print("\(name) ", terminator: "")
+            print("\(myHand.myCardDeck)")
         }
         for player in list {
             player.receivePrintFormat(output)
         }
+    }
+}
+extension String.StringInterpolation {
+    mutating func appendLiteral(cardDeck: [Card]){
+        appendLiteral("[")
+        appendLiteral(cardDeck.map{ (value) -> String in return value.description }.joined(separator:", "))
+        appendLiteral("]")
     }
 }
