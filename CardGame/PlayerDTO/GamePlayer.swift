@@ -9,25 +9,18 @@
 import Foundation
 
 class GamePlayer {
-    private (set) var myCardDeck : [Card]
+    private (set) var myHand : Hand = Hand()
     private (set) var name: String
     
     init(_ name: String = "참가자"){
         self.name = name
-        myCardDeck = [Card]()
     }
     
-    func addMyCard(_ card: Card){
-        myCardDeck.append(card)
+    func addHand (_ hand: Hand){
+        myHand = hand
     }
 
-    func sortOwnDeck() {
-        self.myCardDeck.sort(by: { (card1, card2) in
-            return card1.number.rawValue <= card2.number.rawValue
-        })
-    }
-
-    func receivePrintFormat(_ output: (String, [Card]) -> Void){
-        output(name, myCardDeck)
+    func receivePrintFormat(_ output: (String, Hand) -> Void){
+        output(name, myHand)
     }
 }
