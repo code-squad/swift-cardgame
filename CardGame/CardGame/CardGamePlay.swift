@@ -96,21 +96,32 @@ class CardGamePlay {
         return playerList
     }
     
+    private func initializeHandList(_ size: Int) -> [Hand]{
+        var handList = [Hand]()
+        for _ in 0..<size {
+            handList.append(Hand())
+        }
+        return handList
+    }
     private func fillDeckOfPlayers(players: [GamePlayer], deck : CardDeck, type: GameType) -> Result<[GamePlayer], DrawCardError>{
         if !isValidGame(deck: deck, numberOfPlayers: players.count, distributionSize: type.rawValue) {
              return .failure(DrawCardError.notEnoughCardInDeck)
         }
         deck.shuffle()
+        var handList = initializeHandList(players.count)
         for _ in 0..<type.rawValue {
-            distributeCardsByGameRule(players: players, deck: deck)
+            distributeCardsByGameRule(players: players, deck: deck, handList: handList)
+        }
+        for index in 0..<players.count {
+            players[index].addHand(handList[index])
         }
         return .success(players)
     }
     
-    private func distributeCardsByGameRule(players: [GamePlayer], deck: CardDeck) {
-        for player in players {
+    private func distributeCardsByGameRule(players: [GamePlayer], deck: CardDeck, handList: [Hand]) {
+        for index in 0..<players.count {
             let drewCard = try! deck.removeOne().get()
-            player.addMyCard(drewCard)
+            handList[index].addMyCard(drewCard)
         }
     }
 }
