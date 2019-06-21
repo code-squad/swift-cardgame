@@ -19,23 +19,27 @@ class CardGameResult {
         sortPlayerCardDeck()
     }
     
+    func selectWinnerName() -> GameWinner {
+        sortPlayerByDescendingOrderScore()
+        let winner = playerList[0]
+        let winType = decideWinningType(winner.priority)
+        return GameWinner(name: winner.name, type: winType)
+    }
+    
+    private func sortPlayerByDescendingOrderScore() {
+        self.playerList.sort { (player1, player2) -> Bool in
+            player1.priority > player2.priority
+        }
+    }
+    
     private func sortPlayerCardDeck() {
         for player in self.playerList {
             player.sortDeck()
         }
     }
     
-    func decideWinningType(_ score: Int) -> String{
+    private func decideWinningType(_ score: Int) -> String{
         let result = CardScore(score)
         return result.description
-    }
-    
-    func selectWinnerName() -> GameWinner {
-        self.playerList.sort { (player1, player2) -> Bool in
-            player1.priority > player2.priority
-        }
-        let winner = playerList[0]
-        let winType = decideWinningType(winner.priority)
-        return GameWinner(name: winner.name, type: winType)
     }
 }
