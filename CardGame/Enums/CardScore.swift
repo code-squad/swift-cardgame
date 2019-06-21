@@ -36,6 +36,29 @@ enum CardScore : Int, CustomStringConvertible{
     case triple = 3
     case straight = 5
     case fourCard = 4
+    
+    init (_ score : Int ){
+        let highCardScope = CardScore.highCard.weightedScoreValue * CardNumber.ace.rawValue + 1
+        let onePairScope = CardScore.onePair.weightedScoreValue * CardNumber.ace.rawValue + 1
+        let twoPairScope = CardScore.twoPair.weightedScoreValue * CardNumber.ace.rawValue + 1
+        let tripleScope = CardScore.triple.weightedScoreValue * CardNumber.ace.rawValue + 1
+        let straightScope = CardScore.straight.weightedScoreValue * CardNumber.ace.rawValue + 1
+        switch score {
+        case 0..<highCardScope :
+            self = CardScore.highCard
+        case highCardScope..<onePairScope:
+            self = CardScore.onePair
+        case onePairScope..<twoPairScope:
+            self = CardScore.twoPair
+        case twoPairScope..<tripleScope:
+            self = CardScore.triple
+        case tripleScope..<straightScope:
+            self = CardScore.straight
+        default:
+            self = CardScore.fourCard
+        }
+    }
+    
     var weightedScoreValue : Int{
         switch self {
         case .highCard:
