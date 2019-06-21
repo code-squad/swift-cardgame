@@ -31,16 +31,11 @@ class CardGameResult {
     }
     
     func selectWinnerName() -> GameWinner {
-        var currentMaxScore = 0
-        var currentIndex = 0
-        for (index, player) in playerList.enumerated(){
-            let currentPlayerScore = player.getScore()
-            if currentMaxScore < currentPlayerScore {
-                currentMaxScore = currentPlayerScore
-                currentIndex = index
-            }
+        self.playerList.sort { (player1, player2) -> Bool in
+            player1.priority > player2.priority
         }
-        let winType = decideWinningType(currentMaxScore)
-        return GameWinner(name: playerList[currentIndex].name, type: winType)
+        let winner = playerList[0]
+        let winType = decideWinningType(winner.priority)
+        return GameWinner(name: winner.name, type: winType)
     }
 }

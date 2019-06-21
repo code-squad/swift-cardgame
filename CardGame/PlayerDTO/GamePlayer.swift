@@ -11,7 +11,11 @@ import Foundation
 class GamePlayer {
     private (set) var myHand : Hand = Hand()
     private (set) var name: String
-    
+    var priority : Int {
+        get {
+            return myHand.calculateEachPlayerHand()
+        }
+    }
     init(_ name: String = "참가자"){
         self.name = name
     }
@@ -26,10 +30,5 @@ class GamePlayer {
     
     func sortDeck(){
         myHand.sortOwnDeck()
-    }
-    
-    func getScore() -> Int{
-        let score = myHand.calculateEachPlayerHand()
-        return score
     }
 }
