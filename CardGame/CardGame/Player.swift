@@ -13,3 +13,14 @@ protocol Player {
     func getName() -> String
 }
 
+extension Player {
+    mutating func playerToPrint() -> String {
+        var playerAndCards: String = self.getName()+" ["
+        for card in cards {
+            playerAndCards += card.cardToPrint()+","
+        }
+        playerAndCards.removeLast()
+        playerAndCards += "]"
+        return playerAndCards
+    }
+}
