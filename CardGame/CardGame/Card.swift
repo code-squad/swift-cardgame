@@ -16,4 +16,10 @@ class Card{
         self.suit = suit
         self.rank = rank
     }
+    
+    /// 카드 배열을 출력하기 위한 함수
+    func cardToPrint() -> String {
+        let cardForPrint = "\(suit.suit)\(rank.description)"
+        return cardForPrint
+    }
 }

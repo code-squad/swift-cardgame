@@ -35,7 +35,19 @@ struct OutputView {
     static func printPlayersCards(of players: [Player]) {
         var playerAndCard = players
         for index in 0..<playerAndCard.count {
-            print(playerAndCard[index].getName()+" \(playerAndCard[index].cardToPrint())")
+            print(playerAndCard[index].getName(), terminator: " ")
+            printCards(cards: playerAndCard[index].cards)
+        }
+    }
+    
+    /// 한명의 참가자가 가지고 있는 카드를 출력하는 함수
+    static func printCards(cards: [Card]) {
+        print("[", terminator: "")
+        for index in 0..<cards.count {
+            print(cards[index].cardToPrint(), terminator: ",")
+            if index == cards.endIndex-1 {
+                print(cards[index].cardToPrint()+"]")
+            }
         }
     }
 }
