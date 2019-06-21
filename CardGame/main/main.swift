@@ -12,13 +12,13 @@ func main(){
     var cardDeck = CardDeck()
     cardDeck.shuffle()
     var cardGame = CardGame(deck: cardDeck)
-    var menu = Menu(deck: cardDeck)
+    var menu = Menu()
     
     while true {
         do {
-            let inputType = GameInputView.announceGameType(totalCard: cardGame.deck.totalCard.count)
+            let inputType = GameInputView.announceGameType(totalCard: cardGame.deck.count())
             let gameType = try menu.selectGame(of: inputType)
-            if menu.deck.totalCard.count == 0 {
+            if gameType == 0 {
                 break
             }
             let inputPlayer = GameInputView.inputPlayerNumber()
