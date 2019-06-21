@@ -9,11 +9,6 @@
 import Foundation
 
 struct Menu {
-    private (set) var deck: CardDeck
-    
-    init(deck: CardDeck){
-        self.deck = deck
-    }
     
     /// 입력받은 수를 판단해서 어떤 게임을 시작할지 결정하고 카드의 수를 반환하는 함수
     mutating func selectGame(of input: String) throws -> Int {
@@ -23,7 +18,6 @@ struct Menu {
         }
         switch menuNumber{
         case 0:
-            deck.noCard()
             countOfCard = 0
         case 1:
             countOfCard = 7
