@@ -8,12 +8,12 @@
 
 import Foundation
 
-class GamePlayer {
+class GamePlayer : Comparable {
     private (set) var myHand : Hand = Hand()
     private (set) var name: String
-    var priority : Int {
+    var score : Int {
         get {
-            return myHand.calculateEachPlayerHand()
+            return self.myHand.calculateEachPlayerHand()
         }
     }
     init(_ name: String = "참가자"){
@@ -30,5 +30,13 @@ class GamePlayer {
     
     func sortDeck(){
         myHand.sortOwnDeck()
+    }
+    
+    static func < (lhs: GamePlayer, rhs: GamePlayer) -> Bool {
+        return lhs.score < rhs.score
+    }
+    
+    static func == (lhs: GamePlayer, rhs: GamePlayer) -> Bool {
+        return lhs.score == rhs.score
     }
 }

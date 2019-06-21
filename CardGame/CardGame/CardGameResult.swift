@@ -22,13 +22,13 @@ class CardGameResult {
     func selectWinnerName() -> GameWinner {
         sortPlayerByDescendingOrderScore()
         let winner = playerList[0]
-        let winType = decideWinningType(winner.priority)
+        let winType = decideWinningType(winner.score)
         return GameWinner(name: winner.name, type: winType)
     }
     
     private func sortPlayerByDescendingOrderScore() {
         self.playerList.sort { (player1, player2) -> Bool in
-            player1.priority > player2.priority
+            player1 > player2
         }
     }
     
