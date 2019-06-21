@@ -18,16 +18,19 @@ struct CardGame {
             throw DrawError.noCard
         }
         for index in 0...playerCount {
-            var cards = [Card]()
-            for _ in 0..<cardCount {
-                cards.append(try deck.removeOne())
-            }
-            if index == playerCount {
-                players.append(Dealer(cards: cards))
-            } else {
-                players.append(Participant(cards: cards))
-            }
+            players.append(try giveCardToOnePlayer(cardCount: cardCount, playerCount: playerCount, currentIndex: index))
         }
         return players
+    }
+    
+    mutating func giveCardToOnePlayer(cardCount: Int, playerCount: Int, currentIndex: Int) throws -> Player {
+        var player: Player
+        let cards = try deck.giveCard(count: cardCount)
+        if currentIndex == playerCount {
+            player = Dealer(cards: cards)
+        } else {
+            player = Participant(name: "참가자#\(currentIndex+1)", cards: cards)
+        }
+        return player
     }
 }
