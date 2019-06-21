@@ -34,9 +34,8 @@ struct OutputView {
     /// 참가자와 딜러가 가지고 있는 카드들을 출력하는 함수
     static func printPlayersCards(of players: [Player]) {
         var playerAndCard = players
-        for index in 0..<playerAndCard.count-1 {
-            print(playerAndCard[index].getName()+"\(index+1) \(playerAndCard[index].cardToPrint())")
+        for index in 0..<playerAndCard.count {
+            print(playerAndCard[index].getName()+" \(playerAndCard[index].cardToPrint())")
         }
-        print(playerAndCard[playerAndCard.endIndex-1].getName()+" \(playerAndCard[playerAndCard.endIndex-1].cardToPrint())")
     }
 }

@@ -48,4 +48,13 @@ struct CardDeck {
     mutating func noCard() {
         totalCard = []
     }
+    
+    /// 카드를 배분하는 함수
+    mutating func giveCard(count: Int) throws -> [Card]{
+        var cards = [Card]()
+        for _ in 0..<count {
+            cards.append(try removeOne())
+        }
+        return cards
+    }
 }

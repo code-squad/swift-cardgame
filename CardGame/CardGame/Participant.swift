@@ -9,10 +9,11 @@
 import Foundation
 
 struct Participant: Player {
-    private let name: String = "참가자#"
+    private let name: String
     private (set) var cards: [Card]
     
-    init(cards: [Card]) {
+    init(name: String, cards: [Card]) {
+        self.name = name
         self.cards = cards
     }
     
