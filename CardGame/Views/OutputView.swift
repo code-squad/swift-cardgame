@@ -18,8 +18,8 @@ class OutputView {
     static func displayDrawCardErrorAutoHandleMessage(){
         print(SystemMessage.autoInitializeDeck)
     }
-    static func showWinner(_ winner: String, _ type: String){
-        print(SystemMessage.gameWinner(winner, type))
+    static func showWinner(_ winners: [String], _ type: String){
+        print(SystemMessage.gameWinner(winners, type))
     }
     static func showPlayersDistributedCardList (_ list: [GamePlayer]){
         let output = { (name: String, myHand: Hand) -> Void in

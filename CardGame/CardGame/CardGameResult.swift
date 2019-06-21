@@ -9,7 +9,7 @@
 import Foundation
 
 
-typealias GameWinner = (name: String, type: String)
+typealias GameWinner = (name: [String], type: String)
 
 class CardGameResult {
     private var playerList : [GamePlayer]
@@ -21,9 +21,20 @@ class CardGameResult {
     
     func selectWinnerName() -> GameWinner {
         sortPlayerByDescendingOrderScore()
-        let winner = playerList[0]
-        let winType = decideWinningType(winner.score)
-        return GameWinner(name: winner.name, type: winType)
+        let winners = hasMoreWinner(playerList[0])
+        let winType = decideWinningType(playerList[0].score)
+        return GameWinner(name: winners, type: winType)
+    }
+    
+    private func hasMoreWinner(_ player: GamePlayer) -> [String] {
+        var result = [String]()
+        result.append(player.name)
+        for candidateIndex in 1..<playerList.count {
+            if player == playerList[candidateIndex]{
+                result.append(playerList[candidateIndex].name)
+            }
+        }
+        return result
     }
     
     private func sortPlayerByDescendingOrderScore() {
