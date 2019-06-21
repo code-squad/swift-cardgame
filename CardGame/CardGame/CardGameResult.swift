@@ -24,7 +24,7 @@ class CardGameResult {
     
     private func sortPlayerCardDeck() {
         for player in self.playerList {
-            player.myHand.sortOwnDeck()
+            player.sortDeck()
         }
     }
     
@@ -48,7 +48,7 @@ class CardGameResult {
     
     private func calculateScores(){
         for (index, player) in playerList.enumerated(){
-            scores[index] = player.myHand.calculateEachPlayerHand()
+            scores[index] = player.getScore()
         }
     }
 }

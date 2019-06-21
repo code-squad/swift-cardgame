@@ -23,4 +23,13 @@ class GamePlayer {
     func receivePrintFormat(_ output: (String, Hand) -> Void){
         output(name, myHand)
     }
+    
+    func sortDeck(){
+        myHand.sortOwnDeck()
+    }
+    
+    func getScore() -> Int{
+        let score = myHand.calculateEachPlayerHand()
+        return score
+    }
 }
