@@ -9,6 +9,7 @@
 import Foundation
 
 func main(){
+    let battle = CardBattle()
     var cardDeck = CardDeck()
     cardDeck.shuffle()
     var cardGame = CardGame(deck: cardDeck)
@@ -24,7 +25,10 @@ func main(){
             let inputPlayer = GameInputView.inputPlayerNumber()
             let playerNumber = try menu.distinctPlayerNumber(of: inputPlayer)
             let allocatedCards = try cardGame.cardAllocation(cardCount: gameType, playerCount: playerNumber)
+            let winner = battle.compareCard(players: allocatedCards)
+            let winMent = battle.winMent(winner: winner)
             OutputView.printPlayersCards(of: allocatedCards)
+            OutputView.printWinner(of: winMent)
         } catch let error as ErrorMessage {
             OutputView.errorPrint(of: error.rawValue)
         } catch let error as DrawError{

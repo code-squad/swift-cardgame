@@ -38,4 +38,9 @@ struct OutputView {
             print(playerAndCard[index].playerToPrint())
         }
     }
+    
+    /// 승자를 출력하는 함수
+    static func printWinner(of winnerMent: String) {
+        print(winnerMent)
+    }
 }
