@@ -10,10 +10,10 @@ import Foundation
 
 enum CardConsequence: Int {
     case noScore = 0
-    case onePare = 1
-    case twoPare, triple, straight, fourCard
+    case onePair = 1
+    case twoPair, triple, straight, fourCard
     
-    var result: Int {
+    var convertedScore: Int {
         return self.rawValue
     }
 }

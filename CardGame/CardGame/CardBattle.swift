@@ -9,5 +9,8 @@
 import Foundation
 
 struct CardBattle {
-    
+    func compareCard(players: [Player]){
+        var participantAndDealer = players
+        let participant = participantAndDealer.removeLast()
+    }
 }
