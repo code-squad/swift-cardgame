@@ -31,23 +31,24 @@ extension Array where Element == Int {
 }
 
 struct CardResult {
-    /// 한 선수의 결과를 반환하는 함수
-    func judgeByRule(of cards: [Card]) -> CardConsequence {
+    /// 한 선수의 결과와 이때의 숫자를 반환하는 함수
+    func judgeByRule(of cards: [Card]) -> (result: CardConsequence, maxNumber: Int) {
         let sortedDeck = sortCardDeck(of: cards)
         let cardSet = Set(sortedDeck)
-        let score = countMaxPair(of: sortedDeck)
-        if cardSet.count == sortedDeck.count-1 {
-            return .onePair
-        } else if score == 3{
-            return .triple
-        } else if score == 4 {
-            return .fourCard
-        } else if cardSet.count != sortedDeck.count-1, score == 2 {
-            return .twoPair
-        } else if distinctStraight(of: sortedDeck) == true {
-            return .straight
+        let pairAndNumber = countMaxPair(of: sortedDeck)
+        let distinctedStraight = distinctStraight(of: sortedDeck)
+        if distinctedStraight.result == true {
+            return (result: .straight, maxNumber: distinctedStraight.maxNumber)
+        } else if cardSet.count == sortedDeck.count-1, pairAndNumber.score == 2  {
+            return (result: .onePair, maxNumber: pairAndNumber.maxNumber)
+        } else if pairAndNumber.score == 3{
+            return (result: .triple, maxNumber: pairAndNumber.maxNumber)
+        } else if pairAndNumber.score == 4 {
+            return (result: .fourCard, maxNumber: pairAndNumber.maxNumber)
+        } else if cardSet.count != sortedDeck.count-1, pairAndNumber.score == 2 {
+            return (result: .twoPair, maxNumber: pairAndNumber.maxNumber)
         } else {
-            return .noScore
+            return (result: .noScore, maxNumber: sortedDeck[sortedDeck.endIndex-1])
         }
     }
     
@@ -60,29 +61,44 @@ struct CardResult {
         return sortedDeck.sorted()
     }
     
-    /// 한 원소당 같은 원소가 최대 몇개있는지 체크하는 함수
-    private func countMaxPair(of cardNumbers: [Int]) -> Int {
+    /// 한 원소당 같은 원소가 최대 몇개있는지 체크하고 최대 개수인 경우 숫자를 반환하는 함수
+    private func countMaxPair(of cardNumbers: [Int]) -> (score: Int, maxNumber: Int) {
         var score = 0
+        var maxNumber = 0
         for card in cardNumbers {
             let cardCount = cardNumbers.countElement(element: card)
             if score < cardCount {
                 score = cardCount
+                maxNumber = card
             }
         }
-        return score
+        return (score: score, maxNumber: maxNumber)
     }
     
-    /// 카드덱에 5개 이상의 연속되는 숫자가 있는지 검사하는 함수
-    private func distinctStraight(of cardNumbers: [Int]) -> Bool {
+    /// 카드덱에 5개 이상의 연속되는 숫자가 있는지 검사하고 이런 경우에서 가장 큰 숫자를 반환하는 함수
+    private func distinctStraight(of cardNumbers: [Int]) -> (result: Bool, maxNumber: Int) {
+        let cards = Array(Set(cardNumbers)).sorted()
+        var distinctResult = (result: false, maxNumber: 0)
+        if cards.count < 5 {
+            return distinctResult
+        } else {
+            distinctResult = compareEachElement(cards: cards)
+        }
+        return distinctResult
+    }
+    
+    /// 중복제거 후 원소가 5개 이상일때 각 숫자들이 연속하는지 검사하는 함수
+    private func compareEachElement(cards: [Int]) -> (result: Bool, maxNumber: Int){
         var continuousNumber: Int = 0
-        var distinctResult: Bool = false
-        for index in 1..<cardNumbers.count {
-            if cardNumbers[index-1] + 1 == cardNumbers[index] {
-                    continuousNumber += 1
+        var distinctResult = (result: false, maxNumber: 0)
+        for index in 1..<cards.count {
+            if cards[index-1] + 1 == cards[index] {
+                continuousNumber += 1
+                distinctResult.maxNumber = cards[index]
             }
         }
         if continuousNumber >= 5 {
-            distinctResult = true
+            distinctResult.result = true
         }
         return distinctResult
     }
