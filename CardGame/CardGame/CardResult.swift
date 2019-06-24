@@ -16,8 +16,9 @@
 
 import Foundation
 
-/// 파라미터로 받은 원소가 해당 배열에 몇개 있는지 카운트하는 함수
+
 extension Array where Element == Int {
+    /// 파라미터로 받은 원소가 해당 배열에 몇개 있는지 카운트하는 함수
     func countElement(element: Int) -> Int{
         var score:Int = 0
         for part in self {
@@ -30,6 +31,7 @@ extension Array where Element == Int {
 }
 
 struct CardResult {
+    /// 한 선수의 결과를 반환하는 함수
     func judgeByRule(of cards: [Card]) -> CardConsequence {
         let sortedDeck = sortCardDeck(of: cards)
         let cardSet = Set(sortedDeck)
