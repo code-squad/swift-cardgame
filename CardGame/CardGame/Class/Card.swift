@@ -20,6 +20,14 @@ class Card: CustomStringConvertible {
         self.suit = suit
         self.rank = rank
     }
+    
+    init?(suit: Character, rank: Int) {
+        guard let suit = Suit(rawValue: suit), let rank = Rank(rawValue: rank) else {
+            return nil
+        }
+        self.suit = suit
+        self.rank = rank
+    }
 
 }
 // - MARK: - Nested Enum (Suit, Rank)
