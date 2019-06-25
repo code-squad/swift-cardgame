@@ -9,12 +9,12 @@
 import Foundation
 
 struct CardGame {
-    private(set) var deck: CardDeck
+    private(set) var cardDeck: CardDeck
     
     /// 카드를 플레이어와 딜러에게 배분하는 함수
     mutating func cardAllocation(cardCount: Int, playerCount: Int) throws -> [Player]{
         var players = [Player]()
-        if deck.count() < cardCount * playerCount+1 {
+        if cardDeck.count() < cardCount * playerCount+1 {
             throw DrawError.noCard
         }
         for index in 0...playerCount {
@@ -25,7 +25,8 @@ struct CardGame {
     
     mutating func giveCardToOnePlayer(cardCount: Int, playerCount: Int, currentIndex: Int) throws -> Player {
         var player: Player
-        let cards = try deck.giveCard(count: cardCount)
+        let playerDeck = try cardDeck.giveCard(count: cardCount)
+        let cards = CardSet(cards: playerDeck)
         if currentIndex == playerCount {
             player = Dealer(cards: cards)
         } else {

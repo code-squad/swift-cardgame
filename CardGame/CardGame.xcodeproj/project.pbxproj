@@ -21,11 +21,11 @@
 		15A71AEF22BBDBB500896DE7 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AEE22BBDBB500896DE7 /* Participant.swift */; };
 		15A71AF122BBDCA300896DE7 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF022BBDCA300896DE7 /* Dealer.swift */; };
 		15A71AF422BE06DD00896DE7 /* CardBattle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF322BE06DD00896DE7 /* CardBattle.swift */; };
-		15A71AF622BE09EB00896DE7 /* CardResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF522BE09EB00896DE7 /* CardResult.swift */; };
+		15A71AF622BE09EB00896DE7 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF522BE09EB00896DE7 /* CardSet.swift */; };
 		15A71AF922BE0BF300896DE7 /* CardConsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF822BE0BF300896DE7 /* CardConsequence.swift */; };
 		15A71B0622C0AF0B00896DE7 /* CardSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AD422B75A7800896DE7 /* CardSuit.swift */; };
 		15A71B0722C0B09100896DE7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AD822B764FE00896DE7 /* Card.swift */; };
-		15A71B0822C0B1A400896DE7 /* CardResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF522BE09EB00896DE7 /* CardResult.swift */; };
+		15A71B0822C0B1A400896DE7 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF522BE09EB00896DE7 /* CardSet.swift */; };
 		15A71B0922C0B1A800896DE7 /* CardBattle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF322BE06DD00896DE7 /* CardBattle.swift */; };
 		15A71B0A22C0B83600896DE7 /* CardConsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71AF822BE0BF300896DE7 /* CardConsequence.swift */; };
 		15A71B0C22C0B92100896DE7 /* TestCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A71B0022C0AEDF00896DE7 /* TestCardGame.swift */; };
@@ -63,7 +63,7 @@
 		15A71AEE22BBDBB500896DE7 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		15A71AF022BBDCA300896DE7 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		15A71AF322BE06DD00896DE7 /* CardBattle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBattle.swift; sourceTree = "<group>"; };
-		15A71AF522BE09EB00896DE7 /* CardResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardResult.swift; sourceTree = "<group>"; };
+		15A71AF522BE09EB00896DE7 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		15A71AF822BE0BF300896DE7 /* CardConsequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardConsequence.swift; sourceTree = "<group>"; };
 		15A71AFE22C0AEDF00896DE7 /* TestCardGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCardGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A71B0022C0AEDF00896DE7 /* TestCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardGame.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				15A71AEC22BBDB2F00896DE7 /* Player.swift */,
 				15A71AEE22BBDBB500896DE7 /* Participant.swift */,
 				15A71AF022BBDCA300896DE7 /* Dealer.swift */,
-				15A71AF522BE09EB00896DE7 /* CardResult.swift */,
+				15A71AF522BE09EB00896DE7 /* CardSet.swift */,
 				15A71AF322BE06DD00896DE7 /* CardBattle.swift */,
 			);
 			path = CardGame;
@@ -263,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15A71B0822C0B1A400896DE7 /* CardResult.swift in Sources */,
+				15A71B0822C0B1A400896DE7 /* CardSet.swift in Sources */,
 				15A71B0C22C0B92100896DE7 /* TestCardGame.swift in Sources */,
 				15A71B0F22C0B9E700896DE7 /* Participant.swift in Sources */,
 				15A71B0622C0AF0B00896DE7 /* CardSuit.swift in Sources */,
@@ -285,7 +285,7 @@
 				15A71AF422BE06DD00896DE7 /* CardBattle.swift in Sources */,
 				15A71AF122BBDCA300896DE7 /* Dealer.swift in Sources */,
 				15A71AF922BE0BF300896DE7 /* CardConsequence.swift in Sources */,
-				15A71AF622BE09EB00896DE7 /* CardResult.swift in Sources */,
+				15A71AF622BE09EB00896DE7 /* CardSet.swift in Sources */,
 				15A71ADE22B8AB6D00896DE7 /* CardDeck.swift in Sources */,
 				15A71AE722BB50C200896DE7 /* GameInputView.swift in Sources */,
 				15A71AEF22BBDBB500896DE7 /* Participant.swift in Sources */,

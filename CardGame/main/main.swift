@@ -12,12 +12,12 @@ func main(){
     let battle = CardBattle()
     var cardDeck = CardDeck()
     cardDeck.shuffle()
-    var cardGame = CardGame(deck: cardDeck)
+    var cardGame = CardGame(cardDeck: cardDeck)
     var menu = Menu()
     
     while true {
         do {
-            let inputType = GameInputView.announceGameType(totalCard: cardGame.deck.count())
+            let inputType = GameInputView.announceGameType(totalCard: cardGame.cardDeck.count())
             let gameType = try menu.selectGame(of: inputType)
             if gameType == 0 {
                 break

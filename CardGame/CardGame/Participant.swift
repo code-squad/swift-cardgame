@@ -10,9 +10,9 @@ import Foundation
 
 struct Participant: Player {
     private let name: String
-    private (set) var cards: [Card]
+    private (set) var cards: CardSet
     
-    init(name: String, cards: [Card]) {
+    init(name: String, cards: CardSet) {
         self.name = name
         self.cards = cards
     }
