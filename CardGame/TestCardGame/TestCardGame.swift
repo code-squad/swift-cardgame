@@ -19,7 +19,7 @@ class TestCardGame: XCTestCase {
     }
 
     func testFourPair() {
-        let deck: [Player] = [ Participant(name: "참가자#1", cards: [
+        let deck: [Player] = [ Participant(name: "참가자#1", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .one),
                 Card(suit: .clover, rank: .one),
                 Card(suit: .heart, rank: .one),
@@ -27,8 +27,8 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .two),
                 Card(suit: .diamond, rank: .three),
                 Card(suit: .diamond, rank: .four),
-            ]),
-            Participant(name: "참가자#2", cards: [
+            ])),
+            Participant(name: "참가자#2", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .five),
                 Card(suit: .clover, rank: .five),
                 Card(suit: .heart, rank: .five),
@@ -36,8 +36,8 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .diamond, rank: .seven),
                 Card(suit: .diamond, rank: .eight),
-            ]),
-            Dealer(cards: [
+            ])),
+            Dealer(cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .clover, rank: .seven),
                 Card(suit: .heart, rank: .ten),
@@ -45,21 +45,20 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .seven),
                 Card(suit: .diamond, rank: .nine),
                 Card(suit: .diamond, rank: .ten),
-                ])]
+                ]))]
         
-        let playerA = CardResult().judgeByRule(of: deck[0].cards)
-        let playerB = CardResult().judgeByRule(of: deck[1].cards)
+        let playerA = deck[0].cards
+        let playerB = deck[1].cards
         
         let result = CardBattle().compareCard(players: deck)
         
-        XCTAssertTrue(playerA.result == playerB.result)
-        XCTAssertTrue(playerA.maxNumber < playerB.maxNumber)
-        XCTAssertFalse(playerA.maxNumber > playerB.maxNumber)
+        XCTAssertTrue(playerA.totalScore() < playerB.totalScore())
+        XCTAssertFalse(playerA.totalScore() > playerB.totalScore())
         XCTAssertTrue(result.getName() == "참가자#2")
     }
 
     func testStraight() {
-        let deck: [Player] = [ Participant(name: "참가자#1", cards: [
+        let deck: [Player] = [ Participant(name: "참가자#1", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .one),
                 Card(suit: .clover, rank: .two),
                 Card(suit: .heart, rank: .three),
@@ -67,8 +66,8 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .five),
                 Card(suit: .clover, rank: .six),
                 Card(suit: .diamond, rank: .four),
-            ]),
-            Participant(name: "참가자#2", cards: [
+            ])),
+            Participant(name: "참가자#2", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .clover, rank: .seven),
                 Card(suit: .heart, rank: .eight),
@@ -76,18 +75,17 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .ten),
                 Card(suit: .diamond, rank: .two),
                 Card(suit: .diamond, rank: .three),
-            ])]
+            ]))]
 
-        let playerA = CardResult().judgeByRule(of: deck[0].cards)
-        let playerB = CardResult().judgeByRule(of: deck[1].cards)
+        let playerA = deck[0].cards
+        let playerB = deck[1].cards
         
-        XCTAssertTrue(playerA.result == playerB.result)
-        XCTAssertTrue(playerA.maxNumber < playerB.maxNumber)
-        XCTAssertFalse(playerA.maxNumber > playerB.maxNumber)
+        XCTAssertTrue(playerA.totalScore() < playerB.totalScore())
+        XCTAssertFalse(playerA.totalScore() > playerB.totalScore())
     }
     
     func testTriple() {
-        let deck: [Player] = [ Participant(name: "참가자#1", cards: [
+        let deck: [Player] = [ Participant(name: "참가자#1", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .three),
                 Card(suit: .clover, rank: .two),
                 Card(suit: .heart, rank: .three),
@@ -95,8 +93,8 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .five),
                 Card(suit: .diamond, rank: .two),
                 Card(suit: .diamond, rank: .four),
-            ]),
-            Participant(name: "참가자#2", cards: [
+            ])),
+            Participant(name: "참가자#2", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .clover, rank: .seven),
                 Card(suit: .heart, rank: .one),
@@ -104,18 +102,17 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .ten),
                 Card(suit: .diamond, rank: .eleven),
                 Card(suit: .diamond, rank: .one),
-            ])]
+            ]))]
         
-        let playerA = CardResult().judgeByRule(of: deck[0].cards)
-        let playerB = CardResult().judgeByRule(of: deck[1].cards)
+        let playerA = deck[0].cards
+        let playerB = deck[1].cards
         
-        XCTAssertTrue(playerA.result == playerB.result)
-        XCTAssertTrue(playerA.maxNumber > playerB.maxNumber)
-        XCTAssertFalse(playerA.maxNumber < playerB.maxNumber)
+        XCTAssertTrue(playerA.totalScore() > playerB.totalScore())
+        XCTAssertFalse(playerA.totalScore() < playerB.totalScore())
     }
     
     func testTwoPair() {
-        let deck: [Player] = [ Participant(name: "참가자#1", cards: [
+        let deck: [Player] = [ Participant(name: "참가자#1", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .three),
                 Card(suit: .clover, rank: .two),
                 Card(suit: .heart, rank: .three),
@@ -123,8 +120,8 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .five),
                 Card(suit: .diamond, rank: .one),
                 Card(suit: .diamond, rank: .four),
-            ]),
-            Participant(name: "참가자#2", cards: [
+            ])),
+            Participant(name: "참가자#2", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .clover, rank: .six),
                 Card(suit: .heart, rank: .one),
@@ -132,18 +129,17 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .ten),
                 Card(suit: .diamond, rank: .ten),
                 Card(suit: .diamond, rank: .eleven),
-            ])]
+            ]))]
 
-        let playerA = CardResult().judgeByRule(of: deck[0].cards)
-        let playerB = CardResult().judgeByRule(of: deck[1].cards)
+        let playerA = deck[0].cards
+        let playerB = deck[1].cards
         
-        XCTAssertTrue(playerA.result == playerB.result)
-        XCTAssertTrue(playerA.maxNumber > playerB.maxNumber)
-        XCTAssertFalse(playerA.maxNumber < playerB.maxNumber)
+        XCTAssertTrue(playerA.totalScore() < playerB.totalScore())
+        XCTAssertFalse(playerA.totalScore() > playerB.totalScore())
     }
     
     func testOnePair() {
-        let deck: [Player] = [ Participant(name: "참가자#1", cards: [
+        let deck: [Player] = [ Participant(name: "참가자#1", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .three),
                 Card(suit: .clover, rank: .one),
                 Card(suit: .heart, rank: .three),
@@ -151,8 +147,8 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .five),
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .diamond, rank: .ten),
-            ]),
-            Participant(name: "참가자#2", cards: [
+            ])),
+            Participant(name: "참가자#2", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .clover, rank: .four),
                 Card(suit: .heart, rank: .one),
@@ -160,18 +156,17 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .ten),
                 Card(suit: .diamond, rank: .ten),
                 Card(suit: .diamond, rank: .eleven),
-            ])]
+            ]))]
 
-        let playerA = CardResult().judgeByRule(of: deck[0].cards)
-        let playerB = CardResult().judgeByRule(of: deck[1].cards)
+        let playerA = deck[0].cards
+        let playerB = deck[1].cards
         
-        XCTAssertTrue(playerA.result == playerB.result)
-        XCTAssertTrue(playerA.maxNumber < playerB.maxNumber)
-        XCTAssertFalse(playerA.maxNumber > playerB.maxNumber)
+        XCTAssertTrue(playerA.totalScore() < playerB.totalScore())
+        XCTAssertFalse(playerA.totalScore() > playerB.totalScore())
     }
     
     func testNoScore() {
-        let deck: [Player] = [ Participant(name: "참가자#1", cards: [
+        let deck: [Player] = [ Participant(name: "참가자#1", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .three),
                 Card(suit: .clover, rank: .one),
                 Card(suit: .heart, rank: .twelve),
@@ -179,8 +174,8 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .five),
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .diamond, rank: .ten),
-            ]),
-            Participant(name: "참가자#2", cards: [
+            ])),
+            Participant(name: "참가자#2", cards: CardSet(cards: [
                 Card(suit: .diamond, rank: .six),
                 Card(suit: .clover, rank: .four),
                 Card(suit: .heart, rank: .one),
@@ -188,13 +183,12 @@ class TestCardGame: XCTestCase {
                 Card(suit: .diamond, rank: .two),
                 Card(suit: .diamond, rank: .ten),
                 Card(suit: .diamond, rank: .eleven),
-            ])]
+            ]))]
         
-        let playerA = CardResult().judgeByRule(of: deck[0].cards)
-        let playerB = CardResult().judgeByRule(of: deck[1].cards)
+        let playerA = deck[0].cards
+        let playerB = deck[1].cards
         
-        XCTAssertTrue(playerA.result == playerB.result)
-        XCTAssertTrue(playerA.maxNumber > playerB.maxNumber)
-        XCTAssertFalse(playerA.maxNumber < playerB.maxNumber)
+        XCTAssertTrue(playerA.totalScore() > playerB.totalScore())
+        XCTAssertFalse(playerA.totalScore() < playerB.totalScore())
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 struct CardBattle {
     /// 각 선수들의 결과를 비교하여 승자를 반환하는 함수
     func compareCard(players: [Player]) -> Player{
-        var totalScore = 0
+        var totalScore:Double = 0
         var winner: Player = players[0]
         var participants = players
         participants.removeLast()
