@@ -30,9 +30,24 @@ extension Array where Element == Int {
     }
 }
 
-struct CardResult {
+struct CardSet {
+    private (set) var cards: [Card]
+    private (set) var score: Int = 0
+    private (set) var maxNumber: Int = 0
+
+    init(cards: [Card]) {
+        self.cards = cards
+        self.score = judgeByRule().result.convertedScore
+        self.maxNumber = judgeByRule().maxNumber
+    }
+    
+    /// 카드덱을 불러오는 함수
+    func getDeck() -> [Card]{
+        return cards
+    }
+
     /// 한 선수의 결과와 이때의 숫자를 반환하는 함수
-    func judgeByRule(of cards: [Card]) -> (result: CardConsequence, maxNumber: Int) {
+    mutating func judgeByRule() -> (result: CardConsequence, maxNumber: Int) {
         let sortedDeck = sortCardDeck(of: cards)
         let cardSet = Set(sortedDeck)
         let pairAndNumber = countMaxPair(of: sortedDeck)
@@ -101,5 +116,10 @@ struct CardResult {
             distinctResult.result = true
         }
         return distinctResult
+    }
+    
+    /// 카드의 결과와 가장 큰 수를 점수로 바꿔주는 함수
+    func totalScore() -> Int {
+        return score + maxNumber/100
     }
 }

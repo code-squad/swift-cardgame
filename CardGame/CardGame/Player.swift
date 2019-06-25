@@ -9,14 +9,15 @@
 import Foundation
 
 protocol Player {
-    var cards: [Card] { get }
+    var cards: CardSet { get }
     func getName() -> String
 }
 
 extension Player {
     mutating func playerToPrint() -> String {
         var playerAndCards: String = self.getName()+" ["
-        for card in cards {
+        let deck = cards.getDeck()
+        for card in deck {
             playerAndCards += card.cardToPrint()+","
         }
         playerAndCards.removeLast()
