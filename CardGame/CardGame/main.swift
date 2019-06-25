@@ -8,4 +8,11 @@
 
 import Foundation
 
+let heart10 = Card.init(suit: .hearts, rank: .ten)
+print(heart10)
+if let spadeAce = Card(suit: "♠️", rank: 1) {
+     print(spadeAce)
+}
+
+
 
