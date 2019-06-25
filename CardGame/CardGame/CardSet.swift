@@ -85,6 +85,8 @@ struct CardSet {
             if score < cardCount {
                 score = cardCount
                 maxNumber = card
+            } else if score == cardCount, card > maxNumber {
+                maxNumber = card
             }
         }
         return (score: score, maxNumber: maxNumber)
@@ -119,7 +121,7 @@ struct CardSet {
     }
     
     /// 카드의 결과와 가장 큰 수를 점수로 바꿔주는 함수
-    func totalScore() -> Int {
-        return score + maxNumber/100
+    func totalScore() -> Double {
+        return Double(score) + Double(maxNumber)/100
     }
 }
