@@ -15,7 +15,12 @@ class Card: CustomStringConvertible {
     var description: String {
         return "\(suit)\(rank)"
     }
-   
+    
+    init(suit: Suit, rank: Rank) {
+        self.suit = suit
+        self.rank = rank
+    }
+
 }
 // - MARK: - Nested Enum (Suit, Rank)
 extension Card {
