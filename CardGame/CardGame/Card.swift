@@ -9,6 +9,10 @@
 import Foundation
 
 class Card {
+    
+    let suit: Suit
+    let rank: Rank
+    
     enum Suit: String, CustomStringConvertible {
         case hearts = "❤️"
         case diamonds = "♦️"
@@ -38,6 +42,31 @@ class Card {
             default:
                 return "\(rawValue)"
             }
+        }
+    }
+    
+    init?(suit: String, rank: Int) {
+        guard let suit = Suit.init(suit),
+            let rank = Rank.init(rawValue: rank) else {
+                return nil
+        }
+        self.suit = suit
+        self.rank = rank
+    }
+}
+
+extension Card.Suit {
+    init?(_ suit: String) {
+        switch suit {
+        case "hearts", "heart":
+            self = .hearts
+        case "diamonds", "diamond":
+            self = .diamonds
+        case "spades", "spade":
+            self = .spades
+        case "clubs", "club":
+            self = .clubs
+        default: return nil
         }
     }
 }
