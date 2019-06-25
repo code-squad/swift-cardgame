@@ -24,4 +24,9 @@ extension Player {
         playerAndCards += "]"
         return playerAndCards
     }
+    
+}
+
+func < (lhs: Player, rhs: Player) -> Bool {
+    return lhs.cards.totalScore() < rhs.cards.totalScore()
 }
