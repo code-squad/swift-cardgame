@@ -9,7 +9,13 @@
 import Foundation
 
 class Card: CustomStringConvertible {
+    let suit: Suit
+    let rank: Rank
     
+    var description: String {
+        return "\(suit)\(rank)"
+    }
+   
 }
 // - MARK: - Nested Enum (Suit, Rank)
 extension Card {
