@@ -9,5 +9,14 @@
 import Foundation
 
 class Card {
-    
+    enum Suit: String, CustomStringConvertible {
+        case hearts = "❤️"
+        case diamonds = "♦️"
+        case spades = "♠️"
+        case clubs = "♣️"
+        
+        var description: String {
+            return rawValue
+        }
+    }
 }
