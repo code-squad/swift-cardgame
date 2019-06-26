@@ -33,9 +33,7 @@ struct InputView {
     
     static private func showMenu(){
         print("다음 메뉴를 선택해주세요.")
-        Menu.allCases.forEach{
-            print($0.description)
-        }
+        print(Menu.allCases.map{ $0.description}.joined(separator: "\n"))
         print(">", terminator: " ")
     }
     
