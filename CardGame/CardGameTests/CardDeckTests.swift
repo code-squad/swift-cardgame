@@ -33,7 +33,7 @@ class CardDeckTests: XCTestCase {
         let beforeCount = self.deck.count()
         
         //When
-        let card = deck.removeOne()
+        let card = deck.removeOne()!
         let afterCount = self.deck.count()
         
         //Then

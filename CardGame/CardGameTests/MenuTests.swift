@@ -9,25 +9,43 @@
 import XCTest
 
 class MenuTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    //Given
+    var deck = CardDeck()
+    var menu: Menu!
+    
+    func testReset() {
+        //Given
+        menu = Reset()
+        
+        //When
+        let (_,notice) = menu.process(cards: self.deck)
+        
+        //Then
+        XCTAssertEqual(notice, "카드 전체를 초기화했습니다.")
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testShuffle() {
+        //Given
+        menu = Shuffle()
+        
+        //When
+        let (_,notice) = menu.process(cards: self.deck)
+        
+        //Then
+        XCTAssertEqual(notice, "전체 52장의 카드를 섞었습니다.")
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+  
+    func testDraw() {
+        //Given
+        menu = Draw()
+        
+        //When
+        let (_,notice) = menu.process(cards: self.deck)
+        let pattern = "^((♠️|♦️|♥️|♣️)(2|3|4|5|6|7|8|9|10|A|K|J|Q))|(덱이 비었습니다.)$"
+        let result = notice.range(of: pattern, options: .regularExpression)
+        
+        //Then
+        XCTAssertNotNil(result)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
