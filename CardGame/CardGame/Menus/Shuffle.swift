@@ -9,6 +9,7 @@
 import Foundation
 
 struct Shuffle: Menu {
+    
     func process(cards: CardDeck) -> (CardDeck, Notice) {
         var cards = cards
         cards.shuffle()
