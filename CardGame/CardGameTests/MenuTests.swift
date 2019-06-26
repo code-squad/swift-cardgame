@@ -22,7 +22,7 @@ class MenuTests: XCTestCase {
         let (_,notice) = menu.process(cards: self.deck)
         
         //Then
-        XCTAssertEqual(notice, "카드 전체를 초기화했습니다.")
+        XCTAssertEqual(notice, "카드 전체를 초기화했습니다.\n총 52장의 카드가 있습니다.")
     }
     
     func testShuffle() {

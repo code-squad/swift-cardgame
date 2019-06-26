@@ -8,11 +8,23 @@
 
 import Foundation
 
-let heart10 = Card.init(suit: .hearts, rank: .ten)
-print(heart10)
-if let spadeAce = Card(suit: "♠️", rank: 1) {
-     print(spadeAce)
+func main() throws {
+    var game = CardGame()
+    while true {
+        guard let menuNO = InputView.input() else {
+           throw Exception.wrongFormat
+        }
+        guard let menu = MenuFactory.create(menuNo: menuNO) else {
+             throw Exception.unsupportedMenu
+        }
+        let result = game.run(menu: menu)
+        OutputView.output(result)
+    }
 }
 
 
-
+do {
+    try main()
+}catch {
+    print(error.localizedDescription)
+}
