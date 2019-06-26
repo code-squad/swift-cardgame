@@ -10,5 +10,6 @@ import Foundation
 
 protocol Menu {
     typealias Notice = String
+    
     func process(cards: CardDeck) -> (CardDeck,Notice)
 }
