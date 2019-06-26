@@ -9,7 +9,11 @@
 import Foundation
 
 struct Reset: Menu {
-    func process(cards: inout CardDeck) -> String {
-        return ""
+    
+    func process(cards: CardDeck) -> (CardDeck, Notice) {
+        var cards = cards
+        cards.reset()
+        let notice = "카드 전체를 초기화했습니다."
+        return (cards,notice)
     }
 }
