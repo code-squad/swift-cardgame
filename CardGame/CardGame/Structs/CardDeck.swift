@@ -18,7 +18,7 @@ struct CardDeck: Deck {
     }
     
     func count() -> Int {
-        return self.elements.count()
+        return self.elements.count
     }
     
     mutating func removeOne() -> Card? {
@@ -26,7 +26,7 @@ struct CardDeck: Deck {
     }
     
     mutating func shuffle() {
-        ()
+        self.elements.shuffle()
     }
     
     mutating func reset() {
