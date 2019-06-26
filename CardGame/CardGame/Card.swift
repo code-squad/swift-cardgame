@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Card {
+class Card: CustomStringConvertible {
     
-    let suit: Suit
-    let rank: Rank
+    private let suit: Suit
+    private let rank: Rank
     
     enum Suit: String, CustomStringConvertible {
         case hearts = "❤️"
@@ -46,12 +46,15 @@ class Card {
     }
     
     init?(suit: String, rank: Int) {
-        guard let suit = Suit.init(suit),
-            let rank = Rank.init(rawValue: rank) else {
+        guard let suit = Suit.init(suit), let rank = Rank.init(rawValue: rank) else {
                 return nil
         }
         self.suit = suit
         self.rank = rank
+    }
+    
+    var description: String {
+        return "\(suit)\(rank)"
     }
 }
 
