@@ -12,7 +12,7 @@ import Foundation
 protocol Deck {
     associatedtype T
     func count() -> Int
-    func removeOne() -> T
+    mutating func removeOne() -> T?
     mutating func shuffle()
     mutating func reset()
 }

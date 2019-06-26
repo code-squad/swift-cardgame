@@ -12,20 +12,31 @@ struct CardDeck: Deck {
     typealias T = Card
     var elements: [Card]
     
-    func count() -> Int {
-        return 1
+    init() {
+        self.elements = [Card]()
+        self.elements.append(Card(suit: .clubs, rank: .ace))
     }
     
-    func removeOne() -> Card {
+    func count() -> Int {
+        return 0
+    }
+    
+    mutating func removeOne() -> Card? {
         return elements[0]
     }
     
-    func shuffle() {
+    mutating func shuffle() {
         ()
     }
     
-    func reset() {
+    mutating func reset() {
         ()
     }
-   
+    
+}
+
+extension CardDeck: Equatable {
+    static func == (lhs: CardDeck, rhs: CardDeck) -> Bool {
+        return lhs.count() == rhs.count()
+    }
 }
