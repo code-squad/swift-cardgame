@@ -18,7 +18,7 @@ struct CardDeck: Deck {
     }
     
     func count() -> Int {
-        return 0
+        return self.elements.count()
     }
     
     mutating func removeOne() -> Card? {
