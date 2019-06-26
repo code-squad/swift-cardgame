@@ -10,7 +10,11 @@ import Foundation
 
 struct CardDeck: Deck {
     typealias T = Card
-    var cards: [Card]!
+    
+    private var cards: [Card]!
+    private var isEmpty: Bool {
+        return self.count() > 0
+    }
     
     init() {
         self.reset()
@@ -21,6 +25,7 @@ struct CardDeck: Deck {
     }
     
     mutating func removeOne() -> Card? {
+
         return cards[0]
     }
     
@@ -34,7 +39,7 @@ struct CardDeck: Deck {
     }
     
 }
-
+// - MARK: - + Equatable
 extension CardDeck: Equatable {
     static func == (lhs: CardDeck, rhs: CardDeck) -> Bool {
         guard  lhs.count() == rhs.count() else {
