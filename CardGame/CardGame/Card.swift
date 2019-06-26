@@ -30,5 +30,12 @@ class Card {
         case jack, queen, king
     }
     
+    let rank: Rank
+    let suit: Suit
+    
+    init(_ rank: Rank, of suit: Suit) {
+        self.suit = suit
+        self.rank = rank
+    }
 }
 
