@@ -37,6 +37,13 @@ struct CardDeck: Deck {
 
 extension CardDeck: Equatable {
     static func == (lhs: CardDeck, rhs: CardDeck) -> Bool {
-        return lhs.count() == rhs.count()
+        guard  lhs.count() == rhs.count() else {
+            return false
+        }
+        var same = true
+        for index in 0...lhs.count() {
+            same = same && (lhs.cards[index] == rhs.cards[index])
+        }
+        return same
     }
 }
