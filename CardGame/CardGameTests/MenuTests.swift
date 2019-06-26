@@ -42,7 +42,7 @@ class MenuTests: XCTestCase {
         
         //When
         let (_,notice) = menu.process(cards: self.deck)
-        let pattern = "^((♠️|♦️|♥️|♣️)(2|3|4|5|6|7|8|9|10|A|K|J|Q))|(덱이 비었습니다.)$"
+        let pattern = "^((♠️|♦️|♥️|♣️)(2|3|4|5|6|7|8|9|10|J|Q|K|A))|(덱이 비었습니다.)$"
         let result = notice.range(of: pattern, options: .regularExpression)
         
         //Then
