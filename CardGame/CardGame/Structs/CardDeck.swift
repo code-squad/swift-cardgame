@@ -10,27 +10,27 @@ import Foundation
 
 struct CardDeck: Deck {
     typealias T = Card
-    var elements: [Card]
+    var cards: [Card]!
     
     init() {
-        self.elements = [Card]()
-        self.elements.append(Card(suit: .clubs, rank: .ace))
+        self.reset()
     }
     
     func count() -> Int {
-        return self.elements.count
+        return self.cards.count
     }
     
     mutating func removeOne() -> Card? {
-        return elements[0]
+        return cards[0]
     }
     
     mutating func shuffle() {
-        self.elements.shuffle()
+        self.cards.shuffle()
     }
     
     mutating func reset() {
-        ()
+        self.cards = Card.allCards()
+        self.shuffle()
     }
     
 }
