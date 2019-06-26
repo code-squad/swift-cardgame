@@ -13,7 +13,7 @@ struct CardDeck: Deck {
     
     private var cards: [Card]!
     private var isEmpty: Bool {
-        return self.count() > 0
+        return self.count() <= 0
     }
     
     init() {
