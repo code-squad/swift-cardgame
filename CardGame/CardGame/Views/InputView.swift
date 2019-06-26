@@ -10,12 +10,12 @@ import Foundation
 
 struct InputView {
     
-    static func input() -> Int? {
+    static func getMenuNumber() -> Int? {
         showMenu()
-        guard let index = Int(fetchInput()) else {
+        guard let menuNumber = Int(fetchInput()) else {
             return nil
         }
-        return index
+        return menuNumber
     }
     
     static private func showMenu(){

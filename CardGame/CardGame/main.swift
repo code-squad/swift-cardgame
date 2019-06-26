@@ -11,10 +11,10 @@ import Foundation
 func main() throws {
     var game = CardGame()
     while true {
-        guard let menuNO = InputView.input() else {
+        guard let menuNumber = InputView.getMenuNumber() else {
            throw Exception.wrongFormat
         }
-        guard let menu = MenuFactory.create(menuNo: menuNO) else {
+        guard let menu = MenuFactory.create(menuNo: menuNumber) else {
              throw Exception.unsupportedMenu
         }
         let result = game.run(menu: menu)
