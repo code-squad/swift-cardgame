@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Shuffle: Menu {
+    func process(cards: inout CardDeck) -> String {
+        return ""
+    }  
+}

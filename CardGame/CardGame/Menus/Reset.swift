@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Reset: Menu {
+    func process(cards: inout CardDeck) -> String {
+        return ""
+    }
+}
