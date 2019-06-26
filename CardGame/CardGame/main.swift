@@ -8,4 +8,12 @@
 
 import Foundation
 
+func main() {
+    guard let card = Card(suit: "spade", rank: 12) else {
+        return
+    }
+    
+    print(card)
+}
 
+main()
