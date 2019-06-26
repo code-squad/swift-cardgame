@@ -25,8 +25,10 @@ struct CardDeck: Deck {
     }
     
     mutating func removeOne() -> Card? {
-
-        return cards[0]
+        guard !isEmpty else { return nil }
+        let randomIndex = Int.random(in: 0..<self.count())
+        let card = self.cards.remove(at: randomIndex)
+        return cardg
     }
     
     mutating func shuffle() {
