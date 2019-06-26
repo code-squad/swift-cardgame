@@ -9,32 +9,24 @@
 import Foundation
 
 struct InputView {
-    enum Menu: CaseIterable, CustomStringConvertible {
-        var description: String {
-            switch self {
-            case .reset:
-                return "1. 카드 초기화"
-            case .shuffle:
-                return "2. 카드 섞기"
-            case .draw:
-                return "3. 카드 하나 뽑기"
-            }
-        }
-        
-        case reset
-        case shuffle
-        case draw
-    }
     
-    static func run() -> String {
+    static func input() -> Int? {
         showMenu()
-        return fetchInput()
+        guard let index = Int(fetchInput()) else {
+            return nil
+        }
+        return index
     }
     
     static private func showMenu(){
-        print("다음 메뉴를 선택해주세요.")
-        print(Menu.allCases.map{ $0.description}.joined(separator: "\n"))
-        print(">", terminator: " ")
+        let message = """
+        다음 메뉴를 선택해주세요.
+        1. 카드 초기화
+        2. 카드 섞기
+        3. 카드 하나 뽑기
+        >
+        """
+        print(message, terminator: " ")
     }
     
     static private func fetchInput() -> String {
