@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct CardGame {
+    var deck = CardDeck()
+    
+    mutating func run(menu: Menu) -> String {
+        let (deck,notice) = menu.process(cards: self.deck)
+        self.deck = deck
+        return notice
+    }
+    
+}
