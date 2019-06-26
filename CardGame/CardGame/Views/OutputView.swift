@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct OutputView {
+    static func output (_ message: String) {
+        print(message)
+    }
+}
