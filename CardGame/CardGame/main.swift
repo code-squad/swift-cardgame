@@ -8,4 +8,9 @@
 
 import Foundation
 
+let queenOfHeart = Card(.queen, of: .heart)
+print(queenOfHeart)
+
+let sevenOfSpade = Card(.seven, of: .spade)
+print(sevenOfSpade)
 
