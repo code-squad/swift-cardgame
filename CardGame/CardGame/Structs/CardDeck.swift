@@ -25,7 +25,7 @@ struct CardDeck: Deck {
     }
     
     mutating func removeOne() -> Card? {
-        guard !isEmpty else { return nil }
+        guard !self.isEmpty else { return nil }
         let randomIndex = Int.random(in: 0..<self.count())
         let card = self.cards.remove(at: randomIndex)
         return card
@@ -43,6 +43,7 @@ struct CardDeck: Deck {
 }
 // - MARK: - + Equatable
 extension CardDeck: Equatable {
+    
     static func == (lhs: CardDeck, rhs: CardDeck) -> Bool {
         guard  lhs.count() == rhs.count() else {
             return false
