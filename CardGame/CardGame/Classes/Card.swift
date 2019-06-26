@@ -8,13 +8,9 @@
 
 import Foundation
 
-class Card: CustomStringConvertible {
-    private let suit: Suit
+class Card {
+    fileprivate let suit: Suit
     private let rank: Rank
-    
-    var description: String {
-        return "\(suit)\(rank)"
-    }
     
     init(suit: Suit, rank: Rank) {
         self.suit = suit
@@ -76,7 +72,20 @@ extension Card {
             }
         }
     }
-    
+}
+// - MARK: - + CustomStringConvertible
+extension Card: CustomStringConvertible {
+    var description: String {
+        return "\(self.suit)\(self.rank)"
+    }
+}
+// - MARK: - + Equatable
+extension Card: Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        let sameSuit = lhs.suit == rhs.suit
+        let sameRank = lhs.rank == rhs.rank
+        return sameSuit && sameRank
+    }
 }
 /*==============================================================================
  
