@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+struct MenuFactory {
+    
+    static func create(menuNo: Int) -> Menu? {
+        switch menuNo {
+        case 1:
+            return Reset()
+        case 2:
+            return Shuffle()
+        case 3:
+            return Draw()
+        default:
+            return nil
+        }
+    }
+}
