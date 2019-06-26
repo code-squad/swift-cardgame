@@ -28,11 +28,23 @@ class Card: CustomStringConvertible {
         self.suit = suit
         self.rank = rank
     }
-
+    
+    static func allCards() -> [Card] {
+        let suits = Card.Suit.allCases
+        let ranks = Card.Rank.allCases
+        var cards = [Card]()
+        
+        for suit in suits {
+            for rank in ranks {
+                cards.append(Card(suit: suit, rank: rank))
+            }
+        }
+        return cards
+    }
 }
 // - MARK: - Nested Enum (Suit, Rank)
 extension Card {
-    enum Suit: Character, CustomStringConvertible {
+    enum Suit: Character, CustomStringConvertible, CaseIterable {
         case spades = "♠️"
         case hearts = "♥️"
         case diamonds = "♦️"
@@ -44,7 +56,7 @@ extension Card {
         
     }
     
-    enum Rank: Int, CustomStringConvertible,CaseIterable {
+    enum Rank: Int, CustomStringConvertible, CaseIterable {
         case ace = 1
         case two,three,four,five,six,seven,eight,nine,ten
         case jack,queen,king
