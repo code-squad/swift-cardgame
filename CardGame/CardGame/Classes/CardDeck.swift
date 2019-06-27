@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardDeck: Deck {
+class CardDeck: Deck {
     typealias T = Card
     
     private var cards: [Card]!
@@ -24,18 +24,18 @@ struct CardDeck: Deck {
         return self.cards.count
     }
     
-    mutating func removeOne() -> Card? {
+    func removeOne() -> Card? {
         guard !self.isEmpty else { return nil }
         let randomIndex = Int.random(in: 0..<self.count())
         let card = self.cards.remove(at: randomIndex)
         return card
     }
     
-    mutating func shuffle() {
+    func shuffle() {
         self.cards.shuffle()
     }
     
-    mutating func reset() {
+    func reset() {
         self.cards = CardFactory.createAll()
         self.shuffle()
     }
