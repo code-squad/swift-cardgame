@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 프로그램 전체에서 한 개의 CardDeck 만 사용하므로 struct 로 구현
 struct CardDeck {
     private var cards = [Card]()
     

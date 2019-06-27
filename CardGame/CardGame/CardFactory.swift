@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 전체 Card 인스턴스 생성 담당
 struct CardFactory {
     static func makeAllCards() -> [Card] {
         var cards = [Card]()
