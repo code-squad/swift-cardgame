@@ -8,10 +8,12 @@
 
 import Foundation
 
+// 메뉴 선택 숫자 -> 케이스로 변환
 enum Menu: Int {
     case exit = 0, reset, shuffle, remove
     
-    init(selection: Int) {
-        self = Menu(rawValue: selection) ?? .exit
+    init(selection: String) {
+        let convertedSelection = Int(selection) ?? 0
+        self = Menu(rawValue: convertedSelection) ?? .exit
     }
 }
