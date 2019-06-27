@@ -23,4 +23,23 @@ extension Card {
             return String(rawValue)
         }
     }
+    
+    enum Rank: Int, CustomStringConvertible {
+        case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
+        
+        var description: String {
+            switch self {
+            case .ace:
+                return "A"
+            case .jack:
+                return "J"
+            case .queen:
+                return "Q"
+            case .king:
+                return "K"
+            default:
+                return String(rawValue)
+            }
+        }
+    }
 }
