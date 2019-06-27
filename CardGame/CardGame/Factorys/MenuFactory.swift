@@ -8,16 +8,20 @@
 
 import Foundation
 
-struct MenuFactory {
+struct MenuFactory: Factory {
+    typealias IN = Int
     
-    static func create(menuNo: Int) -> Menu? {
-        switch menuNo {
+    typealias OUT = Menu
+    
+    static func create(_ input: Int) -> Menu? {
+        
+        switch input {
         case 1:
-            return Reset()
+            return Reset.init()
         case 2:
-            return Shuffle()
+            return Shuffle.init()
         case 3:
-            return Draw()
+            return Draw.init()
         default:
             return nil
         }
