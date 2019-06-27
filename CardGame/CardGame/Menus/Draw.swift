@@ -10,10 +10,8 @@ import Foundation
 
 struct Draw: Menu {
     
-    func process(cards: CardDeck) -> (CardDeck, Notice) {
-        var cards = cards
-        var notice = cards.removeOne()?.description ?? "덱이 비었습니다."
-        notice += "총 \(cards.count())장의 카드가 남아있습니다."
-        return (cards,notice)
+    func action(cards: CardDeck) -> GameResult {
+        let card = cards.removeOne()
+        return GameResult.draw(card: card, remain: cards.count())
     }
 }
