@@ -9,10 +9,20 @@
 import Foundation
 
 class Card: CustomStringConvertible {
-    
     private let suit: Suit
     private let rank: Rank
     
+    init(suit: Suit, rank: Rank) {
+        self.suit = suit
+        self.rank = rank
+    }
+    
+    var description: String {
+        return "\(suit)\(rank)"
+    }
+}
+
+extension Card {
     enum Suit: String, CustomStringConvertible {
         case hearts = "❤️"
         case diamonds = "♦️"
@@ -38,14 +48,5 @@ class Card: CustomStringConvertible {
             default: return "\(rawValue)"
             }
         }
-    }
-    
-    init(suit: Suit, rank: Rank) {
-        self.suit = suit
-        self.rank = rank
-    }
-    
-    var description: String {
-        return "\(suit)\(rank)"
     }
 }
