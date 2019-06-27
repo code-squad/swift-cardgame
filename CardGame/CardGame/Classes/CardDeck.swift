@@ -49,7 +49,7 @@ extension CardDeck: Equatable {
             return false
         }
         var same = true
-        for index in 0...lhs.count() {
+        for index in 0..<lhs.count() {
             same = same && (lhs.cards[index] == rhs.cards[index])
         }
         return same
