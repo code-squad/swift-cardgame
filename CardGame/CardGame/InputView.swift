@@ -20,8 +20,10 @@ struct InputView {
     static func printMenu() {
         print(menuInstuction, terminator: "")
     }
-    static func readMenu() -> Int {
+    
+    //InputView 에서는 딱 input 에 관한 것만!
+    static func read() -> String {
         let input = readLine() ?? ""
-        return Int(input) ?? 0
+        return input
     }
 }
