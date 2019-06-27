@@ -10,6 +10,7 @@
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 		FA042C9922C24D7D00A95C55 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9822C24D7D00A95C55 /* Card.swift */; };
 		FA042C9D22C4904A00A95C55 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9C22C4904A00A95C55 /* CardDeck.swift */; };
+		FA042C9F22C490C900A95C55 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9E22C490C900A95C55 /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FA042C9822C24D7D00A95C55 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		FA042C9C22C4904A00A95C55 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		FA042C9E22C490C900A95C55 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				FA042C9E22C490C900A95C55 /* InputView.swift */,
 				FA042C9822C24D7D00A95C55 /* Card.swift */,
 				FA042C9C22C4904A00A95C55 /* CardDeck.swift */,
 			);
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA042C9D22C4904A00A95C55 /* CardDeck.swift in Sources */,
+				FA042C9F22C490C900A95C55 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				FA042C9922C24D7D00A95C55 /* Card.swift in Sources */,
 			);
