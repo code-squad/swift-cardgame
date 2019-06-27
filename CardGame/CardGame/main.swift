@@ -14,10 +14,7 @@ func main() throws {
         guard let menuNumber = InputView.getMenuNumber() else {
            throw Exception.wrongFormat
         }
-        guard let menu = MenuFactory.create(menuNumber) else {
-             throw Exception.unsupportedMenu
-        }
-        let result = game.run(menu: menu)
+        let result = try game.run(menuNumber: menuNumber)
         OutputView.showResult(result)
     }
 }

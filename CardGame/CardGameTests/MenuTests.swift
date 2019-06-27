@@ -12,15 +12,15 @@ class MenuTests: XCTestCase {
     
     //Given
     var deck = CardDeck()
-    var menu: Menu!
+    var command: Command!
     
     func testReset() {
         //Given
-        menu = Reset()
+        command = Reset(deck: self.deck)
         let expected = GameResult.reset(remain: 52)
         
         //When
-        let result = menu.action(cards: self.deck)
+        let result = command.execute()
         
         
         //Then
@@ -29,10 +29,10 @@ class MenuTests: XCTestCase {
     
     func testShuffle() {
         //Given
-        menu = Shuffle()
+        command = Shuffle(deck: self.deck)
         let expected = GameResult.shuffle(remain: 52)
         //When
-        let result = menu.action(cards: self.deck)
+        let result = command.execute()
         
         //Then
         XCTAssertEqual(result, expected)
@@ -40,10 +40,10 @@ class MenuTests: XCTestCase {
     
     func testDraw() {
         //Given
-        menu = Draw()
+        command = Draw(deck: self.deck)
         
         //When
-        let result = menu.action(cards: self.deck)
+        let result = command.execute()
         var isSame = false
         
         switch result {

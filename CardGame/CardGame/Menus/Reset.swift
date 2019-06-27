@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct Reset: Menu {
+struct Reset: Command {
+    var deck: CardDeck
     
-    func action(cards: CardDeck) -> GameResult {
-        cards.reset()
-        return  GameResult.reset(remain: cards.count())
+    func execute() -> GameResult {
+        self.deck.reset()
+        return  GameResult.reset(remain: self.deck.count())
     }
+        
 }

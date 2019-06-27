@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct Draw: Menu {
-    
-    func action(cards: CardDeck) -> GameResult {
-        let card = cards.removeOne()
-        return GameResult.draw(card: card, remain: cards.count())
+struct Draw: Command {
+    var deck: CardDeck
+   
+    func execute() -> GameResult {
+        let card = self.deck.removeOne()
+        return GameResult.draw(card: card, remain: self.deck.count())
     }
 }
