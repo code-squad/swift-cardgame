@@ -22,6 +22,8 @@ class Card: CustomStringConvertible {
     }
 }
 
+// 모양이나 숫자의 범위가 고정되어 있기 때문에 enum 사용
+// 카드컨텍스트 안에서만 사용되기 때문에 nested enum으로 사용
 extension Card {
     enum Suit: String, CustomStringConvertible {
         case hearts = "❤️"
