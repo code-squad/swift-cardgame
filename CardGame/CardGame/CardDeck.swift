@@ -32,4 +32,15 @@ struct CardDeck {
     func count() -> Int {
         return cards.count
     }
+    
+    mutating func shuffle() {
+        for i in 0..<cards.count - 1 {
+            let randomIndex = Int.random(in: i..<cards.count)
+            let temp = cards[i]
+            cards[i] = cards[randomIndex]
+            cards[randomIndex] = temp
+        }
+    }
+    
+    
 }
