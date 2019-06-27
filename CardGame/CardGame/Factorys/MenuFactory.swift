@@ -14,16 +14,31 @@ struct MenuFactory: Factory {
     typealias OUT = Menu
     
     static func create(_ input: Int) -> Menu? {
+        var menu: Menu?
         
         switch input {
         case 1:
-            return Reset.init()
+            menu = createReset()
         case 2:
-            return Shuffle.init()
+            menu = createShuffle()
         case 3:
-            return Draw.init()
+            menu = createDraw()
         default:
-            return nil
+            ()
         }
+        return menu
     }
+    
+    static private func createReset() -> Menu {
+        return Reset.init()
+    }
+    
+    static private func createShuffle() -> Menu {
+        return Shuffle.init()
+    }
+    
+    static private func createDraw() -> Menu {
+         return Draw.init()
+    }
+    
 }
