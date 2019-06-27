@@ -9,11 +9,12 @@
 import Foundation
 
 func main() {
-    guard let card = Card(suit: "spade", rank: 12) else {
-        return
-    }
     
-    print(card)
+    let heartCard = Card(suit: .hearts, rank: .queen)
+    let spadeCard = Card(suit: .spades, rank: .seven)
+    
+    print(heartCard)
+    print(spadeCard)
 }
 
 main()
