@@ -10,8 +10,21 @@ import Foundation
 /// 모양과 숫자 타입을 함께 갖는 카드 클래스, 카드의 속성은 외부에서 사용되지 않기에 클래스 내부에 선언
 class Card {
     
-    enum Suit {
+    enum Suit: CustomStringConvertible {
         case hearts, diamonds, clubs, spades
+        
+        var description: String {
+            switch self {
+            case .hearts:
+                return "\u{2665}"
+            case .diamonds:
+                return "\u{2666}"
+            case .clubs:
+                return "\u{2663}"
+            case .spades:
+                return "\u{2660}"
+            }
+        }
     }
     
     enum Rank: Int {
