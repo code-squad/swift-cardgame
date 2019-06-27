@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct Shuffle: Menu {
+struct Shuffle: Command {
+    var deck: CardDeck
     
-    func action(cards: CardDeck) -> GameResult {
-        cards.shuffle()
-        return GameResult.shuffle(remain: cards.count())
+    func execute() -> GameResult {
+        self.deck.shuffle()
+        return GameResult.shuffle(remain: self.deck.count())
     }
 }

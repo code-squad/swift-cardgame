@@ -11,8 +11,11 @@ import Foundation
 struct CardGame {
     var deck = CardDeck()
     
-    mutating func run(menu: Menu) -> GameResult {
-        let result = menu.action(cards: self.deck)
+    mutating func run(menuNumber: Int) throws -> GameResult {
+        guard let command = CommandFactory.create((menuNumber,self.deck)) else {
+            throw Exception.unsupportedMenu
+        }
+        let result = command.execute()
         return result
     }
 }
