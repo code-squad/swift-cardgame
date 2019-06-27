@@ -10,10 +10,8 @@ import Foundation
 
 struct Reset: Menu {
     
-    func process(cards: CardDeck) -> (CardDeck, Notice) {
-        var cards = cards
+    func action(cards: CardDeck) -> GameResult {
         cards.reset()
-        let notice = "카드 전체를 초기화했습니다.\n총 \(cards.count())장의 카드가 있습니다."
-        return (cards,notice)
+        return  GameResult.reset(remain: cards.count())
     }
 }

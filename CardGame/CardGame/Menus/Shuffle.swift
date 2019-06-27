@@ -10,10 +10,8 @@ import Foundation
 
 struct Shuffle: Menu {
     
-    func process(cards: CardDeck) -> (CardDeck, Notice) {
-        var cards = cards
+    func action(cards: CardDeck) -> GameResult {
         cards.shuffle()
-        let notice = "전체 \(cards.count())장의 카드를 섞었습니다."
-        return (cards,notice)
+        return GameResult.shuffle(remain: cards.count())
     }
 }
