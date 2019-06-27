@@ -9,5 +9,38 @@
 import Foundation
 
 struct CardDeck {
+    private var cards: [Card] = []
     
+    init() {
+        reset()
+    }
+    
+    func count() -> Int {
+        return cards.count
+    }
+    
+    mutating func shuffle() {
+        cards.shuffle()
+    }
+    
+    mutating func removeOne() -> Card? {
+        if cards.isEmpty {
+            return nil
+        }
+        
+        let randomIndex = Int.random(in: 0..<count())
+        let card = cards.remove(at: randomIndex)
+        
+        return card
+    }
+    
+    mutating func reset() {
+        cards.removeAll()
+        
+        for suit in Card.Suit.allCases {
+            for rank in Card.Rank.allCases {
+                cards.append(Card(suit: suit, rank: rank))
+            }
+        }
+    }
 }
