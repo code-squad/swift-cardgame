@@ -8,8 +8,18 @@
 
 import Foundation
 
-class Card {
+class Card: CustomStringConvertible {
+    private let suit: Suit
+    private let rank: Rank
     
+    init(suit: Suit, rank: Rank) {
+        self.suit = suit
+        self.rank = rank
+    }
+    
+    var description: String {
+        return "\(suit)\(rank)"
+    }
 }
 
 //Suit와 Rank는 범위가 제한적이기 때문에 enum 사용
