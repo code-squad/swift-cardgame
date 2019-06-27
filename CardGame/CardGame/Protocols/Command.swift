@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol Menu {
-    func action(cards: CardDeck) -> GameResult
+protocol Command {
+    var deck: CardDeck { get }
+    func execute() -> GameResult
 }

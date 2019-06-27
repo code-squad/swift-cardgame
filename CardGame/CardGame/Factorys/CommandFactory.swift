@@ -10,11 +10,10 @@ import Foundation
 
 struct MenuFactory: Factory {
     typealias IN = Int
+    typealias OUT = Command
     
-    typealias OUT = Menu
-    
-    static func create(_ input: Int) -> Menu? {
-        var menu: Menu?
+    static func create(_ input: Int) -> Command? {
+        var menu: Command?
         
         switch input {
         case 1:
@@ -29,15 +28,15 @@ struct MenuFactory: Factory {
         return menu
     }
     
-    static private func createReset() -> Menu {
+    static private func createReset() -> Command {
         return Reset.init()
     }
     
-    static private func createShuffle() -> Menu {
+    static private func createShuffle() -> Command {
         return Shuffle.init()
     }
     
-    static private func createDraw() -> Menu {
+    static private func createDraw() -> Command {
          return Draw.init()
     }
     
