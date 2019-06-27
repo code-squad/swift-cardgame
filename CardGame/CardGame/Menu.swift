@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+enum Menu: Int {
+    case exit = 0, reset, shuffle, remove
+    
+    init(selection: Int) {
+        self = Menu(rawValue: selection) ?? .exit
+    }
+}
