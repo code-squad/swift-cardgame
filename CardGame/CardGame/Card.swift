@@ -25,8 +25,8 @@ class Card: CustomStringConvertible {
 //Suit와 Rank는 범위가 제한적이기 때문에 enum 사용
 //Suit와 Rank 열거형은 Card 내부에서만 사용되기 때문에 nested enum 사용
 extension Card {
-    enum Suit: Character, CustomStringConvertible {
-        case clubs = "\u{2633}" // ♣️
+    enum Suit: Character, CustomStringConvertible, CaseIterable {
+        case clubs = "\u{2663}" // ♣️
         case diamonds = "\u{2666}" // ♦️
         case hearts = "\u{2665}" // ♥️
         case spades = "\u{2660}" // ♠️
@@ -36,7 +36,7 @@ extension Card {
         }
     }
     
-    enum Rank: Int, CustomStringConvertible {
+    enum Rank: Int, CustomStringConvertible, CaseIterable {
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var description: String {
