@@ -45,31 +45,12 @@ class Card: CustomStringConvertible {
         }
     }
     
-    init?(suit: String, rank: Int) {
-        guard let suit = Suit.init(suit), let rank = Rank.init(rawValue: rank) else {
-                return nil
-        }
+    init(suit: Suit, rank: Rank) {
         self.suit = suit
         self.rank = rank
     }
     
     var description: String {
         return "\(suit)\(rank)"
-    }
-}
-
-extension Card.Suit {
-    init?(_ suit: String) {
-        switch suit {
-        case "hearts", "heart":
-            self = .hearts
-        case "diamonds", "diamond":
-            self = .diamonds
-        case "spades", "spade":
-            self = .spades
-        case "clubs", "club":
-            self = .clubs
-        default: return nil
-        }
     }
 }
