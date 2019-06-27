@@ -44,16 +44,16 @@ class MenuTests: XCTestCase {
         
         //When
         let result = menu.action(cards: self.deck)
-        var same = false
+        var isSame = false
         
         switch result {
         case .draw(_,51):
-            same = true
+            isSame = true
         default:
             ()
         }
         
         //Then
-        XCTAssertTrue(same)
+        XCTAssertTrue(isSame)
     }
 }
