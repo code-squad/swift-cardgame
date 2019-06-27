@@ -11,7 +11,7 @@ import Foundation
 class CardDeck: Deck {
     typealias T = Card
     
-    private var cards: [Card]!
+    private var cards = [Card]()
     private var isEmpty: Bool {
         return self.count() <= 0
     }

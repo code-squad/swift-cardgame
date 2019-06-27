@@ -11,6 +11,7 @@ import Foundation
 
 protocol Deck {
     associatedtype T
+    
     func count() -> Int
     mutating func removeOne() -> T?
     mutating func shuffle()
