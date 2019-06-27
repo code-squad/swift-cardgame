@@ -17,35 +17,43 @@ class MenuTests: XCTestCase {
     func testReset() {
         //Given
         menu = Reset()
+        let expected = GameResult.reset(remain: 52)
         
         //When
-        let (_,notice) = menu.process(cards: self.deck)
+        let result = menu.action(cards: self.deck)
+        
         
         //Then
-        XCTAssertEqual(notice, "카드 전체를 초기화했습니다.\n총 52장의 카드가 있습니다.")
+        XCTAssertEqual(result, expected)
     }
     
     func testShuffle() {
         //Given
         menu = Shuffle()
-        
+        let expected = GameResult.shuffle(remain: 52)
         //When
-        let (_,notice) = menu.process(cards: self.deck)
+        let result = menu.action(cards: self.deck)
         
         //Then
-        XCTAssertEqual(notice, "전체 52장의 카드를 섞었습니다.")
+        XCTAssertEqual(result, expected)
     }
-  
+    
     func testDraw() {
         //Given
         menu = Draw()
         
         //When
-        let (_,notice) = menu.process(cards: self.deck)
-        let pattern = "^((♠️|♦️|♥️|♣️)(2|3|4|5|6|7|8|9|10|J|Q|K|A))|(덱이 비었습니다.)$"
-        let result = notice.range(of: pattern, options: .regularExpression)
+        let result = menu.action(cards: self.deck)
+        var same = false
+        
+        switch result {
+        case .draw(_,51):
+            same = true
+        default:
+            ()
+        }
         
         //Then
-        XCTAssertNotNil(result)
+        XCTAssertTrue(same)
     }
 }
