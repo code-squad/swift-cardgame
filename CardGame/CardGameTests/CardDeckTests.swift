@@ -17,17 +17,6 @@ class CardDeckTests: XCTestCase {
         XCTAssertEqual(deck.count(),52)
     }
     
-    func testShuffle() {
-        //Given
-        var shuffled = deck
-        
-        //When
-        shuffled.shuffle()
-        
-        //Then
-        XCTAssertNotEqual(deck, shuffled)
-    }
-    
     func testRemoveOne() {
         // Given
         let beforeCount = self.deck.count()
