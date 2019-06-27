@@ -12,21 +12,11 @@ struct CardDeck {
     private var cards = [Card]()
     
     init() {
-        self.cards = createAllCards()
+        self.cards = CardFactory.makeAllCards()
     }
     
     mutating func reset() {
-        self.cards = createAllCards()
-    }
-    
-    private func createAllCards() -> [Card] {
-        var cards = [Card]()
-        for rank in Card.Rank.allCases {
-            for suit in Card.Suit.allCases {
-                cards.append(Card(rank, of: suit))
-            }
-        }
-        return cards
+        self.cards = CardFactory.makeAllCards()
     }
     
     func count() -> Int {
