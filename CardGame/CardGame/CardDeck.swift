@@ -29,7 +29,7 @@ struct CardDeck {
         return cards
     }
     
-    
-    
-    
+    func count() -> Int {
+        return cards.count
+    }
 }
