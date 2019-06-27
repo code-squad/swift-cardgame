@@ -8,9 +8,28 @@
 
 import Foundation
 
-let queenOfHeart = Card(.queen, of: .heart)
-print(queenOfHeart)
+func main() {
+    var menu: Menu
+    var cardDeck = CardDeck()
 
-let sevenOfSpade = Card(.seven, of: .spade)
-print(sevenOfSpade)
+    gameLoop: while true {
+        InputView.printMenu()
+        let input = InputView.read()
+        menu = Menu(selection: input)
+        switch menu {
+        case .reset:
+            cardDeck.reset()
+            OutputView.printCompletionOfReset(count: cardDeck.count())
+        case .shuffle:
+            cardDeck.shuffle()
+            OutputView.printCompletionOfShuffle(count: cardDeck.count())
+        case .remove:
+            let removedCard = cardDeck.removeOne()
+            OutputView.printCompletionOfRemove(card: removedCard, remainingCount: cardDeck.count())
+        case .exit:
+            break gameLoop
+        }
+    }
+}
 
+main()
