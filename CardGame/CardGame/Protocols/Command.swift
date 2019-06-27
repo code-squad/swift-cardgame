@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Command {
-    var deck: CardDeck { get }
+    
     func execute() -> GameResult
 }

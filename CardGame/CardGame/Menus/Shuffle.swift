@@ -9,7 +9,11 @@
 import Foundation
 
 struct Shuffle: Command {
-    var deck: CardDeck
+    private let deck: CardDeck
+    
+    init(deck: CardDeck) {
+        self.deck = deck
+    }
     
     func execute() -> GameResult {
         self.deck.shuffle()
