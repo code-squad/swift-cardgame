@@ -25,18 +25,6 @@ class Card {
         self.rank = rank
     }
     
-    static func allCards() -> [Card] {
-        let suits = Card.Suit.allCases
-        let ranks = Card.Rank.allCases
-        var cards = [Card]()
-        
-        for suit in suits {
-            for rank in ranks {
-                cards.append(Card(suit: suit, rank: rank))
-            }
-        }
-        return cards
-    }
 }
 // - MARK: - Nested Enum (Suit, Rank)
 extension Card {
