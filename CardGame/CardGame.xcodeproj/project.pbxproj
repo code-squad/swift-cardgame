@@ -13,6 +13,7 @@
 		C2E5FF6F22C49E4500ECC13F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF6E22C49E4500ECC13F /* InputView.swift */; };
 		C2E5FF7122C4B3D300ECC13F /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF7022C4B3D300ECC13F /* OutputView.swift */; };
 		C2E5FF7322C4B5CD00ECC13F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF7222C4B5CD00ECC13F /* Menu.swift */; };
+		C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		C2E5FF6E22C49E4500ECC13F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C2E5FF7022C4B3D300ECC13F /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C2E5FF7222C4B5CD00ECC13F /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				C2E5FF7022C4B3D300ECC13F /* OutputView.swift */,
 				C219D73722C335F900276B19 /* Card.swift */,
 				C2E5FF6A22C4978900ECC13F /* CardDeck.swift */,
+				C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				C2E5FF7322C4B5CD00ECC13F /* Menu.swift in Sources */,
 				C2E5FF7122C4B3D300ECC13F /* OutputView.swift in Sources */,
 				C2E5FF6B22C4978900ECC13F /* CardDeck.swift in Sources */,
+				C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */,
 				C2E5FF6F22C49E4500ECC13F /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				C219D73822C335F900276B19 /* Card.swift in Sources */,
