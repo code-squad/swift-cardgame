@@ -12,6 +12,8 @@ class Card {
     
 }
 
+//Suit와 Rank는 범위가 제한적이기 때문에 enum 사용
+//Suit와 Rank 열거형은 Card 내부에서만 사용되기 때문에 nested enum 사용
 extension Card {
     enum Suit: Character, CustomStringConvertible {
         case clubs = "\u{2633}" // ♣️
