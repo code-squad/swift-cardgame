@@ -27,8 +27,23 @@ class Card {
         }
     }
     
-    enum Rank: Int {
+    enum Rank: Int, CustomStringConvertible {
         case A = 1, two, three, four, five, six, seven, eight, nine, ten, J, Q, K
+        
+        var description: String {
+            switch self {
+            case .A:
+                return "A"
+            case .J:
+                return "J"
+            case .Q:
+                return "Q"
+            case .K:
+                return "K"
+            default:
+                return "\(self.rawValue)"
+            }
+        }
     }
 
     private let suit: Suit
