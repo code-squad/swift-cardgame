@@ -31,16 +31,11 @@ class Card: CustomStringConvertible {
         
         var description: String {
             switch self {
-            case .ace:
-                return "A"
-            case .jack:
-                return "J"
-            case .queen:
-                return "Q"
-            case .king:
-                return "K"
-            default:
-                return "\(rawValue)"
+            case .ace: return "A"
+            case .jack: return "J"
+            case .queen: return "Q"
+            case .king: return "K"
+            default: return "\(rawValue)"
             }
         }
     }
