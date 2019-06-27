@@ -8,4 +8,12 @@
 
 import Foundation
 
+func main() {
+    let aceOfSpades = Card(suit: .spades, rank: .ace)
+    let queenOfHearts = Card(suit: .hearts, rank: .queen)
+    
+    print(aceOfSpades)
+    print(queenOfHearts)
+}
 
+main()
