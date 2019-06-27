@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+enum GameResult {
+    case reset(remain: CardDeck)
+    case shuffle(remain: CardDeck)
+    case draw(card:Card?,remain: CardDeck)
+}
