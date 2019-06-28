@@ -25,7 +25,7 @@ class Card: CustomStringConvertible {
 // 모양이나 숫자의 범위가 고정되어 있기 때문에 enum 사용
 // 카드컨텍스트 안에서만 사용되기 때문에 nested enum으로 사용
 extension Card {
-    enum Suit: String, CustomStringConvertible {
+    enum Suit: String, CustomStringConvertible, CaseIterable {
         case hearts = "❤️"
         case diamonds = "♦️"
         case spades = "♠️"
@@ -36,7 +36,7 @@ extension Card {
         }
     }
     
-    enum Rank: Int, CustomStringConvertible {
+    enum Rank: Int, CustomStringConvertible, CaseIterable {
         case ace = 1
         case two, three, four, five, six, seven, eight, nine, ten
         case jack, queen, king

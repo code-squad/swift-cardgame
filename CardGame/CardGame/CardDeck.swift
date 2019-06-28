@@ -8,6 +8,15 @@
 
 import Foundation
 
+protocol Deck {
+    associatedtype Element = Card
+    var count: Int { get }
+    mutating func reset()
+    mutating func shuffle()
+    mutating func removeOne() -> Element?
+}
+
+struct CardDeck: Deck {
     private var cards: [Card] = []
     
     var count: Int {
