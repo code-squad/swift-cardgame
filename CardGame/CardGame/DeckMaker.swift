@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct DeckMaker {
-    static func makeCards() -> [Card] {
-        var cards: [Card] = []
+protocol DeckMakable {
+    associatedtype Element
+    static func makeElements() -> [Element]
+}
+
+struct DeckMaker: DeckMakable {
+    typealias Element = Card
+    
+    static func makeElements() -> [Element] {
+        var cards: [Element] = []
         let suits = Card.Suit.allCases
         let ranks = Card.Rank.allCases
         for suit in suits {
