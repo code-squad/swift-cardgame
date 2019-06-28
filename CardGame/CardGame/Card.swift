@@ -10,7 +10,7 @@ import Foundation
 /// 모양과 숫자 타입을 함께 갖는 카드 클래스, 카드의 속성은 외부에서 사용되지 않기에 클래스 내부에 선언
 class Card: CustomStringConvertible {
     
-    enum Suit: CustomStringConvertible {
+    enum Suit: Int, CustomStringConvertible, CaseIterable {
         case hearts, diamonds, clubs, spades
         
         var description: String {
