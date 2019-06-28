@@ -29,14 +29,7 @@ struct CardDeck: Deck {
     
     mutating func reset() {
         cards.removeAll()
-        let suits = Card.Suit.allCases
-        let ranks = Card.Rank.allCases
-        for suit in suits {
-            for rank in ranks {
-                let card = Card(suit: suit, rank: rank)
-                cards.append(card)
-            }
-        }
+        cards = DeckMaker.makeCards()
     }
     
     mutating func shuffle() {
@@ -49,6 +42,4 @@ struct CardDeck: Deck {
         }
         return lastCard
     }
-}
-
 }
