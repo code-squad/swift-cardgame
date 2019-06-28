@@ -11,6 +11,7 @@ import Foundation
 func main() throws {
     var game = CardGame()
     while true {
+        InputView.showMenu()
         guard let menuNumber = InputView.getMenuNumber() else {
            throw Exception.wrongFormat
         }
