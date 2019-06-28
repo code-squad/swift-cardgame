@@ -74,16 +74,24 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				FA042C9E22C490C900A95C55 /* InputView.swift */,
-				FA042CA422C4C24800A95C55 /* OutputView.swift */,
-				FA042CA222C4B3A400A95C55 /* DeckMenu.swift */,
-				FA042CA822C5E0A300A95C55 /* CardGame.swift */,
-				FA042CA622C5CF4F00A95C55 /* CardGameResult.swift */,
+				FA042CAC22C5EA8800A95C55 /* Views */,
 				FA042C9822C24D7D00A95C55 /* Card.swift */,
 				FA042C9C22C4904A00A95C55 /* CardDeck.swift */,
 				FA042CAA22C5E90000A95C55 /* DeckMaker.swift */,
+				FA042CA222C4B3A400A95C55 /* DeckMenu.swift */,
+				FA042CA822C5E0A300A95C55 /* CardGame.swift */,
+				FA042CA622C5CF4F00A95C55 /* CardGameResult.swift */,
 			);
 			path = CardGame;
+			sourceTree = "<group>";
+		};
+		FA042CAC22C5EA8800A95C55 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA042C9E22C490C900A95C55 /* InputView.swift */,
+				FA042CA422C4C24800A95C55 /* OutputView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
