@@ -9,12 +9,15 @@
 import Foundation
 
 func main() {
-    
-    let heartCard = Card(suit: .hearts, rank: .queen)
-    let spadeCard = Card(suit: .spades, rank: .seven)
-    
-    print(heartCard)
-    print(spadeCard)
+    let deck = CardDeck()
+    while let selectedNumber = InputView.menuNumber(), selectedNumber != 0 {
+        if let selectedMenu = DeckMenu.init(rawValue: selectedNumber) {
+            let game = CardGame(deck: deck)
+            let result = game.play(of: selectedMenu)
+            OutputView.printResult(of: result)
+        }
+    }
 }
 
 main()
+
