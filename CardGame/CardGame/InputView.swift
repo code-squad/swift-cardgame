@@ -10,4 +10,10 @@ import Foundation
 
 struct InputView {
     
+    static func readInput() -> String {
+        let inputSymbol = ">"
+        print(inputSymbol, terminator: " ")
+        let input = readLine() ?? ""
+        return input
+    } 
 }
