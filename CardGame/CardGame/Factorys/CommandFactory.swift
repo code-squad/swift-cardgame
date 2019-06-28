@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct CommandFactory: Factory {
-    typealias IN = (menuNo: Int, deck: CardDeck)
+struct CommandFactory<D: Deck>: Factory {
+    typealias IN = (menuNo: Int, deck: D)
     typealias OUT = Command
     
-    static func create(_ input: (menuNo: Int, deck: CardDeck)) -> Command? {
+    static func create(_ input: (menuNo: Int, deck: D)) -> Command? {
         var command: Command?
         
         switch input.menuNo {
@@ -28,13 +28,13 @@ struct CommandFactory: Factory {
         return command
     }
     
-    private static func createReset(deck: CardDeck) -> Reset {
+    private static func createReset(deck: D) -> Reset<D> {
         return Reset(deck: deck)
     }
-    private static func createShuffle(deck: CardDeck) -> Shuffle {
+    private static func createShuffle(deck: D) -> Shuffle<D> {
         return Shuffle(deck: deck)
     }
-    private static func createDraw(deck: CardDeck) -> Draw {
+    private static func createDraw(deck: D) -> Draw<D> {
         return Draw(deck: deck)
     }
     

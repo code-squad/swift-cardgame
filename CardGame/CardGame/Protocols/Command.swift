@@ -10,5 +10,5 @@ import Foundation
 
 protocol Command {
     
-    func execute() -> GameResult
+   mutating func execute() -> GameResult
 }

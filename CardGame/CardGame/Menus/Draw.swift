@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Draw: Command {
-    private let deck: CardDeck
+struct Draw<D: Deck>: Command {
+    private var deck: D
    
-    init(deck: CardDeck) {
+    init(deck: D) {
         self.deck = deck
     }
     
-    func execute() -> GameResult {
-        let card = self.deck.removeOne()
+    mutating func execute() -> GameResult {
+        let card = self.deck.removeOne() as? Card
         return GameResult.draw(card: card, remain: self.deck.count())
     }
 }

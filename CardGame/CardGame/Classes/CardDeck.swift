@@ -9,7 +9,7 @@
 import Foundation
 
 class CardDeck: Deck {
-    typealias T = Card
+    typealias Element = Card
     
     private var cards = [Card]()
     private var isEmpty: Bool {

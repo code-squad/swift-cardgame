@@ -12,7 +12,7 @@ struct CardGame {
     var deck = CardDeck()
     
     mutating func run(menuNumber: Int) throws -> GameResult {
-        guard let command = CommandFactory.create((menuNumber,self.deck)) else {
+        guard var command = CommandFactory.create((menuNumber,self.deck)) else {
             throw Exception.unsupportedMenu
         }
         let result = command.execute()
