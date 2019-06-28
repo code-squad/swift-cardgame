@@ -12,11 +12,14 @@ struct CardGame {
     
     enum Error: Swift.Error {
         case invalidInput
+        case isCardDeckEmpty
         
         var localizedDescription: String {
             switch self {
             case .invalidInput:
-                return "유효하지 않은 입력입니다. 게임을 종료합니다."
+                return "유효하지 않은 입력입니다."
+            case .isCardDeckEmpty:
+                return "카드덱이 비어있습니다."
             }
         }
     }
@@ -56,7 +59,7 @@ struct CardGame {
             state = .shuffleCards(count: deck.count())
         case 3:
             guard let card = deck.removeOne() else {
-                return
+                throw Error.isCardDeckEmpty
             }
             state = .drawOneCard(card: card, count: deck.count())
         default:
