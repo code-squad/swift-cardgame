@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Deck {
-    associatedtype Element = Card
+    associatedtype Element
     var count: Int { get }
     func reset()
     func shuffle()
@@ -17,6 +17,8 @@ protocol Deck {
 }
 
 class CardDeck: Deck {
+    typealias Element = Card
+    
     private var cards: [Card] = []
     
     var count: Int {
@@ -29,7 +31,7 @@ class CardDeck: Deck {
     
     func reset() {
         cards.removeAll()
-        cards = DeckMaker.makeCards()
+        cards = DeckMaker.makeElements()
     }
     
     func shuffle() {
