@@ -8,7 +8,11 @@
 
 import Foundation
 
-class CardGame {
+protocol GamePlayable {
+    func play(of menu: DeckMenu) -> CardGameResult
+}
+
+class CardGame: GamePlayable {
     var deck: CardDeck
     
     init(deck: CardDeck) {
