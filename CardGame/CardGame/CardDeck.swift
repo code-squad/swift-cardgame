@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CardSet {
+protocol Deck {
     func shuffle()
     func reset()
     func removeOne() -> Card?
