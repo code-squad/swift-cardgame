@@ -11,13 +11,12 @@ import Foundation
 struct CardGame {
     
     enum State: Int {
-        case none = 0
-        case initialize
+        case initializeCards = 1
         case shuffleCards
         case drawOneCard
     }
     
-    private(set) var currentState: State = .none
+    private(set) var currentState: State = .initializeCards
     private(set) var deck: Deck
     
     init(deck: Deck) {
