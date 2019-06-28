@@ -8,5 +8,14 @@
 
 import Foundation
 
-let card = Card(suit: .hearts, rank: .A)
-print(card)
+func main() {
+    let cardDeck = CardDeck()
+    var cardGame = CardGame(deck: cardDeck)
+    repeat {
+        let menuNumber = InputView.readMenuNumber()
+        cardGame.config(number: menuNumber)
+        OutputView.printGameResult(game: cardGame)
+    } while (true)
+}
+
+main()
