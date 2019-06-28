@@ -34,4 +34,22 @@ struct CardGame {
         self.deck = deck
         self.currentState = .initializeCards(count: deck.count())
     }
+    
+    mutating func config(number: Int) {
+        switch number {
+        case 1:
+            deck.reset()
+            currentState = .initializeCards(count: deck.count())
+        case 2:
+            deck.shuffle()
+            currentState = .shuffleCards(count: deck.count())
+        case 3:
+            guard let card = deck.removeOne() else {
+                return
+            }
+            currentState = .drawOneCard(card: card, count: deck.count())
+        default:
+            return
+        }
+    }
 }
