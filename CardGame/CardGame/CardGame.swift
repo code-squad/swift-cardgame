@@ -12,15 +12,15 @@ struct CardGame {
     
     enum State: CustomStringConvertible {
         case initializeCards(count: Int)
-        case shuffleCards(card: Card, count: Int)
+        case shuffleCards(count: Int)
         case drawOneCard(card: Card, count: Int)
         
         var description: String {
             switch self {
             case .initializeCards(let count):
                 return "카드 전체를 초기화했습니다.\n총 \(count)장의 카드가 있습니다."
-            case .shuffleCards(let card, let count):
-                return "\(card)\n전체 \(count)장의 카드를 섞었습니다."
+            case .shuffleCards(let count):
+                return "전체 \(count)장의 카드를 섞었습니다."
             case .drawOneCard(let card, let count):
                 return "\(card)\n총 \(count)장의 카드가 남아있습니다."
             }
