@@ -27,7 +27,7 @@ class Card: CustomStringConvertible {
         }
     }
     
-    enum Rank: Int, CustomStringConvertible {
+    enum Rank: Int, CustomStringConvertible, CaseIterable {
         case A = 1, two, three, four, five, six, seven, eight, nine, ten, J, Q, K
         
         var description: String {
