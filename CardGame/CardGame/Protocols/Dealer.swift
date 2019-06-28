@@ -9,5 +9,8 @@
 import Foundation
 
 protocol Dealer where Self: Player {
+    associatedtype P: Player
     
+    func handsOut(to player: P) throws
+    func draw() throws -> E
 }
