@@ -13,7 +13,15 @@ func main() {
     var cardGame = CardGame(deck: cardDeck)
     repeat {
         let menuNumber = InputView.readMenuNumber()
-        cardGame.config(number: menuNumber)
+        do {
+            try cardGame.config(number: menuNumber)
+        } catch let error as CardGame.Error {
+            print(error.localizedDescription)
+            break
+        } catch {
+            print(error)
+            break
+        }
         OutputView.printGameResult(game: cardGame)
     } while (true)
 }

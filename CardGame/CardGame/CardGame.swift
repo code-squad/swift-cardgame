@@ -10,6 +10,17 @@ import Foundation
 
 struct CardGame {
     
+    enum Error: Swift.Error {
+        case invalidInput
+        
+        var localizedDescription: String {
+            switch self {
+            case .invalidInput:
+                return "유효하지 않은 입력입니다. 게임을 종료합니다."
+            }
+        }
+    }
+    
     enum State: CustomStringConvertible {
         case initializeCards(count: Int)
         case shuffleCards(count: Int)
@@ -35,7 +46,7 @@ struct CardGame {
         self.state = .initializeCards(count: deck.count())
     }
     
-    mutating func config(number: Int) {
+    mutating func config(number: Int) throws {
         switch number {
         case 1:
             deck.reset()
@@ -49,7 +60,7 @@ struct CardGame {
             }
             state = .drawOneCard(card: card, count: deck.count())
         default:
-            return
+            throw Error.invalidInput
         }
     }
 }
