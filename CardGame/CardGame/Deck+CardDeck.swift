@@ -1,5 +1,5 @@
 //
-//  CardDeck.swift
+//  Deck+CardDeck.swift
 //  CardGame
 //
 //  Created by BLU on 27/06/2019.
@@ -16,7 +16,11 @@ protocol Deck {
 }
 
 struct CardDeck: Deck {
-    private(set) var cards: [Card]
+    private(set) var cards = [Card]()
+    
+    init() {
+        self.reset()
+    }
     
     mutating func shuffle() {
         self.cards.shuffle()
@@ -24,6 +28,7 @@ struct CardDeck: Deck {
     
     mutating func reset() {
         self.cards = CardFactory.makeCards()
+        self.shuffle()
     }
     
     mutating func removeOne() -> Card? {
