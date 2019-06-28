@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+enum GameException: LocalizedError {
+    case emptyDeck
+    
+    var errorDescription: String {
+        switch self {
+        case .emptyDeck:
+            return "덱이 비었습니다."
+        }
+    }
+}
+

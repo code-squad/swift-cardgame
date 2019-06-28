@@ -9,6 +9,9 @@
 import Foundation
 
 enum InputException: LocalizedError {
+    case wrongFormat
+    case unsupportedMenu
+    
     var errorDescription: String? {
         switch self {
         case .wrongFormat:
@@ -17,8 +20,6 @@ enum InputException: LocalizedError {
             return "지원하지 않는 메뉴입니다"
         }
     }
-    case wrongFormat
-    case unsupportedMenu
 }
 
 
