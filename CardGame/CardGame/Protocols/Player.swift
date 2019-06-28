@@ -8,7 +8,10 @@
 
 import Foundation
 
-protocol Player {
-    func showDown<H: Hand>() -> H
-    func receive <E: GameElement>(_: E)
+protocol Player where Self: CustomStringConvertible {
+    associatedtype H: Hand
+    associatedtype E: GameElement
+    
+    func showDown() -> H
+    func receive(_ gameElement: E)
 }
