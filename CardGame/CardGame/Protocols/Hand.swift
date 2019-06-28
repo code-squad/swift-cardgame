@@ -11,5 +11,6 @@ import Foundation
 protocol Hand {
     associatedtype Element: GameElement
     
+    mutating func append(_ gameElement: Element)
     func showAll() -> [Element]
 }
