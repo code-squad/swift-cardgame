@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		306D1AEF22C4BBD600168F31 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1AEE22C4BBD600168F31 /* Card.swift */; };
 		306D1AF122C4CD8A00168F31 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1AF022C4CD8A00168F31 /* CardDeck.swift */; };
+		306D1B1522C5D91F00168F31 /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B1422C5D91F00168F31 /* GameMenu.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		306D1AEE22C4BBD600168F31 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		306D1AF022C4CD8A00168F31 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		306D1B1422C5D91F00168F31 /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				306D1AEE22C4BBD600168F31 /* Card.swift */,
 				306D1AF022C4CD8A00168F31 /* CardDeck.swift */,
+				306D1B1422C5D91F00168F31 /* GameMenu.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				306D1B1522C5D91F00168F31 /* GameMenu.swift in Sources */,
 				306D1AF122C4CD8A00168F31 /* CardDeck.swift in Sources */,
 				306D1AEF22C4BBD600168F31 /* Card.swift in Sources */,
 			);
