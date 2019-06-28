@@ -11,12 +11,12 @@ import Foundation
 protocol Deck {
     associatedtype Element = Card
     var count: Int { get }
-    mutating func reset()
-    mutating func shuffle()
-    mutating func removeOne() -> Element?
+    func reset()
+    func shuffle()
+    func removeOne() -> Element?
 }
 
-struct CardDeck: Deck {
+class CardDeck: Deck {
     private var cards: [Card] = []
     
     var count: Int {
@@ -27,16 +27,16 @@ struct CardDeck: Deck {
         self.reset()
     }
     
-    mutating func reset() {
+    func reset() {
         cards.removeAll()
         cards = DeckMaker.makeCards()
     }
     
-    mutating func shuffle() {
+    func shuffle() {
         cards = cards.shuffled()
     }
     
-    mutating func removeOne() -> Card? {
+    func removeOne() -> Card? {
         guard let lastCard = cards.popLast() else {
             return nil
         }
