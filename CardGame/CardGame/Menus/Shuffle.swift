@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Shuffle: Command {
-    private let deck: CardDeck
+struct Shuffle<D: Deck>: Command {
+    private var deck: D
     
-    init(deck: CardDeck) {
+    init(deck: D) {
         self.deck = deck
     }
     
-    func execute() -> GameResult {
+    mutating func execute() -> GameResult {
         self.deck.shuffle()
         return GameResult.shuffle(remain: self.deck.count())
     }

@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Reset: Command {
-    private let deck: CardDeck
+struct Reset<D: Deck>: Command {
+    private var deck: D
     
-    init(deck: CardDeck) {
+    init(deck: D) {
         self.deck = deck
     }
     
-    func execute() -> GameResult {
+    mutating func execute() -> GameResult {
         self.deck.reset()
         return  GameResult.reset(remain: self.deck.count())
     }

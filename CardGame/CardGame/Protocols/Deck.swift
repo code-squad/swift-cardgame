@@ -9,11 +9,11 @@
 import Foundation
 
 
-protocol Deck {
-    associatedtype T
+protocol Deck where Self: Equatable {
+    associatedtype Element: GameElement
     
     func count() -> Int
-    mutating func removeOne() -> T?
+    mutating func removeOne() -> Element?
     mutating func shuffle()
     mutating func reset()
 }

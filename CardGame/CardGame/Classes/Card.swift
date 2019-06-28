@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card {
+class Card: CustomStringConvertible,Equatable, GameElement {
     private let suit: Suit
     private let rank: Rank
     
@@ -25,9 +25,6 @@ class Card {
         self.rank = rank
     }
     
-}
-// - MARK: - Nested Enum (Suit, Rank)
-extension Card {
     enum Suit: Character, CustomStringConvertible, CaseIterable {
         case spades = "♠️"
         case hearts = "♥️"
@@ -60,17 +57,11 @@ extension Card {
             }
         }
     }
-}
-
-// - MARK: - + CustomStringConvertible
-extension Card: CustomStringConvertible {
+    
     var description: String {
         return "\(self.suit)\(self.rank)"
     }
-}
-
-// - MARK: - + Equatable
-extension Card: Equatable {
+    
     static func == (lhs: Card, rhs: Card) -> Bool {
         let sameSuit = lhs.suit == rhs.suit
         let sameRank = lhs.rank == rhs.rank
