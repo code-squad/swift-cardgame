@@ -9,8 +9,8 @@
 import Foundation
 
 struct OutputView {
-    static func printResult(of game: CardGameResult) {
-        switch game {
+    static func printResult(of result: CardGameResult) {
+        switch result {
         case .reset(let count):
             print("카드 전체를 초기화했습니다.")
             print("총 \(count)장의 카드가 있습니다.")
