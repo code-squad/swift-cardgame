@@ -12,6 +12,8 @@
 		306D1B1F22C600A100168F31 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B1E22C600A100168F31 /* InputView.swift */; };
 		306D1B2122C6014100168F31 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B2022C6014100168F31 /* CardFactory.swift */; };
 		306D1B2322C6262300168F31 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B2222C6262300168F31 /* CardGame.swift */; };
+		306D1B2522C64E7B00168F31 /* OutputViewPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B2422C64E7B00168F31 /* OutputViewPrintable.swift */; };
+		306D1B2722C64EAE00168F31 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B2622C64EAE00168F31 /* OutputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		306D1B1E22C600A100168F31 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		306D1B2022C6014100168F31 /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
 		306D1B2222C6262300168F31 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		306D1B2422C64E7B00168F31 /* OutputViewPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewPrintable.swift; sourceTree = "<group>"; };
+		306D1B2622C64EAE00168F31 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +77,8 @@
 				306D1B1E22C600A100168F31 /* InputView.swift */,
 				306D1B2022C6014100168F31 /* CardFactory.swift */,
 				306D1B2222C6262300168F31 /* CardGame.swift */,
+				306D1B2422C64E7B00168F31 /* OutputViewPrintable.swift */,
+				306D1B2622C64EAE00168F31 /* OutputView.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 				306D1B1F22C600A100168F31 /* InputView.swift in Sources */,
 				306D1AF122C4CD8A00168F31 /* Deck+CardDeck.swift in Sources */,
 				306D1AEF22C4BBD600168F31 /* Card.swift in Sources */,
+				306D1B2522C64E7B00168F31 /* OutputViewPrintable.swift in Sources */,
+				306D1B2722C64EAE00168F31 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
