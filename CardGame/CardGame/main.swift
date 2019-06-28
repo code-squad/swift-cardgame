@@ -11,11 +11,12 @@ import Foundation
 func main() {
     let deck = CardDeck()
     while let selectedNumber = InputView.menuNumber(), selectedNumber != 0 {
-        if let selectedMenu = DeckMenu.init(rawValue: selectedNumber) {
-            let game = CardGame(deck: deck)
-            let result = game.play(of: selectedMenu)
-            OutputView.printResult(of: result)
+        guard let  selectedMenu = DeckMenu.init(rawValue: selectedNumber) else {
+            return
         }
+        let game = CardGame(deck: deck)
+        let result = game.play(of: selectedMenu)
+        OutputView.printResult(of: result)
     }
 }
 
