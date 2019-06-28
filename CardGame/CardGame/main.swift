@@ -19,7 +19,7 @@ func main() {
             print(error.localizedDescription)
             break
         } catch {
-            print(error)
+            print("\(ErrorMessage.unexpectedError) : \(error)")
             break
         }
         OutputView.printGameResult(game: cardGame)
