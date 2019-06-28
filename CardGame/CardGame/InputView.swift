@@ -9,6 +9,16 @@
 import Foundation
 
 struct InputView {
+    static let guideSentences = "다음 메뉴를 선택해주세요"
+    
+    static func menuNumber() -> Int? {
+        print(guideSentences)
+        for category in DeckMenu.allCases {
+            print(category)
+        }
+        let input = readInput()
+        return Int(input) ?? 0
+    }
     
     static func readInput() -> String {
         let inputSymbol = ">"
