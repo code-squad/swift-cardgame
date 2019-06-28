@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Exception: LocalizedError {
+enum InputException: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .wrongFormat:
@@ -20,3 +20,5 @@ enum Exception: LocalizedError {
     case wrongFormat
     case unsupportedMenu
 }
+
+
