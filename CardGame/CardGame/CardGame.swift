@@ -12,10 +12,10 @@ protocol GamePlayable {
     func play(of menu: DeckMenu) -> CardGameResult
 }
 
-class CardGame: GamePlayable {
-    private var deck: CardDeck
+class CardGame<T: Deck>: GamePlayable {
+    private var deck: T
     
-    init(deck: CardDeck) {
+    init(deck: T) {
         self.deck = deck
     }
     
@@ -28,7 +28,7 @@ class CardGame: GamePlayable {
             deck.shuffle()
             return CardGameResult.shuffle(deck.count)
         case .draw:
-            let card = deck.removeOne()
+            let card = deck.removeOne() as? Card
             return CardGameResult.draw(card, deck.count)
         }
     }
