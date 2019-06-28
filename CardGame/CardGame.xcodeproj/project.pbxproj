@@ -12,6 +12,7 @@
 		FA042C9D22C4904A00A95C55 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9C22C4904A00A95C55 /* CardDeck.swift */; };
 		FA042C9F22C490C900A95C55 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9E22C490C900A95C55 /* InputView.swift */; };
 		FA042CA322C4B3A400A95C55 /* DeckMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA222C4B3A400A95C55 /* DeckMenu.swift */; };
+		FA042CA922C5E0A300A95C55 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA822C5E0A300A95C55 /* CardGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		FA042C9C22C4904A00A95C55 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		FA042C9E22C490C900A95C55 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FA042CA222C4B3A400A95C55 /* DeckMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMenu.swift; sourceTree = "<group>"; };
+		FA042CA822C5E0A300A95C55 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				FA042C9E22C490C900A95C55 /* InputView.swift */,
 				FA042CA222C4B3A400A95C55 /* DeckMenu.swift */,
+				FA042CA822C5E0A300A95C55 /* CardGame.swift */,
 				FA042C9822C24D7D00A95C55 /* Card.swift */,
 				FA042C9C22C4904A00A95C55 /* CardDeck.swift */,
 			);
@@ -136,6 +139,7 @@
 				FA042CA322C4B3A400A95C55 /* DeckMenu.swift in Sources */,
 				FA042C9F22C490C900A95C55 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				FA042CA922C5E0A300A95C55 /* CardGame.swift in Sources */,
 				FA042C9922C24D7D00A95C55 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
