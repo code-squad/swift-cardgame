@@ -10,15 +10,29 @@ import Foundation
 
 struct InputView {
     
-    static private func readData() -> String {
-        for item in GameMenu.allCases {
-            print("\(item.index). \(item.description)")
+    enum Message: CustomStringConvertible {
+        case selectMenu
+        
+        var description: String {
+            switch self {
+            case .selectMenu:
+                return """
+                다음 메뉴를 선택해주세요.
+                1. 카드 초기화
+                2. 카드 섞기
+                3. 카드 하나 뽑기
+                """
+            }
         }
+    }
+    
+    static private func readData(message: Message) -> String {
+        print(message)
         return readLine() ?? ""
     }
     
     static func readMenuNumber() -> Int {
-        let menuNumber = readData()
+        let menuNumber = readData(message: .selectMenu)
         return Int(menuNumber) ?? 0
     }
 }
