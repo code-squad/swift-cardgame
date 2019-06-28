@@ -13,7 +13,7 @@ protocol GamePlayable {
 }
 
 class CardGame: GamePlayable {
-    var deck: CardDeck
+    private var deck: CardDeck
     
     init(deck: CardDeck) {
         self.deck = deck
