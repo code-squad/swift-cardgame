@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    static let guideSentences = "다음 메뉴를 선택해주세요"
+    private static let guideSentences = "다음 메뉴를 선택해주세요"
     
     static func menuNumber() -> Int? {
         print(guideSentences)
@@ -20,7 +20,7 @@ struct InputView {
         return Int(input) ?? 0
     }
     
-    static func readInput() -> String {
+    private static func readInput() -> String {
         let inputSymbol = ">"
         print(inputSymbol, terminator: " ")
         let input = readLine() ?? ""
