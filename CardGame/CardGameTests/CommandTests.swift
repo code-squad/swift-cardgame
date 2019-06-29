@@ -8,7 +8,7 @@
 
 import XCTest
 
-class MenuTests: XCTestCase {
+class CommandTests: XCTestCase {
     
     //Given
     var deck = CardDeck()
