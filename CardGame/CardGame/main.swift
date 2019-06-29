@@ -10,19 +10,19 @@ import Foundation
 
 func main() {
     let cardDeck = CardDeck()
-    var cardGame = CardGame(deck: cardDeck)
+    var dealer = Dealer(deck: cardDeck)
     repeat {
         let menuNumber = InputView.readMenuNumber()
         do {
-            try cardGame.config(number: menuNumber)
-        } catch let error as CardGame.Error {
+            try dealer.config(number: menuNumber)
+        } catch let error as Dealer.Error {
             print(error.localizedDescription)
             break
         } catch {
             print("\(ErrorMessage.unexpectedError) : \(error)")
             break
         }
-        OutputView.printGameResult(game: cardGame)
+        OutputView.printGameResult(dealer: dealer)
     } while (true)
 }
 

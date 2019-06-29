@@ -10,8 +10,8 @@ import Foundation
 
 struct OutputView {
     
-    static func printGameResult(game: OutputViewPrintable) {
-        game.printGameResult (handler:
+    static func printGameResult(dealer: OutputViewPrintable) {
+        dealer.printGameResult (handler:
             { result in
                 print(result)
         })
