@@ -32,10 +32,7 @@ struct CardDeck: Deck {
     }
     
     mutating func removeOne() -> Card? {
-        guard !cards.isEmpty else {
-            return nil
-        }
-        return cards.removeLast()
+        return cards.popLast()
     }
     
     func count() -> Int {
