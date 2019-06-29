@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct CardGame {
+struct DeckActions {
     var deck = CardDeck()
     
     mutating func run(menuNumber: Int) throws -> GameResult {
         guard var command = CommandFactory.create((menuNumber,self.deck)) else {
-            throw Exception.unsupportedMenu
+            throw InputException.unsupportedMenu
         }
         let result = command.execute()
         return result
