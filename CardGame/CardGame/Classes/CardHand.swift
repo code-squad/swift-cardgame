@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class CardHand: Hand {
+    typealias Element = Card
+    
+    private var cards: [Card] = []
+    
+    func append(_ gameElement: Card) {
+        cards.append(gameElement)
+    }
+    
+    func showAll() -> [Card] {
+        return self.cards
+    }
+    
+    func clear() {
+        self.cards.removeAll()
+    }
+    
+}
