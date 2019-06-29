@@ -13,5 +13,6 @@ protocol Player where Self: CustomStringConvertible {
     associatedtype E: GameElement
     
     func showDown() -> H
-    func receive(_ gameElement: E)
+    mutating func receive(_ gameElement: E)
+    mutating func clearHand()
 }
