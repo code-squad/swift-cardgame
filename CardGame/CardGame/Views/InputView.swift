@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     
-    static func getMenuNumber() -> Int? {
+    static func getNumber() -> Int? {
         print(">", terminator: " ")
         guard let menuNumber = Int(fetchInput()) else {
             return nil
@@ -24,12 +24,11 @@ struct InputView {
         1. 카드 초기화
         2. 카드 섞기
         3. 카드 하나 뽑기
-        
         """
-        print(message)
+        print(message,terminator: "")
     }
     
-    static private func fetchInput() -> String {
+    static func fetchInput() -> String {
         return readLine() ?? ""
     }
 

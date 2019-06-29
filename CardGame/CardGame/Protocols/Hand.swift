@@ -13,4 +13,5 @@ protocol Hand {
     
     mutating func append(_ gameElement: Element)
     func showAll() -> [Element]
+    func count() -> Int
 }
