@@ -25,9 +25,9 @@ struct Dealer {
     }
     
     enum State: CustomStringConvertible {
-        case initializeCards(count: Int)
-        case shuffleCards(count: Int)
-        case drawOneCard(card: Card, count: Int)
+        case initializeCards(Int)
+        case shuffleCards(Int)
+        case drawOneCard(Card, Int)
         
         var description: String {
             switch self {
@@ -46,22 +46,22 @@ struct Dealer {
     
     init(deck: Deck) {
         self.deck = deck
-        self.state = .initializeCards(count: deck.count())
+        self.state = .initializeCards(deck.count())
     }
     
     mutating func config(number: Int) throws {
         switch number {
         case 1:
             deck.reset()
-            state = .initializeCards(count: deck.count())
+            state = .initializeCards(deck.count())
         case 2:
             deck.shuffle()
-            state = .shuffleCards(count: deck.count())
+            state = .shuffleCards(deck.count())
         case 3:
             guard let card = deck.removeOne() else {
                 throw Error.isCardDeckEmpty
             }
-            state = .drawOneCard(card: card, count: deck.count())
+            state = .drawOneCard(card, deck.count())
         default:
             throw Error.invalidInput
         }
