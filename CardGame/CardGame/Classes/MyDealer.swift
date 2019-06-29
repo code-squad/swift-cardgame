@@ -13,7 +13,7 @@ class MyDealer: MyPlayer, Dealer {
     
     private var deck: CardDeck = CardDeck()
     
-    override init(name: String = "딜러") {
+    override init(name: String = "\t딜러") {
         super.init(name: name)
     }
     
@@ -27,6 +27,10 @@ class MyDealer: MyPlayer, Dealer {
             throw GameException.emptyDeck
         }
         return card
+    }
+    
+    func canContinue(needs: Int) -> Bool {
+        return needs < deck.count()
     }
     
 }

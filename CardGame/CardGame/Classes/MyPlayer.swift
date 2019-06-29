@@ -14,21 +14,25 @@ class MyPlayer: Player {
     
     private let name: String
     private var hand: CardHand = CardHand()
-
+    
     var description: String {
-        return "\(name)\(hand.showAll())"
+        return "\(name)\t\(hand.showAll())"
     }
     
     init(name: String = "참가자" ) {
         self.name = name
     }
     
-     func showDown() -> CardHand {
+    func showDown() -> CardHand {
         return self.hand
     }
     
     func receive(_ gameElement: Card) {
         hand.append(gameElement)
     }
-
+    
+    func clearHand() {
+        self.hand.clear()
+    }
+    
 }

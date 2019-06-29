@@ -9,6 +9,7 @@
 import Foundation
 
 class CardHand: Hand {
+    
     typealias Element = Card
     
     private var cards: [Card] = []
@@ -19,6 +20,10 @@ class CardHand: Hand {
     
     func showAll() -> [Card] {
         return self.cards
+    }
+    
+    func count() -> Int {
+        return self.cards.count
     }
     
     func clear() {

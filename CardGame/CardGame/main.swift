@@ -8,21 +8,17 @@
 
 import Foundation
 
-func main() throws {
-    var game = CardGame()
-    while true {
-        InputView.showMenu()
-        guard let menuNumber = InputView.getMenuNumber() else {
-           throw Exception.wrongFormat
-        }
-        let result = try game.run(menuNumber: menuNumber)
-        OutputView.showResult(result)
-    }
-}
-
-
 do {
-    try main()
-}catch {
-    print(error.localizedDescription)
+    let mode = try GameInputView.getMode()
+    let entry = try GameInputView.getEntry()
+    let setting = Setting.init(mode: mode, entry: entry)
+    let game = try Game.init(setting: setting)
+    
+    repeat {
+       try game.start()
+    } while game.isContinue
 }
+catch {
+    OutputView.output(target: error.localizedDescription)
+}
+

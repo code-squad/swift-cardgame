@@ -59,7 +59,7 @@ class Card: CustomStringConvertible,Equatable, GameElement {
     }
     
     var description: String {
-        return "\(self.suit)\(self.rank)"
+        return "\t\(self.suit)\(self.rank)"
     }
     
     static func == (lhs: Card, rhs: Card) -> Bool {
