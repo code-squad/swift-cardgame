@@ -10,24 +10,31 @@ import XCTest
 
 class MyPlayerTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    //Given
+    let player = MyPlayer()
+    
+    func testReceive() {
+        //Given
+        let before = player.showDown().count()
+        
+        //When
+        player.receive(Card.init(suit: .clubs, rank: .ace))
+        let after = player.showDown().count()
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        //Then
+        XCTAssertEqual(before+1, after)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testClearHand() {
+        //Given
+        let expected = 0
+        
+        //When
+        player.clearHand()
+        let result = player.showDown().count()
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }
