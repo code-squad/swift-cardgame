@@ -9,7 +9,48 @@
 import XCTest
 
 class MyDealerTests: XCTestCase {
-
     
-
+    //Given
+    var dealer = MyDealer()
+    var player = MyPlayer()
+    
+    func testCanContinue() {
+        //When
+        try! loop(times: 30) {
+            _ = try dealer.draw()
+        }
+        
+        //Then
+        XCTAssertFalse(dealer.canContinue(needs: 30))
+    }
+    
+    func testHandOut() {
+        //When
+        let before = player.showDown().count()
+        try! dealer.handsOut(to: player)
+        let after = player.showDown().count()
+        
+        //Then
+        XCTAssertEqual(before+1, after)
+    }
+    
+    
+    func testDrawSuccess() {
+        //When
+        try! loop(times: 52) {
+            //Then
+            XCTAssertNoThrow(try self.dealer.draw())
+        }
+    }
+    
+    func testDrawFailure() {
+        //When
+        try! loop(times: 52) {
+            _ = try dealer.draw()
+        }
+        //Then
+        XCTAssertThrowsError(try self.dealer.draw())
+        
+    }
 }
+
