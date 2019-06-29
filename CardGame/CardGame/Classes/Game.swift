@@ -13,7 +13,7 @@ struct Game {
     let dealer: MyDealer = MyDealer()
     let setting: Setting
     var isContinue: Bool {
-        let needs = setting.mode.numOfCard*(setting.entry.numOfPlayer+1)
+        let needs = setting.mode.numOfCard*(self.players.count)
         return self.dealer.canContinue(needs:needs)
     }
     
