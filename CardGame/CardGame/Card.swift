@@ -28,17 +28,19 @@ class Card: CustomStringConvertible {
     }
     
     enum Rank: Int, CustomStringConvertible, CaseIterable {
-        case A = 1, two, three, four, five, six, seven, eight, nine, ten, J, Q, K
+        case ace = 1
+        case two, three, four, five, six, seven, eight, nine, ten
+        case jack, queen, king
         
         var description: String {
             switch self {
-            case .A:
+            case .ace:
                 return "A"
-            case .J:
+            case .jack:
                 return "J"
-            case .Q:
+            case .queen:
                 return "Q"
-            case .K:
+            case .king:
                 return "K"
             default:
                 return "\(self.rawValue)"
