@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardGame {
+struct Dealer {
     
     enum Error: Swift.Error {
         case invalidInput
@@ -68,7 +68,7 @@ struct CardGame {
     }
 }
 
-extension CardGame: OutputViewPrintable {
+extension Dealer: OutputViewPrintable {
     func printGameResult(handler: (String) -> ()) {
         handler(state.description)
     }
