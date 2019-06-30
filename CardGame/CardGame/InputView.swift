@@ -10,21 +10,11 @@ import Foundation
 
 struct InputView {
     
-    enum Message: CustomStringConvertible {
-        case selectMenu
-        
-        var description: String {
-            switch self {
-            case .selectMenu:
-                return """
-                다음 메뉴를 선택해주세요.
-                1. 카드 초기화
-                2. 카드 섞기
-                3. 카드 하나 뽑기
-                """
-            }
-        }
-    }
+    static private let gameMenuDescription = """
+    \(GameMenu.initialize)
+    \(GameMenu.shuffle)
+    \(GameMenu.draw)
+    """
     
     enum Error: Swift.Error {
         case invalidMenuNumber
@@ -37,13 +27,13 @@ struct InputView {
         }
     }
     
-    static private func readData(message: Message) -> String {
+    static private func readData(message: String) -> String {
         print(message)
         return readLine() ?? ""
     }
     
     static func readMenu() throws -> GameMenu {
-        let menuNumber = readData(message: .selectMenu)
+        let menuNumber = readData(message: gameMenuDescription)
         if let gameMenu = GameMenu(rawValue: menuNumber) {
             return gameMenu
         }
