@@ -26,6 +26,17 @@ struct InputView {
         }
     }
     
+    enum Error: Swift.Error {
+        case invalidMenuNumber
+        
+        var localizedDescription: String {
+            switch self {
+            case .invalidMenuNumber:
+                return "유효하지 않은 메뉴 번호입니다."
+            }
+        }
+    }
+    
     static private func readData(message: Message) -> String {
         print(message)
         return readLine() ?? ""
