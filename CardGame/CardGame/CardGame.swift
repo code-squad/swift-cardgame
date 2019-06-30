@@ -9,10 +9,22 @@
 import Foundation
 
 struct CardGame {
+    
+    enum Error: Swift.Error {
+        case isCardDeckEmpty
+        
+        var localizedDescription: String {
+            switch self {
+            case .isCardDeckEmpty:
+                return "카드덱이 비어있습니다."
+            }
+        }
+    }
+    
     private(set) var cardDeck: Deck
     private(set) var result: GameResult
     
-    mutating func config(menu: GameMenu) {
+    mutating func config(menu: GameMenu) throws {
         switch menu {
         case .initialize:
             cardDeck.reset()
@@ -22,8 +34,7 @@ struct CardGame {
             result = GameResult.shuffle(cardDeck.count())
         case .draw:
             guard let card = cardDeck.removeOne() else {
-                print("\(ErrorMessage.emptyCardDeck)")
-                return
+                throw Error.isCardDeckEmpty
             }
             result = GameResult.draw(card, cardDeck.count())
         }
