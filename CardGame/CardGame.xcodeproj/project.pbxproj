@@ -16,6 +16,7 @@
 		306D1B2722C64EAE00168F31 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B2622C64EAE00168F31 /* OutputView.swift */; };
 		306D1B2922C6525200168F31 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B2822C6525200168F31 /* ErrorMessage.swift */; };
 		30917E2A22C8B39500C0E696 /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30917E2922C8B39500C0E696 /* GameMenu.swift */; };
+		30917E2C22C8E4F500C0E696 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30917E2B22C8E4F500C0E696 /* GameResult.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		306D1B2622C64EAE00168F31 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		306D1B2822C6525200168F31 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		30917E2922C8B39500C0E696 /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
+		30917E2B22C8E4F500C0E696 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				306D1B2622C64EAE00168F31 /* OutputView.swift */,
 				306D1B2822C6525200168F31 /* ErrorMessage.swift */,
 				30917E2922C8B39500C0E696 /* GameMenu.swift */,
+				30917E2B22C8E4F500C0E696 /* GameResult.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				306D1AF122C4CD8A00168F31 /* Deck+CardDeck.swift in Sources */,
 				30917E2A22C8B39500C0E696 /* GameMenu.swift in Sources */,
 				306D1AEF22C4BBD600168F31 /* Card.swift in Sources */,
+				30917E2C22C8E4F500C0E696 /* GameResult.swift in Sources */,
 				306D1B2522C64E7B00168F31 /* OutputViewPrintable.swift in Sources */,
 				306D1B2722C64EAE00168F31 /* OutputView.swift in Sources */,
 			);
