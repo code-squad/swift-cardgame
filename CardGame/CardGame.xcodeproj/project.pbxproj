@@ -16,6 +16,7 @@
 		30917E2A22C8B39500C0E696 /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30917E2922C8B39500C0E696 /* GameMenu.swift */; };
 		30917E2C22C8E4F500C0E696 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30917E2B22C8E4F500C0E696 /* GameResult.swift */; };
 		30917E2E22C8F09D00C0E696 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30917E2D22C8F09D00C0E696 /* CardGame.swift */; };
+		30917E3022C8F31800C0E696 /* OutputViewPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30917E2F22C8F31800C0E696 /* OutputViewPrintable.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		30917E2922C8B39500C0E696 /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
 		30917E2B22C8E4F500C0E696 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		30917E2D22C8F09D00C0E696 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		30917E2F22C8F31800C0E696 /* OutputViewPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewPrintable.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				30917E2922C8B39500C0E696 /* GameMenu.swift */,
 				30917E2B22C8E4F500C0E696 /* GameResult.swift */,
 				30917E2D22C8F09D00C0E696 /* CardGame.swift */,
+				30917E2F22C8F31800C0E696 /* OutputViewPrintable.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				30917E3022C8F31800C0E696 /* OutputViewPrintable.swift in Sources */,
 				306D1B2122C6014100168F31 /* CardFactory.swift in Sources */,
 				306D1B1F22C600A100168F31 /* InputView.swift in Sources */,
 				306D1B2922C6525200168F31 /* ErrorMessage.swift in Sources */,

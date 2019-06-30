@@ -40,3 +40,9 @@ struct CardGame {
         }
     }
 }
+
+extension CardGame: OutputViewPrintable {
+    func printGameResult(handler: (String) -> ()) {
+        handler(result.description)
+    }
+}
