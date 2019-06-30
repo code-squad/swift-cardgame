@@ -11,9 +11,8 @@ import Foundation
 struct OutputView {
     
     static func printGameResult(dealer: OutputViewPrintable) {
-        dealer.printGameResult (handler:
-            { result in
-                print(result)
-        })
+        dealer.printGameResult { (result) in
+            print(result)
+        }
     }
 }
