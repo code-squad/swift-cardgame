@@ -24,6 +24,11 @@ struct CardGame {
     private(set) var cardDeck: Deck
     private(set) var result: GameResult
     
+    init(cardDeck: Deck) {
+        self.cardDeck = cardDeck
+        self.result = GameResult.initialize(cardDeck.count())
+    }
+    
     mutating func config(menu: GameMenu) throws {
         switch menu {
         case .initialize:
