@@ -9,9 +9,9 @@
 import Foundation
 
 func main() {
-    var cardDeck = CardDeck()
+    let cardDeck = CardDeck()
     var menu: GameMenu
-    var result: GameResult
+    var game = CardGame(cardDeck: cardDeck)
     repeat {
         do {
             menu = try InputView.readMenu()
@@ -22,21 +22,16 @@ func main() {
             print("\(ErrorMessage.unexpectedError) : \(error)")
             break
         }
-        switch menu {
-        case .initialize:
-            cardDeck.reset()
-            result = GameResult.initialize(cardDeck.count())
-        case .shuffle:
-            cardDeck.shuffle()
-            result = GameResult.shuffle(cardDeck.count())
-        case .draw:
-            guard let card = cardDeck.removeOne() else {
-                print("\(ErrorMessage.emptyCardDeck)")
-                return
-            }
-            result = GameResult.draw(card, cardDeck.count())
+        do {
+            try game.config(menu: menu)
+        } catch let error as CardGame.Error {
+            print(error.localizedDescription)
+            break
+        } catch {
+            print("\(ErrorMessage.unexpectedError) : \(error)")
+            break
         }
-        OutputView.printGameResult(result: result)
+        OutputView.printGameResult(game: game)
     } while (true)
 }
 
