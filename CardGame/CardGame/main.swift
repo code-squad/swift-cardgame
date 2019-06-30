@@ -11,6 +11,7 @@ import Foundation
 func main() {
     var cardDeck = CardDeck()
     var menu: GameMenu
+    var result: GameResult
     repeat {
         do {
             menu = try InputView.readMenu()
@@ -24,19 +25,17 @@ func main() {
         switch menu {
         case .initialize:
             cardDeck.reset()
-            OutputView.printGameResult(result: GameResult.initialize(cardDeck.count()))
-            break
+            result = GameResult.initialize(cardDeck.count())
         case .shuffle:
             cardDeck.shuffle()
-            OutputView.printGameResult(result: GameResult.shuffle(cardDeck.count()))
-            break
+            result = GameResult.shuffle(cardDeck.count())
         case .draw:
             guard let card = cardDeck.removeOne() else {
                 return
             }
-            OutputView.printGameResult(result: GameResult.draw(card, cardDeck.count()))
-            break
+            result = GameResult.draw(card, cardDeck.count())
         }
+        OutputView.printGameResult(result: result)
     } while (true)
 }
 
