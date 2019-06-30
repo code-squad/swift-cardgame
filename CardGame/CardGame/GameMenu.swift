@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum GameMenu: Int {
-    case initialize = 1
-    case shuffle
-    case draw
+enum GameMenu: String {
+    case initialize = "1"
+    case shuffle = "2"
+    case draw = "3"
 }
