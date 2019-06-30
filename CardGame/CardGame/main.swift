@@ -9,20 +9,34 @@
 import Foundation
 
 func main() {
-    let cardDeck = CardDeck()
-    var dealer = Dealer(deck: cardDeck)
+    var cardDeck = CardDeck()
+    var menu: GameMenu
     repeat {
-        let menuNumber = InputView.readMenuNumber()
         do {
-            try dealer.config(number: menuNumber)
-        } catch let error as Dealer.Error {
+            menu = try InputView.readMenu()
+        } catch let error as InputView.Error {
             print(error.localizedDescription)
             break
         } catch {
             print("\(ErrorMessage.unexpectedError) : \(error)")
             break
         }
-        OutputView.printGameResult(dealer: dealer)
+        switch menu {
+        case .initialize:
+            cardDeck.reset()
+            OutputView.printGameResult(result: GameResult.initialize(cardDeck.count()))
+            break
+        case .shuffle:
+            cardDeck.shuffle()
+            OutputView.printGameResult(result: GameResult.shuffle(cardDeck.count()))
+            break
+        case .draw:
+            guard let card = cardDeck.removeOne() else {
+                return
+            }
+            OutputView.printGameResult(result: GameResult.draw(card, cardDeck.count()))
+            break
+        }
     } while (true)
 }
 
