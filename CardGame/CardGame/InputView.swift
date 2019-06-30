@@ -42,11 +42,6 @@ struct InputView {
         return readLine() ?? ""
     }
     
-    static func readMenuNumber() -> Int {
-        let menuNumber = readData(message: .selectMenu)
-        return Int(menuNumber) ?? 0
-    }
-    
     static func readMenu() throws -> GameMenu {
         let menuNumber = readData(message: .selectMenu)
         if let gameMenu = GameMenu(rawValue: menuNumber) {
