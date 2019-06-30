@@ -23,7 +23,7 @@ func main() {
             break
         }
         do {
-            try game.config(menu: menu)
+            try game.run(menu: menu)
         } catch let error as CardGame.Error {
             print(error.localizedDescription)
             break
