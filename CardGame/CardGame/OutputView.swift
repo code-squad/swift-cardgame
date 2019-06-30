@@ -10,7 +10,9 @@ import Foundation
 
 struct OutputView {
     
-    static func printGameResult(result: CustomStringConvertible) {
-        print(result)
+    static func printGameResult(game: OutputViewPrintable) {
+        game.printGameResult { result in
+            print(result)
+        }
     }
 }
