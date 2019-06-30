@@ -29,7 +29,7 @@ struct CardGame {
         self.result = GameResult.initialize(cardDeck.count())
     }
     
-    mutating func config(menu: GameMenu) throws {
+    mutating func run(menu: GameMenu) throws {
         switch menu {
         case .initialize:
             cardDeck.reset()
