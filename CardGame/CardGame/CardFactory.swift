@@ -11,13 +11,11 @@ import Foundation
 struct CardFactory {
     
     static func makeCards() -> [Card] {
-        var cards = [Card]()
-        for suit in Card.Suit.allCases {
-            for rank in Card.Rank.allCases {
-                let card = Card(suit: suit, rank: rank)
-                cards.append(card)
+        let deck = Card.Suit.allCases.flatMap { suit in
+            Card.Rank.allCases.map { rank in
+                Card(suit: suit, rank: rank)
             }
         }
-        return cards
+        return deck
     }
 }
