@@ -12,6 +12,7 @@ struct Game {
     var players: [MyPlayer]
     let dealer: MyDealer = MyDealer()
     let setting: Setting
+    
     var isContinue: Bool {
         let needs = setting.mode.numOfCard*(self.players.count)
         return self.dealer.canContinue(needs:needs)
@@ -48,8 +49,9 @@ struct Game {
     }
     
     private func drawOne() throws {
-        try self.players.forEach {
-            try self.dealer.handsOut(to: $0)
+        for player in players {
+            let card = try dealer.draw()
+            player.receive(card)
         }
     }
     
@@ -58,5 +60,5 @@ struct Game {
             $0.clearHand()
         }
     }
-
+    
 }

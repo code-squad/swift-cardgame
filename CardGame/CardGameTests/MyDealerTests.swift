@@ -24,17 +24,6 @@ class MyDealerTests: XCTestCase {
         XCTAssertFalse(dealer.canContinue(needs: 30))
     }
     
-    func testHandOut() {
-        //When
-        let before = player.showDown().count()
-        try! dealer.handsOut(to: player)
-        let after = player.showDown().count()
-        
-        //Then
-        XCTAssertEqual(before+1, after)
-    }
-    
-    
     func testDrawSuccess() {
         //When
         try! loop(times: 52) {

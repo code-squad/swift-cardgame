@@ -17,11 +17,6 @@ class MyDealer: MyPlayer, Dealer {
         super.init(name: name)
     }
     
-    func handsOut(to player: MyPlayer) throws {
-        let card = try self.draw()
-        player.receive(card)
-    }
-    
     func draw() throws -> Card {
         guard let card = self.deck.removeOne() else {
             throw GameException.emptyDeck
