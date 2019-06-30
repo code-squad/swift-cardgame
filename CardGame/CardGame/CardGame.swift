@@ -8,68 +8,24 @@
 
 import Foundation
 
-struct Dealer {
+struct CardGame {
+    private(set) var cardDeck: Deck
+    private(set) var result: GameResult
     
-    enum Error: Swift.Error {
-        case invalidInput
-        case isCardDeckEmpty
-        
-        var localizedDescription: String {
-            switch self {
-            case .invalidInput:
-                return "유효하지 않은 입력입니다."
-            case .isCardDeckEmpty:
-                return "카드덱이 비어있습니다."
+    mutating func config(menu: GameMenu) {
+        switch menu {
+        case .initialize:
+            cardDeck.reset()
+            result = GameResult.initialize(cardDeck.count())
+        case .shuffle:
+            cardDeck.shuffle()
+            result = GameResult.shuffle(cardDeck.count())
+        case .draw:
+            guard let card = cardDeck.removeOne() else {
+                print("\(ErrorMessage.emptyCardDeck)")
+                return
             }
+            result = GameResult.draw(card, cardDeck.count())
         }
-    }
-    
-    enum State: CustomStringConvertible {
-        case initializeCards(Int)
-        case shuffleCards(Int)
-        case drawOneCard(Card, Int)
-        
-        var description: String {
-            switch self {
-            case .initializeCards(let count):
-                return "카드 전체를 초기화했습니다.\n총 \(count)장의 카드가 있습니다."
-            case .shuffleCards(let count):
-                return "전체 \(count)장의 카드를 섞었습니다."
-            case .drawOneCard(let card, let count):
-                return "\(card)\n총 \(count)장의 카드가 남아있습니다."
-            }
-        }
-    }
-    
-    private(set) var state: State
-    private(set) var deck: Deck
-    
-    init(deck: Deck) {
-        self.deck = deck
-        self.state = .initializeCards(deck.count())
-    }
-    
-    mutating func config(number: Int) throws {
-        switch number {
-        case 1:
-            deck.reset()
-            state = .initializeCards(deck.count())
-        case 2:
-            deck.shuffle()
-            state = .shuffleCards(deck.count())
-        case 3:
-            guard let card = deck.removeOne() else {
-                throw Error.isCardDeckEmpty
-            }
-            state = .drawOneCard(card, deck.count())
-        default:
-            throw Error.invalidInput
-        }
-    }
-}
-
-extension Dealer: OutputViewPrintable {
-    func printGameResult(handler: (String) -> ()) {
-        handler(state.description)
     }
 }
