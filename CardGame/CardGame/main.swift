@@ -31,6 +31,7 @@ func main() {
             result = GameResult.shuffle(cardDeck.count())
         case .draw:
             guard let card = cardDeck.removeOne() else {
+                print("\(ErrorMessage.emptyCardDeck)")
                 return
             }
             result = GameResult.draw(card, cardDeck.count())
