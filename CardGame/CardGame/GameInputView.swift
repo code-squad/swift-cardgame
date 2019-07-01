@@ -28,4 +28,17 @@ struct GameInputView {
         print(menu)
         return readLine() ?? ""
     }
+    
+    static func readGameOption() -> GameOption? {
+        let number = ask(for: .selectGame)
+        if let option = GameOption(rawValue: number) {
+            return option
+        }
+        return nil
+    }
+    
+    static func readNumberOfPlayers() -> Int {
+        let number = ask(for: .enterNumberOfPlayers)
+        return Int(number) ?? 0
+    }
 }
