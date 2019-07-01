@@ -25,8 +25,8 @@ func main() {
         }
         let players: [Player] = PlayerFactory.makeAllPlayers(including: numberOfPaticipants)
         for player in players {
-            var player = player
-            player.cards = cardDeck.remove(numberOfCards: menu.numberOfCards)
+            let removedCards = cardDeck.remove(numberOfCards: menu.numberOfCards)
+            player.take(newCards: removedCards)
         }
         OutputView.printDealtCards(of: players)
     }
