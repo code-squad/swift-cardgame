@@ -47,10 +47,3 @@ struct CardGame {
         return result
     }
 }
-
-extension CardGame: OutputViewPrintable {
-    func printGameResult(handler: (String) -> ()) {
-        let resultDescription = String(describing: result)
-        handler(resultDescription)
-    }
-}
