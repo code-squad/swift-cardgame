@@ -13,7 +13,7 @@ struct CardDeck {
     private var cards = [Card]()
     
     init() {
-        self.cards = CardFactory.makeAllCards()
+        reset()
     }
     
     mutating func reset() {
