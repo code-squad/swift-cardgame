@@ -40,7 +40,7 @@ struct CardDeck {
         makeCards()
     }
     
-    mutating func makeCards() {
+    private mutating func makeCards() {
         for suit in Card.Suit.allCases {
             for rank in Card.Rank.allCases {
                 cards.append(Card(suit: suit, rank: rank))
