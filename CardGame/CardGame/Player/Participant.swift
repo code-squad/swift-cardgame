@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Participant: Player, CustomStringConvertible {
+class Participant: Player {
     let number: Int
-    var cards: [Card] = [Card]()
     
     init(number: Int) {
         self.number = number
+        super.init()
     }
     
-    var description: String {
-        return "참가자 #\(self.number) \(self.cards)"
+    override var description: String {
+        return "참가자#\(self.number) \(super.description)"
     }
     
 }
