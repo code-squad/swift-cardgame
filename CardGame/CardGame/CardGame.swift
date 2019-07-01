@@ -35,4 +35,11 @@ struct CardGame {
             }
         }
     }
+    
+    mutating func run() {
+        setPlayer()
+        setHand()
+        let playerInfo = PlayersInfo(players: players)
+        OutputView.printCards(of: playerInfo)
+    }
 }
