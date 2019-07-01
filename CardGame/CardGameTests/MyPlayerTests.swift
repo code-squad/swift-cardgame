@@ -11,15 +11,20 @@ import XCTest
 class MyPlayerTests: XCTestCase {
 
     //Given
-    let player = MyPlayer()
+    var hand = CardHand()
+    var player:MyPlayer!
+    
+    override func setUp() {
+        self.player = MyPlayer(hand: hand)
+    }
     
     func testReceive() {
         //Given
-        let before = player.showDown().count()
+        let before = self.hand.count()
         
         //When
         player.receive(Card.init(suit: .clubs, rank: .ace))
-        let after = player.showDown().count()
+        let after = self.hand.count()
 
         //Then
         XCTAssertEqual(before+1, after)
@@ -30,8 +35,8 @@ class MyPlayerTests: XCTestCase {
         let expected = 0
         
         //When
-        player.clearHand()
-        let result = player.showDown().count()
+        self.player.clearHand()
+        let result = self.hand.count()
         
         //Then
         XCTAssertEqual(result, expected)
