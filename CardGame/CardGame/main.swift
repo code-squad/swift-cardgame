@@ -15,7 +15,7 @@ func main() {
             return
         }
         let game = Dealer(deck: deck)
-        let result = game.play(of: selectedMenu)
+        let result = game.handlingDeck(by: selectedMenu)
         OutputView.printResult(of: result)
     }
 }
