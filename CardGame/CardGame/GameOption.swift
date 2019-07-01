@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GameOption: String, CustomStringConvertible {
+enum GameOption: String, CustomStringConvertible, CaseIterable {
     case sevenCardStud = "1"
     case fiveCardStud = "2"
     
