@@ -9,7 +9,6 @@
 import Foundation
 
 struct InputView {
-    static let menuRange = 1...3
     static let menuInstuction = """
                                 다음 메뉴를 선택해주세요.
                                 1. 카드 초기화
