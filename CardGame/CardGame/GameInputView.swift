@@ -12,12 +12,15 @@ struct GameInputView {
     
     enum Error: Swift.Error {
         case invalidMenuNumber
+        case notAllowedRange
         case notNumber
         
         var localizedDescription: String {
             switch self {
             case .invalidMenuNumber:
                 return "유효하지 않은 메뉴 번호입니다."
+            case .notAllowedRange:
+                return "허용 범위가 아닙니다."
             case .notNumber:
                 return "숫자가 아닙니다."
             }
