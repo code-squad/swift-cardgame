@@ -14,6 +14,8 @@ protocol Dealerable {
 }
 
 class Dealer<T: Deck>: Dealerable {
+    private let name: String = "딜러"
+    private var cards: [Card] = []
     private var deck: T
     
     init(deck: T) {
@@ -39,5 +41,19 @@ class Dealer<T: Deck>: Dealerable {
             let card = deck.removeOne() as? Card
             return HandlingDeckResult.draw(card, deck.count)
         }
+    }
+}
+
+extension Dealer: Playerable {
+    func take(card: Card) {
+        cards.append(card)
+    }
+    
+    func playerName() -> String {
+        return name
+    }
+    
+    func playerCards() -> [Card] {
+        return cards
     }
 }
