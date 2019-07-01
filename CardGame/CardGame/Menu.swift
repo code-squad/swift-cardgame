@@ -26,8 +26,6 @@ enum Menu: Int {
             return 7
         case .fiveCardStud:
             return 5
-        default:
-            return 0
         }
     }
 }
