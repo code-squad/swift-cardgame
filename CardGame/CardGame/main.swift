@@ -12,6 +12,7 @@ func main() {
     let cardDeck = CardDeck()
     var menu: GameMenu
     var game = CardGame(cardDeck: cardDeck)
+    var result: GameResult
     repeat {
         do {
             menu = try InputView.readMenu()
@@ -23,7 +24,7 @@ func main() {
             break
         }
         do {
-            try game.run(menu: menu)
+            result = try game.run(menu: menu)
         } catch let error as CardGame.Error {
             print(error.localizedDescription)
             break
@@ -31,7 +32,7 @@ func main() {
             print("\(ErrorMessage.unexpectedError) : \(error)")
             break
         }
-        OutputView.printGameResult(game: game)
+        OutputView.printGameResult(result: result)
     } while (true)
 }
 
