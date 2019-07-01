@@ -27,6 +27,7 @@ class CardDeck: Deck {
     
     init() {
         self.reset()
+        self.shuffle()
     }
     
     func reset() {
