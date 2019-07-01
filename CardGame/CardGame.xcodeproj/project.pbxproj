@@ -16,6 +16,7 @@
 		FA042CA722C5CF4F00A95C55 /* HandlingDeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA622C5CF4F00A95C55 /* HandlingDeckResult.swift */; };
 		FA042CA922C5E0A300A95C55 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA822C5E0A300A95C55 /* Dealer.swift */; };
 		FA042CAB22C5E90000A95C55 /* DeckMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CAA22C5E90000A95C55 /* DeckMaker.swift */; };
+		FAF2345B22CA2DD6009A5DFB /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		FA042CA622C5CF4F00A95C55 /* HandlingDeckResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingDeckResult.swift; sourceTree = "<group>"; };
 		FA042CA822C5E0A300A95C55 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		FA042CAA22C5E90000A95C55 /* DeckMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMaker.swift; sourceTree = "<group>"; };
+		FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				FA042C9C22C4904A00A95C55 /* CardDeck.swift */,
 				FA042CAA22C5E90000A95C55 /* DeckMaker.swift */,
 				FA042CA222C4B3A400A95C55 /* DeckMenu.swift */,
+				FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */,
 				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
 				FA042CA622C5CF4F00A95C55 /* HandlingDeckResult.swift */,
 			);
@@ -158,6 +161,7 @@
 				FA042C9F22C490C900A95C55 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				FA042CA922C5E0A300A95C55 /* Dealer.swift in Sources */,
+				FAF2345B22CA2DD6009A5DFB /* GameMenu.swift in Sources */,
 				FA042C9922C24D7D00A95C55 /* Card.swift in Sources */,
 				FA042CA522C4C24800A95C55 /* OutputView.swift in Sources */,
 				FA042CAB22C5E90000A95C55 /* DeckMaker.swift in Sources */,
