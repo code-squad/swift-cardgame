@@ -44,7 +44,10 @@ struct GameInputView {
     }
     
     static func readGameOption() throws -> GameOption {
-        let number = ask(for: .selectGame)
+        let optionList = GameOption.allCases
+            .map({ "\($0)" })
+            .joined(separator: "\n")
+        let number = ask(for: .selectGame, content: "\n" + optionList)
         if let option = GameOption(rawValue: number) {
             return option
         }
