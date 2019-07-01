@@ -21,5 +21,12 @@ enum GameMenu: Int, CustomStringConvertible, CaseIterable {
             return "\(rawValue). 5카드"
         }
     }
+    
+    var numOfCards: Int {
+        switch self {
+        case .seven: return 7
+        case .five: return 5
+        }
+    }
 }
 
