@@ -20,14 +20,23 @@ struct GameInputView {
                                             >
                                             """
     
-    static func read() -> (Menu, Int) {
-        print(questionForMenuSelecton)
-        let selection = readLine() ?? ""
-        let menu = Menu(selection: selection)
-        print(questionForNumberOfPlayers)
-        let numberOfPlayers = readLine() ?? ""
-        let convertedNumber = Int(numberOfPlayers) ?? 0
-        return (menu, convertedNumber)
+    
+    
+    static func askForMenuSelection() {
+        print(questionForMenuSelecton, terminator: "")
     }
     
+    static func askForNumberOfParticipants() {
+        print(questionForNumberOfPlayers, terminator: "")
+    }
+    
+    static func readMenuSelection() -> Menu? {
+        let selection = readLine() ?? ""
+        return Menu(selection: selection)
+    }
+    
+    static func readNumberOfParticipants() -> Int? {
+        let numberOfParticipants = readLine() ?? ""
+        return Int(numberOfParticipants)
+    }
 }
