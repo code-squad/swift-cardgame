@@ -12,4 +12,5 @@ enum GameResult {
     case reset(Int)
     case shuffle(Int)
     case draw(Card, Int)
+    case exit
 }
