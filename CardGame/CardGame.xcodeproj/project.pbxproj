@@ -21,6 +21,7 @@
 		FAF2345F22CA2FC0009A5DFB /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */; };
 		FAF2346122CA30A2009A5DFB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346022CA30A2009A5DFB /* Player.swift */; };
 		FAF2346322CA3341009A5DFB /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346222CA3341009A5DFB /* GameInfo.swift */; };
+		FAF2346522CA33D3009A5DFB /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346422CA33D3009A5DFB /* CardGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		FAF2346022CA30A2009A5DFB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FAF2346222CA3341009A5DFB /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		FAF2346422CA33D3009A5DFB /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				FA042CA222C4B3A400A95C55 /* DeckMenu.swift */,
 				FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */,
 				FAF2346222CA3341009A5DFB /* GameInfo.swift */,
+				FAF2346422CA33D3009A5DFB /* CardGame.swift */,
 				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
 				FAF2346022CA30A2009A5DFB /* Player.swift */,
 				FA042CA622C5CF4F00A95C55 /* HandlingDeckResult.swift */,
@@ -181,6 +184,7 @@
 				FA042CA522C4C24800A95C55 /* OutputView.swift in Sources */,
 				FAF2345D22CA2F5B009A5DFB /* GuideSentence.swift in Sources */,
 				FA042CAB22C5E90000A95C55 /* DeckMaker.swift in Sources */,
+				FAF2346522CA33D3009A5DFB /* CardGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
