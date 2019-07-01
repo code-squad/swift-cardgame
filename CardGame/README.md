@@ -42,9 +42,11 @@
     4. 모든 숫자가 지워질 때까지 2번을 반복
     5. 3번에서 쓴 별도의 list가 최종 random permutation 결과이다.
 - 섞은 결과가 한쪽으로 편향되지 않고, 골고루? 잘 섞이는 방법이라고 한다.
+  
   - 시간 복잡도 : O(n^2)
 - 매 반복마다 남은 (지워지지 않은, 선택 안된) 숫자를 세는 과정이 필요 - O(n)
-    - 랜덤 숫자 선택을 리스트 요소 개수에 비례해서 해야 함 - O(n)
+    
+  - 랜덤 숫자 선택을 리스트 요소 개수에 비례해서 해야 함 - O(n)
   
 - Knuth Shuffle
 
@@ -151,3 +153,43 @@ Factory pattern 사용 - `CardFactory` 구조체 : 생성 과정의 구체적인
 
 
 
+## :round_pushpin: Step 9-3 포커 딜러 출력
+
+### GameInputView
+
+- 메뉴, 참가자 명수 입력 받음
+
+### Menu
+
+- case: sevenCardStud, FiveCardStud
+- 각 메뉴에 맞는 카드 개수를 반환할 `numberOfCards` property 
+
+### Player class
+
+- 플레이어 공통 함수, 속성 정의
+- protocol 로 구현하지 않은 이유 : 공통 구현사항이 많아 protocol default implementation에는 한계가 있었음
+
+### Player 상속받은 클래스 - Participant, Dealer
+
+- class 로 구현한 이유 : reference 사용의 이점 때문에
+  - struct 로 구현할 경우, 출력이나 for 문을 돌면서 임시변수에 들어갈 때, 값이 복사된다. 값이 복사되면서 각 struct instance 가 가진 card list 인스턴스에 대한 reference 도 일일히 복사되어야 한다. 반면에 class 의 경우, 각 플레이어의 레퍼런스만 넘기면 된다. 
+- `CustomStringConvertible` protocol 도 채택해서 다형성을 통해 출력할 수 있도록 한다
+
+### GameValidator : 게임을 지속할 수 있는지 확인
+
+게임 종료되어야 할 경우
+
+1. 입력받은 참가자 명수가 1~4 이내가 아님
+2. card deck 에 남은 카드 < 필요한 카드 (카드 개수 * 전체 플레이어수)
+
+
+
+### PlayerFactory
+
+`makeAllPlayers()` : 입력받은 참가자수 + 딜러 생성
+
+
+
+### uml
+
+![](https://github.com/daheenallwhite/daheenallwhite.github.io/blob/master/assets/post-image/swift-cardgame-diagram.png)
