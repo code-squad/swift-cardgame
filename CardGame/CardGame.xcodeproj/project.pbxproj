@@ -12,6 +12,7 @@
 		147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB7022C4AE8F001F0392 /* InputView.swift */; };
 		1481D25E22C9E43F006CF27E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481D25D22C9E43F006CF27E /* Menu.swift */; };
 		1481D26022C9FBA1006CF27E /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481D25F22C9FBA1006CF27E /* GameResult.swift */; };
+		1481D26222C9FC15006CF27E /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481D26122C9FC15006CF27E /* CardGame.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		147DEB7022C4AE8F001F0392 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		1481D25D22C9E43F006CF27E /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		1481D25F22C9FBA1006CF27E /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		1481D26122C9FC15006CF27E /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				147DEB6D22C4A0BC001F0392 /* CardDeck.swift */,
 				1481D25D22C9E43F006CF27E /* Menu.swift */,
 				1481D25F22C9FBA1006CF27E /* GameResult.swift */,
+				1481D26122C9FC15006CF27E /* CardGame.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				147DEB6E22C4A0BC001F0392 /* CardDeck.swift in Sources */,
 				147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */,
+				1481D26222C9FC15006CF27E /* CardGame.swift in Sources */,
 				1481D26022C9FBA1006CF27E /* GameResult.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				147DEB6A22C49713001F0392 /* Card.swift in Sources */,
