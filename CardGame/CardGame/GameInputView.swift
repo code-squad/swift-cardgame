@@ -38,8 +38,8 @@ struct GameInputView {
         }
     }
     
-    static private func ask(for menu: Menu) -> String {
-        print(menu)
+    static private func ask(for menu: Menu, content: String = "") -> String {
+        print("\(menu)\(content)")
         return readLine() ?? ""
     }
     
