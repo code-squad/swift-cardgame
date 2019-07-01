@@ -16,7 +16,7 @@ protocol Deck {
 }
 
 struct CardDeck: Deck {
-    private(set) var cards = [Card]()
+    private var cards = [Card]()
     
     init() {
         self.reset()
