@@ -14,7 +14,7 @@ func main() {
         guard let  selectedMenu = DeckMenu.init(rawValue: selectedNumber) else {
             return
         }
-        let game = CardGame(deck: deck)
+        let game = Dealer(deck: deck)
         let result = game.play(of: selectedMenu)
         OutputView.printResult(of: result)
     }

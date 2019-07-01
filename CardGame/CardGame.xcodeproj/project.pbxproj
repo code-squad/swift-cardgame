@@ -14,7 +14,7 @@
 		FA042CA322C4B3A400A95C55 /* DeckMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA222C4B3A400A95C55 /* DeckMenu.swift */; };
 		FA042CA522C4C24800A95C55 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA422C4C24800A95C55 /* OutputView.swift */; };
 		FA042CA722C5CF4F00A95C55 /* CardGameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA622C5CF4F00A95C55 /* CardGameResult.swift */; };
-		FA042CA922C5E0A300A95C55 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA822C5E0A300A95C55 /* CardGame.swift */; };
+		FA042CA922C5E0A300A95C55 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CA822C5E0A300A95C55 /* Dealer.swift */; };
 		FA042CAB22C5E90000A95C55 /* DeckMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042CAA22C5E90000A95C55 /* DeckMaker.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +39,7 @@
 		FA042CA222C4B3A400A95C55 /* DeckMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMenu.swift; sourceTree = "<group>"; };
 		FA042CA422C4C24800A95C55 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		FA042CA622C5CF4F00A95C55 /* CardGameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameResult.swift; sourceTree = "<group>"; };
-		FA042CA822C5E0A300A95C55 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		FA042CA822C5E0A300A95C55 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		FA042CAA22C5E90000A95C55 /* DeckMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +79,7 @@
 				FA042C9C22C4904A00A95C55 /* CardDeck.swift */,
 				FA042CAA22C5E90000A95C55 /* DeckMaker.swift */,
 				FA042CA222C4B3A400A95C55 /* DeckMenu.swift */,
-				FA042CA822C5E0A300A95C55 /* CardGame.swift */,
+				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
 				FA042CA622C5CF4F00A95C55 /* CardGameResult.swift */,
 			);
 			path = CardGame;
@@ -157,7 +157,7 @@
 				FA042CA722C5CF4F00A95C55 /* CardGameResult.swift in Sources */,
 				FA042C9F22C490C900A95C55 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
-				FA042CA922C5E0A300A95C55 /* CardGame.swift in Sources */,
+				FA042CA922C5E0A300A95C55 /* Dealer.swift in Sources */,
 				FA042C9922C24D7D00A95C55 /* Card.swift in Sources */,
 				FA042CA522C4C24800A95C55 /* OutputView.swift in Sources */,
 				FA042CAB22C5E90000A95C55 /* DeckMaker.swift in Sources */,

@@ -8,18 +8,18 @@
 
 import Foundation
 
-protocol GamePlayable {
-    func play(of menu: DeckMenu) -> CardGameResult
+protocol Dealerable {
+    func handlingDeck(by menu: DeckMenu) -> CardGameResult
 }
 
-class CardGame<T: Deck>: GamePlayable {
+class Dealer<T: Deck>: Dealerable {
     private var deck: T
     
     init(deck: T) {
         self.deck = deck
     }
     
-    func play(of menu: DeckMenu) -> CardGameResult {
+    func handlingDeck(by menu: DeckMenu) -> CardGameResult {
         switch menu {
         case .reset:
             deck.reset()
