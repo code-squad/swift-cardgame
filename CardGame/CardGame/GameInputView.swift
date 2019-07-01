@@ -10,6 +10,20 @@ import Foundation
 
 struct GameInputView {
     
+    enum Error: Swift.Error {
+        case invalidMenuNumber
+        case notNumber
+        
+        var localizedDescription: String {
+            switch self {
+            case .invalidMenuNumber:
+                return "유효하지 않은 메뉴 번호입니다."
+            case .notNumber:
+                return "숫자가 아닙니다."
+            }
+        }
+    }
+    
     enum Menu: CustomStringConvertible {
         case selectGame
         case enterNumberOfPlayers
@@ -29,16 +43,19 @@ struct GameInputView {
         return readLine() ?? ""
     }
     
-    static func readGameOption() -> GameOption? {
+    static func readGameOption() throws -> GameOption? {
         let number = ask(for: .selectGame)
         if let option = GameOption(rawValue: number) {
             return option
         }
-        return nil
+        throw Error.invalidMenuNumber
     }
     
-    static func readNumberOfPlayers() -> Int {
+    static func readNumberOfPlayers() throws -> Int {
         let number = ask(for: .enterNumberOfPlayers)
-        return Int(number) ?? 0
+        if let number = Int(number) {
+            return number
+        }
+        throw Error.notNumber
     }
 }
