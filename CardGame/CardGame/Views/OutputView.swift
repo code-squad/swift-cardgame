@@ -11,7 +11,11 @@ import Foundation
 struct OutputView {
     static func printCards(of players: PlayersPrintable) {
         for player in players.playersInfo() {
-            print("\(player.playerName()) \(player.playerCards())")
+            if let player = player as? Player {
+                print("\(player.playerName()) #\(player.playerOrder()) \(player.playerCards()) ")
+            } else {
+                print("\(player.playerName()) \(player.playerCards())")
+            }
         }
     }
     

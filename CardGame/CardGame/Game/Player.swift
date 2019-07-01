@@ -20,7 +20,6 @@ class Player {
     private var cards: [Card]
     
     init(order: Int = 0, cards: [Card] = []) {
-        name = name + "#\(order)"
         self.order = order
         self.cards = cards
     }
