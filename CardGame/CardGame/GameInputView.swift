@@ -43,7 +43,7 @@ struct GameInputView {
         return readLine() ?? ""
     }
     
-    static func readGameOption() throws -> GameOption? {
+    static func readGameOption() throws -> GameOption {
         let number = ask(for: .selectGame)
         if let option = GameOption(rawValue: number) {
             return option
