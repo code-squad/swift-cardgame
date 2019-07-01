@@ -37,5 +37,12 @@ struct CardDeck {
     mutating func removeOne() -> Card {
         return cards.removeLast()
     }
+    
+    mutating func remove(numberOfCards: Int) -> [Card] {
+        var removedCards = [Card]()
+        for _ in 0..<numberOfCards {
+            removedCards.append(self.removeOne())
+        }
+        return removedCards
     }
 }
