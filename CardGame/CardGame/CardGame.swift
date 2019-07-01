@@ -22,11 +22,9 @@ struct CardGame {
     }
     
     private var cardDeck: Deck
-    private var result: GameResult
     
     init(cardDeck: Deck) {
         self.cardDeck = cardDeck
-        self.result = GameResult.initialize(cardDeck.count())
     }
     
     mutating func run(menu: GameMenu) throws -> GameResult {
