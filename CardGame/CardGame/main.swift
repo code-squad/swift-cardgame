@@ -9,26 +9,26 @@
 import Foundation
 
 func main() {
-    var menu: Menu
     var cardDeck = CardDeck()
 
     gameLoop: while true {
-        InputView.printMenu()
-        let input = InputView.read()
-        menu = Menu(selection: input)
-        switch menu {
-        case .reset:
-            cardDeck.reset()
-            OutputView.printCompletionOfReset(count: cardDeck.count())
-        case .shuffle:
-            cardDeck.shuffle()
-            OutputView.printCompletionOfShuffle(count: cardDeck.count())
-        case .remove:
-            let removedCard = cardDeck.removeOne()
-            OutputView.printCompletionOfRemove(card: removedCard, remainingCount: cardDeck.count())
-        case .exit:
+        GameInputView.askForMenuSelection()
+        guard let menu = GameInputView.readMenuSelection() else {
             break gameLoop
         }
+        GameInputView.askForNumberOfParticipants()
+        guard let numberOfPaticipants = GameInputView.readNumberOfParticipants() else {
+            break gameLoop
+        }
+        guard GameValidator.canPlayMore(numberOfCards: menu.numberOfCards, numberOfParticipants: numberOfPaticipants, remainingCardsCount: cardDeck.count()) else {
+            break gameLoop
+        }
+        let players: [Player] = PlayerFactory.makeAllPlayers(including: numberOfPaticipants)
+        for player in players {
+            var player = player
+            player.cards = cardDeck.remove(numberOfCards: menu.numberOfCards)
+        }
+        OutputView.printDealtCards(of: players)
     }
 }
 
