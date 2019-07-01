@@ -13,22 +13,15 @@ class MyPlayer: Player {
     typealias E = Card
     
     private let name: String
-    private var hand: CardHand = CardHand()
-    
-    var description: String {
-        return "\(name) \(hand.showAll())"
-    }
+    private var hand: CardHand
     
     var printOut: String {
         return "\(name)\t\(hand.showAll())"
     }
     
-    init(name: String = "참가자" ) {
+    init(name: String = "참가자", hand: CardHand = CardHand() ) {
         self.name = name
-    }
-    
-    func showDown() -> CardHand {
-        return self.hand
+        self.hand = hand
     }
     
     func receive(_ gameElement: Card) {
