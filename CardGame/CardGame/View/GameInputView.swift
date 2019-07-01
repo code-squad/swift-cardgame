@@ -20,8 +20,6 @@ struct GameInputView {
                                             >
                                             """
     
-    
-    
     static func askForMenuSelection() {
         print(questionForMenuSelecton, terminator: "")
     }

@@ -12,8 +12,8 @@ struct GameValidator {
     static let validRangeOfPartipants = 1...4
     
     static func canPlayMore(numberOfCards: Int, numberOfParticipants: Int, remainingCardsCount: Int) -> Bool {
-        let numberOfCardsInNeed = numberOfCards * (numberOfPaticipants + 1)
-        return validRangeOfPartipants.contains(numberOfPaticipants)
+        let numberOfCardsInNeed = numberOfCards * (numberOfParticipants + 1)
+        return validRangeOfPartipants.contains(numberOfParticipants)
             && numberOfCardsInNeed <= remainingCardsCount
     }
 }
