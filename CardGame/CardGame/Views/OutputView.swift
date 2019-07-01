@@ -10,13 +10,11 @@ import Foundation
 
 struct OutputView {
     
-    static func show<P: Player>(players: [P]) {
-        players.forEach {
-            output(target: $0)
-        }
+    static func output<P: Printable>(printable: P) {
+        output(printable.printOut)
     }
     
-    static func output<T> (target: T) {
+    static func output<T> (_ target: T) {
         print(target)
     }
 }
