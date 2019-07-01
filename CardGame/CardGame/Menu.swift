@@ -16,4 +16,15 @@ enum Menu: Int {
         let convertedSelection = Int(selection) ?? 0
         self = Menu(rawValue: convertedSelection) ?? .exit
     }
+    
+    var numberOfCards: Int {
+        switch self {
+        case .sevenCardStud:
+            return 7
+        case .fiveCardStud:
+            return 5
+        default:
+            return 0
+        }
+    }
 }
