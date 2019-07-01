@@ -18,6 +18,7 @@ struct CardDeck {
     
     mutating func reset() {
         self.cards = CardFactory.makeAllCards()
+        shuffle()
     }
     
     func count() -> Int {
