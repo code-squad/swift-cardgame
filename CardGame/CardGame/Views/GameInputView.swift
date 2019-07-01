@@ -19,7 +19,7 @@ struct GameInputView {
     }
     
     private static func ask(_ question:Question) throws -> Int {
-        OutputView.output(target: question)
+        OutputView.output(question)
         guard let input = InputView.getNumber() else {
             throw InputException.wrongFormat
         }

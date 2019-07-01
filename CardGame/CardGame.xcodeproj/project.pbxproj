@@ -46,6 +46,8 @@
 		0E5940E822C3680C00B54014 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5940E022C3649900B54014 /* Reset.swift */; };
 		0E5940EE22C36FAD00B54014 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5940ED22C36FAD00B54014 /* CommandFactory.swift */; };
 		0E5940EF22C370C700B54014 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5940ED22C36FAD00B54014 /* CommandFactory.swift */; };
+		0E71DDBA22CA03DA0062A42C /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71DDB922CA03DA0062A42C /* Printable.swift */; };
+		0E71DDBB22CA04250062A42C /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71DDB922CA03DA0062A42C /* Printable.swift */; };
 		0E8517DB22C6F68C0073CE79 /* MyDealerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8517DA22C6F68C0073CE79 /* MyDealerTests.swift */; };
 		0E8517E022C6FC850073CE79 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8517DF22C6FC850073CE79 /* OutputView.swift */; };
 		0E8517E122C6FD980073CE79 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8517DF22C6FC850073CE79 /* OutputView.swift */; };
@@ -103,6 +105,7 @@
 		0E5940E222C364A300B54014 /* Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
 		0E5940E422C364AA00B54014 /* Draw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draw.swift; sourceTree = "<group>"; };
 		0E5940ED22C36FAD00B54014 /* CommandFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
+		0E71DDB922CA03DA0062A42C /* Printable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		0E8517DA22C6F68C0073CE79 /* MyDealerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDealerTests.swift; sourceTree = "<group>"; };
 		0E8517DF22C6FC850073CE79 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		0E8517E222C732BD0073CE79 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 				0EE2BF7C22C6244800DEB2F5 /* Dealer.swift */,
 				0EE2BF7E22C625F300DEB2F5 /* Hand.swift */,
 				0EE2BF8022C6279900DEB2F5 /* GameElement.swift */,
+				0E71DDB922CA03DA0062A42C /* Printable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -376,6 +380,7 @@
 				0E8517DB22C6F68C0073CE79 /* MyDealerTests.swift in Sources */,
 				0E5940CE22C353FA00B54014 /* InputException.swift in Sources */,
 				0E5940BE22C3372C00B54014 /* Card.swift in Sources */,
+				0E71DDBB22CA04250062A42C /* Printable.swift in Sources */,
 				0E0FF40B22C6CC6F000D6E4A /* GameInputView.swift in Sources */,
 				0E8517EB22C748A90073CE79 /* etc.swift in Sources */,
 				0E5940BA22C336D700B54014 /* CardDeckTests.swift in Sources */,
@@ -423,6 +428,7 @@
 				0E1D120322C48DF200878644 /* CardFactory.swift in Sources */,
 				0EF086AD22C2223F00FC080E /* Card.swift in Sources */,
 				0EE2BF7F22C625F300DEB2F5 /* Hand.swift in Sources */,
+				0E71DDBA22CA03DA0062A42C /* Printable.swift in Sources */,
 				0EE2BF8122C6279900DEB2F5 /* GameElement.swift in Sources */,
 				0E5940E122C3649900B54014 /* Reset.swift in Sources */,
 				0E8517E322C732BD0073CE79 /* Game.swift in Sources */,

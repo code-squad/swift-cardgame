@@ -19,6 +19,6 @@ do {
     } while game.isContinue
 }
 catch {
-    OutputView.output(target: error.localizedDescription)
+    OutputView.output(error.localizedDescription)
 }
 
