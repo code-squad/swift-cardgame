@@ -78,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				C2D9114F22C9E5A300B9FC4D /* GameValidator.swift */,
 				C2D9114B22C9CEA500B9FC4D /* Player.swift */,
 				C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */,
 				C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */,
@@ -156,6 +157,7 @@
 				C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */,
 				C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */,
 				C2E5FF6F22C49E4500ECC13F /* InputView.swift in Sources */,
+				C2D9115022C9E5A300B9FC4D /* GameValidator.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				C2D9114C22C9CEA500B9FC4D /* Player.swift in Sources */,
 				C219D73822C335F900276B19 /* Card.swift in Sources */,
