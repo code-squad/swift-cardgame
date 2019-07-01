@@ -16,6 +16,10 @@ class MyPlayer: Player {
     private var hand: CardHand = CardHand()
     
     var description: String {
+        return "\(name) \(hand.showAll())"
+    }
+    
+    var printOut: String {
         return "\(name)\t\(hand.showAll())"
     }
     
