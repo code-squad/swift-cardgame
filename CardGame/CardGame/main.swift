@@ -20,5 +20,13 @@ func main() {
     }
 }
 
-main()
+func mainOfStep3() {
+    let mode = GameInputView.readGameMode()
+    guard let gameMode = GameMenu.init(rawValue: mode) else { return }
+    guard let gameInfo = GameInfo(mode: gameMode, players: GameInputView.readPlayerCount()) else { return }
+    
+    var game = CardGame(info: gameInfo)
+    game.run()
+}
 
+mainOfStep3()
