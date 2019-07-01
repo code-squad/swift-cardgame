@@ -8,11 +8,10 @@
 
 import Foundation
 
-protocol Player where Self: CustomStringConvertible, Self: Printable {
+protocol Player where Self: Printable {
     associatedtype H: Hand
     associatedtype E: GameElement
     
-    func showDown() -> H
     mutating func receive(_ gameElement: E)
     mutating func clearHand()
 }
