@@ -9,14 +9,14 @@
 import Foundation
 
 enum GameOption: String, CustomStringConvertible {
-    case sevenCard = "1"
-    case fiveCard = "2"
+    case sevenCardStud = "1"
+    case fiveCardStud = "2"
     
     private var name: String {
         switch self {
-        case .sevenCard:
+        case .sevenCardStud:
             return "7카드"
-        case .fiveCard:
+        case .fiveCardStud:
             return "5카드"
         }
     }
