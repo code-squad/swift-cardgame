@@ -10,5 +10,4 @@ import Foundation
 
 protocol Player {
     var cards: [Card] { get set }
-    var playerDescription: String { get }
 }
