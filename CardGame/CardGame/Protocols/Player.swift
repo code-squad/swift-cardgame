@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Player where Self: CustomStringConvertible {
+protocol Player where Self: CustomStringConvertible, Self: Printable {
     associatedtype H: Hand
     associatedtype E: GameElement
     
