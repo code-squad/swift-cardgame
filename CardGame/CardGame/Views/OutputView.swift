@@ -9,6 +9,12 @@
 import Foundation
 
 struct OutputView {
+    static func printCards(of players: PlayersPrintable) {
+        for player in players.playersInfo() {
+            print("\(player.playerName()) \(player.playerCards())")
+        }
+    }
+    
     static func printResult(of result: HandlingDeckResult) {
         switch result {
         case .reset(let count):
