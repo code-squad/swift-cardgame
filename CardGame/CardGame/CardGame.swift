@@ -21,8 +21,8 @@ struct CardGame {
         }
     }
     
-    private(set) var cardDeck: Deck
-    private(set) var result: GameResult
+    private var cardDeck: Deck
+    private var result: GameResult
     
     init(cardDeck: Deck) {
         self.cardDeck = cardDeck
