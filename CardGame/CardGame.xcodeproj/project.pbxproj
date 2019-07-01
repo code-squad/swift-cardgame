@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		147DEB6A22C49713001F0392 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB6922C49713001F0392 /* Card.swift */; };
 		147DEB6E22C4A0BC001F0392 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB6D22C4A0BC001F0392 /* CardDeck.swift */; };
+		147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB7022C4AE8F001F0392 /* InputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		147DEB6922C49713001F0392 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		147DEB6D22C4A0BC001F0392 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		147DEB7022C4AE8F001F0392 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		147DEB6F22C4AE70001F0392 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				147DEB7022C4AE8F001F0392 /* InputView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		839DA8D81F8CDBC9009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				147DEB6F22C4AE70001F0392 /* Views */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				147DEB6922C49713001F0392 /* Card.swift */,
 				147DEB6D22C4A0BC001F0392 /* CardDeck.swift */,
@@ -127,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147DEB6E22C4A0BC001F0392 /* CardDeck.swift in Sources */,
+				147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				147DEB6A22C49713001F0392 /* Card.swift in Sources */,
 			);
