@@ -9,6 +9,7 @@
 import Foundation
 
 protocol Dealerable {
+    func deal() -> Card?
     func handlingDeck(by menu: DeckMenu) -> HandlingDeckResult
 }
 
@@ -17,6 +18,13 @@ class Dealer<T: Deck>: Dealerable {
     
     init(deck: T) {
         self.deck = deck
+    }
+    
+    func deal() -> Card? {
+        if let card = deck.removeOne() as? Card {
+            return card
+        }
+        return nil
     }
     
     func handlingDeck(by menu: DeckMenu) -> HandlingDeckResult {
