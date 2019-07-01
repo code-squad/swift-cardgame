@@ -22,6 +22,7 @@
 		FAF2346122CA30A2009A5DFB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346022CA30A2009A5DFB /* Player.swift */; };
 		FAF2346322CA3341009A5DFB /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346222CA3341009A5DFB /* GameInfo.swift */; };
 		FAF2346522CA33D3009A5DFB /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346422CA33D3009A5DFB /* CardGame.swift */; };
+		FAF2346722CA343B009A5DFB /* PlayersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346622CA343B009A5DFB /* PlayersInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,7 @@
 		FAF2346022CA30A2009A5DFB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FAF2346222CA3341009A5DFB /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		FAF2346422CA33D3009A5DFB /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		FAF2346622CA343B009A5DFB /* PlayersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				FAF2346422CA33D3009A5DFB /* CardGame.swift */,
 				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
 				FAF2346022CA30A2009A5DFB /* Player.swift */,
+				FAF2346622CA343B009A5DFB /* PlayersInfo.swift */,
 				FA042CA622C5CF4F00A95C55 /* HandlingDeckResult.swift */,
 			);
 			path = CardGame;
@@ -175,6 +178,7 @@
 				FA042CA722C5CF4F00A95C55 /* HandlingDeckResult.swift in Sources */,
 				FAF2345F22CA2FC0009A5DFB /* GameInputView.swift in Sources */,
 				FA042C9F22C490C900A95C55 /* InputView.swift in Sources */,
+				FAF2346722CA343B009A5DFB /* PlayersInfo.swift in Sources */,
 				FAF2346122CA30A2009A5DFB /* Player.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				FAF2346322CA3341009A5DFB /* GameInfo.swift in Sources */,
