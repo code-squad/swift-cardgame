@@ -13,8 +13,8 @@ class MyDealer: MyPlayer, Dealer {
     
     private var deck: CardDeck = CardDeck()
     
-    override init(name: String = "\t딜러") {
-        super.init(name: name)
+    override init(name: String = "\t딜러", hand: CardHand = CardHand() ) {
+        super.init(name: name,hand: hand)
     }
     
     func draw() throws -> Card {
