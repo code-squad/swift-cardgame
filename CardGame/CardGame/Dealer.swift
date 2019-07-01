@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Dealerable {
-    func handlingDeck(by menu: DeckMenu) -> CardGameResult
+    func handlingDeck(by menu: DeckMenu) -> HandlingDeckResult
 }
 
 class Dealer<T: Deck>: Dealerable {
@@ -19,17 +19,17 @@ class Dealer<T: Deck>: Dealerable {
         self.deck = deck
     }
     
-    func handlingDeck(by menu: DeckMenu) -> CardGameResult {
+    func handlingDeck(by menu: DeckMenu) -> HandlingDeckResult {
         switch menu {
         case .reset:
             deck.reset()
-            return CardGameResult.reset(deck.count)
+            return HandlingDeckResult.reset(deck.count)
         case .shuffle:
             deck.shuffle()
-            return CardGameResult.shuffle(deck.count)
+            return HandlingDeckResult.shuffle(deck.count)
         case .draw:
             let card = deck.removeOne() as? Card
-            return CardGameResult.draw(card, deck.count)
+            return HandlingDeckResult.draw(card, deck.count)
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CardGameResult.swift
+//  HandlingDeckResult.swift
 //  CardGame
 //
 //  Created by CHOMINJI on 28/06/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CardGameResult {
+enum HandlingDeckResult {
     case reset(Int)
     case shuffle(Int)
     case draw(Card?, Int)
