@@ -25,7 +25,8 @@ func mainOfStep3() {
     guard let gameMode = GameMenu.init(rawValue: mode) else { return }
     guard let gameInfo = GameInfo(mode: gameMode, players: GameInputView.readPlayerCount()) else { return }
     
-    var game = CardGame(info: gameInfo)
+    let dealer = Dealer(deck: CardDeck())
+    var game = CardGame(info: gameInfo, dealer: dealer)
     game.run()
 }
 
