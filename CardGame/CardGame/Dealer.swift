@@ -10,6 +10,7 @@ import Foundation
 
 protocol Dealerable {
     func deal() -> Card?
+    func hasEnounghCards(for requirement: Int) -> Bool
     func handlingDeck(by menu: DeckMenu) -> HandlingDeckResult
 }
 
@@ -26,6 +27,10 @@ class Dealer<T: Deck>: Dealerable {
             return card
         }
         return nil
+    }
+    
+    func hasEnounghCards(for requirement: Int) -> Bool {
+        return deck.count - requirement > 0
     }
     
     func handlingDeck(by menu: DeckMenu) -> HandlingDeckResult {
