@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol GameElement where Self:Equatable, Self:CustomStringConvertible {
+protocol GameElement where Self: Comparable, Self: CustomStringConvertible {
 }
 
