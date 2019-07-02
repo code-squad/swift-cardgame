@@ -9,9 +9,12 @@
 import Foundation
 
 struct OutputView {
-    static func printInfo(of players: [Playerable]) {
-        let info = players.map { $0.playerInfoToPrint() }.joined(separator: "\n")
-        print(info)
+    
+    static func printResult(of game: OutputViewPrintable) {
+        game.printSettingResult { (isPlayer, order, cards) in
+            let name = isPlayer ? "참가자 #\(order)" : "딜러"
+            print("\(name) \(cards)")
+        }
     }
     
     static func printResult(of result: HandlingDeckResult) {
