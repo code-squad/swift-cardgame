@@ -20,7 +20,7 @@ struct OutputView {
             case is Dealer:
                 print("\(Dealer.typeDescription) \(player.cards)")
             default:
-                print("")
+                return
             }
         }
         print() //for new line
