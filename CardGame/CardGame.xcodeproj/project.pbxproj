@@ -44,10 +44,10 @@
 		FA042C9E22C490C900A95C55 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FA042CA222C4B3A400A95C55 /* DeckMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMenu.swift; sourceTree = "<group>"; };
 		FA042CA422C4C24800A95C55 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		FA042CA622C5CF4F00A95C55 /* HandlingDeckResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandlingDeckResult.swift; path = ../HandlingDeckResult.swift; sourceTree = "<group>"; };
-		FA042CA822C5E0A300A95C55 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dealer.swift; path = ../Dealer.swift; sourceTree = "<group>"; };
+		FA042CA622C5CF4F00A95C55 /* HandlingDeckResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingDeckResult.swift; sourceTree = "<group>"; };
+		FA042CA822C5E0A300A95C55 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		FA042CAA22C5E90000A95C55 /* DeckMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMaker.swift; sourceTree = "<group>"; };
-		FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameMenu.swift; path = ../GameMenu.swift; sourceTree = "<group>"; };
+		FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
 		FAF2345C22CA2F5B009A5DFB /* GuideSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSentence.swift; sourceTree = "<group>"; };
 		FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		FAF2346022CA30A2009A5DFB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
