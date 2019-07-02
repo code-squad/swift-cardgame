@@ -9,7 +9,7 @@
 import Foundation
 
 struct GameValidator {
-    static func canPlayMore(gameMode: GameMode, numberOfParticipants: NumberOfParticipants, remainingCardsCount: Int) -> Bool {
+    static func hasEnoughCards(for gameMode: GameMode, numberOfParticipants: NumberOfParticipants, remainingCardsCount: Int) -> Bool {
         let numberOfCardsInNeed = gameMode.numberOfCards * (numberOfParticipants.count + 1)
         return numberOfCardsInNeed <= remainingCardsCount
     }
