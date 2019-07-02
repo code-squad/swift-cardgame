@@ -11,6 +11,6 @@ import Foundation
 enum GameResult {
     case reset(Int)
     case shuffle(Int)
-    case draw(Card, Int)
+    case draw(Card?, Int)
     case exit
 }

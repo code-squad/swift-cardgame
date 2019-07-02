@@ -17,7 +17,10 @@ struct OutputView {
         case .shuffle(let count):
             print("전체 \(count)장의 카드를 섞었습니다.")
         case .draw(let card, let count):
-            print(card)
+            if let card = card {
+                print(card)
+            }
+            
             print("총 \(count)장의 카드가 남아있습니다.")
         case .exit:
             print("프로그램 종료")

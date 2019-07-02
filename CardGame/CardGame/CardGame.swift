@@ -24,7 +24,7 @@ struct CardGame {
         case .draw:
             let drawCard = cardDeck.removeOne()
             
-            result = GameResult.draw(drawCard!, cardDeck.count())
+            result = GameResult.draw(drawCard, cardDeck.count())
         case .exit:
             result = GameResult.exit
         }
