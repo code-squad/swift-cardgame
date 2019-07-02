@@ -9,11 +9,8 @@
 import Foundation
 
 struct GameValidator {
-    static let validRangeOfPartipants = 1...4
-    
-    static func canPlayMore(numberOfCards: Int, numberOfParticipants: Int, remainingCardsCount: Int) -> Bool {
-        let numberOfCardsInNeed = numberOfCards * (numberOfParticipants + 1)
-        return validRangeOfPartipants.contains(numberOfParticipants)
-            && numberOfCardsInNeed <= remainingCardsCount
+    static func canPlayMore(gameMode: GameMode, numberOfParticipants: NumberOfParticipants, remainingCardsCount: Int) -> Bool {
+        let numberOfCardsInNeed = gameMode.numberOfCards * (numberOfParticipants.count + 1)
+        return numberOfCardsInNeed <= remainingCardsCount
     }
 }
