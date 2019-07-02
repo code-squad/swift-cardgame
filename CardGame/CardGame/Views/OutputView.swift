@@ -9,14 +9,9 @@
 import Foundation
 
 struct OutputView {
-    static func printCards(of players: PlayersPrintable) {
-        for player in players.playersInfo() {
-            if let player = player as? Player {
-                print("\(player.playerName()) #\(player.playerOrder()) \(player.playerCards()) ")
-            } else {
-                print("\(player.playerName()) \(player.playerCards())")
-            }
-        }
+    static func printCards(of players: [Playerable]) {
+        let output = players.map { $0.playerInfoToPrint() }.joined(separator: "\n")
+        print(output)
     }
     
     static func printResult(of result: HandlingDeckResult) {
