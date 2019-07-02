@@ -35,7 +35,16 @@ struct CardGame: OutputViewPrintable {
         }
         setPlayer()
         setCards()
-        OutputView.printInfo(of: players)
+    }
+    
+    func printSettingResult(_ result: (Bool, String, String) -> Void) {
+        for player in players {
+            let participant = player as? Player
+            let isPlayer = participant != nil
+            let order = isPlayer ? participant!.showOrder() : ""
+            let cards = player.showCards()
+            result(isPlayer, order, cards)
+        }
     }
 }
 
