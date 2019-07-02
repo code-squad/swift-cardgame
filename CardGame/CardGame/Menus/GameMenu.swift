@@ -8,10 +8,8 @@
 
 import Foundation
 
-
-enum GameMenu: Int, CustomStringConvertible, CaseIterable {
-    case seven = 1
-    case five
+enum GameMode: Int, CustomStringConvertible, CaseIterable  {
+    case seven = 1, five
     
     var description: String {
         switch self {
@@ -30,3 +28,10 @@ enum GameMenu: Int, CustomStringConvertible, CaseIterable {
     }
 }
 
+enum Participant: Int, CaseIterable {
+    case one = 1, two, three, four
+    
+    var count: Int {
+        return rawValue
+    }
+}
