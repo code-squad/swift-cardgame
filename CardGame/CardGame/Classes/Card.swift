@@ -25,7 +25,7 @@ class Card: CustomStringConvertible, Equatable, GameElement {
         self.rank = rank
     }
     
-    enum Suit: Character, CustomStringConvertible, CaseIterable {
+    enum Suit: Character, CustomStringConvertible, CaseIterable, Comparable {
         case spades = "♠️"
         case hearts = "♥️"
         case diamonds = "♦️"
@@ -34,6 +34,12 @@ class Card: CustomStringConvertible, Equatable, GameElement {
         var description: String {
             return "\(rawValue)"
         }
+        
+        static func < (lhs: Card.Suit, rhs: Card.Suit) -> Bool {
+            return lhs.rawValue > rhs.rawValue
+        }
+        
+        
         
     }
     
@@ -75,7 +81,7 @@ class Card: CustomStringConvertible, Equatable, GameElement {
     }
     
     static func < (lhs: Card, rhs: Card) -> Bool {
-        return true
+        return false
     }
     
 }
