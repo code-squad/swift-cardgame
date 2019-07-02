@@ -10,11 +10,13 @@ import Foundation
 
 struct CardGame {
     let info: GameInfoable
-    var players: [Playerable] = []
-    let dealer: Dealerable & Playerable = Dealer(deck: CardDeck())
+    var players: [Playerable]
+    let dealer: Dealerable & Playerable
     
-    init(info: GameInfoable) {
+    init(info: GameInfoable, dealer: Dealerable & Playerable, players: [Playerable] = []) {
         self.info = info
+        self.players = players
+        self.dealer = dealer
     }
     
     private mutating func setPlayer() {
@@ -25,9 +27,8 @@ struct CardGame {
         players.append(dealer)
     }
     
-    private func setHand() {
+    private func setCards() {
         let numOfCards = info.gameMode().numOfCards
-        
         for _ in 1...numOfCards {
             for player in players {
                 guard let card = dealer.deal() else { return }
@@ -38,8 +39,9 @@ struct CardGame {
     
     mutating func run() {
         setPlayer()
-        setHand()
-        let playerInfo = PlayersInfo(players: players)
-        OutputView.printCards(of: playerInfo)
+        setCards()
+        OutputView.printCards(of: players)
+    }
+}
     }
 }
