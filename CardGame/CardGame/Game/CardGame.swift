@@ -19,14 +19,25 @@ struct CardGame {
         self.dealer = dealer
     }
     
-    
     private func canContinueGame() -> Bool {
         let numOfCards = info.gameMode().numOfCards
         let requirement = numOfCards * info.playerCount()
         return dealer.hasEnounghCards(for: requirement)
     }
     
-    
+    mutating func run() {
+        guard canContinueGame() else {
+            return
+        }
+        setPlayer()
+        setCards()
+        OutputView.printCards(of: players)
+    }
+}
+
+// MARK: Setting Games
+
+extension CardGame {
     private mutating func setPlayer() {
         let numOfPlayers = info.playerCount()
         for order in 1...numOfPlayers {
@@ -43,14 +54,5 @@ struct CardGame {
                 player.take(card: card)
             }
         }
-    }
-    
-    mutating func run() {
-        guard canContinueGame() else {
-            return
-        }
-        setPlayer()
-        setCards()
-        OutputView.printCards(of: players)
     }
 }
