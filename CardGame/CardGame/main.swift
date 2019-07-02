@@ -31,6 +31,8 @@ func mainOfStep3() {
     var game = CardGame(info: gameInfo, dealer: dealer)
     
     game.run()
+    
+    OutputView.printResult(of: game)
 }
 
 mainOfStep3()
