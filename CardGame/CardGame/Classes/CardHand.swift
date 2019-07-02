@@ -9,7 +9,6 @@
 import Foundation
 
 class CardHand: Hand {
-    
     typealias Element = Card
     
     private var cards: [Card] = []
@@ -31,3 +30,15 @@ class CardHand: Hand {
     }
     
 }
+// - MARK: - Compared
+extension CardHand {
+    static func == (lhs: CardHand, rhs: CardHand) -> Bool {
+        return true
+    }
+    
+    static func < (lhs: CardHand, rhs: CardHand) -> Bool {
+        return true
+    }
+    
+}
+
