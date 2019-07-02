@@ -60,6 +60,10 @@
 		0E8517ED22C77EBD0073CE79 /* MyPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8517EC22C77EBD0073CE79 /* MyPlayerTests.swift */; };
 		0E8517EF22C77FD70073CE79 /* CardHandtests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8517EE22C77FD70073CE79 /* CardHandtests.swift */; };
 		0EB142D622CB5201000CD51D /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142D522CB5201000CD51D /* CardTests.swift */; };
+		0EB142D822CBF2DF000CD51D /* Pairable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142D722CBF2DF000CD51D /* Pairable.swift */; };
+		0EB142D922CBF378000CD51D /* Pairable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142D722CBF2DF000CD51D /* Pairable.swift */; };
+		0EB142DB22CBF6A4000CD51D /* Linkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142DA22CBF6A4000CD51D /* Linkable.swift */; };
+		0EB142DC22CBF6EF000CD51D /* Linkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142DA22CBF6A4000CD51D /* Linkable.swift */; };
 		0EE2BF7922C6241100DEB2F5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2BF7822C6241100DEB2F5 /* Player.swift */; };
 		0EE2BF7B22C6243700DEB2F5 /* MyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2BF7A22C6243700DEB2F5 /* MyPlayer.swift */; };
 		0EE2BF7D22C6244800DEB2F5 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2BF7C22C6244800DEB2F5 /* Dealer.swift */; };
@@ -115,6 +119,8 @@
 		0E8517EC22C77EBD0073CE79 /* MyPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlayerTests.swift; sourceTree = "<group>"; };
 		0E8517EE22C77FD70073CE79 /* CardHandtests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHandtests.swift; sourceTree = "<group>"; };
 		0EB142D522CB5201000CD51D /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
+		0EB142D722CBF2DF000CD51D /* Pairable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pairable.swift; sourceTree = "<group>"; };
+		0EB142DA22CBF6A4000CD51D /* Linkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Linkable.swift; sourceTree = "<group>"; };
 		0EE2BF7822C6241100DEB2F5 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0EE2BF7A22C6243700DEB2F5 /* MyPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPlayer.swift; path = CardGame/Classes/MyPlayer.swift; sourceTree = SOURCE_ROOT; };
 		0EE2BF7C22C6244800DEB2F5 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 				0EE2BF7E22C625F300DEB2F5 /* Hand.swift */,
 				0EE2BF8022C6279900DEB2F5 /* GameElement.swift */,
 				0E71DDB922CA03DA0062A42C /* Printable.swift */,
+				0EB142D722CBF2DF000CD51D /* Pairable.swift */,
+				0EB142DA22CBF6A4000CD51D /* Linkable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -379,6 +387,7 @@
 				0EE2BF8222C6284300DEB2F5 /* GameElement.swift in Sources */,
 				0E0FF40A22C6CC64000D6E4A /* MyPlayer.swift in Sources */,
 				0E5940C822C3534700B54014 /* Command.swift in Sources */,
+				0EB142D922CBF378000CD51D /* Pairable.swift in Sources */,
 				0E0FF40C22C6CC75000D6E4A /* CardHand.swift in Sources */,
 				0E8517DB22C6F68C0073CE79 /* MyDealerTests.swift in Sources */,
 				0E5940CE22C353FA00B54014 /* InputException.swift in Sources */,
@@ -387,6 +396,7 @@
 				0EB142D622CB5201000CD51D /* CardTests.swift in Sources */,
 				0E0FF40B22C6CC6F000D6E4A /* GameInputView.swift in Sources */,
 				0E8517EB22C748A90073CE79 /* etc.swift in Sources */,
+				0EB142DC22CBF6EF000CD51D /* Linkable.swift in Sources */,
 				0E5940BA22C336D700B54014 /* CardDeckTests.swift in Sources */,
 				0E5940BD22C3372900B54014 /* InputView.swift in Sources */,
 				0E0FF40922C6CC37000D6E4A /* MyDealer.swift in Sources */,
@@ -430,6 +440,7 @@
 				0E5940B522C3343C00B54014 /* CardDeck.swift in Sources */,
 				0E5940EE22C36FAD00B54014 /* CommandFactory.swift in Sources */,
 				0E1D120322C48DF200878644 /* CardFactory.swift in Sources */,
+				0EB142DB22CBF6A4000CD51D /* Linkable.swift in Sources */,
 				0EF086AD22C2223F00FC080E /* Card.swift in Sources */,
 				0EE2BF7F22C625F300DEB2F5 /* Hand.swift in Sources */,
 				0E71DDBA22CA03DA0062A42C /* Printable.swift in Sources */,
@@ -441,6 +452,7 @@
 				0EE2BF7922C6241100DEB2F5 /* Player.swift in Sources */,
 				0E1D120522C48E0600878644 /* Factory.swift in Sources */,
 				0E0FF40522C6CAAC000D6E4A /* GameException.swift in Sources */,
+				0EB142D822CBF2DF000CD51D /* Pairable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
