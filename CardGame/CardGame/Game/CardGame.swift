@@ -30,9 +30,7 @@ struct CardGame: OutputViewPrintable {
     }
     
     mutating func run() {
-        guard canContinueGame() else {
-            return
-        }
+        guard canContinueGame() else { return }
         setPlayer()
         setCards()
     }
