@@ -9,15 +9,10 @@
 import Foundation
 
 class Participant: Player {
-    let number: Int
+    static var typeDescription = "참가자"
+    var cards: [Card]
     
-    init(number: Int) {
-        self.number = number
-        super.init()
+    init() {
+        self.cards = [Card]()
     }
-    
-    override var description: String {
-        return "참가자#\(self.number) \(super.description)"
-    }
-    
 }
