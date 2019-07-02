@@ -21,7 +21,7 @@ struct CardGame {
     
     private func canContinueGame() -> Bool {
         let numOfCards = info.gameMode().numOfCards
-        let requirement = numOfCards * info.playerCount()
+        let requirement = numOfCards * info.participants().count
         return dealer.hasEnounghCards(for: requirement)
     }
     
@@ -39,7 +39,7 @@ struct CardGame {
 
 extension CardGame {
     private mutating func setPlayer() {
-        let numOfPlayers = info.playerCount()
+        let numOfPlayers = info.participants().count
         for order in 1...numOfPlayers {
             players.append(Player(order: order))
         }

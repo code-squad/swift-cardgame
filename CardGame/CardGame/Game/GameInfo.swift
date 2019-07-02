@@ -9,29 +9,26 @@
 import Foundation
 
 protocol GameInfoable {
-    func gameMode() -> GameMenu
-    func playerCount() -> Int
+    func gameMode() -> GameMode
+    func participants() -> Participant
 }
 
 struct GameInfo {
-    private var mode: GameMenu
-    private var numOfPlayers: Int
+    private var mode: GameMode
+    private var numOfPlayers: Participant
     
-    init?(mode: GameMenu, players: Int) {
-        guard 1...4 ~= players else {
-            return nil
-        }
+    init(mode: GameMode, players: Participant) {
         self.mode = mode
         self.numOfPlayers = players
     }
 }
 
 extension GameInfo: GameInfoable {
-    func gameMode() -> GameMenu {
+    func gameMode() -> GameMode {
         return mode
     }
     
-    func playerCount() -> Int {
+    func participants() -> Participant {
         return numOfPlayers
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 struct GameInputView {
     static func readGameMode() -> Int {
         print(GuideSentence.typeOfGame)
-        for category in GameMenu.allCases {
+        for category in GameMode.allCases {
             print(category)
         }
         let input = InputView.readInput()
