@@ -17,7 +17,6 @@ protocol Playerable: PlayerPrintable {
 }
 
 class Player {
-    private var name: String = "참가자"
     private var order: Int
     private var cards: [Card]
     
@@ -36,11 +35,8 @@ extension Player: Playerable {
         cards.append(card)
     }
     
-    func playerName() -> String {
-        return name
-    }
-    
-    func playerCards() -> [Card] {
-        return cards
+    func playerInfoToPrint() -> String {
+        let info = "참가자 #\(order) \(cards)"
+        return info
     }
 }

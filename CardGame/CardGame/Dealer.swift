@@ -14,7 +14,6 @@ protocol Dealerable {
 }
 
 class Dealer<T: Deck>: Dealerable {
-    private let name: String = "딜러"
     private var cards: [Card] = []
     private var deck: T
     
@@ -49,11 +48,8 @@ extension Dealer: Playerable {
         cards.append(card)
     }
     
-    func playerName() -> String {
-        return name
-    }
-    
-    func playerCards() -> [Card] {
-        return cards
+    func playerInfoToPrint() -> String {
+        let info = "딜러 \(cards)"
+        return info
     }
 }
