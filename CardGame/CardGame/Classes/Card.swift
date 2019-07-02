@@ -9,7 +9,7 @@
 import Foundation
 
 class Card: CustomStringConvertible, Equatable, GameElement {
-   private let suit: Suit
+    private let suit: Suit
     private let rank: Rank
     
     init(suit: Suit, rank: Rank) {
@@ -38,8 +38,6 @@ class Card: CustomStringConvertible, Equatable, GameElement {
         static func < (lhs: Card.Suit, rhs: Card.Suit) -> Bool {
             return lhs.rawValue > rhs.rawValue
         }
-        
-        
         
     }
     
@@ -83,6 +81,13 @@ class Card: CustomStringConvertible, Equatable, GameElement {
     static func < (lhs: Card, rhs: Card) -> Bool {
         if lhs.rank > rhs.rank { return true }
         return lhs.suit > rhs.suit ? true : false
+    }
+    
+}
+extension Card: Pairable {
+    
+    func isPair(with other: Card) -> Bool {
+        return self.rank == other.rank
     }
     
 }
