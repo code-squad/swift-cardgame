@@ -13,19 +13,20 @@ func main() {
 
     gameLoop: while true {
         GameInputView.askForMenuSelection()
-        guard let menu = GameInputView.readMenuSelection() else {
+        guard let gameMode = GameInputView.readMenuSelection() else {
             break gameLoop
         }
         GameInputView.askForNumberOfParticipants()
-        guard let numberOfPaticipants = GameInputView.readNumberOfParticipants() else {
+        guard let numberOfParticipants = GameInputView.readNumberOfParticipants() else {
             break gameLoop
         }
-        guard GameValidator.canPlayMore(numberOfCards: menu.numberOfCards, numberOfParticipants: numberOfPaticipants, remainingCardsCount: cardDeck.count()) else {
+        guard cardDeck.hasEnoughCards(for: gameMode.numberOfCards, numberOfParticipants: numberOfParticipants.count) else {
             break gameLoop
         }
-        let players: [Player] = PlayerFactory.makeAllPlayers(including: numberOfPaticipants)
+        let players: [Player] = PlayerFactory.makeAllPlayers(including: numberOfParticipants.count)
         for player in players {
-            let removedCards = cardDeck.remove(numberOfCards: menu.numberOfCards)
+            var player = player
+            let removedCards = cardDeck.remove(numberOfCards: gameMode.numberOfCards)
             player.take(newCards: removedCards)
         }
         OutputView.printDealtCards(of: players)
