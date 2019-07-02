@@ -45,4 +45,9 @@ struct CardDeck {
         }
         return removedCards
     }
+    
+    func hasEnoughCards(for numberOfCardsPerPlayer: Int, numberOfParticipants: Int) -> Bool {
+        let cardsInNeed = numberOfCardsPerPlayer * (numberOfParticipants + 1)
+        return cards.count >= cardsInNeed
+    }
 }
