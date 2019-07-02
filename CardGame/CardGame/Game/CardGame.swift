@@ -31,7 +31,7 @@ struct CardGame {
         }
         setPlayer()
         setCards()
-        OutputView.printCards(of: players)
+        OutputView.printInfo(of: players)
     }
 }
 
