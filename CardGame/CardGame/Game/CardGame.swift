@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct CardGame {
+protocol OutputViewPrintable {
+    func printSettingResult(_ result: (Bool, String, String) -> Void)
+}
+
+struct CardGame: OutputViewPrintable {
     private let info: GameInfoable
     private var players: [Playerable]
     private let dealer: Dealerable & Playerable
