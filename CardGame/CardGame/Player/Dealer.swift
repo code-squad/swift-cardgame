@@ -9,7 +9,10 @@
 import Foundation
 
 class Dealer: Player {
-    override var description: String {
-        return "딜러 \(super.description)"
+    static var typeDescription = "딜러"
+    var cards: [Card]
+    
+    init() {
+        self.cards = [Card]()
     }
 }
