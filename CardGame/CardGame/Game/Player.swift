@@ -8,10 +8,12 @@
 
 import Foundation
 
-protocol Playerable {
+protocol PlayerPrintable {
+    func playerInfoToPrint() -> String
+}
+
+protocol Playerable: PlayerPrintable {
     func take(card: Card)
-    func playerName() -> String
-    func playerCards() -> [Card]
 }
 
 class Player {
