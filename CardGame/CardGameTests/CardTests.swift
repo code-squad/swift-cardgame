@@ -54,6 +54,34 @@ class CardTests: XCTestCase {
         //Then
         XCTAssertFalse(sameRankCard.isPair(with: sameRankCard2))
     }
+    
+    func testLinkableTrueWithHigherOne() {
+        //When
+        let card = Card.init(suit: .spades, rank: .ace)
+        let higherOne = Card.init(suit: .clubs, rank: .two)
+        
+        //Then
+        XCTAssertTrue(card.isLink(with: higherOne))
+    }
+    
+    func testLinkableTrueWithLowerOne() {
+        //When
+        let card = Card.init(suit: .spades, rank: .ace)
+        let lowerOne = Card.init(suit: .clubs, rank: .king)
+        
+        //Then
+        XCTAssertTrue(card.isLink(with: lowerOne))
+    }
+    
+    func testLinkableFalse() {
+        //When
+        let sameRankCard = Card.init(suit: .spades, rank: .ace)
+        let sameRankCard2 = Card.init(suit: .clubs, rank: .ace)
+        
+        //Then
+        XCTAssertFalse(sameRankCard.isLink(with: sameRankCard2))
+    }
+    
 
 
 }
