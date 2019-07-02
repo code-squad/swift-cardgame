@@ -82,11 +82,11 @@
 			children = (
 				147DEB6F22C4AE70001F0392 /* Views */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				1481D26122C9FC15006CF27E /* CardGame.swift */,
 				147DEB6922C49713001F0392 /* Card.swift */,
 				147DEB6D22C4A0BC001F0392 /* CardDeck.swift */,
 				1481D25D22C9E43F006CF27E /* Menu.swift */,
 				1481D25F22C9FBA1006CF27E /* GameResult.swift */,
-				1481D26122C9FC15006CF27E /* CardGame.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
