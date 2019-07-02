@@ -9,12 +9,12 @@
 import Foundation
 
 // 메뉴 선택 숫자 -> 케이스로 변환
-enum Menu: Int {
+enum GameMode: Int {
     case sevenCardStud = 1, fiveCardStud
     
     init?(selection: String) {
         let convertedSelection = Int(selection) ?? 0
-        guard let menu = Menu(rawValue: convertedSelection) else {
+        guard let menu = GameMode(rawValue: convertedSelection) else {
             return nil
         }
         self = menu
