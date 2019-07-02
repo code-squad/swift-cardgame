@@ -81,7 +81,8 @@ class Card: CustomStringConvertible, Equatable, GameElement {
     }
     
     static func < (lhs: Card, rhs: Card) -> Bool {
-        return false
+        if lhs.rank > rhs.rank { return true }
+        return lhs.suit > rhs.suit ? true : false
     }
     
 }
