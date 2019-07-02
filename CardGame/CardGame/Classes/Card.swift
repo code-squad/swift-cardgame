@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Card: CustomStringConvertible,Equatable, GameElement {
-    private let suit: Suit
+class Card: CustomStringConvertible, Equatable, GameElement {
+   private let suit: Suit
     private let rank: Rank
     
     init(suit: Suit, rank: Rank) {
@@ -37,10 +37,11 @@ class Card: CustomStringConvertible,Equatable, GameElement {
         
     }
     
-    enum Rank: Int, CustomStringConvertible, CaseIterable {
-        case ace = 1
-        case two,three,four,five,six,seven,eight,nine,ten
+    enum Rank: Int, CustomStringConvertible, CaseIterable, Comparable {
+        
+        case two = 2,three,four,five,six,seven,eight,nine,ten
         case jack,queen,king
+        case ace
         
         var description: String {
             switch self {
@@ -56,6 +57,11 @@ class Card: CustomStringConvertible,Equatable, GameElement {
                 return "K"
             }
         }
+        
+        static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
+            return lhs.rawValue > rhs.rawValue
+        }
+        
     }
     
     var description: String {
@@ -67,6 +73,11 @@ class Card: CustomStringConvertible,Equatable, GameElement {
         let sameRank = lhs.rank == rhs.rank
         return sameSuit && sameRank
     }
+    
+    static func < (lhs: Card, rhs: Card) -> Bool {
+        return true
+    }
+    
 }
 /*==============================================================================
  

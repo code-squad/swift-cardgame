@@ -13,7 +13,7 @@ do {
     let entry = try GameInputView.getEntry()
     let setting = Setting.init(mode: mode, entry: entry)
     let game = try Game.init(setting: setting)
-    
+
     repeat {
        try game.start()
     } while game.isContinue
