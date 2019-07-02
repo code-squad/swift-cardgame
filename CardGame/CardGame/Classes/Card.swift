@@ -84,10 +84,20 @@ class Card: CustomStringConvertible, Equatable, GameElement {
     }
     
 }
+// - MARK: - Pairable
 extension Card: Pairable {
     
     func isPair(with other: Card) -> Bool {
         return self.rank == other.rank
+    }
+    
+}
+// - MARK: - Linkable
+extension Card: Linkable {
+    
+    func isLink(with other: Card) -> Bool {
+        let diff = abs(self.rank.rawValue - other.rank.rawValue) % 11
+        return  diff == 1
     }
     
 }
