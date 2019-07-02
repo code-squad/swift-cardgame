@@ -33,11 +33,11 @@ class CardHand: Hand {
 // - MARK: - Compared
 extension CardHand {
     static func == (lhs: CardHand, rhs: CardHand) -> Bool {
-        return true
+        return false
     }
     
     static func < (lhs: CardHand, rhs: CardHand) -> Bool {
-        return true
+        return false
     }
     
 }
