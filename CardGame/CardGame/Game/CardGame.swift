@@ -9,9 +9,9 @@
 import Foundation
 
 struct CardGame {
-    let info: GameInfoable
-    var players: [Playerable]
-    let dealer: Dealerable & Playerable
+    private let info: GameInfoable
+    private var players: [Playerable]
+    private let dealer: Dealerable & Playerable
     
     init(info: GameInfoable, dealer: Dealerable & Playerable, players: [Playerable] = []) {
         self.info = info
