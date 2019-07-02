@@ -72,7 +72,7 @@ class CardHandtests: XCTestCase {
         lower.append(Card(suit: .hearts, rank: .eight))
         
         //Then
-        XCTAssertTrue(higher>lower) // four-card(A) vs four-card(5)
+        XCTAssertTrue(higher > lower) // four-card(A) vs four-card(5)
         
     }
     

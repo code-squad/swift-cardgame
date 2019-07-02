@@ -36,5 +36,24 @@ class CardTests: XCTestCase {
         //Then
         XCTAssertTrue(higher==lower)
     }
+    
+    func testSameRankIsPair() {
+        //When
+        let sameRankCard = Card.init(suit: .spades, rank: .ace)
+        let sameRankCard2 = Card.init(suit: .clubs, rank: .ace)
+        
+        //Then
+        XCTAssertTrue(sameRankCard.isPair(with: sameRankCard2))
+    }
+    
+    func testDiffectRankIsPair() {
+        //When
+        let sameRankCard = Card.init(suit: .spades, rank: .ace)
+        let sameRankCard2 = Card.init(suit: .clubs, rank: .two)
+        
+        //Then
+        XCTAssertFalse(sameRankCard.isPair(with: sameRankCard2))
+    }
+
 
 }
