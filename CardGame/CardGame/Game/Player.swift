@@ -8,12 +8,9 @@
 
 import Foundation
 
-protocol PlayerPrintable {
-    func playerInfoToPrint() -> String
-}
-
-protocol Playerable: PlayerPrintable {
+protocol Playerable {
     func take(card: Card)
+    func showCards() -> String
 }
 
 class Player {
@@ -24,10 +21,6 @@ class Player {
         self.order = order
         self.cards = cards
     }
-    
-    func playerOrder() -> Int {
-        return order
-    }
 }
 
 extension Player: Playerable {
@@ -35,8 +28,11 @@ extension Player: Playerable {
         cards.append(card)
     }
     
-    func playerInfoToPrint() -> String {
-        let info = "참가자 #\(order) \(cards)"
-        return info
+    func showCards() -> String {
+        return "\(cards)"
+    }
+    
+    func showOrder() -> String {
+        return "\(order)"
     }
 }

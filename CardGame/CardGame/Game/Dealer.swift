@@ -49,12 +49,11 @@ class Dealer<T: Deck>: Dealerable {
 }
 
 extension Dealer: Playerable {
-    func take(card: Card) {
-        cards.append(card)
+    func showCards() -> String {
+        return "\(cards)"
     }
     
-    func playerInfoToPrint() -> String {
-        let info = "딜러 \(cards)"
-        return info
+    func take(card: Card) {
+        cards.append(card)
     }
 }
