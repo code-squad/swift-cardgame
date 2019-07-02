@@ -164,23 +164,39 @@ Factory pattern 사용 - `CardFactory` 구조체 : 생성 과정의 구체적인
 - case: sevenCardStud, FiveCardStud
 - 각 메뉴에 맞는 카드 개수를 반환할 `numberOfCards` property 
 
-### Player class
+### Player <s>class</s> Protocol
 
-- 플레이어 공통 함수, 속성 정의
-- protocol 로 구현하지 않은 이유 : 공통 구현사항이 많아 protocol default implementation에는 한계가 있었음
+- <s>플레이어 공통 함수, 속성 정의</s>
 
-### Player 상속받은 클래스 - Participant, Dealer
+- <s>protocol 로 구현하지 않은 이유 : 공통 구현사항이 많아 protocol default implementation에는 한계가 있었음</s>
+
+- 명시한 자격요건
+
+  ```swift
+  protocol Player {
+      static var typeDescription: String { get }
+      var cards: [Card] { get set }
+      mutating func take(newCards: [Card])
+  }
+  ```
+
+  
+
+### Player <s>상속받은</s> 채택한 클래스 - Participant, Dealer
 
 - class 로 구현한 이유 : reference 사용의 이점 때문에
   - struct 로 구현할 경우, 출력이나 for 문을 돌면서 임시변수에 들어갈 때, 값이 복사된다. 값이 복사되면서 각 struct instance 가 가진 card list 인스턴스에 대한 reference 도 일일히 복사되어야 한다. 반면에 class 의 경우, 각 플레이어의 레퍼런스만 넘기면 된다. 
-- `CustomStringConvertible` protocol 도 채택해서 다형성을 통해 출력할 수 있도록 한다
+- `typeDescription` 속성에 각각 "참가자", "딜러" 설정
 
-### GameValidator : 게임을 지속할 수 있는지 확인
+### 게임을 지속할 수 있는지 확인 - hasEnoughCards()
 
-게임 종료되어야 할 경우
+게임 종료되어야 할 경우 : 남은 카드가 부족한 경우
 
-1. 입력받은 참가자 명수가 1~4 이내가 아님
-2. card deck 에 남은 카드 < 필요한 카드 (카드 개수 * 전체 플레이어수)
+```
+card deck 에 남은 카드 < 필요한 카드 (카드 개수 * 전체 플레이어수)
+```
+
+`CardDeck` 에 `hasEnoughCards()` 가 체크하도록 함
 
 
 
@@ -190,6 +206,17 @@ Factory pattern 사용 - `CardFactory` 구조체 : 생성 과정의 구체적인
 
 
 
+### 참가자 수 추상화 - NumberOfParticipants
+
+1~4 이내 참가자 수 받을 수 있음 -> case 로 나타내어 범위 내로 처리할 수 있게끔 함
+
+
+
+### OutputView - 타입별 출력 문자열 만들기
+
+- `Participant` 이면 count 세서 숫자 넣기
+
 ### uml
 
 ![](https://github.com/daheenallwhite/daheenallwhite.github.io/blob/master/assets/post-image/swift-cardgame-diagram.png)
+
