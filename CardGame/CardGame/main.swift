@@ -11,9 +11,7 @@ import Foundation
 func main() {
     let deck = CardDeck()
     while let selectedNumber = InputView.menuNumber(), selectedNumber != 0 {
-        guard let  selectedMenu = DeckMenu.init(rawValue: selectedNumber) else {
-            return
-        }
+        guard let  selectedMenu = DeckMenu.init(rawValue: selectedNumber) else { return }
         let game = Dealer(deck: deck)
         let result = game.handlingDeck(by: selectedMenu)
         OutputView.printResult(of: result)

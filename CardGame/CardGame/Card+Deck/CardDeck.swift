@@ -40,9 +40,7 @@ class CardDeck: Deck {
     }
     
     func removeOne() -> Card? {
-        guard let lastCard = cards.popLast() else {
-            return nil
-        }
+        guard let lastCard = cards.popLast() else { return nil }
         return lastCard
     }
 }
