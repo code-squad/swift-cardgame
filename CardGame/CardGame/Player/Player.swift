@@ -8,19 +8,15 @@
 
 import Foundation
 
-class Player: CustomStringConvertible {
-    private var cards: [Card]
-    
-    init() {
-        self.cards = [Card]()
-    }
-    
-    func take(newCards: [Card]) {
+protocol Player {
+    static var typeDescription: String { get }
+    var cards: [Card] { get set }
+    mutating func take(newCards: [Card])
+}
+
+extension Player {
+    mutating func take(newCards: [Card]) {
         self.cards.append(contentsOf: newCards)
-    }
-    
-    var description: String {
-        return "\(self.cards)"
     }
 }
 
