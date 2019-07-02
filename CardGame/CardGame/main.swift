@@ -9,11 +9,21 @@
 import Foundation
 
 func main() {
-    let aceOfSpades = Card(suit: .spades, rank: .ace)
-    let queenOfHearts = Card(suit: .hearts, rank: .queen)
+    var game = CardGame()
+    var result: GameResult
+    var menu: Menu
     
-    print(aceOfSpades)
-    print(queenOfHearts)
+    gameLoop: while true {
+        menu = Menu(InputView.readSelection())
+        
+        result = game.run(menu: menu)
+        
+        OutputView.printResult(of: result)
+        
+        if menu == .exit {
+            break gameLoop
+        }
+    }
 }
 
 main()
