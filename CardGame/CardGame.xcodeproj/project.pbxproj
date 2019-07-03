@@ -20,6 +20,7 @@
 		C2E5FF7122C4B3D300ECC13F /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF7022C4B3D300ECC13F /* OutputView.swift */; };
 		C2E5FF7322C4B5CD00ECC13F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF7222C4B5CD00ECC13F /* GameMode.swift */; };
 		C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */; };
+		C2E8CA0722CCBB5400F47CB2 /* Hands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8CA0622CCBB5400F47CB2 /* Hands.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		C2E5FF7022C4B3D300ECC13F /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C2E5FF7222C4B5CD00ECC13F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
+		C2E8CA0622CCBB5400F47CB2 /* Hands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hands.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				C2E5FF7222C4B5CD00ECC13F /* GameMode.swift */,
 				C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */,
+				C2E8CA0622CCBB5400F47CB2 /* Hands.swift */,
 				C2D9115122C9EB3600B9FC4D /* View */,
 				C2D9115622C9F01500B9FC4D /* Player */,
 				C2D9115722C9F03900B9FC4D /* Card */,
@@ -182,6 +185,7 @@
 			files = (
 				C2E5FF7322C4B5CD00ECC13F /* GameMode.swift in Sources */,
 				C2E5FF7122C4B3D300ECC13F /* OutputView.swift in Sources */,
+				C2E8CA0722CCBB5400F47CB2 /* Hands.swift in Sources */,
 				C2D9115522C9ED1200B9FC4D /* Dealer.swift in Sources */,
 				C2E5FF6B22C4978900ECC13F /* CardDeck.swift in Sources */,
 				C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */,
