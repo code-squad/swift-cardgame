@@ -89,7 +89,7 @@ class CardHandtests: XCTestCase {
         lower.append(Card(suit: .diamonds, rank: .five))
         
         //Then
-        XCTAssertTrue(higher>lower) // one-pair(A) vs one-pair(5)
+        XCTAssertTrue(higher > lower) // one-pair(A) vs one-pair(5)
     }
     
     func testCompareCaseWithEachOther() {
@@ -107,7 +107,7 @@ class CardHandtests: XCTestCase {
         lower.append(Card(suit: .diamonds, rank: .five))
         
         //Then
-        XCTAssertTrue(higher>lower) // triple(2) vs one-pair(5)
+        XCTAssertTrue(higher > lower) // triple(2) vs one-pair(5)
         
     }
     
@@ -129,7 +129,7 @@ class CardHandtests: XCTestCase {
         lower.append(Card(suit: .hearts, rank: .king))
         
         //Then
-        XCTAssertTrue(higher>lower) // twopair - A vs twopair - K
+        XCTAssertTrue(higher > lower) // twopair - A vs twopair - K
         
     }
     

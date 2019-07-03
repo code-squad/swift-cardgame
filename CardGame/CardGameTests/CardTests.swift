@@ -21,8 +21,8 @@ class CardTests: XCTestCase {
     
     func testCardCompareSameRank() {
         //Given
-        let higher = Card.init(suit: .diamonds, rank: .ace)
-        let lower = Card.init(suit: .spades, rank: .ace)
+        let higher = Card.init(suit: .spades, rank: .ace)
+        let lower = Card.init(suit: .diamonds, rank: .ace)
         
         //Then
         XCTAssertTrue(higher>lower)

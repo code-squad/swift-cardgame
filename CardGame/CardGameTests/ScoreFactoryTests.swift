@@ -43,7 +43,7 @@ class ScoreFactoryTests: XCTestCase {
         let score = ScoreFactory.create(cards)!
         
         //Then
-        XCTAssertEqual(score, Score.onePair(top: dA))
+        XCTAssertEqual(score, Score.onePair(top: s2))
     }
     
     func testCreateTwoPair () {
