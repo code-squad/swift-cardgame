@@ -31,7 +31,6 @@ struct Game {
         playerReset()
         try drawAll()
         self.players.forEach { OutputView.output(printable: $0) }
-       
     }
     
     private static func participate(entry: Int) throws -> [MyPlayer] {
