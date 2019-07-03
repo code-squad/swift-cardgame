@@ -8,5 +8,6 @@
 
 import Foundation
 
-
-print("initial Test")
+let firstCard = Card.init(.heart, .queen)
+let secondCard = Card.init(.diamond, .nine)
+print(firstCard,secondCard)
