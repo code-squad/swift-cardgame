@@ -8,13 +8,30 @@
 
 import Foundation
 
-enum Score: Comparable {
+enum Score: Comparable, CustomStringConvertible {
     case highCard(top: Card)
     case onePair(top: Card)
     case twoPair(top: Card)
     case trips(top: Card)
     case straight(top: Card)
     case fourCard(top: Card)
+    
+    var description: String {
+        switch self {
+        case .highCard(let card):
+            return "\(card) - 하이카드"
+        case .onePair(let card):
+            return "\(card) - 원페어"
+        case .twoPair(let card):
+            return "\(card) - 투페어"
+        case .trips(let card):
+            return "\(card) - 트리플"
+        case .straight(let card):
+            return "\(card) - 스트레이트"
+        case .fourCard(let card):
+            return "\(card) - 포카드"
+        }
+    }
     
     var ranking: Int {
         switch self {
@@ -32,6 +49,7 @@ enum Score: Comparable {
             return 5
         }
     }
+    
     var top: Card {
         switch self {
         case .highCard(let card):
@@ -56,9 +74,10 @@ enum Score: Comparable {
     }
     
     static func < (lhs: Score, rhs: Score) -> Bool {
-        let higherRank = lhs.ranking > rhs.ranking
-        let higherTopCard = lhs.ranking == rhs.ranking && lhs.top > rhs.top
+        let higherRank = lhs.ranking < rhs.ranking
+        let higherTopCard = lhs.ranking == rhs.ranking && lhs.top < rhs.top
         return higherRank || higherTopCard
     }
     
 }
+
