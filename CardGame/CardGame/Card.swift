@@ -9,8 +9,16 @@
 import Foundation
 
 class Card: CustomStringConvertible {
+    private let suit: Suits, rank: Ranks
     
-    var description: String = ""
+    init(_ suit: Suits, _ rank: Ranks) {
+        self.suit = suit
+        self.rank = rank
+    }
+    
+    var description: String {
+        return "\(suit)\(rank)"
+    }
 }
 
 extension Card {
