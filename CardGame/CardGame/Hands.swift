@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+enum Hands: Int {
+    case highCard = 0
+    case onePair
+    case twoPair
+    case threeOfKind
+    case straight
+    case fourOfKind
+}
