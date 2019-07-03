@@ -8,11 +8,15 @@
 
 import Foundation
 
-enum Hands: Int {
+enum Hands: Int, Comparable {
     case highCard = 0
     case onePair
     case twoPair
     case threeOfKind
     case straight
     case fourOfKind
+    
+    static func < (lhs: Hands, rhs: Hands) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
 }
