@@ -32,4 +32,12 @@ class MyPlayer: Player {
         self.hand.clear()
     }
     
+    static func == (lhs: MyPlayer, rhs: MyPlayer) -> Bool {
+        return lhs.hand == rhs.hand
+    }
+    
+    static func < (lhs: MyPlayer, rhs: MyPlayer) -> Bool {
+        return lhs.hand < rhs.hand
+    }
+    
 }
