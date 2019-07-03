@@ -10,6 +10,7 @@ import Foundation
 
 protocol Hand: Comparable {
     associatedtype Element: GameElement
+    
     mutating func append(_ gameElement: Element)
     func showAll() -> [Element]
     func count() -> Int

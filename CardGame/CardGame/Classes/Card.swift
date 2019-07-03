@@ -25,18 +25,33 @@ class Card: CustomStringConvertible, Equatable, GameElement {
         self.rank = rank
     }
     
+    
     enum Suit: Character, CustomStringConvertible, CaseIterable, Comparable {
         case spades = "♠️"
         case hearts = "♥️"
         case diamonds = "♦️"
         case clubs = "♣️"
         
+        var ranking: Int {
+            // ♣️ < ♦️ < ♥️ < ♠️
+            switch self {
+            case .spades:
+                return 1
+            case .hearts:
+                return 2
+            case .diamonds:
+                return 3
+            case .clubs:
+                return 4
+            }
+        }
+        
         var description: String {
             return "\(rawValue)"
         }
         
         static func < (lhs: Card.Suit, rhs: Card.Suit) -> Bool {
-            return lhs.rawValue < rhs.rawValue
+            return lhs.ranking > rhs.ranking
         }
         
     }
@@ -61,12 +76,12 @@ class Card: CustomStringConvertible, Equatable, GameElement {
             }
         }
         
-        var ranking: Int {
+        var score: Int {
             return (self.rawValue+11)%13
         }
         
         static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
-            return lhs.ranking < rhs.ranking
+            return lhs.score < rhs.score
         }
         
     }
@@ -100,7 +115,7 @@ extension Card: Pairable {
 extension Card: Linkable {
     
     func isLink(with other: Card) -> Bool {
-        let diff = abs(self.rank.ranking - other.rank.ranking) % 11
+        let diff = abs(self.rank.rawValue - other.rank.rawValue) % 11
         return  diff == 1
     }
     
