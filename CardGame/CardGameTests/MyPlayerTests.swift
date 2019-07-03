@@ -42,4 +42,48 @@ class MyPlayerTests: XCTestCase {
         XCTAssertEqual(result, expected)
     }
     
+    func testComparableSameRank() {
+        // Given
+        let higher = CardHand()
+        let lower = CardHand()
+        
+        let winner = MyPlayer(name: "승자", hand: higher)
+        let loser = MyPlayer(name: "패자", hand: lower)
+        
+        //When
+        higher.append(Card(suit: .clubs, rank: .ace))
+        higher.append(Card(suit: .diamonds, rank: .ace))
+        higher.append(Card(suit: .spades, rank: .eight))
+        higher.append(Card(suit: .hearts, rank: .eight))
+        
+        lower.append(Card(suit: .clubs, rank: .five))
+        lower.append(Card(suit: .diamonds, rank: .five))
+        lower.append(Card(suit: .spades, rank: .king))
+        lower.append(Card(suit: .hearts, rank: .king))
+        
+        //Then
+        XCTAssertTrue(winner > loser) // twopair - A vs twopair - K
+    }
+    
+    func testComparableDiffRank() {
+        // Given
+        let higher = CardHand()
+        let lower = CardHand()
+        
+        let winner = MyPlayer(name: "승자", hand: higher)
+        let loser = MyPlayer(name: "패자", hand: lower)
+        
+        //When
+        higher.append(Card(suit: .clubs, rank: .two))
+        higher.append(Card(suit: .diamonds, rank: .two))
+        higher.append(Card(suit: .spades, rank: .two))
+        
+        
+        lower.append(Card(suit: .clubs, rank: .five))
+        lower.append(Card(suit: .diamonds, rank: .five))
+        
+        //Then
+        XCTAssertTrue(winner > loser) // trips - 2 vs onePair - 5
+    }
+    
 }
