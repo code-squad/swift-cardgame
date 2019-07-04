@@ -30,6 +30,8 @@ func main() {
             player.take(newCards: removedCards)
         }
         OutputView.printDealtCards(of: players)
+        let winner = WinnerDeterminator.determineWinner(among: players)
+        OutputView.printDealtCards(of: [winner])
     }
 }
 
