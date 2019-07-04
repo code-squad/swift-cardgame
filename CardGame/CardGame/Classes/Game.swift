@@ -30,7 +30,8 @@ struct Game {
     func start() throws {
         playerReset()
         try drawAll()
-        self.players.forEach { OutputView.output(printable: $0) }
+        let winner = win(players: self.players)
+        winner.print(logic: OutputView.outputWinner)
     }
     
     private static func participate(entry: Int) throws -> [MyPlayer] {
@@ -46,8 +47,13 @@ struct Game {
         try loop(times: setting.mode.numOfCard) {
             sleep(1)
             try drawOne()
-            self.players.forEach { OutputView.output(printable: $0) }
+            self.players.forEach { $0.print(logic: OutputView.outputGame)}
         }
+    }
+
+    private func win<P: Player>(players: [P] ) -> P {
+        let winner = players.reduce(players[0]) { $0 < $1 ? $1 : $0 }
+        return winner
     }
     
     private func drawOne() throws {
