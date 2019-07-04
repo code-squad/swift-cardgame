@@ -8,7 +8,14 @@
 
 import Foundation
 
-struct CardDeck {
+protocol Deck {
+    func count() -> Int
+    mutating func shuffle()
+    mutating func removeOne() -> Card?
+    mutating func reset()
+}
+
+struct CardDeck: Deck {
     private var cards: [Card] = []
     
     init() {
