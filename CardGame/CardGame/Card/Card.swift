@@ -58,3 +58,9 @@ class Card: CustomStringConvertible {
     }
 }
 
+extension Card.Rank: Comparable {
+    static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+}
+
