@@ -11,7 +11,7 @@ import Foundation
 class Card: CustomStringConvertible {
     private let suit: Suits, rank: Ranks
     
-    init(_ suit: Suits, _ rank: Ranks) {
+    init(suit: Suits, rank: Ranks) {
         self.suit = suit
         self.rank = rank
     }
