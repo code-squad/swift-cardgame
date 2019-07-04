@@ -64,3 +64,11 @@ extension Card.Rank: Comparable {
     }
 }
 
+extension Card.Rank {
+    func next() -> Card.Rank? {
+        guard let next = Card.Rank(rawValue: self.rawValue + 1) else {
+            return nil
+        }
+        return next
+    }
+}
