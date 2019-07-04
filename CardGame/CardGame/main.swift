@@ -31,7 +31,7 @@ func main() {
         }
         OutputView.printDealtCards(of: players)
         let winner = WinnerDeterminator.determineWinner(among: players)
-        OutputView.printDealtCards(of: [winner])
+        OutputView.announce(winner: winner)
     }
 }
 
