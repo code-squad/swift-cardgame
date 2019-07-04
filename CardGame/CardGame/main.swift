@@ -9,7 +9,8 @@
 import Foundation
 
 func main() {
-    var game = CardGame()
+    let cardDeck = CardDeck()
+    var game = CardGame(cardDeck: cardDeck)
     var result: GameResult
     var menu: Menu
     
