@@ -9,5 +9,7 @@
 import Foundation
 
 protocol Printable {
-    var printOut: String { get }
+    
+    func print(logic: @escaping (String) -> Void )
 }
+
