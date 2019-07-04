@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5641D51C22CCB2E5006C4A4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D51B22CCB2E5006C4A4D /* Card.swift */; };
 		5641D52422CCB61D006C4A4D /* CardGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52322CCB61D006C4A4D /* CardGameTest.swift */; };
+		5641D52A22CE2C99006C4A4D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52922CE2C99006C4A4D /* InputView.swift */; };
+		5641D52C22CE2E21006C4A4D /* ErrorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52B22CE2E21006C4A4D /* ErrorControl.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		5641D52122CCB61D006C4A4D /* CardGameTest.swift.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameTest.swift.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5641D52322CCB61D006C4A4D /* CardGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTest.swift; sourceTree = "<group>"; };
 		5641D52522CCB61D006C4A4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5641D52922CE2C99006C4A4D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		5641D52B22CE2E21006C4A4D /* ErrorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorControl.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +87,8 @@
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				5641D51B22CCB2E5006C4A4D /* Card.swift */,
+				5641D52922CE2C99006C4A4D /* InputView.swift */,
+				5641D52B22CE2E21006C4A4D /* ErrorControl.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5641D52C22CE2E21006C4A4D /* ErrorControl.swift in Sources */,
+				5641D52A22CE2C99006C4A4D /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				5641D51C22CCB2E5006C4A4D /* Card.swift in Sources */,
 			);
