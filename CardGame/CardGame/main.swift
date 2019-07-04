@@ -8,6 +8,12 @@
 
 import Foundation
 
-let firstCard = Card.init(suit: .heart, rank: .queen)
-let secondCard = Card.init(suit: .diamond, rank: .nine)
-print(firstCard, secondCard)
+func main() {
+    do {
+        let input = try InputView.ask(for: .request)
+    } catch {
+        print(error.localizedDescription)
+    }
+}
+
+main()
