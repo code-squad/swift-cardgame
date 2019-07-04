@@ -90,6 +90,11 @@ class Card: CustomStringConvertible, Equatable, GameElement {
         return "\t\(self.suit)\(self.rank)"
     }
     
+    
+}
+// - MARK: - Comparable
+extension Card: Comparable {
+    
     static func == (lhs: Card, rhs: Card) -> Bool {
         let sameSuit = lhs.suit == rhs.suit
         let sameRank = lhs.rank == rhs.rank

@@ -9,9 +9,10 @@
 import Foundation
 
 class CardHand: Hand {
+    
     typealias Element = Card
     
-    private var cards: [Card] = []
+    private var cards: [Card] = [] { didSet { cards.sort() } }
     private var score: Score? { return ScoreFactory.create(self.cards) }
     
     func append(_ gameElement: Card) {
@@ -30,14 +31,10 @@ class CardHand: Hand {
         self.cards.removeAll()
     }
     
-}
-// - MARK: + Score
-extension CardHand {
-    
     
 }
 // - MARK: - Comparable
-extension CardHand {
+extension CardHand: Comparable {
     static func == (lhs: CardHand, rhs: CardHand) -> Bool {
         return lhs.score == rhs.score
     }
@@ -50,4 +47,12 @@ extension CardHand {
     }
     
 }
-
+// - MARK: - Printable
+extension CardHand: Printable {
+    
+    func print(logic: @escaping (String) -> Void) {
+        guard let score = score else { return }
+        logic("\(cards)\t\(score)")
+    }
+    
+}
