@@ -14,6 +14,6 @@ protocol RangeChecker {
 
 struct NumberChecker: RangeChecker {
     static func isValid(_ value: String) -> Bool {
-        return ("0"..."4").contains(value)
+        return ("1"..."4").contains(value)
     }
 }
