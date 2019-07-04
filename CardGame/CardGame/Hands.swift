@@ -16,6 +16,18 @@ enum Hands: Int {
     case straight
     case fourOfKind
 
+    init(count: Int) {
+        switch count {
+        case 2:
+            self = .onePair
+        case 3:
+            self = .threeOfKind
+        case 4:
+            self = .fourOfKind
+        default:
+            self = .highCard
+        }
+    }
 }
 
 extension Hands: Comparable {
