@@ -10,18 +10,8 @@ import Foundation
 
 struct OutputView {
     static func printDealtCards(of players: [Player]) {
-        var participantCount = 0
-        
         for player in players {
-            switch player {
-            case is Participant:
-                participantCount += 1
-                print("\(Participant.typeDescription)#\(participantCount) \(player.cards)")
-            case is Dealer:
-                print("\(Dealer.typeDescription) \(player.cards)")
-            default:
-                return
-            }
+            print("\(player.name) \(player.cards)")
         }
         print() //for new line
     }
