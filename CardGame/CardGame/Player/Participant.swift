@@ -9,10 +9,12 @@
 import Foundation
 
 class Participant: Player {
-    static var typeDescription = "참가자"
     var cards: [Card]
     
     init() {
+    var name: String {
+        return "참가자#\(number)"
+    }
         self.cards = [Card]()
     }
 }
