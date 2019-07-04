@@ -77,7 +77,7 @@ class Card: CustomStringConvertible, Equatable, GameElement {
         }
         
         var score: Int {
-            return (self.rawValue+11)%13
+            return (self.rawValue + Rank.allCases.count-2) % Rank.allCases.count
         }
         
         static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
