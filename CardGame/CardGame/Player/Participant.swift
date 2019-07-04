@@ -10,11 +10,15 @@ import Foundation
 
 class Participant: Player {
     var cards: [Card]
+    let number: Int
     
-    init() {
     var name: String {
         return "참가자#\(number)"
     }
+    
+    init(number: Int) {
         self.cards = [Card]()
+        self.number = number
     }
+    
 }
