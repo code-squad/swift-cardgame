@@ -8,3 +8,4 @@
 
 import Foundation
 
+typealias Decision = (highestRank: Card.Rank, hand: Hands)
