@@ -9,7 +9,11 @@
 import Foundation
 
 struct CardGame {
-    private var cardDeck = CardDeck()
+    private var cardDeck: Deck
+    
+    init(cardDeck: Deck) {
+        self.cardDeck = cardDeck
+    }
     
     mutating func run(menu: Menu) -> GameResult {
         var result: GameResult
