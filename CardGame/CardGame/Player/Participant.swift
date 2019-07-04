@@ -10,7 +10,7 @@ import Foundation
 
 class Participant: Player {
     var cards: [Card]
-    let number: Int
+    private let number: Int
     
     var name: String {
         return "참가자#\(number)"
