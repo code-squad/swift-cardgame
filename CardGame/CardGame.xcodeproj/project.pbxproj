@@ -68,8 +68,6 @@
 		0EB142DF22CBFB37000CD51D /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142DD22CBFAF1000CD51D /* Score.swift */; };
 		0EB142E122CCA5AB000CD51D /* ScoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142E022CCA5AB000CD51D /* ScoreFactory.swift */; };
 		0EB142E222CCA755000CD51D /* ScoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142E022CCA5AB000CD51D /* ScoreFactory.swift */; };
-		0EB142E722CCB1FE000CD51D /* (Test)CardScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142E622CCB1FE000CD51D /* (Test)CardScore.swift */; };
-		0EB142E822CCB1FE000CD51D /* (Test)CardScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142E622CCB1FE000CD51D /* (Test)CardScore.swift */; };
 		0EB142EA22CCD2CB000CD51D /* ScoreFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB142E922CCD2CB000CD51D /* ScoreFactoryTests.swift */; };
 		0EE2BF7922C6241100DEB2F5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2BF7822C6241100DEB2F5 /* Player.swift */; };
 		0EE2BF7B22C6243700DEB2F5 /* MyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2BF7A22C6243700DEB2F5 /* MyPlayer.swift */; };
@@ -130,7 +128,6 @@
 		0EB142DA22CBF6A4000CD51D /* Linkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Linkable.swift; sourceTree = "<group>"; };
 		0EB142DD22CBFAF1000CD51D /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		0EB142E022CCA5AB000CD51D /* ScoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreFactory.swift; sourceTree = "<group>"; };
-		0EB142E622CCB1FE000CD51D /* (Test)CardScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "(Test)CardScore.swift"; sourceTree = "<group>"; };
 		0EB142E922CCD2CB000CD51D /* ScoreFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreFactoryTests.swift; sourceTree = "<group>"; };
 		0EE2BF7822C6241100DEB2F5 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0EE2BF7A22C6243700DEB2F5 /* MyPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPlayer.swift; path = CardGame/Classes/MyPlayer.swift; sourceTree = SOURCE_ROOT; };
@@ -185,7 +182,6 @@
 		0E5940B622C335BF00B54014 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0EB142E622CCB1FE000CD51D /* (Test)CardScore.swift */,
 				0E5940C622C3530F00B54014 /* Command.swift */,
 				0E5940B722C335D000B54014 /* Deck.swift */,
 				0E1D120422C48E0600878644 /* Factory.swift */,
@@ -412,7 +408,6 @@
 				0EB142D622CB5201000CD51D /* CardTests.swift in Sources */,
 				0E0FF40B22C6CC6F000D6E4A /* GameInputView.swift in Sources */,
 				0EB142EA22CCD2CB000CD51D /* ScoreFactoryTests.swift in Sources */,
-				0EB142E822CCB1FE000CD51D /* (Test)CardScore.swift in Sources */,
 				0E8517EB22C748A90073CE79 /* etc.swift in Sources */,
 				0EB142DC22CBF6EF000CD51D /* Linkable.swift in Sources */,
 				0E5940BA22C336D700B54014 /* CardDeckTests.swift in Sources */,
@@ -474,7 +469,6 @@
 				0E1D120522C48E0600878644 /* Factory.swift in Sources */,
 				0E0FF40522C6CAAC000D6E4A /* GameException.swift in Sources */,
 				0EB142D822CBF2DF000CD51D /* Pairable.swift in Sources */,
-				0EB142E722CCB1FE000CD51D /* (Test)CardScore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
