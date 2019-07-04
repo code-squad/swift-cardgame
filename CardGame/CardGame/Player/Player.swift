@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Player {
-    static var typeDescription: String { get }
+    var name: String { get }
     var cards: [Card] { get set }
     mutating func take(newCards: [Card])
 }
