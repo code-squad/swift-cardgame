@@ -9,8 +9,11 @@
 import Foundation
 
 class Dealer: Player {
-    static var typeDescription = "딜러"
     var cards: [Card]
+    
+    var name: String {
+        return "딜러"
+    }
     
     init() {
         self.cards = [Card]()
