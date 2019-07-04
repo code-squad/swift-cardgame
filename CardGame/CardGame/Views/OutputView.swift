@@ -9,12 +9,13 @@
 import Foundation
 
 struct OutputView {
-    
-    static func output<P: Printable>(printable: P) {
-        output(printable.printOut)
+    static let outputGame: (String) -> Void = { output($0) }
+    static let outputWinner: (String) -> Void = {
+        output("이번 게임의 승자는 \($0) 입니다.")
     }
     
-    static func output<T> (_ target: T) {
-        print(target)
+    static func output<T> (_ input:T) -> Void {
+        print(input)
     }
+    
 }
