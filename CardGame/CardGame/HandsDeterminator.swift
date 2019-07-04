@@ -22,7 +22,7 @@ struct HandsDeterminator {
         if let straightDecision = determineStraight(using: rankCounter) {
             return straightDecision
         }
-        guard let sameCardsDecision = determineSameCards(using: rankCounter) else {
+        guard let sameCardsDecision = determineSameRankHand(using: rankCounter) else {
             return lowestDecision
         }
         return sameCardsDecision
@@ -60,7 +60,7 @@ struct HandsDeterminator {
         return serialCount
     }
     
-    static private func determineSameCards(using rankCounter: [Card.Rank: Int]) -> Decision? {
+    static private func determineSameRankHand(using rankCounter: [Card.Rank: Int]) -> Decision? {
         let possibleDecisions = rankCounter.mapValues { Hands(count: $0) }
         let sortedPossibleDecisions = possibleDecisions.sorted { // Hands descending, Rank decending
             if $0.value == $1.value {
