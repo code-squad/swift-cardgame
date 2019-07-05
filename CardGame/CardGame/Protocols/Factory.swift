@@ -12,5 +12,5 @@ protocol Factory {
     associatedtype IN
     associatedtype OUT
     
-   static func create(_ input: IN) -> OUT?
+    static func create(_ input: IN) -> OUT?
 }
