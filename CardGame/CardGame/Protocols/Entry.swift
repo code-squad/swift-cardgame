@@ -11,7 +11,10 @@ import Foundation
 protocol Entry {
     associatedtype P: Player
     
-    func count() -> Int
+    var count: Int { get }
     
+    func draw(numOfCard: Int, completion: @escaping () -> (Void)) throws
+    func win() -> P
+    mutating func reset()
     
 }
