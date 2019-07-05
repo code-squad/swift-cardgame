@@ -12,16 +12,16 @@ enum GameOption: String, CustomStringConvertible, CaseIterable {
     case sevenCardStud = "1"
     case fiveCardStud = "2"
     
-    private var name: String {
+    var numberOfCards: Int {
         switch self {
         case .sevenCardStud:
-            return "7카드"
+            return 7
         case .fiveCardStud:
-            return "5카드"
+            return 5
         }
     }
     
     var description: String {
-        return "\(rawValue). \(name)"
+        return "\(rawValue). \(numberOfCards)카드"
     }
 }
