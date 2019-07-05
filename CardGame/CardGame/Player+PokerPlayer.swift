@@ -16,10 +16,11 @@ protocol Player {
 
 struct PokerPlayer: Player {
     private(set) var name: String
-    private(set) var hand = Hand()
+    private(set) var hand: Hand
     private let number: Int
     
-    init(number: Int) {
+    init(hand: Hand, number: Int) {
+        self.hand = hand
         self.name = "참가자#\(number)"
         self.number = number
     }
