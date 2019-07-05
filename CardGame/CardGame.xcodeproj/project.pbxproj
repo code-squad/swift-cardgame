@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		FA025A7622CF421500D103E1 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA025A7522CF421500D103E1 /* Hand.swift */; };
 		FA042C9922C24D7D00A95C55 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9822C24D7D00A95C55 /* Card.swift */; };
 		FA042C9D22C4904A00A95C55 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9C22C4904A00A95C55 /* CardDeck.swift */; };
 		FA042C9F22C490C900A95C55 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA042C9E22C490C900A95C55 /* InputView.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FA025A7522CF421500D103E1 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		FA042C9822C24D7D00A95C55 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		FA042C9C22C4904A00A95C55 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		FA042C9E22C490C900A95C55 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
 				FAF2346422CA33D3009A5DFB /* CardGame.swift */,
 				FAF2346222CA3341009A5DFB /* GameInfo.swift */,
+				FA025A7522CF421500D103E1 /* Hand.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				FA042CA322C4B3A400A95C55 /* DeckMenu.swift in Sources */,
 				FA042CA722C5CF4F00A95C55 /* HandlingDeckResult.swift in Sources */,
 				FAF2345F22CA2FC0009A5DFB /* GameInputView.swift in Sources */,
+				FA025A7622CF421500D103E1 /* Hand.swift in Sources */,
 				FA042C9F22C490C900A95C55 /* InputView.swift in Sources */,
 				FAF2346122CA30A2009A5DFB /* Player.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
