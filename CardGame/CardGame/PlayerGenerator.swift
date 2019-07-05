@@ -1,5 +1,5 @@
 //
-//  PlayersFactory.swift
+//  PlayerGenerator.swift
 //  CardGame
 //
 //  Created by BLU on 05/07/2019.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct PlayersFactory {
+struct PlayerGenerator {
     
-    static func makePlayers(by numberOfPlayers: Int) -> [Player] {
+    static func generatePlayers(by numberOfPlayers: Int) -> [Player] {
         let players = (1...numberOfPlayers).map { PokerPlayer(hand: Hand(), number: $0) }
         return players
     }

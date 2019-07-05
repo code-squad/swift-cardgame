@@ -18,7 +18,7 @@ func main() {
         do {
             option = try GameInputView.readGameOption()
             let numberOfPlayers = try GameInputView.readNumberOfPlayers(checkRange: NumberChecker.isValid)
-            players = PlayersFactory.makePlayers(by: numberOfPlayers)
+            players = PlayerGenerator.generatePlayers(by: numberOfPlayers)
         } catch let error as GameInputView.Error {
             print(error.localizedDescription)
             return
