@@ -9,11 +9,7 @@
 import Foundation
 
 struct Hand: CustomStringConvertible {
-    private var cards: [Card]
-    
-    init(cards: [Card]) {
-        self.cards = cards
-    }
+    private var cards = [Card]()
     
     var description: String {
         return cards.map ({ "\($0)" }).joined(separator: ", ")
