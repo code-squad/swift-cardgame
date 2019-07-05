@@ -9,8 +9,7 @@
 import Foundation
 
 func main() {
-    let cardDeck: Deck = CardDeck()
-    let dealer = PokerDealer(hand: Hand(), deck: cardDeck)
+    let dealer = PokerDealer(hand: Hand(), deck: CardDeck())
     var game = PokerGame(dealer: dealer)
     var players: [Player]
     var option: GameOption
