@@ -10,7 +10,7 @@ import Foundation
 
 struct PlayersFactory {
     
-    func makePlayers(by numberOfPlayers: Int) -> [Player] {
+    static func makePlayers(by numberOfPlayers: Int) -> [Player] {
         let players = (1...numberOfPlayers).map { PokerPlayer(number: $0) }
         return players
     }
