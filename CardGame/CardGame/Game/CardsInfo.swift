@@ -1,5 +1,5 @@
 //
-//  Hand.swift
+//  CardsInfo.swift
 //  CardGame
 //
 //  Created by CHOMINJI on 05/07/2019.
@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct CardsInfo {
+
+}
