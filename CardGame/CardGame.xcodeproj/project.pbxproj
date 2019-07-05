@@ -10,6 +10,7 @@
 		3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2322C9F6AC0031CA70 /* GameInputView.swift */; };
 		3042AD2622C9FBCD0031CA70 /* GameOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2522C9FBCD0031CA70 /* GameOption.swift */; };
 		3042AD2A22CA6EA30031CA70 /* RangeChecker+NumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */; };
+		3042AD4C22CEE1400031CA70 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD4B22CEE1400031CA70 /* Hand.swift */; };
 		306D1AEF22C4BBD600168F31 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1AEE22C4BBD600168F31 /* Card.swift */; };
 		306D1AF122C4CD8A00168F31 /* Deck+CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1AF022C4CD8A00168F31 /* Deck+CardDeck.swift */; };
 		306D1B1F22C600A100168F31 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1B1E22C600A100168F31 /* InputView.swift */; };
@@ -38,6 +39,7 @@
 		3042AD2322C9F6AC0031CA70 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		3042AD2522C9FBCD0031CA70 /* GameOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOption.swift; sourceTree = "<group>"; };
 		3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeChecker+NumberChecker.swift"; sourceTree = "<group>"; };
+		3042AD4B22CEE1400031CA70 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		306D1AEE22C4BBD600168F31 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		306D1AF022C4CD8A00168F31 /* Deck+CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deck+CardDeck.swift"; sourceTree = "<group>"; };
 		306D1B1E22C600A100168F31 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				3042AD2322C9F6AC0031CA70 /* GameInputView.swift */,
 				3042AD2522C9FBCD0031CA70 /* GameOption.swift */,
 				3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */,
+				3042AD4B22CEE1400031CA70 /* Hand.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				3042AD2622C9FBCD0031CA70 /* GameOption.swift in Sources */,
 				30917E2A22C8B39500C0E696 /* GameMenu.swift in Sources */,
 				306D1AEF22C4BBD600168F31 /* Card.swift in Sources */,
+				3042AD4C22CEE1400031CA70 /* Hand.swift in Sources */,
 				30917E2C22C8E4F500C0E696 /* GameResult.swift in Sources */,
 				306D1B2722C64EAE00168F31 /* OutputView.swift in Sources */,
 				30917E2E22C8F09D00C0E696 /* CardGame.swift in Sources */,
