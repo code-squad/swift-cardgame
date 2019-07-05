@@ -36,7 +36,7 @@ extension Card {
         }
     }
     
-    enum Rank: Int, CustomStringConvertible, CaseIterable {
+    enum Rank: Int, CustomStringConvertible, CaseIterable, Comparable {
         case ace = 1
         case two, three, four, five, six, seven, eight, nine, ten
         case jack, queen, king
@@ -50,5 +50,44 @@ extension Card {
             default: return "\(rawValue)"
             }
         }
+        
+        static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+    }
+}
+
+extension Card: Comparable {
+    static func < (lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank < rhs.rank
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank == rhs.rank
+    }
+    
+    static func == (lhs: Card, rhs: Int) -> Bool {
+        return lhs.rank.rawValue == rhs
+    }
+    
+    static func == (lhs: Int, rhs: Card) -> Bool {
+        return lhs == rhs.rank.rawValue
+    }
+    
+    static func + (lhs: Card, rhs: Int) -> Int {
+        return lhs.rank.rawValue + rhs
+    }
+    static func + (lhs: Int, rhs: Card) -> Int {
+        return lhs + rhs.rank.rawValue
+    }
+    
+    func showRank() -> Card.Rank {
+        return rank
+    }
+}
+
+extension Card: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(rank)
     }
 }
