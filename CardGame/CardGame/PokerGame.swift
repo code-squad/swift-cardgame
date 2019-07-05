@@ -32,7 +32,7 @@ struct PokerGame {
         self.players = players + [dealer as Player]
         let times = option.numberOfCards
         
-        for index in 0..<players.count {
+        for index in 0..<self.players.count {
             for _ in 0..<times {
                 guard let card = dealer.give() else {
                     throw Error.isCardDeckEmpty
