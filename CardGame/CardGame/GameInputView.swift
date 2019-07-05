@@ -43,6 +43,7 @@ struct GameInputView {
     
     static private func ask(for menu: Menu, content: String = "") -> String {
         print("\(menu)\(content)")
+        print("> ", terminator: "")
         return readLine() ?? ""
     }
     
