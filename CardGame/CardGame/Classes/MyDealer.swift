@@ -18,6 +18,8 @@ class MyDealer: MyPlayer, Dealer {
     }
     
     func draw() throws -> Card {
+        let delay = { Thread.sleep(forTimeInterval: .init(floatLiteral: 0.15)) }
+        delay()
         guard let card = self.deck.removeOne() else {
             throw GameException.emptyDeck
         }

@@ -41,11 +41,20 @@ extension MyPlayer: Comparable {
     }
     
 }
-// - MARK: - Printable
-extension MyPlayer: Printable {
+// - MARK: - PrintableOne
+extension MyPlayer: PrintableOne {
     
     func print(logic: @escaping (String) -> Void) {
-        self.hand.print(logic: { logic("\(self.name)\t\($0)") })
+        logic(self.name)
     }
     
+}
+// - MARK: - PrintableTwo
+extension MyPlayer: PrintableTwo {
+    
+    func print(logic: @escaping (String, String) -> Void, input: String = "") {
+        let logic = { logic(self.name,$0) }
+        self.hand.print(logic: logic)
+    }
+
 }
