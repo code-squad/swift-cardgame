@@ -22,16 +22,14 @@ struct PokerGame {
     }
     
     private var dealer: Dealer
-    private var players: [Player]
-    private let option: GameOption
+    private var players = [Player]()
     
-    init(dealer: Dealer, players: [Player], option: GameOption) {
+    init(dealer: Dealer) {
         self.dealer = dealer
-        self.players = players + [dealer as Player]
-        self.option = option
     }
     
-    mutating func run() throws {
+    mutating func run(players: [Player], option: GameOption) throws {
+        self.players = players + [dealer as Player]
         let times = option.numberOfCards
         
         for index in 0..<players.count {
@@ -39,7 +37,7 @@ struct PokerGame {
                 guard let card = dealer.give() else {
                     throw Error.isCardDeckEmpty
                 }
-                players[index].receive(card: card)
+                self.players[index].receive(card: card)
             }
         }
     }
