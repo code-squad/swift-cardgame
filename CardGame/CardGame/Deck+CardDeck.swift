@@ -27,7 +27,7 @@ struct CardDeck: Deck {
     }
     
     mutating func reset() {
-        self.cards = CardFactory.makeCards()
+        self.cards = CardGenerator.generateCards()
         self.shuffle()
     }
     
