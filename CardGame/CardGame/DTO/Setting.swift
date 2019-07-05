@@ -9,8 +9,8 @@
 import Foundation
 
 struct Setting {
-    private let mode: Mode
-    private let entry: Entry
+    let mode: Mode
+    let entry: Entry
     
     enum Mode: Int {
         case seven = 1
@@ -41,17 +41,8 @@ struct Setting {
         guard let mode = Mode(rawValue: mode), let entry = Entry(rawValue: entry) else {
             return nil
         }
-        
         self.mode = mode
         self.entry = entry
-    }
-    
-    func numOfCard() -> Int {
-        return self.mode.numOfCard
-    }
-    
-    func numOfPlayer() -> Int {
-        return self.entry.numOfPlayer
     }
     
 }
