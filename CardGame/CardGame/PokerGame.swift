@@ -46,7 +46,7 @@ struct PokerGame {
 extension PokerGame: OutputViewPrintable {
     func printPlayerInfo(handler: (String, String) -> ()) {
         players.forEach { player in
-            handler(player.name, String(describing: player.hand))
+            handler(String(describing: player), player.cards())
         }
     }
 }
