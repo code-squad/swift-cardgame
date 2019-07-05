@@ -30,4 +30,17 @@ struct PokerGame {
         self.players = players + [dealer as Player]
         self.option = option
     }
+    
+    mutating func run() throws {
+        let times = option.numberOfCards
+        
+        for index in 0..<players.count {
+            for _ in 0..<times {
+                guard let card = dealer.give() else {
+                    throw Error.isCardDeckEmpty
+                }
+                players[index].receive(card: card)
+            }
+        }
+    }
 }
