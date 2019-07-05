@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Player where Self: PrintableOne, Self: Comparable {
+protocol Player where Self: SingleValuePrintable, Self: Comparable {
     associatedtype H: Hand
     associatedtype E: GameElement
     

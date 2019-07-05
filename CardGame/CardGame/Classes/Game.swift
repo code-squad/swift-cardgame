@@ -15,7 +15,7 @@ struct Game {
     
     var isContinue: Bool {
         let needs = setting.numOfCard()*(self.entry.count)
-        return self.dealer.canContinue(needs:needs)
+        return self.dealer.canContinue(needs: needs)
     }
     
     init(setting: Setting?) throws {

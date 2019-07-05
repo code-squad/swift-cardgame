@@ -14,7 +14,7 @@ class PlayerEntry: Entry {
     var count: Int { return players.count }
     private var players: [MyPlayer]
     private var dealer: MyDealer
-    
+   
     init(num: Int, dealer: MyDealer) {
         self.players = Array(1...num).map { MyPlayer(name: "참가자#\($0)") }
         self.players.append(dealer)
@@ -39,9 +39,9 @@ class PlayerEntry: Entry {
     }
     
 }
-extension PlayerEntry: PrintableTwo {
+extension PlayerEntry: MultiValuesPrintable {
     
-    func print(logic: @escaping (String, String) -> Void, input: String = "" ) {
+    func print(logic: @escaping (String, String) -> Void ) {
         self.players.forEach{ $0.print(logic: logic ) }
     }
     

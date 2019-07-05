@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol PrintableOne {
+protocol SingleValuePrintable {
     
     func print(logic: @escaping (String) -> Void)
 }
 
-protocol PrintableTwo {
+protocol MultiValuesPrintable {
     
-    func print(logic: @escaping (String, String) -> Void, input: String)
+    func print(logic: @escaping (String, String) -> Void )
 }
