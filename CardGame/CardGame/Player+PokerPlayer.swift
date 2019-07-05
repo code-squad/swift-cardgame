@@ -15,11 +15,13 @@ protocol Player {
 }
 
 struct PokerPlayer: Player {
-    private(set) var name: String = "참가자"
-    private(set) var hand: Hand
+    private(set) var name: String
+    private(set) var hand = Hand()
+    private let number: Int
     
-    init(hand: Hand) {
-        self.hand = hand
+    init(number: Int) {
+        self.name = "참가자#\(number)"
+        self.number = number
     }
     
     mutating func receive(card: Card) {
