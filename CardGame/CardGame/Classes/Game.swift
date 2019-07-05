@@ -14,7 +14,7 @@ struct Game {
     let setting: Setting
     
     var isContinue: Bool {
-        let needs = setting.numOfCard()*(self.entry.count)
+        let needs = setting.mode.numOfCard*(self.entry.count)
         return self.dealer.canContinue(needs: needs)
     }
     
@@ -23,12 +23,12 @@ struct Game {
             throw GameException.initFailure
         }
         self.setting = setting
-        self.entry = PlayerEntry(num: setting.numOfPlayer(), dealer: self.dealer)
+        self.entry = PlayerEntry(num: setting.entry.numOfPlayer, dealer: self.dealer)
     }
     
     func start() throws {
         self.entry.reset()
-        try self.entry.draw(numOfCard: setting.numOfCard()) {
+        try self.entry.draw(numOfCard: setting.mode.numOfCard) {
             self.entry.print(logic: OutputView.outputGame(_:_:))
         }
         let winner = entry.win()

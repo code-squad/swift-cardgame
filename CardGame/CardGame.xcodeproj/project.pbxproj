@@ -232,6 +232,14 @@
 			path = Factorys;
 			sourceTree = "<group>";
 		};
+		0E70549622CF035B00753E6C /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				0E8517E522C747510073CE79 /* Setting.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		0E8517E822C748920073CE79 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +274,6 @@
 				0EF086AC22C2223F00FC080E /* Card.swift */,
 				0E0FF40022C6C710000D6E4A /* CardHand.swift */,
 				0E8517E222C732BD0073CE79 /* Game.swift */,
-				0E8517E522C747510073CE79 /* Setting.swift */,
 				0E7DAEEC22CE5A88005FDE80 /* PlayerEntry.swift */,
 			);
 			path = Classes;
@@ -293,6 +300,7 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				0E70549622CF035B00753E6C /* DTO */,
 				0E8517E822C748920073CE79 /* Util */,
 				0E1D120822C49C4D00878644 /* Enums */,
 				0E5940EC22C36F6C00B54014 /* Factorys */,
