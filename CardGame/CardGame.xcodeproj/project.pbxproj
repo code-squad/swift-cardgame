@@ -35,6 +35,7 @@
 		FA2D4A7022CF524600158505 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346222CA3341009A5DFB /* GameInfo.swift */; };
 		FA2D4A7122CF524900158505 /* CardsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA025A7522CF421500D103E1 /* CardsInfo.swift */; };
 		FA2D4A7322CF6AA300158505 /* CardSetRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7222CF6AA300158505 /* CardSetRanking.swift */; };
+		FA2D4A7522CF6C6600158505 /* HandDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7422CF6C6600158505 /* HandDecider.swift */; };
 		FAF2345B22CA2DD6009A5DFB /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */; };
 		FAF2345D22CA2F5B009A5DFB /* GuideSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345C22CA2F5B009A5DFB /* GuideSentence.swift */; };
 		FAF2345F22CA2FC0009A5DFB /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */; };
@@ -71,6 +72,7 @@
 		FA2D4A5B22CF513500158505 /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
 		FA2D4A5D22CF513500158505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2D4A7222CF6AA300158505 /* CardSetRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetRanking.swift; sourceTree = "<group>"; };
+		FA2D4A7422CF6C6600158505 /* HandDecider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandDecider.swift; sourceTree = "<group>"; };
 		FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
 		FAF2345C22CA2F5B009A5DFB /* GuideSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSentence.swift; sourceTree = "<group>"; };
 		FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				FAF2346422CA33D3009A5DFB /* CardGame.swift */,
 				FAF2346222CA3341009A5DFB /* GameInfo.swift */,
 				FA025A7522CF421500D103E1 /* CardsInfo.swift */,
+				FA2D4A7422CF6C6600158505 /* HandDecider.swift */,
 				FA2D4A7222CF6AA300158505 /* CardSetRanking.swift */,
 			);
 			path = Game;
@@ -277,6 +280,7 @@
 				FA025A7622CF421500D103E1 /* CardsInfo.swift in Sources */,
 				FA042C9F22C490C900A95C55 /* InputView.swift in Sources */,
 				FAF2346122CA30A2009A5DFB /* Player.swift in Sources */,
+				FA2D4A7522CF6C6600158505 /* HandDecider.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				FAF2346322CA3341009A5DFB /* GameInfo.swift in Sources */,
 				FA042CA922C5E0A300A95C55 /* Dealer.swift in Sources */,
