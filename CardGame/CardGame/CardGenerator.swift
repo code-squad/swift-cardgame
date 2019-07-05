@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct CardFactory {
+struct CardGenerator {
     
-    static func makeCards() -> [Card] {
+    static func generateCards() -> [Card] {
         let deck = Card.Suit.allCases.flatMap { suit in
             Card.Rank.allCases.map { rank in
                 Card(suit: suit, rank: rank)
