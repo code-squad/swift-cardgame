@@ -9,12 +9,12 @@
 import Foundation
 
 struct Game {
-    var players: [MyPlayer]
+    var entry: PlayerEntry
     let dealer: MyDealer = MyDealer()
     let setting: Setting
     
     var isContinue: Bool {
-        let needs = setting.mode.numOfCard*(self.players.count)
+        let needs = setting.numOfCard()*(self.entry.count)
         return self.dealer.canContinue(needs:needs)
     }
     
@@ -23,50 +23,17 @@ struct Game {
             throw GameException.initFailure
         }
         self.setting = setting
-        self.players = try Game.participate(entry: setting.entry.numOfPlayer)
-        self.players.append(dealer)
+        self.entry = PlayerEntry(num: setting.numOfPlayer(), dealer: self.dealer)
     }
     
     func start() throws {
-        playerReset()
-        try drawAll()
-        let winner = win(players: self.players)
+        self.entry.reset()
+        try self.entry.draw(numOfCard: setting.numOfCard()) {
+            self.entry.print(logic: OutputView.outputGame(_:_:))
+        }
+        let winner = entry.win()
         winner.print(logic: OutputView.outputWinner)
     }
     
-    private static func participate(entry: Int) throws -> [MyPlayer] {
-        var players:[MyPlayer] = []
-        var index = 0
-        try loop(times: entry) {
-            players.append(MyPlayer(name: "참가자#\(++index)"))
-        }
-        return players
-    }
-    
-    private func drawAll() throws {
-        try loop(times: setting.mode.numOfCard) {
-            sleep(1)
-            try drawOne()
-            self.players.forEach { $0.print(logic: OutputView.outputGame)}
-        }
-    }
-
-    private func win<P: Player>(players: [P] ) -> P {
-        let winner = players.reduce(players[0]) { $0 < $1 ? $1 : $0 }
-        return winner
-    }
-    
-    private func drawOne() throws {
-        for player in players {
-            let card = try dealer.draw()
-            player.receive(card)
-        }
-    }
-    
-    private func playerReset() {
-        self.players.forEach{
-            $0.clearHand()
-        }
-    }
     
 }
