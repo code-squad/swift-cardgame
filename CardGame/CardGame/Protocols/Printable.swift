@@ -12,7 +12,8 @@ protocol PrintableOne {
     
     func print(logic: @escaping (String) -> Void)
 }
-protocol Printable2 {
+
+protocol PrintableTwo {
     
     func print(logic: @escaping (String, String) -> Void, input: String)
 }
