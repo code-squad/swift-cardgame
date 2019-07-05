@@ -1,5 +1,5 @@
 //
-//  CardFactory.swift
+//  CardGenerator.swift
 //  CardGame
 //
 //  Created by BLU on 28/06/2019.
