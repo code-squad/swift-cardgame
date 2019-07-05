@@ -20,4 +20,10 @@ struct OutputView {
             print("\(card)\n총 \(count)장의 카드가 남아있습니다.")
         }
     }
+    
+    static func printPlayers(game: OutputViewPrintable) {
+        game.printPlayerInfo { name, cards in
+            print("\(name) [\(cards)]")
+        }
+    }
 }
