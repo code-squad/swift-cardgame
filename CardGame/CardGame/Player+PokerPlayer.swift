@@ -9,15 +9,18 @@
 import Foundation
 
 protocol Player {
-    var name: String { get }
-    var hand: Hand { get }
+    func cards() -> String
     mutating func receive(card: Card)
 }
 
-struct PokerPlayer: Player {
-    private(set) var name: String
-    private(set) var hand: Hand
+struct PokerPlayer: Player, CustomStringConvertible {
+    private let name: String
+    private var hand: Hand
     private let number: Int
+    
+    var description: String {
+        return name
+    }
     
     init(hand: Hand, number: Int) {
         self.hand = hand
@@ -27,5 +30,9 @@ struct PokerPlayer: Player {
     
     mutating func receive(card: Card) {
         hand.add(card: card)
+    }
+    
+    func cards() -> String {
+        return String(describing: hand)
     }
 }

@@ -12,10 +12,14 @@ protocol Dealer: Player {
     mutating func give() -> Card?
 }
 
-struct PokerDealer: Dealer {
-    private(set) var name: String = "딜러"
-    private(set) var hand: Hand
+struct PokerDealer: Dealer, CustomStringConvertible {
+    private let name: String = "딜러"
+    private var hand: Hand
     private var deck: Deck
+    
+    var description: String {
+        return name
+    }
     
     init(hand: Hand, deck: Deck) {
         self.hand = hand
@@ -28,5 +32,9 @@ struct PokerDealer: Dealer {
     
     mutating func give() -> Card? {
         return deck.removeOne()
+    }
+    
+    func cards() -> String {
+        return String(describing: hand)
     }
 }
