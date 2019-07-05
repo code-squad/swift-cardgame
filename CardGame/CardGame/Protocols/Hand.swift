@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Hand: Comparable, PrintableOne {
+protocol Hand: Comparable, SingleValuePrintable {
     associatedtype Element: GameElement
     
     mutating func append(_ gameElement: Element)

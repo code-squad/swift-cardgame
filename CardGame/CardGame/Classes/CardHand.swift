@@ -48,7 +48,7 @@ extension CardHand: Comparable {
     
 }
 // - MARK: - Printable
-extension CardHand: PrintableOne {
+extension CardHand: SingleValuePrintable {
     
     func print(logic: @escaping (String) -> Void) {
         guard let score = score else { return }

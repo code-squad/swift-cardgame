@@ -42,7 +42,7 @@ extension MyPlayer: Comparable {
     
 }
 // - MARK: - PrintableOne
-extension MyPlayer: PrintableOne {
+extension MyPlayer: SingleValuePrintable {
     
     func print(logic: @escaping (String) -> Void) {
         logic(self.name)
@@ -50,9 +50,9 @@ extension MyPlayer: PrintableOne {
     
 }
 // - MARK: - PrintableTwo
-extension MyPlayer: PrintableTwo {
+extension MyPlayer: MultiValuesPrintable {
     
-    func print(logic: @escaping (String, String) -> Void, input: String = "") {
+    func print(logic: @escaping (String, String) -> Void) {
         let logic = { logic(self.name,$0) }
         self.hand.print(logic: logic)
     }
