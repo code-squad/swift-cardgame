@@ -9,30 +9,33 @@
 import Foundation
 
 func main() {
-    let cardDeck = CardDeck()
-    var menu: GameMenu
-    var game = CardGame(cardDeck: cardDeck)
-    var result: GameResult
+    let cardDeck: Deck = CardDeck()
+    let dealer = PokerDealer(hand: Hand(), deck: cardDeck)
+    var game = PokerGame(dealer: dealer)
+    var players: [Player]
+    var option: GameOption
     repeat {
         do {
-            menu = try InputView.readMenu()
-        } catch let error as InputView.Error {
+            option = try GameInputView.readGameOption()
+            let numberOfPlayers = try GameInputView.readNumberOfPlayers(checkRange: NumberChecker.isValid)
+            players = PlayersFactory.makePlayers(by: numberOfPlayers)
+        } catch let error as GameInputView.Error {
             print(error.localizedDescription)
-            break
+            return
         } catch {
             print("\(ErrorMessage.unexpectedError) : \(error)")
-            break
+            return
         }
         do {
-            result = try game.run(menu: menu)
-        } catch let error as CardGame.Error {
+            try game.run(players: players, option: option)
+        } catch let error as PokerGame.Error {
             print(error.localizedDescription)
-            break
+            return
         } catch {
             print("\(ErrorMessage.unexpectedError) : \(error)")
-            break
+            return
         }
-        OutputView.printGameResult(result: result)
+        OutputView.printPlayers(game: game)
     } while (true)
 }
 
