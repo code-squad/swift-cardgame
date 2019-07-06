@@ -24,7 +24,7 @@ class Card: CustomStringConvertible {
 // Suits와 Ranks 둘 다 한정된 값이기 때문에 enum을 사용하는게 맞다고 판단하였습니다.
 extension Card {
     
-    enum Suits: Character, CustomStringConvertible {
+    enum Suits: Character, CustomStringConvertible, CaseIterable  {
         case spade = "\u{2660}"
         case heart = "\u{2665}"
         case diamond = "\u{2666}"
@@ -35,7 +35,7 @@ extension Card {
         }
     }
     
-    enum Ranks: Int, CustomStringConvertible {
+    enum Ranks: Int, CustomStringConvertible, CaseIterable {
         case ace = 1,two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var description: String {
