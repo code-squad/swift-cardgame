@@ -9,11 +9,31 @@
 import Foundation
 
 func main() {
-    do {
-        let input = try InputView.ask(for: .request)
-    } catch {
-        print(error.localizedDescription)
-    }
+    let cardDeck = CardDeck()
+    var menu: GameMenu
+    var game = CardGame(deck: cardDeck)
+    var result: CardGameResult
+    repeat {
+        do {
+            menu = try InputView.readMenu()
+        } catch let error as InputView.Error {
+            print(error.localizedDescription)
+            break
+        } catch {
+            print("\(ErrorMessage.invalidMenu) : \(error)")
+            break
+        }
+        do {
+            result = try game.play(menu: menu)
+        } catch let error as CardGame.Error {
+            print(error.localizedDescription)
+            break
+        } catch {
+            print("\(ErrorMessage.invalidMenu) : \(error)")
+            break
+        }
+        OutputView.printResult(result: result)
+    } while (true)
 }
 
 main()
