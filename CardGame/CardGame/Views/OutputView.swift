@@ -26,7 +26,6 @@ struct OutputView {
         game.printWinner()
     }
     
-    
     static func printResult(of result: HandlingDeckResult) {
         switch result {
         case .reset(let count):

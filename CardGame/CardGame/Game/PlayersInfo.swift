@@ -45,10 +45,10 @@ struct PlayersInfo {
     
     func showWinner(with result: (Bool, String) -> Void) {
         let sortedByHand = players.sorted {
-            if $0.maxHand().value == $1.maxHand().value {
-                return $0.maxHand().key < $1.maxHand().key
+            if $0.bestHand().value == $1.bestHand().value {
+                return $0.bestHand().key < $1.bestHand().key
             }
-            return $0.maxHand().value < $1.maxHand().value
+            return $0.bestHand().value < $1.bestHand().value
         }
         
         let winner = sortedByHand[players.count - 1]

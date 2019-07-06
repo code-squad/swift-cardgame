@@ -37,8 +37,7 @@ extension Player: Playerable {
         return "\(order)"
     }
     
-    func maxHand() -> (key: Card, value: CardSetRanking) { //calculateScore
-        var info = CardsInfo(cards: cards)
-        return info.maxHand()
+    func bestHand() -> (key: Card, value: CardSetRanking) { //calculateScore
+        return cards.bestHand()
     }
 }
