@@ -11,6 +11,12 @@ import XCTest
 class CardGameTest: XCTestCase {
 
     override func setUp() {
+        var deck = CardDeck()
+        
+        func testCount() {
+            XCTAssertEqual(deck.count(), 52)
+        }
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
