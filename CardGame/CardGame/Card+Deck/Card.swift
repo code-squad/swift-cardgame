@@ -77,12 +77,9 @@ extension Card: Comparable {
     static func + (lhs: Card, rhs: Int) -> Int {
         return lhs.rank.rawValue + rhs
     }
+    
     static func + (lhs: Int, rhs: Card) -> Int {
         return lhs + rhs.rank.rawValue
-    }
-    
-    func showRank() -> Card.Rank {
-        return rank
     }
 }
 
