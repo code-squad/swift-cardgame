@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum CardSetRanking: Int {
+enum CardSetRanking: Double {
     case highcard = 0
-    case onepair
-    case twopair
-    case triple
-    case straight
-    case fourcard
+    case onepair = 2
+    case twopair = 2.5
+    case triple = 3
+    case straight = 3.5
+    case fourcard = 4
 }
 
 extension CardSetRanking: Comparable {
