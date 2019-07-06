@@ -10,22 +10,21 @@ import Foundation
 
 struct CardsInfo {
     private var cards: [Card]
-    private var collectedCards: [Card: Int]
+    private var collectedCards: [Card: Int] = [:]
     private var hands: [Card: CardSetRanking] = [:]
     
-    init(cards: [Card]) {
+    init(cards: [Card] = []) {
         self.cards = cards
-        self.collectedCards = cards.reduce(into: [:]) { counts, card in
-            counts[card, default: 0] += 1
-        }
-        makeHands()
     }
     
     mutating func makeHands() {
+        self.collectedCards = cards.reduce(into: [:]) { counts, card in
+            counts[card, default: 0] += 1
+        }
         self.hands = HandDecider.decidePair(of: collectedCards)
         let straight =  HandDecider.decideStraight(of: collectedCards)
-        if straight.isStraight {
-            hands[straight.maxRank] = .straight
+        if straight.isStraight, let max = straight.maxRank {
+            hands[max] = .straight
         }
     }
     

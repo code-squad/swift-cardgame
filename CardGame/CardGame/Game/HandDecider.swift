@@ -9,7 +9,6 @@
 import Foundation
 
 struct HandDecider {
-
     static func decidePair(of collected: [Card: Int]) -> [Card: CardSetRanking] {
         var hands = collected.mapValues {
             CardSetRanking.init(rawValue: Double($0)) ?? .highcard
@@ -23,11 +22,11 @@ struct HandDecider {
         return hands
     }
     
-    
-    static func decideStraight(of collected: [Card: Int]) -> (isStraight: Bool, maxRank: Card) {
+    typealias straightResult = (isStraight: Bool, maxRank: Card?)
+    static func decideStraight(of collected: [Card: Int]) -> (isStraight: Bool, maxRank: Card?) {
         let cards = Array(collected.keys).sorted(by: <)
         var consecutiveState = 1
-        var result = (isStraight: false, maxRank: cards[0])
+        var result: straightResult = (isStraight: false, maxRank: nil)
         
         for index in 1..<cards.count {
             let numOfRemainIndices = cards.count - index
@@ -40,7 +39,7 @@ struct HandDecider {
             }
             consecutiveState += 1
             result.maxRank = cards[index]
-            
+
             if consecutiveState >= 5 {
                 result.isStraight = true
             }
