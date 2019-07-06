@@ -22,7 +22,7 @@ struct WinnerDeterminator {
         return winner
     }
     
-    static func check(comparingDecision: Decision, higherThan currentWinningDecision: Decision) -> Bool {
+    static private func check(comparingDecision: Decision, higherThan currentWinningDecision: Decision) -> Bool {
         if currentWinningDecision.hand == comparingDecision.hand {
             return currentWinningDecision.highestRank < comparingDecision.highestRank
         }
