@@ -42,4 +42,19 @@ struct PlayersInfo {
             result(isPlayer, order, cards)
         }
     }
+    
+    func showWinner(with result: (Bool, String) -> Void) {
+        let sortedByHand = players.sorted {
+            if $0.maxHand().value == $1.maxHand().value {
+                return $0.maxHand().key < $1.maxHand().key
+            }
+            return $0.maxHand().value < $1.maxHand().value
+        }
+        
+        let winner = sortedByHand[players.count - 1]
+        let participant = winner as? Player
+        let isPlayer = participant != nil
+        let order = isPlayer ? participant!.showOrder() : ""
+        result(isPlayer, order)
+    }
 }
