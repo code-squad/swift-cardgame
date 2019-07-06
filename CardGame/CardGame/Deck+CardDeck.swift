@@ -9,29 +9,29 @@
 import Foundation
 
 protocol Deck {
-    mutating func shuffle()
-    mutating func reset()
-    mutating func removeOne() -> Card?
+    func shuffle()
+    func reset()
+    func removeOne() -> Card?
     func count() -> Int
 }
 
-struct CardDeck: Deck {
+class CardDeck: Deck {
     private var cards = [Card]()
     
     init() {
         self.reset()
     }
     
-    mutating func shuffle() {
+    func shuffle() {
         self.cards.shuffle()
     }
     
-    mutating func reset() {
+    func reset() {
         self.cards = CardGenerator.generateCards()
         self.shuffle()
     }
     
-    mutating func removeOne() -> Card? {
+    func removeOne() -> Card? {
         return cards.popLast()
     }
     
