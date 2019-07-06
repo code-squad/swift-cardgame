@@ -8,16 +8,12 @@
 
 import Foundation
 
-enum Direction: String {
-    case request = "다음 메뉴를 선택해주세요"
-}
-
 struct InputView {
-    static func ask(for direction: Direction) throws -> String {
-        print(direction.rawValue)
-        guard let data = readLine() else {
-            throw CardGameError.wrongValue
-        }
-        return data
-    }
+    static private let guideSentence = """
+    다음 메뉴를 선택해주세요.
+    \(GameMenu.reset)
+    \(GameMenu.shuffle)
+    \(GameMenu.draw)
+    >
+    """
 }
