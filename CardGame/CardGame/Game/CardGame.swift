@@ -35,7 +35,11 @@ struct CardGame: OutputViewPrintable {
         players.setCards(num: info.gameMode().numOfCards)
     }
     
+    func printSettingResult() {
+        players.showSettingResult(with: OutputView.playerAndCardsForm)
     }
     
+    func printWinner() {
+        players.showWinner(with: OutputView.winnerForm)
     }
 }
