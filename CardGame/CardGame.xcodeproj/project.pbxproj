@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5641D51C22CCB2E5006C4A4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D51B22CCB2E5006C4A4D /* Card.swift */; };
-		5641D52422CCB61D006C4A4D /* CardGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52322CCB61D006C4A4D /* CardGameTest.swift */; };
 		5641D52A22CE2C99006C4A4D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52922CE2C99006C4A4D /* InputView.swift */; };
 		5641D52E22CEDADB006C4A4D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52D22CEDADB006C4A4D /* OutputView.swift */; };
 		5641D53022CEDCA3006C4A4D /* DeckMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52F22CEDCA3006C4A4D /* DeckMaker.swift */; };
@@ -215,7 +214,6 @@
 				5668942922D1022D00BA1061 /* CardGameError.swift in Sources */,
 				5668942F22D1023A00BA1061 /* CardDeck.swift in Sources */,
 				5668942E22D1023700BA1061 /* CardGameResult.swift in Sources */,
-				5641D52422CCB61D006C4A4D /* CardGameTest.swift in Sources */,
 				5668942A22D1022F00BA1061 /* DeckMaker.swift in Sources */,
 				5668942B22D1023100BA1061 /* Card.swift in Sources */,
 				5668943222D1024400BA1061 /* main.swift in Sources */,
