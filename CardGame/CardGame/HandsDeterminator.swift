@@ -46,7 +46,7 @@ struct HandsDeterminator {
     }
     
     static private func countSerialRanks(from index: Int, in sortedRanks: [Card.Rank]) -> Int {
-        var serialCount = 0
+        var serialCount = 1
         var index = index
         while index < sortedRanks.count - 1 && serialCount < countForStraight {
             let before = sortedRanks[index]
