@@ -11,7 +11,7 @@ import Foundation
 protocol Playerable {
     func take(card: Card)
     func showCards() -> String
-    func maxHand() -> (key: Card, value: CardSetRanking)
+    func bestHand() -> (key: Card, value: CardSetRanking)
 }
 
 class Player {
