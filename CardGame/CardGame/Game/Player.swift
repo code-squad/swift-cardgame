@@ -16,28 +16,28 @@ protocol Playerable {
 
 class Player {
     private var order: Int
-    private var cards: [Card]
+    private var cardsInfo: CardsInfo
     
-    init(order: Int = 0, cards: [Card] = []) {
+    init(order: Int = 0) {
         self.order = order
-        self.cards = cards
+        self.cardsInfo = CardsInfo()
     }
 }
 
 extension Player: Playerable {
     func take(card: Card) {
-        cards.append(card)
+        cardsInfo.add(card: card)
     }
     
     func showCards() -> String {
-        return "\(cards)"
+        return "\(cardsInfo.showCards())"
     }
     
     func showOrder() -> String {
         return "\(order)"
     }
     
-    func bestHand() -> (key: Card, value: CardSetRanking) { //calculateScore
-        return cards.bestHand()
+    func bestHand() -> (key: Card, value: CardSetRanking) {
+        return cardsInfo.bestHand()
     }
 }

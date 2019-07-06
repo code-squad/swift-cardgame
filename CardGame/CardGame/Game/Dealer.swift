@@ -15,11 +15,12 @@ protocol Dealerable {
 }
 
 class Dealer<T: Deck>: Dealerable {
-    private var cards: [Card] = []
+    private var cardsInfo: CardsInfo
     private var deck: T
     
     init(deck: T) {
         self.deck = deck
+        self.cardsInfo = CardsInfo()
     }
     
     func deal() -> Card? {
@@ -50,14 +51,14 @@ class Dealer<T: Deck>: Dealerable {
 
 extension Dealer: Playerable {
     func showCards() -> String {
-        return "\(cards)"
+        return "\(cardsInfo.showCards())"
     }
     
     func take(card: Card) {
-        cards.append(card)
+        cardsInfo.add(card: card)
     }
     
     func bestHand() -> (key: Card, value: CardSetRanking) {
-        return cards.bestHand()
+        return cardsInfo.bestHand()
     }
 }
