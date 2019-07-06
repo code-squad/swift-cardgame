@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct CardGame {
+protocol Playable {
+    mutating func play(menu: GameMenu) throws -> CardGameResult
+}
+
+struct CardGame: Playable {
     enum Error: Swift.Error {
         case isCardDeckEmpty
         
@@ -20,7 +24,7 @@ struct CardGame {
         }
     }
     
-   private var deck: Deck
+    private var deck: Deck
     init(deck: Deck) {
         self.deck = deck
     }
