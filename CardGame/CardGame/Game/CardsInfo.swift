@@ -8,10 +8,11 @@
 
 import Foundation
 
+typealias Hands = [Card: CardSetRanking]
 struct CardsInfo {
     private var cards: [Card]
     private var collectedCards: [Card: Int] = [:]
-    private var hands: [Card: CardSetRanking] = [:]
+    private var hands: Hands = [:]
     
     init(cards: [Card] = []) {
         self.cards = cards
@@ -21,7 +22,14 @@ struct CardsInfo {
         self.collectedCards = cards.reduce(into: [:]) { counts, card in
             counts[card, default: 0] += 1
         }
-        self.hands = HandDecider.decidePair(of: collectedCards)
+        self.hands = HandDecider.decideGeneralHand(of: collectedCards)
+        
+        decideSpecificHand()
+    }
+    
+    /// twopair, straight를 판단한다.
+    mutating private func decideSpecificHand() {
+        self.hands = HandDecider.decideTwoPair(of: hands)
         let straight =  HandDecider.decideStraight(of: collectedCards)
         if straight.isStraight, let max = straight.maxRank {
             hands[max] = .straight

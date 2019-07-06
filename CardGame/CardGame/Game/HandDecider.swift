@@ -9,15 +9,18 @@
 import Foundation
 
 struct HandDecider {
-    static func decidePair(of collected: [Card: Int]) -> [Card: CardSetRanking] {
-        var hands = collected.mapValues {
+    static func decideGeneralHand(of collected: [Card: Int]) -> Hands {
+        let hands = collected.mapValues {
             CardSetRanking.init(rawValue: Double($0)) ?? .highcard
         }
+        return hands
+    }
+    
+    static func decideTwoPair(of generalHands: Hands) -> Hands {
+        var hands = generalHands
         let onePairs = hands.filter { $0.value == .onepair }
         if onePairs.count >= 2 {
-            if let max = onePairs.keys.max() {
-                hands[max] = .twopair
-            }
+            onePairs.keys.map { hands[$0] = .twopair }
         }
         return hands
     }
