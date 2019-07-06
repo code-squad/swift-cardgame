@@ -45,7 +45,7 @@
   
   - 시간 복잡도 : O(n^2)
 - 매 반복마다 남은 (지워지지 않은, 선택 안된) 숫자를 세는 과정이 필요 - O(n)
-    
+  
   - 랜덤 숫자 선택을 리스트 요소 개수에 비례해서 해야 함 - O(n)
   
 - Knuth Shuffle
@@ -219,4 +219,61 @@ card deck 에 남은 카드 < 필요한 카드 (카드 개수 * 전체 플레이
 ### uml
 
 ![](https://github.com/daheenallwhite/daheenallwhite.github.io/blob/master/assets/post-image/swift-cardgame-diagram.png)
+
+&nbsp;
+
+## :round_pushpin: Step 9-4 승자 확인하기
+
+### Hands 우선순위
+
+*([우선순위참조](https://www.cardplayer.com/rules-of-poker/hand-rankings))*
+
+| Hand                              |               | 우선순위 |
+| --------------------------------- | ------------- | -------- |
+| high card                         | 아무것도 없음 | 낮음     |
+| *one pair*                        | pair 1개      |          |
+| *two pair*                        | Pair 2개 이상 |          |
+| *triple (three of kind)*          | 3개 숫자 같음 |          |
+| *straight*                        | 5개 숫자 연속 |          |
+| *four card (four of kind, quads)* | 4개 숫자 같음 | 높음     |
+
+- Straight : `A, K, Q, J, 10` ~~ `A, 2, 3, 4, 5`
+  - `10, J, Q, K, A` 도 연속임 
+  - `A, 2, 3, 4, 5` 도 연속
+  - 카드 순위 : `A, K, Q, J, 10, 9, … , 2`
+- High hands or 같은 Hands 인 경우 : 숫자(rank)가 높은 사람이 승리
+
+### 판단할 것들
+
+1. hands 
+2. High hands, 같은 hands 인 경우 rank가 높은 사람 확인하기
+
+### 구현 방법
+
+- `HandsDeterminator` : card list 받아서 hand와 highest rank (`Decision`) 만들기
+  - 내부에서 Dictionary 구조에 [Card.Rank: Int] 로 rank 개수 셈
+  - straight 인지 판단 : 연속해서 5개의 숫자가 나오는지
+  - 그 외 hand 판단 : rank 개수에 따라 
+    - 개수가 높은 순으로, 개수 같으면 rank 가 큰 순서대로 정렬해서
+    - 맨 앞의 element가 제일 개수 높은 rank 임
+- `Hands` enum : hands 우선순위 추상화
+- `WinningDeterminator` : players 중에 winner 결정
+  - hand 우선순위가 큰 플레이어가 이김
+  - hand가 같으면 rank 가 더 높은 플레이어가 이김
+- `Comparable` protocol : 순서 비교하기 위한 프로토콜
+  - `Hands`, `Card.Rank` 가 채택해서 비교 기호로 우선순위 비교 가능하도록 구현
+
+### UML
+
+![](https://github.com/daheenallwhite/daheenallwhite.github.io/blob/master/assets/post-image/swift-cardgame-diagram-step4.png)
+
+### Test
+
+- `HandsDeterminator`
+  - 주어진 카드에서 가장 높은 우선순위의 hand 와 rank를 선별할 수 있는가?
+  - Hand 각 케이스를 잘 선별할 수 있는가?
+  - 가장 높은 rank 를 가져올 수 있는가?
+- `WinnerDeterminator`
+  - hand 가 더 높은 플레이어 선택하는지
+  - hand 가 같을 때, rank 가 더 높은 플레이어 선택하는지
 
