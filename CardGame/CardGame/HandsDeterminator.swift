@@ -61,7 +61,7 @@ struct HandsDeterminator {
     }
     
     static private func determineSameRankHand(using rankCounter: [Card.Rank: Int]) -> Decision? {
-        let possibleDecisions = rankCounter.mapValues { Hands(count: $0) }
+        let possibleDecisions = rankCounter.mapValues { Hands(sameCardsCount: $0) }
         let sortedPossibleDecisions = possibleDecisions.sorted { // Hands descending, Rank decending
             if $0.value == $1.value {
                 return $0.key > $1.key
