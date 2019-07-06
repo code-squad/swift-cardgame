@@ -16,8 +16,8 @@ enum Hands: Int {
     case straight
     case fourOfKind
 
-    init(count: Int) {
-        switch count {
+    init(sameCardsCount: Int) {
+        switch sameCardsCount {
         case 2:
             self = .onePair
         case 3:
