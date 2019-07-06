@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Dealer: Player {
-    mutating func give() -> Card?
+    mutating func draw() -> Card?
 }
 
 struct PokerDealer: Dealer, CustomStringConvertible {
@@ -30,7 +30,7 @@ struct PokerDealer: Dealer, CustomStringConvertible {
         hand.add(card: card)
     }
     
-    mutating func give() -> Card? {
+    mutating func draw() -> Card? {
         return deck.removeOne()
     }
     
