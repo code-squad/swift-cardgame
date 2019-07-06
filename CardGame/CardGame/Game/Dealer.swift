@@ -57,8 +57,7 @@ extension Dealer: Playerable {
         cards.append(card)
     }
     
-    func maxHand() -> (key: Card, value: CardSetRanking) {
-        var info = CardsInfo(cards: cards)
-        return info.maxHand()
+    func bestHand() -> (key: Card, value: CardSetRanking) {
+        return cards.bestHand()
     }
 }

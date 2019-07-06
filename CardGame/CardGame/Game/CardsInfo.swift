@@ -29,7 +29,8 @@ struct CardsInfo {
         }
     }
     
-    mutating func maxHand() -> (key: Card, value: CardSetRanking) {
+    mutating func bestHand() -> (key: Card, value: CardSetRanking) {
+        makeHands()
         var sortedHands = hands.sorted(by: { $0.value < $1.value })
         let maxHand = sortedHands[sortedHands.count - 1]
         return maxHand
