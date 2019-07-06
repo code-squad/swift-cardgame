@@ -11,8 +11,8 @@ import Foundation
 typealias Decision = (highestRank: Card.Rank, hand: Hands)
 
 struct HandsDeterminator {
-    static let countForStraight = 5
-    static let lowestDecision = (Card.Rank.ace, Hands.highCard)
+    static private let countForStraight = 5
+    static private let lowestDecision = (Card.Rank.ace, Hands.highCard)
     
     static func determine(using cards: [Card]) -> Decision {
         var rankCounter = [Card.Rank: Int]()
