@@ -9,6 +9,16 @@
 import Foundation
 
 struct OutputView {
+    static let playerAndCardsForm: (Bool, String, String) -> Void = {
+        (isPlayer, order, cards) in
+        let name = isPlayer ? "참가자 #\(order)" : "딜러"
+        print("\(name) \(cards)")
+    }
+    
+    static let winnerForm: (Bool, String) -> Void = { (isPlayer: Bool, order: String) in
+        let name = isPlayer ? "참가자 #\(order)" : "딜러"
+        print("이번 게임의 승자는 \(name)입니다.")
+    }
     
     static func printResult(of game: OutputViewPrintable) {
         game.printSettingResult { (isPlayer, order, cards) in
