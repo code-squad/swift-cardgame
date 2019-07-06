@@ -51,7 +51,7 @@ struct HandsDeterminator {
         while index < sortedRanks.count - 1 && serialCount < countForStraight {
             let before = sortedRanks[index]
             let after = sortedRanks[index + 1]
-            guard let next = before.next(), after == next else {
+            guard let next = after.next(), before == next else {
                 return serialCount
             }
             serialCount += 1
