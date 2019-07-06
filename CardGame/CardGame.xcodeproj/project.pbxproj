@@ -37,6 +37,7 @@
 		FA2D4A7322CF6AA300158505 /* CardSetRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7222CF6AA300158505 /* CardSetRanking.swift */; };
 		FA2D4A7522CF6C6600158505 /* HandDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7422CF6C6600158505 /* HandDecider.swift */; };
 		FAD7E47222D0C81000859630 /* PlayersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47122D0C81000859630 /* PlayersInfo.swift */; };
+		FAD7E47322D0CAA700859630 /* HandDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7422CF6C6600158505 /* HandDecider.swift */; };
 		FAF2345B22CA2DD6009A5DFB /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */; };
 		FAF2345D22CA2F5B009A5DFB /* GuideSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345C22CA2F5B009A5DFB /* GuideSentence.swift */; };
 		FAF2345F22CA2FC0009A5DFB /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */; };
@@ -174,11 +175,11 @@
 		FAF2346A22CA36BA009A5DFB /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				FAF2346022CA30A2009A5DFB /* Player.swift */,
-				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
+				FAF2346222CA3341009A5DFB /* GameInfo.swift */,
 				FAF2346422CA33D3009A5DFB /* CardGame.swift */,
 				FAD7E47122D0C81000859630 /* PlayersInfo.swift */,
-				FAF2346222CA3341009A5DFB /* GameInfo.swift */,
+				FAF2346022CA30A2009A5DFB /* Player.swift */,
+				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
 				FA025A7522CF421500D103E1 /* CardsInfo.swift */,
 				FA2D4A7422CF6C6600158505 /* HandDecider.swift */,
 				FA2D4A7222CF6AA300158505 /* CardSetRanking.swift */,
@@ -309,6 +310,7 @@
 				FA2D4A6D22CF523E00158505 /* Player.swift in Sources */,
 				FA2D4A6322CF516800158505 /* InputView.swift in Sources */,
 				FA2D4A6C22CF523B00158505 /* HandlingDeckResult.swift in Sources */,
+				FAD7E47322D0CAA700859630 /* HandDecider.swift in Sources */,
 				FA2D4A6222CF516600158505 /* GuideSentence.swift in Sources */,
 				FA2D4A6E22CF524100158505 /* Dealer.swift in Sources */,
 				FA2D4A6922CF523000158505 /* CardDeck.swift in Sources */,
