@@ -36,4 +36,9 @@ extension Player: Playerable {
     func showOrder() -> String {
         return "\(order)"
     }
+    
+    func maxHand() -> (key: Card, value: CardSetRanking) { //calculateScore
+        var info = CardsInfo(cards: cards)
+        return info.maxHand()
+    }
 }
