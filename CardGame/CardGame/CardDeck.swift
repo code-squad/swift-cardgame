@@ -19,6 +19,10 @@ struct CardDeck: Deck {
     
     private var cards = [Card]()
     
+    init() {
+        reset()
+    }
+    
     mutating func count() -> Int {
         return cards.count
     }

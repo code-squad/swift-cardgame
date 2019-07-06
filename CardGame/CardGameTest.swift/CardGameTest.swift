@@ -8,32 +8,34 @@
 
 import XCTest
 
-class CardGameTest: XCTestCase {
-
-    override func setUp() {
-        var deck = CardDeck()
+class CardDeckTests: XCTestCase {
+    //Given
+    var deck = CardDeck()
+    
+    func testCount() {
+        //Then
+        XCTAssertEqual(deck.count(), 52)
+    }
+    
+    func testRemoveOne() {
+        // Given
+        let beforeCount = self.deck.count()
         
-        func testCount() {
-            XCTAssertEqual(deck.count(), 52)
-        }
+        //When
+        let card = deck.removeOne()!
+        let afterCount = self.deck.count()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        //Then
+        XCTAssertEqual("\(type(of: card))", "Card" )
+        XCTAssertEqual(beforeCount, afterCount + 1)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    
+    func testReset() {
+        //When
+        _ = deck.removeOne()
+        deck.reset()
+        //Then
+        XCTAssertEqual(deck.count(), 52)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

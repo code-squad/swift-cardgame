@@ -27,7 +27,6 @@ struct CardGame: Playable {
     private var deck: Deck
     init(deck: Deck) {
         self.deck = deck
-        self.deck.reset()
     }
     
     mutating func play(menu: GameMenu) throws -> CardGameResult {
