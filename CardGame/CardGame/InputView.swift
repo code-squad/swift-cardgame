@@ -16,4 +16,10 @@ struct InputView {
     \(GameMenu.draw)
     >
     """
+    
+    static func read(message: String) -> String {
+        print(message)
+        return readLine() ?? ""
+    }
+   
 }
