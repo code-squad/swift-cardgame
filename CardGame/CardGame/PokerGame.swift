@@ -36,7 +36,7 @@ struct PokerGame {
         
         for index in 0..<self.players.count {
             for _ in 0..<times {
-                guard let card = dealer.give() else {
+                guard let card = dealer.draw() else {
                     throw Error.isCardDeckEmpty
                 }
                 self.players[index].receive(card: card)
