@@ -34,4 +34,12 @@ struct CardsInfo {
         let maxHand = sortedHands[sortedHands.count - 1]
         return maxHand
     }
+    
+    mutating func add(card: Card) {
+        cards.append(card)
+    }
+    
+    func showCards() -> [Card] {
+        return cards
+    }
 }
