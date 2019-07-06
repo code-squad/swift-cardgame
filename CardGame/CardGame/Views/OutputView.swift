@@ -21,11 +21,11 @@ struct OutputView {
     }
     
     static func printResult(of game: OutputViewPrintable) {
-        game.printSettingResult { (isPlayer, order, cards) in
-            let name = isPlayer ? "참가자 #\(order)" : "딜러"
-            print("\(name) \(cards)")
-        }
+        game.printSettingResult()
+        print()
+        game.printWinner()
     }
+    
     
     static func printResult(of result: HandlingDeckResult) {
         switch result {
