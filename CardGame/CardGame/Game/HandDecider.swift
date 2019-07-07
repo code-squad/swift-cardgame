@@ -20,7 +20,7 @@ struct HandDecider {
         var hands = generalHands
         let onePairs = hands.filter { $0.value == .onepair }
         if onePairs.count >= 2 {
-            onePairs.keys.map { hands[$0] = .twopair }
+            onePairs.keys.forEach { hands[$0] = .twopair }
         }
         return hands
     }

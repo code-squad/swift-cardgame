@@ -9,7 +9,7 @@
 import Foundation
 
 struct PlayersInfo {
-    var players: [Playerable] = []
+    private var players: [Playerable] = []
     private let dealer: Dealerable & Playerable
     
     init(playersNum: Int, dealer: Dealerable & Playerable) {
@@ -45,7 +45,6 @@ struct PlayersInfo {
     
     func showWinner(with result: (Bool, String) -> Void) {
         let winner = WinnerDecider.decideWinner(of: players)
-        
         let participant = winner as? Player
         let isPlayer = participant != nil
         let order = isPlayer ? "\(participant!.showOrder())" : ""
