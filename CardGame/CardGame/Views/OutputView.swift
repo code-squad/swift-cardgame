@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static let playerAndCardsForm: (Bool, String, String) -> Void = {
+    static let playerAndCardsForm: (Bool, String, CardsInfo) -> Void = {
         (isPlayer, order, cards) in
         let name = isPlayer ? "참가자 #\(order)" : "딜러"
         print("\(name) \(cards)")

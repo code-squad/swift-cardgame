@@ -10,7 +10,7 @@ import Foundation
 
 protocol Playerable {
     func take(card: Card)
-    func showCards() -> String
+    func showCards() -> CardsInfo
     func bestHand() -> (key: Card, value: CardSetRanking)
 }
 
@@ -29,8 +29,8 @@ extension Player: Playerable {
         cardsInfo.add(card: card)
     }
     
-    func showCards() -> String {
-        return "\(cardsInfo.showCards())"
+    func showCards() -> CardsInfo {
+        return cardsInfo
     }
     
     func showOrder() -> Int {
