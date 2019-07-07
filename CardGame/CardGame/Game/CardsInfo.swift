@@ -26,23 +26,6 @@ struct CardsInfo: CustomStringConvertible {
         cards.append(card)
     }
     
-    mutating func makeHands() {
-        self.collectedCards = cards.reduce(into: [:]) { counts, card in
-            counts[card, default: 0] += 1
-        }
-        self.hands = HandDecider.decideGeneralHand(of: collectedCards)
-        
-        decideSpecificHand()
-    }
-    
-    mutating private func decideSpecificHand() {
-        self.hands = HandDecider.decideTwoPair(of: hands)
-        let straight =  HandDecider.decideStraight(of: collectedCards)
-        if straight.isStraight, let max = straight.maxRank {
-            hands[max] = .straight
-        }
-    }
-    
     mutating func bestHand() -> (key: Card, value: HandRanking) {
         makeHands()
         var sortedHands = hands.sorted {
@@ -53,5 +36,22 @@ struct CardsInfo: CustomStringConvertible {
         }
         let maxHand = sortedHands[sortedHands.count - 1]
         return maxHand
+    }
+    
+    private mutating func makeHands() {
+        self.collectedCards = cards.reduce(into: [:]) { counts, card in
+            counts[card, default: 0] += 1
+        }
+        self.hands = HandDecider.decideGeneralHand(of: collectedCards)
+        
+        decideSpecificHand()
+    }
+    
+    private mutating func decideSpecificHand() {
+        self.hands = HandDecider.decideTwoPair(of: hands)
+        let straight =  HandDecider.decideStraight(of: collectedCards)
+        if straight.isStraight, let max = straight.maxRank {
+            hands[max] = .straight
+        }
     }
 }
