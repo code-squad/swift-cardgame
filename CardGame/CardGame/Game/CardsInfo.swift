@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias Hands = [Card: CardSetRanking]
+typealias Hands = [Card: HandRanking]
 struct CardsInfo: CustomStringConvertible {
     private var cards: [Card]
     private var collectedCards: [Card: Int] = [:]
@@ -43,7 +43,7 @@ struct CardsInfo: CustomStringConvertible {
         }
     }
     
-    mutating func bestHand() -> (key: Card, value: CardSetRanking) {
+    mutating func bestHand() -> (key: Card, value: HandRanking) {
         makeHands()
         var sortedHands = hands.sorted {
             if $0.value == $1.value {

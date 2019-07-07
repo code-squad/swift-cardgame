@@ -34,11 +34,11 @@
 		FA2D4A6F22CF524400158505 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346422CA33D3009A5DFB /* CardGame.swift */; };
 		FA2D4A7022CF524600158505 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2346222CA3341009A5DFB /* GameInfo.swift */; };
 		FA2D4A7122CF524900158505 /* CardsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA025A7522CF421500D103E1 /* CardsInfo.swift */; };
-		FA2D4A7322CF6AA300158505 /* CardSetRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7222CF6AA300158505 /* CardSetRanking.swift */; };
+		FA2D4A7322CF6AA300158505 /* HandRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7222CF6AA300158505 /* HandRanking.swift */; };
 		FA2D4A7522CF6C6600158505 /* HandDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7422CF6C6600158505 /* HandDecider.swift */; };
 		FAD7E47222D0C81000859630 /* PlayersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47122D0C81000859630 /* PlayersInfo.swift */; };
 		FAD7E47322D0CAA700859630 /* HandDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7422CF6C6600158505 /* HandDecider.swift */; };
-		FAD7E47422D0F84700859630 /* CardSetRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7222CF6AA300158505 /* CardSetRanking.swift */; };
+		FAD7E47422D0F84700859630 /* HandRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7222CF6AA300158505 /* HandRanking.swift */; };
 		FAD7E47522D0F88B00859630 /* PlayersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47122D0C81000859630 /* PlayersInfo.swift */; };
 		FAD7E47722D1112400859630 /* HandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47622D1112400859630 /* HandTests.swift */; };
 		FAD7E47922D211A200859630 /* WinnerDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47822D211A200859630 /* WinnerDecider.swift */; };

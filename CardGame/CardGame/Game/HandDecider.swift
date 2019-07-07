@@ -11,7 +11,7 @@ import Foundation
 struct HandDecider {
     static func decideGeneralHand(of collected: [Card: Int]) -> Hands {
         let hands = collected.mapValues {
-            CardSetRanking.init(rawValue: Double($0)) ?? .highcard
+            HandRanking.init(rawValue: Double($0)) ?? .highcard
         }
         return hands
     }
