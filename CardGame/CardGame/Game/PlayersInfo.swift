@@ -37,7 +37,7 @@ struct PlayersInfo {
         for player in players {
             let participant = player as? Player
             let isPlayer = participant != nil
-            let order = isPlayer ? participant!.showOrder() : ""
+            let order = isPlayer ? "\(participant!.showOrder())" : ""
             let cards = player.showCards()
             result(isPlayer, order, cards)
         }
@@ -54,7 +54,7 @@ struct PlayersInfo {
         let winner = sortedByHand[players.count - 1]
         let participant = winner as? Player
         let isPlayer = participant != nil
-        let order = isPlayer ? participant!.showOrder() : ""
+        let order = isPlayer ? "\(participant!.showOrder())" : ""
         result(isPlayer, order)
     }
 }
