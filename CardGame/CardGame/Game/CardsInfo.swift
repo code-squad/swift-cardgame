@@ -14,8 +14,16 @@ struct CardsInfo: CustomStringConvertible {
     private var collectedCards: [Card: Int] = [:]
     private var hands: Hands = [:]
     
+    var description: String {
+        return "\(cards)"
+    }
+    
     init(cards: [Card] = []) {
         self.cards = cards
+    }
+    
+    mutating func add(card: Card) {
+        cards.append(card)
     }
     
     mutating func makeHands() {
@@ -27,7 +35,6 @@ struct CardsInfo: CustomStringConvertible {
         decideSpecificHand()
     }
     
-    /// twopair, straight를 판단한다.
     mutating private func decideSpecificHand() {
         self.hands = HandDecider.decideTwoPair(of: hands)
         let straight =  HandDecider.decideStraight(of: collectedCards)
@@ -46,13 +53,5 @@ struct CardsInfo: CustomStringConvertible {
         }
         let maxHand = sortedHands[sortedHands.count - 1]
         return maxHand
-    }
-    
-    mutating func add(card: Card) {
-        cards.append(card)
-    }
-    
-    var description: String {
-        return "\(cards)"
     }
 }
