@@ -1,5 +1,5 @@
 //
-//  CardSetRanking.swift
+//  HandRanking.swift
 //  CardGame
 //
 //  Created by CHOMINJI on 05/07/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CardSetRanking: Double {
+enum HandRanking: Double {
     case highcard = 0
     case onepair = 2
     case twopair = 2.5
@@ -17,8 +17,8 @@ enum CardSetRanking: Double {
     case fourcard = 4
 }
 
-extension CardSetRanking: Comparable {
-    static func < (lhs: CardSetRanking, rhs: CardSetRanking) -> Bool {
+extension HandRanking: Comparable {
+    static func < (lhs: HandRanking, rhs: HandRanking) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
 }

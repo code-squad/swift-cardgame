@@ -11,7 +11,7 @@ import Foundation
 protocol Playerable {
     func take(card: Card)
     func showCards() -> CardsInfo
-    func bestHand() -> (key: Card, value: CardSetRanking)
+    func bestHand() -> (key: Card, value: HandRanking)
 }
 
 class Player {
@@ -37,7 +37,7 @@ extension Player: Playerable {
         return order
     }
     
-    func bestHand() -> (key: Card, value: CardSetRanking) {
+    func bestHand() -> (key: Card, value: HandRanking) {
         return cardsInfo.bestHand()
     }
 }
