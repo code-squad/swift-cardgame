@@ -33,8 +33,8 @@ extension Player: Playerable {
         return "\(cardsInfo.showCards())"
     }
     
-    func showOrder() -> String {
-        return "\(order)"
+    func showOrder() -> Int {
+        return order
     }
     
     func bestHand() -> (key: Card, value: CardSetRanking) {
