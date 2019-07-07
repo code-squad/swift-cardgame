@@ -8,7 +8,7 @@
 
 import Foundation
 
-func main() {
+func mainOfHandlingDeck() {
     let deck = CardDeck()
     while let selectedNumber = InputView.menuNumber(), selectedNumber != 0 {
         guard let  selectedMenu = DeckMenu.init(rawValue: selectedNumber) else { return }
@@ -18,7 +18,7 @@ func main() {
     }
 }
 
-func mainOfStep3() {
+func main() {
     let mode = GameInputView.readGameMode()
     let count = GameInputView.readPlayerCount()
     guard let gameMode = GameMode.init(rawValue: mode),
@@ -33,4 +33,4 @@ func mainOfStep3() {
     OutputView.printResult(of: game)
 }
 
-mainOfStep3()
+main()
