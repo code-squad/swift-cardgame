@@ -33,7 +33,7 @@ struct PlayersInfo {
         }
     }
     
-    func showSettingResult(with result: (Bool, String, String) -> Void) {
+    func showSettingResult(with result: (Bool, String, CardsInfo) -> Void) {
         for player in players {
             let participant = player as? Player
             let isPlayer = participant != nil

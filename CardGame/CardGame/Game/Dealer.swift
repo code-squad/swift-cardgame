@@ -50,8 +50,8 @@ class Dealer<T: Deck>: Dealerable {
 }
 
 extension Dealer: Playerable {
-    func showCards() -> String {
-        return "\(cardsInfo.showCards())"
+    func showCards() -> CardsInfo {
+        return cardsInfo
     }
     
     func take(card: Card) {

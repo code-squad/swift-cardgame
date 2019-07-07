@@ -9,7 +9,7 @@
 import Foundation
 
 typealias Hands = [Card: CardSetRanking]
-struct CardsInfo {
+struct CardsInfo: CustomStringConvertible {
     private var cards: [Card]
     private var collectedCards: [Card: Int] = [:]
     private var hands: Hands = [:]
@@ -52,7 +52,7 @@ struct CardsInfo {
         cards.append(card)
     }
     
-    func showCards() -> [Card] {
-        return cards
+    var description: String {
+        return "\(cards)"
     }
 }
