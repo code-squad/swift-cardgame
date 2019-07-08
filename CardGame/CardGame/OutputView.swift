@@ -23,4 +23,8 @@ struct OutputView {
             print("총 \(count)장의 카드가 남아있습니다.")
         }
     }
+    
+    static func printError(_ description: String) {
+        print(description)
+    }
 }

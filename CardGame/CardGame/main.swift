@@ -17,19 +17,19 @@ func main() {
         do {
             menu = try InputView.readMenu()
         } catch let error as InputView.Error {
-            print(error.localizedDescription)
+           OutputView.printError(error.localizedDescription)
             break
         } catch {
-            print("\(ErrorMessage.invalidMenu) : \(error)")
+            OutputView.printError("\(ErrorMessage.unexpectedError) : \(error)")
             break
         }
         do {
             result = try game.play(menu: menu)
         } catch let error as CardGame.Error {
-            print(error.localizedDescription)
+            OutputView.printError(error.localizedDescription)
             break
         } catch {
-            print("\(ErrorMessage.invalidMenu) : \(error)")
+            OutputView.printError("\(ErrorMessage.unexpectedError) : \(error)")
             break
         }
         OutputView.printResult(result: result)
