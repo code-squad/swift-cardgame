@@ -9,5 +9,5 @@
 import Foundation
 
 struct ErrorMessage {
-    static let invalidMenu = "올바르지 않은 메뉴가 나왔습니다."
-        }
+    static let unexpectedError = "예상치 못한 에러가 나왔습니다."
+}
