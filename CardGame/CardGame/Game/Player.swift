@@ -11,12 +11,15 @@ import Foundation
 protocol Playerable {
     func take(card: Card)
     func showCards() -> CardsInfo
-    func bestHand() -> (key: Card, value: HandRanking)
 }
 
 class Player {
     private var order: Int
     private var cardsInfo: CardsInfo
+    
+    private var bestHand: (key: Card, value: HandRanking) {
+        return cardsInfo.bestHand()
+    }
     
     init(order: Int = 0) {
         self.order = order
