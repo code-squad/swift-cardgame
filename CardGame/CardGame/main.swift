@@ -23,15 +23,13 @@ func main() {
         guard cardDeck.hasEnoughCards(for: gameMode.numberOfCards, numberOfParticipants: numberOfParticipants.count) else {
             break gameLoop
         }
-        let players: [Player] = PlayerFactory.makeAllPlayers(including: numberOfParticipants.count)
+        let players = PlayerFactory.makeAllPlayers(including: numberOfParticipants.count)
         for player in players {
-            var player = player
             let removedCards = cardDeck.remove(numberOfCards: gameMode.numberOfCards)
             player.take(newCards: removedCards)
         }
         OutputView.printDealtCards(of: players)
-        let winner = WinnerDeterminator.determineWinner(among: players)
-        OutputView.announce(winner: winner)
+        OutputView.announce(nameOfWinner: players.determineWinner())
     }
 }
 
