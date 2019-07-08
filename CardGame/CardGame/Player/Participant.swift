@@ -9,16 +9,8 @@
 import Foundation
 
 class Participant: Player {
-    var cards: [Card]
-    private let number: Int
-    
-    var name: String {
-        return "참가자#\(number)"
-    }
-    
-    init(number: Int) {
-        self.cards = [Card]()
-        self.number = number
+    override var role: String {
+        return "참가자"
     }
     
 }
