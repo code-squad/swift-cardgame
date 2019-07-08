@@ -38,12 +38,12 @@ struct CardDeck {
         return cards.removeLast()
     }
     
-    mutating func remove(numberOfCards: Int) -> [Card] {
+    mutating func remove(numberOfCards: Int) -> Cards {
         var removedCards = [Card]()
         for _ in 0..<numberOfCards {
             removedCards.append(self.removeOne())
         }
-        return removedCards
+        return Cards(removedCards)
     }
     
     func hasEnoughCards(for numberOfCardsPerPlayer: Int, numberOfParticipants: Int) -> Bool {
