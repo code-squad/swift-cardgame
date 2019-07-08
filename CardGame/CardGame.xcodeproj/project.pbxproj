@@ -14,7 +14,6 @@
 		C2215D3F22CDE121001ECCDD /* NumberOfParticipants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */; };
 		C2215D4022CDE121001ECCDD /* Hands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8CA0622CCBB5400F47CB2 /* Hands.swift */; };
 		C2215D4122CDE121001ECCDD /* HandsDeterminator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8CA0822CCC3B500F47CB2 /* HandsDeterminator.swift */; };
-		C2215D4222CDE121001ECCDD /* WinnerDeterminator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8CA0A22CD1CDB00F47CB2 /* WinnerDeterminator.swift */; };
 		C2215D4322CDE12F001ECCDD /* PlayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */; };
 		C2215D4422CDE12F001ECCDD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114B22C9CEA500B9FC4D /* Player.swift */; };
 		C2215D4522CDE12F001ECCDD /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9115222C9EC9C00B9FC4D /* Participant.swift */; };
@@ -45,7 +44,6 @@
 		C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */; };
 		C2E8CA0722CCBB5400F47CB2 /* Hands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8CA0622CCBB5400F47CB2 /* Hands.swift */; };
 		C2E8CA0922CCC3B500F47CB2 /* HandsDeterminator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8CA0822CCC3B500F47CB2 /* HandsDeterminator.swift */; };
-		C2E8CA0B22CD1CDB00F47CB2 /* WinnerDeterminator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8CA0A22CD1CDB00F47CB2 /* WinnerDeterminator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,7 +82,6 @@
 		C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
 		C2E8CA0622CCBB5400F47CB2 /* Hands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hands.swift; sourceTree = "<group>"; };
 		C2E8CA0822CCC3B500F47CB2 /* HandsDeterminator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsDeterminator.swift; sourceTree = "<group>"; };
-		C2E8CA0A22CD1CDB00F47CB2 /* WinnerDeterminator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerDeterminator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +128,6 @@
 				C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */,
 				C2E8CA0622CCBB5400F47CB2 /* Hands.swift */,
 				C2E8CA0822CCC3B500F47CB2 /* HandsDeterminator.swift */,
-				C2E8CA0A22CD1CDB00F47CB2 /* WinnerDeterminator.swift */,
 				C28744AE22D332D200764589 /* Decision.swift */,
 				C2D9115122C9EB3600B9FC4D /* View */,
 				C2D9115622C9F01500B9FC4D /* Player */,
@@ -278,7 +274,6 @@
 				C2E5FF7122C4B3D300ECC13F /* OutputView.swift in Sources */,
 				C2E8CA0722CCBB5400F47CB2 /* Hands.swift in Sources */,
 				C2D9115522C9ED1200B9FC4D /* Dealer.swift in Sources */,
-				C2E8CA0B22CD1CDB00F47CB2 /* WinnerDeterminator.swift in Sources */,
 				C2E8CA0922CCC3B500F47CB2 /* HandsDeterminator.swift in Sources */,
 				C2E5FF6B22C4978900ECC13F /* CardDeck.swift in Sources */,
 				C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */,
@@ -302,7 +297,6 @@
 				C2215D4E22CE1945001ECCDD /* HandsDeterminatorTests.swift in Sources */,
 				C2215D3D22CDE121001ECCDD /* main.swift in Sources */,
 				C2215D3F22CDE121001ECCDD /* NumberOfParticipants.swift in Sources */,
-				C2215D4222CDE121001ECCDD /* WinnerDeterminator.swift in Sources */,
 				C2215D4322CDE12F001ECCDD /* PlayerFactory.swift in Sources */,
 				C2215D4022CDE121001ECCDD /* Hands.swift in Sources */,
 				C2215D4A22CDEA92001ECCDD /* GameInputView.swift in Sources */,
