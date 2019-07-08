@@ -17,10 +17,6 @@ class Player {
     private var order: Int
     private var cardsInfo: CardsInfo
     
-    private var bestHand: (key: Card, value: HandRanking) {
-        return cardsInfo.bestHand()
-    }
-    
     init(order: Int = 0) {
         self.order = order
         self.cardsInfo = CardsInfo()
@@ -43,25 +39,18 @@ extension Player: Playerable {
 
 extension Player: Comparable {
     static func < (lhs: Player, rhs: Player) -> Bool {
-        return compareTwoValues(lhs, rhs)
+        return lhs.cardsInfo < rhs.cardsInfo
     }
     
     static func < (lhs: Player, rhs: Dealer<CardDeck>) -> Bool {
-        return compareTwoValues(lhs, rhs)
+        return lhs.cardsInfo < rhs.cardsInfo
     }
     
     static func < (lhs: Dealer<CardDeck>, rhs: Player) -> Bool {
-        return compareTwoValues(lhs, rhs)
+        return lhs.cardsInfo < rhs.cardsInfo
     }
     
     static func == (lhs: Player, rhs: Player) -> Bool {
-        return lhs.bestHand == rhs.bestHand
-    }
-    
-    static private func compareTwoValues<L: Player, R: Player>(_ lhs: L, _ rhs: R) -> Bool {
-        if lhs.bestHand.value == rhs.bestHand.value {
-            return lhs.bestHand.key < rhs.bestHand.key
-        }
-        return lhs.bestHand.value < rhs.bestHand.value
+        return lhs.cardsInfo == rhs.cardsInfo
     }
 }
