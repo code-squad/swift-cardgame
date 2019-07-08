@@ -14,7 +14,7 @@ struct OutputView {
         print() //for new line
     }
     
-    static func announce(winner: Player) {
-        print("이번 게임의 승자는 \(winner.name) 입니다.")
+    static func announce(nameOfWinner: String) {
+        print("이번 게임의 승자는 \(nameOfWinner) 입니다.")
     }
 }
