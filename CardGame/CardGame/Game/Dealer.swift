@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol Dealerable {
+protocol Dealerable: Playerable {
     func deal() -> Card?
     func hasEnounghCards(for requirement: Int) -> Bool
     func handlingDeck(by menu: DeckMenu) -> HandlingDeckResult
 }
 
-class Dealer<T: Deck>: Dealerable {
+class Dealer<T: Deck>: Player, Dealerable {
     private var cardsInfo: CardsInfo
     private var deck: T
     
@@ -46,19 +46,5 @@ class Dealer<T: Deck>: Dealerable {
             let card = deck.removeOne() as? Card
             return HandlingDeckResult.draw(card, deck.count)
         }
-    }
-}
-
-extension Dealer: Playerable {
-    func showCards() -> CardsInfo {
-        return cardsInfo
-    }
-    
-    func take(card: Card) {
-        cardsInfo.add(card: card)
-    }
-    
-    func bestHand() -> (key: Card, value: HandRanking) {
-        return cardsInfo.bestHand()
     }
 }
