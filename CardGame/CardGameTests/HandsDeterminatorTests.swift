@@ -9,16 +9,16 @@
 import XCTest
 
 class HandDeterminatorTests: XCTestCase {
-    let straightCards = [Card(.two, of: .club), Card(.three, of: .spade), Card(.four, of: .heart), Card(.five, of: .diamond), Card(.six, of: .club)]
-    let highCards = [Card(.ace, of: .club), Card(.nine, of: .spade), Card(.two, of: .heart), Card(.queen, of: .diamond), Card(.king, of: .club)]
-    let onePairCards = [Card(.eight, of: .club), Card(.eight, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.king, of: .club)]
-    let twoPairCards = [Card(.eight, of: .club), Card(.eight, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.three, of: .club)]
-    let threeOfKindCards = [Card(.five, of: .club), Card(.five, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.king, of: .club)]
-    let fourOfKindCards = [Card(.six, of: .club), Card(.six, of: .spade), Card(.six, of: .heart), Card(.six, of: .diamond), Card(.king, of: .club)]
+    let straightCards = Cards([Card(.two, of: .club), Card(.three, of: .spade), Card(.four, of: .heart), Card(.five, of: .diamond), Card(.six, of: .club)])
+    let highCards = Cards([Card(.ace, of: .club), Card(.nine, of: .spade), Card(.two, of: .heart), Card(.queen, of: .diamond), Card(.king, of: .club)])
+    let onePairCards = Cards([Card(.eight, of: .club), Card(.eight, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.king, of: .club)])
+    let twoPairCards = Cards([Card(.eight, of: .club), Card(.eight, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.three, of: .club)])
+    let threeOfKindCards = Cards([Card(.five, of: .club), Card(.five, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.king, of: .club)])
+    let fourOfKindCards = Cards([Card(.six, of: .club), Card(.six, of: .spade), Card(.six, of: .heart), Card(.six, of: .diamond), Card(.king, of: .club)])
     var player: Player!
     
     override func setUp() {
-        player = Dealer()
+        player = Player()
     }
     
     override func tearDown() {
@@ -32,7 +32,7 @@ class HandDeterminatorTests: XCTestCase {
     }
     
     func testHighestHandPicked() {
-        let mixedHandsCards = [Card(.five, of: .club), Card(.five, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.three, of: .club)]
+        let mixedHandsCards = Cards([Card(.five, of: .club), Card(.five, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.three, of: .club)])
         player.take(newCards: mixedHandsCards)
         let decision = player.determineWinningPokerHand()
         XCTAssertEqual(decision.hand, Hands.threeOfKind, "HandDeterminator 가 highest hand를 return 하지 않습니다.")
