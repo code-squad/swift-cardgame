@@ -9,10 +9,8 @@
 import Foundation
 
 struct OutputView {
-    static func printDealtCards(of players: [Player]) {
-        for player in players {
-            print("\(player.name) \(player.cards)")
-        }
+    static func printDealtCards(of players: Players) {
+        print("\(players)")
         print() //for new line
     }
     
