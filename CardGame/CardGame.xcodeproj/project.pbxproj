@@ -31,6 +31,7 @@
 		C28744A922D3179C00764589 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744A822D3179C00764589 /* Cards.swift */; };
 		C28744AB22D31D3300764589 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AA22D31D3300764589 /* Players.swift */; };
 		C28744AF22D332D200764589 /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AE22D332D200764589 /* Decision.swift */; };
+		C28744B022D3750100764589 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744A822D3179C00764589 /* Cards.swift */; };
 		C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */; };
 		C2D9114C22C9CEA500B9FC4D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114B22C9CEA500B9FC4D /* Player.swift */; };
 		C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */; };
@@ -313,6 +314,7 @@
 				C2215D4822CDE133001ECCDD /* CardDeck.swift in Sources */,
 				C2215D4922CDE133001ECCDD /* CardFactory.swift in Sources */,
 				C2215D4422CDE12F001ECCDD /* Player.swift in Sources */,
+				C28744B022D3750100764589 /* Cards.swift in Sources */,
 				C2215D4622CDE12F001ECCDD /* Dealer.swift in Sources */,
 				C2215D3E22CDE121001ECCDD /* GameMode.swift in Sources */,
 			);
