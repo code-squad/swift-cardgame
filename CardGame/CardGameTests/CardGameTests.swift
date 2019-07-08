@@ -24,6 +24,20 @@ class CardGameTests: XCTestCase {
     let queen = Card(suit: .clubs, rank: .queen)
     let king = Card(suit: .clubs, rank: .king)
     
+    func testPlayersRank() {
+        let cards = [jack, jack, queen]
+        let cards2 = [queen, queen, king]
+        
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
+        
+        cards.forEach { player1.take(card: $0) }
+        cards2.forEach { player2.take(card: $0) }
+        
+       XCTAssertTrue(player1 < player2)
+        XCTAssertFalse(player1 > player2)
+    }
+    
     func testWinner_whenPlayersHaveDifferentCard() {
         let onepair = [ace, ace, two, five, six]
         let twopair = [ace, ace, two, two , five]
@@ -31,11 +45,11 @@ class CardGameTests: XCTestCase {
         let straight = [ace, two, three, four, five]
         let fourcard = [ace, ace, ace, ace, jack]
         
-        let player1: Playerable = Player(order: 1)
-        let player2: Playerable = Player(order: 2)
-        let player3: Playerable = Player(order: 3)
-        let player4: Playerable = Player(order: 4)
-        let player5: Playerable = Player(order: 5)
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
+        let player3 = Player(order: 3)
+        let player4 = Player(order: 4)
+        let player5 = Player(order: 5)
         
         onepair.forEach { player1.take(card: $0) }
         twopair.forEach { player2.take(card: $0) }
@@ -43,28 +57,26 @@ class CardGameTests: XCTestCase {
         straight.forEach { player4.take(card: $0) }
         fourcard.forEach { player5.take(card: $0) }
         
-        let winner = WinnerDecider.decideWinner(of: [player1, player2, player3, player4, player5])
-        if let player = winner as? Player {
-            XCTAssertEqual(5, player.showOrder())
+        if let winner = [player1, player2, player3, player4, player5].max() {
+        XCTAssertEqual(5, winner.showOrder())
         }
     }
     
     func testWinner_whenAllPlayersHaveHighCard() {
         let cards = [ace, two, three, four, queen]
-        let cards2 = [two, three, four, five, six]
-        let cards3 = [ace, two, seven, eight, jack]
+        let cards2 = [two, three, four, five, seven]
+        let cards3 = [ace, two, seven, eight, king]
         
-        let player1: Playerable = Player(order: 1)
-        let player2: Playerable = Player(order: 2)
-        let player3: Playerable = Player(order: 3)
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
+        let player3 = Player(order: 3)
         
         cards.forEach { player1.take(card: $0) }
         cards2.forEach { player2.take(card: $0) }
         cards3.forEach { player3.take(card: $0) }
-        
-        let winner = WinnerDecider.decideWinner(of: [player1, player2, player3])
-        if let player = winner as? Player {
-            XCTAssertEqual(2, player.showOrder())
+
+        if let winner = [player1, player2, player3].max() {
+            XCTAssertEqual(3, winner.showOrder())
         }
     }
     
@@ -72,16 +84,14 @@ class CardGameTests: XCTestCase {
         let cards = [jack, jack, queen]
         let cards2 = [queen, queen, king]
         
-        
-        let player1: Playerable = Player(order: 1)
-        let player2: Playerable = Player(order: 2)
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
         
         cards.forEach { player1.take(card: $0) }
         cards2.forEach { player2.take(card: $0) }
         
-        let winner = WinnerDecider.decideWinner(of: [player1, player2])
-        if let player = winner as? Player {
-            XCTAssertEqual(2, player.showOrder())
+        if let winner = [player1, player2].max() {
+            XCTAssertEqual(2, winner.showOrder())
         }
     }
     
@@ -89,16 +99,14 @@ class CardGameTests: XCTestCase {
         let cards = [jack, jack, queen, queen]
         let cards2 = [queen, queen, king, king]
         
-        
-        let player1: Playerable = Player(order: 1)
-        let player2: Playerable = Player(order: 2)
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
         
         cards.forEach { player1.take(card: $0) }
         cards2.forEach { player2.take(card: $0) }
         
-        let winner = WinnerDecider.decideWinner(of: [player1, player2])
-        if let player = winner as? Player {
-            XCTAssertEqual(2, player.showOrder())
+        if let winner = [player1, player2].max() {
+            XCTAssertEqual(2, winner.showOrder())
         }
     }
     
@@ -106,16 +114,14 @@ class CardGameTests: XCTestCase {
         let cards = [ten, ten, jack, jack, queen, queen]
         let cards2 = [jack, jack, queen, queen, king, king]
         
-        
-        let player1: Playerable = Player(order: 1)
-        let player2: Playerable = Player(order: 2)
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
         
         cards.forEach { player1.take(card: $0) }
         cards2.forEach { player2.take(card: $0) }
         
-        let winner = WinnerDecider.decideWinner(of: [player1, player2])
-        if let player = winner as? Player {
-            XCTAssertEqual(2, player.showOrder())
+        if let winner = [player1, player2].max() {
+            XCTAssertEqual(2, winner.showOrder())
         }
     }
     
@@ -123,16 +129,14 @@ class CardGameTests: XCTestCase {
         let cards = [ace, two, three, four, five]
         let cards2 = [nine, ten, jack, queen, king]
         
-        
-        let player1: Playerable = Player(order: 1)
-        let player2: Playerable = Player(order: 2)
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
         
         cards.forEach { player1.take(card: $0) }
         cards2.forEach { player2.take(card: $0) }
         
-        let winner = WinnerDecider.decideWinner(of: [player1, player2])
-        if let player = winner as? Player {
-            XCTAssertEqual(2, player.showOrder())
+        if let winner = [player1, player2].max() {
+            XCTAssertEqual(2, winner.showOrder())
         }
     }
     
@@ -140,16 +144,14 @@ class CardGameTests: XCTestCase {
         let cards = [eight, eight, nine, nine, jack, jack, queen, queen]
         let cards2 = [ten, ten, jack, jack, queen, queen, king, king]
         
-        
-        let player1: Playerable = Player(order: 1)
-        let player2: Playerable = Player(order: 2)
+        let player1 = Player(order: 1)
+        let player2 = Player(order: 2)
         
         cards.forEach { player1.take(card: $0) }
         cards2.forEach { player2.take(card: $0) }
         
-        let winner = WinnerDecider.decideWinner(of: [player1, player2])
-        if let player = winner as? Player {
-            XCTAssertEqual(2, player.showOrder())
+        if let winner = [player1, player2].max() {
+            XCTAssertEqual(2, winner.showOrder())
         }
     }
 }
