@@ -8,20 +8,23 @@
 
 import Foundation
 
-protocol Player {
-    var name: String { get }
-    var cards: [Card] { get set }
-    mutating func take(newCards: [Card])
-    func determineWinningPokerHand() -> Decision
-}
-
-extension Player {
-    mutating func take(newCards: [Card]) {
-        self.cards.append(contentsOf: newCards)
+class Player {
+    var role: String {
+        return "플레이어"
+    }
+    
+    var cards: Cards
+    
+    init() {
+        self.cards = Cards()
+    }
+    
+    func take(newCards: Cards) {
+        self.cards.add(newCards: newCards)
     }
     
     func determineWinningPokerHand() -> Decision {
-        return HandsDeterminator.determine(using: cards)
+        return cards.determineWinningDecision()
     }
 }
 
