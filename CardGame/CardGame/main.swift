@@ -9,22 +9,7 @@
 import Foundation
 
 func main() {
-    let cardDeck = CardDeck()
-    var game = CardGame(cardDeck: cardDeck)
-    var result: GameResult
-    var menu: Menu
     
-    gameLoop: while true {
-        menu = Menu(InputView.readSelection())
-        
-        result = game.run(menu: menu)
-        
-        OutputView.printResult(of: result)
-        
-        if menu == .exit {
-            break gameLoop
-        }
-    }
 }
 
 main()
