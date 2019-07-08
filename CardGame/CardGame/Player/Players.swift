@@ -40,3 +40,29 @@ class Players {
         return "\(winner.role)#\(number)"
     }
 }
+
+extension Players: Sequence {
+    func makeIterator() -> PlayersIterator {
+        return PlayersIterator(playerList)
+    }
+}
+
+class PlayersIterator: IteratorProtocol {
+    var currentIndex = 0
+    var players: [Player]
+    
+    init(_ players: [Player]) {
+        self.players = players
+    }
+    
+    func next() -> Player? {
+        if currentIndex >= players.count {
+            return nil
+        }
+        defer {
+            currentIndex += 1
+        }
+        return players[currentIndex]
+    }
+}
+
