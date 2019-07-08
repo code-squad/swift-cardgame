@@ -277,3 +277,16 @@ card deck 에 남은 카드 < 필요한 카드 (카드 개수 * 전체 플레이
   - hand 가 더 높은 플레이어 선택하는지
   - hand 가 같을 때, rank 가 더 높은 플레이어 선택하는지
 
+### 리뷰에 따른 수정사항
+
+1. `Card`, `Player`, `HandsDeterminater` 의존
+   - Player 가 두 객체에 의존하고, 두 객체도 서로 의존한다.
+     - `Player` → `Card`, `HandsDeterminator`
+     - `HandsDeterminator` → `Card`
+   - 해결 : `Player` → `Cards`  → HandsDeterminator (`Cards` class 생성)
+2. Participant 인스턴스가 순서값 number 를 가지고 있음
+   - Paricipant 객체는 순서값에 대한 책임이 없음
+   - 해결: ``Player` 클래스가 순서값에 대한 책임 가지도록 구현
+3. `WinnerDeterminator` 로 winner 결과 가져옴
+   - ``Player` 자체를 비교할 수 있도록 개선하기 -> `Comparable` protocol
+
