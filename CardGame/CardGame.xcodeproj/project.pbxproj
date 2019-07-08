@@ -41,8 +41,6 @@
 		FAD7E47422D0F84700859630 /* HandRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A7222CF6AA300158505 /* HandRanking.swift */; };
 		FAD7E47522D0F88B00859630 /* PlayersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47122D0C81000859630 /* PlayersInfo.swift */; };
 		FAD7E47722D1112400859630 /* HandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47622D1112400859630 /* HandTests.swift */; };
-		FAD7E47922D211A200859630 /* WinnerDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47822D211A200859630 /* WinnerDecider.swift */; };
-		FAD7E47A22D211CE00859630 /* WinnerDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7E47822D211A200859630 /* WinnerDecider.swift */; };
 		FAF2345B22CA2DD6009A5DFB /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */; };
 		FAF2345D22CA2F5B009A5DFB /* GuideSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345C22CA2F5B009A5DFB /* GuideSentence.swift */; };
 		FAF2345F22CA2FC0009A5DFB /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */; };
@@ -82,7 +80,6 @@
 		FA2D4A7422CF6C6600158505 /* HandDecider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandDecider.swift; sourceTree = "<group>"; };
 		FAD7E47122D0C81000859630 /* PlayersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersInfo.swift; sourceTree = "<group>"; };
 		FAD7E47622D1112400859630 /* HandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandTests.swift; sourceTree = "<group>"; };
-		FAD7E47822D211A200859630 /* WinnerDecider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerDecider.swift; sourceTree = "<group>"; };
 		FAF2345A22CA2DD6009A5DFB /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
 		FAF2345C22CA2F5B009A5DFB /* GuideSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSentence.swift; sourceTree = "<group>"; };
 		FAF2345E22CA2FC0009A5DFB /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
@@ -190,7 +187,6 @@
 				FA042CA822C5E0A300A95C55 /* Dealer.swift */,
 				FA025A7522CF421500D103E1 /* CardsInfo.swift */,
 				FA2D4A7422CF6C6600158505 /* HandDecider.swift */,
-				FAD7E47822D211A200859630 /* WinnerDecider.swift */,
 				FA2D4A7222CF6AA300158505 /* HandRanking.swift */,
 			);
 			path = Game;
@@ -287,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA042C9D22C4904A00A95C55 /* CardDeck.swift in Sources */,
-				FAD7E47922D211A200859630 /* WinnerDecider.swift in Sources */,
 				FA042CA322C4B3A400A95C55 /* DeckMenu.swift in Sources */,
 				FA042CA722C5CF4F00A95C55 /* HandlingDeckResult.swift in Sources */,
 				FAF2345F22CA2FC0009A5DFB /* GameInputView.swift in Sources */,
@@ -332,7 +327,6 @@
 				FAD7E47422D0F84700859630 /* HandRanking.swift in Sources */,
 				FA2D4A7122CF524900158505 /* CardsInfo.swift in Sources */,
 				FAD7E47722D1112400859630 /* HandTests.swift in Sources */,
-				FAD7E47A22D211CE00859630 /* WinnerDecider.swift in Sources */,
 				FA2D4A6822CF522D00158505 /* DeckMaker.swift in Sources */,
 				FA2D4A7022CF524600158505 /* GameInfo.swift in Sources */,
 			);
