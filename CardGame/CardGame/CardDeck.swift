@@ -29,7 +29,7 @@ struct CardDeck: Deck {
     
     mutating func reset() {
         cards.removeAll()
-        self.cards = DeckMaker.makeCard()
+        self.cards = CardMaker.makeCard()
     }
     
     mutating func shuffle() {
