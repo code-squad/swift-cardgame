@@ -32,7 +32,7 @@ class HandTests: XCTestCase {
         }
         
         // then
-        let highcard: [Card: CardSetRanking] = [ace: .highcard, two: .highcard, three: .highcard, queen: .highcard, nine: .highcard]
+        let highcard: [Card: HandRanking] = [ace: .highcard, two: .highcard, three: .highcard, queen: .highcard, nine: .highcard]
         XCTAssertEqual(HandDecider.decideGeneralHand(of: collectedCards), highcard)
     }
     
