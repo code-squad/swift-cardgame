@@ -9,13 +9,9 @@
 import Foundation
 
 class Dealer: Player {
-    var cards: [Card]
-    
-    var name: String {
+    override var role: String {
         return "딜러"
     }
     
-    init() {
-        self.cards = [Card]()
-    }
+    
 }
