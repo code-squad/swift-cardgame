@@ -9,12 +9,11 @@
 import Foundation
 
 struct PlayerFactory {
-    static func makeAllPlayers(including numberOfPaticipants: Int) -> [Player] {
-        var players = [Player]()
-        for i in 1...numberOfPaticipants {
-            players.append(Participant(number: i))
+    static func makeAllPlayers(including numberOfPaticipants: Int) -> Players {
+        var participants = [Participant]()
+        for _ in 0..<numberOfPaticipants {
+            participants.append(Participant())
         }
-        players.append(Dealer())
-        return players
+        return Players(dealer: Dealer(), participants: participants)
     }
 }
