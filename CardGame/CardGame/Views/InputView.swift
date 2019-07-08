@@ -9,13 +9,9 @@
 import Foundation
 
 struct InputView {
-    private static let menu = "\(Menu.exit)\n\(Menu.reset)\n\(Menu.shuffle)\n\(Menu.draw)"
-    
-    static func readSelection() -> String {
-        print(menu)
-        
-        let selection = readLine() ?? ""
-        
-        return selection
+    static func readInput(ment: String) -> String {
+        print(ment)
+
+        return readLine() ?? ""
     }
 }
