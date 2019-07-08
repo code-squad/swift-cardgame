@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DeckMaker {
+struct CardMaker {
     static func makeCard() -> [Card] {
         var cards: [Card] = []
         let suits = Card.Suits.allCases
