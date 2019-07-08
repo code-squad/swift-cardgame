@@ -10,13 +10,13 @@ import Foundation
 
 struct OutputView {
     static let playerAndCardsForm: (Bool, String, CardsInfo) -> Void = {
-        (isPlayer, order, cards) in
-        let name = isPlayer ? "참가자 #\(order)" : "딜러"
+        (isDealer, order, cards) in
+        let name = isDealer ? "딜러" : "참가자 #\(order)"
         print("\(name) \(cards)")
     }
     
-    static let winnerForm: (Bool, String) -> Void = { (isPlayer: Bool, order: String) in
-        let name = isPlayer ? "참가자 #\(order)" : "딜러"
+    static let winnerForm: (Bool, String) -> Void = { (isDealer: Bool, order: String) in
+        let name = isDealer ? "딜러" : "참가자 #\(order)"
         print("이번 게임의 승자는 \(name)입니다.")
     }
     
