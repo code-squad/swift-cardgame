@@ -30,6 +30,7 @@
 		C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */; };
 		C28744A922D3179C00764589 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744A822D3179C00764589 /* Cards.swift */; };
 		C28744AB22D31D3300764589 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AA22D31D3300764589 /* Players.swift */; };
+		C28744AF22D332D200764589 /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AE22D332D200764589 /* Decision.swift */; };
 		C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */; };
 		C2D9114C22C9CEA500B9FC4D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114B22C9CEA500B9FC4D /* Player.swift */; };
 		C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */; };
@@ -68,6 +69,7 @@
 		C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfParticipants.swift; sourceTree = "<group>"; };
 		C28744A822D3179C00764589 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		C28744AA22D31D3300764589 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		C28744AE22D332D200764589 /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
 		C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		C2D9114B22C9CEA500B9FC4D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerFactory.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				C2E8CA0622CCBB5400F47CB2 /* Hands.swift */,
 				C2E8CA0822CCC3B500F47CB2 /* HandsDeterminator.swift */,
 				C2E8CA0A22CD1CDB00F47CB2 /* WinnerDeterminator.swift */,
+				C28744AE22D332D200764589 /* Decision.swift */,
 				C2D9115122C9EB3600B9FC4D /* View */,
 				C2D9115622C9F01500B9FC4D /* Player */,
 				C2D9115722C9F03900B9FC4D /* Card */,
@@ -280,6 +283,7 @@
 				C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */,
 				C28744A922D3179C00764589 /* Cards.swift in Sources */,
 				C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */,
+				C28744AF22D332D200764589 /* Decision.swift in Sources */,
 				C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */,
 				C2E5FF6F22C49E4500ECC13F /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
