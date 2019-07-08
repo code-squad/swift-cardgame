@@ -9,7 +9,7 @@
 import Foundation
 
 typealias Hands = [Card: HandRanking]
-struct CardsInfo: CustomStringConvertible {
+class CardsInfo: CustomStringConvertible {
     private var cards: [Card]
     private var collectedCards: [Card: Int] = [:]
     private var hands: Hands = [:]
@@ -22,11 +22,28 @@ struct CardsInfo: CustomStringConvertible {
         self.cards = cards
     }
     
-    mutating func add(card: Card) {
+    func add(card: Card) {
         cards.append(card)
     }
     
-    mutating func bestHand() -> (key: Card, value: HandRanking) {
+    private func makeHands() {
+        self.collectedCards = cards.reduce(into: [:]) { counts, card in
+            counts[card, default: 0] += 1
+        }
+        self.hands = HandDecider.decideGeneralHand(of: collectedCards)
+        
+        decideSpecificHand()
+    }
+    
+    private func decideSpecificHand() {
+        self.hands = HandDecider.decideTwoPair(of: hands)
+        let straight =  HandDecider.decideStraight(of: collectedCards)
+        if straight.isStraight, let max = straight.maxRank {
+            hands[max] = .straight
+        }
+    }
+    
+    private func bestHand() -> (key: Card, value: HandRanking) {
         makeHands()
         var sortedHands = hands.sorted {
             if $0.value == $1.value {
@@ -37,21 +54,17 @@ struct CardsInfo: CustomStringConvertible {
         let maxHand = sortedHands[sortedHands.count - 1]
         return maxHand
     }
-    
-    private mutating func makeHands() {
-        self.collectedCards = cards.reduce(into: [:]) { counts, card in
-            counts[card, default: 0] += 1
+}
+
+extension CardsInfo: Comparable {
+    static func < (lhs: CardsInfo, rhs: CardsInfo) -> Bool {
+        if lhs.bestHand().value == rhs.bestHand().value {
+            return lhs.bestHand().key < rhs.bestHand().key
         }
-        self.hands = HandDecider.decideGeneralHand(of: collectedCards)
-        
-        decideSpecificHand()
+        return lhs.bestHand().value < rhs.bestHand().value
     }
     
-    private mutating func decideSpecificHand() {
-        self.hands = HandDecider.decideTwoPair(of: hands)
-        let straight =  HandDecider.decideStraight(of: collectedCards)
-        if straight.isStraight, let max = straight.maxRank {
-            hands[max] = .straight
-        }
+    static func == (lhs: CardsInfo, rhs: CardsInfo) -> Bool {
+        return lhs.bestHand() == rhs.bestHand()
     }
 }
