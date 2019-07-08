@@ -9,10 +9,10 @@
 import Foundation
 
 struct PlayersInfo {
-    private var players: [Playerable] = []
-    private let dealer: Dealerable & Playerable
+    private var players: [Player] = []
+    private let dealer: Dealer<CardDeck>
     
-    init(playersNum: Int, dealer: Dealerable & Playerable) {
+    init(playersNum: Int, dealer: Dealer<CardDeck>) {
         self.dealer = dealer
         setPlayers(num: playersNum)
     }
@@ -35,19 +35,19 @@ struct PlayersInfo {
     
     func showSettingResult(with result: (Bool, String, CardsInfo) -> Void) {
         for player in players {
-            let participant = player as? Player
-            let isPlayer = participant != nil
-            let order = isPlayer ? "\(participant!.showOrder())" : ""
+            let dealer = player as? Dealer<CardDeck>
+            let isDealer = dealer != nil
+            let order = isDealer ? "" : "\(player.showOrder())"
             let cards = player.showCards()
-            result(isPlayer, order, cards)
+            result(isDealer, order, cards)
         }
     }
     
     func showWinner(with result: (Bool, String) -> Void) {
-        let winner = WinnerDecider.decideWinner(of: players)
-        let participant = winner as? Player
-        let isPlayer = participant != nil
-        let order = isPlayer ? "\(participant!.showOrder())" : ""
-        result(isPlayer, order)
+        guard let winner = players.max() else { return }
+        let dealer = winner as? Dealer<CardDeck>
+        let isDealer = dealer != nil
+        let order = isDealer ? "" : "\(winner.showOrder())"
+        result(isDealer, order)
     }
 }
