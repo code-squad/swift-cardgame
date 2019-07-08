@@ -19,3 +19,15 @@ class Decision {
     }
 }
 
+extension Decision: Equatable, Comparable {
+    static func == (lhs: Decision, rhs: Decision) -> Bool {
+        return lhs.highestRank == rhs.highestRank && lhs.hand == rhs.hand
+    }
+    
+    static func < (lhs: Decision, rhs: Decision) -> Bool {
+        if lhs.hand == rhs.hand {
+            return lhs.highestRank < rhs.highestRank
+        }
+        return lhs.hand < rhs.hand
+    }
+}
