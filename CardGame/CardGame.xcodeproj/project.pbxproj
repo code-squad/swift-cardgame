@@ -29,6 +29,7 @@
 		C2215D5022CF8EF3001ECCDD /* WinnerDeterminatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2215D4F22CF8EF3001ECCDD /* WinnerDeterminatorTests.swift */; };
 		C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */; };
 		C28744A922D3179C00764589 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744A822D3179C00764589 /* Cards.swift */; };
+		C28744AB22D31D3300764589 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AA22D31D3300764589 /* Players.swift */; };
 		C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */; };
 		C2D9114C22C9CEA500B9FC4D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114B22C9CEA500B9FC4D /* Player.swift */; };
 		C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */; };
@@ -66,6 +67,7 @@
 		C2215D4F22CF8EF3001ECCDD /* WinnerDeterminatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerDeterminatorTests.swift; sourceTree = "<group>"; };
 		C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfParticipants.swift; sourceTree = "<group>"; };
 		C28744A822D3179C00764589 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		C28744AA22D31D3300764589 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		C2D9114B22C9CEA500B9FC4D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerFactory.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */,
 				C2D9114B22C9CEA500B9FC4D /* Player.swift */,
+				C28744AA22D31D3300764589 /* Players.swift */,
 				C2D9115222C9EC9C00B9FC4D /* Participant.swift */,
 				C2D9115422C9ED1200B9FC4D /* Dealer.swift */,
 			);
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28744AB22D31D3300764589 /* Players.swift in Sources */,
 				C2E5FF7322C4B5CD00ECC13F /* GameMode.swift in Sources */,
 				C2E5FF7122C4B3D300ECC13F /* OutputView.swift in Sources */,
 				C2E8CA0722CCBB5400F47CB2 /* Hands.swift in Sources */,
