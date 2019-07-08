@@ -66,3 +66,17 @@ class PlayersIterator: IteratorProtocol {
     }
 }
 
+extension Players: CustomStringConvertible {
+    var description: String {
+        var result = String()
+        for playerNumberPair in playerNumberPairs {
+            result += "\(playerNumberPair.player.role)"
+            if let number = playerNumberPair.number {
+                result += "#\(number)"
+            }
+            result += "\(playerNumberPair.player.cards)\n"
+        }
+        return result
+    }
+}
+
