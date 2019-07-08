@@ -8,11 +8,8 @@
 
 import Foundation
 
-typealias Decision = (highestRank: Card.Rank, hand: Hands)
-
 struct HandsDeterminator {
     static private let countForStraight = 5
-    static private let lowestDecision = (Card.Rank.ace, Hands.highCard)
     
     static func determine(using cards: [Card]) -> Decision {
         var rankCounter = [Card.Rank: Int]()
@@ -23,7 +20,7 @@ struct HandsDeterminator {
             return straightDecision
         }
         guard let sameCardsDecision = determineSameRankHand(using: rankCounter) else {
-            return lowestDecision
+            return Decision.lowest
         }
         return sameCardsDecision
     }
@@ -38,7 +35,7 @@ struct HandsDeterminator {
             let highestRank = sortedRanks[startIndex]
             let serialCount = countSerialRanks(from: startIndex, in: sortedRanks)
             if serialCount == countForStraight {
-                return (highestRank, Hands.straight)
+                return Decision(highestRank: highestRank, hand: Hands.straight)
             }
             startIndex += 1
         }
@@ -73,8 +70,8 @@ struct HandsDeterminator {
         }
         let totalPairs = sortedPossibleDecisions.filter { $0.value == Hands.onePair }
         if totalPairs.count >= 2 {
-            return (highestRank, Hands.twoPair)
+            return Decision(highestRank: highestRank, hand: Hands.twoPair)
         }
-        return (highestRank, highestHand)
+        return Decision(highestRank: highestRank, hand: highestHand)
     }
 }
