@@ -28,6 +28,7 @@
 		C2215D4E22CE1945001ECCDD /* HandsDeterminatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2215D4D22CE1945001ECCDD /* HandsDeterminatorTests.swift */; };
 		C2215D5022CF8EF3001ECCDD /* WinnerDeterminatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2215D4F22CF8EF3001ECCDD /* WinnerDeterminatorTests.swift */; };
 		C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */; };
+		C28744A922D3179C00764589 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744A822D3179C00764589 /* Cards.swift */; };
 		C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */; };
 		C2D9114C22C9CEA500B9FC4D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114B22C9CEA500B9FC4D /* Player.swift */; };
 		C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */; };
@@ -64,6 +65,7 @@
 		C2215D4D22CE1945001ECCDD /* HandsDeterminatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsDeterminatorTests.swift; sourceTree = "<group>"; };
 		C2215D4F22CF8EF3001ECCDD /* WinnerDeterminatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerDeterminatorTests.swift; sourceTree = "<group>"; };
 		C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfParticipants.swift; sourceTree = "<group>"; };
+		C28744A822D3179C00764589 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		C2D9114922C9B5FB00B9FC4D /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		C2D9114B22C9CEA500B9FC4D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerFactory.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				C219D73722C335F900276B19 /* Card.swift */,
+				C28744A822D3179C00764589 /* Cards.swift */,
 				C2E5FF6A22C4978900ECC13F /* CardDeck.swift */,
 				C2E5FF7422C4BC3D00ECC13F /* CardFactory.swift */,
 			);
@@ -271,6 +274,7 @@
 				C2E5FF6B22C4978900ECC13F /* CardDeck.swift in Sources */,
 				C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */,
 				C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */,
+				C28744A922D3179C00764589 /* Cards.swift in Sources */,
 				C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */,
 				C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */,
 				C2E5FF6F22C49E4500ECC13F /* InputView.swift in Sources */,
