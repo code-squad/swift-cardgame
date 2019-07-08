@@ -47,7 +47,7 @@ extension Players: Sequence {
     }
 }
 
-class PlayersIterator: IteratorProtocol {
+struct PlayersIterator: IteratorProtocol {
     var currentIndex = 0
     var players: [Player]
     
@@ -55,7 +55,7 @@ class PlayersIterator: IteratorProtocol {
         self.players = players
     }
     
-    func next() -> Player? {
+    mutating func next() -> Player? {
         if currentIndex >= players.count {
             return nil
         }
