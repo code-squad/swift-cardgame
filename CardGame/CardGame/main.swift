@@ -25,8 +25,7 @@ func main() {
         let playerCount = Participant.init(rawValue: count) else { return }
     
     let gameInfo = GameInfo(mode: gameMode, players: playerCount)
-    let dealer = Dealer(deck: CardDeck())
-    var game = CardGame(info: gameInfo, dealer: dealer)
+    var game = CardGame(info: gameInfo)
     
     game.run()
     

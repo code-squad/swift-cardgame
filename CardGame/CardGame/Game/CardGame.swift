@@ -16,11 +16,11 @@ protocol OutputViewPrintable {
 struct CardGame: OutputViewPrintable {
     private let info: GameInfoable
     private var players: PlayersInfo
-    private let dealer: Dealerable & Playerable
+    private let dealer: Dealer<CardDeck>
     
-    init(info: GameInfoable, dealer: Dealerable & Playerable) {
+    init(info: GameInfoable) {
         self.info = info
-        self.dealer = dealer
+        self.dealer = Dealer(deck: CardDeck())
         self.players = PlayersInfo(playersNum: info.participants().count, dealer: dealer)
     }
     
