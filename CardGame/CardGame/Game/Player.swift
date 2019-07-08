@@ -36,8 +36,29 @@ extension Player: Playerable {
     func showOrder() -> Int {
         return order
     }
+}
+
+extension Player: Comparable {
+    static func < (lhs: Player, rhs: Player) -> Bool {
+        return compareTwoValues(lhs, rhs)
+    }
     
-    func bestHand() -> (key: Card, value: HandRanking) {
-        return cardsInfo.bestHand()
+    static func < (lhs: Player, rhs: Dealer<CardDeck>) -> Bool {
+        return compareTwoValues(lhs, rhs)
+    }
+    
+    static func < (lhs: Dealer<CardDeck>, rhs: Player) -> Bool {
+        return compareTwoValues(lhs, rhs)
+    }
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.bestHand == rhs.bestHand
+    }
+    
+    static private func compareTwoValues<L: Player, R: Player>(_ lhs: L, _ rhs: R) -> Bool {
+        if lhs.bestHand.value == rhs.bestHand.value {
+            return lhs.bestHand.key < rhs.bestHand.key
+        }
+        return lhs.bestHand.value < rhs.bestHand.value
     }
 }
