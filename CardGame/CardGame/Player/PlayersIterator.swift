@@ -7,3 +7,28 @@
 //
 
 import Foundation
+
+extension Players: Sequence {
+    func makeIterator() -> PlayersIterator {
+        return PlayersIterator(playerList)
+    }
+}
+
+struct PlayersIterator: IteratorProtocol {
+    var currentIndex = 0
+    var players: [Player]
+    
+    init(_ players: [Player]) {
+        self.players = players
+    }
+    
+    mutating func next() -> Player? {
+        if currentIndex >= players.count {
+            return nil
+        }
+        defer {
+            currentIndex += 1
+        }
+        return players[currentIndex]
+    }
+}

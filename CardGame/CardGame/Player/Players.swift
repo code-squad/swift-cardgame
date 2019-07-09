@@ -41,42 +41,5 @@ class Players {
     }
 }
 
-extension Players: Sequence {
-    func makeIterator() -> PlayersIterator {
-        return PlayersIterator(playerList)
-    }
-}
 
-struct PlayersIterator: IteratorProtocol {
-    var currentIndex = 0
-    var players: [Player]
-    
-    init(_ players: [Player]) {
-        self.players = players
-    }
-    
-    mutating func next() -> Player? {
-        if currentIndex >= players.count {
-            return nil
-        }
-        defer {
-            currentIndex += 1
-        }
-        return players[currentIndex]
-    }
-}
-
-extension Players: CustomStringConvertible {
-    var description: String {
-        var result = String()
-        for playerNumberPair in playerNumberPairs {
-            result += "\(playerNumberPair.player.role)"
-            if let number = playerNumberPair.number {
-                result += "#\(number)"
-            }
-            result += "\(playerNumberPair.player.cards)\n"
-        }
-        return result
-    }
-}
 
