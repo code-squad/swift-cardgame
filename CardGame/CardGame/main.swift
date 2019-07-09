@@ -28,7 +28,7 @@ func main() {
             let removedCards = cardDeck.remove(numberOfCards: gameMode.numberOfCards)
             player.take(newCards: removedCards)
         }
-        OutputView.printDealtCards(of: players)
+        OutputView.printPlayers(using: players)
         OutputView.announce(nameOfWinner: players.determineWinner())
     }
 }
