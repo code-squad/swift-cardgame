@@ -22,10 +22,6 @@ class Player {
     func take(newCards: Cards) {
         self.cards.add(newCards: newCards)
     }
-    
-    func determineWinningPokerHand() -> Decision {
-        return cards.determineWinningDecision()
-    }
 }
 
 extension Player: Equatable, Comparable {
