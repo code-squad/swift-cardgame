@@ -12,8 +12,8 @@ enum CardGameMode: Int {
     case sevenCard = 1
     case fiveCard
     
-    init?(choiceMode: String) {
-        let gameSelection = Int(choiceMode) ?? 0
+    init?(selectMode: String) {
+        let gameSelection = Int(selectMode) ?? 0
         guard let menu = CardGameMode(rawValue: gameSelection) else {
             return nil
         }
