@@ -15,60 +15,59 @@ class HandDeterminatorTests: XCTestCase {
     let twoPairCards = Cards([Card(.eight, of: .club), Card(.eight, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.three, of: .club)])
     let threeOfKindCards = Cards([Card(.five, of: .club), Card(.five, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.king, of: .club)])
     let fourOfKindCards = Cards([Card(.six, of: .club), Card(.six, of: .spade), Card(.six, of: .heart), Card(.six, of: .diamond), Card(.king, of: .club)])
-    var player: Player!
+    var cards: Cards!
     
     override func setUp() {
-        player = Player()
+        cards = Cards()
     }
     
     override func tearDown() {
-        player = nil
+        cards = nil
     }
     
     func testHighestRankPicked() {
-        player.take(newCards: straightCards)
-        let decision = player.determineWinningPokerHand()
+        cards.add(newCards: straightCards)
+        let decision = HandsDeterminator.determine(using: cards.list)
         XCTAssertEqual(decision.highestRank, Card.Rank.six, "HandDeterminator 가 highest rank를 return 하지 않습니다.")
     }
     
     func testHighestHandPicked() {
         let mixedHandsCards = Cards([Card(.five, of: .club), Card(.five, of: .spade), Card(.five, of: .heart), Card(.three, of: .diamond), Card(.three, of: .club)])
-        player.take(newCards: mixedHandsCards)
-        let decision = player.determineWinningPokerHand()
+        let decision = HandsDeterminator.determine(using: mixedHandsCards.list)
         XCTAssertEqual(decision.hand, Hands.threeOfKind, "HandDeterminator 가 highest hand를 return 하지 않습니다.")
     }
     
     func testStraightDecision() {
-        player.take(newCards: straightCards)
-        let decision = player.determineWinningPokerHand()
+        cards.add(newCards: straightCards)
+        let decision = HandsDeterminator.determine(using: cards.list)
         XCTAssertEqual(decision.hand, Hands.straight)
         XCTAssertEqual(decision.highestRank, Card.Rank.six)
     }
     
     func testTwoPairDecision() {
-        player.take(newCards: twoPairCards)
-        let decision = player.determineWinningPokerHand()
+        cards.add(newCards: twoPairCards)
+        let decision = HandsDeterminator.determine(using: cards.list)
         XCTAssertEqual(decision.hand, Hands.twoPair)
         XCTAssertEqual(decision.highestRank, Card.Rank.eight)
     }
     
     func testThreeOfKindDecision() {
-        player.take(newCards: threeOfKindCards)
-        let decision = player.determineWinningPokerHand()
+        cards.add(newCards: threeOfKindCards)
+        let decision = HandsDeterminator.determine(using: cards.list)
         XCTAssertEqual(decision.hand, Hands.threeOfKind)
         XCTAssertEqual(decision.highestRank, Card.Rank.five)
     }
     
     func testFourOfKineDecision() {
-        player.take(newCards: fourOfKindCards)
-        let decision = player.determineWinningPokerHand()
+        cards.add(newCards: fourOfKindCards)
+        let decision = HandsDeterminator.determine(using: cards.list)
         XCTAssertEqual(decision.hand, Hands.fourOfKind)
         XCTAssertEqual(decision.highestRank, Card.Rank.six)
     }
     
     func testHighCardDecision() {
-        player.take(newCards: highCards)
-        let decision = player.determineWinningPokerHand()
+        cards.add(newCards: highCards)
+        let decision = HandsDeterminator.determine(using: cards.list)
         XCTAssertEqual(decision.hand, Hands.highCard)
         XCTAssertEqual(decision.highestRank, Card.Rank.king)
     }
