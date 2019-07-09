@@ -37,3 +37,17 @@ extension Cards: CustomStringConvertible {
         return "\(self.list)"
     }
 }
+
+extension Cards: Equatable, Comparable {
+    static func == (lhs: Cards, rhs: Cards) -> Bool {
+        let leftDecision = HandsDeterminator.determine(using: lhs.list)
+        let rightDecision = HandsDeterminator.determine(using: rhs.list)
+        return leftDecision == rightDecision
+    }
+    
+    static func < (lhs: Cards, rhs: Cards) -> Bool {
+        let leftDecision = HandsDeterminator.determine(using: lhs.list)
+        let rightDecision = HandsDeterminator.determine(using: rhs.list)
+        return leftDecision < rightDecision
+    }
+}
