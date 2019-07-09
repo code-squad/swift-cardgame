@@ -26,6 +26,8 @@
 		C2215D4C22CDEA92001ECCDD /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF6E22C49E4500ECC13F /* InputView.swift */; };
 		C2215D4E22CE1945001ECCDD /* HandsDeterminatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2215D4D22CE1945001ECCDD /* HandsDeterminatorTests.swift */; };
 		C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */; };
+		C241A6E422D46C4400A0B02C /* PlayersIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C241A6E322D46C4400A0B02C /* PlayersIterator.swift */; };
+		C241A6E622D46CF400A0B02C /* PlayersIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C241A6E322D46C4400A0B02C /* PlayersIterator.swift */; };
 		C28744A922D3179C00764589 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744A822D3179C00764589 /* Cards.swift */; };
 		C28744AB22D31D3300764589 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AA22D31D3300764589 /* Players.swift */; };
 		C28744AF22D332D200764589 /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AE22D332D200764589 /* Decision.swift */; };
@@ -67,6 +69,7 @@
 		C2215D3922CDE112001ECCDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2215D4D22CE1945001ECCDD /* HandsDeterminatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsDeterminatorTests.swift; sourceTree = "<group>"; };
 		C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfParticipants.swift; sourceTree = "<group>"; };
+		C241A6E322D46C4400A0B02C /* PlayersIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersIterator.swift; sourceTree = "<group>"; };
 		C28744A822D3179C00764589 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		C28744AA22D31D3300764589 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		C28744AE22D332D200764589 /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 				C2D9114D22C9D30700B9FC4D /* PlayerFactory.swift */,
 				C2D9114B22C9CEA500B9FC4D /* Player.swift */,
 				C28744AA22D31D3300764589 /* Players.swift */,
+				C241A6E322D46C4400A0B02C /* PlayersIterator.swift */,
 				C2D9115222C9EC9C00B9FC4D /* Participant.swift */,
 				C2D9115422C9ED1200B9FC4D /* Dealer.swift */,
 			);
@@ -280,6 +284,7 @@
 				C2D9114A22C9B5FB00B9FC4D /* GameInputView.swift in Sources */,
 				C2E5FF7522C4BC3D00ECC13F /* CardFactory.swift in Sources */,
 				C28744A922D3179C00764589 /* Cards.swift in Sources */,
+				C241A6E422D46C4400A0B02C /* PlayersIterator.swift in Sources */,
 				C2D9114E22C9D30700B9FC4D /* PlayerFactory.swift in Sources */,
 				C28744AF22D332D200764589 /* Decision.swift in Sources */,
 				C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */,
@@ -303,6 +308,7 @@
 				C2215D4A22CDEA92001ECCDD /* GameInputView.swift in Sources */,
 				C2215D4B22CDEA92001ECCDD /* OutputView.swift in Sources */,
 				C2215D4C22CDEA92001ECCDD /* InputView.swift in Sources */,
+				C241A6E622D46CF400A0B02C /* PlayersIterator.swift in Sources */,
 				C2215D4122CDE121001ECCDD /* HandsDeterminator.swift in Sources */,
 				C2215D4722CDE133001ECCDD /* Card.swift in Sources */,
 				C2215D4522CDE12F001ECCDD /* Participant.swift in Sources */,
