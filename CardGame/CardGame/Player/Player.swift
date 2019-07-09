@@ -30,14 +30,10 @@ class Player {
 
 extension Player: Equatable, Comparable {
     static func == (lhs: Player, rhs: Player) -> Bool {
-        let leftDecision = lhs.determineWinningPokerHand()
-        let rightDecision = rhs.determineWinningPokerHand()
-        return leftDecision == rightDecision
+        return lhs.cards == rhs.cards
     }
     
     static func < (lhs: Player, rhs: Player) -> Bool {
-        let leftDecision = lhs.determineWinningPokerHand()
-        let rightDecision = rhs.determineWinningPokerHand()
-        return leftDecision < rightDecision
+        return lhs.cards < rhs.cards
     }
 }
