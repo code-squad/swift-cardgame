@@ -290,3 +290,15 @@ card deck 에 남은 카드 < 필요한 카드 (카드 개수 * 전체 플레이
 3. `WinnerDeterminator` 로 winner 결과 가져옴
    - ``Player` 자체를 비교할 수 있도록 개선하기 -> `Comparable` protocol
 
+
+
+### 2차 수정사항
+
+1. 비교 단위 수정 :`Player` 에서는 `Cards` 로 비교, Cards 에서는 `Decision` 으로 비교
+   - 기존엔 Player 안에서 `Cards` -> `Decision` 을 걸쳐 비교
+   - `Player` -> `Cards`, `Cards` -> `Decision` : 각 객체는 바로 하위 객체만 접근
+   - `Cards` 비교 가능하게 구현 : `Comparable`, `Equatable` 준수
+2. CustomStringConvertible 로 출력 메시지 전체를 구현하는 것은 부적절
+   - `PlayerPrintable` protocol 구현
+   - `getNameCardsPairs()` method 자격요건을 선언하여 출력에 필요한 플레이어의 이름과 카드를 tuple 배열로 리턴하도록 함
+
