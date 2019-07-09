@@ -26,7 +26,9 @@
 		C2215D4C22CDEA92001ECCDD /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5FF6E22C49E4500ECC13F /* InputView.swift */; };
 		C2215D4E22CE1945001ECCDD /* HandsDeterminatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2215D4D22CE1945001ECCDD /* HandsDeterminatorTests.swift */; };
 		C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */; };
+		C241A6E222D469F800A0B02C /* PlayerPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C241A6E122D469F800A0B02C /* PlayerPrintable.swift */; };
 		C241A6E422D46C4400A0B02C /* PlayersIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C241A6E322D46C4400A0B02C /* PlayersIterator.swift */; };
+		C241A6E522D46CEF00A0B02C /* PlayerPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C241A6E122D469F800A0B02C /* PlayerPrintable.swift */; };
 		C241A6E622D46CF400A0B02C /* PlayersIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C241A6E322D46C4400A0B02C /* PlayersIterator.swift */; };
 		C28744A922D3179C00764589 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744A822D3179C00764589 /* Cards.swift */; };
 		C28744AB22D31D3300764589 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28744AA22D31D3300764589 /* Players.swift */; };
@@ -69,6 +71,7 @@
 		C2215D3922CDE112001ECCDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2215D4D22CE1945001ECCDD /* HandsDeterminatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsDeterminatorTests.swift; sourceTree = "<group>"; };
 		C240F8BA22CBA5260089DD21 /* NumberOfParticipants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfParticipants.swift; sourceTree = "<group>"; };
+		C241A6E122D469F800A0B02C /* PlayerPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPrintable.swift; sourceTree = "<group>"; };
 		C241A6E322D46C4400A0B02C /* PlayersIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersIterator.swift; sourceTree = "<group>"; };
 		C28744A822D3179C00764589 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		C28744AA22D31D3300764589 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 				C241A6E322D46C4400A0B02C /* PlayersIterator.swift */,
 				C2D9115222C9EC9C00B9FC4D /* Participant.swift */,
 				C2D9115422C9ED1200B9FC4D /* Dealer.swift */,
+				C241A6E122D469F800A0B02C /* PlayerPrintable.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -289,6 +293,7 @@
 				C28744AF22D332D200764589 /* Decision.swift in Sources */,
 				C240F8BB22CBA5260089DD21 /* NumberOfParticipants.swift in Sources */,
 				C2E5FF6F22C49E4500ECC13F /* InputView.swift in Sources */,
+				C241A6E222D469F800A0B02C /* PlayerPrintable.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				C2D9114C22C9CEA500B9FC4D /* Player.swift in Sources */,
 				C219D73822C335F900276B19 /* Card.swift in Sources */,
@@ -314,6 +319,7 @@
 				C2215D4522CDE12F001ECCDD /* Participant.swift in Sources */,
 				C2215D4822CDE133001ECCDD /* CardDeck.swift in Sources */,
 				C28744B222D37AE800764589 /* Decision.swift in Sources */,
+				C241A6E522D46CEF00A0B02C /* PlayerPrintable.swift in Sources */,
 				C2215D4922CDE133001ECCDD /* CardFactory.swift in Sources */,
 				C2215D4422CDE12F001ECCDD /* Player.swift in Sources */,
 				C28744B122D3750700764589 /* Players.swift in Sources */,
