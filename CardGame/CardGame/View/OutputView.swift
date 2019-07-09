@@ -9,8 +9,12 @@
 import Foundation
 
 struct OutputView {
-    static func printDealtCards(of players: Players) {
-        print("\(players)")
+    static let sharp = "#"
+    static func printPlayers(using playerPrinter: PlayerPrintable) {
+        let nameCardsPairs = playerPrinter.getNameCardsPairs()
+        for (name, cards) in nameCardsPairs {
+            print(name, cards)
+        }
         print() //for new line
     }
     
