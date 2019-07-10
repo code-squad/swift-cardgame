@@ -8,6 +8,7 @@
 
 import Foundation
 
+//GameMode
 enum CardGameMode: Int {
     case sevenCard = 1
     case fiveCard
