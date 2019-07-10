@@ -28,6 +28,4 @@ struct GameInputView {
     static func askForParticipant() {
         print(questionForParticipant, terminator: "")
     }
-    
-    
 }

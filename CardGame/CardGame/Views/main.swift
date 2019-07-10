@@ -12,7 +12,7 @@ func main() {
     let cardDeck = CardDeck()
     var menu: GameMenu
     var game = CardGame(deck: cardDeck)
-    var result: CardGameResult
+    var result: HandlingDeckResult
     repeat {
         do {
             menu = try InputView.readMenu()
