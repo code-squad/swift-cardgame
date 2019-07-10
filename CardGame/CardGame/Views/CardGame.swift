@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Playable {
-    mutating func play(menu: GameMenu) throws -> CardGameResult
+    mutating func play(menu: GameMenu) throws -> HandlingDeckResult
 }
 
 struct CardGame: Playable {
@@ -29,19 +29,19 @@ struct CardGame: Playable {
         self.deck = deck
     }
     
-    mutating func play(menu: GameMenu) throws -> CardGameResult {
+    mutating func play(menu: GameMenu) throws -> HandlingDeckResult {
         switch menu {
         case .reset:
             deck.reset()
-            return CardGameResult.reset(deck.count())
+            return HandlingDeckResult.reset(deck.count())
         case .shuffle:
             deck.shuffle()
-            return CardGameResult.shuffle(deck.count())
+            return HandlingDeckResult.shuffle(deck.count())
         case .draw:
             guard let card = deck.removeOne() else {
                 throw Error.isCardDeckEmpty
             }
-            return CardGameResult.draw(card, deck.count())
+            return HandlingDeckResult.draw(card, deck.count())
         }
     }
     
