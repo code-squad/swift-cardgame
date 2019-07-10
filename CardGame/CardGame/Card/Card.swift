@@ -30,7 +30,7 @@ extension Card {
         case diamond = "\u{2666}"
         case clovar = "\u{2633}"
         
-        var description: String{
+        var description: String {
             return String(rawValue)
         }
     }
