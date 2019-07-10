@@ -6,6 +6,7 @@
 //  Copyright © 2019 JK. All rights reserved.
 //
 
+// DeckMenu
 import Foundation
 
 enum GameMenu: String, CustomStringConvertible {
