@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CardGameResult {
+enum HandlingDeckResult {
     case reset(Int)
     case shuffle(Int)
     case draw(Card?, Int)
