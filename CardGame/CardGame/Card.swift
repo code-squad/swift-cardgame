@@ -9,8 +9,8 @@
 import Foundation
 
 class Card: CustomStringConvertible {
-    var pattern: CardPattern
-    var number: CardNumber
+    private var pattern: CardPattern
+    private var number: CardNumber
 
     init(pattern: CardPattern, number: CardNumber) {
         self.pattern = pattern
