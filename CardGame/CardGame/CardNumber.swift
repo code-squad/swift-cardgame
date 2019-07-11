@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//카드의 패턴과 동일함. 특정한 경우말고는 매칭되는 숫자를 출력해줘야 하기 때문에 rawValue로 Int를 넣어줌.
 enum CardNumber: Int, CustomStringConvertible {
     
     case one = 1
