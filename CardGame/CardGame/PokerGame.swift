@@ -34,8 +34,8 @@ struct PokerGame {
     mutating func run() throws {
         let times = option.numberOfCards
         
-        for index in 0..<self.players.count {
-            for _ in 0..<times {
+        for _ in 0..<times {
+            for index in 0..<self.players.count {
                 guard let card = dealer.draw() else {
                     throw Error.isCardDeckEmpty
                 }
