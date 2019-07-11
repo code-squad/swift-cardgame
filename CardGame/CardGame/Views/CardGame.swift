@@ -8,11 +8,34 @@
 
 import Foundation
 
-protocol Playable {
-    mutating func play(menu: GameMenu) throws -> HandlingDeckResult
-}
+struct CardGame {
+    private var players: [Player]
+    private var dealer: Dealer
+    private let gameMode: CardGameMode
+    
+    init(players: [Player], dealer: Dealer, gameMode: CardGameMode) {
+        self.dealer = dealer
+        self.players = players
+        self.gameMode = gameMode
+    }
+    
+    mutating private func continueGame() -> Bool {
+        let numberOfCards = gameMode.numberOfCards
+        let requirement = numberOfCards * players.count
+        return dealer.haveCards(requirement: requirement)
+    }
+    
+    mutating func Gamestart() {
+        guard continueGame() else { return }
+        func setPlayer() {}
+        func give() {
 
-struct CardGame: Playable {
+        }
+        
+    }
+}
+    
+
     enum Error: Swift.Error {
         case isCardDeckEmpty
         
@@ -23,26 +46,3 @@ struct CardGame: Playable {
             }
         }
     }
-    
-    private var deck: Deck
-    init(deck: Deck) {
-        self.deck = deck
-    }
-    
-    mutating func play(menu: GameMenu) throws -> HandlingDeckResult {
-        switch menu {
-        case .reset:
-            deck.reset()
-            return HandlingDeckResult.reset(deck.count())
-        case .shuffle:
-            deck.shuffle()
-            return HandlingDeckResult.shuffle(deck.count())
-        case .draw:
-            guard let card = deck.removeOne() else {
-                throw Error.isCardDeckEmpty
-            }
-            return HandlingDeckResult.draw(card, deck.count())
-        }
-    }
-    
-}
