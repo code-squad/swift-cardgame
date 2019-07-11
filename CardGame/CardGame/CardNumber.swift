@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum CardNumber: CustomStringConvertible {
+enum CardNumber: Int, CustomStringConvertible {
     
-    case one
+    case one = 1
     case two, three, four, five, six, seven, eight, nine, ten
     case eleven
     case twelve
@@ -20,30 +20,14 @@ enum CardNumber: CustomStringConvertible {
         switch self {
         case .one:
             return "A"
-        case .two:
-            return "2"
-        case .three:
-            return "3"
-        case .four:
-            return "4"
-        case .five:
-            return "5"
-        case .six:
-            return "6"
-        case .seven:
-            return "7"
-        case .eight:
-            return "8"
-        case .nine:
-            return "9"
-        case .ten:
-            return "10"
         case .eleven:
             return "J"
         case .twelve:
             return "Q"
         case .thirteen:
             return "K"
+        default :
+            return "\(self.rawValue)"
         }
     }
 }
