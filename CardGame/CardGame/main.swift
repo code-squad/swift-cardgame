@@ -9,3 +9,5 @@
 import Foundation
 
 
+let card = Card.init(pattern: CardPattern.clover, number: CardNumber.two)
+print(card)
