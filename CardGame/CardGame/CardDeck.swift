@@ -15,33 +15,39 @@ import Foundation
 //모든 종류의 카드 객체 인스턴스를 포함하는 카드덱 구조체를 구현한다.
 struct CardDeck {
     
-    private let allNumbers: [CardNumber] = [
-        .one,
-        .two,
-        .three,
-        .four,
-        .five,
-        .six,
-        .seven,
-        .eight,
-        .nine,
-        .ten,
-        .eleven,
-        .twelve,
-        .thirteen
-    ]
+    var cards: [Card]
     
-    private let allPatterns: [CardPattern] = [ .clover, .diamond, .heart, .spade ]
-    
-    func makeCardDeck() -> [Card] {
-        var cards = [Card]()
-        for pattern in allPatterns {
-            for number in allNumbers {
-                let card = Card.init(pattern: pattern, number: number)
-                cards.append(card)
+    init() {
+        let allNumbers: [CardNumber] = [
+            .one,
+            .two,
+            .three,
+            .four,
+            .five,
+            .six,
+            .seven,
+            .eight,
+            .nine,
+            .ten,
+            .eleven,
+            .twelve,
+            .thirteen
+        ]
+        
+        let allPatterns: [CardPattern] = [ .clover, .diamond, .heart, .spade ]
+        
+        func makeCardDeck() -> [Card] {
+            var cards = [Card]()
+            for pattern in allPatterns {
+                for number in allNumbers {
+                    let card = Card.init(pattern: pattern, number: number)
+                    cards.append(card)
+                }
             }
+            return cards
         }
-        return cards
+        
+        cards = makeCardDeck()
     }
     
 }
