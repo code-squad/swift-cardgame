@@ -16,7 +16,6 @@ protocol Player {
 struct PokerPlayer: Player, CustomStringConvertible {
     private let name: String
     private var hand = Hand()
-    private let number: Int
     
     var description: String {
         return name
@@ -24,7 +23,6 @@ struct PokerPlayer: Player, CustomStringConvertible {
     
     init(number: Int) {
         self.name = "참가자#\(number)"
-        self.number = number
     }
     
     mutating func receive(card: Card) {
