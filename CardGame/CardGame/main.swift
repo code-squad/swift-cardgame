@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let dealer = PokerDealer(hand: Hand(), deck: CardDeck())
+    let dealer = PokerDealer(deck: CardDeck())
     var game: PokerGame
     repeat {
         do {
