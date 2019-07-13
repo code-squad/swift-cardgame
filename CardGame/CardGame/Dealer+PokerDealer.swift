@@ -14,15 +14,14 @@ protocol Dealer {
 
 struct PokerDealer: Player, Dealer, CustomStringConvertible {
     private let name: String = "딜러"
-    private var hand: Hand
+    private var hand = Hand()
     private var deck: Deck
     
     var description: String {
         return name
     }
     
-    init(hand: Hand, deck: Deck) {
-        self.hand = hand
+    init(deck: Deck) {
         self.deck = deck
     }
     
