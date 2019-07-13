@@ -11,7 +11,7 @@ import Foundation
 struct PlayerGenerator {
     
     static func generatePlayers(by numberOfPlayers: Int) -> [Player] {
-        let players = (1...numberOfPlayers).map { PokerPlayer(hand: Hand(), number: $0) }
+        let players = (1...numberOfPlayers).map { PokerPlayer(number: $0) }
         return players
     }
 }
