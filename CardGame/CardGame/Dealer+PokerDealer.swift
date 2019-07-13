@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol Dealer: Player {
+protocol Dealer {
     mutating func draw() -> Card?
 }
 
-struct PokerDealer: Dealer, CustomStringConvertible {
+struct PokerDealer: Player, Dealer, CustomStringConvertible {
     private let name: String = "딜러"
     private var hand: Hand
     private var deck: Deck
