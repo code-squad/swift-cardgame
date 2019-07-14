@@ -43,6 +43,17 @@ struct PokerGame {
             }
         }
     }
+    
+    mutating func drawCards() throws -> [Card] {
+        var cards = [Card]()
+        for _ in 0..<option.numberOfCards {
+            guard let card = dealer.draw() else {
+                throw Error.isCardDeckEmpty
+            }
+            cards.append(card)
+        }
+        return cards
+    }
 }
 
 extension PokerGame: OutputViewPrintable {
