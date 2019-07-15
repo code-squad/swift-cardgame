@@ -9,6 +9,7 @@
 import Foundation
 
 struct PokerPlayer: Player {
+    
     private(set) var hand: Hand
     private(set) var name: String
     private let number: Int
