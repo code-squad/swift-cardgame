@@ -8,8 +8,8 @@
 
 import Foundation
 
+var controller = CardDeckController()
 
-let card = Card.init(pattern: .heart, number: .twelve)
-print(card)
-let card2 = Card.init(pattern: .spade, number: .seven)
-print(card2)
+while true {
+    controller.play()
+}
