@@ -47,11 +47,13 @@ struct InputView {
             return options[index]
         }
     }
-//
-//    //제네릭
-//    func askForChoice<Result>(_ data: String, options: [String: Result]) -> Result {
-//
-//    }
+
+    //선택지에 따른 값을 반환하는 메소드
+    func askForChoice<Result>(options: [String: Result]) -> Result {
+        let choice = askForChoice(options: options.map { $0.key })
+        //choice는 값이 확실히 있기때문에 강제추출함
+        return options[choice]!
+    }
     /*
      [
      "option1": 151,
