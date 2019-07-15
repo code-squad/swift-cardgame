@@ -37,7 +37,7 @@ struct InputView {
     //askForNumber에서 선택한 string반환
     func askForChoice(options: [String]) -> String {
         showOptions(options)
-        while  true {
+        while true {
             let choice = askForNumber("선택지")
             guard choice > 0 && choice <= options.count else {
                 print("선택지번호를 확인해주세요(1~\(options.count)까지)")
@@ -50,23 +50,9 @@ struct InputView {
 
     //선택지에 따른 값을 반환하는 메소드
     func askForChoice<Result>(options: [String: Result]) -> Result {
-        let choice = askForChoice(options: options.map { $0.key })
+        let choice = askForChoice(options: options.map { $0.key }.sorted())
                     //askForChoice(options: [String].init(options.keys))도 가능함
         //choice는 값이 확실히 있기때문에 강제추출함
         return options[choice]!
     }
-    /*
-     [
-     "option1": 151,
-     "option2": 404
-     ]
-     
-     1. option1
-     2. option2
-     number: 1
-     
-     -> 151
-     */
-
-    
 }
