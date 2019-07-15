@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Deck {
-    mutating func count() -> Int
+    func count() -> Int
     mutating func reset()
     mutating func shuffle()
     mutating func removeOne() -> Card?
@@ -21,7 +21,7 @@ struct CardDeck: Deck {
         reset()
     }
     
-    mutating func count() -> Int {
+   func count() -> Int {
         return cards.count
     }
     
