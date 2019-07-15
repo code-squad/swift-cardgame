@@ -29,13 +29,20 @@ struct InputView {
     
     //옵션들앞에 번호를 붙여 출력하는 메소드
     func showOptions(_ options: [String]) {
-        
+        for (index, option) in options.enumerated() {
+            print("\(index+1). \(option)")
+        }
     }
     
-    //제네릭
-    func askForChoice<Result>(options: [String: Result]) -> Result {
-        
-    }
+    
+//    func askForChoice(_ data: String, options: [String]) -> String {
+//
+//    }
+//
+//    //제네릭
+//    func askForChoice<Result>(_ data: String, options: [String: Result]) -> Result {
+//
+//    }
     /*
      [
      "option1": 151,
