@@ -40,15 +40,4 @@ struct GameInputView {
         let numberOfParticipants = readLine() ?? ""
         return CardGameParticipant(selectNumber: numberOfParticipants)
     }
-    
-    enum Error: Swift.Error {
-        case invalidMenuNumber
-        
-        var localizedDescription: String {
-            switch self {
-            case .invalidMenuNumber:
-                return "유효하지 않은 메뉴 번호입니다."
-            }
-        }
-    }
 }
