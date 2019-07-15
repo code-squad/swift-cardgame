@@ -28,7 +28,7 @@ extension Card {
         case spade = "\u{2660}"
         case heart = "\u{2665}"
         case diamond = "\u{2666}"
-        case clovar = "\u{2633}"
+        case clovar = "\u{2663}"
         
         var description: String {
             return String(rawValue)
