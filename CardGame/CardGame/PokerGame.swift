@@ -23,14 +23,14 @@ struct PokerGame {
     
     private var cardDeck: Deck
     private var numberOfPlayers: NumberOfPlayers = .one
-    private var option: GameOption = .fiveCardStud
+    private var option: GameMode = .fiveCardStud
     private var playerInfo = PlayerInfo()
     
     init(cardDeck: Deck) {
         self.cardDeck = cardDeck
     }
     
-    mutating func run(numberOfPlayers: NumberOfPlayers, option: GameOption) throws {
+    mutating func run(numberOfPlayers: NumberOfPlayers, option: GameMode) throws {
         self.numberOfPlayers = numberOfPlayers
         self.option = option
         try generatePlayers()
