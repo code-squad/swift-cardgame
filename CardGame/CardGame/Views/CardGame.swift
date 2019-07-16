@@ -43,7 +43,7 @@ class CardGame: OutputViewPrintable {
     
     private func setPlayer() {
         for order in 1...self.numberOfPlayers {
-            players.append(PokerPlayer(hand: Hand.init(), number: order))
+            players.append(PokerPlayer( number: order))
         }
         players.append(dealer)
     }

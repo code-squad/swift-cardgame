@@ -10,12 +10,11 @@ import Foundation
 
 struct PokerPlayer: Player {
     
-    private(set) var hand: Hand
+    private(set) var hand = Hand()
     private(set) var name: String
     private let number: Int
     
-    init(hand: Hand, number: Int) {
-        self.hand = hand
+    init(number: Int) {
         self.number = number
         self.name = "참가자 #\(number)"
     }
