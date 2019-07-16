@@ -11,7 +11,6 @@
 		3004F1D622DE18F100A8F7F0 /* NumberOfPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004F1D522DE18F100A8F7F0 /* NumberOfPlayers.swift */; };
 		3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2322C9F6AC0031CA70 /* GameInputView.swift */; };
 		3042AD2622C9FBCD0031CA70 /* GameOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2522C9FBCD0031CA70 /* GameOption.swift */; };
-		3042AD2A22CA6EA30031CA70 /* RangeChecker+NumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */; };
 		3042AD4C22CEE1400031CA70 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD4B22CEE1400031CA70 /* Hand.swift */; };
 		3042AD4E22CEE3990031CA70 /* Player+PokerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD4D22CEE3990031CA70 /* Player+PokerPlayer.swift */; };
 		3042AD5222CEF0B30031CA70 /* Dealer+PokerDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD5122CEF0B30031CA70 /* Dealer+PokerDealer.swift */; };
@@ -47,7 +46,6 @@
 		3004F1D522DE18F100A8F7F0 /* NumberOfPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPlayers.swift; sourceTree = "<group>"; };
 		3042AD2322C9F6AC0031CA70 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		3042AD2522C9FBCD0031CA70 /* GameOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOption.swift; sourceTree = "<group>"; };
-		3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeChecker+NumberChecker.swift"; sourceTree = "<group>"; };
 		3042AD4B22CEE1400031CA70 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		3042AD4D22CEE3990031CA70 /* Player+PokerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+PokerPlayer.swift"; sourceTree = "<group>"; };
 		3042AD5122CEF0B30031CA70 /* Dealer+PokerDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dealer+PokerDealer.swift"; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				30917E2D22C8F09D00C0E696 /* CardGame.swift */,
 				3042AD2322C9F6AC0031CA70 /* GameInputView.swift */,
 				3042AD2522C9FBCD0031CA70 /* GameOption.swift */,
-				3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */,
 				3042AD4B22CEE1400031CA70 /* Hand.swift */,
 				3042AD4D22CEE3990031CA70 /* Player+PokerPlayer.swift */,
 				3042AD5122CEF0B30031CA70 /* Dealer+PokerDealer.swift */,
@@ -182,7 +179,6 @@
 			files = (
 				3004F1D222DDACC300A8F7F0 /* PlayerInfo.swift in Sources */,
 				3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */,
-				3042AD2A22CA6EA30031CA70 /* RangeChecker+NumberChecker.swift in Sources */,
 				3004F1D622DE18F100A8F7F0 /* NumberOfPlayers.swift in Sources */,
 				3042AD4E22CEE3990031CA70 /* Player+PokerPlayer.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
