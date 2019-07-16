@@ -11,7 +11,7 @@ import Foundation
 func main() {
     let cardDeck = CardDeck()
     var game = PokerGame(cardDeck: cardDeck)
-    var option: GameOption
+    var option: GameMode
     var numberOfPlayers: NumberOfPlayers
     repeat {
         do {

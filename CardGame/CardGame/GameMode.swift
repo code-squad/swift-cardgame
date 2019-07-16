@@ -1,5 +1,5 @@
 //
-//  GameOption.swift
+//  GameMode.swift
 //  CardGame
 //
 //  Created by BLU on 01/07/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GameOption: Int, CustomStringConvertible {
+enum GameMode: Int, CustomStringConvertible {
     case sevenCardStud = 7
     case fiveCardStud = 5
     
