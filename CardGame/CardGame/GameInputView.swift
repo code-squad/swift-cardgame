@@ -58,14 +58,19 @@ struct GameInputView {
         throw Error.invalidMenuNumber
     }
     
-    static func readNumberOfPlayers(checkRange: (String) -> Bool) throws -> Int {
+    static func readNumberOfPlayers() throws -> NumberOfPlayers {
         let number = ask(for: .enterNumberOfPlayers)
-        guard checkRange(number) else {
+        switch number {
+        case "1":
+            return .one
+        case "2":
+            return .two
+        case "3":
+            return .three
+        case "4":
+            return .four
+        default:
             throw Error.notAllowedRange
         }
-        if let number = Int(number) {
-            return number
-        }
-        throw Error.notNumber
     }
 }

@@ -12,11 +12,11 @@ func main() {
     let cardDeck = CardDeck()
     var game = PokerGame(cardDeck: cardDeck)
     var option: GameOption
-    var numberOfPlayers: Int
+    var numberOfPlayers: NumberOfPlayers
     repeat {
         do {
             option = try GameInputView.readGameOption()
-            numberOfPlayers = try GameInputView.readNumberOfPlayers(checkRange: NumberChecker.isValid)
+            numberOfPlayers = try GameInputView.readNumberOfPlayers()
         } catch let error as GameInputView.Error {
             print(error.localizedDescription)
             return
