@@ -11,6 +11,7 @@ import Foundation
 class Dealer: Dealable {
     private var cardDeck: CardDeck
     private var cards: [Card] = []
+    private let name = "딜러"
     
     init(cardDeck: CardDeck) {
         self.cardDeck = cardDeck
