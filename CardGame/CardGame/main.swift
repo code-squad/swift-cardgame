@@ -15,7 +15,7 @@ func main() {
     var numberOfPlayers: NumberOfPlayers
     repeat {
         do {
-            option = try GameInputView.readGameOption()
+            option = try GameInputView.readGameMode()
             numberOfPlayers = try GameInputView.readNumberOfPlayers()
         } catch let error as GameInputView.Error {
             print(error.localizedDescription)

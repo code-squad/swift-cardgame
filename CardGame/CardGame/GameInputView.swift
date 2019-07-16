@@ -47,12 +47,12 @@ struct GameInputView {
         return readLine() ?? ""
     }
     
-    static func readGameOption() throws -> GameMode {
-        let optionList = """
+    static func readGameMode() throws -> GameMode {
+        let modeList = """
         1. \(GameMode.sevenCardStud)
         2. \(GameMode.fiveCardStud)
         """
-        let number = ask(for: .selectGame, content: "\n" + optionList)
+        let number = ask(for: .selectGame, content: "\n" + modeList)
         switch number {
         case "1":
             return .sevenCardStud
