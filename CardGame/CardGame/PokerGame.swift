@@ -25,9 +25,9 @@ struct PokerGame {
     private var players: [Player]
     private let option: GameOption
     
-    init(dealer: Dealer, players: [Player], option: GameOption) {
+    init(dealer: Dealer & Player, players: [Player], option: GameOption) {
         self.dealer = dealer
-        self.players = players + [dealer as Player]
+        self.players = players + [dealer]
         self.option = option
     }
     
