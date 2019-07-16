@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3004F1D222DDACC300A8F7F0 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004F1D122DDACC300A8F7F0 /* PlayerInfo.swift */; };
 		3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2322C9F6AC0031CA70 /* GameInputView.swift */; };
 		3042AD2622C9FBCD0031CA70 /* GameOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2522C9FBCD0031CA70 /* GameOption.swift */; };
 		3042AD2A22CA6EA30031CA70 /* RangeChecker+NumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3004F1D122DDACC300A8F7F0 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
 		3042AD2322C9F6AC0031CA70 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		3042AD2522C9FBCD0031CA70 /* GameOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOption.swift; sourceTree = "<group>"; };
 		3042AD2922CA6EA30031CA70 /* RangeChecker+NumberChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeChecker+NumberChecker.swift"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				3042AD5522CF21250031CA70 /* PlayerGenerator.swift */,
 				3042AD5722CF255B0031CA70 /* PokerGame.swift */,
 				3042AD5922CF439A0031CA70 /* OutputViewPrintable.swift */,
+				3004F1D122DDACC300A8F7F0 /* PlayerInfo.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3004F1D222DDACC300A8F7F0 /* PlayerInfo.swift in Sources */,
 				3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */,
 				3042AD2A22CA6EA30031CA70 /* RangeChecker+NumberChecker.swift in Sources */,
 				3042AD4E22CEE3990031CA70 /* Player+PokerPlayer.swift in Sources */,
