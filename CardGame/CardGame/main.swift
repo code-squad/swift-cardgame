@@ -9,14 +9,14 @@
 import Foundation
 
 func main() {
-    let dealer = PokerDealer(deck: CardDeck())
-    var game: PokerGame
+    let cardDeck = CardDeck()
+    var game = PokerGame(cardDeck: cardDeck)
+    var option: GameOption
+    var numberOfPlayers: Int
     repeat {
         do {
-            let option = try GameInputView.readGameOption()
-            let numberOfPlayers = try GameInputView.readNumberOfPlayers(checkRange: NumberChecker.isValid)
-            let players = PlayerGenerator.generatePlayers(by: numberOfPlayers)
-            game = PokerGame(dealer: dealer, players: players, option: option)
+            option = try GameInputView.readGameOption()
+            numberOfPlayers = try GameInputView.readNumberOfPlayers(checkRange: NumberChecker.isValid)
         } catch let error as GameInputView.Error {
             print(error.localizedDescription)
             return
@@ -25,7 +25,7 @@ func main() {
             return
         }
         do {
-            try game.run()
+            try game.run(numberOfPlayers: numberOfPlayers, option: option)
         } catch let error as PokerGame.Error {
             print(error.localizedDescription)
             return
