@@ -46,7 +46,7 @@ struct PokerGame {
     }
     
     mutating func distributeCards(from dealer: inout Dealer & Player, to player: inout Player) throws {
-        for _ in 0..<option.numberOfCards {
+        for _ in 0..<option.rawValue {
             guard let card = dealer.draw() else {
                 throw Error.isCardDeckEmpty
             }

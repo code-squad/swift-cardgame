@@ -48,14 +48,19 @@ struct GameInputView {
     }
     
     static func readGameOption() throws -> GameOption {
-        let optionList = GameOption.allCases
-            .map({ "\($0)" })
-            .joined(separator: "\n")
+        let optionList = """
+        1. \(GameOption.sevenCardStud)
+        2. \(GameOption.fiveCardStud)
+        """
         let number = ask(for: .selectGame, content: "\n" + optionList)
-        if let option = GameOption(rawValue: number) {
-            return option
+        switch number {
+        case "1":
+            return .sevenCardStud
+        case "2":
+            return .fiveCardStud
+        default:
+            throw Error.invalidMenuNumber
         }
-        throw Error.invalidMenuNumber
     }
     
     static func readNumberOfPlayers() throws -> NumberOfPlayers {
