@@ -25,7 +25,7 @@ struct PokerDealer: Player, Dealer, CustomStringConvertible {
         self.deck = deck
     }
     
-    mutating func receive(card: Card) {
+    mutating func take(card: Card) {
         hand.add(card: card)
     }
     
