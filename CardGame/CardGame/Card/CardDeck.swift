@@ -21,7 +21,7 @@ struct CardDeck: Deck {
         reset()
     }
     
-   func count() -> Int {
+    func count() -> Int {
         return cards.count
     }
     
