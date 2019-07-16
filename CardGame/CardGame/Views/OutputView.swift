@@ -16,8 +16,8 @@ struct OutputView {
         }
     }
     
-        static func printError(_ description: String) {
-            print(description)
-        }
+    static func printError(_ description: String) {
+        print(description)
+    }
 }
 
