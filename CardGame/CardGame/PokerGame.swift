@@ -21,46 +21,31 @@ struct PokerGame {
         }
     }
     
-    private var dealer: Dealer
-    private var players: [Player]
-    private let option: GameOption
+    private var cardDeck: Deck
+    private var numberOfPlayers = 0
+    private var option: GameOption = .fiveCardStud
     private var playerInfo = PlayerInfo()
     
-    init(dealer: Dealer & Player, players: [Player], option: GameOption) {
-        self.dealer = dealer
-        self.players = players + [dealer]
-        self.option = option
+    init(cardDeck: Deck) {
+        self.cardDeck = cardDeck
     }
     
-    mutating func run() throws {
+    mutating func run(numberOfPlayers: Int, option: GameOption) throws {
+        self.numberOfPlayers = numberOfPlayers
+        self.option = option
         try generatePlayers()
     }
     
-    mutating func drawCards() throws -> [Card] {
-        var cards = [Card]()
-        for _ in 0..<option.numberOfCards {
-            guard let card = dealer.draw() else {
-                throw Error.isCardDeckEmpty
-            }
-            cards.append(card)
-        }
-        return cards
-    }
-    
     mutating func generatePlayers() throws {
-        let times = option.numberOfCards
-        for _ in 0..<times {
-            for index in 0..<self.players.count {
-                guard let card = dealer.draw() else {
-                    throw Error.isCardDeckEmpty
-                }
-                self.players[index].receive(card: card)
-                playerInfo.addPlayer(self.players[index])
-            }
+        var dealer: Dealer & Player = PokerDealer(deck: CardDeck())
+        let players: [Player] = PlayerGenerator.generatePlayers(by: numberOfPlayers)
+        for var player in players + [dealer] {
+            try distributeCards(from: &dealer, to: &player)
+            playerInfo.addPlayer(player)
         }
     }
     
-    mutating func distributeCards(from dealer: inout Dealer, to player: inout Player) throws {
+    mutating func distributeCards(from dealer: inout Dealer & Player, to player: inout Player) throws {
         for _ in 0..<option.numberOfCards {
             guard let card = dealer.draw() else {
                 throw Error.isCardDeckEmpty
