@@ -33,17 +33,7 @@ struct PokerGame {
     }
     
     mutating func run() throws {
-        let times = option.numberOfCards
-        
-        for _ in 0..<times {
-            for index in 0..<self.players.count {
-                guard let card = dealer.draw() else {
-                    throw Error.isCardDeckEmpty
-                }
-                self.players[index].receive(card: card)
-                playerInfo.addPlayer(self.players[index])
-            }
-        }
+        try generatePlayers()
     }
     
     mutating func drawCards() throws -> [Card] {
@@ -55,6 +45,19 @@ struct PokerGame {
             cards.append(card)
         }
         return cards
+    }
+    
+    mutating func generatePlayers() throws {
+        let times = option.numberOfCards
+        for _ in 0..<times {
+            for index in 0..<self.players.count {
+                guard let card = dealer.draw() else {
+                    throw Error.isCardDeckEmpty
+                }
+                self.players[index].receive(card: card)
+                playerInfo.addPlayer(self.players[index])
+            }
+        }
     }
     
     mutating func distributeCards(from dealer: inout Dealer, to player: inout Player) throws {
