@@ -10,7 +10,7 @@ import Foundation
 
 protocol Player {
     func cards() -> String
-    mutating func receive(card: Card)
+    mutating func take(card: Card)
 }
 
 struct PokerPlayer: Player, CustomStringConvertible {
@@ -25,7 +25,7 @@ struct PokerPlayer: Player, CustomStringConvertible {
         self.name = "참가자#\(number)"
     }
     
-    mutating func receive(card: Card) {
+    mutating func take(card: Card) {
         hand.add(card: card)
     }
     

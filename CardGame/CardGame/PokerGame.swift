@@ -50,7 +50,7 @@ struct PokerGame {
             guard let card = dealer.draw() else {
                 throw Error.isCardDeckEmpty
             }
-            player.receive(card: card)
+            player.take(card: card)
         }
     }
 }
