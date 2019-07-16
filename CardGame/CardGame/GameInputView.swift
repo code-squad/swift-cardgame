@@ -11,13 +11,13 @@ import Foundation
 struct GameInputView {
     
     enum Error: Swift.Error {
-        case invalidMenuNumber
+        case invalidGameModeNumber
         case invalidNumberOfPlayers
         
         var localizedDescription: String {
             switch self {
-            case .invalidMenuNumber:
-                return "유효하지 않은 메뉴 번호입니다."
+            case .invalidGameModeNumber:
+                return "유효하지 않은 게임 모드 번호입니다."
             case .invalidNumberOfPlayers:
                 return "유효하지 않은 플레이어 인원 수 입니다."
             }
@@ -56,7 +56,7 @@ struct GameInputView {
         case "2":
             return .fiveCardStud
         default:
-            throw Error.invalidMenuNumber
+            throw Error.invalidGameModeNumber
         }
     }
     
