@@ -8,20 +8,11 @@
 
 import Foundation
 
-enum GameOption: String, CustomStringConvertible, CaseIterable {
-    case sevenCardStud = "1"
-    case fiveCardStud = "2"
-    
-    var numberOfCards: Int {
-        switch self {
-        case .sevenCardStud:
-            return 7
-        case .fiveCardStud:
-            return 5
-        }
-    }
+enum GameOption: Int, CustomStringConvertible {
+    case sevenCardStud = 7
+    case fiveCardStud = 5
     
     var description: String {
-        return "\(rawValue). \(numberOfCards)카드"
+        return "\(rawValue)카드"
     }
 }
