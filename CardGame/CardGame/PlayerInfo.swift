@@ -15,7 +15,7 @@ struct PlayerInfo {
         pokerPlayers.append(player)
     }
     
-    mutating func players() -> [Player] {
+    func players() -> [Player] {
         return pokerPlayers
     }
 }
