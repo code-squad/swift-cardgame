@@ -13,20 +13,20 @@ protocol OutputViewPrintable {
 }
 
 class CardGame: OutputViewPrintable {
-    private var players: [Player]
+    private var players: [Player] = []
     private var dealer: Dealer
     private let gameMode: CardGameMode
-    private let numOfPlayers: Int
+    private let numberOfPlayers: Int
     
     func printPlayerInfo(handler: (String, String) -> ()) {
         players.forEach { player in handler(player.name, String(describing: player.hand))}
     }
 
-    init(players: [Player], dealer: Dealer, gameMode: CardGameMode, numberOfPlayers: Int) {
+    init( dealer: Dealer, gameMode: CardGameMode, numberOfPlayers: Int) {
         self.dealer = dealer
-        self.players = players
         self.gameMode = gameMode
-        self.numOfPlayers = numberOfPlayers
+        self.numberOfPlayers = numberOfPlayers
+        
     }
     
     private func continueGame() -> Bool {
@@ -42,7 +42,7 @@ class CardGame: OutputViewPrintable {
     }
     
     private func setPlayer() {
-        for order in 1...self.numOfPlayers {
+        for order in 1...self.numberOfPlayers {
             players.append(PokerPlayer(hand: Hand.init(), number: order))
         }
         players.append(dealer)

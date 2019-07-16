@@ -15,7 +15,7 @@ func main() {
             guard let mode = gameMode, let entry = numOfParticipant else {
                 return 
             }
-            let cardGame = CardGame(players: [], dealer: PokerDealer(hand: Hand(), deck: CardDeck()), gameMode: mode,numberOfPlayers: entry.count)
+            let cardGame = CardGame(dealer: PokerDealer(hand: Hand(), deck: CardDeck()), gameMode: mode, numberOfPlayers: entry.count)
             cardGame.gameStart()
            OutputView.printPlayers(game: cardGame)
     } while(true)
