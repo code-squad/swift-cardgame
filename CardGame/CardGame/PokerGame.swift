@@ -56,6 +56,15 @@ struct PokerGame {
         }
         return cards
     }
+    
+    mutating func distributeCards(from dealer: inout Dealer, to player: inout Player) throws {
+        for _ in 0..<option.numberOfCards {
+            guard let card = dealer.draw() else {
+                throw Error.isCardDeckEmpty
+            }
+            player.receive(card: card)
+        }
+    }
 }
 
 extension PokerGame: OutputViewPrintable {
