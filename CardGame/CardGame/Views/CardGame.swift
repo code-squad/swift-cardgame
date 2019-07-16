@@ -13,15 +13,15 @@ protocol OutputViewPrintable {
 }
 
 class CardGame: OutputViewPrintable {
-    func printPlayerInfo(handler: (String, String) -> ()) {
-        players.forEach { player in handler(player.name, String(describing: player.hand))}
-    }
-    
     private var players: [Player]
     private var dealer: Dealer
     private let gameMode: CardGameMode
     private let numOfPlayers: Int
     
+    func printPlayerInfo(handler: (String, String) -> ()) {
+        players.forEach { player in handler(player.name, String(describing: player.hand))}
+    }
+
     init(players: [Player], dealer: Dealer, gameMode: CardGameMode, numberOfPlayers: Int) {
         self.dealer = dealer
         self.players = players
