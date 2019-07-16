@@ -37,7 +37,7 @@ struct PokerGame {
     }
     
     mutating func generatePlayers() throws {
-        var dealer: Dealer & Player = PokerDealer(deck: CardDeck())
+        var dealer: Dealer & Player = PokerDealer(deck: cardDeck)
         let players: [Player] = PlayerGenerator.generatePlayers(by: numberOfPlayers)
         for var player in players + [dealer] {
             try distributeCards(from: &dealer, to: &player)
