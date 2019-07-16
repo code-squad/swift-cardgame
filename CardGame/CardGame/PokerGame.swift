@@ -24,6 +24,7 @@ struct PokerGame {
     private var dealer: Dealer
     private var players: [Player]
     private let option: GameOption
+    private var playerInfo = PlayerInfo()
     
     init(dealer: Dealer & Player, players: [Player], option: GameOption) {
         self.dealer = dealer
@@ -40,6 +41,7 @@ struct PokerGame {
                     throw Error.isCardDeckEmpty
                 }
                 self.players[index].receive(card: card)
+                playerInfo.addPlayer(self.players[index])
             }
         }
     }
@@ -58,7 +60,7 @@ struct PokerGame {
 
 extension PokerGame: OutputViewPrintable {
     func printPlayerInfo(handler: (String, String) -> ()) {
-        players.forEach { player in
+        for player in playerInfo.players() {
             handler(String(describing: player), player.cards())
         }
     }
