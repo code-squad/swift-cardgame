@@ -8,7 +8,7 @@
 
 import Foundation
 //카드의 패턴이 제한적이어서 enum으로 정의함. 외부에 만들면 관리하기 더 좋을거 같아서 따로 파일을 만들어줌.
-enum CardPattern: CustomStringConvertible {
+enum CardPattern: CustomStringConvertible, CaseIterable {
     
     case heart
     case diamond

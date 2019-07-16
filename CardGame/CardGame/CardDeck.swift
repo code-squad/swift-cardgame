@@ -14,23 +14,24 @@ struct CardDeck {
     var cards: [Card]
     
     init() {
-        let allNumbers: [CardNumber] = [
-            .one,
-            .two,
-            .three,
-            .four,
-            .five,
-            .six,
-            .seven,
-            .eight,
-            .nine,
-            .ten,
-            .eleven,
-            .twelve,
-            .thirteen
-        ]
-        
-        let allPatterns: [CardPattern] = [ .clover, .diamond, .heart, .spade ]
+        let allNumbers = CardNumber.allCases//allCases.map { "\($0)" }
+//        let allNumbers: [CardNumber] = [
+//            .one,
+//            .two,
+//            .three,
+//            .four,
+//            .five,
+//            .six,
+//            .seven,
+//            .eight,
+//            .nine,
+//            .ten,
+//            .eleven,
+//            .twelve,
+//            .thirteen
+//        ]
+        let allPatterns = CardPattern.allCases
+//        let allPatterns: [CardPattern] = [ .clover, .diamond, .heart, .spade ]
         
         func makeCardDeck() -> [Card] {
             var cards = [Card]()
