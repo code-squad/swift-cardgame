@@ -14,9 +14,11 @@ class CardDeckController {
     var deck = CardDeck()
     
     func play() {
-        let options = ["카드 초기화": resetDeck, "카드 섞기": shuffleDeck, "카드 하나 뽑기": removeOne]
-        let option = input.askForChoice(options: options)
-        option()
+        let options: [String: () -> Void] = ["카드 초기화": resetDeck, "카드 섞기": shuffleDeck, "카드 하나 뽑기": removeOne]
+        let optionStrings = [String](options.keys)
+        let selected = input.askForChoice(options: optionStrings)
+        let function = options[selected]!
+        function()
     }
     
     func resetDeck() {
