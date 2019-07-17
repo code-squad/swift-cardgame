@@ -10,7 +10,8 @@ import Foundation
 
 ///모든 종류의 카드 객체 인스턴스를 포함하는 카드덱 구조체를 구현한다.
 struct CardDeck {
-    
+    //기본으로 모든카드를 가지고 있는 상수를 속성으로 추가해줌
+    let defaultCards: [Card]
     var cards: [Card]
     
     init() {
@@ -28,7 +29,8 @@ struct CardDeck {
             return cards
         }
         
-        cards = makeCardDeck()
+        defaultCards = makeCardDeck()
+        cards = defaultCards
     }
     
     ///count() 갖고 있는 카드 개수를 반환한다.
@@ -49,8 +51,8 @@ struct CardDeck {
     }
     
     ///reset() 처음처럼 모든 카드를 다시 채워넣는다.
+    //사용된 속성에 모든카드를 가진 속성을 넣어주도록 함.
     mutating func reset() {
-        self = CardDeck.init()
-        
+        cards = defaultCards
     }
 }
