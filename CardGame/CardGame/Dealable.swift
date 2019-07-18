@@ -10,4 +10,5 @@ import Foundation
 
 protocol Dealable: Playable {
     func give() -> Card
+    func reset()
 }

@@ -24,4 +24,8 @@ class Dealer: Dealable {
     func give() -> Card {
         return cardDeck.removeOne()
     }
+    
+    func reset() {
+        cards.removeAll()
+    }
 }
