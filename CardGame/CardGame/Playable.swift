@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Playable {
+protocol Playable: PlayerPrintable {
     func receive(card: Card)
 }
