@@ -13,7 +13,7 @@ protocol Player {
     mutating func take(card: Card)
 }
 
-struct PokerPlayer: Player, CustomStringConvertible {
+class PokerPlayer: Player, CustomStringConvertible {
     private let name: String
     private var hand = Hand()
     
@@ -25,7 +25,7 @@ struct PokerPlayer: Player, CustomStringConvertible {
         self.name = "참가자#\(number)"
     }
     
-    mutating func take(card: Card) {
+    func take(card: Card) {
         hand.add(card: card)
     }
     
