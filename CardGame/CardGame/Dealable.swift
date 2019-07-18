@@ -11,4 +11,5 @@ import Foundation
 protocol Dealable: Playable {
     func give() -> Card
     func reset()
+    func hasEnoughCard(gameMenu: GameMenu, numberOfPlayer: NumberOfPlayer) -> Bool
 }

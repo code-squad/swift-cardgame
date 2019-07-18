@@ -23,7 +23,7 @@ func main() {
             break gameLoop
         }
         
-        if !cardDeck.hasEnoughCard(gameMenu: gameMenu, numberOfPlayer: numberOfPlayer) {
+        if !dealer.hasEnoughCard(gameMenu: gameMenu, numberOfPlayer: numberOfPlayer) {
             break gameLoop
         }
         
