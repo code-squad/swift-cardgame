@@ -22,6 +22,7 @@
 		14DDF0A022DC57C500BCC3EA /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF09F22DC57C500BCC3EA /* Dealer.swift */; };
 		14DDF0A222DC58A900BCC3EA /* PlayerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0A122DC58A900BCC3EA /* PlayerGenerator.swift */; };
 		14DDF0CA22E0293000BCC3EA /* OutputViewPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0C922E0293000BCC3EA /* OutputViewPrintable.swift */; };
+		14DDF0CC22E04DD000BCC3EA /* PlayerPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		14DDF09F22DC57C500BCC3EA /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		14DDF0A122DC58A900BCC3EA /* PlayerGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGenerator.swift; sourceTree = "<group>"; };
 		14DDF0C922E0293000BCC3EA /* OutputViewPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewPrintable.swift; sourceTree = "<group>"; };
+		14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPrintable.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				14DDF09F22DC57C500BCC3EA /* Dealer.swift */,
 				14DDF0A122DC58A900BCC3EA /* PlayerGenerator.swift */,
 				14DDF0C922E0293000BCC3EA /* OutputViewPrintable.swift */,
+				14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				14DDF07E22D326D700BCC3EA /* GameInputView.swift in Sources */,
 				14DDF0CA22E0293000BCC3EA /* OutputViewPrintable.swift in Sources */,
+				14DDF0CC22E04DD000BCC3EA /* PlayerPrintable.swift in Sources */,
 				147DEB6E22C4A0BC001F0392 /* CardDeck.swift in Sources */,
 				147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */,
 				14DDF07C22D325E900BCC3EA /* NumberOfPlayer.swift in Sources */,
