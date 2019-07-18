@@ -10,7 +10,7 @@ import Foundation
 
 protocol Player {
     func cards() -> String
-    mutating func take(card: Card)
+    func take(card: Card)
 }
 
 class PokerPlayer: Player, CustomStringConvertible {

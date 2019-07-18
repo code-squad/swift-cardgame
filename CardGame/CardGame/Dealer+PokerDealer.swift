@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Dealer {
-    mutating func draw() -> Card?
+    func draw() -> Card?
 }
 
 class PokerDealer: Player, Dealer, CustomStringConvertible {
