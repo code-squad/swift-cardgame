@@ -11,7 +11,6 @@ import Foundation
 func main() {
     let cardDeck = CardDeck()
     let dealer = Dealer(cardDeck: cardDeck)
-    var cardGame = CardGame(dealer: dealer)
     
     gameLoop: while true {
         dealer.reset()
@@ -25,8 +24,10 @@ func main() {
         
         let players = PlayerGenerator.generatePlayer(numberOfPlayer: numberOfPlayer)
         
+        let cardGame = CardGame(dealer: dealer, players: players, gameMenu: gameMenu)
+        
         do {
-            try cardGame.run(gameMenu: gameMenu, players: players)
+            try cardGame.run()
         } catch let error as CardDeckError {
             print(error.localizedDescription)
             break gameLoop
