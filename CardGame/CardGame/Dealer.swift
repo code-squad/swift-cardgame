@@ -21,7 +21,7 @@ class Dealer: Dealable {
         cards.append(card)
     }
     
-    func give() -> Card? {
+    func give() -> Card {
         return cardDeck.removeOne()
     }
 }
