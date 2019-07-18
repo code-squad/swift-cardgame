@@ -11,7 +11,7 @@ import Foundation
 protocol Deck {
     func count() -> Int
     mutating func shuffle()
-    mutating func removeOne() -> Card
+    mutating func removeOne() -> Card?
     mutating func reset()
 }
 
@@ -30,7 +30,11 @@ struct CardDeck: Deck {
         cards.shuffle()
     }
     
-    mutating func removeOne() -> Card {
+    mutating func removeOne() -> Card? {
+        if cards.isEmpty {
+            return nil
+        }
+        
         let randomIndex = Int.random(in: 0..<count())
         let card = cards.remove(at: randomIndex)
         
