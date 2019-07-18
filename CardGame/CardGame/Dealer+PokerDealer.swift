@@ -12,7 +12,7 @@ protocol Dealer {
     mutating func draw() -> Card?
 }
 
-struct PokerDealer: Player, Dealer, CustomStringConvertible {
+class PokerDealer: Player, Dealer, CustomStringConvertible {
     private let name: String = "딜러"
     private var hand = Hand()
     private var deck: Deck
@@ -25,11 +25,11 @@ struct PokerDealer: Player, Dealer, CustomStringConvertible {
         self.deck = deck
     }
     
-    mutating func take(card: Card) {
+    func take(card: Card) {
         hand.add(card: card)
     }
     
-    mutating func draw() -> Card? {
+    func draw() -> Card? {
         return deck.removeOne()
     }
     
