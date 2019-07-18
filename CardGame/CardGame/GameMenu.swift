@@ -25,4 +25,15 @@ enum GameMenu: Int, CustomStringConvertible {
             return "\(rawValue). 5카드"
         }
     }
+    
+    var numberOfCards: Int {
+        switch self {
+        case .sevenCardStud:
+            return 7
+        case .fiveCardStud:
+            return 5
+        case .exit:
+            return 0
+        }
+    }
 }

@@ -16,8 +16,8 @@ struct CardGame {
         self.dealer = dealer
     }
     
-    mutating func distributeCards(menu: GameMenu) {
-        for _ in 1...menu.rawValue {
+    private mutating func distributeCards(menu: GameMenu) {
+        for _ in 1...menu.numberOfCards {
             for player in players {
                 player.receive(card: dealer.give())
             }

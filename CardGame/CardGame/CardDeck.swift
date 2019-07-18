@@ -45,7 +45,7 @@ struct CardDeck: Deck {
     }
     
     func hasEnoughCard(gameMenu: GameMenu, numberOfPlayer: NumberOfPlayer) -> Bool {
-        return count() >= gameMenu.rawValue * numberOfPlayer.rawValue
+        return count() >= gameMenu.numberOfCards * numberOfPlayer.rawValue
     }
     
     private mutating func makeCards() {
