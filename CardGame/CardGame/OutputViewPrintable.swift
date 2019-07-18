@@ -9,5 +9,5 @@
 import Foundation
 
 protocol OutputViewPrintable {
-    func printGameResult(handler: (String, [Card]) -> ())
+    func printPlayerInformation(handler: @escaping (String, [Card]) -> ())
 }
