@@ -9,14 +9,17 @@
 import Foundation
 
 struct CardGame {
-    private var dealer: Dealable
-    private var players: [Playable] = []
+    private let dealer: Dealable
+    private let players: [Playable]
+    private let gameMenu: GameMenu
     
-    init(dealer: Dealable) {
+    init(dealer: Dealable, players: [Playable], gameMenu: GameMenu) {
         self.dealer = dealer
+        self.players = players
+        self.gameMenu = gameMenu
     }
     
-    private mutating func distributeCards(menu: GameMenu) throws {
+    private func distributeCards(menu: GameMenu) throws {
         for _ in 1...menu.numberOfCards {
             for player in players {
                 guard let card = dealer.give() else {
@@ -34,9 +37,7 @@ struct CardGame {
         }
     }
     
-    mutating func run(gameMenu: GameMenu, players: [Playable]) throws {
-        self.players = players
-        
+    func run() throws {
         try distributeCards(menu: gameMenu)
     }
 }
