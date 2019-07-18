@@ -32,3 +32,13 @@ struct CardGame {
         distributeCards(menu: gameMenu)
     }
 }
+
+extension CardGame: OutputViewPrintable {
+    func printPlayerInformation(handler: @escaping (String, [Card]) -> ()) {
+        for player in players {
+            player.getPlayerInformation(handler: handler)
+        }
+
+        dealer.getPlayerInformation(handler: handler)
+    }
+}
