@@ -28,4 +28,8 @@ class Dealer: Dealable {
     func reset() {
         cards.removeAll()
     }
+    
+    func getPlayerInformation(handler: (String, [Card]) -> ()) {
+        handler(name, cards)
+    }
 }

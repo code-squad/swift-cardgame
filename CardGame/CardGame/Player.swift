@@ -19,4 +19,8 @@ class Player: Playable {
     func receive(card: Card) {
         cards.append(card)
     }
+    
+    func getPlayerInformation(handler: (String, [Card]) -> ()) {
+        handler(name, cards)
+    }
 }
