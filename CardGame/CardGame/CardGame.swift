@@ -9,30 +9,26 @@
 import Foundation
 
 struct CardGame {
-    private var cardDeck: Deck
+    private var dealer: Dealable
+    private var players: [Playable] = []
     
-    init(cardDeck: Deck) {
-        self.cardDeck = cardDeck
+    init(dealer: Dealable) {
+        self.dealer = dealer
     }
     
-    mutating func run(menu: Menu) -> GameResult {
-        var result: GameResult
-        
-        switch menu {
-        case .reset:
-            cardDeck.reset()
-            result = GameResult.reset(cardDeck.count())
-        case .shuffle:
-            cardDeck.shuffle()
-            result = GameResult.shuffle(cardDeck.count())
-        case .draw:
-            let drawCard = cardDeck.removeOne()
+    mutating func distributeCards(menu: GameMenu) {
+        for _ in 1...menu.rawValue {
+            for player in players {
+                player.receive(card: dealer.give())
+            }
             
-            result = GameResult.draw(drawCard, cardDeck.count())
-        case .exit:
-            result = GameResult.exit
+            dealer.receive(card: dealer.give())
         }
+    }
+    
+    mutating func run(gameMenu: GameMenu, players: [Playable]) {
+        self.players = players
         
-        return result
+        distributeCards(menu: gameMenu)
     }
 }
