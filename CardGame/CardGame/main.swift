@@ -17,11 +17,11 @@ func main() {
         let gameMenu = GameMenu(GameInputView.readGameMenu())
         let numberOfPlayer = NumberOfPlayer(GameInputView.readNumberOfPlayer())
         
-        if gameMenu.rawValue == 0 || numberOfPlayer.rawValue == 0 {
+        if gameMenu == .exit || numberOfPlayer == .invalidValue {
             break gameLoop
         }
         
-        if cardDeck.hasEnoughCard(gameMenu: gameMenu, numberOfPlayer: numberOfPlayer) {
+        if !cardDeck.hasEnoughCard(gameMenu: gameMenu, numberOfPlayer: numberOfPlayer) {
             break gameLoop
         }
         
