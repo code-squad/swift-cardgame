@@ -30,10 +30,11 @@ struct PokerGame {
         self.cardDeck = cardDeck
     }
     
-    mutating func run(numberOfPlayers: NumberOfPlayers, option: GameMode) throws {
+    mutating func run(numberOfPlayers: NumberOfPlayers, option: GameMode) throws -> PlayerInfo {
         self.numberOfPlayers = numberOfPlayers
         self.option = option
         try generatePlayers()
+        return playerInfo
     }
     
     mutating func generatePlayers() throws {
