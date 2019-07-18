@@ -16,20 +16,28 @@ struct CardGame {
         self.dealer = dealer
     }
     
-    private mutating func distributeCards(menu: GameMenu) {
+    private mutating func distributeCards(menu: GameMenu) throws {
         for _ in 1...menu.numberOfCards {
             for player in players {
-                player.receive(card: dealer.give())
+                guard let card = dealer.give() else {
+                    throw CardDeckError.cardDeckEmpty
+                }
+                
+                player.receive(card: card)
             }
             
-            dealer.receive(card: dealer.give())
+            guard let card = dealer.give() else {
+                throw CardDeckError.cardDeckEmpty
+            }
+            
+            dealer.receive(card: card)
         }
     }
     
-    mutating func run(gameMenu: GameMenu, players: [Playable]) {
+    mutating func run(gameMenu: GameMenu, players: [Playable]) throws {
         self.players = players
         
-        distributeCards(menu: gameMenu)
+        try distributeCards(menu: gameMenu)
     }
 }
 

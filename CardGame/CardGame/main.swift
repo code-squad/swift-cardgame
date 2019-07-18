@@ -23,13 +23,17 @@ func main() {
             break gameLoop
         }
         
-        if !dealer.hasEnoughCard(gameMenu: gameMenu, numberOfPlayer: numberOfPlayer) {
-            break gameLoop
-        }
-        
         let players = PlayerGenerator.generatePlayer(numberOfPlayer: numberOfPlayer)
         
-        cardGame.run(gameMenu: gameMenu, players: players)
+        do {
+            try cardGame.run(gameMenu: gameMenu, players: players)
+        } catch let error as CardDeckError {
+            print(error.localizedDescription)
+            break gameLoop
+        } catch {
+            print(error)
+            break gameLoop
+        }
         
         OutputView.printResult(of: cardGame)
     }
