@@ -13,7 +13,6 @@ protocol Deck {
     mutating func shuffle()
     mutating func removeOne() -> Card
     mutating func reset()
-    func hasEnoughCard(gameMenu: GameMenu, numberOfPlayer: NumberOfPlayer) -> Bool
 }
 
 struct CardDeck: Deck {
@@ -42,10 +41,6 @@ struct CardDeck: Deck {
         cards.removeAll()
         
         makeCards()
-    }
-    
-    func hasEnoughCard(gameMenu: GameMenu, numberOfPlayer: NumberOfPlayer) -> Bool {
-        return count() >= gameMenu.numberOfCards * (numberOfPlayer.rawValue + 1)
     }
     
     private mutating func makeCards() {

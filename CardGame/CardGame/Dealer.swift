@@ -32,4 +32,8 @@ class Dealer: Dealable {
     func getPlayerInformation(handler: (String, [Card]) -> ()) {
         handler(name, cards)
     }
+    
+    func hasEnoughCard(gameMenu: GameMenu, numberOfPlayer: NumberOfPlayer) -> Bool {
+        return cardDeck.count() >= gameMenu.numberOfCards * (numberOfPlayer.rawValue + 1)
+    }
 }
