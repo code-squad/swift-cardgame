@@ -14,6 +14,8 @@ func main() {
     var cardGame = CardGame(dealer: dealer)
     
     gameLoop: while true {
+        dealer.reset()
+        
         let gameMenu = GameMenu(GameInputView.readGameMenu())
         let numberOfPlayer = NumberOfPlayer(GameInputView.readNumberOfPlayer())
         
@@ -28,6 +30,8 @@ func main() {
         let players = PlayerGenerator.generatePlayer(numberOfPlayer: numberOfPlayer)
         
         cardGame.run(gameMenu: gameMenu, players: players)
+        
+        OutputView.printResult(of: cardGame)
     }
 }
 
