@@ -25,7 +25,7 @@ func main() {
             return
         }
         do {
-            try game.run(numberOfPlayers: numberOfPlayers, option: mode)
+            try game.run(numberOfPlayers: numberOfPlayers, mode: mode)
         } catch let error as PokerGame.Error {
             print(error.localizedDescription)
             return
