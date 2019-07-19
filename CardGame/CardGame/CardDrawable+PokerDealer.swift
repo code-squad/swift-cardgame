@@ -1,5 +1,5 @@
 //
-//  Dealer+PokerDealer.swift
+//  CardDrawable+PokerDealer.swift
 //  CardGame
 //
 //  Created by BLU on 05/07/2019.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol CardDealing {
+protocol CardDrawable {
     func draw() -> Card?
 }
 
-class PokerDealer: Playable, CardDealing, CustomStringConvertible {
+class PokerDealer: Playable, CardDrawable, CustomStringConvertible {
     private let name: String = "딜러"
     private var hand = Hand()
     private var deck: Deck

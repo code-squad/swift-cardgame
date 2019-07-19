@@ -9,10 +9,10 @@
 import Foundation
 
 class PokerPresenter {
-    private let pokerDealer: CardDealing
+    private let pokerDealer: CardDrawable
     private let pokerPlayers: [Playable]
     
-    init(dealer: CardDealing, players: [Playable]) {
+    init(dealer: CardDrawable, players: [Playable]) {
         self.pokerDealer = dealer
         self.pokerPlayers = players
     }
