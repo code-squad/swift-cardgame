@@ -21,13 +21,13 @@ struct PokerGame {
         deal()
     }
     
-    mutating func generatePlayers() {
+    private mutating func generatePlayers() {
         let dealer = PokerDealer(deck: cardDeck)
         let players = (1...numberOfPlayers.rawValue).map { PokerPlayer(number: $0) }
         pokerPresenter = PokerPresenter(dealer: dealer, players: players + [dealer])
     }
     
-    mutating func deal() {
+    private mutating func deal() {
         for _ in 0..<mode.rawValue {
             pokerPresenter.distributeCards()
         }
