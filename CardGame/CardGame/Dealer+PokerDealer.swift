@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol Dealer {
+protocol CardDealing {
     func draw() -> Card?
 }
 
-class PokerDealer: Playable, Dealer, CustomStringConvertible {
+class PokerDealer: Playable, CardDealing, CustomStringConvertible {
     private let name: String = "딜러"
     private var hand = Hand()
     private var deck: Deck
