@@ -60,7 +60,7 @@ struct GameInputView {
         }
     }
     
-    static func readNumberOfPlayers() throws -> NumberOfPlayers {
+    static func readNumberOfPlayers() throws -> Players {
         let number = ask(for: .enterNumberOfPlayers)
         switch number {
         case "1":
