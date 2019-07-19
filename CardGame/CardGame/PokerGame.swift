@@ -34,7 +34,7 @@ struct PokerGame {
         self.numberOfPlayers = numberOfPlayers
         self.mode = mode
         generatePlayers()
-        try distributeCards()
+        try deal()
     }
     
     mutating func generatePlayers() {
@@ -43,7 +43,7 @@ struct PokerGame {
         pokerPresenter = PokerPresenter(dealer: dealer, players: players + [dealer])
     }
     
-    mutating func distributeCards() throws {
+    mutating func deal() throws {
         for _ in 0..<mode.rawValue {
             guard pokerPresenter.distributeCards() else {
                 throw Error.isCardDeckEmpty
