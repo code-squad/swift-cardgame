@@ -48,6 +48,10 @@ struct PokerGame {
             pokerPresenter.distributeCards()
         }
     }
+    
+    mutating func isPlayble() -> Bool {
+        return numberOfPlayers.rawValue * mode.rawValue <= cardDeck.count()
+    }
 }
 
 extension PokerGame: OutputViewPrintable {

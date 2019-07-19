@@ -34,7 +34,7 @@ func main() {
             return
         }
         OutputView.printPlayers(game: game)
-    } while (true)
+    } while (game.isPlayble())
 }
 
 main()
