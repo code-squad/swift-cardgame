@@ -13,7 +13,7 @@ protocol OutputViewPrintable {
 }
 
 class CardGame: OutputViewPrintable {
-    private var players: [Player] = []
+    private var players = [Player]()
     private var dealer: Dealer
     private let gameMode: CardGameMode
     private let numberOfPlayers: Int
@@ -52,7 +52,7 @@ class CardGame: OutputViewPrintable {
         let numberOfCards = gameMode.numberOfCards
         
         for  _ in 1...numberOfCards {
-            for index in 0..<players.endIndex {
+            for index in players.startIndex..<players.endIndex {
                 guard let card = self.dealer.give() else {
                     return
                 }
