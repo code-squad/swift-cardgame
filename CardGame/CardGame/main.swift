@@ -11,7 +11,7 @@ import Foundation
 func main() {
     var game = PokerGame()
     var mode: GameMode
-    var numberOfPlayers: Players
+    var numberOfPlayers: Personnel
     repeat {
         do {
             mode = try GameInputView.readGameMode()
