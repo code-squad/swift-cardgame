@@ -26,4 +26,8 @@ struct OutputView {
             print("\(name) [\(cards)]")
         }
     }
+    
+    static func printError(_ error: String) {
+        print(error)
+    }
 }

@@ -17,10 +17,10 @@ func main() {
             mode = try GameInputView.readGameMode()
             numberOfPlayers = try GameInputView.readNumberOfPlayers()
         } catch let error as GameInputView.Error {
-            print(error.localizedDescription)
+            OutputView.printError(error.localizedDescription)
             return
         } catch {
-            print("\(ErrorMessage.unexpectedError) : \(error)")
+            OutputView.printError("\(ErrorMessage.unexpectedError) : \(error)")
             return
         }
         game.run(numberOfPlayers: numberOfPlayers, mode: mode)
