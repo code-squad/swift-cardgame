@@ -39,7 +39,7 @@ struct PokerGame {
     
     mutating func generatePlayers() {
         let dealer = PokerDealer(deck: cardDeck)
-        let players = (1..<numberOfPlayers.rawValue).map { PokerPlayer(number: $0) }
+        let players = (1...numberOfPlayers.rawValue).map { PokerPlayer(number: $0) }
         pokerPresenter = PokerPresenter(dealer: dealer, players: players + [dealer])
     }
     
