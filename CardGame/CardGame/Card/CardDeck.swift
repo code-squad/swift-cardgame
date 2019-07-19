@@ -31,7 +31,7 @@ struct CardDeck: Deck {
     }
     
     mutating func shuffle() {
-        cards = cards.shuffled()
+        cards.shuffle()
     }
     
     mutating func removeOne() -> Card? {

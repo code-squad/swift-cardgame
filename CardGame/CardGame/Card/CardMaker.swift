@@ -10,7 +10,7 @@ import Foundation
 
 struct CardMaker {
     static func makeCard() -> [Card] {
-        var cards: [Card] = []
+        var cards = [Card]()
         let suits = Card.Suits.allCases
         let ranks = Card.Ranks.allCases
         
