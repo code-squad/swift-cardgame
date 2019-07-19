@@ -9,8 +9,7 @@
 import Foundation
 
 func main() {
-    let cardDeck = CardDeck()
-    var game = PokerGame(cardDeck: cardDeck)
+    var game = PokerGame()
     var mode: GameMode
     var numberOfPlayers: NumberOfPlayers
     repeat {
