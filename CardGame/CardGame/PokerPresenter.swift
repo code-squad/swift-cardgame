@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PokerPresenter {
+class PokerPresenter {
     private let pokerDealer: Dealer
     private let pokerPlayers: [Player]
     
