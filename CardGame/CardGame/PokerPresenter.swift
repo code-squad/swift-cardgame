@@ -9,10 +9,12 @@
 import Foundation
 
 struct PokerPresenter {
-    private var pokerPlayers = [Player]()
+    private let pokerDealer: Dealer
+    private let pokerPlayers: [Player]
     
-    mutating func addPlayer(_ player: Player) {
-        pokerPlayers.append(player)
+    init(dealer: Dealer, players: [Player]) {
+        self.pokerDealer = dealer
+        self.pokerPlayers = players
     }
     
     func players() -> [Player] {
