@@ -45,9 +45,7 @@ struct PokerGame {
     
     mutating func deal() throws {
         for _ in 0..<mode.rawValue {
-            guard pokerPresenter.distributeCards() else {
-                throw Error.isCardDeckEmpty
-            }
+            pokerPresenter.distributeCards()
         }
     }
 }
