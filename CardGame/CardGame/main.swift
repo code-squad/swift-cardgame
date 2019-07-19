@@ -13,7 +13,6 @@ func main() {
     var game = PokerGame(cardDeck: cardDeck)
     var option: GameMode
     var numberOfPlayers: NumberOfPlayers
-    var pokerPresenter: PokerPresenter
     repeat {
         do {
             option = try GameInputView.readGameMode()
@@ -26,7 +25,7 @@ func main() {
             return
         }
         do {
-            pokerPresenter = try game.run(numberOfPlayers: numberOfPlayers, option: option)
+            try game.run(numberOfPlayers: numberOfPlayers, option: option)
         } catch let error as PokerGame.Error {
             print(error.localizedDescription)
             return
