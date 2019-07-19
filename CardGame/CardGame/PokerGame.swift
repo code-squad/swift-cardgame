@@ -9,28 +9,16 @@
 import Foundation
 
 struct PokerGame {
-    
-    enum Error: Swift.Error {
-        case isCardDeckEmpty
-        
-        var localizedDescription: String {
-            switch self {
-            case .isCardDeckEmpty:
-                return "카드덱이 비어있습니다."
-            }
-        }
-    }
-    
     private var cardDeck = CardDeck()
     private var numberOfPlayers: NumberOfPlayers = .one
     private var mode: GameMode = .fiveCardStud
     private var pokerPresenter: PokerPresenter!
     
-    mutating func run(numberOfPlayers: NumberOfPlayers, mode: GameMode) throws {
+    mutating func run(numberOfPlayers: NumberOfPlayers, mode: GameMode) {
         self.numberOfPlayers = numberOfPlayers
         self.mode = mode
         generatePlayers()
-        try deal()
+        deal()
     }
     
     mutating func generatePlayers() {
@@ -39,7 +27,7 @@ struct PokerGame {
         pokerPresenter = PokerPresenter(dealer: dealer, players: players + [dealer])
     }
     
-    mutating func deal() throws {
+    mutating func deal() {
         for _ in 0..<mode.rawValue {
             pokerPresenter.distributeCards()
         }

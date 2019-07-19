@@ -23,15 +23,7 @@ func main() {
             print("\(ErrorMessage.unexpectedError) : \(error)")
             return
         }
-        do {
-            try game.run(numberOfPlayers: numberOfPlayers, mode: mode)
-        } catch let error as PokerGame.Error {
-            print(error.localizedDescription)
-            return
-        } catch {
-            print("\(ErrorMessage.unexpectedError) : \(error)")
-            return
-        }
+        game.run(numberOfPlayers: numberOfPlayers, mode: mode)
         OutputView.printPlayers(game: game)
     } while (game.isPlayble())
 }
