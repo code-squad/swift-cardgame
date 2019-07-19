@@ -12,7 +12,7 @@ protocol Dealer {
     func draw() -> Card?
 }
 
-class PokerDealer: Player, Dealer, CustomStringConvertible {
+class PokerDealer: Playable, Dealer, CustomStringConvertible {
     private let name: String = "딜러"
     private var hand = Hand()
     private var deck: Deck

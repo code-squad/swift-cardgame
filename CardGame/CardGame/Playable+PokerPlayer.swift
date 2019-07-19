@@ -1,5 +1,5 @@
 //
-//  Player+PokerPlayer.swift
+//  Playable+PokerPlayer.swift
 //  CardGame
 //
 //  Created by BLU on 05/07/2019.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol Player {
+protocol Playable {
     func cards() -> String
     func take(card: Card)
 }
 
-class PokerPlayer: Player, CustomStringConvertible {
+class PokerPlayer: Playable, CustomStringConvertible {
     private let name: String
     private var hand = Hand()
     

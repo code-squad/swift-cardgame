@@ -12,7 +12,7 @@
 		3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2322C9F6AC0031CA70 /* GameInputView.swift */; };
 		3042AD2622C9FBCD0031CA70 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2522C9FBCD0031CA70 /* GameMode.swift */; };
 		3042AD4C22CEE1400031CA70 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD4B22CEE1400031CA70 /* Hand.swift */; };
-		3042AD4E22CEE3990031CA70 /* Player+PokerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD4D22CEE3990031CA70 /* Player+PokerPlayer.swift */; };
+		3042AD4E22CEE3990031CA70 /* Playable+PokerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD4D22CEE3990031CA70 /* Playable+PokerPlayer.swift */; };
 		3042AD5222CEF0B30031CA70 /* Dealer+PokerDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD5122CEF0B30031CA70 /* Dealer+PokerDealer.swift */; };
 		3042AD5822CF255B0031CA70 /* PokerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD5722CF255B0031CA70 /* PokerGame.swift */; };
 		3042AD5A22CF439A0031CA70 /* OutputViewPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD5922CF439A0031CA70 /* OutputViewPrintable.swift */; };
@@ -46,7 +46,7 @@
 		3042AD2322C9F6AC0031CA70 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		3042AD2522C9FBCD0031CA70 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		3042AD4B22CEE1400031CA70 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
-		3042AD4D22CEE3990031CA70 /* Player+PokerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+PokerPlayer.swift"; sourceTree = "<group>"; };
+		3042AD4D22CEE3990031CA70 /* Playable+PokerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playable+PokerPlayer.swift"; sourceTree = "<group>"; };
 		3042AD5122CEF0B30031CA70 /* Dealer+PokerDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dealer+PokerDealer.swift"; sourceTree = "<group>"; };
 		3042AD5722CF255B0031CA70 /* PokerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerGame.swift; sourceTree = "<group>"; };
 		3042AD5922CF439A0031CA70 /* OutputViewPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewPrintable.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				3042AD2322C9F6AC0031CA70 /* GameInputView.swift */,
 				3042AD2522C9FBCD0031CA70 /* GameMode.swift */,
 				3042AD4B22CEE1400031CA70 /* Hand.swift */,
-				3042AD4D22CEE3990031CA70 /* Player+PokerPlayer.swift */,
+				3042AD4D22CEE3990031CA70 /* Playable+PokerPlayer.swift */,
 				3042AD5122CEF0B30031CA70 /* Dealer+PokerDealer.swift */,
 				3042AD5722CF255B0031CA70 /* PokerGame.swift */,
 				3042AD5922CF439A0031CA70 /* OutputViewPrintable.swift */,
@@ -177,7 +177,7 @@
 				3004F1D222DDACC300A8F7F0 /* PokerPresenter.swift in Sources */,
 				3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */,
 				3004F1D622DE18F100A8F7F0 /* Players.swift in Sources */,
-				3042AD4E22CEE3990031CA70 /* Player+PokerPlayer.swift in Sources */,
+				3042AD4E22CEE3990031CA70 /* Playable+PokerPlayer.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				306D1B2122C6014100168F31 /* CardGenerator.swift in Sources */,
 				306D1B1F22C600A100168F31 /* InputView.swift in Sources */,
