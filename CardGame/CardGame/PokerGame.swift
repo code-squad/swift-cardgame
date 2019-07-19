@@ -23,7 +23,7 @@ struct PokerGame {
     
     private var cardDeck: Deck
     private var numberOfPlayers: NumberOfPlayers = .one
-    private var option: GameMode = .fiveCardStud
+    private var mode: GameMode = .fiveCardStud
     private var pokerPresenter: PokerPresenter!
     
     init(cardDeck: Deck) {
@@ -32,7 +32,7 @@ struct PokerGame {
     
     mutating func run(numberOfPlayers: NumberOfPlayers, option: GameMode) throws {
         self.numberOfPlayers = numberOfPlayers
-        self.option = option
+        self.mode = option
         generatePlayers()
         try distributeCards()
     }
@@ -44,7 +44,7 @@ struct PokerGame {
     }
     
     mutating func distributeCards() throws {
-        for _ in 0..<option.rawValue {
+        for _ in 0..<mode.rawValue {
             guard pokerPresenter.distributeCards() else {
                 throw Error.isCardDeckEmpty
             }

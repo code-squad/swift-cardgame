@@ -11,11 +11,11 @@ import Foundation
 func main() {
     let cardDeck = CardDeck()
     var game = PokerGame(cardDeck: cardDeck)
-    var option: GameMode
+    var mode: GameMode
     var numberOfPlayers: NumberOfPlayers
     repeat {
         do {
-            option = try GameInputView.readGameMode()
+            mode = try GameInputView.readGameMode()
             numberOfPlayers = try GameInputView.readNumberOfPlayers()
         } catch let error as GameInputView.Error {
             print(error.localizedDescription)
@@ -25,7 +25,7 @@ func main() {
             return
         }
         do {
-            try game.run(numberOfPlayers: numberOfPlayers, option: option)
+            try game.run(numberOfPlayers: numberOfPlayers, option: mode)
         } catch let error as PokerGame.Error {
             print(error.localizedDescription)
             return
