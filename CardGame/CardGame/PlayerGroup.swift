@@ -1,5 +1,5 @@
 //
-//  PokerPresenter.swift
+//  PlayerGroup.swift
 //  CardGame
 //
 //  Created by BLU on 16/07/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PokerPresenter {
+class PlayerGroup {
     private let pokerDealer: CardDrawable
     private let pokerPlayers: [Playable]
     
