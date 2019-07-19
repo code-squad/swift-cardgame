@@ -1,5 +1,5 @@
 //
-//  PlayerInfo.swift
+//  PokerPresenter.swift
 //  CardGame
 //
 //  Created by BLU on 16/07/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PlayerInfo {
+struct PokerPresenter {
     private var pokerPlayers = [Player]()
     
     mutating func addPlayer(_ player: Player) {

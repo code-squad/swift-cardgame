@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3004F1D222DDACC300A8F7F0 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004F1D122DDACC300A8F7F0 /* PlayerInfo.swift */; };
+		3004F1D222DDACC300A8F7F0 /* PokerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004F1D122DDACC300A8F7F0 /* PokerPresenter.swift */; };
 		3004F1D622DE18F100A8F7F0 /* NumberOfPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004F1D522DE18F100A8F7F0 /* NumberOfPlayers.swift */; };
 		3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2322C9F6AC0031CA70 /* GameInputView.swift */; };
 		3042AD2622C9FBCD0031CA70 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042AD2522C9FBCD0031CA70 /* GameMode.swift */; };
@@ -42,7 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3004F1D122DDACC300A8F7F0 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
+		3004F1D122DDACC300A8F7F0 /* PokerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerPresenter.swift; sourceTree = "<group>"; };
 		3004F1D522DE18F100A8F7F0 /* NumberOfPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPlayers.swift; sourceTree = "<group>"; };
 		3042AD2322C9F6AC0031CA70 /* GameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInputView.swift; sourceTree = "<group>"; };
 		3042AD2522C9FBCD0031CA70 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				3042AD5522CF21250031CA70 /* PlayerGenerator.swift */,
 				3042AD5722CF255B0031CA70 /* PokerGame.swift */,
 				3042AD5922CF439A0031CA70 /* OutputViewPrintable.swift */,
-				3004F1D122DDACC300A8F7F0 /* PlayerInfo.swift */,
+				3004F1D122DDACC300A8F7F0 /* PokerPresenter.swift */,
 				3004F1D522DE18F100A8F7F0 /* NumberOfPlayers.swift */,
 			);
 			path = CardGame;
@@ -177,7 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3004F1D222DDACC300A8F7F0 /* PlayerInfo.swift in Sources */,
+				3004F1D222DDACC300A8F7F0 /* PokerPresenter.swift in Sources */,
 				3042AD2422C9F6AC0031CA70 /* GameInputView.swift in Sources */,
 				3004F1D622DE18F100A8F7F0 /* NumberOfPlayers.swift in Sources */,
 				3042AD4E22CEE3990031CA70 /* Player+PokerPlayer.swift in Sources */,
