@@ -17,6 +17,16 @@ class PokerPresenter {
         self.pokerPlayers = players
     }
     
+    func distributeCards() -> Bool {
+        for player in pokerPlayers {
+            guard let card = pokerDealer.draw() else {
+                return false
+            }
+            player.take(card: card)
+        }
+        return true
+    }
+    
     func players() -> [Player] {
         return pokerPlayers
     }
