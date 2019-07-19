@@ -33,15 +33,15 @@ struct PokerGame {
     mutating func run(numberOfPlayers: NumberOfPlayers, option: GameMode) throws -> PokerPresenter {
         self.numberOfPlayers = numberOfPlayers
         self.option = option
-        try generatePlayers()
+        generatePlayers()
         try distributeCards()
         return playerInfo
     }
     
-    mutating func generatePlayers() throws {
+    mutating func generatePlayers() {
         let dealer = PokerDealer(deck: cardDeck)
         let players = (1..<numberOfPlayers.rawValue).map { PokerPlayer(number: $0) }
-        playerInfo = PokerPresenter(dealer: dealer, players: players)
+        playerInfo = PokerPresenter(dealer: dealer, players: players + [dealer])
     }
     
     mutating func distributeCards() throws {
