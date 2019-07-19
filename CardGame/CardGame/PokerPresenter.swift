@@ -17,14 +17,13 @@ class PokerPresenter {
         self.pokerPlayers = players
     }
     
-    func distributeCards() -> Bool {
+    func distributeCards() {
         for player in pokerPlayers {
             guard let card = pokerDealer.draw() else {
-                return false
+                return
             }
             player.take(card: card)
         }
-        return true
     }
     
     func players() -> [Player] {
