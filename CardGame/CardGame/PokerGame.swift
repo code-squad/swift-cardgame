@@ -24,7 +24,7 @@ struct PokerGame {
     private var cardDeck: Deck
     private var numberOfPlayers: NumberOfPlayers = .one
     private var option: GameMode = .fiveCardStud
-    private var playerInfo = PokerPresenter()
+    private var playerInfo: PokerPresenter!
     
     init(cardDeck: Deck) {
         self.cardDeck = cardDeck
@@ -40,10 +40,7 @@ struct PokerGame {
     mutating func generatePlayers() throws {
         var dealer: Dealer & Player = PokerDealer(deck: cardDeck)
         let players: [Player] = PlayerGenerator.generatePlayers(by: numberOfPlayers.rawValue)
-        for var player in players + [dealer] {
-            try distributeCards(from: &dealer, to: &player)
-            playerInfo.addPlayer(player)
-        }
+        playerInfo = PokerPresenter(dealer: dealer, players: players)
     }
     
     mutating func distributeCards(from dealer: inout Dealer & Player, to player: inout Player) throws {
