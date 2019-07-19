@@ -24,7 +24,7 @@ struct PokerGame {
     private var cardDeck: Deck
     private var numberOfPlayers: NumberOfPlayers = .one
     private var option: GameMode = .fiveCardStud
-    private var playerInfo: PokerPresenter!
+    private var pokerPresenter: PokerPresenter!
     
     init(cardDeck: Deck) {
         self.cardDeck = cardDeck
@@ -35,18 +35,18 @@ struct PokerGame {
         self.option = option
         generatePlayers()
         try distributeCards()
-        return playerInfo
+        return pokerPresenter
     }
     
     mutating func generatePlayers() {
         let dealer = PokerDealer(deck: cardDeck)
         let players = (1..<numberOfPlayers.rawValue).map { PokerPlayer(number: $0) }
-        playerInfo = PokerPresenter(dealer: dealer, players: players + [dealer])
+        pokerPresenter = PokerPresenter(dealer: dealer, players: players + [dealer])
     }
     
     mutating func distributeCards() throws {
         for _ in 0..<option.rawValue {
-            guard playerInfo.distributeCards() else {
+            guard pokerPresenter.distributeCards() else {
                 throw Error.isCardDeckEmpty
             }
         }
@@ -55,7 +55,7 @@ struct PokerGame {
 
 extension PokerGame: OutputViewPrintable {
     func printPlayerInfo(handler: (String, String) -> ()) {
-        for player in playerInfo.players() {
+        for player in pokerPresenter.players() {
             handler(String(describing: player), player.cards())
         }
     }
