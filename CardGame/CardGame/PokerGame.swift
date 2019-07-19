@@ -34,21 +34,21 @@ struct PokerGame {
         self.numberOfPlayers = numberOfPlayers
         self.option = option
         try generatePlayers()
+        try distributeCards()
         return playerInfo
     }
     
     mutating func generatePlayers() throws {
-        var dealer: Dealer & Player = PokerDealer(deck: cardDeck)
-        let players: [Player] = PlayerGenerator.generatePlayers(by: numberOfPlayers.rawValue)
+        let dealer = PokerDealer(deck: cardDeck)
+        let players = (1..<numberOfPlayers.rawValue).map { PokerPlayer(number: $0) }
         playerInfo = PokerPresenter(dealer: dealer, players: players)
     }
     
-    mutating func distributeCards(from dealer: inout Dealer & Player, to player: inout Player) throws {
+    mutating func distributeCards() throws {
         for _ in 0..<option.rawValue {
-            guard let card = dealer.draw() else {
+            guard playerInfo.distributeCards() else {
                 throw Error.isCardDeckEmpty
             }
-            player.take(card: card)
         }
     }
 }
