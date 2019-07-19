@@ -11,11 +11,11 @@ import Foundation
 func main() {
     var game = PokerGame()
     var mode: GameMode
-    var numberOfPlayers: Personnel
+    var personnel: Personnel
     repeat {
         do {
             mode = try GameInputView.readGameMode()
-            numberOfPlayers = try GameInputView.readNumberOfPlayers()
+            personnel = try GameInputView.readNumberOfPlayers()
         } catch let error as GameInputView.Error {
             OutputView.printError(error.localizedDescription)
             return
@@ -23,7 +23,7 @@ func main() {
             OutputView.printError("\(ErrorMessage.unexpectedError) : \(error)")
             return
         }
-        game.run(numberOfPlayers: numberOfPlayers, mode: mode)
+        game.run(personnel: personnel, mode: mode)
         OutputView.printPlayers(game: game)
     } while (game.isPlayble())
 }
