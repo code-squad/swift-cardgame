@@ -10,12 +10,12 @@ import Foundation
 
 struct PokerGame {
     private var cardDeck = CardDeck()
-    private var numberOfPlayers: Personnel = .one
+    private var personnel: Personnel = .one
     private var mode: GameMode = .fiveCardStud
     private var pokerPresenter: PokerPresenter!
     
-    mutating func run(numberOfPlayers: Personnel, mode: GameMode) {
-        self.numberOfPlayers = numberOfPlayers
+    mutating func run(personnel: Personnel, mode: GameMode) {
+        self.personnel = personnel
         self.mode = mode
         generatePlayers()
         deal()
@@ -23,7 +23,7 @@ struct PokerGame {
     
     private mutating func generatePlayers() {
         let dealer = PokerDealer(deck: cardDeck)
-        let players = (1...numberOfPlayers.rawValue).map { PokerPlayer(number: $0) }
+        let players = (1...personnel.rawValue).map { PokerPlayer(number: $0) }
         pokerPresenter = PokerPresenter(dealer: dealer, players: players + [dealer])
     }
     
@@ -34,7 +34,7 @@ struct PokerGame {
     }
     
     mutating func isPlayble() -> Bool {
-        return numberOfPlayers.rawValue * mode.rawValue <= cardDeck.count()
+        return personnel.rawValue * mode.rawValue <= cardDeck.count()
     }
 }
 
