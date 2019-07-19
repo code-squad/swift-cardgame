@@ -10,11 +10,11 @@ import Foundation
 
 struct PokerGame {
     private var cardDeck = CardDeck()
-    private var numberOfPlayers: NumberOfPlayers = .one
+    private var numberOfPlayers: Players = .one
     private var mode: GameMode = .fiveCardStud
     private var pokerPresenter: PokerPresenter!
     
-    mutating func run(numberOfPlayers: NumberOfPlayers, mode: GameMode) {
+    mutating func run(numberOfPlayers: Players, mode: GameMode) {
         self.numberOfPlayers = numberOfPlayers
         self.mode = mode
         generatePlayers()

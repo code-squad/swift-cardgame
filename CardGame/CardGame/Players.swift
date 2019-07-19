@@ -1,5 +1,5 @@
 //
-//  NumberOfPlayers.swift
+//  Players.swift
 //  CardGame
 //
 //  Created by BLU on 16/07/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum NumberOfPlayers: Int {
+enum Players: Int {
     case one = 1, two, three, four
 }
