@@ -30,9 +30,9 @@ struct PokerGame {
         self.cardDeck = cardDeck
     }
     
-    mutating func run(numberOfPlayers: NumberOfPlayers, option: GameMode) throws {
+    mutating func run(numberOfPlayers: NumberOfPlayers, mode: GameMode) throws {
         self.numberOfPlayers = numberOfPlayers
-        self.mode = option
+        self.mode = mode
         generatePlayers()
         try distributeCards()
     }
