@@ -18,7 +18,7 @@ struct PokerGame {
         self.personnel = personnel
         self.mode = mode
         generatePlayers()
-        deal()
+        dealCards()
     }
     
     private mutating func generatePlayers() {
@@ -27,7 +27,7 @@ struct PokerGame {
         playerGroup = PlayerGroup(dealer: dealer, players: players + [dealer])
     }
     
-    private mutating func deal() {
+    private mutating func dealCards() {
         for _ in 0..<mode.rawValue {
             playerGroup.distributeCards()
         }
