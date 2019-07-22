@@ -11,5 +11,5 @@ import Foundation
 protocol Player {
     var name: String { get }
     var hand: Hand { get }
-    mutating func receive(newCards: Card)
+    func receive(newCards: Card)
 }

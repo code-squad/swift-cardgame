@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PokerPlayer: Player {
+class PokerPlayer: Player {
     
     private(set) var hand = Hand()
     private(set) var name: String
@@ -19,7 +19,11 @@ struct PokerPlayer: Player {
         self.name = "참가자 #\(number)"
     }
     
-    mutating func receive(newCards: Card) {
+     func receive(newCards: Card) {
         hand.add(card: newCards)
+    }
+    
+    func clearHand() {
+        self.hand.clear()
     }
 }

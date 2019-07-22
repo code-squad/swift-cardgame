@@ -30,16 +30,22 @@ class CardGame: OutputViewPrintable {
     
     func continueGame() -> Bool {
         let numberOfCards = gameMode.numberOfCards
-        let requirement = numberOfCards * numberOfPlayers
+        let requirement = numberOfCards * (numberOfPlayers + 1)
         return dealer.haveCards(requirement: requirement)
+    }
+    
+    func reset() {
+        self.players.forEach{ $0.hand.clear()}
     }
     
     func gameStart() {
         guard continueGame() else { return }
+        reset()
         setPlayer()
         setCards()
     }
     
+  
     private func setPlayer() {
         players.removeAll()
         for order in 1...self.numberOfPlayers {
@@ -52,12 +58,14 @@ class CardGame: OutputViewPrintable {
         let numberOfCards = gameMode.numberOfCards
         
         for  _ in 1...numberOfCards {
-            for index in players.startIndex..<players.endIndex {
+            for player in players {
                 guard let card = self.dealer.give() else {
                     return
                 }
-                players[index].receive(newCards: card)
+                player.receive(newCards: card)
+                
             }
+            
         }
     }
 }

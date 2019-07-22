@@ -15,11 +15,11 @@ func main() {
         return
     }
     let cardGame = CardGame(dealer: PokerDealer(hand: Hand(), deck: CardDeck()), gameMode: mode, numberOfPlayers: entry.count)
-    repeat {
+    while(cardGame.continueGame()){
         cardGame.gameStart()
         OutputView.printPlayers(game: cardGame)
         OutputView.printResultPlayer(game: cardGame)
-    } while(cardGame.continueGame())
+    }
 }
 
 main()
