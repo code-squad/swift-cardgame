@@ -36,7 +36,7 @@ extension Card {
     }
     
     enum Ranks: Int, CustomStringConvertible, CaseIterable {
-        case ace = 1,two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
+        case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var description: String {
             switch self {

@@ -36,6 +36,6 @@ struct CardDeck: Deck {
     
     mutating func removeOne() -> Card? {
         guard !cards.isEmpty else { return nil }
-        return cards.popLast()
+        return cards.remove(at: Int.random(in: 0..<count()))
     }
 }
