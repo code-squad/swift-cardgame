@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card: CustomStringConvertible {
+class Card: CustomStringConvertible, Comparable, Equatable {
     private let suit: Suit
     private let rank: Rank
     
@@ -19,6 +19,14 @@ class Card: CustomStringConvertible {
     
     var description: String {
         return "\(suit)\(rank)"
+    }
+    
+    static func < (lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank.rawValue < rhs.rank.rawValue
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.rank.rawValue == rhs.rank.rawValue
     }
 }
 
