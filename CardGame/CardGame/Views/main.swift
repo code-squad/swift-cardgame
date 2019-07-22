@@ -18,6 +18,7 @@ func main() {
     repeat {
         cardGame.gameStart()
         OutputView.printPlayers(game: cardGame)
+        OutputView.printResultPlayer(game: cardGame)
     } while(cardGame.continueGame())
 }
 
