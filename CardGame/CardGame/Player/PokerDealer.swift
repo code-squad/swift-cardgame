@@ -9,11 +9,11 @@
 import Foundation
 
 protocol Dealer: Player {
-    mutating func give() -> Card?
-    mutating func haveCards(requirement: Int) -> Bool
+     func give() -> Card?
+     func haveCards(requirement: Int) -> Bool
 }
 
-struct PokerDealer: Dealer {
+class PokerDealer: Dealer {
     private(set) var name: String = "딜러"
     private(set) var hand: Hand
     private(set) var deck: Deck
@@ -23,15 +23,16 @@ struct PokerDealer: Dealer {
         self.deck = deck
     }
     
-    mutating func receive(newCards: Card) {
+     func receive(newCards: Card) {
         hand.add(card: newCards)
     }
     
-    mutating func give() -> Card? {
+     func give() -> Card? {
         return deck.removeOne()
     }
     
-    mutating func haveCards(requirement: Int) -> Bool {
+    func haveCards(requirement: Int) -> Bool {
         return deck.count() - requirement > 0
     }
+    
 }

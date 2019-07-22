@@ -8,15 +8,18 @@
 
 import Foundation
 
-struct Hand: CustomStringConvertible {
+class Hand: CustomStringConvertible {
     private var cards = [Card]()
     
     var description: String {
         return "\(cards)"
     }
     
-    mutating func add(card: Card) {
+     func add(card: Card) {
         self.cards.append(card)
     }
     
+    func clear() {
+        self.cards.removeAll()
+    }
 }
