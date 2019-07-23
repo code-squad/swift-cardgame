@@ -35,7 +35,7 @@ extension Card {
         }
     }
     
-    enum Ranks: Int, CustomStringConvertible, CaseIterable {
+    enum Ranks: Int, CustomStringConvertible, CaseIterable, Comparable {
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var description: String {
@@ -51,6 +51,10 @@ extension Card {
             default:
                 return String(rawValue)
             }
+        }
+        
+        static func < (lhs: Card.Ranks, rhs: Card.Ranks) -> Bool {
+            return lhs.rawValue < rhs.rawValue
         }
     }
 }
