@@ -32,6 +32,7 @@
 		56D74D7722D60EE600CB0D9B /* CardGameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D74D6722D42E9600CB0D9B /* CardGameMode.swift */; };
 		56D74D7822D60EE800CB0D9B /* CardGameParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D74D6922D4686A00CB0D9B /* CardGameParticipant.swift */; };
 		56D74D7922D6346200CB0D9B /* PokerDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D74D6E22D46D2300CB0D9B /* PokerDealer.swift */; };
+		56DA4D8C22E6BF0D0092D8B2 /* HandRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DA4D8B22E6BF0D0092D8B2 /* HandRank.swift */; };
 		56FEFB0E22D1195F00910894 /* CardGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52322CCB61D006C4A4D /* CardGameTest.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		56D74D6E22D46D2300CB0D9B /* PokerDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerDealer.swift; sourceTree = "<group>"; };
 		56D74D7222D5D4BD00CB0D9B /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		56D74D7422D6017200CB0D9B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		56DA4D8B22E6BF0D0092D8B2 /* HandRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRank.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				56D74D7222D5D4BD00CB0D9B /* Hand.swift */,
 				56D74D6C22D46D0F00CB0D9B /* PokerPlayer.swift */,
 				56D74D6E22D46D2300CB0D9B /* PokerDealer.swift */,
+				56DA4D8B22E6BF0D0092D8B2 /* HandRank.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DA4D8C22E6BF0D0092D8B2 /* HandRank.swift in Sources */,
 				56D74D6522D37EF200CB0D9B /* GameInputView.swift in Sources */,
 				5641D52E22CEDADB006C4A4D /* OutputView.swift in Sources */,
 				5641D53022CEDCA3006C4A4D /* CardMaker.swift in Sources */,
