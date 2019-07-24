@@ -44,18 +44,18 @@ class CardGame: OutputViewPrintable {
         reset()
         setPlayer()
         setCards()
-       
+        
     }
-  
-     func setPlayer() {
+    
+    func setPlayer() {
         players.removeAll()
         for order in 1...self.numberOfPlayers {
-            players.append(PokerPlayer(number: order))
+            players.append(PokerPlayer(number: order, name: "참가자"))
         }
         players.append(dealer)
     }
     
-     func setCards() {
+    func setCards() {
         let numberOfCards = gameMode.numberOfCards
         
         for  _ in 1...numberOfCards {
@@ -67,7 +67,5 @@ class CardGame: OutputViewPrintable {
             }
         }
     }
-
+    
 }
-
-

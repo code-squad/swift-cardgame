@@ -8,6 +8,8 @@
 
 import Foundation
 
+import Foundation
+
 struct HandDecisionMaker {
     static func decideGeneralHand(collected: [Card: Int]) -> Hands {
         let hands = collected.mapValues {
@@ -30,7 +32,7 @@ struct HandDecisionMaker {
         let cards = Array(collected.keys).sorted(by: <)
         var consecutiveState = 1
         var result: straightResult = (isStraight: false, maxRank: nil)
-    
+        
         for index in 1..<cards.count {
             let numOfRemainIndices = cards.count - index
             
@@ -47,6 +49,6 @@ struct HandDecisionMaker {
                 result.isStraight = true
             }
         }
-        return result 
+        return result
     }
 }

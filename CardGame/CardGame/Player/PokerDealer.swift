@@ -9,25 +9,19 @@
 import Foundation
 
 protocol Dealer: Player {
-     func give() -> Card?
-     func haveCards(requirement: Int) -> Bool
+    func give() -> Card?
+    func haveCards(requirement: Int) -> Bool
 }
 
-class PokerDealer: Dealer {
-    private(set) var name: String = "딜러"
-    private(set) var hand: Hand
+class PokerDealer: PokerPlayer, Dealer {
     private(set) var deck: Deck
     
-    init(hand: Hand, deck: Deck) {
-        self.hand = hand
+    init(deck: Deck, number: Int, name: String) {
         self.deck = deck
+        super.init(number: 0, name: "딜러")
     }
     
-     func receive(newCards: Card) {
-        hand.add(card: newCards)
-    }
-    
-     func give() -> Card? {
+    func give() -> Card? {
         return deck.removeOne()
     }
     
