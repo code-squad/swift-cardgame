@@ -9,5 +9,7 @@
 import Foundation
 
 struct HandDecisionMaker {
-    
+//    static func decisionTwoPair(Hand) -> Hand {
+//
+//    }
 }
