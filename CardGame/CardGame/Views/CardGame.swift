@@ -35,7 +35,7 @@ class CardGame: OutputViewPrintable {
     }
     
     func reset() {
-        self.players.forEach{ $0.hand.clear()}
+        self.players.forEach{$0.hand.clear()}
     }
     
     func gameStart() {
@@ -44,7 +44,6 @@ class CardGame: OutputViewPrintable {
         setPlayer()
         setCards()
     }
-    
   
     private func setPlayer() {
         players.removeAll()
@@ -63,9 +62,7 @@ class CardGame: OutputViewPrintable {
                     return
                 }
                 player.receive(newCards: card)
-                
             }
-            
         }
     }
 }
