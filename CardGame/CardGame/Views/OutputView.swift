@@ -13,11 +13,12 @@ struct OutputView {
     static func printPlayers(game: OutputViewPrintable) {
         game.printPlayerInfo { name, cards in
             print("\(name) \(cards)")
+            
         }
     }
     
-    static func printResultPlayer(game: OutputViewPrintable) {
-        print("이번 승자는 \(game)입니다.")
+    static func printResultPlayer(name: OutputViewPrintable) {
+        print("이번 승자는 \(name)입니다.")
     }
     
     static func printError(_ description: String) {

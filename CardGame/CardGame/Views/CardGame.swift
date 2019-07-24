@@ -18,6 +18,7 @@ class CardGame: OutputViewPrintable {
     private let gameMode: CardGameMode
     private let numberOfPlayers: Int
     
+    
     func printPlayerInfo(handler: (String, String) -> ()) {
         players.forEach { player in handler(player.name, String(describing: player.hand))}
     }
@@ -43,9 +44,10 @@ class CardGame: OutputViewPrintable {
         reset()
         setPlayer()
         setCards()
+       
     }
   
-    private func setPlayer() {
+     func setPlayer() {
         players.removeAll()
         for order in 1...self.numberOfPlayers {
             players.append(PokerPlayer(number: order))
@@ -53,7 +55,7 @@ class CardGame: OutputViewPrintable {
         players.append(dealer)
     }
     
-    private func setCards() {
+     func setCards() {
         let numberOfCards = gameMode.numberOfCards
         
         for  _ in 1...numberOfCards {
@@ -65,4 +67,7 @@ class CardGame: OutputViewPrintable {
             }
         }
     }
+
 }
+
+
