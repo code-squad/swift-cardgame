@@ -19,11 +19,29 @@ class PokerPlayer: Player {
         self.name = "참가자 #\(number)"
     }
     
-     func receive(newCards: Card) {
+    func receive(newCards: Card) {
         hand.add(card: newCards)
     }
     
     func clearHand() {
         self.hand.clear()
+    }
+}
+
+extension PokerPlayer: Comparable {
+    static func < (lhs: PokerPlayer, rhs: PokerPlayer) -> Bool {
+        return lhs.hand < rhs.hand
+    }
+    
+    static func < (lhs: PokerPlayer, rhs: Dealer) -> Bool {
+        return lhs.hand < rhs.hand
+    }
+    
+    static func < (lhs: Dealer, rhs: PokerPlayer) -> Bool {
+        return lhs.hand < rhs.hand
+    }
+    
+    static func == (lhs: PokerPlayer, rhs: PokerPlayer) -> Bool {
+        return lhs.hand == rhs.hand
     }
 }
