@@ -6,8 +6,6 @@
 //  Copyright © 2019 JK. All rights reserved.
 //
 
-import Foundation
-
 typealias  Hands = [Card: HandRank]
 class Hand: CustomStringConvertible {
     private var cards = [Card]()
@@ -18,7 +16,7 @@ class Hand: CustomStringConvertible {
         return "\(cards)"
     }
     
-     func add(card: Card) {
+    func add(card: Card) {
         self.cards.append(card)
     }
     
@@ -53,7 +51,7 @@ class Hand: CustomStringConvertible {
         
         let maxHand = sortedHands[sortedHands.count - 1]
         return maxHand
-        }
+    }
 }
 
 extension Hand: Comparable {

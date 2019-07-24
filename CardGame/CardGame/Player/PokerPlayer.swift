@@ -14,9 +14,9 @@ class PokerPlayer: Player {
     private(set) var name: String
     private let number: Int
     
-    init(number: Int) {
+    init(number: Int, name: String ) {
         self.number = number
-        self.name = "참가자 #\(number)"
+        self.name = "\(name)#\(number)"
     }
     
     func receive(newCards: Card) {
