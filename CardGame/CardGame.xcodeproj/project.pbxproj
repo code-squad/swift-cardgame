@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14750F5C22E9986000CCDEC5 /* HandRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14750F5B22E9986000CCDEC5 /* HandRank.swift */; };
 		147DEB6A22C49713001F0392 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB6922C49713001F0392 /* Card.swift */; };
 		147DEB6E22C4A0BC001F0392 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB6D22C4A0BC001F0392 /* CardDeck.swift */; };
 		147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB7022C4AE8F001F0392 /* InputView.swift */; };
@@ -24,7 +25,6 @@
 		14DDF0CA22E0293000BCC3EA /* OutputViewPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0C922E0293000BCC3EA /* OutputViewPrintable.swift */; };
 		14DDF0CC22E04DD000BCC3EA /* PlayerPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */; };
 		14DDF0CE22E0589A00BCC3EA /* CardDeckError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0CD22E0589A00BCC3EA /* CardDeckError.swift */; };
-		14DDF0D222E59B4B00BCC3EA /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0D122E59B4B00BCC3EA /* Hand.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14750F5B22E9986000CCDEC5 /* HandRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRank.swift; sourceTree = "<group>"; };
 		147DEB6922C49713001F0392 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		147DEB6D22C4A0BC001F0392 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		147DEB7022C4AE8F001F0392 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		14DDF0C922E0293000BCC3EA /* OutputViewPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewPrintable.swift; sourceTree = "<group>"; };
 		14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPrintable.swift; sourceTree = "<group>"; };
 		14DDF0CD22E0589A00BCC3EA /* CardDeckError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckError.swift; sourceTree = "<group>"; };
-		14DDF0D122E59B4B00BCC3EA /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +103,6 @@
 		839DA8E31F8CDBC9009E05F3 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
-				14DDF0D122E59B4B00BCC3EA /* Hand.swift */,
 				147DEB6F22C4AE70001F0392 /* Views */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				1481D26122C9FC15006CF27E /* CardGame.swift */,
@@ -120,6 +119,7 @@
 				14DDF0C922E0293000BCC3EA /* OutputViewPrintable.swift */,
 				14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */,
 				14DDF0CD22E0589A00BCC3EA /* CardDeckError.swift */,
+				14750F5B22E9986000CCDEC5 /* HandRank.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -189,11 +189,11 @@
 				147DEB6E22C4A0BC001F0392 /* CardDeck.swift in Sources */,
 				147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */,
 				14DDF07C22D325E900BCC3EA /* NumberOfPlayer.swift in Sources */,
-				14DDF0D222E59B4B00BCC3EA /* Hand.swift in Sources */,
 				14DDF0A222DC58A900BCC3EA /* PlayerGenerator.swift in Sources */,
 				1481D26222C9FC15006CF27E /* CardGame.swift in Sources */,
 				14DDF09E22DC577700BCC3EA /* Dealable.swift in Sources */,
 				14DDF09422DC3E1100BCC3EA /* Player.swift in Sources */,
+				14750F5C22E9986000CCDEC5 /* HandRank.swift in Sources */,
 				1481D26022C9FBA1006CF27E /* GameResult.swift in Sources */,
 				14DDF0A022DC57C500BCC3EA /* Dealer.swift in Sources */,
 				14DDF07A22D325C700BCC3EA /* GameMenu.swift in Sources */,
