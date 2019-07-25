@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 struct HandDecisionMaker {
     static func decideGeneralHand(collected: [Card: Int]) -> Hands {
         let hands = collected.mapValues {
