@@ -16,10 +16,14 @@ struct CardGame {
     }
     
     var gameType: GameType = .fiveCard
+    var players = [Player]()
     
     mutating func setGameType(_ type: GameType) {
         self.gameType = type
     }
     
+    mutating func setPlayer(_ playerCount: Int) {
+        players = [Player](repeating: Player(), count: playerCount)
+    }
     
 }
