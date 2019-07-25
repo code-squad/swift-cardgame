@@ -18,7 +18,7 @@ class PokerDealer: PokerPlayer, Dealer {
     
     init(deck: Deck, number: Int, name: String) {
         self.deck = deck
-        super.init(number: 0, name: "딜러")
+        super.init(number: 0, name: name)
     }
     
     func give() -> Card? {

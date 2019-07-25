@@ -13,7 +13,7 @@ protocol OutputViewPrintable {
 }
 
 class CardGame: OutputViewPrintable {
-    private var players = [Player]()
+    private var players = [PokerPlayer]()
     private var dealer: Dealer
     private let gameMode: CardGameMode
     private let numberOfPlayers: Int
@@ -44,7 +44,6 @@ class CardGame: OutputViewPrintable {
         reset()
         setPlayer()
         setCards()
-        
     }
     
     func setPlayer() {
@@ -52,7 +51,7 @@ class CardGame: OutputViewPrintable {
         for order in 1...self.numberOfPlayers {
             players.append(PokerPlayer(number: order, name: "참가자"))
         }
-        players.append(dealer)
+        players.append(dealer as! PokerPlayer)
     }
     
     func setCards() {
@@ -68,4 +67,7 @@ class CardGame: OutputViewPrintable {
         }
     }
     
+    func setWinner() -> PokerPlayer {
+        return players.max()!
+    }
 }
