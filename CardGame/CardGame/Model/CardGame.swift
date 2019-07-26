@@ -36,26 +36,18 @@ struct CardGame {
     }
     
     // 특정 플레이어에케 카드를 게임종류에 따라 나눠줌.
-    private mutating func giveCards(to playerIndex: Int) {
+    private mutating func giveCards(to playerIndex: Int) throws {
         for _ in 0 ..< gameType.rawValue {
             guard let card = deck.removeOne() else {
-                return
+                throw GameError.notEnoughCard
             }
             players[playerIndex].addCard(card: card)
         }
     }
-    
-    mutating func setPlayer(_ playerCount: Int) {
-        var players = [Player]()
-        for index in 0 ..< playerCount {
-            players.append(Player(name: "참가자#\(index+1)"))
-        }
-        self.players = players
-    }
 
-    mutating func giveCardsToAllPlayers() {
+    mutating func giveCardsToAllPlayers() throws {
         for playerindex in 0 ..< players.count {
-            giveCards(to: playerindex)
+            try giveCards(to: playerindex)
         }
     }
     
@@ -65,8 +57,8 @@ struct CardGame {
         }
     }
     
-    mutating func startGame() {
+    mutating func startGame() throws {
         deck.shuffle()
-        giveCardsToAllPlayers()
+        try giveCardsToAllPlayers()
     }
 }
