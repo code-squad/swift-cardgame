@@ -29,16 +29,6 @@ class CardGame: OutputViewPrintable {
         self.numberOfPlayers = numberOfPlayers
     }
     
-    func continueGame() -> Bool {
-        let numberOfCards = gameMode.numberOfCards
-        let requirement = numberOfCards * (numberOfPlayers + 1)
-        return dealer.haveCards(requirement: requirement)
-    }
-    
-    func reset() {
-        self.players.forEach{$0.hand.clear()}
-    }
-    
     func gameStart() {
         guard continueGame() else { return }
         reset()
@@ -46,7 +36,17 @@ class CardGame: OutputViewPrintable {
         setCards()
     }
     
-    func setPlayer() {
+    func continueGame() -> Bool {
+        let numberOfCards = gameMode.numberOfCards
+        let requirement = numberOfCards * (numberOfPlayers + 1)
+        return dealer.haveCards(requirement: requirement)
+    }
+    
+    private func reset() {
+        self.players.forEach{$0.hand.clear()}
+    }
+    
+    private func setPlayer() {
         players.removeAll()
         for order in 1...self.numberOfPlayers {
             players.append(PokerPlayer(number: order, name: "참가자"))
@@ -54,7 +54,7 @@ class CardGame: OutputViewPrintable {
         players.append(dealer as! PokerPlayer)
     }
     
-    func setCards() {
+    private func setCards() {
         let numberOfCards = gameMode.numberOfCards
         
         for  _ in 1...numberOfCards {
@@ -65,9 +65,5 @@ class CardGame: OutputViewPrintable {
                 player.receive(newCards: card)
             }
         }
-    }
-    
-    func setWinner() -> PokerPlayer {
-        return players.max()!
     }
 }
