@@ -8,8 +8,8 @@
 
 import Foundation
 
-var controller = CardDeckController()
+var cardGameController = CardGameController()
 
-while true {
-    controller.play()
-}
+cardGameController.setGameRule()
+cardGameController.setPlayer()
+cardGameController.playGame()
