@@ -17,6 +17,7 @@ struct CardGame {
     var deck = CardDeck()
     var gameType: GameType = .fiveCard
     var players = [Player]()
+    var dealer = Player(name: "딜러")
     
     mutating func setGameType(_ type: GameType) {
         self.gameType = type
@@ -30,7 +31,6 @@ struct CardGame {
         for index in 0 ..< playerCount {
             players.append(Player(name: "참가자#\(index+1)"))
         }
-        players.append(Player(name: "딜러"))
         self.players = players
         
     }
@@ -49,12 +49,23 @@ struct CardGame {
         for playerindex in 0 ..< players.count {
             try giveCards(to: playerindex)
         }
+        try giveCardsToDealer()
+    }
+    
+    private mutating func giveCardsToDealer() throws {
+        for _ in 0 ..< gameType.rawValue {
+            guard let card = deck.removeOne() else {
+                throw GameError.notEnoughCard
+            }
+            dealer.addCard(card: card)
+        }
     }
     
     mutating func resetCards() {
         for playerindex in 0 ..< players.count {
             players[playerindex].resetHands()
         }
+        dealer.resetHands()
     }
     
     mutating func startGame() throws {
