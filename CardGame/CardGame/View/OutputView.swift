@@ -14,4 +14,6 @@ struct  OutputView {
         print("\(string)")
     }
     
+    func showCard(player: Player) {
+        print("\(player.name)  \(player.hand)")    }
 }
