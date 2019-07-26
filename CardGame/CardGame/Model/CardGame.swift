@@ -22,9 +22,6 @@ struct CardGame {
         self.gameType = type
     }
     
-    mutating func setPlayer(_ playerCount: Int) {
-        players = [Player](repeating: Player(), count: playerCount)
-    }
     
     // 특정 플레이어에케 카드를 게임종류에 따라 나눠줌.
     private mutating func giveCards(to playerIndex: Int) {
@@ -36,6 +33,10 @@ struct CardGame {
         }
     }
     
+    mutating func setPlayer(_ playerCount: Int) {
+        players = [Player](repeating: Player(), count: playerCount)
+    }
+
     mutating func giveCardsToAllPlayers() {
         for playerindex in 0 ..< players.count {
             giveCards(to: playerindex)
