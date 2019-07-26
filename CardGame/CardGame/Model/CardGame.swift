@@ -34,7 +34,11 @@ struct CardGame {
     }
     
     mutating func setPlayer(_ playerCount: Int) {
-        players = [Player](repeating: Player(), count: playerCount)
+        var players = [Player]()
+        for index in 0 ..< playerCount {
+            players.append(Player(name: "참가자#\(index+1)"))
+        }
+        self.players = players
     }
 
     mutating func giveCardsToAllPlayers() {
