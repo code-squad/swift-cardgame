@@ -30,15 +30,40 @@ struct CardGameController {
     
     mutating func setPlayer() {
         outputView.show("참여할 사람의 인원을 입력하세요.")
-        let playerCount = inputView.askForNumber("참여인원")
-        cardGame.setPlayer(playerCount)
+        
+        while true {
+            let playerCount = inputView.askForNumber("참여인원")
+            do {
+                try cardGame.setPlayer(playerCount)
+                return
+            } catch GameError.incorrectPlayerCount {
+                outputView.show("참여자입력 범위가 잘못됐습니다.")
+                continue
+            } catch {
+                outputView.show("예상치못한 오류: \(error)")
+                continue
+            }
+        }
+        
     }
     
     mutating func playGame() {
-        cardGame.startGame()
-        for index in cardGame.players.indices {
-            outputView.showCard(player: cardGame.players[index])
+        
+        while true {
+            do {
+                try cardGame.startGame()
+                
+            } catch GameError.notEnoughCard {
+                outputView.show("게임을 진행할 카드가없습니다")
+                return
+            } catch {
+                outputView.show("예상치못한 오류: \(error)")
+                return
+            }
+            for index in cardGame.players.indices {
+                outputView.showCard(player: cardGame.players[index])
+            }
+            cardGame.resetCards()
         }
     }
-
 }
