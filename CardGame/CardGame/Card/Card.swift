@@ -9,7 +9,7 @@
 import Foundation
 
 class Card: CustomStringConvertible {
-    private let suit: Suits, rank: Ranks
+    let suit: Suits, rank: Ranks
     
     init(suit: Suits, rank: Ranks) {
         self.suit = suit
