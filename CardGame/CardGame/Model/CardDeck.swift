@@ -11,8 +11,8 @@ import Foundation
 ///모든 종류의 카드 객체 인스턴스를 포함하는 카드덱 구조체를 구현한다.
 struct CardDeck {
     //기본으로 모든카드를 가지고 있는 상수를 속성으로 추가해줌
-    let defaultCards: [Card]
-    var cards: [Card]
+    private let defaultCards: [Card]
+    private var cards: [Card]
     
     init() {
         let allNumbers = CardNumber.allCases//allCases.map { "\($0)" }
@@ -37,6 +37,7 @@ struct CardDeck {
     func count() -> Int {
         return cards.count
     }
+    
     ///shuffle() 기능은 전체 카드를 랜덤하게 섞는다.
     mutating func shuffle() {
         cards.shuffle()
