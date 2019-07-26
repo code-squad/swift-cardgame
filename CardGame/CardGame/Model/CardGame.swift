@@ -42,4 +42,9 @@ struct CardGame {
         }
     }
     
+    mutating func resetCards() {
+        for playerindex in 0 ..< players.count {
+            players[playerindex].resetHands()
+        }
+    }
 }
