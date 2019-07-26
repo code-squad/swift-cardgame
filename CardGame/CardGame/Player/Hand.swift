@@ -40,13 +40,35 @@ class Hand: CustomStringConvertible {
         }
     }
     
-    private func bestHand() -> (key: Card, value: HandRank) {
-        makeHands()
-        var sortedHands = hands.sorted {
-            if $0.value == $1.value {
-                return $0.key < $1.key
+        func isStraight() -> (Bool,Int) {
+            let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
+                var cardCount = cardCount
+                cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
+                return cardCount
+            })
+            let cardSortValue = cardCount.sorted(by: { $0.0 < $1.0 })
+            for index in 0...cardSortValue.count {
+                let reversedIndex = cardSortValue.count-index
+                let rank1 = cardSortValue[reversedIndex].0.rawValue
+                let rank2 = cardSortValue[reversedIndex-1].0.rawValue
+                var maxRank = 0
+                var count = 0
+                
+                if rank1-1 == rank2 {
+                    if count == 0 {
+                        maxRank = rank1
+                    }
+                    count = count + 1
+                } else {
+                    maxRank = 0
+                    count = 0
+                }
+                
+                if count >= 4 {
+                    return (true,maxRank)
+                }
             }
-            return $0.value < $1.value
+            return (false,0)
         }
         
         let maxHand = sortedHands[sortedHands.count - 1]
