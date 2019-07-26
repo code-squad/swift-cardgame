@@ -6,11 +6,9 @@
 //  Copyright © 2019 JK. All rights reserved.
 //
 
-typealias  Hands = [Card: HandRank]
 class Hand: CustomStringConvertible {
     private var cards = [Card]()
     private var collectionCards = [Card: Int]()
-    private var hands = [Card: HandRank]()
     
     var description: String {
         return "\(cards)"
@@ -24,20 +22,25 @@ class Hand: CustomStringConvertible {
         self.cards.removeAll()
     }
     
-    // card의 count를 dic로 print
-    private func makeHands() {
-        self.collectionCards = cards.reduce(into: [:]) { counts, card in counts[card, default: 0] += 1 }
-        self.hands = HandDecisionMaker.decideGeneralHand(collected: collectionCards)
+    func makeHandRank() -> (HandRank,Int) {
+        let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
+            var cardCount = cardCount
+            cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
+            return cardCount
+        })
         
-        decideSpecificHands()
-    }
-    
-    private func decideSpecificHands() {
-        self.hands = HandDecisionMaker.decideTwoPair(generalHands: hands)
-        let straight = HandDecisionMaker.decideStraight(collected: collectionCards)
-        if straight.isStraight, let max = straight.maxRank {
-            hands[max] = .straight
+        let filtered = cardCount.filter{ $0.value == 4 }
+        for (key,value) in filtered {
+            if value == 4 {
+                return (HandRank.quads,key.rawValue)
+            }
         }
+        
+        let result = isStraight()
+        if result.0 {
+            return (HandRank.straight, result.1)
+        }
+        return (HandRank.onePair,0)
     }
     
         func isStraight() -> (Bool,Int) {
@@ -71,20 +74,5 @@ class Hand: CustomStringConvertible {
             return (false,0)
         }
         
-        let maxHand = sortedHands[sortedHands.count - 1]
-        return maxHand
     }
-}
 
-extension Hand: Comparable {
-    static func < (lhs: Hand, rhs: Hand) -> Bool {
-        if lhs.bestHand().value == rhs.bestHand().value {
-            return lhs.bestHand().key < rhs.bestHand().key
-        }
-        return lhs.bestHand().value < rhs.bestHand().value
-    }
-    
-    static func == (lhs: Hand, rhs: Hand) -> Bool {
-        return lhs.bestHand() == rhs.bestHand()
-    }
-}
