@@ -36,15 +36,19 @@ struct InputView {
     
     //askForNumber에서 선택한 string반환
     func askForChoice(options: [String]) -> String {
+        // 선택지들을 보여줍니다.
         showOptions(options)
+        
         while true {
+            // 사용자로부터 선택지 숫자를 입력받습니다.
             let choice = askForNumber("선택지")
+            // 제공되는 선택지 범위인지 확인합니다.
             guard choice > 0 && choice <= options.count else {
                 print("선택지번호를 확인해주세요(1~\(options.count)까지)")
                 continue
             }
-            let index = choice - 1
-            return options[index]
+            // 선택된 문자열을 반환합니다.
+            return options[choice - 1]
         }
     }
 
