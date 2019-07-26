@@ -63,6 +63,7 @@ struct CardGameController {
             for index in cardGame.players.indices {
                 outputView.showCard(player: cardGame.players[index])
             }
+            outputView.showCard(player: cardGame.dealer)
             cardGame.resetCards()
         }
     }
