@@ -23,7 +23,7 @@ struct CardGame {
         self.gameType = type
     }
     
-    mutating func setPlayer(_ playerCount: Int)throws {
+    mutating func setPlayer(_ playerCount: Int) throws {
         var players = [Player]()
         guard playerCount > 0 else {
             throw GameError.incorrectPlayerCount
