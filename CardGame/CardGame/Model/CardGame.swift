@@ -22,6 +22,18 @@ struct CardGame {
         self.gameType = type
     }
     
+    mutating func setPlayer(_ playerCount: Int)throws {
+        var players = [Player]()
+        guard playerCount > 0 else {
+            throw GameError.incorrectPlayerCount
+        }
+        for index in 0 ..< playerCount {
+            players.append(Player(name: "참가자#\(index+1)"))
+        }
+        players.append(Player(name: "딜러"))
+        self.players = players
+        
+    }
     
     // 특정 플레이어에케 카드를 게임종류에 따라 나눠줌.
     private mutating func giveCards(to playerIndex: Int) {
