@@ -14,7 +14,7 @@ class PokerPlayer: Player {
     private(set) var name: String
     private let number: Int
     
-    init(number: Int, name: String ) {
+    init(number: Int, name: String) {
         self.number = number
         self.name = "\(name)#\(number)"
     }
@@ -28,20 +28,3 @@ class PokerPlayer: Player {
     }
 }
 
-extension PokerPlayer: Comparable {
-    static func < (lhs: PokerPlayer, rhs: PokerPlayer) -> Bool {
-        return lhs.hand < rhs.hand
-    }
-    
-    static func < (lhs: PokerPlayer, rhs: Dealer) -> Bool {
-        return lhs.hand < rhs.hand
-    }
-    
-    static func < (lhs: Dealer, rhs: PokerPlayer) -> Bool {
-        return lhs.hand < rhs.hand
-    }
-    
-    static func == (lhs: PokerPlayer, rhs: PokerPlayer) -> Bool {
-        return lhs.hand == rhs.hand
-    }
-}
