@@ -47,4 +47,9 @@ struct CardGame {
             players[playerindex].resetHands()
         }
     }
+    
+    mutating func startGame() {
+        deck.shuffle()
+        giveCardsToAllPlayers()
+    }
 }
