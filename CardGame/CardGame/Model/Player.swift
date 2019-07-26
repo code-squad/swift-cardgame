@@ -16,4 +16,9 @@ struct Player {
     mutating func addCard(card: Card) {
         hand.append(card)
     }
+    
+    mutating func resetHands() {
+        hand.removeAll()
+    }
+    
 }
