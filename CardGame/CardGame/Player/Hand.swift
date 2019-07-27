@@ -22,7 +22,56 @@ class Hand: CustomStringConvertible {
         self.cards.removeAll()
     }
     
-    func isStraight() -> (Bool,Int) {
+    func makeHandRank() -> (HandRank, Int) {
+        let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
+            var cardCount = cardCount
+            cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
+            return cardCount
+        })
+        
+        let quadCards = cardCount.filter{ $0.value == 4 }
+        for (key,value) in quadCards {
+            if value == 4 {
+                return (HandRank.quads,key.rawValue)
+            }
+        }
+        
+        let result = isStraight()
+        if result.0 {
+            return (HandRank.straight, result.1)
+        }
+        
+        let tripleCards = cardCount.filter { $0.value == 3 }
+        for (key,value) in tripleCards {
+            if value == 3 {
+                return (HandRank.triple, key.rawValue)
+            }
+        }
+        
+        var max = 0
+        let anotherCards = cardCount.filter { $0.value == 2 }
+        if anotherCards.count >= 2 {
+            for (key,value) in anotherCards {
+                if value == 2 {
+                    if max < key.rawValue {
+                        max = key.rawValue
+                    }
+                }
+            }
+            return (HandRank.twoPair, max)
+        }
+        
+        if anotherCards.count == 1 {
+            for (key,value) in anotherCards {
+                if value == 2 {
+                    return (HandRank.onePair, key.rawValue)
+                }
+            }
+        }
+        return (HandRank.highcard,0)
+    }
+    
+    private func isStraight() -> (Bool, Int) {
         let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
             var cardCount = cardCount
             cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
@@ -47,60 +96,10 @@ class Hand: CustomStringConvertible {
             }
             
             if count >= 4 {
-                return (true,maxRank)
+                return (true, maxRank)
             }
         }
-        return (false,0)
-    }
-    
-    func makeHandRank() -> (HandRank,Int) {
-        let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
-            var cardCount = cardCount
-            cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
-            return cardCount
-        })
-        
-        let quadCards = cardCount.filter{ $0.value == 4 }
-        for (key,value) in quadCards {
-            if value == 4 {
-                return (HandRank.quads,key.rawValue)
-            }
-        }
-        
-        let result = isStraight()
-        if result.0 {
-            return (HandRank.straight, result.1)
-        }
-        
-        let tripleCards = cardCount.filter{ $0.value == 3 }
-        for (key,value) in tripleCards {
-            if value == 3 {
-                return (HandRank.triple, key.rawValue)
-            }
-        }
-        
-        var max = 0
-        let anotherCards = cardCount.filter { $0.value == 2 }
-        
-        if anotherCards.count >= 2 {
-            for (key,value) in anotherCards {
-                if value == 2 {
-                    if max < key.rawValue {
-                        max = key.rawValue
-                    }
-                }
-            }
-            return (HandRank.twoPair, max)
-        }
-        
-        if anotherCards.count == 1 {
-            for (key,value) in anotherCards {
-                if value == 2 {
-                    return (HandRank.onePair, key.rawValue)
-                }
-            }
-        }
-        return (HandRank.highcard,0)
+        return (false, 0)
     }
 }
 

@@ -13,3 +13,5 @@ protocol Player {
     var hand: Hand { get }
     func receive(newCards: Card)
 }
+
+

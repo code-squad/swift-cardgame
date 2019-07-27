@@ -18,7 +18,7 @@ func main() {
     while(cardGame.continueGame()){
         cardGame.gameStart()
         OutputView.printPlayers(game: cardGame)
-       
+        
     }
 }
 
