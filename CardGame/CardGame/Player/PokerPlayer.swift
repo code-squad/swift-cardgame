@@ -9,10 +9,9 @@
 import Foundation
 
 class PokerPlayer: Player {
-    
-    private(set) var hand = Hand()
-    private(set) var name: String
-    private let number: Int
+    var hand = Hand()
+    var name: String
+    let number: Int
     
     init(number: Int, name: String) {
         self.number = number
@@ -27,4 +26,3 @@ class PokerPlayer: Player {
         self.hand.clear()
     }
 }
-
