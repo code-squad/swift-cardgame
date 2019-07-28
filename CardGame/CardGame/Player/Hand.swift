@@ -8,8 +8,6 @@
 
 class Hand: CustomStringConvertible {
     private var cards = [Card]()
-    private var collectionCards = [Card: Int]()
-    
     var description: String {
         return "\(cards)"
     }
@@ -71,17 +69,17 @@ class Hand: CustomStringConvertible {
         return (HandRank.highcard,0)
     }
     
+    
     private func isStraight() -> (Bool, Int) {
         let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
             var cardCount = cardCount
             cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
             return cardCount
         })
-        let cardSortValue = cardCount.sorted(by: { $0.0 < $1.0 })
-        for index in 0...cardSortValue.count {
-            let reversedIndex = cardSortValue.count-index
-            let rank1 = cardSortValue[reversedIndex].0.rawValue
-            let rank2 = cardSortValue[reversedIndex-1].0.rawValue
+        let cardSortValue = cardCount.sorted(by: { $0.0.rawValue < $1.0.rawValue })
+        for index in stride(from: cardSortValue.count - 1, to: 0, by: -1) {
+            let rank1 = cardSortValue[index].0.rawValue
+            let rank2 = cardSortValue[index-1].0.rawValue
             var maxRank = 0
             var count = 0
             
