@@ -18,6 +18,7 @@ func main() {
     while(cardGame.continueGame()){
         cardGame.gameStart()
         OutputView.printPlayers(game: cardGame)
+//        OutputView.printRank(game: cardGame)
         
     }
 }
