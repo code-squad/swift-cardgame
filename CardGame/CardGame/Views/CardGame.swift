@@ -24,7 +24,7 @@ class CardGame: OutputViewPrintable {
         players.forEach { player in handler(player.name, String(describing: player.hand))}
     }
     
-    func calculatePlayerRank(handler: (_ key: String, _ value: String) -> ()) {
+    func printBestRank(handler: (_ key: String, _ value: String) -> ()) {
         players.forEach { players in handler(players.name, String(describing: players.hand.makeHandRank())) }
     }
     
@@ -39,7 +39,7 @@ class CardGame: OutputViewPrintable {
         reset()
         setPlayer()
         setCards()
-        calculatePlayerRank { (name, rank) in
+        printBestRank { (name, rank) in
             print(name, rank)
         }
     }
