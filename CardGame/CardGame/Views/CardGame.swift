@@ -18,14 +18,14 @@ class CardGame: OutputViewPrintable {
     private let gameMode: CardGameMode
     private let numberOfPlayers: Int
     var collectionCards = [Card: Int]()
-    
  
     func printPlayerInfo(handler: (String, String) -> ()) {
         players.forEach { player in handler(player.name, String(describing: player.hand))}
     }
     
-    func printBestRank(handler: (_ key: String, _ value: String) -> ()) {
-        players.forEach { players in handler(players.name, String(describing: players.hand.makeHandRank())) }
+    func winner() -> PokerPlayer  {
+        let winner = players.max()!
+        return winner
     }
     
     init(dealer: Dealer, gameMode: CardGameMode, numberOfPlayers: Int) {
@@ -39,9 +39,6 @@ class CardGame: OutputViewPrintable {
         reset()
         setPlayer()
         setCards()
-        printBestRank { (name, rank) in
-            print(name, rank)
-        }
     }
     
     func continueGame() -> Bool {
