@@ -34,7 +34,7 @@ class Hand: CustomStringConvertible {
             }
         }
         
-        let result = isStraight()
+        let result = isStraight(cardCount: countedHands)
         if result.0 {
             return (HandRank.straight, result.1)
         }
@@ -66,12 +66,7 @@ class Hand: CustomStringConvertible {
     }
     
     
-    private func isStraight() -> (Bool, Int) {
-        let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
-            var cardCount = cardCount
-            cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
-            return cardCount
-        })
+    private func isStraight(cardCount: [Card.Ranks : Int] ) -> (Bool, Int) {
         let cardSortValue = cardCount.sorted(by: { $0.0.rawValue < $1.0.rawValue })
         for index in stride(from: cardSortValue.count - 1, to: 0, by: -1) {
             let rank1 = cardSortValue[index].0.rawValue
