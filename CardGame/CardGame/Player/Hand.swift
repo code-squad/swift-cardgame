@@ -49,12 +49,8 @@ class Hand: CustomStringConvertible {
         var max = 0
         let anotherCards = countedHands.filter { $0.value == 2 }
         if anotherCards.count >= 2 {
-            for (key,value) in anotherCards {
-                if value == 2 {
-                    if max < key.rawValue {
-                        max = key.rawValue
-                    }
-                }
+            for (key,_) in anotherCards {
+               max = max < key.rawValue ? key.rawValue : max
             }
             return (HandRank.twoPair, max)
         }
