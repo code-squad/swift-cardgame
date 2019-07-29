@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14750F5C22E9986000CCDEC5 /* HandRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14750F5B22E9986000CCDEC5 /* HandRank.swift */; };
+		14750F7322EEB79D00CCDEC5 /* RankDeterminer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14750F7222EEB79D00CCDEC5 /* RankDeterminer.swift */; };
 		147DEB6A22C49713001F0392 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB6922C49713001F0392 /* Card.swift */; };
 		147DEB6E22C4A0BC001F0392 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB6D22C4A0BC001F0392 /* CardDeck.swift */; };
 		147DEB7122C4AE8F001F0392 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB7022C4AE8F001F0392 /* InputView.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		14750F5B22E9986000CCDEC5 /* HandRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRank.swift; sourceTree = "<group>"; };
+		14750F7222EEB79D00CCDEC5 /* RankDeterminer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankDeterminer.swift; sourceTree = "<group>"; };
 		147DEB6922C49713001F0392 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		147DEB6D22C4A0BC001F0392 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		147DEB7022C4AE8F001F0392 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */,
 				14DDF0CD22E0589A00BCC3EA /* CardDeckError.swift */,
 				14750F5B22E9986000CCDEC5 /* HandRank.swift */,
+				14750F7222EEB79D00CCDEC5 /* RankDeterminer.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				147DEB6A22C49713001F0392 /* Card.swift in Sources */,
 				1481D26822CB1D16006CF27E /* OutputView.swift in Sources */,
+				14750F7322EEB79D00CCDEC5 /* RankDeterminer.swift in Sources */,
 				14DDF09022DC2BC500BCC3EA /* Playable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
