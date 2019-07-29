@@ -21,13 +21,13 @@ class Hand: CustomStringConvertible {
     }
     
     func makeHandRank() -> (HandRank, Int) {
-        let cardCount = cards.reduce([Card.Ranks: Int](), { (cardCount: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
-            var cardCount = cardCount
-            cardCount[card.rank] = (cardCount[card.rank] ?? 0) + 1
-            return cardCount
+        let countedHands = cards.reduce([Card.Ranks: Int](), { (countedHands: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
+            var countedHands = countedHands
+            countedHands[card.rank] = (countedHands[card.rank] ?? 0) + 1
+            return countedHands
         })
         
-        let quadCards = cardCount.filter{ $0.value == 4 }
+        let quadCards = countedHands.filter{ $0.value == 4 }
         for (key,value) in quadCards {
             if value == 4 {
                 return (HandRank.quads,key.rawValue)
@@ -39,7 +39,7 @@ class Hand: CustomStringConvertible {
             return (HandRank.straight, result.1)
         }
         
-        let tripleCards = cardCount.filter { $0.value == 3 }
+        let tripleCards = countedHands.filter { $0.value == 3 }
         for (key,value) in tripleCards {
             if value == 3 {
                 return (HandRank.triple, key.rawValue)
@@ -47,7 +47,7 @@ class Hand: CustomStringConvertible {
         }
         
         var max = 0
-        let anotherCards = cardCount.filter { $0.value == 2 }
+        let anotherCards = countedHands.filter { $0.value == 2 }
         if anotherCards.count >= 2 {
             for (key,value) in anotherCards {
                 if value == 2 {
