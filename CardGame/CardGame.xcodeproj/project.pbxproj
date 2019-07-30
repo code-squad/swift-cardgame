@@ -10,7 +10,6 @@
 		5641D51C22CCB2E5006C4A4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D51B22CCB2E5006C4A4D /* Card.swift */; };
 		5641D52E22CEDADB006C4A4D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52D22CEDADB006C4A4D /* OutputView.swift */; };
 		5641D53022CEDCA3006C4A4D /* CardMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52F22CEDCA3006C4A4D /* CardMaker.swift */; };
-		5641D53422CF6EF3006C4A4D /* HandlingDeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D53322CF6EF3006C4A4D /* HandlingDeckResult.swift */; };
 		5668942422CF78A800BA1061 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668942322CF78A800BA1061 /* CardDeck.swift */; };
 		5668942622CF816F00BA1061 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668942522CF816F00BA1061 /* CardGame.swift */; };
 		5668942822D0D51100BA1061 /* CardGameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668942722D0D51100BA1061 /* CardGameMenu.swift */; };
@@ -18,7 +17,6 @@
 		5668942B22D1023100BA1061 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D51B22CCB2E5006C4A4D /* Card.swift */; };
 		5668942C22D1023300BA1061 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668942522CF816F00BA1061 /* CardGame.swift */; };
 		5668942D22D1023500BA1061 /* CardGameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668942722D0D51100BA1061 /* CardGameMenu.swift */; };
-		5668942E22D1023700BA1061 /* HandlingDeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D53322CF6EF3006C4A4D /* HandlingDeckResult.swift */; };
 		5668942F22D1023A00BA1061 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668942322CF78A800BA1061 /* CardDeck.swift */; };
 		5668943022D1023E00BA1061 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641D52D22CEDADB006C4A4D /* OutputView.swift */; };
 		5668943222D1024400BA1061 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
@@ -56,7 +54,6 @@
 		5641D52522CCB61D006C4A4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5641D52D22CEDADB006C4A4D /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		5641D52F22CEDCA3006C4A4D /* CardMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMaker.swift; sourceTree = "<group>"; };
-		5641D53322CF6EF3006C4A4D /* HandlingDeckResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingDeckResult.swift; sourceTree = "<group>"; };
 		5668942322CF78A800BA1061 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		5668942522CF816F00BA1061 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		5668942722D0D51100BA1061 /* CardGameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameMenu.swift; sourceTree = "<group>"; };
@@ -116,7 +113,6 @@
 				5641D51B22CCB2E5006C4A4D /* Card.swift */,
 				5668942322CF78A800BA1061 /* CardDeck.swift */,
 				5641D52F22CEDCA3006C4A4D /* CardMaker.swift */,
-				5641D53322CF6EF3006C4A4D /* HandlingDeckResult.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -265,7 +261,6 @@
 				5668942D22D1023500BA1061 /* CardGameMenu.swift in Sources */,
 				56D74D7922D6346200CB0D9B /* PokerDealer.swift in Sources */,
 				5668942F22D1023A00BA1061 /* CardDeck.swift in Sources */,
-				5668942E22D1023700BA1061 /* HandlingDeckResult.swift in Sources */,
 				5668942A22D1022F00BA1061 /* CardMaker.swift in Sources */,
 				56FEFB0E22D1195F00910894 /* CardGameTest.swift in Sources */,
 				5668942B22D1023100BA1061 /* Card.swift in Sources */,
@@ -289,7 +284,6 @@
 				56D74D7322D5D4BD00CB0D9B /* Hand.swift in Sources */,
 				56D74D6D22D46D0F00CB0D9B /* PokerPlayer.swift in Sources */,
 				5668942422CF78A800BA1061 /* CardDeck.swift in Sources */,
-				5641D53422CF6EF3006C4A4D /* HandlingDeckResult.swift in Sources */,
 				56D74D6F22D46D2300CB0D9B /* PokerDealer.swift in Sources */,
 				5668942822D0D51100BA1061 /* CardGameMenu.swift in Sources */,
 				56D74D6A22D4686A00CB0D9B /* CardGameParticipant.swift in Sources */,
