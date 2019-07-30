@@ -21,16 +21,16 @@ class Hand: CustomStringConvertible {
     }
     
     func makeHandRank() -> (HandRank, Int) {
-        let countedHands = cards.reduce([Card.Ranks: Int](), { (countedHands: [Card.Ranks: Int], card: Card) -> [Card.Ranks: Int] in
+        let countedHands = cards.reduce([Card.Rank: Int](), { (countedHands: [Card.Rank: Int], card: Card) -> [Card.Rank: Int] in
             var countedHands = countedHands
-            countedHands[card.rank] = (countedHands[card.rank] ?? 0) + 1
+            countedHands[card.getRank()] = (countedHands[card.getRank()] ?? 0) + 1
             return countedHands
         })
         
         let quadCards = countedHands.filter{ $0.value == 4 }
         for (key,value) in quadCards {
             if value == 4 {
-                return (HandRank.quads,key.rawValue)
+                return (HandRank.quads, key.rawValue)
             }
         }
         
@@ -66,7 +66,7 @@ class Hand: CustomStringConvertible {
     }
     
     
-    private func isStraight(cardCount: [Card.Ranks : Int] ) -> (Bool, Int) {
+    private func isStraight(cardCount: [Card.Rank : Int] ) -> (Bool, Int) {
         let cardSortValue = cardCount.sorted(by: { $0.0.rawValue < $1.0.rawValue })
         for index in stride(from: cardSortValue.count - 1, to: 0, by: -1) {
             let rank1 = cardSortValue[index].0.rawValue

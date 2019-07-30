@@ -9,9 +9,9 @@
 import Foundation
 
 class Card: CustomStringConvertible {
-    let suit: Suits, rank: Ranks
+    private let suit: Suit, rank: Rank
     
-    init(suit: Suits, rank: Ranks) {
+    init(suit: Suit, rank: Rank) {
         self.suit = suit
         self.rank = rank
     }
@@ -23,7 +23,7 @@ class Card: CustomStringConvertible {
 
 // Suits와 Ranks 둘 다 한정된 값이기 때문에 enum을 사용하는게 맞다고 판단하였습니다.
 extension Card {
-    enum Suits: Character, CustomStringConvertible, CaseIterable  {
+    enum Suit: Character, CustomStringConvertible, CaseIterable  {
         case spade = "\u{2660}"
         case heart = "\u{2665}"
         case diamond = "\u{2666}"
@@ -34,7 +34,7 @@ extension Card {
         }
     }
     
-    enum Ranks: Int, CustomStringConvertible, CaseIterable {
+    enum Rank: Int, CustomStringConvertible, CaseIterable {
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var description: String {
@@ -52,10 +52,17 @@ extension Card {
             }
         }
     }
+    func getRank() -> Rank {
+        return rank
+    }
+    
+    func getSuit() -> String {
+        return String(suit.rawValue)
+    }
 }
 
-extension Card.Ranks: Comparable {
-    static func < (lhs: Card.Ranks, rhs: Card.Ranks) -> Bool {
+extension Card.Rank: Comparable {
+    static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
 }

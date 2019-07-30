@@ -11,8 +11,8 @@ import Foundation
 struct CardMaker {
     static func makeCard() -> [Card] {
         var cards = [Card]()
-        let suits = Card.Suits.allCases
-        let ranks = Card.Ranks.allCases
+        let suits = Card.Suit.allCases
+        let ranks = Card.Rank.allCases
         
         for suit in suits {
             for rank in ranks {
