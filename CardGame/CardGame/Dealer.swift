@@ -8,17 +8,12 @@
 
 import Foundation
 
-class Dealer: Dealable {
+class Dealer: Player, Dealable {
     private var cardDeck: CardDeck
-    private var cards: [Card] = []
-    private let name = "딜러"
     
     init(cardDeck: CardDeck) {
         self.cardDeck = cardDeck
-    }
-    
-    func receive(card: Card) {
-        cards.append(card)
+        super.init(name: "딜러")
     }
     
     func give() -> Card? {
@@ -26,10 +21,6 @@ class Dealer: Dealable {
     }
     
     func reset() {
-        cards.removeAll()
+        cardDeck.reset()
     }
-    
-    func getPlayerInformation(handler: (String, [Card]) -> ()) {
-        handler(name, cards)
-    }
-}
+ }
