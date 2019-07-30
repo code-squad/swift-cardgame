@@ -10,10 +10,10 @@ import Foundation
 
 class Player: Playable {
     private var cards: [Card] = []
-    private var name = "참가자#"
+    private var name: String
     
-    init(number: Int) {
-        self.name.append("\(number)")
+    init(name: String) {
+        self.name = name
     }
     
     func receive(card: Card) {
