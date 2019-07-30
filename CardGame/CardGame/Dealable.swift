@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Dealable: Playable {
+protocol Dealable: Player {
     func give() -> Card?
     func reset()
 }
