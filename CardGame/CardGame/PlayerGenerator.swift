@@ -10,6 +10,6 @@ import Foundation
 
 struct PlayerGenerator {
     static func generatePlayer(numberOfPlayer: NumberOfPlayer) -> [Player] {
-        return (1...numberOfPlayer.rawValue).map { Player(number: $0) }
+        return (1...numberOfPlayer.rawValue).map { Player(name: "참가자#\($0)") }
     }
 }
