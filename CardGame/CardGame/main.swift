@@ -13,8 +13,6 @@ func main() {
     let dealer = Dealer(cardDeck: cardDeck)
     
     gameLoop: while true {
-        dealer.reset()
-        
         let gameMenu = GameMenu(GameInputView.readGameMenu())
         let numberOfPlayer = NumberOfPlayer(GameInputView.readNumberOfPlayer())
         

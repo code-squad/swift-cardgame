@@ -22,5 +22,6 @@ class Player: Playable {
     
     func getPlayerInformation(handler: (String, [Card]) -> ()) {
         handler(name, cards)
+        cards.removeAll()
     }
 }
