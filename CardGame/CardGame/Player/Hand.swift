@@ -50,7 +50,7 @@ class Hand: CustomStringConvertible {
         let anotherCards = countedHands.filter { $0.value == 2 }
         if anotherCards.count >= 2 {
             for (key,_) in anotherCards {
-               max = max < key.rawValue ? key.rawValue : max
+                max = max < key.rawValue ? key.rawValue : max
             }
             return (HandRank.twoPair, max)
         }
@@ -67,16 +67,17 @@ class Hand: CustomStringConvertible {
     
     
     private func isStraight(cardCount: [Card.Rank : Int] ) -> (Bool, Int) {
-        let cardSortValue = cardCount.sorted(by: { $0.0.rawValue < $1.0.rawValue })
+        let cardSortValue = cardCount.sorted(by: { $0.key < $1.key })
+        
         for index in stride(from: cardSortValue.count - 1, to: 0, by: -1) {
-            let rank1 = cardSortValue[index].0.rawValue
-            let rank2 = cardSortValue[index-1].0.rawValue
-            var maxRank = 0
+            let previousCardRank = cardSortValue[index].key 
+            let nextCardRank = cardSortValue[index - 1].key
             var count = 0
+            var maxRank = 0
             
-            if rank1-1 == rank2 {
+            if nextCardRank.isNextRank(previousCardRank) {
                 if count == 0 {
-                    maxRank = rank1
+                    maxRank = previousCardRank.rawValue
                 }
                 count = count + 1
             } else {
@@ -91,4 +92,3 @@ class Hand: CustomStringConvertible {
         return (false, 0)
     }
 }
-

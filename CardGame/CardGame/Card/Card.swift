@@ -65,6 +65,10 @@ extension Card.Rank: Comparable {
     static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
+    
+    func isNextRank(_ card: Card.Rank) -> Bool {
+        return self.rawValue + 1 == card.rawValue
+    }
 }
 
 extension Card: Comparable {

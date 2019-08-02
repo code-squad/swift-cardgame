@@ -42,13 +42,14 @@ class CardGame: OutputViewPrintable {
     }
     
     func continueGame() -> Bool {
+        //numberOfCards, requirement는 둘다 enum 타입이라 내부에서 연산을 하지 안고 밖에서 하는게 더 낫다고 판단하였습니다.
         let numberOfCards = gameMode.numberOfCards
         let requirement = numberOfCards * (numberOfPlayers + 1)
         return dealer.haveCards(requirement: requirement)
     }
     
     private func reset() {
-        self.players.forEach{$0.hand.clear()}
+    self.players.forEach{$0.hand.clear()}
     }
     
     private func setPlayer() {
@@ -71,5 +72,4 @@ class CardGame: OutputViewPrintable {
             }
         }
     }
-    
 }
