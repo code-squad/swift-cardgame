@@ -19,7 +19,6 @@ func main() {
         cardGame.gameStart()
         OutputView.printPlayers(game: cardGame)
         OutputView.printResultPlayer(game: cardGame)
-        
     }
 }
 
