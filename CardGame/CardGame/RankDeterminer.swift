@@ -9,5 +9,13 @@
 import Foundation
 
 struct RankDeterminer {
-    
+    private static func countRank(at cards: [Card]) -> [(Card, Int)] {
+        let rankCounter = cards.reduce([Card : Int](), { (cardCounter: [Card : Int], card: Card) -> [Card : Int] in
+            var cardCounter = cardCounter
+            cardCounter[card] = (cardCounter[card] ?? 0) + 1
+            return cardCounter
+        }).sorted(by: <)
+        
+        return rankCounter
+    }
 }
