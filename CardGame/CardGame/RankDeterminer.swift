@@ -18,4 +18,22 @@ struct RankDeterminer {
         
         return rankCounter
     }
+    
+    private static func checkStraight(rankCounter: [(Card, Int)]) -> Card? {
+        var result: [(Card, Int)] = []
+        
+        for i in (0..<rankCounter.count - 1).reversed() {
+            if result.count == 5 {
+                break
+            }
+            
+            if rankCounter[i + 1].0.isConsecutive(card: rankCounter[i].0) {
+                result.append(rankCounter[i])
+            } else {
+                result.removeAll()
+            }
+        }
+        
+        return result.count < 5 ? nil : result.last?.0
+    }
 }
