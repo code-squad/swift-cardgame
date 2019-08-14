@@ -9,6 +9,39 @@
 import Foundation
 
 struct RankDeterminer {
+    static func determineRank(cards: [Card]) -> (HandRank, Card) {
+        let rankCounter = countRank(at: cards)
+        
+        if let card = checkStraight(rankCounter: rankCounter) {
+            return (HandRank.straight, card)
+        }
+        
+        var rank: [(Card, Int)] = []
+        
+        for i in (1...4).reversed() {
+            rank = rankCounter.filter { $1 == i }
+            
+            if !rank.isEmpty {
+                break
+            }
+        }
+        
+        let result = rank.removeLast()
+        let resultCard = result.0
+        let resultRank = result.1
+        
+        switch resultRank {
+        case 4:
+            return (HandRank.highCard, resultCard)
+        case 3:
+            return (HandRank.trips, resultCard)
+        case 2:
+            return rank.count > 0 ? (HandRank.twoPairs, resultCard) : (HandRank.pair, resultCard)
+        default:
+            return (HandRank.highCard, resultCard)
+        }
+    }
+    
     private static func countRank(at cards: [Card]) -> [(Card, Int)] {
         let rankCounter = cards.reduce([Card : Int](), { (cardCounter: [Card : Int], card: Card) -> [Card : Int] in
             var cardCounter = cardCounter
