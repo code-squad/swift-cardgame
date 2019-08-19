@@ -10,4 +10,5 @@ import Foundation
 
 protocol OutputViewPrintable {
     func printPlayerInformation(handler: @escaping (String, [Card]) -> ())
+    func printWinner(handler: @escaping (String) -> ())
 }

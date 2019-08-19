@@ -10,4 +10,5 @@ import Foundation
 
 protocol PlayerPrintable {
     func getPlayerInformation(handler: @escaping (String, [Card]) -> ())
+    func getWinnerName(handler: @escaping (String) -> ())
 }
