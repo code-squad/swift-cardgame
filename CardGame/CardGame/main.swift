@@ -22,7 +22,7 @@ func main() {
         
         let players = PlayerGenerator.generatePlayer(numberOfPlayer: numberOfPlayer)
         
-        let cardGame = CardGame(dealer: dealer, players: players, gameMenu: gameMenu)
+        var cardGame = CardGame(dealer: dealer, players: players, gameMenu: gameMenu)
         
         do {
             try cardGame.run()
