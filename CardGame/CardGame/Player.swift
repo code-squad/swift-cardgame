@@ -27,6 +27,10 @@ class Player: Playable {
         handler(name, cards)
         cards.removeAll()
     }
+    
+    func getWinnerName(handler: @escaping (String) -> ()) {
+        handler(name)
+    }
 }
 
 extension Player: Comparable {

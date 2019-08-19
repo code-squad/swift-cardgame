@@ -11,5 +11,6 @@ import Foundation
 struct OutputView {
     static func printResult(of game: CardGame) {
         game.printPlayerInformation { print("\($0) \($1)")}
+        game.printWinner { print("이번 게임의 승자는 \($0) 입니다.") }
     }
 }

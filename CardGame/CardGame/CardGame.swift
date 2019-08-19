@@ -64,4 +64,8 @@ extension CardGame: OutputViewPrintable {
 
         dealer.getPlayerInformation(handler: handler)
     }
+    
+    func printWinner(handler: @escaping (String) -> ()) {
+        winner.getWinnerName(handler: handler)
+    }
 }
