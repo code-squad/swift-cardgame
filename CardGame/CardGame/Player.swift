@@ -11,7 +11,9 @@ import Foundation
 class Player: Playable {
     private var cards: [Card] = []
     private var name: String
-    private var rank = (HandRank.highCard, Card(suit: .clubs, rank: .ace))
+    private var rank: (HandRank, Card) {
+        return RankDeterminer.determineRank(cards: cards)
+    }
     
     init(name: String) {
         self.name = name
