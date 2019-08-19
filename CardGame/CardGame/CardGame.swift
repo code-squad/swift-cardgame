@@ -10,13 +10,16 @@ import Foundation
 
 struct CardGame {
     private let dealer: Dealable
-    private let players: [Playable]
+    private let players: [Player]
     private let gameMenu: GameMenu
+    private var winner: Playable
     
-    init(dealer: Dealable, players: [Playable], gameMenu: GameMenu) {
+    init(dealer: Dealable, players: [Player], gameMenu: GameMenu) {
         self.dealer = dealer
         self.players = players
         self.gameMenu = gameMenu
+        
+        winner = dealer
     }
     
     private func distributeCards(menu: GameMenu) throws {
@@ -37,8 +40,19 @@ struct CardGame {
         }
     }
     
-    func run() throws {
+    private mutating func decideWinner() {
+        guard let player = players.max() else {
+            return
+        }
+        
+        if player > dealer {
+            winner = player
+        }
+    }
+    
+    mutating func run() throws {
         try distributeCards(menu: gameMenu)
+        decideWinner()
     }
 }
 
