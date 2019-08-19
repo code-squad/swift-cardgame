@@ -31,10 +31,18 @@ class Player: Playable {
 
 extension Player: Comparable {
     static func < (lhs: Player, rhs: Player) -> Bool {
+        if lhs.rank.0.rawValue == rhs.rank.0.rawValue {
+            return lhs.rank.1 < rhs.rank.1
+        }
+        
         return lhs.rank.0.rawValue < rhs.rank.0.rawValue
     }
     
     static func == (lhs: Player, rhs: Player) -> Bool {
+        if lhs.rank.0.rawValue == rhs.rank.0.rawValue {
+            return lhs.rank.1 == rhs.rank.1
+        }
+        
         return lhs.rank.0.rawValue == rhs.rank.0.rawValue
     }
 }
