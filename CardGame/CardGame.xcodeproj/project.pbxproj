@@ -20,6 +20,14 @@
 		149D27C5230E54B400936B08 /* RankDeterminer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14750F7222EEB79D00CCDEC5 /* RankDeterminer.swift */; };
 		149D27C6230E550000936B08 /* HandRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14750F5B22E9986000CCDEC5 /* HandRank.swift */; };
 		149D27C8230E55D800936B08 /* HandRankTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149D27C7230E55D800936B08 /* HandRankTest.swift */; };
+		149D27C9230E6A0A00936B08 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF09F22DC57C500BCC3EA /* Dealer.swift */; };
+		149D27CA230E6A1800936B08 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DEB6D22C4A0BC001F0392 /* CardDeck.swift */; };
+		149D27CB230E6A5C00936B08 /* Dealable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF09D22DC577700BCC3EA /* Dealable.swift */; };
+		149D27CC230E6A5F00936B08 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF09322DC3E1100BCC3EA /* Player.swift */; };
+		149D27CD230E6A6100936B08 /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF08F22DC2BC500BCC3EA /* Playable.swift */; };
+		149D27CE230E6AD000936B08 /* PlayerPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF0CB22E04DD000BCC3EA /* PlayerPrintable.swift */; };
+		149D27CF230E6DA300936B08 /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF07922D325C700BCC3EA /* GameMenu.swift */; };
+		149D27D0230E6DA600936B08 /* NumberOfPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF07B22D325E900BCC3EA /* NumberOfPlayer.swift */; };
 		14DDF07A22D325C700BCC3EA /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF07922D325C700BCC3EA /* GameMenu.swift */; };
 		14DDF07C22D325E900BCC3EA /* NumberOfPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF07B22D325E900BCC3EA /* NumberOfPlayer.swift */; };
 		14DDF07E22D326D700BCC3EA /* GameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDF07D22D326D700BCC3EA /* GameInputView.swift */; };
@@ -246,9 +254,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				149D27C6230E550000936B08 /* HandRank.swift in Sources */,
+				149D27D0230E6DA600936B08 /* NumberOfPlayer.swift in Sources */,
 				149D27BE230BEF2D00936B08 /* CardGameTest.swift in Sources */,
+				149D27C9230E6A0A00936B08 /* Dealer.swift in Sources */,
+				149D27CB230E6A5C00936B08 /* Dealable.swift in Sources */,
+				149D27CF230E6DA300936B08 /* GameMenu.swift in Sources */,
 				149D27C4230E537000936B08 /* Card.swift in Sources */,
+				149D27CA230E6A1800936B08 /* CardDeck.swift in Sources */,
 				149D27C5230E54B400936B08 /* RankDeterminer.swift in Sources */,
+				149D27CD230E6A6100936B08 /* Playable.swift in Sources */,
+				149D27CE230E6AD000936B08 /* PlayerPrintable.swift in Sources */,
+				149D27CC230E6A5F00936B08 /* Player.swift in Sources */,
 				149D27C8230E55D800936B08 /* HandRankTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
