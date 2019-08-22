@@ -32,7 +32,7 @@ struct RankDeterminer {
         
         switch resultRank {
         case 4:
-            return (HandRank.highCard, resultCard)
+            return (HandRank.quads, resultCard)
         case 3:
             return (HandRank.trips, resultCard)
         case 2:
@@ -55,6 +55,8 @@ struct RankDeterminer {
     private static func checkStraight(rankCounter: [(Card, Int)]) -> Card? {
         var result: [(Card, Int)] = []
         
+        result.append(rankCounter[rankCounter.count - 1])
+        
         for i in (0..<rankCounter.count - 1).reversed() {
             if result.count == 5 {
                 break
@@ -67,6 +69,6 @@ struct RankDeterminer {
             }
         }
         
-        return result.count < 5 ? nil : result.last?.0
+        return result.count < 5 ? nil : result.first?.0
     }
 }
