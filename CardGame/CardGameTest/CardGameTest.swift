@@ -9,9 +9,23 @@
 import XCTest
 
 class CardGameTest: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDealerHaveCard() {
+        let cardDeck = CardDeck()
+        let dealer = Dealer(cardDeck: cardDeck)
+        
+        for _ in (0..<cardDeck.count()) {
+            XCTAssertNotNil(dealer.give())
+        }
     }
-
+    
+    func testDealerNoCard() {
+        let cardDeck = CardDeck()
+        let dealer = Dealer(cardDeck: cardDeck)
+        
+        for _ in (0..<cardDeck.count()) {
+            _ = dealer.give()
+        }
+        
+        XCTAssertNil(dealer.give())
+    }
 }
