@@ -27,47 +27,41 @@ class HandRankTest: XCTestCase {
         let cards = [ace, two, three, four]
         let result = RankDeterminer.determineRank(cards: cards)
         
-        XCTAssertEqual(HandRank.highCard, result.0)
-        XCTAssertEqual(four, result.1)
+        XCTAssertTrue(result == Rank(handRank: .highCard, card: four))
     }
     
     func testPair() {
         let cards = [ace, ace, two]
         let result = RankDeterminer.determineRank(cards: cards)
         
-        XCTAssertEqual(HandRank.pair, result.0)
-        XCTAssertEqual(ace, result.1)
+        XCTAssertTrue(result == Rank(handRank: .pair, card: ace))
     }
     
     func testTwoPairs() {
         let cards = [ace, ace, three, five, five]
         let result = RankDeterminer.determineRank(cards: cards)
         
-        XCTAssertEqual(HandRank.twoPairs, result.0)
-        XCTAssertEqual(five, result.1)
+        XCTAssertTrue(result == Rank(handRank: .twoPairs, card: five))
     }
 
     func testTrips() {
         let cards = [jack, jack, jack, two, two]
         let result = RankDeterminer.determineRank(cards: cards)
         
-        XCTAssertEqual(HandRank.trips, result.0)
-        XCTAssertEqual(jack, result.1)
+        XCTAssertTrue(result == Rank(handRank: .trips, card: jack))
     }
     
     func testStraight() {
         let cards = [nine, eight, ten, jack, queen]
         let result = RankDeterminer.determineRank(cards: cards)
         
-        XCTAssertEqual(HandRank.straight, result.0)
-        XCTAssertEqual(queen, result.1)
+        XCTAssertTrue(result == Rank(handRank: .straight, card: queen))
     }
     
     func testQuads() {
         let cards = [two, two, two, two]
         let result = RankDeterminer.determineRank(cards: cards)
         
-        XCTAssertEqual(HandRank.quads, result.0)
-        XCTAssertEqual(two, result.1)
+        XCTAssertTrue(result == Rank(handRank: .quads, card: two))
     }
 }
