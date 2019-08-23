@@ -62,7 +62,7 @@ struct RankDeterminer {
                 break
             }
             
-            if rankCounter[i + 1].0.isConsecutive(card: rankCounter[i].0) {
+            if rankCounter[i + 1].0 == rankCounter[i].0 + 1 {
                 result.append(rankCounter[i])
             } else {
                 result.removeAll()

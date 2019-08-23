@@ -20,14 +20,6 @@ class Card: CustomStringConvertible {
     var description: String {
         return "\(suit)\(rank)"
     }
-    
-    func isConsecutive(card: Card) -> Bool {
-        if self.rank.rawValue - card.rank.rawValue == 1 {
-            return true
-        }
-        
-        return false
-    }
 }
 
 extension Card: Comparable {
@@ -37,6 +29,14 @@ extension Card: Comparable {
     
     static func == (lhs: Card, rhs: Card) -> Bool {
         return lhs.rank.rawValue == rhs.rank.rawValue
+    }
+    
+    static func == (lhs: Card, rhs: Int) -> Bool {
+        return lhs.rank.rawValue == rhs
+    }
+    
+    static func + (lhs: Card, rhs: Int) -> Int {
+        return lhs.rank.rawValue + rhs
     }
 }
 
