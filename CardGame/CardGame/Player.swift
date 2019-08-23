@@ -11,7 +11,7 @@ import Foundation
 class Player: Playable {
     private var cards: [Card] = []
     private var name: String
-    private var rank: (HandRank, Card) {
+    private var rank: Rank {
         return RankDeterminer.determineRank(cards: cards)
     }
     
@@ -35,18 +35,10 @@ class Player: Playable {
 
 extension Player: Comparable {
     static func < (lhs: Player, rhs: Player) -> Bool {
-        if lhs.rank.0.rawValue == rhs.rank.0.rawValue {
-            return lhs.rank.1 < rhs.rank.1
-        }
-        
-        return lhs.rank.0.rawValue < rhs.rank.0.rawValue
+        return lhs.rank < rhs.rank
     }
     
     static func == (lhs: Player, rhs: Player) -> Bool {
-        if lhs.rank.0.rawValue == rhs.rank.0.rawValue {
-            return lhs.rank.1 == rhs.rank.1
-        }
-        
-        return lhs.rank.0.rawValue == rhs.rank.0.rawValue
+        return lhs.rank == rhs.rank
     }
 }

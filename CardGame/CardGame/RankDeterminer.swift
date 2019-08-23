@@ -9,11 +9,11 @@
 import Foundation
 
 struct RankDeterminer {
-    static func determineRank(cards: [Card]) -> (HandRank, Card) {
+    static func determineRank(cards: [Card]) -> Rank {
         let rankCounter = countRank(at: cards)
         
         if let card = checkStraight(rankCounter: rankCounter) {
-            return (HandRank.straight, card)
+            return Rank(handRank: .straight, card: card)
         }
         
         var rank: [(Card, Int)] = []
@@ -32,13 +32,13 @@ struct RankDeterminer {
         
         switch resultRank {
         case 4:
-            return (HandRank.quads, resultCard)
+            return Rank(handRank: .quads, card: resultCard)
         case 3:
-            return (HandRank.trips, resultCard)
+            return Rank(handRank: .trips, card: resultCard)
         case 2:
-            return rank.count > 0 ? (HandRank.twoPairs, resultCard) : (HandRank.pair, resultCard)
+            return rank.count > 0 ? Rank(handRank: .twoPairs, card: resultCard) : Rank(handRank: .pair, card: resultCard)
         default:
-            return (HandRank.highCard, resultCard)
+            return Rank(handRank: .highCard, card: resultCard)
         }
     }
     
