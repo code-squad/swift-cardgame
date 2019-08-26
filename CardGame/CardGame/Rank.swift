@@ -20,18 +20,18 @@ struct Rank {
 
 extension Rank: Comparable {
     static func < (lhs: Rank, rhs: Rank) -> Bool {
-        if lhs.handRank.rawValue == rhs.handRank.rawValue {
+        if lhs.handRank == rhs.handRank {
             return lhs.card < rhs.card
         }
         
-        return lhs.handRank.rawValue < rhs.handRank.rawValue
+        return lhs.handRank < rhs.handRank
     }
     
     static func == (lhs: Rank, rhs: Rank) -> Bool {
-        if lhs.handRank.rawValue == rhs.handRank.rawValue {
+        if lhs.handRank == rhs.handRank {
             return lhs.card == rhs.card
         }
         
-        return lhs.handRank.rawValue == rhs.handRank.rawValue
+        return lhs.handRank == rhs.handRank
     }
 }

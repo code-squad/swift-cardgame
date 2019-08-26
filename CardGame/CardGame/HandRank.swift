@@ -8,6 +8,10 @@
 
 import Foundation
 
-enum HandRank: Int {
+enum HandRank: Int, Comparable {
     case highCard, pair, twoPairs, trips, straight, quads
+    
+    static func < (lhs: HandRank, rhs: HandRank) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
 }
