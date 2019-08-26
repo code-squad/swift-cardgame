@@ -24,19 +24,19 @@ class Card: CustomStringConvertible {
 
 extension Card: Comparable {
     static func < (lhs: Card, rhs: Card) -> Bool {
-        return lhs.rank.rawValue < rhs.rank.rawValue
+        return lhs.rank < rhs.rank
     }
     
     static func == (lhs: Card, rhs: Card) -> Bool {
-        return lhs.rank.rawValue == rhs.rank.rawValue
+        return lhs.rank == rhs.rank
     }
     
     static func == (lhs: Card, rhs: Int) -> Bool {
-        return lhs.rank.rawValue == rhs
+        return lhs.rank == rhs
     }
     
     static func + (lhs: Card, rhs: Int) -> Int {
-        return lhs.rank.rawValue + rhs
+        return lhs.rank + rhs
     }
 }
 
@@ -60,7 +60,7 @@ extension Card {
         }
     }
     
-    enum Rank: Int, CustomStringConvertible, CaseIterable {
+    enum Rank: Int, CustomStringConvertible, CaseIterable, Comparable {
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var description: String {
@@ -76,6 +76,18 @@ extension Card {
             default:
                 return String(rawValue)
             }
+        }
+        
+        static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+        
+        static func == (lhs: Card.Rank, rhs: Int) -> Bool {
+            return lhs.rawValue == rhs
+        }
+        
+        static func + (lhs: Card.Rank, rhs: Int) -> Int {
+            return lhs.rawValue + rhs
         }
     }
 }
