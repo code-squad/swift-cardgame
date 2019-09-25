@@ -8,4 +8,7 @@
 
 import Foundation
 
+OutputView.printCard(card: Card(suit: Suit(rawValue: Int.random(in: 0...3))!,
+                                rank: Rank(rawValue: Int.random(in: 1...13))!))
+
 
