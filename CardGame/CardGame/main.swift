@@ -9,3 +9,10 @@
 import Foundation
 
 
+func main() {
+    let card = Card()
+    print(card.description)
+}
+
+
+main()
