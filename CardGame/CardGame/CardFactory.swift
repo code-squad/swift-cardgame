@@ -35,7 +35,7 @@ struct CardFactory: CardFactoryProtocol {
     }
     
     private func integerToCardNumber(numberInteger:Int) -> String {
-        switch numberInteger {
+        switch numberInteger % 13 + 1 {
         case 1:
             return "A"
         case 11:
