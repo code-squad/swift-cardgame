@@ -8,5 +8,16 @@
 
 import Foundation
 
-let card = Card(rank: .ace, suite: .club)
-print(card)
+let player = PockerPlayer(name: "Jake")
+let subscriber = PockerGameOuputView()
+
+let game = PockerGame(players: [player], subscriber: subscriber)
+
+let reader = UserInputReader()
+let commander = PockerGameCommander(reader: reader)
+let organizer = PockerGameOrganizer(commander: commander, receiver: game)
+
+while true {
+    organizer.play()
+}
+
