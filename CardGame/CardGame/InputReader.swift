@@ -10,10 +10,9 @@ import Foundation
 
 struct InputReader {
     static func createRandomNumberTuple() -> (Int, Int) {
-//        let randomShapeNumber = Int.random(in: 0 ... 100)
-//        let randomNumber = Int.random(in: 0 ... 100)
-//        return (randomShapeNumber, randomNumber)
-        return (1,1)
+        let randomShapeNumber = Int.random(in: 0 ... 100)
+        let randomNumber = Int.random(in: 0 ... 100)
+        return (randomShapeNumber, randomNumber)
     }
     
 }
