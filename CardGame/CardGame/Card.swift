@@ -8,33 +8,19 @@
 
 import Foundation
 
-struct Card: CardProtocol, CustomStringConvertible {
+struct Card: CustomStringConvertible {
     private let shape: Shape
-    private let cardNumber: String
+    private let cardNumber: CardNumber
     
     var description: String {
-        return "\(self.shape.rawValue)\(self.cardNumber)"
+        return "\(self.shape.rawValue)\(self.cardNumber.description)"
     }
     
-    init(shape:Shape, cardNumber:String) {
+    init(shape:Shape, cardNumber:CardNumber) {
         self.shape = shape
         self.cardNumber = cardNumber
     }
     
-    func getShape() -> Shape {
-        return self.shape
-    }
-    
-    func getCardNumber() -> String {
-        return self.cardNumber
-    }
-    
-    
-}
-
-protocol CardProtocol {
-    func getShape() -> Shape
-    func getCardNumber() -> String
 }
 
 enum Shape:String {
@@ -42,4 +28,27 @@ enum Shape:String {
     case Clubs = "♣︎"
     case Hearts = "♥︎"
     case Diamonds = "♦︎"
+}
+
+enum CardNumber:Int, CustomStringConvertible {
+    case one
+    case two,three,four,five,six,seven,eight,nine,ten
+    case eleven
+    case twelve
+    case thirteen
+    
+    var description: String {
+        switch self {
+        case .one:
+            return "A"
+        case .eleven:
+            return "J"
+        case .twelve:
+            return "Q"
+        case .thirteen:
+            return "K"
+        default:
+            return String(rawValue)
+        }
+    }
 }

@@ -15,13 +15,10 @@ class TestCardGame: XCTestCase {
     // 4 -> ♦︎
     func test_printCardInfo_스페이드2() {
         let expectedShape = Shape.Spades
-        let expectedNumber = "2"
+        let expectedNumber = CardNumber.two
         
         let inputCard = Card(shape: expectedShape, cardNumber: expectedNumber)
         
         XCTAssertEqual("\(expectedShape.rawValue)\(expectedNumber)" , inputCard.description)
     }
-
-    
-
 }
