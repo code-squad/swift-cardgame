@@ -9,12 +9,12 @@
 import Foundation
 
 // Class에 비해 빠르고 간단하게 데이터를 저장이 가능하여 Struct선택 
-struct Card {
+struct Card: Hashable {
     
     private let rank:  Rank
     private let suite: Suite
     
-    enum Rank: Int, CustomStringConvertible {
+    enum Rank: Int, CustomStringConvertible, CaseIterable {
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
         
         var description: String {
@@ -31,7 +31,7 @@ struct Card {
     }
     
     // https://en.wikipedia.org/wiki/Miscellaneous_Symbols
-    enum Suite: Character {
+    enum Suite: Character, CaseIterable {
         case spade   = "\u{2660}"
         case heart   = "\u{2661}"
         case diamond = "\u{2662}"
