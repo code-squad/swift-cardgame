@@ -8,57 +8,17 @@
 
 import Foundation
 
-class PlayingCard {
-    enum Suit : String { // playing card symbols
-        case spades = "♠"
-        case hearts = "♥"
-        case diamonds = "♦"
-        case clubs = "♣"
-    }
+func main() {
+    let suitsPool: [PlayingCard.Suit] = [.spades, .hearts, .diamonds, .clubs]
+    let ranksPool: [PlayingCard.Rank] = [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
     
-    enum Rank : Int { // plyaing card numbers
-        case ace = 1
-        case two
-        case three
-        case four
-        case five
-        case six
-        case seven
-        case eight
-        case nine
-        case ten
-        case jack = 11
-        case queen = 12
-        case king = 13
-        
-        func toString() -> String {
-            switch(self) {
-            case .ace :
-                return "A"
-            case .jack :
-                return "J"
-            case .queen :
-                return "Q"
-            case .king :
-                return "K"
-            default :
-                return "\(self.rawValue)"
-            }
-        }
-    }
-    
-    let suit: Suit
-    let rank: Rank
-    
-    init(suit: Suit, rank: Rank) {
-        self.suit = suit
-        self.rank = rank
-    }
-    
-    func PritabaleValue() -> String {
-        return "\(self.suit)\(self.rank.toString())"
+    for _ in 1...10 {
+        let card = PlayingCard(suit: suitsPool[Int.random(in: 0...3)], rank: ranksPool[Int.random(in: 0...12)])
+        print(card.Value())
     }
 }
+
+main()
 
 
 
