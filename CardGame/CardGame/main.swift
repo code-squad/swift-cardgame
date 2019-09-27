@@ -8,4 +8,5 @@
 
 import Foundation
 
-
+let card = Card(rank: .ace, suite: .club)
+print(card)
