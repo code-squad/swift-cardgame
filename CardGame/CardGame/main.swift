@@ -8,7 +8,6 @@
 
 import Foundation
 
-let input = InputReader.createRandomNumberTuple()
-let cardFactory = CardFactory()
-let card = cardFactory.createCard(integerTuple: input)
+
+let card = Card(shape: Shape.Spades, cardNumber: CardNumber.eleven)
 OutputView.printCard(card: card)
