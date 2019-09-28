@@ -8,6 +8,7 @@
 
 import Foundation
 
+var controller = GameController()
+controller.start(times: 3)
 
-let card = Card(shape: .clova, number: .eleven)
-print(card)
+

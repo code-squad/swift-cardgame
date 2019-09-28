@@ -18,6 +18,8 @@ class Card {
         case clova = "♣️"
         case spade = "♠️"
         case diamond = "♦️"
+        
+        static let allCases: [Shape] = [.heart, .clova, .spade, .diamond]
     }
     
     enum Number: Int {
@@ -34,11 +36,24 @@ class Card {
         case eleven
         case twelve
         case thirteen
+        
+        static let allCases: [Number] = [.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve, .thirteen]
     }
     
     init(shape: Shape, number: Number) {
         self.shape = shape
         self.number = number
+    }
+    
+    static func getAllCards() -> [Card] {
+        var cardsArr = [Card]()
+        for shape in Shape.allCases  {
+            for number in Number.allCases {
+                let card = Card(shape: shape, number: number)
+                cardsArr.append(card)
+            }
+        }
+        return cardsArr
     }
 }
 
