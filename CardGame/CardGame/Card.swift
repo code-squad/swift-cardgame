@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol CardGame {
+protocol CardDescribe {
     func suitDescribe() -> String
     func rankDescribe() -> String
 }
 
 /// 굳이 class로 만들지 않아도 될 것 같아서 struct형식으로 만들었습니다.
-struct Card : CardGame {
+struct Card : CardDescribe {
     private let suit: Suit
     private let rank: Rank
     
