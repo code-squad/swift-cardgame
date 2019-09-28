@@ -23,12 +23,6 @@ struct Card {
         self.rank = rank
     }
     
-    public init() {
-        let randomSuit = Suit(rawValue: Int.random(in: 1...4)) ?? Suit.spade
-        let randomRank = Rank(rawValue: Int.random(in: 1...13)) ?? Rank.one
-        self.init(suit: randomSuit, rank: randomRank)
-    }
-    
     public init?(_ suit: Int, _ rank: Int) {
         guard let suit = Suit(rawValue: suit)
             ,let rank = Rank(rawValue: rank) else {
