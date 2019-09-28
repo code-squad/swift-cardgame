@@ -9,3 +9,5 @@
 import Foundation
 
 
+let card = Card(shape: .clova, number: .eleven)
+print(card)
