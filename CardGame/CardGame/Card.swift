@@ -8,42 +8,6 @@
 
 import Foundation
 
-enum Suit: Int {
-    case spades, hearts, diamonds, clubs
-    func description() -> String {
-        switch self {
-        case .spades:
-            return "♠︎"
-        case .hearts:
-            return "♥︎"
-        case .diamonds:
-            return "♦︎"
-        case .clubs:
-            return "♣︎"
-        }
-    }
-}
-
-enum Rank: Int {
-    case ace = 1
-    case two, three, four, five, six, seven, eight, nine, ten
-    case jack, queen, king
-    func description() -> String {
-        switch self {
-        case .ace:
-            return "A"
-        case .jack:
-            return "J"
-        case .queen:
-            return "Q"
-        case .king:
-            return "K"
-        default:
-            return String(self.rawValue)
-        }
-    }
-}
-
 protocol CardGame {
     func suitDescribe() -> String
     func rankDescribe() -> String

@@ -11,6 +11,10 @@
 		2D0AF9D3233BA6E30097961E /* CardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9D2233BA6E30097961E /* CardGameTests.swift */; };
 		2D0AF9D8233BA75F0097961E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9CA233BA6C90097961E /* Card.swift */; };
 		2D0AF9DA233BA94D0097961E /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9D9233BA94D0097961E /* OutputView.swift */; };
+		2D0AF9E223401E900097961E /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9E123401E900097961E /* Suit.swift */; };
+		2D0AF9E423401E9C0097961E /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9E323401E9C0097961E /* Rank.swift */; };
+		2D0AF9E523401EBE0097961E /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9E323401E9C0097961E /* Rank.swift */; };
+		2D0AF9E623401EC40097961E /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9E123401E900097961E /* Suit.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +36,8 @@
 		2D0AF9D2233BA6E30097961E /* CardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameTests.swift; sourceTree = "<group>"; };
 		2D0AF9D4233BA6E30097961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D0AF9D9233BA94D0097961E /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		2D0AF9E123401E900097961E /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		2D0AF9E323401E9C0097961E /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +92,8 @@
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				2D0AF9CA233BA6C90097961E /* Card.swift */,
+				2D0AF9E123401E900097961E /* Suit.swift */,
+				2D0AF9E323401E9C0097961E /* Rank.swift */,
 				2D0AF9D9233BA94D0097961E /* OutputView.swift */,
 			);
 			path = CardGame;
@@ -182,7 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0AF9E523401EBE0097961E /* Rank.swift in Sources */,
 				2D0AF9D3233BA6E30097961E /* CardGameTests.swift in Sources */,
+				2D0AF9E623401EC40097961E /* Suit.swift in Sources */,
 				2D0AF9D8233BA75F0097961E /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +203,8 @@
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				2D0AF9CB233BA6C90097961E /* Card.swift in Sources */,
+				2D0AF9E223401E900097961E /* Suit.swift in Sources */,
+				2D0AF9E423401E9C0097961E /* Rank.swift in Sources */,
 				2D0AF9DA233BA94D0097961E /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
