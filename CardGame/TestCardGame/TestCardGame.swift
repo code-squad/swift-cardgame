@@ -25,8 +25,6 @@ class TestCardGame: XCTestCase {
     }
 
     func test_makeCard() {
-        let randomCard = Card()
-        XCTAssertNotNil(randomCard)
         
         let cardByRaw = Card(2, 3)
         XCTAssertNotNil(cardByRaw)
