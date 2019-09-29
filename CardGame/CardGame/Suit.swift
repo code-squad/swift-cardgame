@@ -14,7 +14,7 @@
 
 import Foundation
 
-enum Suit: Int {
+enum Suit: Int, CaseIterable {
     case spade = 1
     case heart = 2
     case diamond = 3
