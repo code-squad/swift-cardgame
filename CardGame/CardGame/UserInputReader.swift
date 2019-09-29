@@ -8,16 +8,27 @@
 
 import Foundation
 
-protocol InputReadable {
-    func read() -> String
+enum Prompt: CustomStringConvertible {
+    case readGameType
+    case readNumberOfPlayer
+    
+    var description: String {
+        switch self {
+        case .readGameType :
+            return "카드 게임 종류를 선택하세요.\n1. 7카드\n2. 5카드"
+        case .readNumberOfPlayer :
+            return "참여할 사람의 인원을 입력하세요."
+        }
+    }
 }
 
-struct UserInputReader: InputReadable {
-    func read() -> String {
-        print("다음 메뉴를 선택해주세요.")
-        print("1. 카드 초기화")
-        print("2. 카드 섞기")
-        print("3. 카드 하나 뽑기")
+protocol UserInputReadable {
+    func read(prompt: Prompt) -> String
+}
+
+struct UserInputReader: UserInputReadable {
+    func read(prompt: Prompt) -> String {
+        print(prompt)
         return readLine() ?? ""
     }
 }

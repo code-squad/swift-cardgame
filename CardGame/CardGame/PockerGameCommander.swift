@@ -9,24 +9,32 @@
 import Foundation
 
 enum Command: Int {
-    case reset = 1, shuffle, distribute
+    case reset = 1, shuffle, distribute, finish
 }
 
 protocol Commandable {
-    func next() -> Command?
+    func next() -> Command
 }
 
-struct PockerGameCommander: Commandable {
-    private let reader: InputReadable
+class PockerGameCommander: Commandable {
+    private let provider: GameStateProvider
+    private var numberOfDistribution: Int
     
-    init(reader: InputReadable) {
-        self.reader = reader
+    init(gameStateProvider: GameStateProvider) {
+        self.provider = gameStateProvider
+        self.numberOfDistribution = 0
     }
     
-    func next() -> Command? {
-        guard let number = Int(reader.read()) else {
-            return nil
+    func canDistributeCards() -> Bool {
+        return provider.pockerGameType.rawValue > numberOfDistribution &&
+                provider.deck.cards.count >= provider.numberOfPlayers
+    }
+    
+    func next() -> Command {
+        guard canDistributeCards() else {
+            return Command.finish
         }
-        return Command(rawValue: number)
+        numberOfDistribution += 1
+        return Command.distribute
     }
 }

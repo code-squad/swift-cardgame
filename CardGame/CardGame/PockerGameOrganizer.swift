@@ -23,9 +23,13 @@ class PockerGameOrganizer {
     }
     
     func play() {
-        guard let command = commander.next() else {
-            return
+        while true {
+            let command = commander.next()
+            receiver.onReceive(command: command)
+            if command == .finish {
+                return
+            }
+            usleep(1000000)
         }
-        receiver.onReceive(command: command)
     }
 }

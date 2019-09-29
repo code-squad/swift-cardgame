@@ -8,16 +8,20 @@
 
 import Foundation
 
-let player = PockerPlayer(name: "Jake")
+let userInputReader = UserInputReader()
+let settingVeiw = PockerGameSettingView(reader: userInputReader)
+let pockerGameType = settingVeiw.readGameType()
+let numberOfPlayers = settingVeiw.readNumberOfPlayers()
+
+let players = PockerPlayerRegistry.call(numberOfPlayers: numberOfPlayers)
 let subscriber = PockerGameOuputView()
+let game = PockerGame(players: players, subscriber: subscriber, pockerGameType: pockerGameType)
 
-let game = PockerGame(players: [player], subscriber: subscriber)
-
-let reader = UserInputReader()
-let commander = PockerGameCommander(reader: reader)
+let commander = PockerGameCommander(gameStateProvider: game)
 let organizer = PockerGameOrganizer(commander: commander, receiver: game)
 
-while true {
-    organizer.play()
-}
+organizer.play()
+
+
+
 
