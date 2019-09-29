@@ -42,7 +42,11 @@ class CardDeck {
     }
     
     public func removeOne() -> Card? {
-        return self.deck.removeLast()
+        if self.count() > 0 {
+            return self.deck.removeLast()
+        } else {
+            return nil
+        }
     }
     
     public func reset() {

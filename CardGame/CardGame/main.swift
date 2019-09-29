@@ -10,12 +10,10 @@ import Foundation
 
 
 func main() {
-    
-    let randomSuit = Suit(rawValue: Int.random(in: 1...4)) ?? Suit.spade
-    let randomRank = Rank(rawValue: Int.random(in: 1...13)) ?? Rank.one
-    let card = Card(suit: randomSuit, rank: randomRank)
-    print(card.description)
-}
 
+    let cardGame = CardGame()
+    cardGame.playGame(numberOfTimes: 100)
+
+}
 
 main()
