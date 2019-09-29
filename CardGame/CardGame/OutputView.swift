@@ -9,8 +9,8 @@
 import Foundation
 
 struct OutputView {
-	static func display(_ displayable: Displayable) {
-		print(displayable.text)
+	static func display(_ displayable: CustomStringConvertible) {
+		print(displayable.description)
 	}
 }
 
