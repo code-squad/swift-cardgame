@@ -20,7 +20,8 @@ extension Array {
     }
 }
 
-struct CardDeck {
+class CardDeck {
+    
     private var cards = [Card]()
     
     init() {
@@ -35,7 +36,7 @@ struct CardDeck {
         return cards
     }
 
-    mutating func reset() {
+    func reset() {
         /* 생성시에는 아래의 모양으로 값이 주어진다.
          [
              Card(spades,ace), ... , Card(spades, king),
@@ -52,11 +53,11 @@ struct CardDeck {
         }
     }
     
-    mutating func shuffle() {
+    func shuffle() {
         cards.shuffle()
     }
     
-    mutating func removeOne() -> Card? {
+    func removeOne() -> Card? {
         guard let card = cards.first else { return nil }
         
         cards.removeFirst()
