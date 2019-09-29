@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Suit: Int {
+enum Suit: Int, CaseIterable {
     case spades, hearts, diamonds, clubs
     func description() -> String {
         switch self {

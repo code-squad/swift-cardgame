@@ -14,15 +14,21 @@ protocol CardDescribe {
 }
 
 /// 굳이 class로 만들지 않아도 될 것 같아서 struct형식으로 만들었습니다.
-struct Card : CardDescribe {
+struct Card : CardDescribe, Equatable {
+    
     private let suit: Suit
     private let rank: Rank
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.suit == rhs.suit && lhs.rank == rhs.rank
+    }
     
     init(suit: Suit, rank: Rank) {
         self.suit = suit
         self.rank = rank
     }
     
+    /// CardDescribe
     func suitDescribe() -> String {
         return suit.description()
     }
@@ -30,4 +36,5 @@ struct Card : CardDescribe {
     func rankDescribe() -> String {
         return rank.description()
     }
+
 }
