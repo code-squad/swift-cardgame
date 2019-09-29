@@ -9,13 +9,13 @@
 import Foundation
 
 struct Card {
-	enum Figure {
+	enum Figure: CustomStringConvertible {
 		case spade
 		case diamond
 		case heart
 		case clover
 		
-		var representation: String {
+		var description: String {
 			switch self {
 			case .spade: return "♠️"
 			case .diamond: return "💎"
@@ -25,7 +25,7 @@ struct Card {
 		}
 	}
 	
-	enum Number: Int {
+	enum Number: Int, CustomStringConvertible {
 		case one
 		case two
 		case three
@@ -40,7 +40,7 @@ struct Card {
 		case twelve
 		case thirteen
 		
-		var representation: String {
+		var description: String {
 			switch self {
 			case .one: return "A"
 			case .eleven: return "J"
@@ -54,4 +54,11 @@ struct Card {
 	
 	let figure: Figure
 	let number: Number
+}
+
+
+extension Card: CustomStringConvertible {
+	var description: String {
+		return "\(figure.description)\(number.description)"
+	}
 }

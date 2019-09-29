@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F442F38233BB1D400AC03D9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F442F37233BB1D400AC03D9 /* Card.swift */; };
-		6F442F3A233BB1EC00AC03D9 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F442F39233BB1EC00AC03D9 /* Displayable.swift */; };
-		6F442F3C233BB20900AC03D9 /* Card+Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F442F3B233BB20900AC03D9 /* Card+Displayable.swift */; };
 		6F442F3E233BB21900AC03D9 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F442F3D233BB21900AC03D9 /* OutputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
@@ -28,8 +26,6 @@
 
 /* Begin PBXFileReference section */
 		6F442F37233BB1D400AC03D9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		6F442F39233BB1EC00AC03D9 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
-		6F442F3B233BB20900AC03D9 /* Card+Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Displayable.swift"; sourceTree = "<group>"; };
 		6F442F3D233BB21900AC03D9 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -67,8 +63,6 @@
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				6F442F37233BB1D400AC03D9 /* Card.swift */,
-				6F442F3B233BB20900AC03D9 /* Card+Displayable.swift */,
-				6F442F39233BB1EC00AC03D9 /* Displayable.swift */,
 				6F442F3D233BB21900AC03D9 /* OutputView.swift */,
 			);
 			path = CardGame;
@@ -133,9 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F442F3E233BB21900AC03D9 /* OutputView.swift in Sources */,
-				6F442F3C233BB20900AC03D9 /* Card+Displayable.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
-				6F442F3A233BB1EC00AC03D9 /* Displayable.swift in Sources */,
 				6F442F38233BB1D400AC03D9 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
