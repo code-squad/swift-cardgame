@@ -1,0 +1,66 @@
+//
+//  CardDeck.swift
+//  CardGame
+//
+//  Created by 공명진 on 2019/09/29.
+//  Copyright © 2019 JK. All rights reserved.
+//
+
+import Foundation
+
+/// https://github.com/raywenderlich/swift-algorithm-club/tree/master/Shuffle
+extension Array {
+    public mutating func shuffle() {
+        for i in stride(from: count - 1, through: 1, by: -1) {
+            let j = Int.random(in: 0...i)
+            if i != j {
+                self.swapAt(i, j)
+            }
+        }
+    }
+}
+
+struct CardDeck {
+    private var cards = [Card]()
+    
+    init() {
+        reset()
+    }
+    
+    func count() -> Int {
+        return cards.count
+    }
+    
+    func allCards() -> [Card] {
+        return cards
+    }
+
+    mutating func reset() {
+        /* 생성시에는 아래의 모양으로 값이 주어진다.
+         [
+             Card(spades,ace), ... , Card(spades, king),
+             Card(hearts, ace), ... , Card(hearts, king),
+             Card(diamonds, ace), ... , Card(diamonds, king),
+             Card(clubs, ace), ... , Card(clubs, king)
+         ]
+         */
+        cards.removeAll()
+        for suit in Suit.allCases {
+            for rank in Rank.allCases {
+                cards.append(Card(suit: suit, rank: rank))
+            }
+        }
+    }
+    
+    mutating func shuffle() {
+        cards.shuffle()
+    }
+    
+    mutating func removeOne() -> Card? {
+        guard let card = cards.first else { return nil }
+        
+        cards.removeFirst()
+        return card
+    }
+    
+}
