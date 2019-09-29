@@ -8,7 +8,10 @@
 
 import Foundation
 
-OutputView.printCard(card: Card(suit: Suit(rawValue: Int.random(in: 0...3))!,
-                                rank: Rank(rawValue: Int.random(in: 1...13))!))
+var menuItem = InputView.inputMenu()
+let cardDeck = CardDeck()
 
-
+while (menuItem != 4) {
+    OutputView.printResult(cardDeck: cardDeck, menuItem: menuItem)
+    menuItem = InputView.inputMenu()
+}
