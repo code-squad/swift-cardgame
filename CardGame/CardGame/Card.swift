@@ -9,7 +9,7 @@
 import Foundation
 
 struct Card {
-	enum Figure: CustomStringConvertible {
+	enum Figure: CustomStringConvertible, CaseIterable {
 		case spade
 		case diamond
 		case heart
@@ -25,7 +25,7 @@ struct Card {
 		}
 	}
 	
-	enum Number: Int, CustomStringConvertible {
+	enum Number: Int, CustomStringConvertible, CaseIterable {
 		case one
 		case two
 		case three
