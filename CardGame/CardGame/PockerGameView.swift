@@ -10,8 +10,12 @@ import Foundation
 
 struct PockerGameOuputView: PockerGameSubscriber {
     
-    func didDistributeCard(card: Card, from cardDeck: CardDeck, to player: String) {
-        print("\(card)\n총 \(cardDeck.cards.count)장의 카드가 남아있습니다.")
+    func didFinishGame(game: PockerGame) {
+        //print("\(game)")
+    }
+    
+    func didDistributeCard(game: PockerGame) {
+        print("\(game)\n")
     }
     
     func didResetCardDeck(cardDeck: CardDeck) {
