@@ -14,7 +14,7 @@ func main() {
     
     for _ in 1...10 {
         let card = PlayingCard(suit: suitsPool[Int.random(in: 0...3)], rank: ranksPool[Int.random(in: 0...12)])
-        print(card.Value())
+        print(card)
     }
 }
 
