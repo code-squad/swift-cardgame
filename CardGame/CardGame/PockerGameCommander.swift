@@ -17,16 +17,16 @@ protocol Commandable {
 }
 
 class PockerGameCommander: Commandable {
-    private let provider: GameStateProvider
+    private let provider: GameStatusProvider
     private var numberOfDistribution: Int
     
-    init(gameStateProvider: GameStateProvider) {
-        self.provider = gameStateProvider
+    init(pockerGameType: PockerGameType, gameStatusProvider: GameStatusProvider) {
+        self.provider = gameStatusProvider
         self.numberOfDistribution = 0
     }
     
     func canDistributeCards() -> Bool {
-        return provider.pockerGameType.rawValue > numberOfDistribution &&
+        return pockerGameType.rawValue > numberOfDistribution &&
                 provider.deck.cards.count >= provider.numberOfPlayers
     }
     

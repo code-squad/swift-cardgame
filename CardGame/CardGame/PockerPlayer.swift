@@ -9,7 +9,7 @@
 import Foundation
 
 struct PockerPlayer: CustomStringConvertible {
-    let name: String
+    private(set) var name: String
     private(set) var cards: [Card]
     
     init(name: String) {

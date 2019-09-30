@@ -15,16 +15,14 @@ protocol PockerGameSubscriber {
     func didFinishGame(game: PockerGame)
 }
 
-protocol GameStateProvider {
+protocol GameStatusProvider {
     var deck: CardDeck { get }
     var numberOfPlayers: Int { get }
-    var pockerGameType: PockerGameType { get }
 }
 
-class PockerGame: GameStateProvider {
+class PockerGame: GameStatusProvider {
     
     private(set) var deck: CardDeck
-    private(set) var pockerGameType: PockerGameType
     private let subscriber : PockerGameSubscriber
     private var players: [PockerPlayer]
     
@@ -32,9 +30,8 @@ class PockerGame: GameStateProvider {
         return players.count
     }
     
-    init(players:[PockerPlayer], subscriber: PockerGameSubscriber, pockerGameType: PockerGameType) {
+    init(players:[PockerPlayer], subscriber: PockerGameSubscriber) {
         self.subscriber = subscriber
-        self.pockerGameType = pockerGameType
         self.players = players
         self.deck = CardDeck()
     }
