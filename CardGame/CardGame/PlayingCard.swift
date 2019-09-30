@@ -11,7 +11,7 @@ import Foundation
 class PlayingCard {
     
     // suit 는 하나의 카드에 포함되는 속성이기 때문에 PlayingCard 의 nested enum 으로 표현함
-    enum Suit : String { // playing card symbols
+    enum Suit : String, CaseIterable { // playing card symbols
         case spades = "♠"
         case hearts = "♥"
         case diamonds = "♦"
@@ -19,7 +19,7 @@ class PlayingCard {
     }
     
     // rank 또한 하나의 카드에 포함되는 속성이기 때문에 PlayingCard 의 nested enum 으로 표현함
-    enum Rank : Int, CustomStringConvertible { // plyaing card numbers
+    enum Rank : Int, CustomStringConvertible, CaseIterable { // plyaing card numbers
         case ace = 1
         case two
         case three

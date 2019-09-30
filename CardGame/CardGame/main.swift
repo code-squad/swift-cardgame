@@ -9,11 +9,11 @@
 import Foundation
 
 func main() {
-    let suitsPool: [PlayingCard.Suit] = [.spades, .hearts, .diamonds, .clubs]
-    let ranksPool: [PlayingCard.Rank] = [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
+//    let suitsPool: [PlayingCard.Suit] = [.spades, .hearts, .diamonds, .clubs]
+//    let ranksPool: [PlayingCard.Rank] = [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
     
     for _ in 1...10 {
-        let card = PlayingCard(suit: suitsPool[Int.random(in: 0...3)], rank: ranksPool[Int.random(in: 0...12)])
+        let card = PlayingCard(suit: PlayingCard.Suit.allCases[Int.random(in: 0...3)], rank: PlayingCard.Rank.allCases[Int.random(in: 0...12)])
         print(card)
     }
 }
