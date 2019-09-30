@@ -13,7 +13,7 @@ let settingVeiw = PockerGameSettingView(reader: userInputReader)
 let pockerGameType = settingVeiw.readGameType()
 let numberOfPlayers = settingVeiw.readNumberOfPlayers()
 
-let players = PockerPlayerRegistry.call(numberOfPlayers: numberOfPlayers)
+let players = [PockerPlayerRegistry.gameDealer] + PockerPlayerRegistry.players(with: numberOfPlayers)
 let subscriber = PockerGameOuputView()
 let game = PockerGame(players: players, subscriber: subscriber)
 
