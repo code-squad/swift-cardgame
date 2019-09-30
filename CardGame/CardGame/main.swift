@@ -15,9 +15,9 @@ let numberOfPlayers = settingVeiw.readNumberOfPlayers()
 
 let players = PockerPlayerRegistry.call(numberOfPlayers: numberOfPlayers)
 let subscriber = PockerGameOuputView()
-let game = PockerGame(players: players, subscriber: subscriber, pockerGameType: pockerGameType)
+let game = PockerGame(players: players, subscriber: subscriber)
 
-let commander = PockerGameCommander(gameStateProvider: game)
+let commander = PockerGameCommander(pockerGameType: pockerGameType, gameStatusProvider: game)
 let organizer = PockerGameOrganizer(commander: commander, receiver: game)
 
 organizer.play()

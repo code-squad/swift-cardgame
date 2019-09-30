@@ -15,7 +15,7 @@ enum PockerGameType: Int {
 
 struct PockerGameSettingView {
     
-    let reader: UserInputReadable
+    private let reader: UserInputReadable
     
     init(reader: UserInputReadable) {
         self.reader = reader
