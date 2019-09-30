@@ -23,7 +23,7 @@ struct Card: CustomStringConvertible {
     
 }
 
-enum Shape:String {
+enum Shape:String, CaseIterable {
     case Spades = "♠︎"
     case Clubs = "♣︎"
     case Hearts = "♥︎"
@@ -31,11 +31,11 @@ enum Shape:String {
 }
 
 enum CardNumber:Int, CustomStringConvertible {
-    case one
+    case one = 1
     case two,three,four,five,six,seven,eight,nine,ten
-    case eleven
-    case twelve
-    case thirteen
+    case eleven = 11
+    case twelve = 12
+    case thirteen = 13
     
     var description: String {
         switch self {

@@ -8,6 +8,8 @@
 
 import Foundation
 
+let view:CardGameView = CardGameViewImpl()
+let deck:CardDeck = CardDeckImpl()
 
-let card = Card(shape: Shape.Spades, cardNumber: CardNumber.eleven)
-OutputView.printCard(card: card)
+var game:CardGame = CardGameImpl(inputView: view, cardDeck: deck)
+game.start()
