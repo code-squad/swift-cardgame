@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DC0C4DB233DEA210018C551 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4DA233DEA210018C551 /* PlayingCard.swift */; };
+		5DC0C4DB233DEA210018C551 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4DA233DEA210018C551 /* Card.swift */; };
 		5DC0C4E3233DF8E00018C551 /* CardGameUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4E2233DF8E00018C551 /* CardGameUnitTest.swift */; };
 		5DC0C4E8233DF8E90018C551 /* PlayingCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4D8233DEA120018C551 /* PlayingCardTest.swift */; };
 		5DC0C4E9233DF8F00018C551 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
-		5DC0C4EA233DF8F30018C551 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4DA233DEA210018C551 /* PlayingCard.swift */; };
+		5DC0C4EA233DF8F30018C551 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4DA233DEA210018C551 /* Card.swift */; };
+		5DC0C4EE2341AAFA0018C551 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4ED2341AAFA0018C551 /* OutputView.swift */; };
+		5DC0C4F02341AB1B0018C551 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4EF2341AB1B0018C551 /* InputView.swift */; };
+		5DC0C4F22342954B0018C551 /* CardGameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4F12342954B0018C551 /* CardGameInput.swift */; };
+		5DC0C4F4234298360018C551 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4F3234298360018C551 /* CardDeck.swift */; };
+		5DC0C4F5234299150018C551 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4EF2341AB1B0018C551 /* InputView.swift */; };
+		5DC0C4F72342991C0018C551 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4F3234298360018C551 /* CardDeck.swift */; };
+		5DC0C4F823429AFD0018C551 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4ED2341AAFA0018C551 /* OutputView.swift */; };
+		5DC0C4F92342A7340018C551 /* CardGameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4F12342954B0018C551 /* CardGameInput.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,10 +37,14 @@
 
 /* Begin PBXFileReference section */
 		5DC0C4D8233DEA120018C551 /* PlayingCardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardTest.swift; sourceTree = "<group>"; };
-		5DC0C4DA233DEA210018C551 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
+		5DC0C4DA233DEA210018C551 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5DC0C4E0233DF8E00018C551 /* CardGameUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC0C4E2233DF8E00018C551 /* CardGameUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameUnitTest.swift; sourceTree = "<group>"; };
 		5DC0C4E4233DF8E00018C551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DC0C4ED2341AAFA0018C551 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		5DC0C4EF2341AB1B0018C551 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		5DC0C4F12342954B0018C551 /* CardGameInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameInput.swift; sourceTree = "<group>"; };
+		5DC0C4F3234298360018C551 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +99,11 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				5DC0C4DA233DEA210018C551 /* PlayingCard.swift */,
+				5DC0C4EF2341AB1B0018C551 /* InputView.swift */,
+				5DC0C4DA233DEA210018C551 /* Card.swift */,
+				5DC0C4ED2341AAFA0018C551 /* OutputView.swift */,
+				5DC0C4F12342954B0018C551 /* CardGameInput.swift */,
+				5DC0C4F3234298360018C551 /* CardDeck.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -184,8 +200,12 @@
 			files = (
 				5DC0C4E8233DF8E90018C551 /* PlayingCardTest.swift in Sources */,
 				5DC0C4E3233DF8E00018C551 /* CardGameUnitTest.swift in Sources */,
-				5DC0C4EA233DF8F30018C551 /* PlayingCard.swift in Sources */,
+				5DC0C4F92342A7340018C551 /* CardGameInput.swift in Sources */,
+				5DC0C4F5234299150018C551 /* InputView.swift in Sources */,
+				5DC0C4EA233DF8F30018C551 /* Card.swift in Sources */,
+				5DC0C4F72342991C0018C551 /* CardDeck.swift in Sources */,
 				5DC0C4E9233DF8F00018C551 /* main.swift in Sources */,
+				5DC0C4F823429AFD0018C551 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DC0C4DB233DEA210018C551 /* PlayingCard.swift in Sources */,
+				5DC0C4F4234298360018C551 /* CardDeck.swift in Sources */,
+				5DC0C4DB233DEA210018C551 /* Card.swift in Sources */,
+				5DC0C4F22342954B0018C551 /* CardGameInput.swift in Sources */,
+				5DC0C4F02341AB1B0018C551 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				5DC0C4EE2341AAFA0018C551 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
