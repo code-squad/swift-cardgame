@@ -9,8 +9,13 @@
 import Foundation
 
 struct PockerPlayerRegistry {
-    static func call(numberOfPlayers: Int) -> [PockerPlayer] {
-        var players = [PockerPlayer(name: "딜러")]
+    
+    static var gameDealer: PockerPlayer {
+        return PockerPlayer(name: "딜러")
+    }
+    
+    static func players(with numberOfPlayers: Int) -> [PockerPlayer] {
+        var players: [PockerPlayer] = []
         Array(0..<numberOfPlayers).forEach {
             players.append(PockerPlayer(name: "참가자#\($0+1)"))
         }
