@@ -27,7 +27,7 @@ class CardDeckTests: XCTestCase {
          Card(clubs, ace), ... , Card(clubs, king)
          ]
          */
-        var cardDeck = CardDeck()
+        let cardDeck = CardDeck()
         cardDeck.reset()
         
         XCTAssert(cardDeck.count() == Int(52), "\(cardDeck.count())")
@@ -36,7 +36,7 @@ class CardDeckTests: XCTestCase {
     }
     
     func testCardDeckShuffle() {
-        var cardDeck = CardDeck()
+        let cardDeck = CardDeck()
 
         cardDeck.shuffle()
         let card1 = cardDeck.allCards().first
@@ -48,12 +48,12 @@ class CardDeckTests: XCTestCase {
     }
     
     func testCardRemoveOne() {
-        var cardDeck = CardDeck()
+        let cardDeck = CardDeck()
         XCTAssertNotNil(cardDeck.removeOne())
     }
     
     func testCardRemoveAll() {
-        var cardDeck = CardDeck()
+        let cardDeck = CardDeck()
         for _ in 0 ... 52 {
             _ = cardDeck.removeOne()
         }
