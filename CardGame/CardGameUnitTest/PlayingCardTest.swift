@@ -1,5 +1,5 @@
 //
-//  PlayingCardTest.swift
+//  CardTest.swift
 //  CardGame
 //
 //  Created by temphee.Reid on 27/09/2019.
@@ -8,9 +8,9 @@
 
 import XCTest
 
-class PlayingCardTest: XCTestCase {
-    var suitsPool: [PlayingCard.Suit]!
-    var ranksPool: [PlayingCard.Rank]!
+class CardTest: XCTestCase {
+    var suitsPool: [Card.Suit]!
+    var ranksPool: [Card.Rank]!
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,29 +22,29 @@ class PlayingCardTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_PlayingCard_returns_spades_three() {
-        let card = PlayingCard(suit: PlayingCard.Suit.spades, rank: PlayingCard.Rank.three)
+    func test_Card_returns_spades_three() {
+        let card = Card(suit: Card.Suit.spades, rank: Card.Rank.three)
     
-        XCTAssertEqual("♠3", card.Value())
+        XCTAssertEqual("♠3", card.description)
     }
     
-    func test_PlayingCard_Rank_toString_jack() {
-        let club = PlayingCard.Rank.jack
+    func test_Card_Rank_toString_jack() {
+        let club = Card.Rank.jack
         
-        XCTAssertEqual(club.toString(), "J")
+        XCTAssertEqual(club.description, "J")
     }
     
-    func test_PlayingCard_Rank_toString_ace() {
-        let club = PlayingCard.Rank.ace
+    func test_Card_Rank_toString_ace() {
+        let club = Card.Rank.ace
         
-        XCTAssertEqual(club.toString(), "A")
+        XCTAssertEqual(club.description, "A")
         XCTAssertEqual(club.rawValue, 1)
     }
     
-    func test_PlayingCard_Rank_toString_four() {
-        let club = PlayingCard.Rank.four
+    func test_Card_Rank_toString_four() {
+        let club = Card.Rank.four
         
-        XCTAssertEqual(club.toString(), "4")
+        XCTAssertEqual(club.description, "4")
         XCTAssertEqual(club.rawValue, 4)
     }
     

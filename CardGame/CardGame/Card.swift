@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlayingCard {
+class Card {
     
     // suit 는 하나의 카드에 포함되는 속성이기 때문에 PlayingCard 의 nested enum 으로 표현함
     enum Suit : String, CaseIterable { // playing card symbols
@@ -59,7 +59,7 @@ class PlayingCard {
     }
 }
 
-extension PlayingCard : CustomStringConvertible {
+extension Card : CustomStringConvertible {
     var description: String {
         return "\(self.suit.rawValue)\(self.rank)"
     }
