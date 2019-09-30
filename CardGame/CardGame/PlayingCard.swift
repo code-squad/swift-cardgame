@@ -19,7 +19,7 @@ class PlayingCard {
     }
     
     // rank 또한 하나의 카드에 포함되는 속성이기 때문에 PlayingCard 의 nested enum 으로 표현함
-    enum Rank : Int { // plyaing card numbers
+    enum Rank : Int, CustomStringConvertible { // plyaing card numbers
         case ace = 1
         case two
         case three
@@ -34,7 +34,7 @@ class PlayingCard {
         case queen = 12
         case king = 13
         
-        func toString() -> String {
+        var description: String {
             switch(self) {
             case .ace :
                 return "A"
@@ -57,8 +57,10 @@ class PlayingCard {
         self.suit = suit
         self.rank = rank
     }
-    
-    func Value() -> String {
-        return "\(self.suit.rawValue)\(self.rank.toString())"
+}
+
+extension PlayingCard : CustomStringConvertible {
+    var description: String {
+        return "\(self.suit.rawValue)\(self.rank)"
     }
 }
