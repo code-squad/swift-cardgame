@@ -10,13 +10,15 @@ import Foundation
 
 /// https://github.com/raywenderlich/swift-algorithm-club/tree/master/Shuffle
 extension Array {
-    public mutating func shuffle() {
-        for i in stride(from: count - 1, through: 1, by: -1) {
+    public func shuffle() -> Array {
+        var list = self
+        for i in stride(from: list.count - 1, to: 1, by: -1) {
             let j = Int.random(in: 0...i)
             if i != j {
-                self.swapAt(i, j)
+                list.swapAt(i, j)
             }
         }
+        return list
     }
 }
 
@@ -54,7 +56,7 @@ class CardDeck {
     }
     
     func shuffle() {
-        cards.shuffle()
+        cards = cards.shuffle()
     }
     
     func removeOne() -> Card? {
