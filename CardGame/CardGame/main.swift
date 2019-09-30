@@ -13,12 +13,13 @@ let settingVeiw = PockerGameSettingView(reader: userInputReader)
 let pockerGameType = settingVeiw.readGameType()
 let numberOfPlayers = settingVeiw.readNumberOfPlayers()
 
-let players = [PockerPlayerRegistry.gameDealer] + PockerPlayerRegistry.players(with: numberOfPlayers)
 let subscriber = PockerGameOuputView()
-let game = PockerGame(players: players, subscriber: subscriber)
+let dealer = PockerGameDealer(pockerGameType: pockerGameType)
+let registry = PockerPlayerRegistry(dealer:dealer, numberOfPlayers: numberOfPlayers)
+let game = PockerGame(registry: registry, subscriber: subscriber)
+dealer.assign(game: game)
 
-let commander = PockerGameCommander(pockerGameType: pockerGameType, gameStatusProvider: game)
-let organizer = PockerGameOrganizer(commander: commander, receiver: game)
+let organizer = PockerGameOrganizer(dealer: dealer, receiver: game)
 
 organizer.play()
 
