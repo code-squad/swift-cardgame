@@ -13,22 +13,28 @@ struct CardDeck {
     private(set) var cards: [Card]
     
     init() {
-        cards = CardHolder.allCards()
+        self.cards = CardHolder.allCards().shuffled()
+    }
+    
+    private init(cards: [Card]) {
+        self.cards = cards
     }
 
     func count() -> Int {
         return cards.count
     }
     
-    mutating func shuffle() -> Void {
-        cards.shuffle()
+    func shuffle() -> CardDeck {
+        return CardDeck(cards: cards)
     }
     
-    mutating func removeOne() -> Card {
-        return cards.remove(at: Int.random(in: 0..<cards.count))
+    func removeOne() -> (cardDeck:CardDeck, removedCard: Card) {
+        var newCards = cards
+        let card = newCards.removeLast()
+        return (CardDeck(cards: newCards), card)
     }
     
-    mutating func reset() -> Void {
-        cards = CardHolder.allCards()
+    func reset() -> CardDeck {
+        return CardDeck(cards: CardHolder.allCards())
     }
 }

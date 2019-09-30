@@ -8,24 +8,17 @@
 
 import Foundation
 
-struct PockerPlayer: CustomStringConvertible {
+struct PockerPlayer: PockerPlayable {
+
     private(set) var name: String
     private(set) var cards: [Card]
     
-    init(name: String) {
+    init(name: String, cards: [Card]) {
         self.name = name
-        self.cards = []
+        self.cards = cards
     }
     
-    mutating func addCard(card: Card) {
-        self.cards.append(card)
-    }
-    
-    mutating func reset() {
-        self.cards.removeAll()
-    }
-    
-    var description: String {
-        return "[\(cards.map { $0.description }.joined(separator: ", "))]"
+    func updated(by cards: [Card]) -> PockerPlayable {
+        return PockerPlayer(name: name, cards: cards)
     }
 }

@@ -24,15 +24,15 @@ class PockerGame: GameStatusProvider {
     
     private(set) var deck: CardDeck
     private let subscriber : PockerGameSubscriber
-    private var players: [PockerPlayer]
+    private var registry: PockerPlayerRegistry
     
     var numberOfPlayers: Int {
-        return players.count
+        return registry.players.count
     }
     
-    init(players:[PockerPlayer], subscriber: PockerGameSubscriber) {
+    init(registry: PockerPlayerRegistry, subscriber: PockerGameSubscriber) {
         self.subscriber = subscriber
-        self.players = players
+        self.registry = registry
         self.deck = CardDeck()
     }
 }
@@ -49,15 +49,13 @@ extension PockerGame:  CommandReceiverable {
     }
     
     private func reset() {
-        deck.reset()
-        for i in 0..<players.count {
-            players[i].reset()
-        }
+        deck = deck.reset()
+        registry = registry.reset()
         subscriber.didResetCardDeck(cardDeck: deck)
     }
     
     private func shuffle() {
-        deck.shuffle()
+        deck = deck.shuffle()
         subscriber.didShuffleCardDeck(cardDeck: deck)
     }
     
@@ -66,16 +64,15 @@ extension PockerGame:  CommandReceiverable {
     }
     
     private func distributeCard() {
-        for i in 0..<players.count {
-            let card = deck.removeOne()
-            players[i].addCard(card: card)
-        }
+        let result = registry.distributeCard(with: deck)
+        registry = result.registry
+        deck = result.cardDeck
         subscriber.didDistributeCard(game: self)
     }
 }
 
 extension PockerGame: CustomStringConvertible {
     var description: String {
-        return players.map { "\($0.name) \($0.description)" }.joined(separator: "\n")
+        return registry.description
     }
 }

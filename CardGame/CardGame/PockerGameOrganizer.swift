@@ -15,16 +15,16 @@ protocol CommandReceiverable {
 class PockerGameOrganizer {
     
     private var receiver: CommandReceiverable
-    private let commander: Commandable
+    private let dealer: Commandable
     
-    init(commander: Commandable, receiver: CommandReceiverable) {
-        self.commander = commander
+    init(dealer: Commandable, receiver: CommandReceiverable) {
+        self.dealer = dealer
         self.receiver = receiver
     }
     
     func play() {
         while true {
-            let command = commander.next()
+            let command = dealer.next()
             receiver.onReceive(command: command)
             if command == .finish {
                 return

@@ -14,9 +14,10 @@
 		CF61C7DC233E235200E730FA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB86632233E10C6002C9831 /* Card.swift */; };
 		CF699A52233E588900AA4B07 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A51233E588900AA4B07 /* CardDeck.swift */; };
 		CF699A56233E6BD800AA4B07 /* UserInputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A55233E6BD800AA4B07 /* UserInputReader.swift */; };
-		CF699A58233E6D7100AA4B07 /* PockerGameCommander.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A57233E6D7100AA4B07 /* PockerGameCommander.swift */; };
+		CF699A58233E6D7100AA4B07 /* PockerGameDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A57233E6D7100AA4B07 /* PockerGameDealer.swift */; };
 		CF699A5C233E764800AA4B07 /* CardHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A5B233E764800AA4B07 /* CardHolder.swift */; };
 		CF699A60233E7E4300AA4B07 /* PockerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A5F233E7E4300AA4B07 /* PockerGameView.swift */; };
+		CF69C7E92342478C00835032 /* PockerPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69C7E82342478C00835032 /* PockerPlayable.swift */; };
 		CF8DE2D5233FB49A002C03E0 /* PockerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8DE2D4233FB49A002C03E0 /* PockerGame.swift */; };
 		CF9168ED234100B900ABB05C /* PockerGameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9168EC234100B900ABB05C /* PockerGameSettingView.swift */; };
 		CF9168EF2341028B00ABB05C /* PockerGameRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9168EE2341028B00ABB05C /* PockerGameRule.swift */; };
@@ -46,9 +47,10 @@
 		CF61C7DA233E22DE00E730FA /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		CF699A51233E588900AA4B07 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		CF699A55233E6BD800AA4B07 /* UserInputReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputReader.swift; sourceTree = "<group>"; };
-		CF699A57233E6D7100AA4B07 /* PockerGameCommander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameCommander.swift; sourceTree = "<group>"; };
+		CF699A57233E6D7100AA4B07 /* PockerGameDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameDealer.swift; sourceTree = "<group>"; };
 		CF699A5B233E764800AA4B07 /* CardHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHolder.swift; sourceTree = "<group>"; };
 		CF699A5F233E7E4300AA4B07 /* PockerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameView.swift; sourceTree = "<group>"; };
+		CF69C7E82342478C00835032 /* PockerPlayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerPlayable.swift; sourceTree = "<group>"; };
 		CF8DE2D4233FB49A002C03E0 /* PockerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGame.swift; sourceTree = "<group>"; };
 		CF9168EC234100B900ABB05C /* PockerGameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameSettingView.swift; sourceTree = "<group>"; };
 		CF9168EE2341028B00ABB05C /* PockerGameRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameRule.swift; sourceTree = "<group>"; };
@@ -96,10 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				CF37EB5523409033004CCB96 /* PockerPlayer.swift */,
 				CF8DE2D4233FB49A002C03E0 /* PockerGame.swift */,
 				CF37EB5323408440004CCB96 /* PockerGameOrganizer.swift */,
-				CF699A57233E6D7100AA4B07 /* PockerGameCommander.swift */,
 				CFB86632233E10C6002C9831 /* Card.swift */,
 				CF699A51233E588900AA4B07 /* CardDeck.swift */,
 				CF699A5B233E764800AA4B07 /* CardHolder.swift */,
@@ -108,6 +108,9 @@
 				CF9168EC234100B900ABB05C /* PockerGameSettingView.swift */,
 				CF9168EE2341028B00ABB05C /* PockerGameRule.swift */,
 				CF9168F023411CCD00ABB05C /* PockerPlayerRegistry.swift */,
+				CF37EB5523409033004CCB96 /* PockerPlayer.swift */,
+				CF699A57233E6D7100AA4B07 /* PockerGameDealer.swift */,
+				CF69C7E82342478C00835032 /* PockerPlayable.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -214,12 +217,13 @@
 				CF699A52233E588900AA4B07 /* CardDeck.swift in Sources */,
 				CF9168EF2341028B00ABB05C /* PockerGameRule.swift in Sources */,
 				CF699A56233E6BD800AA4B07 /* UserInputReader.swift in Sources */,
+				CF69C7E92342478C00835032 /* PockerPlayable.swift in Sources */,
 				CF9168F123411CCD00ABB05C /* PockerPlayerRegistry.swift in Sources */,
 				CF8DE2D5233FB49A002C03E0 /* PockerGame.swift in Sources */,
 				CF9168ED234100B900ABB05C /* PockerGameSettingView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
 				CF699A5C233E764800AA4B07 /* CardHolder.swift in Sources */,
-				CF699A58233E6D7100AA4B07 /* PockerGameCommander.swift in Sources */,
+				CF699A58233E6D7100AA4B07 /* PockerGameDealer.swift in Sources */,
 				CF37EB5623409033004CCB96 /* PockerPlayer.swift in Sources */,
 				CF699A60233E7E4300AA4B07 /* PockerGameView.swift in Sources */,
 				CF37EB5423408440004CCB96 /* PockerGameOrganizer.swift in Sources */,
