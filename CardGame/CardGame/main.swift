@@ -8,4 +8,6 @@
 
 import Foundation
 
-CardDeckController.play()
+var cardPorkerController = CardPokerController()
+cardPorkerController.initCardDeck()
+cardPorkerController.start()

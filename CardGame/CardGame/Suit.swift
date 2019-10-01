@@ -13,13 +13,13 @@ enum Suit: Int, CaseIterable {
     func description() -> String {
         switch self {
         case .spades:
-            return "♠︎"
+            return "♠️"
         case .hearts:
-            return "♥︎"
+            return "♥️"
         case .diamonds:
-            return "♦︎"
+            return "♦️"
         case .clubs:
-            return "♣︎"
+            return "♣️"
         }
     }
 }

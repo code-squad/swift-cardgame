@@ -21,6 +21,11 @@
 		2D0AF9F32340820D0097961E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9F22340820D0097961E /* InputView.swift */; };
 		2D0AF9F5234220520097961E /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9F4234220520097961E /* CardGame.swift */; };
 		2D0AF9F923437ACC0097961E /* CardDeckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9F823437ACC0097961E /* CardDeckController.swift */; };
+		2D0AF9FB23437FF70097961E /* CardPokerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9FA23437FF70097961E /* CardPokerController.swift */; };
+		2D0AF9FD2343865C0097961E /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9FC2343865C0097961E /* GamePlayer.swift */; };
+		2D0AF9FF23438C760097961E /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AF9FE23438C760097961E /* Dealer.swift */; };
+		2D0AFA012343907F0097961E /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AFA002343907F0097961E /* Participant.swift */; };
+		2D0AFA03234392910097961E /* CardGameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0AFA02234392910097961E /* CardGameError.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +54,11 @@
 		2D0AF9F22340820D0097961E /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		2D0AF9F4234220520097961E /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		2D0AF9F823437ACC0097961E /* CardDeckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckController.swift; sourceTree = "<group>"; };
+		2D0AF9FA23437FF70097961E /* CardPokerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPokerController.swift; sourceTree = "<group>"; };
+		2D0AF9FC2343865C0097961E /* GamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayer.swift; sourceTree = "<group>"; };
+		2D0AF9FE23438C760097961E /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		2D0AFA002343907F0097961E /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		2D0AFA02234392910097961E /* CardGameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameError.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,10 +117,15 @@
 				2D0AF9E323401E9C0097961E /* Rank.swift */,
 				2D0AF9CA233BA6C90097961E /* Card.swift */,
 				2D0AF9E9234025F70097961E /* CardDeck.swift */,
-				2D0AF9D9233BA94D0097961E /* OutputView.swift */,
 				2D0AF9F4234220520097961E /* CardGame.swift */,
+				2D0AFA02234392910097961E /* CardGameError.swift */,
 				2D0AF9F22340820D0097961E /* InputView.swift */,
+				2D0AF9D9233BA94D0097961E /* OutputView.swift */,
 				2D0AF9F823437ACC0097961E /* CardDeckController.swift */,
+				2D0AF9FA23437FF70097961E /* CardPokerController.swift */,
+				2D0AFA002343907F0097961E /* Participant.swift */,
+				2D0AF9FE23438C760097961E /* Dealer.swift */,
+				2D0AF9FC2343865C0097961E /* GamePlayer.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -223,9 +238,14 @@
 				2D0AF9F32340820D0097961E /* InputView.swift in Sources */,
 				2D0AF9F923437ACC0097961E /* CardDeckController.swift in Sources */,
 				2D0AF9CB233BA6C90097961E /* Card.swift in Sources */,
+				2D0AFA03234392910097961E /* CardGameError.swift in Sources */,
+				2D0AFA012343907F0097961E /* Participant.swift in Sources */,
 				2D0AF9E223401E900097961E /* Suit.swift in Sources */,
+				2D0AF9FB23437FF70097961E /* CardPokerController.swift in Sources */,
 				2D0AF9E423401E9C0097961E /* Rank.swift in Sources */,
 				2D0AF9F5234220520097961E /* CardGame.swift in Sources */,
+				2D0AF9FF23438C760097961E /* Dealer.swift in Sources */,
+				2D0AF9FD2343865C0097961E /* GamePlayer.swift in Sources */,
 				2D0AF9EA234025F70097961E /* CardDeck.swift in Sources */,
 				2D0AF9DA233BA94D0097961E /* OutputView.swift in Sources */,
 			);
