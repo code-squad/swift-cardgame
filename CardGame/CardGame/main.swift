@@ -14,11 +14,13 @@ func main() {
 		do {
 			OutputView.showMenu()
 			let menu = try InputView.readInput()
-			OutputView.showResult(menu: menu, deck: deck)
+			let result = Game.makeResult(menu: menu, deck: deck)
+			OutputView.show(result)
 		} catch let inputError as InputView.InputError {
-			print(inputError.message)
+			OutputView.showError(with: inputError.message)
 		} catch {
-			print(error)
+			OutputView.showAlert()
+			break
 		}
 	}
 }

@@ -33,8 +33,7 @@ class Deck {
 	
 	// 전체 카드를 랜덤하게 섞는다.
 	func shuffle() {
-		var generator = SystemRandomNumberGenerator()
-		cards.shuffle(using: &generator)
+		cards = cards.shuffled()
 	}
 	
 	// 기능은 카드 인스턴스 중에 하나를 반환하고 목록에서 삭제한다.
