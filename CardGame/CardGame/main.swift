@@ -12,12 +12,17 @@ func main() {
 	let deck = Deck()
 	while true {
 		do {
-			OutputView.showMenu()
-			let menu = try InputView.readInput()
-			let result = Game.makeResult(menu: menu, deck: deck)
-			OutputView.show(result)
-		} catch let inputError as InputView.InputError {
-			OutputView.showError(with: inputError.message)
+			OutputView.showGameTypeMenu()
+			let type = try InputView.readCardGameInput()
+			OutputView.showCountOfPlayerMessage()
+			let count = try InputView.readCountOfPlayers()
+			let result = try Game.makeResult(gameType: type, playerCount: count, deck: deck)
+			OutputView.show(result: result)
+		} catch let handlable as HandlableError {
+			OutputView.show(error: handlable)
+			if handlable.needQuit {
+				break
+			}
 		} catch {
 			OutputView.showAlert()
 			break

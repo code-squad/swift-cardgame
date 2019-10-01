@@ -8,16 +8,26 @@
 
 import Foundation
 
-enum Menu: Int, CaseIterable, CustomStringConvertible {
-	case reset
-	case shuffle
-	case pickOne
+enum CardGameType: Int, CaseIterable, CustomStringConvertible {
+	case seven = 7
+	case five = 5
+	
+	init?(input: Int) {
+		if input == 1 {
+			self = .seven
+			return
+		}
+		if input == 2 {
+			self = .five
+			return
+		}
+		return nil
+	}
 	
 	var description: String {
 		switch self {
-		case .reset: return "1. 카드 초기화"
-		case .shuffle:  return "2. 카드 섞기"
-		case .pickOne: return "3. 카드 하나 뽑기"
+		case .seven: return "7카드"
+		case .five: return "5카드"
 		}
 	}	
 }

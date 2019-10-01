@@ -9,23 +9,30 @@
 import Foundation
 
 struct OutputView {
-	static func showMenu() {
-		let allMenu = Menu.allCases
-			.map { $0.description }
-			.joined(separator: "\n")
-		print(allMenu)
+	static func showGameTypeMenu() {
+		print("카드 게임 종류를 선택하세요. ")
+		for (index, gameType) in CardGameType.allCases.enumerated() {
+			print("\(index + 1). \(gameType.description)")
+		}
+	}
+	
+	static func showCountOfPlayerMessage() {
+		print("참여할 사람의 인원을 입력하세요.")
 	}
 		
-	static func show(_ result: ResultRepresentable) {
-		print(result.primaryMessage)
-		if result.secondaryMessage.count > 0 {
-			print(result.secondaryMessage)
+	static func show(result: ResultRepresentable) {
+		let messages = result.messages.map { "[" + $0 + "]" }
+		for (index, message) in messages.enumerated() {
+			print("참가자#\(index + 1) \(message)")
+			if index == result.messages.count - 1 {
+				print("딜러 \(message)")
+			}
 		}
 		print()
 	}
 	
-	static func showError(with message: String) {
-		print(message)
+	static func show(error: HandlableError) {
+		print(error.message)
 		print()
 	}
 	

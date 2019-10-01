@@ -9,30 +9,33 @@
 import Foundation
 
 struct Game {
-	static func makeResult(menu: Menu, deck: Deck) -> ResultRepresentable {
-		var primaryMessage = ""
-		var secondaryMessage = ""
-		switch menu {
-		case .reset:
-			deck.reset()
-			primaryMessage = "카드 전체를 초기화했습니다."
-			secondaryMessage = "총 \(deck.count())장의 카드가 있습니다."
-		case .shuffle:
-			deck.shuffle()
-			primaryMessage = "전체 \(deck.count())장의 카드를 섞었습니다."
-		case .pickOne:
-			do {
-				let pick = try deck.removeOne()
-				primaryMessage = pick.description
-				secondaryMessage = "총 \(deck.count())장의 카드가 남아있습니다."
-			} catch {
-				primaryMessage = "카드를 뽑는 도중 오류가 발생했습니다."
-			}
+	enum GameError: Error, HandlableError {
+		case insufficientCard
+		
+		var message: String {
+			"카드가 부족해서 게임을 종료합니다."
 		}
+		var needQuit: Bool {
+			true
+		}
+	}
+	
+	static func makeResult(gameType: CardGameType, playerCount: Int, deck: Deck) throws-> ResultRepresentable {
+		guard deck.count() > gameType.rawValue * (playerCount + 1) else {
+			throw GameError.insufficientCard
+		}
+		deck.shuffle()
 		return GameResult(
-			primaryMessage: primaryMessage,
-			secondaryMessage: secondaryMessage
+			messages: Array(1...playerCount)
+				.map { _ in result(deck: deck, gameType: gameType) }
 		)
+	}
+	
+	private static func result(deck: Deck, gameType: CardGameType) -> String {
+		Array(1...gameType.rawValue)
+			.compactMap { _ in try? deck.removeOne() }
+			.map { $0.description }
+			.joined(separator: ", ")
 	}
 }
 

@@ -9,17 +9,9 @@
 import Foundation
 
 protocol ResultRepresentable {
-	var primaryMessage: String { get }
-	var secondaryMessage: String { get }
+	var messages: [String] { get }
 }
 
 struct GameResult: ResultRepresentable {
-	let primaryMessage: String
-	let secondaryMessage: String
-	
-	init(primaryMessage: String,
-			 secondaryMessage: String) {
-		self.primaryMessage = primaryMessage
-		self.secondaryMessage = secondaryMessage
-	}
+	let messages: [String]
 }
