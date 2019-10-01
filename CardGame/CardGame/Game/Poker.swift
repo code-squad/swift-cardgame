@@ -37,16 +37,22 @@ class Poker {
         (dealer as! Dealer).shuffleCardDeck()
     }
     
-    func play(output: ((PokerPlayable)->Void)?) {
+    func play(printCard: ((PokerPlayable)->Void)?, printMessage: (String)->Void?) {
         let dealer = self.dealer as! Dealer
+        let numberOfPlayers = 1 + self.players.count
         
         for _ in 1...self.kindOfGame.numberOfCards {
-            for player in self.players {
-                dealer.giveCard(to: player)
-                output?(player)
+            if (dealer.canDealingCard(numberOfPlayers: numberOfPlayers)) {
+                printMessage("")
+                for player in self.players {
+                    dealer.giveCard(to: player)
+                    printCard?(player)
+                }
+                dealer.giveCard(to: dealer)
+                printCard?(dealer)
+                
+                usleep(100000)
             }
-            dealer.giveCard(to: dealer)
-            output?(dealer)
         }
     }
     
@@ -68,7 +74,7 @@ class Poker {
             }
             
         }
-        
+        // 클로저와 try 를 같이 사용하려면 어떻게 해야할까.
         try allPlayers.sort(by: sortForScore)
         return allPlayers[0]
     }

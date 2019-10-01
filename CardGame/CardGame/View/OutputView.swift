@@ -20,6 +20,10 @@ struct OutputView {
         print("\(player.name!)\t[\(player.myOwnCard())]")
     }
     
+    static func showMessage(message: String) {
+        print("\(message)")
+    }
+    
     static func showWinnder(winner: PokerPlayable) throws {
         print("\n이번 게임의 승자는 \(winner.name!) 입니다 [\(try winner.hands())]")
     }

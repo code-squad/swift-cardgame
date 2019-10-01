@@ -37,7 +37,6 @@ class CardDeck {
     func shuffle() {
         for index in 0...cards.count-1 {
             let rand = Int.random(in: 0...cards.count-1 - index) + index
-            //let randInt = (arc4random() % (cards.count - x)) + x;
             cards.exchangeObject(at: index, withObjectAt: rand)
         }
     }
