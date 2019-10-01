@@ -58,9 +58,9 @@ struct Utility {
     static func getKindOfGame(chooseMenu: Int) throws -> KindOfGame{
         switch chooseMenu {
         case 1 :
-            return .FiveCardStud
-        case 2 :
             return .SevenCardStud
+        case 2 :
+            return .FiveCardStud
         default :
             throw CardGameError.invalidMenumNumber
         }

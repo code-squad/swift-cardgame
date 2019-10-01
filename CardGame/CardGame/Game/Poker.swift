@@ -33,19 +33,20 @@ class Poker {
     
     
     func prepare(kindOfGame: KindOfGame) {
-        self.kindOfGame = .FiveCardStud
+        self.kindOfGame = kindOfGame
         (dealer as! Dealer).shuffleCardDeck()
     }
     
-    func play() {
-       
+    func play(output: ((PokerPlayable)->Void)?) {
         let dealer = self.dealer as! Dealer
         
         for _ in 1...self.kindOfGame.numberOfCards {
             for player in self.players {
                 dealer.giveCard(to: player)
+                output?(player)
             }
             dealer.giveCard(to: dealer)
+            output?(dealer)
         }
         
     }
