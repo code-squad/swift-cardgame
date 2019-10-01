@@ -10,6 +10,20 @@ import Foundation
 
 
 struct OutputView {
+    static func showPlayerCards(players: [PokerPlayable]) {
+        for player in players {
+            self.showPlayerCards(player: player)
+        }
+    }
+    
+    static func showPlayerCards(player: PokerPlayable) {
+        print("\(player.name!)\t[\(player.myOwnCard())]")
+    }
+    
+    static func showWinnder(winner: PokerPlayable) throws {
+        print("\n이번 게임의 승자는 \(winner.name!) 입니다 [\(try winner.hands())]")
+    }
+    
     static func showResult(choosenMenu:Int, cardDeck: CardDeck) throws {
         switch choosenMenu {
         case 1:
@@ -36,17 +50,5 @@ struct OutputView {
         print("")
     }
     
-    static func showPlayerCards(players: [PokerPlayable]) {
-        for player in players {
-            self.showPlayerCards(player: player)
-        }
-    }
     
-    static func showPlayerCards(player: PokerPlayable) {
-        print("\(player.name!)\t[\(player.myOwnCard())]")
-    }
-    
-    static func showWinnder(winner: PokerPlayable) throws {
-        print("\n이번 게임의 승자는 \(winner.name!) 입니다 [\(try winner.hands())]")
-    }
 }

@@ -78,34 +78,34 @@ extension CardDeck : CustomStringConvertible {
     }
 }
 
-class CardDeckArray {
-    private var cards : [Card]!
-    
-    init() {
-        reset()
-    }
-    
-    func count() -> Int {
-        return cards.count
-    }
-    
-    func shuffle() -> Void {
-        cards.shuffle()
-    }
-    
-    func removeOne() -> Card {
-        let pickedCard = cards[0]
-        cards.remove(at: 0)
-        return pickedCard
-    }
-    
-    func reset() -> Void {
-        cards = []
-        
-        for suit in Card.Suit.allCases {
-            for rank in Card.Rank.allCases {
-                cards.append(Card(suit: suit, rank: rank))
-            }
-        }
-    }
-}
+//class CardDeckArray {
+//    private var cards : [Card]!
+//
+//    init() {
+//        reset()
+//    }
+//
+//    func count() -> Int {
+//        return cards.count
+//    }
+//
+//    func shuffle() -> Void {
+//        cards.shuffle()
+//    }
+//
+//    func removeOne() -> Card {
+//        let pickedCard = cards[0]
+//        cards.remove(at: 0)
+//        return pickedCard
+//    }
+//
+//    func reset() -> Void {
+//        cards = []
+//
+//        for suit in Card.Suit.allCases {
+//            for rank in Card.Rank.allCases {
+//                cards.append(Card(suit: suit, rank: rank))
+//            }
+//        }
+//    }
+//}
