@@ -35,6 +35,8 @@
 		5DC0C51323430F280018C551 /* PokerParticipantFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C51223430F280018C551 /* PokerParticipantFactory.swift */; };
 		5DC0C5142343105E0018C551 /* PokerParticipantFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C51223430F280018C551 /* PokerParticipantFactory.swift */; };
 		5DC0C515234312990018C551 /* Poker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C50B2342DCDB0018C551 /* Poker.swift */; };
+		5DC0C51723432B8C0018C551 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C51623432B8C0018C551 /* Utility.swift */; };
+		5DC0C51823432BEF0018C551 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C51623432B8C0018C551 /* Utility.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,7 @@
 		5DC0C5092342DCCA0018C551 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		5DC0C50B2342DCDB0018C551 /* Poker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poker.swift; sourceTree = "<group>"; };
 		5DC0C51223430F280018C551 /* PokerParticipantFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerParticipantFactory.swift; sourceTree = "<group>"; };
+		5DC0C51623432B8C0018C551 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
+				5DC0C51623432B8C0018C551 /* Utility.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +285,7 @@
 				5DC0C5082342C56F0018C551 /* PokerPlayable.swift in Sources */,
 				5DC0C515234312990018C551 /* Poker.swift in Sources */,
 				5DC0C4E9233DF8F00018C551 /* main.swift in Sources */,
+				5DC0C51823432BEF0018C551 /* Utility.swift in Sources */,
 				5DC0C5142343105E0018C551 /* PokerParticipantFactory.swift in Sources */,
 				5DC0C5052342C3DE0018C551 /* Dealer.swift in Sources */,
 				5DC0C4F823429AFD0018C551 /* OutputView.swift in Sources */,
@@ -296,6 +301,7 @@
 				5DC0C5002342BD710018C551 /* Dealer.swift in Sources */,
 				5DC0C4DB233DEA210018C551 /* Card.swift in Sources */,
 				5DC0C4F22342954B0018C551 /* InputReadable.swift in Sources */,
+				5DC0C51723432B8C0018C551 /* Utility.swift in Sources */,
 				5DC0C50A2342DCCA0018C551 /* CardGame.swift in Sources */,
 				5DC0C4FB2342B35A0018C551 /* GameInputView.swift in Sources */,
 				5DC0C4F02341AB1B0018C551 /* InputView.swift in Sources */,
