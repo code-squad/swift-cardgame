@@ -8,10 +8,4 @@
 
 import Foundation
 
-var menuItem = InputView.inputMenu()
-let cardDeck = CardDeck()
-
-while (menuItem != 4) {
-    OutputView.printResult(cardDeck: cardDeck, menuItem: menuItem)
-    menuItem = InputView.inputMenu()
-}
+CardDeckController.play()
