@@ -30,7 +30,6 @@
 		5DC0C5062342C3E10018C551 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C5012342BD8B0018C551 /* Player.swift */; };
 		5DC0C5072342C3E40018C551 /* OwnCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C5032342C2430018C551 /* OwnCards.swift */; };
 		5DC0C5082342C56F0018C551 /* PokerPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C4FD2342BD3B0018C551 /* PokerPlayable.swift */; };
-		5DC0C50A2342DCCA0018C551 /* Casino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C5092342DCCA0018C551 /* Casino.swift */; };
 		5DC0C50C2342DCDB0018C551 /* Poker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C50B2342DCDB0018C551 /* Poker.swift */; };
 		5DC0C51323430F280018C551 /* PokerParticipantFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C51223430F280018C551 /* PokerParticipantFactory.swift */; };
 		5DC0C5142343105E0018C551 /* PokerParticipantFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0C51223430F280018C551 /* PokerParticipantFactory.swift */; };
@@ -70,7 +69,6 @@
 		5DC0C4FF2342BD710018C551 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		5DC0C5012342BD8B0018C551 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		5DC0C5032342C2430018C551 /* OwnCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnCards.swift; sourceTree = "<group>"; };
-		5DC0C5092342DCCA0018C551 /* Casino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Casino.swift; sourceTree = "<group>"; };
 		5DC0C50B2342DCDB0018C551 /* Poker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poker.swift; sourceTree = "<group>"; };
 		5DC0C51223430F280018C551 /* PokerParticipantFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerParticipantFactory.swift; sourceTree = "<group>"; };
 		5DC0C51623432B8C0018C551 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -123,6 +121,7 @@
 		5DC0C50E2342DCF10018C551 /* Card */ = {
 			isa = PBXGroup;
 			children = (
+				5DC0C51923436D610018C551 /* PokerHand.swift */,
 				5DC0C5032342C2430018C551 /* OwnCards.swift */,
 				5DC0C4DA233DEA210018C551 /* Card.swift */,
 				5DC0C4F3234298360018C551 /* CardDeck.swift */,
@@ -133,7 +132,6 @@
 		5DC0C50F2342DD230018C551 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5DC0C51923436D610018C551 /* PokerHand.swift */,
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
 				5DC0C51623432B8C0018C551 /* Utility.swift */,
 			);
@@ -143,7 +141,6 @@
 		5DC0C5102342DDAB0018C551 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				5DC0C5092342DCCA0018C551 /* Casino.swift */,
 				5DC0C50B2342DCDB0018C551 /* Poker.swift */,
 			);
 			path = Game;
@@ -312,7 +309,6 @@
 				5DC0C4F22342954B0018C551 /* InputReadable.swift in Sources */,
 				5DC0C51723432B8C0018C551 /* Utility.swift in Sources */,
 				5DC0C51A23436D610018C551 /* PokerHand.swift in Sources */,
-				5DC0C50A2342DCCA0018C551 /* Casino.swift in Sources */,
 				5DC0C4FB2342B35A0018C551 /* GameInputView.swift in Sources */,
 				5DC0C4F02341AB1B0018C551 /* InputView.swift in Sources */,
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
