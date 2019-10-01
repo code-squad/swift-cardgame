@@ -8,6 +8,32 @@
 
 import Foundation
 
+enum PokerHandRankings {
+    case HighCard(rank: Card.Rank)
+    case OnePair(rank: Card.Rank)
+    case TwoPair(rank: Card.Rank)
+    case Triple(rank: Card.Rank)
+    case Straight(rank: Card.Rank)
+    case FourCard(rank: Card.Rank)
+    
+    var score : Int {
+        switch self {
+        case .HighCard(let rank) :
+            return rank.rawValue
+        case .OnePair(let rank):
+            return Card.Rank.king.rawValue * 1 + rank.rawValue
+        case .TwoPair(let rank):
+            return Card.Rank.king.rawValue * 2 + rank.rawValue
+        case .Triple(let rank):
+            return Card.Rank.king.rawValue * 3 + rank.rawValue
+        case .Straight(let rank):
+            return Card.Rank.king.rawValue * 4 + rank.rawValue
+        case .FourCard(let rank):
+            return Card.Rank.king.rawValue * 5 + rank.rawValue
+        }
+    }
+}
+
 struct PokerHand {
     static func ranking(cards: NSMutableArray) throws -> PokerHandRankings {
         guard var myCards = cards as NSArray as? [Card] else {
