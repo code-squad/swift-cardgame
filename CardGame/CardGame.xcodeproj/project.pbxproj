@@ -22,6 +22,7 @@
 		2C7056A02340E5150061FBC5 /* UserMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70569E2340E5030061FBC5 /* UserMenu.swift */; };
 		2C7056A22340EBA40061FBC5 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056A12340EBA40061FBC5 /* CardGame.swift */; };
 		2C7056A32340EBA60061FBC5 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056A12340EBA40061FBC5 /* CardGame.swift */; };
+		2C7056A7234393F30061FBC5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056A6234393F30061FBC5 /* OutputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		2C70569C233FD7F10061FBC5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		2C70569E2340E5030061FBC5 /* UserMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenu.swift; sourceTree = "<group>"; };
 		2C7056A12340EBA40061FBC5 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		2C7056A6234393F30061FBC5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				2C57DA09233D054200C32672 /* Suit.swift */,
 				2C57DA0B233D054C00C32672 /* Rank.swift */,
 				2C70569C233FD7F10061FBC5 /* InputView.swift */,
+				2C7056A6234393F30061FBC5 /* OutputView.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				2C7056A22340EBA40061FBC5 /* CardGame.swift in Sources */,
 				2C70569F2340E5030061FBC5 /* UserMenu.swift in Sources */,
 				2C70569D233FD7F10061FBC5 /* InputView.swift in Sources */,
+				2C7056A7234393F30061FBC5 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

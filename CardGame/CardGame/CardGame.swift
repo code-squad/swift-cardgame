@@ -16,10 +16,13 @@ import Foundation
 
 class CardGame {
     private let cardDeck = CardDeck()
-    private let inputView = InputView()
+    
+    private let inputView: InputView
+    private let outputView: OutputView
 
-    public init() {
-        
+    public init(viewForInput: InputView, viewForOutput: OutputView) {
+        self.inputView = viewForInput
+        self.outputView = viewForOutput
     }
     
     public func playGame(numberOfTimes number: Int) {
@@ -50,8 +53,7 @@ class CardGame {
         }
         
         let resultText = inputedMenu.resultText(cardCount: cardDeck.count())
-        print(resultText)
-        print()
+        self.outputView.printResult(text: resultText)
     }
     
 }

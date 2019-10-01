@@ -11,7 +11,9 @@ import Foundation
 
 func main() {
 
-    let cardGame = CardGame()
+    let inputView = InputView()
+    let outputView = OutputView()
+    let cardGame = CardGame(viewForInput: inputView, viewForOutput: outputView)
     cardGame.playGame(numberOfTimes: 100)
 
 }
