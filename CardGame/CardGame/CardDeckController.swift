@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CardDeckController {
+struct CardDeckController {
     
     static func play() {
         var menuItem = InputView.inputMenu()
