@@ -37,6 +37,10 @@ class Dealer : PokerPlayable {
         self.ownCards.giveBackAll()
     }
     
+    func hands() throws -> PokerHandRankings {
+        return try self.ownCards.calculateHands()
+    }
+    
     func shuffleCardDeck() {
         self.cardDeck.shuffle()
     }

@@ -27,6 +27,11 @@ class OwnCards {
     func giveBackAll() {
         cards.removeAllObjects()
     }
+    
+    func calculateHands() throws -> PokerHandRankings {
+        return try PokerHand.ranking(cards: cards)
+        
+    }
 }
 
 extension OwnCards : CustomStringConvertible { 

@@ -16,4 +16,5 @@ protocol PokerPlayable {
     func addCard(card: Card)
     func myOwnCard() -> OwnCards
     func giveBackCardAll()
+    func hands() throws -> PokerHandRankings
 }

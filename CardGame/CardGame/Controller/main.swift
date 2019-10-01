@@ -35,11 +35,15 @@ func main() {
         
         // play poker
         poker.prepare(kindOfGame: kindOfGame)
-        poker.play(output: nil)
+        poker.play(output: OutputView.showPlayerCards(player:))
+        let winner = try poker.result()
+        
+        try OutputView.showWinnder(winner: winner)
+        
         
         // result
-        OutputView.showPlayerCards(players: poker.players)
-        OutputView.showPlayerCards(player: dealer as PokerPlayable)
+        //OutputView.showPlayerCards(players: poker.players)
+        //OutputView.showPlayerCards(player: dealer as PokerPlayable)
         
         //print(cardDeck)
         
