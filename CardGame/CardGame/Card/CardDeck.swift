@@ -22,7 +22,7 @@ class CardDeck {
             }
         }
         
-        cards = cardsOrigin.mutableCopy() as! NSMutableArray
+        cards = cardsOrigin.mutableCopy() as? NSMutableArray
     }
     
     deinit {
@@ -53,7 +53,7 @@ class CardDeck {
     
     func reset() {
         cards.removeAllObjects()
-        cards = cardsOrigin.mutableCopy() as! NSMutableArray
+        cards = cardsOrigin.mutableCopy() as? NSMutableArray
     }
     
     

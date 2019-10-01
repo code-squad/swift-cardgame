@@ -48,7 +48,29 @@ class Poker {
             dealer.giveCard(to: dealer)
             output?(dealer)
         }
+    }
+    
+    func result() throws -> PokerPlayable {
+        var allPlayers : [PokerPlayable]
+        allPlayers = []
+        allPlayers.append(self.dealer)
+        allPlayers.append(contentsOf: self.players)
         
+        func sortForScore(lhs:PokerPlayable, rhs:PokerPlayable) throws -> Bool {
+            do {
+                let lScore = try lhs.hands().score
+                let rScore = try rhs.hands().score
+                
+                return lScore > rScore
+            }
+            catch let error {
+                throw error
+            }
+            
+        }
+        
+        try allPlayers.sort(by: sortForScore)
+        return allPlayers[0]
     }
     
     func end() {

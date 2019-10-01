@@ -24,7 +24,7 @@ struct OutputView {
             print("전체 \(cardDeck.count()) 장의 카드를 섞었습니다")
         //print(cardDeck)
         case 3:
-            let card = try cardDeck.removeOne()
+            let card = cardDeck.removeOne()
             print(card)
             print("총 \(cardDeck.count()) 장의 카드가 남았습니다.")
             //print(cardDeck)
@@ -44,5 +44,9 @@ struct OutputView {
     
     static func showPlayerCards(player: PokerPlayable) {
         print("\(player.name!)\t[\(player.myOwnCard())]")
+    }
+    
+    static func showWinnder(winner: PokerPlayable) throws {
+        print("\n이번 게임의 승자는 \(winner.name!) 입니다 [\(try winner.hands())]")
     }
 }

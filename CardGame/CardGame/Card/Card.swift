@@ -50,6 +50,7 @@ class Card {
         }
     }
     
+    
     let suit: Suit
     let rank: Rank
     
@@ -64,3 +65,24 @@ extension Card : CustomStringConvertible {
         return "\(self.suit.rawValue)\(self.rank)"
     }
 }
+
+extension Card : Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.suit.rawValue == rhs.suit.rawValue && lhs.rank == rhs.rank
+    }
+}
+
+extension Card.Rank : Comparable {
+    public static func < (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+}
+
+extension Card.Rank : Equatable {
+    static func == (lhs: Card.Rank, rhs: Card.Rank) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
+}
+
+
+

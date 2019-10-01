@@ -33,4 +33,8 @@ class Player : PokerPlayable {
     func giveBackCardAll() {
         self.ownCards.giveBackAll()
     }
+    
+    func hands() throws -> PokerHandRankings {
+        return try self.ownCards.calculateHands()
+    }
 }
