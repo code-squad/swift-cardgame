@@ -39,6 +39,9 @@ struct PokerHand {
         guard var myCards = cards as NSArray as? [Card] else {
             throw CardGameError.ownCardNotExist
         }
+        guard myCards.count != 0 else {
+            throw CardGameError.ownCardNotExist
+        }
         
         // sort by in descending order by rank
         myCards.sort(by: {$0.rank > $1.rank})

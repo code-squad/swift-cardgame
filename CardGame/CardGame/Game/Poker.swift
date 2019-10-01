@@ -56,7 +56,11 @@ class Poker {
         }
     }
     
-    func result() throws -> PokerPlayable {
+    func winner() throws -> PokerPlayable {
+        return try rankerList()[0]
+    }
+    
+    func rankerList() throws -> [PokerPlayable] {
         var allPlayers : [PokerPlayable]
         allPlayers = []
         allPlayers.append(self.dealer)
@@ -76,7 +80,7 @@ class Poker {
         }
         // 클로저와 try 를 같이 사용하려면 어떻게 해야할까.
         try allPlayers.sort(by: sortForScore)
-        return allPlayers[0]
+        return allPlayers
     }
     
     func end() {
