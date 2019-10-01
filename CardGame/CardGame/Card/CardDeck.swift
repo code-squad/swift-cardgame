@@ -42,10 +42,10 @@ class CardDeck {
         }
     }
     
-    func removeOne() throws -> Card {
-        guard cards.count > 0 else {
-            throw CardGameError.emptyCardDeck
-        }
+    func removeOne() -> Card {
+//        guard cards.count > 0 else {
+//            throw CardGameError.emptyCardDeck
+//        }
         let pickedCard = cards[0]
         cards.removeObject(at: 0)
         return pickedCard as! Card
