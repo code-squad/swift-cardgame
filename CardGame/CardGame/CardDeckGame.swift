@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : CardGame.swift
+ * File Name        : CardDeckGame.swift
  * Description      : CardGame
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -14,7 +14,7 @@
 
 import Foundation
 
-class CardGame {
+class CardDeckGame {
     private let cardDeck = CardDeck()
     
     private let inputView: InputView

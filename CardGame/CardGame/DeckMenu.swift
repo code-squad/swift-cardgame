@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : UserMenu.swift
+ * File Name        : DeckMenu.swift
  * Description      : CardGame
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -14,7 +14,7 @@
 
 import Foundation
 
-enum UserMenu: Int, CaseIterable {
+enum DeckMenu: Int, CaseIterable {
     case unknown = -1
     case reset = 1
     case suffle

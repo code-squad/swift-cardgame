@@ -18,17 +18,17 @@ struct InputView {
     
     public func printMenu() {
         print("다음 메뉴를 선택해주세요.")
-        for userMenu in UserMenu.allCases where userMenu.rawValue > 0 {
-            print(userMenu.menuText)
+        for deckMenu in DeckMenu.allCases where deckMenu.rawValue > 0 {
+            print(deckMenu.menuText)
         }
     }
     
-    public func readUserInput() -> UserMenu? {
+    public func readUserInput() -> DeckMenu? {
         print("> ", terminator: "")
         let inputedText = readLine()
         let inputMenu = Int(inputedText ?? "")
         
-        return UserMenu(rawValue: inputMenu ?? UserMenu.unknown.rawValue)
+        return DeckMenu(rawValue: inputMenu ?? DeckMenu.unknown.rawValue)
     }
     
 }

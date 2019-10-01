@@ -13,7 +13,7 @@ func main() {
 
     let inputView = InputView()
     let outputView = OutputView()
-    let cardGame = CardGame(viewForInput: inputView, viewForOutput: outputView)
+    let cardGame = CardDeckGame(viewForInput: inputView, viewForOutput: outputView)
     cardGame.playGame(numberOfTimes: 100)
 
 }
