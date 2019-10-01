@@ -25,7 +25,7 @@ class CardTest: XCTestCase {
     func test_Card_returns_spades_three() {
         let card = Card(suit: Card.Suit.spades, rank: Card.Rank.three)
     
-        XCTAssertEqual("♠3", card.description)
+        XCTAssertEqual("♠️3", card.description)
     }
     
     func test_Card_Rank_toString_jack() {

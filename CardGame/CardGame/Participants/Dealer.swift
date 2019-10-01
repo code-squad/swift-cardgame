@@ -49,5 +49,9 @@ class Dealer : PokerPlayable {
         player.addCard(card: cardDeck.removeOne())
     }
     
+    func canDealingCard(numberOfPlayers : Int) -> Bool {
+        return self.cardDeck.count() >= numberOfPlayers
+    }
+    
     
 }
