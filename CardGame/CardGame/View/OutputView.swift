@@ -24,6 +24,10 @@ struct OutputView {
         print("\(message)")
     }
     
+    static func showError(error: CardGameError) {
+        print(error)
+    }
+    
     static func showWinnder(winner: PokerPlayable) throws {
         print("\n이번 게임의 승자는 \(winner.name!) 입니다 [\(try winner.hands())]")
     }
@@ -48,7 +52,7 @@ struct OutputView {
             //print(cardDeck)
             
         default :
-            throw CardGameError.invalidMenumNumber
+            throw CardGameError.invalidMenuNumber
         }
         
         print("")

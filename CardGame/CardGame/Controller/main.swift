@@ -10,10 +10,10 @@ import Foundation
 
 
 func main() {
-    let cardGameInput = CardGameInput()
-    let cardDeck = CardDeck()
-    
     do {
+        let cardGameInput = CardGameInput()
+        let cardDeck = CardDeck()
+        
         // user input for kind of game
         var userInput = InputView.readChoice(inputReadable: cardGameInput, message: Menu.kindOfGame)
         let choosenMenu = try Utility.inputValueValidator(userInput: userInput, menu: Menu.kindOfGame)
@@ -40,8 +40,17 @@ func main() {
         
         try OutputView.showWinnder(winner: winner)
     }
-    catch let error {
-        print(error)
+    catch CardGameError.invalidMenuNumber {
+        OutputView.showError(error: .invalidMenuNumber)
+    }
+    catch CardGameError.emptyCardDeck {
+        OutputView.showError(error: .emptyCardDeck)
+    }
+    catch CardGameError.ownCardNotExist {
+        OutputView.showError(error: .ownCardNotExist)
+    }
+    catch {
+        OutputView.showError(error: .unknownError)
     }
 
 }
