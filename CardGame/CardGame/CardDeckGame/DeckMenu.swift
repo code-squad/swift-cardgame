@@ -14,7 +14,7 @@
 
 import Foundation
 
-enum DeckMenu: Int, CaseIterable {
+enum DeckMenu: Int, CaseIterable, Menuable {
     case unknown = -1
     case reset = 1
     case suffle

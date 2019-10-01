@@ -9,13 +9,24 @@
 import Foundation
 
 
-func main() {
-    // cardDeck game
+func cardDeckGame() {
     let inputView = InputView()
     let outputView = OutputView()
     let cardGame = CardDeckGame(viewForInput: inputView, viewForOutput: outputView)
     cardGame.playGame(numberOfTimes: 100)
+}
 
+func pockerDealerGame() {
+    let inputView = PockerDealerInputView()
+    let outputView = PockerDealerOutputView()
+    let pockerGame = PockerDealerGame(viewForInput: inputView, viewForOutput: outputView)
+    pockerGame.playGame()
+}
+
+
+
+func main() {
+    pockerDealerGame()
 }
 
 main()

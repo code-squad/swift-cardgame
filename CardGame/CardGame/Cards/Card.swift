@@ -14,7 +14,7 @@
 
 import Foundation
 
-struct Card {
+struct Card: CustomStringConvertible {
     private(set) var suit: Suit
     private(set) var rank: Rank
 

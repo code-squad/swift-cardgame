@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : PockerDealerOutputView.swift
+ * File Name        : File.swift
  * Description      : CardGame
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -14,18 +14,6 @@
 
 import Foundation
 
-struct PockerDealerOutputView {
+protocol Menuable {
     
-    public func printError() {
-        print("잘못된 입력입니다. 다시 시도해주세요.")
-    }
-    
-    public func printResult(_ player: PockerPlayer) {
-        print(player.result)
-    }
-    
-    public func printText(_ text: String = "") {
-        print(text)
-    }
 }
-

@@ -46,7 +46,7 @@ class CardDeckGame {
             cardDeck.shuffle()
         case .pickOne:
             if let card = cardDeck.removeOne() {
-                print(card.description)
+                print(card)
             }
         case .unknown:
             break
