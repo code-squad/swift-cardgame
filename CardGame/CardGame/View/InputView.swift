@@ -10,7 +10,7 @@ import Foundation
 
 
 struct InputView {
-    static func readChoice(inputReadable: InputReadable) -> String {
-        return inputReadable.read()        
+    static func readChoice(inputReadable: InputReadable, message: Menu) -> String {
+        return inputReadable.read(message: message)
     }
 }

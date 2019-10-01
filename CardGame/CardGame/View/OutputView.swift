@@ -34,6 +34,15 @@ struct OutputView {
         }
         
         print("")
+    }
     
+    static func showPlayerCards(players: [PokerPlayable]) {
+        for player in players {
+            self.showPlayerCards(player: player)
+        }
+    }
+    
+    static func showPlayerCards(player: PokerPlayable) {
+        print("\(player.name!)\t[\(player.myOwnCard())]")
     }
 }
