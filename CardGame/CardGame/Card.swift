@@ -11,8 +11,8 @@ import Foundation
 // Class에 비해 빠르고 간단하게 데이터를 저장이 가능하여 Struct선택 
 struct Card: Hashable {
     
-    private let rank:  Rank
-    private let suite: Suite
+    private(set) var rank:  Rank
+    private(set) var suite: Suite
     
     enum Rank: Int, CustomStringConvertible, CaseIterable {
         case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king

@@ -20,7 +20,6 @@ let game = PockerGame(registry: registry, subscriber: subscriber)
 dealer.assign(game: game)
 
 let organizer = PockerGameOrganizer(dealer: dealer, receiver: game)
-
 organizer.play()
 
 
