@@ -9,9 +9,10 @@
 import Foundation
 
 enum CardGameError : Error {
-    case invalidMenumNumber
+    case invalidMenuNumber
     case emptyCardDeck
     case ownCardNotExist
+    case unknownError
 }
 
 enum KindOfGame {
@@ -34,22 +35,22 @@ struct Utility {
         // pasing
         let choiceTrimmed = userInput.filter { !$0.isNewline && !$0.isWhitespace }
         guard let choosenMenu = Int(choiceTrimmed) else {
-            throw CardGameError.invalidMenumNumber
+            throw CardGameError.invalidMenuNumber
         }
         
         switch menu {
         case .cardDeckTest :
             guard choosenMenu >= 1 && choosenMenu <= 3 else {
-                throw CardGameError.invalidMenumNumber
+                throw CardGameError.invalidMenuNumber
             }
         case .kindOfGame :
             guard choosenMenu >= 1 && choosenMenu <= 2 else {
-                throw CardGameError.invalidMenumNumber
+                throw CardGameError.invalidMenuNumber
             }
             
         case .numberOfPlayer :
             guard choosenMenu >= 1 && choosenMenu <= 4 else {
-                throw CardGameError.invalidMenumNumber
+                throw CardGameError.invalidMenuNumber
             }
         }
         
@@ -63,7 +64,7 @@ struct Utility {
         case 2 :
             return .FiveCardStud
         default :
-            throw CardGameError.invalidMenumNumber
+            throw CardGameError.invalidMenuNumber
         }
     }
 }
