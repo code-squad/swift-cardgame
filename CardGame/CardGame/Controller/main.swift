@@ -36,9 +36,9 @@ func main() {
         // play poker
         poker.prepare(kindOfGame: kindOfGame)
         poker.play(printCard: OutputView.showPlayerCards(player:), printMessage: OutputView.showMessage(message:))
-        let winner = try poker.result()
+        let winner = try poker.winner()
         
-        try OutputView.showWinnder(winner: winner)        
+        try OutputView.showWinnder(winner: winner)
     }
     catch let error {
         print(error)
