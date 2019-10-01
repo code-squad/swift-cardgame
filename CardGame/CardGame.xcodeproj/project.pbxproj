@@ -25,6 +25,12 @@
 		2C7056A7234393F30061FBC5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056A6234393F30061FBC5 /* OutputView.swift */; };
 		2C7056AA23439BDF0061FBC5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70569C233FD7F10061FBC5 /* InputView.swift */; };
 		2C7056AB23439BE10061FBC5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056A6234393F30061FBC5 /* OutputView.swift */; };
+		2C7056AD23439C3E0061FBC5 /* PockerDealerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056AC23439C3E0061FBC5 /* PockerDealerInputView.swift */; };
+		2C7056AF23439CA20061FBC5 /* PockerDealerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056AE23439CA20061FBC5 /* PockerDealerGame.swift */; };
+		2C7056B123439D300061FBC5 /* PockerDealerOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056B023439D300061FBC5 /* PockerDealerOutputView.swift */; };
+		2C7056B523439E220061FBC5 /* PockerDealerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056AE23439CA20061FBC5 /* PockerDealerGame.swift */; };
+		2C7056B623439E240061FBC5 /* PockerDealerOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056B023439D300061FBC5 /* PockerDealerOutputView.swift */; };
+		2C7056B723439E270061FBC5 /* PockerDealerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7056AC23439C3E0061FBC5 /* PockerDealerInputView.swift */; };
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +59,9 @@
 		2C70569E2340E5030061FBC5 /* DeckMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMenu.swift; sourceTree = "<group>"; };
 		2C7056A12340EBA40061FBC5 /* CardDeckGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckGame.swift; sourceTree = "<group>"; };
 		2C7056A6234393F30061FBC5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		2C7056AC23439C3E0061FBC5 /* PockerDealerInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerDealerInputView.swift; sourceTree = "<group>"; };
+		2C7056AE23439CA20061FBC5 /* PockerDealerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerDealerGame.swift; sourceTree = "<group>"; };
+		2C7056B023439D300061FBC5 /* PockerDealerOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerDealerOutputView.swift; sourceTree = "<group>"; };
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +94,38 @@
 			path = TestCardGame;
 			sourceTree = "<group>";
 		};
+		2C7056B223439D360061FBC5 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				2C705697233FCFA40061FBC5 /* CardDeck.swift */,
+				2C57DA07233D04F300C32672 /* Card.swift */,
+				2C57DA09233D054200C32672 /* Suit.swift */,
+				2C57DA0B233D054C00C32672 /* Rank.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		2C7056B323439D530061FBC5 /* CardDeckGame */ = {
+			isa = PBXGroup;
+			children = (
+				2C7056A12340EBA40061FBC5 /* CardDeckGame.swift */,
+				2C70569C233FD7F10061FBC5 /* InputView.swift */,
+				2C7056A6234393F30061FBC5 /* OutputView.swift */,
+				2C70569E2340E5030061FBC5 /* DeckMenu.swift */,
+			);
+			path = CardDeckGame;
+			sourceTree = "<group>";
+		};
+		2C7056B423439D650061FBC5 /* PockerDealerGame */ = {
+			isa = PBXGroup;
+			children = (
+				2C7056AE23439CA20061FBC5 /* PockerDealerGame.swift */,
+				2C7056B023439D300061FBC5 /* PockerDealerOutputView.swift */,
+				2C7056AC23439C3E0061FBC5 /* PockerDealerInputView.swift */,
+			);
+			path = PockerDealerGame;
+			sourceTree = "<group>";
+		};
 		839DA8D81F8CDBC9009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -107,14 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				839DA8E41F8CDBCA009E05F3 /* main.swift */,
-				2C7056A12340EBA40061FBC5 /* CardDeckGame.swift */,
-				2C705697233FCFA40061FBC5 /* CardDeck.swift */,
-				2C57DA07233D04F300C32672 /* Card.swift */,
-				2C70569E2340E5030061FBC5 /* DeckMenu.swift */,
-				2C57DA09233D054200C32672 /* Suit.swift */,
-				2C57DA0B233D054C00C32672 /* Rank.swift */,
-				2C70569C233FD7F10061FBC5 /* InputView.swift */,
-				2C7056A6234393F30061FBC5 /* OutputView.swift */,
+				2C7056B223439D360061FBC5 /* Cards */,
+				2C7056B323439D530061FBC5 /* CardDeckGame */,
+				2C7056B423439D650061FBC5 /* PockerDealerGame */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -217,8 +253,11 @@
 				2C7056AB23439BE10061FBC5 /* OutputView.swift in Sources */,
 				2C7056A32340EBA60061FBC5 /* CardDeckGame.swift in Sources */,
 				2C7056AA23439BDF0061FBC5 /* InputView.swift in Sources */,
+				2C7056B623439E240061FBC5 /* PockerDealerOutputView.swift in Sources */,
 				2C7056A02340E5150061FBC5 /* DeckMenu.swift in Sources */,
+				2C7056B723439E270061FBC5 /* PockerDealerInputView.swift in Sources */,
 				2C57DA19233D095E00C32672 /* Card.swift in Sources */,
+				2C7056B523439E220061FBC5 /* PockerDealerGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,14 +266,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */,
+				2C7056AD23439C3E0061FBC5 /* PockerDealerInputView.swift in Sources */,
 				2C705698233FCFA40061FBC5 /* CardDeck.swift in Sources */,
 				2C57DA0C233D054C00C32672 /* Rank.swift in Sources */,
 				2C57DA0A233D054200C32672 /* Suit.swift in Sources */,
 				2C57DA08233D04F300C32672 /* Card.swift in Sources */,
 				2C7056A22340EBA40061FBC5 /* CardDeckGame.swift in Sources */,
 				2C70569F2340E5030061FBC5 /* DeckMenu.swift in Sources */,
+				2C7056B123439D300061FBC5 /* PockerDealerOutputView.swift in Sources */,
 				2C70569D233FD7F10061FBC5 /* InputView.swift in Sources */,
 				2C7056A7234393F30061FBC5 /* OutputView.swift in Sources */,
+				2C7056AF23439CA20061FBC5 /* PockerDealerGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

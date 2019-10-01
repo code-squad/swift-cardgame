@@ -10,7 +10,7 @@ import Foundation
 
 
 func main() {
-
+    // cardDeck game
     let inputView = InputView()
     let outputView = OutputView()
     let cardGame = CardDeckGame(viewForInput: inputView, viewForOutput: outputView)
