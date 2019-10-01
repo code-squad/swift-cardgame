@@ -12,7 +12,7 @@ protocol PockerGameSubscriber {
     func didDistributeCard(game: PockerGame)
     func didResetCardDeck(cardDeck: CardDeck)
     func didShuffleCardDeck(cardDeck: CardDeck)
-    func didFinishGame(game: PockerGame)
+    func didFinishGame(winners: [PockerPlayable])
 }
 
 protocol GameStatusProvider {
@@ -60,7 +60,8 @@ extension PockerGame:  CommandReceiverable {
     }
     
     private func finish() {
-        subscriber.didFinishGame(game: self)
+        let winners = PockerGameRule.criteria.winner(among: registry.players)
+        subscriber.didFinishGame(winners: winners)
     }
     
     private func distributeCard() {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA8E51F8CDBCA009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA8E41F8CDBCA009E05F3 /* main.swift */; };
+		BBE2745B23435F1800373710 /* TexasHoldem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2745A23435F1800373710 /* TexasHoldem.swift */; };
 		CF37EB5423408440004CCB96 /* PockerGameOrganizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF37EB5323408440004CCB96 /* PockerGameOrganizer.swift */; };
 		CF37EB5623409033004CCB96 /* PockerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF37EB5523409033004CCB96 /* PockerPlayer.swift */; };
 		CF61C7DB233E22DE00E730FA /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF61C7DA233E22DE00E730FA /* CardTests.swift */; };
@@ -18,6 +19,16 @@
 		CF699A5C233E764800AA4B07 /* CardHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A5B233E764800AA4B07 /* CardHolder.swift */; };
 		CF699A60233E7E4300AA4B07 /* PockerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A5F233E7E4300AA4B07 /* PockerGameView.swift */; };
 		CF69C7E92342478C00835032 /* PockerPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69C7E82342478C00835032 /* PockerPlayable.swift */; };
+		CF69C7EB23424E2C00835032 /* HandValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69C7EA23424E2C00835032 /* HandValue.swift */; };
+		CF69C7ED2342585300835032 /* TexasHoldemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69C7EC2342585300835032 /* TexasHoldemTests.swift */; };
+		CF69C7EE234258C400835032 /* HandValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69C7EA23424E2C00835032 /* HandValue.swift */; };
+		CF793FAE234392F800BA3D8E /* PockerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF37EB5523409033004CCB96 /* PockerPlayer.swift */; };
+		CF793FAF2343931B00BA3D8E /* TexasHoldem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2745A23435F1800373710 /* TexasHoldem.swift */; };
+		CF793FB02343936C00BA3D8E /* PockerPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69C7E82342478C00835032 /* PockerPlayable.swift */; };
+		CF793FB22343981100BA3D8E /* CardHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF793FB12343981100BA3D8E /* CardHolderTests.swift */; };
+		CF793FB32343986800BA3D8E /* CardHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF699A5B233E764800AA4B07 /* CardHolder.swift */; };
+		CF793FB5234398ED00BA3D8E /* PockerPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF793FB4234398ED00BA3D8E /* PockerPlayerTests.swift */; };
+		CF793FB723439A7000BA3D8E /* HandValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF793FB623439A7000BA3D8E /* HandValueTests.swift */; };
 		CF8DE2D5233FB49A002C03E0 /* PockerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8DE2D4233FB49A002C03E0 /* PockerGame.swift */; };
 		CF9168ED234100B900ABB05C /* PockerGameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9168EC234100B900ABB05C /* PockerGameSettingView.swift */; };
 		CF9168EF2341028B00ABB05C /* PockerGameRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9168EE2341028B00ABB05C /* PockerGameRule.swift */; };
@@ -40,6 +51,7 @@
 /* Begin PBXFileReference section */
 		839DA8E11F8CDBC9009E05F3 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA8E41F8CDBCA009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BBE2745A23435F1800373710 /* TexasHoldem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TexasHoldem.swift; sourceTree = "<group>"; };
 		CF37EB5323408440004CCB96 /* PockerGameOrganizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameOrganizer.swift; sourceTree = "<group>"; };
 		CF37EB5523409033004CCB96 /* PockerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerPlayer.swift; sourceTree = "<group>"; };
 		CF61C7D2233E22C300E730FA /* CardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +63,11 @@
 		CF699A5B233E764800AA4B07 /* CardHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHolder.swift; sourceTree = "<group>"; };
 		CF699A5F233E7E4300AA4B07 /* PockerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameView.swift; sourceTree = "<group>"; };
 		CF69C7E82342478C00835032 /* PockerPlayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerPlayable.swift; sourceTree = "<group>"; };
+		CF69C7EA23424E2C00835032 /* HandValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandValue.swift; sourceTree = "<group>"; };
+		CF69C7EC2342585300835032 /* TexasHoldemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TexasHoldemTests.swift; sourceTree = "<group>"; };
+		CF793FB12343981100BA3D8E /* CardHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHolderTests.swift; sourceTree = "<group>"; };
+		CF793FB4234398ED00BA3D8E /* PockerPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerPlayerTests.swift; sourceTree = "<group>"; };
+		CF793FB623439A7000BA3D8E /* HandValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandValueTests.swift; sourceTree = "<group>"; };
 		CF8DE2D4233FB49A002C03E0 /* PockerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGame.swift; sourceTree = "<group>"; };
 		CF9168EC234100B900ABB05C /* PockerGameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameSettingView.swift; sourceTree = "<group>"; };
 		CF9168EE2341028B00ABB05C /* PockerGameRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PockerGameRule.swift; sourceTree = "<group>"; };
@@ -106,11 +123,13 @@
 				CF699A5F233E7E4300AA4B07 /* PockerGameView.swift */,
 				CF699A55233E6BD800AA4B07 /* UserInputReader.swift */,
 				CF9168EC234100B900ABB05C /* PockerGameSettingView.swift */,
-				CF9168EE2341028B00ABB05C /* PockerGameRule.swift */,
 				CF9168F023411CCD00ABB05C /* PockerPlayerRegistry.swift */,
 				CF37EB5523409033004CCB96 /* PockerPlayer.swift */,
 				CF699A57233E6D7100AA4B07 /* PockerGameDealer.swift */,
 				CF69C7E82342478C00835032 /* PockerPlayable.swift */,
+				CF69C7EA23424E2C00835032 /* HandValue.swift */,
+				CF9168EE2341028B00ABB05C /* PockerGameRule.swift */,
+				BBE2745A23435F1800373710 /* TexasHoldem.swift */,
 			);
 			path = CardGame;
 			sourceTree = "<group>";
@@ -119,6 +138,10 @@
 			isa = PBXGroup;
 			children = (
 				CF61C7DA233E22DE00E730FA /* CardTests.swift */,
+				CF793FB623439A7000BA3D8E /* HandValueTests.swift */,
+				CF793FB4234398ED00BA3D8E /* PockerPlayerTests.swift */,
+				CF69C7EC2342585300835032 /* TexasHoldemTests.swift */,
+				CF793FB12343981100BA3D8E /* CardHolderTests.swift */,
 				CF61C7D6233E22C300E730FA /* Info.plist */,
 			);
 			path = CardGameTests;
@@ -218,6 +241,8 @@
 				CF9168EF2341028B00ABB05C /* PockerGameRule.swift in Sources */,
 				CF699A56233E6BD800AA4B07 /* UserInputReader.swift in Sources */,
 				CF69C7E92342478C00835032 /* PockerPlayable.swift in Sources */,
+				BBE2745B23435F1800373710 /* TexasHoldem.swift in Sources */,
+				CF69C7EB23424E2C00835032 /* HandValue.swift in Sources */,
 				CF9168F123411CCD00ABB05C /* PockerPlayerRegistry.swift in Sources */,
 				CF8DE2D5233FB49A002C03E0 /* PockerGame.swift in Sources */,
 				CF9168ED234100B900ABB05C /* PockerGameSettingView.swift in Sources */,
@@ -235,7 +260,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF793FB32343986800BA3D8E /* CardHolder.swift in Sources */,
+				CF793FAF2343931B00BA3D8E /* TexasHoldem.swift in Sources */,
 				CF61C7DC233E235200E730FA /* Card.swift in Sources */,
+				CF793FAE234392F800BA3D8E /* PockerPlayer.swift in Sources */,
+				CF793FB723439A7000BA3D8E /* HandValueTests.swift in Sources */,
+				CF793FB22343981100BA3D8E /* CardHolderTests.swift in Sources */,
+				CF793FB02343936C00BA3D8E /* PockerPlayable.swift in Sources */,
+				CF793FB5234398ED00BA3D8E /* PockerPlayerTests.swift in Sources */,
+				CF69C7ED2342585300835032 /* TexasHoldemTests.swift in Sources */,
+				CF69C7EE234258C400835032 /* HandValue.swift in Sources */,
 				CF61C7DB233E22DE00E730FA /* CardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

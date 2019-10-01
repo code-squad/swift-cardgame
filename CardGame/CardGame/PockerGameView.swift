@@ -10,8 +10,8 @@ import Foundation
 
 struct PockerGameOuputView: PockerGameSubscriber {
     
-    func didFinishGame(game: PockerGame) {
-        //print("\(game)")
+    func didFinishGame(winners: [PockerPlayable]) {
+        print("이번 게임의 승자는 \(winners.map { $0.name }.joined(separator: ","))입니다.")
     }
     
     func didDistributeCard(game: PockerGame) {

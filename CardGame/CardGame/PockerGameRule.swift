@@ -12,4 +12,6 @@ struct PockerGameRule {
     static let defaultNumberOfPlayers: Int = 2
     static let maxNumberOfPlayers: Int = 5
     static let defaultPockerGameType = PockerGameType.fiveCards
+    
+    static var criteria: PockerGameCriterial = TexasHoldem()
 }
