@@ -14,24 +14,30 @@ func main() {
     let cardDeck = CardDeck()
     
     do {
-        // user input
+        // user input for kind of game
         var userInput = InputView.readChoice(inputReadable: cardGameInput, message: Menu.kindOfGame)
         let choosenMenu = try Utility.inputValueValidator(userInput: userInput, menu: Menu.kindOfGame)
         let kindOfGame = try Utility.getKindOfGame(chooseMenu: choosenMenu)
         
+        // user input for number of players
         userInput = InputView.readChoice(inputReadable: cardGameInput, message: Menu.numberOfPlayer)
         let numberOfPlayer = try Utility.inputValueValidator(userInput: userInput, menu: Menu.numberOfPlayer)
         
+        // make dealer
         let dealer = PokerParticipantFactory.make(name: "딜러", cardDeck: cardDeck)
+        // make poker game
         let poker = Poker(dealer: dealer)
         
+        // add players to poker game
         for index in 1...numberOfPlayer {
             poker.addPlayer(player: PokerParticipantFactory.make(name: "참가자#\(index)"))
         }
         
+        // play poker
         poker.prepare(kindOfGame: kindOfGame)
-        poker.play()
+        poker.play(output: nil)
         
+        // result
         OutputView.showPlayerCards(players: poker.players)
         OutputView.showPlayerCards(player: dealer as PokerPlayable)
         
