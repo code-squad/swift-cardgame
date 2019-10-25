@@ -21,7 +21,7 @@ struct Card {
     }
     
     var descrption: String {
-        return (suit, rank)
+        return "\(suit.rawValue)\(rank.rawValue)"
     }
 }
 
