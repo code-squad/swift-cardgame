@@ -1,0 +1,89 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		429965582363E06500FD7D8F /* shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shape.swift; sourceTree = "<group>"; };
+		429965592363E09500FD7D8F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		4299655A2363E26B00FD7D8F /* number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = number.swift; sourceTree = "<group>"; };
+		4299655B2363E2F000FD7D8F /* card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
+		4299655C2363E3AB00FD7D8F /* ChoiceMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceMenu.swift; sourceTree = "<group>"; };
+		4299655D2363EAB700FD7D8F /* inputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputView.swift; sourceTree = "<group>"; };
+		4299655E2363EBCB00FD7D8F /* outputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outputView.swift; sourceTree = "<group>"; };
+		4299655F2363EFB800FD7D8F /* playgame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playgame.swift; sourceTree = "<group>"; };
+		429965602363F36700FD7D8F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		429965512363E05400FD7D8F = {
+			isa = PBXGroup;
+			children = (
+				4299655D2363EAB700FD7D8F /* inputView.swift */,
+				429965602363F36700FD7D8F /* main.swift */,
+				4299655F2363EFB800FD7D8F /* playgame.swift */,
+				4299655C2363E3AB00FD7D8F /* ChoiceMenu.swift */,
+				4299655E2363EBCB00FD7D8F /* outputView.swift */,
+				429965592363E09500FD7D8F /* Deck.swift */,
+				4299655B2363E2F000FD7D8F /* card.swift */,
+				429965582363E06500FD7D8F /* shape.swift */,
+				4299655A2363E26B00FD7D8F /* number.swift */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		429965522363E05400FD7D8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+			};
+			buildConfigurationList = 429965552363E05400FD7D8F /* Build configuration list for PBXProject "swift-cardgame" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 429965512363E05400FD7D8F;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		429965562363E05400FD7D8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		429965572363E05400FD7D8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		429965552363E05400FD7D8F /* Build configuration list for PBXProject "swift-cardgame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				429965562363E05400FD7D8F /* Debug */,
+				429965572363E05400FD7D8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 429965522363E05400FD7D8F /* Project object */;
+}
